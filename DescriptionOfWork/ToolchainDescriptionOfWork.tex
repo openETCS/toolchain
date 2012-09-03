@@ -1,0 +1,156 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+
+\title{openETCS Toolchain WP Description of Work}
+\date{\today}
+
+
+% Makes Marginpars easier to read
+\setlength{\marginparwidth}{1.2in}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+{\raggedright\footnotesize #1}}
+
+\newenvironment{inoutput}
+{\vspace{2mm}
+\noindent
+\begin{tabular}{|r|p{.7\linewidth}|l|}
+\hline}
+{
+\hline
+\end{tabular}}
+
+\begin{document}
+\maketitle
+
+This Work Package will provide the tool chain that is necessary to formalise the ETCS system specification.  The formal specification will be used further for verification and code generation.  The tool chain must support the following tasks:
+
+\begin{enumerate}
+\item Support the authoring of the formal ETCS system specification.
+
+\item Support the creation of a formal ETCS software specification (while the ETCS specification describes the \emph{problem}, the software specification describes the \emph{solution}).
+
+\item Support code generation from the software specification.
+
+\item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
+\end{enumerate}
+
+The tool chain definition will benefit from other R\&D projects and off-the-shelves tools. The semantics of the modelling languages shall be carefully studied.
+
+The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system.  This will be done in close collaboration with WP2.
+
+\section{Tool Chain Architecture Analyses and Recommendations}
+
+The first subtask is the tool chain architecture analyses and recommendations. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. This task is composed of the following activities:
+
+\subsection{Identify/define the potential modelling languages}
+
+\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
+Given that different levels of abstraction have to be addressed in the design phase, several languages may be necessary to handle all design phases. Here, the semantics of the languages is the key point; it shall be accurately adapted to the level of description required in each phase of the design.
+
+\begin{inoutput}
+Input: & WP2 State of the Art Analysis & Oct-12 \\
+& WP2 Requirements (incomplete) & Oct-12 \\
+\hline
+Output: & Modeling Language(s) (and reasoning) & ??? \\
+\end{inoutput}
+
+\subsection{Decide which existing tool platform shall be used as the foundation}
+
+Based on the state of the art findings and requirements from WP2, an existing tool platform will be chosen for implementing the tool chain.
+
+\begin{inoutput}
+Input: & WP2 State of the Art Analysis & Oct-12 \\
+& WP2 Requirements (incomplete) & Oct-12 \\
+\hline
+Output: & Tool Platform (and reasoning) & ??? \\
+\end{inoutput}
+
+\subsection{Identify the modelling tools architecture}
+
+\marginpar{(mj)  I assume that the previous task will pretty much dictate the platform architecture.}
+
+These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
+
+
+\subsection{Analyse requirement elicitation techniques}
+
+Analyse requirement elicitation techniques in order to define a strategy (mj: process?) to derive OpenETCS formal model requirements from ERTMS FRS/SRS
+
+\begin{inoutput}
+Input: & WP2 Requirements (incomplete) & Oct-12 \\
+\hline
+Output: & Requirement Elicitation Techniques & ??? \\
+\end{inoutput}
+
+\subsection{Verification Tools}
+
+\marginpar{(mj) I think this is not on the cricital path.}
+
+Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
+
+\begin{inoutput}
+Input: & WP2 Requirements & ??? \\
+\hline
+Output: & Verification tool choice & ??? \\
+\end{inoutput}
+
+
+\subsection{Code Generation Strategy}
+
+\marginpar{(mj) I think this is not on the cricital path.}
+
+Analyse the code generation strategy.
+
+\begin{inoutput}
+Input: & WP2 Requirements & ??? \\
+\hline
+Output: & Code Generation Strategy & ??? \\
+\end{inoutput}
+
+\subsection{Model Transformation}
+
+\marginpar{(mj) I think this is not on the cricital path.}
+
+Analyse model transformation techniques and tools in order to refine the specification from one description level to another.
+
+\begin{inoutput}
+Input: & WP2 Requirements & ??? \\
+\hline
+Output: & Model Transformation Strategy & ??? \\
+\end{inoutput}
+
+\subsection{Schedulability}
+
+\marginpar{(mj) I think this is not on the cricital path.}
+
+Analyse schedulability tools.
+
+\begin{inoutput}
+Input: & WP2 Requirements & ??? \\
+\hline
+Output: & Schedulability Strategy & ??? \\
+\end{inoutput}
+
+\subsection{Capture Additional Requirements}
+
+Capture wishes/requirements on how to support the designer in their activities.
+
+\begin{inoutput}
+Input: & Designer Wishes and Requirements & ongoing \\
+\hline
+Output: & Captured and organised designer requiremenets & ??? \\
+\end{inoutput}
+
+
+\section{Define and Develop Tool Chain}
+
+\marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an exisiting tool platform.}
+
+The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a ‘make or reuse’ decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools. 
+
+TODO: Further subtasks to be developed.
+
+
+\end{document}
