@@ -90,6 +90,39 @@ Output: & Requirement Elicitation Techniques & ??? \\
 
 Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
+Comment Hardi Hungar:
+
+\begin{quotation}
+Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts oft he development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
+
+I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
+
+\end{quotation}
+
+Comment Stanislas Pinte:
+
+\begin{quotation}
+ I agree with Hardi. 
+
+In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
+
+It doesn't have to be model proving (that I think belons more to other WPs) than model testing.
+
+Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
+
+- Model tests are part of the model
+- Model should be 100\% covered by tests (proved by model coverage reports)
+- Toolchain must support developing, executing and debugging tests
+
+Model verification also includes:
+
+- veryfing that the model corresponds to the orginial requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
+- veryfing that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
+
+I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
+
+\end{quotation}
+
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
 \hline
