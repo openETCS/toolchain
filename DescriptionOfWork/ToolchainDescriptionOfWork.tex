@@ -93,7 +93,7 @@ Identify potential verification tools with regard to modelling techniques; verif
 Comment Hardi Hungar:
 
 \begin{quotation}
-Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts oft he development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
+Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts of the development "and are not just used for explanatory purposes" it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
 
 I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
 
@@ -136,6 +136,13 @@ Output: & Verification tool choice & ??? \\
 
 Analyse the code generation strategy.
 
+Comment Stanislas Pinte:
+\begin{quotation}
+In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
+
+@Fabien, could you confirm WP3b point of view about this? 
+\end{quotation}
+
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
 \hline
@@ -147,6 +154,14 @@ Output: & Code Generation Strategy & ??? \\
 \marginpar{(mj) I think this is not on the cricital path.}
 
 Analyse model transformation techniques and tools in order to refine the specification from one description level to another.
+
+Comment Stanislas Pinte:
+\begin{quotation}
+In our product ERTMSFormalSpecs (http://www.ertmssolutions.com/ertms-formalspecs/) we use a single, unified model, that is supporting 
+complete Subset-026 logic, with full traceability. 
+
+If that approach works, why do we need several specification levels? 
+\end{quotation}
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
@@ -181,9 +196,7 @@ Output: & Captured and organised designer requiremenets & ??? \\
 
 \marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an exisiting tool platform.}
 
-The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a ‘make or reuse’ decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools. 
+The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools. 
 
 TODO: Further subtasks to be developed.
-
-
 \end{document}
