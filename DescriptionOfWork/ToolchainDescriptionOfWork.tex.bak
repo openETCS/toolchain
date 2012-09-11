@@ -209,7 +209,7 @@ Input: & WP2 Requirements & ??? \\
 Output: & Model Transformation Strategy & ??? \\
 \end{inoutput}
 
-\subsection{Schedulability}\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functionnal properties" of Section "`Verification"}
+\subsection{Schedulability}
 
 \marginpar{(mj) I think this is not on the cricital path.}
 

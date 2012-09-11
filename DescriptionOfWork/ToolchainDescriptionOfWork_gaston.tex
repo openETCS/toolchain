@@ -89,21 +89,11 @@ These tools enable designers to model using the languages defined before. The in
 
 Analyse requirement elicitation techniques in order to define a strategy (mj: process?) to derive OpenETCS formal model requirements from ERTMS FRS/SRS
 
-Addition Christophe.GASTON@cea.fr: 
-
-\begin{quotation}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technoligical candidates. However, at the sematical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
-\end{quotation}
 
-Comment Stanislas Pinte:
 
-\begin{quotation}
-I would suggest to remove that subtask. 
-- This belongs to WP2. 
-- Requirement elicitation technique is not a tool, and moreover 
-- ERTMS SRS (Subset-026) already include the requirements. 
-\end{quotation}
+
 
 \begin{inoutput}
 Input: & WP2 Requirements (incomplete) & Oct-12 \\
@@ -117,18 +107,18 @@ Output: & Requirement Elicitation Techniques & ??? \\
 
 Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
-Comment Hardi Hungar:
+\marginpar{Hardi Hungar:
 
-\begin{quotation}
+
 Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts oft he development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
 
 I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
 
-\end{quotation}
+}
 
-Comment Stanislas Pinte:
+\marginpar{Stanislas Pinte:
 
-\begin{quotation}
+
  I agree with Hardi. 
 
 In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
@@ -148,7 +138,10 @@ Model verification also includes:
 
 I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
 
-\end{quotation}
+}
+
+
+
 \subsubsection{Functionnal properties}
 
 Such as all nominal behaviors of functions of a system...
@@ -162,6 +155,13 @@ Such as real time properties concerning executions, data dependancies...
 \subsubsection{Safety properties}
 
 Such as fault tolerance, absence of run time errors...
+
+
+
+
+
+
+
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
