@@ -51,6 +51,8 @@ The tool chain definition will benefit from other R\&D projects and off-the-shel
 
 The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system.  This will be done in close collaboration with WP2.
 
+In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.  
+
 \section{Tool Chain Architecture Analyses and Recommendations}
 
 The first subtask is the tool chain architecture analyses and recommendations. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. This task is composed of the following activities:
@@ -62,7 +64,16 @@ The first subtask is the tool chain architecture analyses and recommendations. T
 
 
 \marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
-Given that different levels of abstraction have to be addressed in the design phase, several languages may be necessary to handle all design phases. Here, the semantics of the languages is the key point; it shall be accurately adapted to the level of description required in each phase of the design.
+
+\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
+
+WP2 shall identify the candidate languages suitable to model the Subset-026. 
+
+The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
+
+\begin{enumerate}
+\item ... (insert here one prototype per modelling language) ...
+\end{enumerate}
 
 \begin{inoutput}
 Input: & WP2 State of the Art Analysis & Oct-12 \\
@@ -80,6 +91,12 @@ Output: & Modeling Language(s) (and reasoning) & ??? \\
 \subsection{Decide which existing tool platform shall be used as the foundation}
 
 Based on the state of the art findings and requirements from WP2, an existing tool platform will be chosen for implementing the tool chain.
+
+The following prototypes shall be developed:
+
+\begin{enumerate}
+\item ... (insert here useful prototypes) ...
+\end{enumerate}
 
 \begin{inoutput}
 Input: & WP2 State of the Art Analysis & Oct-12 \\
@@ -107,14 +124,10 @@ A classical modelling process starts by defining high level models of systems th
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technoligical candidates. However, at the sematical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
 \end{quotation}
 
-Comment Stanislas Pinte:
-
-\begin{quotation}
-I would suggest to remove that subtask. 
+\marginpar{(SP) I would suggest to remove that subtask. 
 - This belongs to WP2. 
 - Requirement elicitation technique is not a tool, and moreover 
-- ERTMS SRS (Subset-026) already include the requirements. 
-\end{quotation}
+- ERTMS SRS (Subset-026) already include the requirements. }
 
 \begin{inoutput}
 Input: & WP2 Requirements (incomplete) & Oct-12 \\
@@ -144,7 +157,7 @@ Comment Stanislas Pinte:
 
 In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
 
-It doesn't have to be model proving (that I think belons more to other WPs) than model testing.
+It doesn't have to be model proving (that I think belons more to other WPs) rather model testing.
 
 Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
 
@@ -192,6 +205,8 @@ Comment Stanislas Pinte:
 In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
 
 @Fabien, could you confirm WP3b point of view about this? 
+
+Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language. 
 \end{quotation}
 
 \begin{inoutput}
