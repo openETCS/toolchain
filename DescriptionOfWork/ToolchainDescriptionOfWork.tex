@@ -5,12 +5,11 @@
 \title{openETCS Toolchain WP Description of Work}
 \date{\today}
 
-
 % Makes Marginpars easier to read
 \setlength{\marginparwidth}{1.2in}
 \let\oldmarginpar\marginpar
-\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
-{\raggedright\footnotesize #1}}
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\scriptsize #1]%
+{\raggedright\scriptsize #1}}
 
 \newenvironment{inoutput}
 {\vspace{2mm}
@@ -23,6 +22,9 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
+
+\vspace{0.5cm}
 
 This Work Package will provide the tool chain that is necessary to formalise the ETCS system specification.  The formal specification will be used further for verification and code generation.  The tool chain must support the following tasks:
 
@@ -53,137 +55,186 @@ The first goal of this WP is to identify sets of consistent languages and tools 
 
 In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.  
 
-\section{Tool Chain Architecture Analyses and Recommendations}
+%=======================================================================
+\section{Core Tool Chain Analyses and Recommendations}
+\label{sec:core_tool}
+%=======================================================================
+The first task is the core tool chain analyses and recommendations. It is concerned with the language itself, the tool for authoring, as well as the method used for formalising the specification.
 
-The first subtask is the tool chain architecture analyses and recommendations. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. This task is composed of the following activities:
+The core tool will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
+Specific attention shall be paid to the semantics and the traceability of each part of the chain.
 
-\begin{quotation}(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP3a I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that? 
-\end{quotation}
-
-\subsection{Identify/define the potential modelling languages}
+%This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation.  This task is composed of the following activities:
 
 
-\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
+%\begin{quotation}
+%\marginpar{(mj) That's a good idea that supports Stan's idea of using prototypes.}
+%(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP3a I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that? 
+%\end{quotation}
 
-\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
+%-----------------------------------------------------------------------
+\subsection{Identify and define the potential modelling languages}
+\label{sec:language}
+%-----------------------------------------------------------------------
 
-WP2 shall identify the candidate languages suitable to model the Subset-026. 
+The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping.  For each candiate, a small subset of the ERTMS specification will be modelled.  The languages may have to be adapted in the process.
 
-The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
+The completed prototypes are subsequently evaluated against the requirements from WP2.
 
-\begin{enumerate}
-\item ... (insert here one prototype per modelling language) ...
-\end{enumerate}
+This work is based on merrit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
+
+%\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
+%\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
+%WP2 shall identify the candidate languages suitable to model the Subset-026. 
+
+%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
+
+%\marginpar{(mj) I would suggest a dedicated sesction to prototyping.  Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
 
 \begin{inoutput}
-Input: & WP2 State of the Art Analysis & Oct-12 \\
-& WP2 Requirements (incomplete) & Oct-12 \\
-& WP2 Reference set of ERTMS requirements & Oct-12 \\
+Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
+Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
+Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-12 \\
 \hline
-Output: & Modeling Language(s) (and reasoning) & ??? \\
+Output: & Formal Model representing the sample spec, one for each candidate & Feb-12 \\
+Output: & Documentation of the changes to each language used (if any) & Feb-12 \\
+Output: & Evaluation of the models against the WP2 requirements & Mar-12 \\
+Output: & Decision on the final language choice(s) & Apr-12 \\
 \end{inoutput}
 
+%-----------------------------------------------------------------------
 \subsection{Identify and compare existing tools}
-\begin{quotation}(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
-\end{quotation}
+\label{sec:tool}
+%-----------------------------------------------------------------------
 
+Corresponding to Section~\ref{sec:language}, the objective of this subtask is the identification of the target tool, based on the analysis from WP2, by using it for the prototyping described in Section~\ref{sec:language}.
 
-\subsection{Decide which existing tool platform shall be used as the foundation}
+The experience with the tools will be recorded, and the tools will be evaluated against the requirements from WP2.
 
-Based on the state of the art findings and requirements from WP2, an existing tool platform will be chosen for implementing the tool chain.
-
-The following prototypes shall be developed:
-
-\begin{enumerate}
-\item ... (insert here useful prototypes) ...
-\end{enumerate}
+%\begin{quotation}
+%\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''.  I'll make it explicit in the input.}
+%(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
+%\end{quotation}
 
 \begin{inoutput}
-Input: & WP2 State of the Art Analysis & Oct-12 \\
-& WP2 Requirements (incomplete) & Oct-12 \\
-& WP2 Reference set of ERTMS requirements & Oct-12 \\
+Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Oct-12 \\
+Input: & Those WP2 Requirements that are sufficient to evaluate the tool & Jan-13 \\
 \hline
-Output: & Tool Platform (and reasoning) & ??? \\
+Output: & Experience report for each candidate tool & Feb-13 \\
+Output: & Documentation of the changes to each tool (if any) & Feb-13 \\
+Output: & Evaluation of the tools against the WP2 requirements & Mar-13 \\
+Output: & Decision on the final tool choice(s) & Apr-13 \\
 \end{inoutput}
 
-\subsection{Identify the modelling tools architecture}
+%-----------------------------------------------------------------------
+\subsection{Identify the tool platform}
+\label{sec:tool_platform}
+%-----------------------------------------------------------------------
 
-\marginpar{(mj)  I assume that the previous task will pretty much dictate the platform architecture.}
+There is a distinction between tool (Section~\ref{sec:tool} and tool platform: The tool is the core that processes the language, and typically also has an editor.  The tool platform is language independent, but provides mechanisms to integrate various tools.  For example, Eclipse is a tool platform.  The Java Development Tools (JDT) are an extension to Eclipse that allows working with the Java programming language.
 
-These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
+As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool.  A tool will typically suggest a certain tool platform.  The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
+
+%These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
+
+\begin{inoutput}
+Input: & List of traget platforms, based on the tools being evaluated (\ref{sec:tool}) & Oct-12 \\
+& Those WP2 Requirements that are sufficient to evaluate a target language & Dec-12 \\
+\hline
+Output: & Evaluation of each tool platform against WP2 requirements, independent of target tool & Feb-12 \\
+Output: & Evaluation of tool platform in the context of specific target tools & Mar-13 \\
+Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
+\end{inoutput}
+
+%-----------------------------------------------------------------------
+\subsection{Identifiy Development Method, including Elicitation Techniques}
+%-----------------------------------------------------------------------
+
+Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS FRS/SRS
+
+Without a suitable method, most tools have only limited use.  Formalising a specification of the size of ETCS requires a suitable method.  The method is probably relatively independent from the language used.
+
+The objective of this subtask is the identification of suitable methods and their evaluation while protoyping.
 
 
-\subsection{Analyse requirement elicitation techniques}
 
-Analyse requirement elicitation techniques in order to define a strategy (mj: process?) to derive OpenETCS formal model requirements from ERTMS FRS/SRS
-
-Addition Christophe.GASTON@cea.fr: 
-
-\begin{quotation}
-A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
-to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technoligical candidates. However, at the sematical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
-\end{quotation}
-
+\paragraph{Christophe GASTON}
 \marginpar{(SP) I would suggest to remove that subtask. 
 - This belongs to WP2. 
 - Requirement elicitation technique is not a tool, and moreover 
-- ERTMS SRS (Subset-026) already include the requirements. }
+- ERTMS SRS (Subset-026) already include the requirements.
+}
+A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
+to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technoligical candidates. However, at the sematical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
 
 \begin{inoutput}
-Input: & WP2 Requirements (incomplete) & Oct-12 \\
+Input: & WP2: List of suitable methods (based on State of the Art Analysis) & Oct-12 \\
+Input: & Those WP2 Requirements that are sufficient to evaluate a target method & Jan-12 \\
 \hline
-Output: & Requirement Elicitation Techniques & ??? \\
+Output: & Experience Report on applying the method while prototyping (\ref{sec:language}) & Feb-12 \\
+Output: & Evaluation of the methods against the WP2 requirements & Mar-12 \\
+Output: & Decision on the final method & Apr-12 \\
+Output: & Documentation of adapted method & ongoing \\
 \end{inoutput}
 
-\subsection{Verification Tools}\marginpar{CEA: we propose to agregate in this section several subsection related to the kinds of properties which is treated. We tried to identify subsections following this intuition. The idea would be to talk about technologies ({\em e.g.} static analysis, model-checking etc...) that could adress the verification of each sort of property.}
+%=======================================================================
+\section{Supporting Tools Analyses and Recommendations}
+\label{sec:supporting_tools}
+%=======================================================================
 
-\marginpar{(mj) I think this is not on the cricital path.}
+The language and tool of choice have to be complemented to support a number of activities that are crucial for the project.
+
+%-----------------------------------------------------------------------
+\subsection{Verification Tools}
+%-----------------------------------------------------------------------
+
+\marginpar{CEA: we propose to agregate in this section several subsection related to the kinds of properties which is treated. We tried to identify subsections following this intuition. The idea would be to talk about technologies ({\em e.g.} static analysis, model-checking etc...) that could adress the verification of each sort of property.}
 
 Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
-Comment Hardi Hungar:
 
-\begin{quotation}
+\paragraph{Hardi Hungar}
 Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts oft he development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
 
 I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
 
-\end{quotation}
-
-Comment Stanislas Pinte:
-
-\begin{quotation}
- I agree with Hardi. 
-
+\paragraph{Stanislas Pinte}
+I agree with Hardi. 
 In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
-
 It doesn't have to be model proving (that I think belons more to other WPs) rather model testing.
-
 Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
 
 - Model tests are part of the model
+
 - Model should be 100\% covered by tests (proved by model coverage reports)
+
 - Toolchain must support developing, executing and debugging tests
 
 Model verification also includes:
 
 - veryfing that the model corresponds to the orginial requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
+
 - veryfing that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
 
 I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
 
-\end{quotation}
+%.......................................................................
 \subsubsection{Functionnal properties}
+%.......................................................................
 
 Such as all nominal behaviors of functions of a system...
 
 
+%.......................................................................
 \subsubsection{Non Functionnal properties}
+%.......................................................................
 
 Such as real time properties concerning executions, data dependancies...
 
 
+%.......................................................................
 \subsubsection{Safety properties}
+%.......................................................................
 
 Such as fault tolerance, absence of run time errors...
 
@@ -194,20 +245,18 @@ Output: & Verification tool choice & ??? \\
 \end{inoutput}
 
 
+%-----------------------------------------------------------------------
 \subsection{Code Generation Strategy}
-
-\marginpar{(mj) I think this is not on the cricital path.}
+%-----------------------------------------------------------------------
 
 Analyse the code generation strategy.
 
-Comment Stanislas Pinte:
-\begin{quotation}
+\paragraph{Stanislas Pinte}
 In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
 
 @Fabien, could you confirm WP3b point of view about this? 
 
 Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language. 
-\end{quotation}
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
@@ -215,19 +264,16 @@ Input: & WP2 Requirements & ??? \\
 Output: & Code Generation Strategy & ??? \\
 \end{inoutput}
 
+%-----------------------------------------------------------------------
 \subsection{Model Transformation}
-
-\marginpar{(mj) I think this is not on the cricital path.}
+%-----------------------------------------------------------------------
 
 Analyse model transformation techniques and tools in order to refine the specification from one description level to another.
 
-Comment Stanislas Pinte:
-\begin{quotation}
+\paragraph{Stanislas Pinte}
 In our product ERTMSFormalSpecs (http://www.ertmssolutions.com/ertms-formalspecs/) we use a single, unified model, that is supporting 
 complete Subset-026 logic, with full traceability. 
-
 If that approach works, why do we need several specification levels? 
-\end{quotation}
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
@@ -235,9 +281,11 @@ Input: & WP2 Requirements & ??? \\
 Output: & Model Transformation Strategy & ??? \\
 \end{inoutput}
 
-\subsection{Schedulability}\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functionnal properties" of Section "`Verification"}
+%-----------------------------------------------------------------------
+\subsection{Schedulability}
+%-----------------------------------------------------------------------
 
-\marginpar{(mj) I think this is not on the cricital path.}
+\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functionnal properties" of Section "`Verification"}
 
 Analyse schedulability tools.
 
@@ -247,7 +295,9 @@ Input: & WP2 Requirements & ??? \\
 Output: & Schedulability Strategy & ??? \\
 \end{inoutput}
 
+%-----------------------------------------------------------------------
 \subsection{Capture Additional Requirements}
+%-----------------------------------------------------------------------
 
 Capture wishes/requirements on how to support the designer in their activities.
 
@@ -257,12 +307,31 @@ Input: & Designer Wishes and Requirements & ongoing \\
 Output: & Captured and organised designer requiremenets & ??? \\
 \end{inoutput}
 
-
+%=======================================================================
 \section{Define and Develop Tool Chain}
+%=======================================================================
 
 \marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an exisiting tool platform.}
 
 The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools. 
 
-TODO: Further subtasks to be developed.
+%-----------------------------------------------------------------------
+\subsection{Overall Tool Architecture}
+%-----------------------------------------------------------------------
+
+Once language, tool and tool platform have been identified, the architecture can be defined using that as the foundation.  Note that this may not be that much work:  A tool platform like Eclipse essentially defines the overall architecture already.  Further, using an agile approach, it is perfectly acceptable if the system changes over time (i.e. APIs change, etc.), as long as the proper mechanisms are in place, like automated testing.
+
+%-----------------------------------------------------------------------
+\subsection{Development Infrastructure}
+%-----------------------------------------------------------------------
+
+To allow robust distributed development, care must be taken in setting up a functioning infrastructure.  This includes a continuous automated build system and more.  The effort for this must not be underestimated.
+
+%-----------------------------------------------------------------------
+\subsection{Decomposition and Distribution of work}
+%-----------------------------------------------------------------------
+
+Another major task is the robust decomposition of the tool and distribution and tracking of the various components.  Specifically, robust integration tests and version management are crucial.
+
+
 \end{document}
