@@ -26,7 +26,7 @@
 
 \vspace{0.5cm}
 
-This Work Package will provide the tool chain that is necessary to formalise the ETCS system specification.  The formal specification will be used further for verification and code generation.  The tool chain must support the following tasks:
+This Work Package will provide the tool chain that is necessary to formalise the ETCS system specification.  The formal specification will be used further for verification and code generation and verification. The tool chain must support the following tasks:
 
 \begin{enumerate}
 \item Support the authoring of the formal ETCS system specification.
@@ -77,11 +77,11 @@ Specific attention shall be paid to the semantics and the traceability of each p
 \label{sec:language}
 %-----------------------------------------------------------------------
 
-The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping.  For each candiate, a small subset of the ERTMS specification will be modelled.  The languages may have to be adapted in the process.
+The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping.  For each candidate, a small subset of the ERTMS specification will be modelled.  The languages may have to be adapted in the process.
 
 The completed prototypes are subsequently evaluated against the requirements from WP2.
 
-This work is based on merrit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
+This work is based on merit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
 
 %\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
 %\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
@@ -90,6 +90,12 @@ This work is based on merrit: If a suitable language is identified, but no partn
 %The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
 
 %\marginpar{(mj) I would suggest a dedicated sesction to prototyping.  Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
+
+Given that different levels of abstraction have to be addressed in the
+design phase, several languages may be necessary to handle all design
+phases. Here, the semantics of the languages is the key point; it
+shall be accurately adapted to the level of description required in
+each phase of the design.
 
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
@@ -147,23 +153,23 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 \end{inoutput}
 
 %-----------------------------------------------------------------------
-\subsection{Identifiy Development Method, including Elicitation Techniques}
+\subsection{Identify Development Method, including Elicitation Techniques}
 %-----------------------------------------------------------------------
 
 Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS SRS
 
 Without a suitable method, most tools have only limited use.  Formalising a specification of the size of ETCS requires a suitable method.  The method is probably relatively independent from the language used.
 
-The objective of this subtask is the identification of suitable methods and their evaluation while protoyping.
+The objective of this subtask is the identification of suitable methods and their evaluation while prototyping.
 
-\paragraph{Christophe GASTON}
-\marginpar{(SP) I would suggest to remove that subtask. 
-- This belongs to WP2. 
-- Requirement elicitation technique is not a tool, and moreover 
+\marginpar{(SP) I would suggest to remove that subtask.
+- This belongs to WP2.
+- Requirement elicitation technique is not a tool, and moreover
 - ERTMS SRS (Subset-026) already include the requirements.
 }
+\paragraph{Christophe GASTON}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
-to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technoligical candidates. However, at the sematical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
+to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
 
 \begin{inoutput}
 Input: & WP2: List of suitable methods (based on State of the Art Analysis) & Oct-12 \\
@@ -186,7 +192,7 @@ The language and tool of choice have to be complemented to support a number of a
 \subsection{Verification Tools}
 %-----------------------------------------------------------------------
 
-\marginpar{CEA: we propose to agregate in this section several subsection related to the kinds of properties which is treated. We tried to identify subsections following this intuition. The idea would be to talk about technologies ({\em e.g.} static analysis, model-checking etc...) that could adress the verification of each sort of property.}
+\marginpar{CEA: we propose to aggregate in this section several subsection related to the kinds of properties which are treated. We tried to identify subsections following this intuition. The idea would be to talk about technologies ({\em e.g.} static analysis, model-checking etc...) that could address the verification of each sort of property.}
 
 Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
@@ -197,9 +203,9 @@ Verification tools resp. techniques are very important in the development of a s
 I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
 
 \paragraph{Stanislas Pinte}
-I agree with Hardi. 
+I agree with Hardi.
 In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
-It doesn't have to be model proving (that I think belons more to other WPs) rather model testing.
+It doesn't have to be model proving (that I think belongs more to other WPs) rather model testing.
 Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
 
 - Model tests are part of the model
@@ -210,31 +216,57 @@ Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume 
 
 Model verification also includes:
 
-- veryfing that the model corresponds to the orginial requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
+- verifying that the model corresponds to the original requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
 
-- veryfing that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
+- verifying that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
 
 I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
 
-%.......................................................................
-\subsubsection{Functionnal properties}
-%.......................................................................
-
-Such as all nominal behaviors of functions of a system...
-
-
-%.......................................................................
-\subsubsection{Non Functionnal properties}
+\subsubsection{Functional properties}
 %.......................................................................
 
-Such as real time properties concerning executions, data dependancies...
+First, we have to show that all of the components of the system behave as they
+are intended. This includes at least proving that low-level requirements meet
+high-level requirements, and in turn that the code meet these low-level
+specifications.
 
+One possibility is to use a completely certified toolchain up
+to code generation. Failing that ({\it i.e.} if not all the code is generated
+and/or if the generation cannot be trusted), we will need to have formal
+specifications and to verify the code against them. Hoare logic-based tools
+seem like a good approach in this case, as well as of course test cases
+generation according to a suitable coverage criterion.
+
+\subsubsection{Non Functional properties}
+%.......................................................................
+
+Such properties include all aspects that are related to the nominal behavior
+of the components. In particular, this concerns the following points:
+\begin{itemize}
+\item schedulability and Worst Case Execution Time (WCET)
+\item data dependencies between outputs and inputs
+\end{itemize}
+
+Schedulability can be done on the models, based on hypotheses for the WCET of
+single tasks, but verifying these hypotheses require a full knowledge of
+the code, the underlying hardware, and the compilation toolchain.
+
+Data dependencies can also be assessed on the models, but as in the previous
+subsection, some verification on the code itself might be required. Static
+analyzers should be able to handle that.
 
 %.......................................................................
 \subsubsection{Safety properties}
 %.......................................................................
 
-Such as fault tolerance, absence of run time errors...
+This must ensure that components are always able to perform their work.
+It includes in particular:
+\begin{itemize}
+  \item Absence of runtime error (again if the code generation does
+        not guarantee it by construction. Static analysis can be employed
+        there also).
+  \item Fault tolerance against unexpected input
+\end{itemize}
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
@@ -283,7 +315,7 @@ Output: & Model Transformation Strategy & ??? \\
 \subsection{Schedulability}
 %-----------------------------------------------------------------------
 
-\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functionnal properties" of Section "`Verification"}
+\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functional properties" of Section "`Verification"}
 
 Analyse schedulability tools.
 
@@ -302,16 +334,16 @@ Capture wishes/requirements on how to support the designer in their activities.
 \begin{inoutput}
 Input: & Designer Wishes and Requirements & ongoing \\
 \hline
-Output: & Captured and organised designer requiremenets & ??? \\
+Output: & Captured and organised designer requirements & ??? \\
 \end{inoutput}
 
 %=======================================================================
 \section{Define and Develop Tool Chain}
 %=======================================================================
 
-\marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an exisiting tool platform.}
+\marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an existing tool platform.}
 
-The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools. 
+The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools.
 
 %-----------------------------------------------------------------------
 \subsection{Overall Tool Architecture}
@@ -338,3 +370,6 @@ The goal of this task is the development of an open-source ecosystem for the too
 
 
 \end{document}
+Local Variables:
+ispell-local-dictionary: "english"
+End:
