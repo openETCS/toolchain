@@ -21,12 +21,20 @@ short list (max. 2) of publications related to the tool with a URL
 to download a copy. If possible a tutorial/user guide to the tool
 and/or the languages it is based on + reference document
 
+
 # Applicability
 ## Key capabilities
 ## Input (which languages are targeted?)
 ## Output (Proof, code, other)
 ## Main restrictions
 e.g. only a subset of the target language is covered
+
+## Manual or automated use of the tool
+e.g. which steps are manual and automatic in the use of the tool.
+
+## Expertise level
+e.g. which prerequisite is needed to use the tool
+
 
 # Integration in the tool chain
 ## Currently distributed: Yes/No
