@@ -97,6 +97,13 @@ phases. Here, the semantics of the languages is the key point; it
 shall be accurately adapted to the level of description required in
 each phase of the design.
 
+\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
+All tools should support the model based devellopment paradigm.
+It implies that the modelling tools should support meta modelling for domain-specific languages.
+Hence, the underlying meta-metamodel has to be sufficiently expressive to allow 
+designing adequate ETCS formalisms covering all properties identified in the
+ERTMS standard.\\
+
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
 Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
@@ -170,6 +177,9 @@ The objective of this subtask is the identification of suitable methods and thei
 \paragraph{Christophe GASTON}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
+
+
+
 
 \begin{inoutput}
 Input: & WP2: List of suitable methods (based on State of the Art Analysis) & Oct-12 \\
@@ -287,6 +297,18 @@ In my opinion, the code generation strategy should be handled in T3.3 Modelling 
 @Fabien, could you confirm WP3b point of view about this? 
 
 Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language. 
+\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
+The code generation should be compatible with a domain framework including, for
+example, the designated operating system API to be applied in openETCS. This
+should be decide within the tool chain. \\
+Another issue is that code generation should be covered down to binary code, so that V\&V arguments
+may be applied down to the level of binary code.
+
+A more detailed view of these issues may be find in the PositionPaper directory
+(Uni\_Bremen\_proposed\_Workflow.pdf).\\
+
+
+
 
 \begin{inoutput}
 Input: & WP2 Requirements & ??? \\
