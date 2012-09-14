@@ -8,6 +8,7 @@
  - Model verification
  - Code verification
  - Other (Please elaborate)
+
 ## Summary
 Brief introduction to what the tool does
 
@@ -20,9 +21,13 @@ e.g. only a subset of the target language is covered
 
 # Integration in the tool chain
 ## Currently distributed: Yes/No
+## Underlying technologies
+E.g. Framework, .NET vs. Java, etc.
+## Participators
+People or parties who have developed this and are currently driving the project including their affilliations
 ### If yes, Under which licence?
 ### If no, or not under an OpenSource licence, are there plan to do it?
-
+### Licenses of underlying technologies
 
 ## Eclipse interface
 ## Other integration possibilities
