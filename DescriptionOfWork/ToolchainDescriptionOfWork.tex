@@ -32,17 +32,23 @@ This Work Package will provide the tool chain that is necessary to formalise the
 \item Support the authoring of the formal ETCS system specification.
 
 \item Support the creation of a formal ETCS software specification (while the ETCS specification describes the \emph{problem}, the software specification describes the \emph{solution}).
+\marginpar{(All4TEC) Several models could be successively performed from system to software level, and at the software level, at least two models could be necessary one for functional specification and one of design.}
 
 \item Support code generation from the software specification.
 
 \item Support execution, debugging and simulation of the software specification.
 
 \item Support test case generation from a software test specification.
-
+\marginpar{(All4TEC) The software test cases should be scheduled at each step of
+software development life cycle (e.g.: unit test, integration test, final
+validation test)}
 \item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
 \item Comply with the EN 50128 requirements to tools.
-
+\marginpar{(All4TEC) Compliance with standards as CENELEC or 50128 could have a
+significant impact in terms of workload. Moreover it should be included at the
+beginning of the tools development in the Development Plan or in a Safety or
+Quality Plan.}
 \item Support requirements tracing across all tools and build steps. 
 
 \item Provide seamless integration of the tools into one tool chain. 
@@ -54,7 +60,6 @@ The tool chain definition will benefit from other R\&D projects and off-the-shel
 The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system.  This will be done in close collaboration with WP2.
 
 In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.  
-
 %=======================================================================
 \section{Core Tool Chain Analyses and Recommendations}
 \label{sec:core_tool}
@@ -63,6 +68,15 @@ The first task is the core tool chain analyses and recommendations. It is concer
 
 The core tool will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
 Specific attention shall be paid to the semantics and the traceability of each part of the chain.
+\paragraph{All4TEC}
+ALL4TEC has already experienced tools at several levels of critical railways system and software developments. 
+In order to verify the work, tools like CORE (Vitech) could be used for system technical specifications elaboration (it is a kind of SysML approach leading to definition of the system functional and physical architectures).
+In on other way Safety Architect could be used for safety studies on various
+models at diverse levels of definition (system, software, functional, organic
+etc.).\\
+The following tool chains have been experienced for software testing: 
+For Unitary Test (UT): MATLAB SIMULINK / DESIGN VERIFIER
+For Validation: MATELO /TESTAND /VERISTAND
 
 %This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation.  This task is composed of the following activities:
 
@@ -78,7 +92,8 @@ Specific attention shall be paid to the semantics and the traceability of each p
 %-----------------------------------------------------------------------
 
 The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping.  For each candidate, a small subset of the ERTMS specification will be modelled.  The languages may have to be adapted in the process.
-
+\marginpar{(ALL4TEC) ALL4TEC is candidate to contribute for modeling on the
+basis of Subset 026 for example …}
 The completed prototypes are subsequently evaluated against the requirements from WP2.
 
 This work is based on merit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
@@ -123,7 +138,6 @@ Output: & Decision on the final language choice(s) & Apr-13 \\
 Corresponding to Section~\ref{sec:language}, the objective of this subtask is the identification of the target tool, based on the analysis from WP2, by using it for the prototyping described in Section~\ref{sec:language}.
 
 The experience with the tools will be recorded, and the tools will be evaluated against the requirements from WP2.
-
 %\begin{quotation}
 %\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''.  I'll make it explicit in the input.}
 %(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
@@ -148,6 +162,7 @@ There is a distinction between tool (Section~\ref{sec:tool}) and tool platform: 
 
 As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool.  A tool will typically suggest a certain tool platform.  The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
 
+\marginpar{(ALL4TEC) an interface facility should be examined to facilitate the data exchange between the tools constituting the tool chain (e.g.: XML definition) }
 %These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
 
 \begin{inoutput}
@@ -177,7 +192,7 @@ The objective of this subtask is the identification of suitable methods and thei
 \paragraph{Christophe GASTON}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
-
+\marginpar{(ALL4TEC) Christophe Gaston comments address several previous chapters of the DOW. It could be useful to re dispatch them. }
 
 
 
@@ -211,7 +226,7 @@ Identify potential verification tools with regard to modelling techniques; verif
 Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts of the development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
 
 I think, this must be taken into account already early in the definition process. Therefore, while it might not be the first thing to consider (without modeling, there is no verification of models), it should definitely not be the last.
-
+\marginpar{(ALLTEC) Notice: CENELEC verification activities cannot be systematically addressed with test and tool. For example, source code review could be required to check safety properties of code.}
 \paragraph{Stanislas Pinte}
 I agree with Hardi.
 In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
@@ -231,6 +246,8 @@ Model verification also includes:
 - verifying that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
 
 I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
+
+
 
 \subsubsection{Functional properties}
 %.......................................................................
@@ -338,7 +355,10 @@ Output: & Model Transformation Strategy & ??? \\
 %-----------------------------------------------------------------------
 
 \marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functional properties" of Section "`Verification"}
-
+\marginpar{(ALL4TEC)  
+We agree with the remark on schedulability (e.g.: should be removed).
+}
+ 
 Analyse schedulability tools.
 
 \begin{inoutput}
