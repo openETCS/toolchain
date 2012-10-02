@@ -44,7 +44,8 @@ formalize the ETCS system specification \marginpar{MPA: I think it should be:
 
 \item Support execution, debugging and simulation of the software specification.
 
-\item Support test case generation from a software test specification.
+\item Support test case/test data/test oracle generation and test procedure
+execution from a software test specification.\marginpar{(jp) extended by test data, test oracle, test procedure}
 \marginpar{(All4TEC) The software test cases should be scheduled at each step of
 software development life cycle (e.g.: unit test, integration test, final
 validation test)}
@@ -129,12 +130,22 @@ phases. Here, the semantics of the languages is the key point; it
 shall be accurately adapted to the level of description required in
 each phase of the design.
 
-\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
-All tools should support the model based devellopment paradigm.
-It implies that the modelling tools should support meta modelling for domain-specific languages.
-Hence, the underlying meta-metamodel has to be sufficiently expressive to allow
-designing adequate ETCS formalisms covering all properties identified in the
-ERTMS standard.\\
+The identification and definition will distinguish between
+\marginpar{(jp) Added distinction between wide-spectrum formalisms (e.~g., UML, SysML, B) and DSLs}
+\begin{itemize}
+\item wide-spectrum modelling languages suitable for a wide variety of modelling domains,
+\item domain-specific languages (DSL) designed and optimised 
+for application in a specific application domain 
+only.
+\end{itemize}
+For wide-spectrum languages their metamodels\footnote{Recall that metamodels specify the syntax
+and static semantics of a modelling formalism.} will be analysed with respect to their expressive power
+and resulting adequateness for designing ERTMS models.
+For DSL candidates the associated meta-metamodels\footnote{Recall that the meta-metamodel 
+specifies the capabilities to define language elements and their static semantics in a DSL.} 
+will be analysed with respect to their
+capabilities to support language extensions that may become necessary for novel releases of the ERTMS 
+specification the in the future. 
 
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
@@ -402,11 +413,62 @@ Output: & Verification tool choice & ??? \\
 \end{inoutput}
 
 
+
+%-----------------------------------------------------------------------
+\subsection{Test Automation Tools}
+%-----------------------------------------------------------------------
+
+Testing 
+\marginpar{(jp) Some standards (e.~g.~RTCA DO178B/C) regard testing as a part of the verification
+process. I think it is clearer, however, to distinguish between verification in the sense of
+static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
+of dynamic testing in an explicit way in this DoW}
+is mandatory for the development of safety-critical systems, because no system is allowed
+to become operative without experimental evidence.
+In all situations where formal verification cannot be exhaustive, because 
+ the size and complexity of the software or integrated HW/SW system exceeds the
+capabilities of the formal verification power available, testing or simulation is applied 
+to achieve at least partial verification for the cases considered.
+
+In the openETCS context, testing is required in two areas.
+\begin{itemize}
+\item Software and HW/SW integration testing: the overall test objective is to
+investigate the correct cooperation between several SW and HW components.
+\item Component (unit, module,  thread, process) testing to investigate (1) their functional
+correctness 
+and (2) the consistency between models and
+ object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
+ that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
+\end{itemize}
+In any case a high degree of automation is desirable to support an effective testing process.
+Available test tools will be analysed with respect to the following properties.
+\begin{itemize}
+\item Availability in open source
+\item Suitability for the preferred tool platform 
+\item Support for different test levels (unit, integration, HW/SW integration, hardware-in-the-loop system testing)
+\item Support for automated test procedure / test suite execution
+\item Support for automated test case / test data / test oracle / test procedure generation from
+the preferred type of models selected in WP2 / WP3a. 
+\item Support for automated tracing from requirements to test cases to test procedures to test results and back
+\end{itemize}
+
+
+
+\begin{inoutput}
+Input: & WP2 Requirements & ??? \\
+\hline
+Output: & Test automation tool choice with experience report & ??? \\
+\end{inoutput}
+
+
 %-----------------------------------------------------------------------
 \subsection{Code Generation Strategy}
 %-----------------------------------------------------------------------
 
-Analyse the code generation strategy.
+Analyse the code generation strategy.\marginpar{(jp) Should we move code generation and model
+transformation
+to the beginning of this section, since this produces the proper product, while verification \& test
+are support activities?}
 
 \paragraph{Stanislas Pinte}
 In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
@@ -487,31 +549,72 @@ Input: & Designer Wishes and Requirements & ongoing \\
 Output: & Captured and organised designer requirements & ??? \\
 \end{inoutput}
 
+
+
 %=======================================================================
-\section{Define and Develop Tool Chain}
+\section{Define and Develop Tool Chain}\label{sec:devtoolchain}
 %=======================================================================
 
-\marginpar{(mj) I see "make" not as an option. Considering the resources available for this project, we will tailor (and extend) an existing tool platform.}
+\marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an existing tool platform.}
 
-The second subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools.
+This 
+\marginpar{(jp) Please review this section with me and check it w.r.t.~completeness}
+subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools.
 
 %-----------------------------------------------------------------------
 \subsection{Overall Tool Architecture}
 %-----------------------------------------------------------------------
 
-Once language, tool and tool platform have been identified, the architecture can be defined using that as the foundation. Note that this may not be that much work: A tool platform like Eclipse essentially defines the overall architecture already. Further, using an agile approach, it is perfectly acceptable if the system changes over time (i.e. APIs change, etc.), as long as the proper mechanisms are in place, like automated testing.
+Once language, tools and tool platform have been identified, the architecture can be defined using that as the foundation.  The architecture also contains the specification of tool interaction mechanisms (model changes might trigger code generators, model or code changes might trigger regression tests etc.) 
+
+Note that this may not be that much work:  A tool platform like Eclipse essentially defines the overall architecture already.  Further, using an agile approach, it is perfectly acceptable if the system changes over time (i.e. APIs change, etc.), as long as the proper mechanisms are in place, like automated testing.
 
 %-----------------------------------------------------------------------
 \subsection{Development Infrastructure}
 %-----------------------------------------------------------------------
 
-To allow robust distributed development, care must be taken in setting up a functioning infrastructure. This includes a continuous automated build system and more. The effort for this must not be underestimated.
+To allow robust distributed development, care must be taken in setting up a functioning infrastructure.  This includes 
+\begin{itemize}
+\item a continuous automated build system, 
+\item mechanisms to upgrade tools in the platform, 
+\item mechanisms to add tools to the chain at a later stage,
+\item tool chain documentation system. 
+\end{itemize}
+ The effort for this must not be underestimated.
 
 %-----------------------------------------------------------------------
 \subsection{Decomposition and Distribution of work}
 %-----------------------------------------------------------------------
 
-Another major task is the robust decomposition of the tool and distribution and tracking of the various components. Specifically, robust integration tests and version management are crucial.
+Another major task is the robust decomposition of the tool chain and its 
+distribution and tracking of the various components.  
+Specifically, robust integration tests and version management for the tool chain are crucial\footnote{The related activities are often called {\it tool qualification}.}.
+
+
+
+\paragraph{Inputs and Outputs for WP3a, Section~\ref{sec:devtoolchain}.}{~}\newline
+
+
+\begin{inoutput}
+Input: & WP3a, Section~\ref{sec:core_tool}: Formal Model representing the sample spec, one for each candidate  & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final language choice(s) & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Experience report for each candidate tool in the core tool chain& ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}:Decision on the final tool choice(s)  & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Selection of Tool Platform (and reasoning)  & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final (development) method  & ??? \\
+Input: & WP3a, Section~\ref{sec:supporting_tools}: Verification and test tool choice(s)  & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Captured and organised designer requirements  & ??? \\
+%Input: &   & ??? \\
+%Input: &   & ??? \\
+%Input: &   & ??? \\
+\hline
+Output: & Specification of tool interoperability mechanisms & ??? \\
+Output: & Specification of core and support tool chain architecture and its embedding into the platform & ??? \\
+Output: & Infrastructure evolution strategy & ??? \\
+Output: & Tool chain qualification test suite & ??? \\
+\end{inoutput}
+
+
 
 %=======================================================================
 \section{Develop Open Source Ecosystem}
