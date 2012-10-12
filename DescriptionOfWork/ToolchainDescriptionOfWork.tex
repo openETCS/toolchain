@@ -39,7 +39,7 @@ formalize the ETCS system specification \marginpar{MPA: I think it should be:
     textual editors, version management, \dots.
 
 \item Support the writing of a formal ETCS software specification (while the ETCS specification describes the \emph{problem}, the software specification describes the \emph{solution}).
-\marginpar{(All4TEC) Several models could be successively performed from system to software level, and at the software level, at least two models could be necessary one for functional specification and one of design.}
+
 
 \item Support code generation from the software specification.
 
@@ -57,10 +57,7 @@ validation test)}
 \item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
 \item Comply with the EN 50128 requirements to tools.
-\marginpar{(All4TEC) Compliance with standards as CENELEC or 50128 could have a
-significant impact in terms of workload. Moreover it should be included at the
-beginning of the tools development in the Development Plan or in a Safety or
-Quality Plan.}
+
 \item Support requirements tracing across all tools and build steps.
 
 \item Provide seamless integration of the tools into one tool chain.
@@ -539,11 +536,8 @@ Output: & Captured and organised designer requirements & ??? \\
 \section{Define and Develop Tool Chain}\label{sec:devtoolchain}
 %=======================================================================
 
-\marginpar{(mj) I see "make" not as an option.  Considering the resources available for this project, we will tailor (and extend) an existing tool platform.}
 
-This 
-\marginpar{(jp) Please review this section with me and check it w.r.t.~completeness}
-subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools.
+This subtask defines and develops the tool chain and the infrastructure enabling its evolution and maintenance. First of all, a "make or reuse" decision about the components of the tool chain has to be made. Then a common development infrastructure has to be defined or chosen in order to integrate all the tools (Eclipse like infrastructure). Finally, the subtask achieves the development and the integration of the tools.
 
 %-----------------------------------------------------------------------
 \subsection{Overall Tool Architecture}
@@ -607,10 +601,11 @@ The goal of this task is the development of an open-source ecosystem for the too
 
 As the development of an ecosystem needs to react on the on-going project and adapt to needs, the ecosystem has to evolve over the project duration. As a first output, this taks will produce initial proposals for the license model, the process, as well as the infrastructure. Subsequently, these proposals can be adapted based on the feedback from all project partners.
 
-As the license model and the open source process have high impact on the overall project, the task will only propose solutions. Final decisions in this area have to be made by WP1. 
+As the license model and the open source process have high impact on the overall project, the task will only propose solutions. These solutions are based on requirements given by WP1. Final decisions in this area have to be made by WP1. 
 
 \begin{inoutput}
 Input: & Feedback from project partners (All WPS) & continuosly \\
+Input: & WP1: Requirements for the open source ecosystm & continuosly \\
 Input: & WP1: Legal decisions & continuosly \\
 Output: & Initial proposal for license model & Aug-30 \\
 Output: & Initial proposal for open source development process & Aug-30 \\
