@@ -87,16 +87,6 @@ The core tools will be complemented by supporting tools, as outlined
 in Section~\ref{sec:supporting_tools}.  Specific attention shall be
 paid to the semantics and the traceability of each part of the chain.
 
-\paragraph{All4TEC}
-ALL4TEC has already experienced tools at several levels of critical railways system and software developments.
-In order to verify the work, tools like CORE (Vitech) could be used for system technical specifications elaboration (it is a kind of SysML approach leading to definition of the system functional and physical architectures).
-In on other way Safety Architect could be used for safety studies on various
-models at diverse levels of definition (system, software, functional, organic
-etc.).\\
-The following tool chains have been experienced for software testing:
-For Unitary Test (UT): MATLAB SIMULINK / DESIGN VERIFIER
-For Validation: MATELO /TESTAND /VERISTAND
-
 %This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. This task is composed of the following activities:
 
 
@@ -119,33 +109,33 @@ be necessary to handle the different levels of abstraction of the
 whole design process.  For each candidate, a small subset of the ERTMS
 specification will be modelled. The languages may have to be adapted
 in the process. The identification and definition will distinguish
-between: \marginpar{(jp) Added distinction between wide-spectrum
-  formalisms (e.~g., UML, SysML, B) and DSLs}
-\begin{itemize}
-\item wide-spectrum modelling languages suitable for a wide variety of modelling domains,
-\item domain-specific languages (DSL) designed and optimised 
-for application in a specific application domain 
-only.
-\end{itemize}
-For wide-spectrum languages their metamodels\footnote{Recall that metamodels specify the syntax
-and static semantics of a modelling formalism.} will be analysed with respect to their expressive power
-and resulting adequateness for designing ERTMS models.
-For DSL candidates the associated meta-metamodels\footnote{Recall that the meta-metamodel 
-specifies the capabilities to define language elements and their static semantics in a DSL.} 
-will be analysed with respect to their
-capabilities to support language extensions that may become necessary for novel releases of the ERTMS 
-specification the in the future.
-Since no language is universal, and thus not able to address all aspects of design needs, the proposed approach is lucky to involve several modelling languages supporting different viewpoints and working at different levels of abstractions. With this kind of
-approach, we
-will need to check the compatibility of the semantics of the
-modeling languages that address overlapping viewpoints. There are two
-problems here. First, when dealing with an heterogeneous
-specification, we need a common semantical basis to check the
-compatibility of the models. More pragmatically, when we deal with two
-models (expressed in a different language) that describe the same part
-of the system, we need to show that they are consistent with each
-other. Candidate languages will be subsequently evaluated against the requirements from WP2.
-If a suitable language is identified, but no partner steps up to model the prototype, it will not be considered.
+between wide-spectrum modelling languages suitable for a wide variety
+of modelling domains such as UML, SysML, B, and domain-specific
+languages (DSL) designed and optimised for application in a specific
+application domain only.  For wide-spectrum languages their
+metamodels\footnote{Recall that metamodels specify the syntax and
+  static semantics of a modelling formalism.} will be analysed with
+respect to their expressive power and resulting adequateness for
+designing ERTMS models.  For DSL candidates the associated
+meta-metamodels\footnote{Recall that the meta-metamodel specifies the
+  capabilities to define language elements and their static semantics
+  in a DSL.}  will be analysed with respect to their capabilities to
+support language extensions that may become necessary for novel
+releases of the ERTMS specification the in the future.  Since no
+language is universal, and thus not able to address all aspects of
+design needs, the proposed approach is lucky to involve several
+modelling languages supporting different viewpoints and working at
+different levels of abstractions. With this kind of approach, we will
+need to check the compatibility of the semantics of the modeling
+languages that address overlapping viewpoints. There are two problems
+here. First, when dealing with an heterogeneous specification, we need
+a common semantical basis to check the compatibility of the
+models. More pragmatically, when we deal with two models (expressed in
+a different language) that describe the same part of the system, we
+need to show that they are consistent with each other. Candidate
+languages will be subsequently evaluated against the requirements from
+WP2.  If a suitable language is identified, but no partner steps up to
+model the prototype, it will not be considered.
 
 %\marginpar{(mj) I think there is a huge overlap with WP2. Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
 %\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
@@ -213,24 +203,23 @@ As the toolchain will consist of many tools that must work together
 seamlessly, it should be analysed independently from the tools. A tool
 will typically suggest a certain tool platform. The aim of this task
 is the identification of a tool platform for each candidate tool from
-Section~\ref{sec:tool}.
-
-\marginpar{(ALL4TEC) an interface facility should be examined to facilitate the data exchange between the tools constituting the tool chain (e.g.: XML definition) }
+Section~\ref{sec:tool}. In particular, the platform should provide an
+suitable to interface (e.g.~XML or JSON definition) to facilitate data
+exchanges between the various tools of the toolchain.
 %These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used ``off-the-shelves'' or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
 
-\paragraph{irit-laas} we could stress that there are several levels
-of interoperability that can be supported by the toolchain. Taking the
-example of Eclipse, the most basic level provides support for plugins
-(OSGi); that is the ability to have several tools inside a common
-platform. In the project, we will also need support for
-interoperability at the data level, which can be found in the Eclipse
-world with the Modeling Framework; that is the ability to have tools
-that converse/interact using a standardized (low-level)
-syntax. Finally, we could also require interoperability at a
-``semantical'' level---for example with support for linking objects in
-different modeling languages---or ask for more basic services, such as
-serialization and versioning. We believe that, for the project, we at
-least need interoperability at the data level.
+Several levels of interoperability can be supported by the
+toolchain. For instance, in Eclipse, the most basic level
+provides support for plugins (OSGi); that is the ability to have
+several tools inside a common platform. In the project, we will also
+need support for interoperability at the data level, which can be
+found in the Eclipse world with the Modeling Framework; that is the
+ability to have tools that converse/interact using a standardized
+(low-level) syntax. Finally, we could also require interoperability at
+a ``semantical'' level---for example with support for linking objects
+in different modeling languages---or ask for more basic services, such
+as serialization and versioning. We believe that, for the project, we
+at least need interoperability at the data level.
 
 \begin{inoutput}
 Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Oct-12 \\
