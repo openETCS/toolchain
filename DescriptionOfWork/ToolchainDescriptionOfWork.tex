@@ -1,6 +1,7 @@
 \documentclass[11pt, a4paper]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage{color}
 
 \title{openETCS Toolchain WP Description of Work}
 \date{\today}
@@ -16,7 +17,7 @@
 \newenvironment{inoutput}
 {\vspace{2mm}
 \noindent
-\begin{tabular}{|r|p{.7\linewidth}|l|}
+\begin{tabular}{|r|p{.68\linewidth}|l|}
 \hline}
 {
 \hline
@@ -74,7 +75,8 @@ The first goal of this WP is to identify sets of consistent languages and tools 
 
 In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.
 %=======================================================================
-\section{Core Tool Chain Analyses and Recommendations}
+\section{Core Tool Chain Analyses and
+           Recommendations}
 \label{sec:core_tool}
 %=======================================================================
 The first task is the core tool chain analyses and recommendations. It
@@ -107,30 +109,18 @@ For Validation: MATELO /TESTAND /VERISTAND
 \subsection{Identify and define the potential modelling languages}
 \label{sec:language}
 %-----------------------------------------------------------------------
-
-The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping. For each candidate, a small subset of the ERTMS specification will be modelled. The languages may have to be adapted in the process.
-\marginpar{(ALL4TEC) ALL4TEC is candidate to contribute for modeling on the
-basis of Subset 026 for example \ldots}
-The completed prototypes are subsequently evaluated against the requirements from WP2.
-
-This work is based on merit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
-
-%\marginpar{(mj) I think there is a huge overlap with WP2. Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
-%\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
-%WP2 shall identify the candidate languages suitable to model the Subset-026.
-
-%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements.
-
-%\marginpar{(mj) I would suggest a dedicated sesction to prototyping. Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
-
-Given that different levels of abstraction have to be addressed in the
-design phase, several languages may be necessary to handle all design
-phases. Here, the semantics of the languages is the key point; it
-shall be accurately adapted to the level of description required in
-each phase of the design.
-
-The identification and definition will distinguish between
-\marginpar{(jp) Added distinction between wide-spectrum formalisms (e.~g., UML, SysML, B) and DSLs}
+The goal of this task is to identify the modelling languages that
+could fit to requirements associated to specific need of ETCS
+design. Those needs may come from specificities of ETCS and also from
+railway norms, and they will be defined by tasks of WP2
+(\textcolor{blue}{CEA: which WP2 tasks are we talking
+  about?}). Depending on recommandation of WP2, several languages may
+be necessary to handle the different levels of abstraction of the
+whole design process.  For each candidate, a small subset of the ERTMS
+specification will be modelled. The languages may have to be adapted
+in the process. The identification and definition will distinguish
+between: \marginpar{(jp) Added distinction between wide-spectrum
+  formalisms (e.~g., UML, SysML, B) and DSLs}
 \begin{itemize}
 \item wide-spectrum modelling languages suitable for a wide variety of modelling domains,
 \item domain-specific languages (DSL) designed and optimised 
@@ -144,8 +134,26 @@ For DSL candidates the associated meta-metamodels\footnote{Recall that the meta-
 specifies the capabilities to define language elements and their static semantics in a DSL.} 
 will be analysed with respect to their
 capabilities to support language extensions that may become necessary for novel releases of the ERTMS 
-specification the in the future. 
+specification the in the future.
+Since no language is universal, and thus not able to address all aspects of design needs, the proposed approach is lucky to involve several modelling languages supporting different viewpoints and working at different levels of abstractions. With this kind of
+approach, we
+will need to check the compatibility of the semantics of the
+modeling languages that address overlapping viewpoints. There are two
+problems here. First, when dealing with an heterogeneous
+specification, we need a common semantical basis to check the
+compatibility of the models. More pragmatically, when we deal with two
+models (expressed in a different language) that describe the same part
+of the system, we need to show that they are consistent with each
+other. Candidate languages will be subsequently evaluated against the requirements from WP2.
+If a suitable language is identified, but no partner steps up to model the prototype, it will not be considered.
 
+%\marginpar{(mj) I think there is a huge overlap with WP2. Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
+%\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
+%WP2 shall identify the candidate languages suitable to model the Subset-026.
+
+%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements.
+
+%\marginpar{(mj) I would suggest a dedicated sesction to prototyping. Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
 Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
@@ -157,14 +165,20 @@ Output: & Evaluation of the models against the WP2 requirements & Mar-13 \\
 Output: & Decision on the final language choice(s) & Apr-13 \\
 \end{inoutput}
 
+
+
 %-----------------------------------------------------------------------
 \subsection{Identify and compare existing tools}
 \label{sec:tool}
 %-----------------------------------------------------------------------
 
-Corresponding to Section~\ref{sec:language}, the objective of this subtask is the identification of the target tool, based on the analysis from WP2, by using it for the prototyping described in Section~\ref{sec:language}.
+Corresponding to Section~\ref{sec:language}, the objective of this
+subtask is the identification of the target tool, based on the
+analysis from WP2, by using it for the prototyping described in
+Section~\ref{sec:language}.
 
-The experience with the tools will be recorded, and the tools will be evaluated against the requirements from WP2.
+The experience with the tools will be recorded, and the tools will be
+evaluated against the requirements from WP2.
 %\begin{quotation}
 %\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''. I'll make it explicit in the input.}
 %(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
@@ -180,14 +194,26 @@ Output: & Evaluation of the tools against the WP2 requirements & Mar-13 \\
 Output: & Decision on the final tool choice(s) & Apr-13 \\
 \end{inoutput}
 
+
+
 %-----------------------------------------------------------------------
 \subsection{Identify the tool platform}
 \label{sec:tool_platform}
 %-----------------------------------------------------------------------
 
-There is a distinction between tool (Section~\ref{sec:tool}) and tool platform: The tool is the core that processes the language, and typically also has an editor. The tool platform is language independent, but provides mechanisms to integrate various tools. For example, Eclipse is a tool platform. The Java Development Tools (JDT) are an extension to Eclipse that allows working with the Java programming language.
+There is a distinction between tools (Section~\ref{sec:tool}) and tool
+platform: The tools are the core that processes the languages, and
+typically also have an editor. The tool platform is language
+independent, but provides mechanisms to integrate various tools. For
+example, Eclipse is a tool platform. The Java Development Tools (JDT)
+are an extension to Eclipse that allows working with the Java
+programming language.
 
-As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool. A tool will typically suggest a certain tool platform. The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
+As the toolchain will consist of many tools that must work together
+seamlessly, it should be analysed independently from the tools. A tool
+will typically suggest a certain tool platform. The aim of this task
+is the identification of a tool platform for each candidate tool from
+Section~\ref{sec:tool}.
 
 \marginpar{(ALL4TEC) an interface facility should be examined to facilitate the data exchange between the tools constituting the tool chain (e.g.: XML definition) }
 %These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used ``off-the-shelves'' or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
@@ -216,45 +242,15 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 \end{inoutput}
 
 %-----------------------------------------------------------------------
-\subsection{Identify Development Method, including Elicitation Techniques}
+\subsection{Identify Development Methods}
 %-----------------------------------------------------------------------
 
-Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS SRS
-
-Without a suitable method, most tools have only limited use. Formalising a specification of the size of ETCS requires a suitable method. The method is probably relatively independent from the language used.
-
+Even though appropriate languages and tools are identified, without suitable design and validation methodologies, most languages and tools have only limited use. Formalising a specification of the size of ETCS requires suitable methodologies. 
 The objective of this subtask is the identification of suitable methods and their evaluation while prototyping.
+In particular those methodologies have to take into account ERTMS SRS (Subset-026) requirements.
 
-\marginpar{(SP) I would suggest to remove that subtask.
-- This belongs to WP2.
-- Requirement elicitation technique is not a tool, and moreover
-- ERTMS SRS (Subset-026) already include the requirements.
-}
-\paragraph{Christophe GASTON}
-A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
-to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
-\marginpar{(ALL4TEC) Christophe Gaston comments address several previous chapters of the DOW. It could be useful to re dispatch them. }
 
-\paragraph{irit-laas} we are also in favor of removing this
-subtask. One drawback of mandating a specific method for developing
-the models (e.g. refinement or compositional) is that you could rule
-out some of the tools identified in Sect. 1.2.
 
-More generally, we believe (based on our previous experiences in other
-domains) that we will end up with several formalisms, targeting
-different aspect of the specification. We think that we should keep in
-mind an approach based on modeling different aspects of the problem
-with languages supporting different viewpoints and that could work at
-different level of abstractions. With this kind of
-approach---concerning the verification of the final artifacts---we
-will also need to check the compatibility of the semantics of the
-modeling languages that address overlapping viewpoints. There are two
-problems here. First, when dealing with an heterogeneous
-specification, we need a common semantical basis to check the
-compatibility of the models. More pragmatically, when we deal with two
-models (expressed in a different language) that describe the same part
-of the system, we need to show that they are consistent with each
-other.
 
 
 \begin{inoutput}
@@ -268,7 +264,7 @@ Output: & Documentation of adapted method & ongoing \\
 \end{inoutput}
 
 %=======================================================================
-\section{Supporting Tools Analyses and Recommendations}
+\section{Supporting Tools Analyses and Recommendations}\marginpar{(CEA): we do not understand why there is such a Section 2. In fact all its content could fit in Subsection 1.2. Th e other way round: we do not see what to write in Subsection 1.2 if Section 2 exists because we necessarily overlap.}
 \label{sec:supporting_tools}
 %=======================================================================
 
