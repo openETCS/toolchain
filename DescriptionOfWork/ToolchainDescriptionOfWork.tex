@@ -328,9 +328,28 @@ Output: & Documentation of adapted method & ongoing \\
 \label{sec:supporting_tools}
 %=======================================================================
 
-The languages and tools  of choice have to be complemented to support a number of activities that are crucial for the project.
-
-\marginpar{(Systerel) a section Safety analysis Tools has been added : this subject is very important for safety critical systems and not yet very well supported.}
+The languages and tools  of the core chain have to be complemented to support a number of activities that are crucial for the project. The purpose of this task is to compose a list of tools which may be
+used in performing or supporting  activities, analyse their
+suitability and propose a selection for inclusion in the openETCS tool
+basis. This has to be coordinated with 
+\begin{itemize}
+\item the core tool chain selection (suitable  tools should be
+  available), 
+\item the definition of the overall development process, as that defines the steps to be performed and 
+\item the safety analyses to  conclude if the proposed tools are suitable to  respond to standard criteria for certifiable tool chain.
+\end{itemize}
+  The flow of information in the coordination is bidirectional--e.g., the process
+steps should ideally be taylored towards realizability with good
+support by available tools. Techniques complementing the
+tool-supported steps must be included in the process description. 
+  
+The following activites have to be take in account :
+\begin{itemize}
+\item Model Transformation and code generation
+\item Validation and verification
+\item Requirement management
+\item Safety analyses Tools
+\end{itemize}
 
 
 %-----------------------------------------------------------------------
@@ -350,16 +369,9 @@ Analyse model transformation techniques and tools in order to refine the specifi
 
 
 Analyse the code generation strategy.
-%\marginpar{(jp) Should we move code generation and model
-%transformation
-%to the beginning of this section, since this produces the proper product, while verification \& test
-%are support activities?}
 
-%\paragraph{Stanislas Pinte}
-%In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
-%
-%@Fabien, could you confirm WP3b point of view about this? 
-%
+
+
 %Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language. 
 %\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
 %The code generation should be compatible with a domain framework including, for
@@ -399,24 +411,7 @@ design artifacts which comes with a model-based process offers the
 possibility to employ tools to a substantial degree for these
 activities. 
 
-The purpose of this subtask is to compose a list of tools which may be
-used in performing or supporting V\&V activities, analyse their
-suitability and propose a selection for inclusion in the openETCS tool
-basis. This has to be coordinated with both
-\begin{itemize}
-\item the core tool chain selection (suitable V\&V tools should be
-  available), and
-\item the definition of the overall development process, as that defines the steps to be performed.
-\end{itemize}
-  The flow of information in the coordination is bidirectional--e.g., the process
-steps should ideally be taylored towards realizability with good
-support by available tools. Techniques complementing the
-tool-supported steps must be included in the process description. 
-\marginpar{(DLR) Which WP is concerned with the global picture, i.e.\ who
-  takes care of the coherency of the proposed parts of the openETCS
-  ecosystem, who defines the process and assigns potential roles to tools?}
-  \marginpar{(Systerel) WP4 with the VnV process and the safetycase, for us.}
-  
+
  
 % Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
@@ -511,6 +506,8 @@ Traceability  items can help  to  check  that proces requirements are satisfied,
 %.......................................................................
 \subsubsection{Safety properties}
 %.......................................................................
+
+\marginpar{(Systerel) a section Safety analysis Tools has been added : this subject is very important for safety critical systems and not yet very well supported.}
 
 This must ensure that components are always able to perform their work.
 It includes in particular:
