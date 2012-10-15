@@ -338,16 +338,16 @@ basis. This has to be coordinated with
 \item the definition of the overall development process, as that defines the steps to be performed and 
 \item the safety analyses to  conclude if the proposed tools are suitable to  respond to standard criteria for certifiable tool chain.
 \end{itemize}
-  The flow of information in the coordination is bidirectional--e.g., the process
+  The flow of information in the coordination is bidirectional --e.g., the process
 steps should ideally be taylored towards realizability with good
 support by available tools. Techniques complementing the
 tool-supported steps must be included in the process description. 
   
 The following activites have to be take in account :
 \begin{itemize}
-\item Model Transformation and code generation
+\item Model Transformation and code generation 
+\item Requirement traceability
 \item Validation and verification
-\item Requirement management
 \item Safety analyses Tools
 \end{itemize}
 
@@ -395,6 +395,24 @@ Output: & Code Generation Strategy & Sept-13 \\
 
 
 %-----------------------------------------------------------------------
+\subsection{Requirement traceability}
+%-----------------------------------------------------------------------
+
+Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026, or selected in WP2. However, how to manage the requirements traceability and how to deal with coverage and traceability of the requirements on models. Thus this activity is a main challenge in developping critical and complex systems.
+
+\begin{inoutput}
+Input: & WP2 Requirements & Jan-13 \\
+\hline
+Input: & WP3-a  Decision on the final language choice & Apr-13 \\
+\hline
+Input: & WP2 Designer Wishes and Requirements & Apr-13 \\
+\hline
+Output: & Captured and organised designer requirements & Sept-13 \\
+\end{inoutput}
+
+
+
+%-----------------------------------------------------------------------
 \subsection{Validation and Verification Tools}
 %-----------------------------------------------------------------------
 
@@ -429,48 +447,19 @@ phase with respect to completeness, correctness and consistency.
 
 The choice of VnV methods depends on the kinds of properties which are treated.
 
-%\marginpar{(ALLTEC) Notice: CENELEC verification activities cannot be systematically addressed with test and tool. For example, source code review could be required to check safety properties of code.}
-%\paragraph{Stanislas Pinte}
-%I agree with Hardi.
-%In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
-%It doesn't have to be model proving (that I think belongs more to other WPs) rather model testing.%
-%Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
-
-%- Model tests are part of the model
-
-%- Model should be 100\% covered by tests (proved by model coverage reports)
-
-%- Toolchain must support developing, executing and debugging tests
-
-%Model verification also includes:
-
-%- verifying that the model corresponds to the original requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
-
-%- verifying that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
-
-%I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
-
-%\paragraph{All4TEC}
-%ALL4TEC has already experienced tools at several levels of critical railways system and software developments. 
-%In order to verify the work, tools like CORE (Vitech) could be used for system technical specifications elaboration (it is a kind of SysML approach leading to definition of the system functional and physical architectures).
-%In on other way Safety Architect could be used for safety studies on various
-%models at diverse levels of definition (system, software, functional, organic
-%etc.).\\
-%The following tool chains have been experienced for software testing: 
-%For Unitary Test (UT): MATLAB SIMULINK / DESIGN VERIFIER
-%For Validation: MATELO /TESTAND /VERISTAND
 
 
-\subsubsection{Functional properties}
+
+\paragraph{Functional properties}
 %.......................................................................
 
 First, we have to show that all of the components of the system behave
-\marginpar{(DLR) Some further rewriting of this subsection
-  and the following is needed in order to get a consistent
-  description. Concerning the current text, one could broaden the
-  scope of functional verification, including early design steps.) }
+%\marginpar{(DLR) Some further rewriting of this subsection
+%  and the following is needed in order to get a consistent
+%  description. Concerning the current text, one could broaden the
+%  scope of functional verification, including early design steps.) }
 as they are intended. This includes at least proving that low-level requirements meet
-high-level requirements, and in turn that the code meet these low-level
+high-level requirements at each stage of specification, and in turn that the code meet these low-level
 specifications. 
 
 One possibility is to use a completely certified toolchain up
@@ -482,7 +471,7 @@ generation according to a suitable coverage criterion.
 
 Secondly, we have to  show that the high level requirements have been completely specified. This is usually  achieved by coverage technics. 
 
-\subsubsection{Non Functional properties}
+\paragraph{Non Functional properties}
 %.......................................................................
 
 Such properties include all aspects that are related to the nominal behavior
@@ -503,11 +492,8 @@ analyzers should be able to handle that.
 
 Traceability  items can help  to  check  that proces requirements are satisfied, code reviews allowed to  verify modelling requirements.
 
-%.......................................................................
-\subsubsection{Safety properties}
-%.......................................................................
+\paragraph{Safety properties}
 
-\marginpar{(Systerel) a section Safety analysis Tools has been added : this subject is very important for safety critical systems and not yet very well supported.}
 
 This must ensure that components are always able to perform their work.
 It includes in particular:
@@ -527,54 +513,54 @@ Output: & VnV tool choice & Apr-13 \\
 \end{inoutput}
 
 
-
-%-----------------------------------------------------------------------
-\subsection{Test Automation Tools}
-%-----------------------------------------------------------------------
-
-Testing 
-\marginpar{(jp) Some standards (e.~g.~RTCA DO178B/C) regard testing as a part of the verification
-process. I think it is clearer, however, to distinguish between verification in the sense of
-static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
-of dynamic testing in an explicit way in this DoW}
-\marginpar{(Systerel) in railway standard (e.g. EN50128), testing and verification are linked. However  it is usual  in railway industry  to  replace unit tests for instance by formal verification and automatic code verification for functionnal  parts. Moreover integration of HW/SW is out of the scope of the OpenETCS projets (because due to industiral choices), thus we do not think this new section is necessary.} 
-is mandatory for the development of safety-critical systems, because no system is allowed
-to become operative without experimental evidence.
-In all situations where formal verification cannot be exhaustive, because 
- the size and complexity of the software or integrated HW/SW system exceeds the
-capabilities of the formal verification power available, testing or simulation is applied 
-to achieve at least partial verification for the cases considered.
-
-In the openETCS context, testing is required in two areas.
-\begin{itemize}
-\item Software and HW/SW integration testing: the overall test objective is to
-investigate the correct cooperation between several SW and HW components.
-\item Component (unit, module,  thread, process) testing to investigate (1) their functional
-correctness 
-and (2) the consistency between models and
- object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
- that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
- \marginpar{(Systerel)  in the case of code generator, testing can be replace by the use of a second generator and some process verification.}
-\end{itemize}
-In any case a high degree of automation is desirable to support an effective testing process.
-Available test tools will be analysed with respect to the following properties.
-\begin{itemize}
-\item Availability in open source
-\item Suitability for the preferred tool platform 
-\item Support for different test levels (unit, integration, HW/SW integration, hardware-in-the-loop system testing)
-\item Support for automated test procedure / test suite execution
-\item Support for automated test case / test data / test oracle / test procedure generation from
-the preferred type of models selected in WP2 / WP3a. 
-\item Support for automated tracing from requirements to test cases to test procedures to test results and back
-\end{itemize}
-
-
-
-\begin{inoutput}
-Input: & WP2 Requirements & ??? \\
-\hline
-Output: & Test automation tool choice with experience report & ??? \\
-\end{inoutput}
+%
+%%-----------------------------------------------------------------------
+%\subsection{Test Automation Tools}
+%%-----------------------------------------------------------------------
+%
+%Testing 
+%\marginpar{(jp) Some standards (e.~g.~RTCA DO178B/C) regard testing as a part of the verification
+%process. I think it is clearer, however, to distinguish between verification in the sense of
+%static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
+%of dynamic testing in an explicit way in this DoW}
+%\marginpar{(Systerel) in railway standard (e.g. EN50128), testing and verification are linked. However  it is usual  in railway industry  to  replace unit tests for instance by formal verification and automatic code verification for functionnal  parts. Moreover integration of HW/SW is out of the scope of the OpenETCS projets (because due to industiral choices), thus we do not think this new section is necessary.} 
+%is mandatory for the development of safety-critical systems, because no system is allowed
+%to become operative without experimental evidence.
+%In all situations where formal verification cannot be exhaustive, because 
+% the size and complexity of the software or integrated HW/SW system exceeds the
+%capabilities of the formal verification power available, testing or simulation is applied 
+%to achieve at least partial verification for the cases considered.
+%
+%In the openETCS context, testing is required in two areas.
+%\begin{itemize}
+%\item Software and HW/SW integration testing: the overall test objective is to
+%investigate the correct cooperation between several SW and HW components.
+%\item Component (unit, module,  thread, process) testing to investigate (1) their functional
+%correctness 
+%and (2) the consistency between models and
+% object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
+% that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
+% \marginpar{(Systerel)  in the case of code generator, testing can be replace by the use of a second generator and some process verification.}
+%\end{itemize}
+%In any case a high degree of automation is desirable to support an effective testing process.
+%Available test tools will be analysed with respect to the following properties.
+%\begin{itemize}
+%\item Availability in open source
+%\item Suitability for the preferred tool platform 
+%\item Support for different test levels (unit, integration, HW/SW integration, hardware-in-the-loop system testing)
+%\item Support for automated test procedure / test suite execution
+%\item Support for automated test case / test data / test oracle / test procedure generation from
+%the preferred type of models selected in WP2 / WP3a. 
+%\item Support for automated tracing from requirements to test cases to test procedures to test results and back
+%\end{itemize}
+%
+%
+%
+%\begin{inoutput}
+%Input: & WP2 Requirements & ??? \\
+%\hline
+%Output: & Test automation tool choice with experience report & ??? \\
+%\end{inoutput}
 
 
 %%-----------------------------------------------------------------------
@@ -599,30 +585,15 @@ Output: & Test automation tool choice with experience report & ??? \\
 %\end{inoutput}
 
 %-----------------------------------------------------------------------
-\subsection{Capture Additional Requirements}
-%-----------------------------------------------------------------------
-
-Capture wishes/requirements on how to support the designer in their activities.
-
-\begin{inoutput}
-Input: & Designer Wishes and Requirements & ongoing \\
-\hline
-Output: & Captured and organised designer requirements & ??? \\
-\end{inoutput}
-
-
-%-----------------------------------------------------------------------
 \subsection{Safety analyses Tools}
 %-----------------------------------------------------------------------
 
 
-The purpose of this subtask is to propose a list of tools to  support  safety  analyses activities. this task  is to  coordinate with  the requirements issues of WP2 and the needs of WP4 in regards of safety cases definition.
+The purpose of this subtask is to propose a list of tools to  support  safety  analyses activities. This task  is to  coordinate with  the requirements issues of WP2 and the needs of WP4 in regards of safety cases definition.
 
-Examples of interresting tools deals with fault-trees and FMEA generation. 
+Examples of interresting tools deals with fault-trees and FMEA generation, that can be based on formal methods (automata, pre-post condition logics,...) 
   
  
-
-
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
 Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Jan-13 \\
