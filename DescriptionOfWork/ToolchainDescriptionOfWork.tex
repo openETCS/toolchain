@@ -1,12 +1,74 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass{template/openetcs_article}
+\usepackage{lipsum,url}
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
 
-\usepackage[utf8]{inputenc}
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
 
+
+%assign a report number here
+\reportnum{OETCS/WP3a/D01}
+
+%define your workpackage here
+\wp{Work-Package 3a: ``ToolsChain''}
+
+%set a title here
 \title{openETCS Toolchain WP Description of Work}
+
+%set a subtitle here
+\subtitle{A template for short document. Adapted from report template.}
+
+%set the date of the report here
+\date{October 2012\\Revised October 2012}
 \date{\today}
 
+%define a list of authors and their affiliation here
+
+\author{Michael Jamstram}
+
+\affiliation{WP3a leader}
+  
+\author{WP3a participants}
+
+\affiliation{OpenETCS}
+    
+% define the coverart
+\coverart[width=350pt]{chart}
+
+%define the type of report
+\reporttype{Description of work}
+
+
+\begin{abstract}
+%define an abstract here
+This document contents the description of work  planned for WP3a.
+
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+
+
+%Start here
+
+
+
+
+
 % Makes Marginpars easier to read
-\setlength{\marginparwidth}{1.2in}
+\setlength{\marginparwidth}{1in}
 \let\oldmarginpar\marginpar
 \renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\scriptsize #1]%
 {\raggedright\scriptsize #1}}
@@ -22,44 +84,45 @@
 \hline
 \end{tabular}}
 
-\begin{document}
-\maketitle
-\tableofcontents
 
-\vspace{0.5cm}
 
-This Work Package will provide the tool chain that is necessary to
-formalize the ETCS system specification \marginpar{MPA: I think it should be:
-  formalize the system specification and implement the software specification}. The formal specification will be used further for verification and code generation. The tool chain must support the following tasks:
+This Work Package will provide the tool chain, based on formal methods, that is necessary to
+design, develop, verify and validate the ETCS system. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. The formal specification will be used further for verification and code generation.
+\marginpar{(Systerel) Why to restrict the use of formal methods to verification and code generation ? Formal methods can be use at the earliest steps of the design to validate models and to  verify  traceability between steps.} The tool chain must support the following tasks:
 
 \begin{enumerate}
 \item Support the writing of the formal ETCS system
-  specification including modeling languages, graphical or
+  specifications including modeling languages, graphical or
     textual editors, version management, \dots.
 
-\item Support the writing of a formal ETCS software specification (while the ETCS specification describes the \emph{problem}, the software specification describes the \emph{solution}).
+\item Support the writing of a formal ETCS software specifications (while a system specification describes the \emph{problem}, a software specification describes the \emph{solution}).
 
+\item Support code generation from software specifications.
 
-\item Support code generation from the software specification.
-
-\item Support execution, debugging and simulation of the software specification.
+\item Support execution, debugging and simulation of software specifications.
 
 \item Support test case/test data/test oracle generation and test procedure
-execution from a software test specification.\marginpar{(jp) extended by test data, test oracle, test procedure}
+execution from a software test specification.
 \marginpar{(All4TEC) The software test cases should be scheduled at each step of
 software development life cycle (e.g.: unit test, integration test, final
 validation test)}
+\marginpar{(Syterel)  If the code is automatically  generated from the software specification, is it necessary to generate software test cases e.g unit test ? }
+
+\item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
+
 \marginpar{MPA: should be defined, what are its relation to the system
     specification that is the requirement for the software
     specification. It should either be part of it as requirements for
     the software, or be derived from it}
-\item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
 \item Comply with the EN 50128 requirements to tools.
 
 \item Support requirements tracing across all tools and build steps.
 
-\item Provide seamless integration of the tools into one tool chain.
+\item Analyse transitions and cooperations between models (graphical/ textual, System/ software / test,...). Several models could be successively performed from system to software level, and at the software level, at least two models could be necessary one for functional specification and one of design.
+
+\item Provide seamless integration of the tools into one tool chain. 
+\marginpar{(Systerel) "one" integrated tool chain is not necessary the best solution  to  have a certifiable approach. Indeed integration is a source of faults introduction.}
  
 \end{enumerate}
 
@@ -67,38 +130,32 @@ validation test)}
   system/software safety case}
 The tool chain definition will benefit from other R\&D projects and off-the-shelves tools. The semantics of the modelling languages shall be carefully studied.
 
-The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system. This will be done in close collaboration with WP2.
+The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system.  This will be done in close collaboration with WP2.
 
-In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.
+In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.  
+
+Compliance with standards as CENELEC or 50128 could have a
+significant impact in terms of workload. Moreover it should be included at the
+beginning of the tools development in the Development Plan or in a Safety or
+Quality Plan in close collaboration with WP4.
+
 %=======================================================================
 \section{Core Tool Chain Analyses and Recommendations}
 \label{sec:core_tool}
 %=======================================================================
 The first task is the core tool chain analyses and recommendations. It
-is concerned with the language itself \marginpar{MPA: should be plural as
-  several languages will probably be required to express all the
-  concerns}, the tool for authoring, as well as the method used for
-formalising the specification \marginpar{MPA: Should also be plural as there
-  will be several tools and associated methods}.
+is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the specifications.
 
 The core tool will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
 Specific attention shall be paid to the semantics and the traceability of each part of the chain.
-\paragraph{All4TEC}
-ALL4TEC has already experienced tools at several levels of critical railways system and software developments.
-In order to verify the work, tools like CORE (Vitech) could be used for system technical specifications elaboration (it is a kind of SysML approach leading to definition of the system functional and physical architectures).
-In on other way Safety Architect could be used for safety studies on various
-models at diverse levels of definition (system, software, functional, organic
-etc.).\\
-The following tool chains have been experienced for software testing:
-For Unitary Test (UT): MATLAB SIMULINK / DESIGN VERIFIER
-For Validation: MATELO /TESTAND /VERISTAND
 
-%This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. This task is composed of the following activities:
+
+%This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation.  This task is composed of the following activities:
 
 
 %\begin{quotation}
 %\marginpar{(mj) That's a good idea that supports Stan's idea of using prototypes.}
-%(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP3a I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that?
+%(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP3a I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that? 
 %\end{quotation}
 
 %-----------------------------------------------------------------------
@@ -106,20 +163,19 @@ For Validation: MATELO /TESTAND /VERISTAND
 \label{sec:language}
 %-----------------------------------------------------------------------
 
-The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping. For each candidate, a small subset of the ERTMS specification will be modelled. The languages may have to be adapted in the process.
-\marginpar{(ALL4TEC) ALL4TEC is candidate to contribute for modeling on the
-basis of Subset 026 for example \ldots}
+The objective of this subtask is the identification of the modeling language (or multiple languages), based on the analysis from WP2, by prototyping.  For each candidate, a small subset of the ERTMS specification will be modelled.  The languages may have to be adapted in the process.
+%\marginpar{(ALL4TEC) ALL4TEC is candidate to contribute for modeling on the basis of Subset 026 for example …}
 The completed prototypes are subsequently evaluated against the requirements from WP2.
 
 This work is based on merit: If a suitable language is identified, but no partner steps up to model the prototype, it will simply not be considered.
 
-%\marginpar{(mj) I think there is a huge overlap with WP2. Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
+%\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
 %\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
-%WP2 shall identify the candidate languages suitable to model the Subset-026.
+%WP2 shall identify the candidate languages suitable to model the Subset-026. 
 
-%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements.
+%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
 
-%\marginpar{(mj) I would suggest a dedicated sesction to prototyping. Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
+%\marginpar{(mj) I would suggest a dedicated sesction to prototyping.  Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
 
 Given that different levels of abstraction have to be addressed in the
 design phase, several languages may be necessary to handle all design
@@ -128,9 +184,9 @@ shall be accurately adapted to the level of description required in
 each phase of the design.
 
 The identification and definition will distinguish between
-\marginpar{(jp) Added distinction between wide-spectrum formalisms (e.~g., UML, SysML, B) and DSLs}
+%\marginpar{(jp) Added distinction between wide-spectrum formalisms (e.~g., UML, SysML, B) and DSLs}
 \begin{itemize}
-\item wide-spectrum modelling languages suitable for a wide variety of modelling domains,
+\item wide-spectrum modelling languages (e.~g., UML, SysML, B,...) suitable for a wide variety of modelling domains,
 \item domain-specific languages (DSL) designed and optimised 
 for application in a specific application domain 
 only.
@@ -154,6 +210,7 @@ Output: & Documentation of the changes to each language used (if any) & Feb-13 \
 Output: & Evaluation of the models against the WP2 requirements & Mar-13 \\
 Output: & Decision on the final language choice(s) & Apr-13 \\
 \end{inoutput}
+\marginpar{(Systerel) A template of criteria to select the language and tools should be defined.}
 
 %-----------------------------------------------------------------------
 \subsection{Identify and compare existing tools}
@@ -164,7 +221,7 @@ Corresponding to Section~\ref{sec:language}, the objective of this subtask is th
 
 The experience with the tools will be recorded, and the tools will be evaluated against the requirements from WP2.
 %\begin{quotation}
-%\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''. I'll make it explicit in the input.}
+%\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''.  I'll make it explicit in the input.}
 %(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
 %\end{quotation}
 
@@ -183,12 +240,12 @@ Output: & Decision on the final tool choice(s) & Apr-13 \\
 \label{sec:tool_platform}
 %-----------------------------------------------------------------------
 
-There is a distinction between tool (Section~\ref{sec:tool}) and tool platform: The tool is the core that processes the language, and typically also has an editor. The tool platform is language independent, but provides mechanisms to integrate various tools. For example, Eclipse is a tool platform. The Java Development Tools (JDT) are an extension to Eclipse that allows working with the Java programming language.
+There is a distinction between tool (Section~\ref{sec:tool}) and tool platform: The tool is the core that processes the language, and typically also has an editor.  The tool platform is language independent, but provides mechanisms to integrate various tools.  For example, Eclipse is a tool platform.  The Java Development Tools (JDT) are an extension to Eclipse that allows working with the Java programming language.
 
-As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool. A tool will typically suggest a certain tool platform. The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
+As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool.  A tool will typically suggest a certain tool platform.  The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
 
 \marginpar{(ALL4TEC) an interface facility should be examined to facilitate the data exchange between the tools constituting the tool chain (e.g.: XML definition) }
-%These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used ``off-the-shelves'' or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
+%These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
 
 \paragraph{irit-laas} we could stress that there are several levels
 of interoperability that can be supported by the toolchain. Taking the
@@ -219,7 +276,7 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 
 Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS SRS
 
-Without a suitable method, most tools have only limited use. Formalising a specification of the size of ETCS requires a suitable method. The method is probably relatively independent from the language used.
+Without a suitable method, most tools have only limited use.  Formalising a specification of the size of ETCS requires a suitable method.  The method is probably relatively independent from the language used.
 
 The objective of this subtask is the identification of suitable methods and their evaluation while prototyping.
 
@@ -254,6 +311,7 @@ models (expressed in a different language) that describe the same part
 of the system, we need to show that they are consistent with each
 other.
 
+\marginpar{(Systerel) Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026. However, how to manage the requirements traceabilitty and how to deal with traceability between models and activity is a main challenge in developping critical and complex systems. Thus, we think it is important to define how to support requirement traceability.}
 
 \begin{inoutput}
 Input: & WP2: List of suitable methods (based on State of the Art Analysis) & Oct-12 \\
@@ -270,20 +328,75 @@ Output: & Documentation of adapted method & ongoing \\
 \label{sec:supporting_tools}
 %=======================================================================
 
-The languages and tools of choice have to be complemented to support a number of activities that are crucial for the project.
+The languages and tools  of the core chain have to be complemented to support a number of activities that are crucial for the project. The purpose of this task is to compose a list of tools which may be
+used in performing or supporting  activities, analyse their
+suitability and propose a selection for inclusion in the openETCS tool
+basis. This has to be coordinated with 
+\begin{itemize}
+\item the core tool chain selection (suitable  tools should be
+  available), 
+\item the definition of the overall development process, as that defines the steps to be performed and 
+\item the safety analyses to  conclude if the proposed tools are suitable to  respond to standard criteria for certifiable tool chain.
+\end{itemize}
+  The flow of information in the coordination is bidirectional--e.g., the process
+steps should ideally be taylored towards realizability with good
+support by available tools. Techniques complementing the
+tool-supported steps must be included in the process description. 
+  
+The following activites have to be take in account :
+\begin{itemize}
+\item Model Transformation and code generation
+\item Validation and verification
+\item Requirement management
+\item Safety analyses Tools
+\end{itemize}
+
 
 %-----------------------------------------------------------------------
-\subsection{Verification Tools}
+\subsection{Model Transformation and Code Generation}
 %-----------------------------------------------------------------------
 
-\oldtext{(CEA): we propose to aggregate in this section several
-  subsection related to the kinds of properties which are treated. We
-  tried to identify subsections following this intuition. The idea
-  would be to talk about technologies ({\em e.g.} static analysis,
-  model-checking etc...) that could address the verification of each
-  sort of property.
-(iriit-laas):  we agree with the proposal from CEA and their
-  choice of subsections.}
+Analyse model transformation techniques and tools in order to refine the specification from one description level to another.
+
+%\paragraph{Stanislas Pinte}
+%In our product ERTMSFormalSpecs (http://www.ertmssolutions.com/ertms-formalspecs/) we use a single, unified model, that is supporting 
+%complete Subset-026 logic, with full traceability. 
+%If that approach works, why do we need several specification levels? 
+%\paragraph{irit-laas} we propose to merge sections 2.2 and 2.3 since
+%they are basically the same kind of activity. It could have the added
+%benefit to balance the ``size'' with respect to the verification
+%activities in Sect. 2.1
+
+
+Analyse the code generation strategy.
+
+
+
+%Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language. 
+%\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
+%The code generation should be compatible with a domain framework including, for
+%example, the designated operating system API to be applied in openETCS. This
+%should be decide within the tool chain. \\
+%Another issue is that code generation should be covered down to binary code, so that V\&V arguments
+%may be applied down to the level of binary code.
+%
+%A more detailed view of these issues may be find in the PositionPaper directory
+%(Uni\_Bremen\_proposed\_Workflow.pdf).\\
+
+\begin{inoutput}
+Input: & WP2 Requirements & Jan-13 \\
+\hline
+Input: & WP3-a  Decision on the final language choice & Apr-13 \\
+\hline
+Output: & Model Transformation Strategy & Sept-13 \\
+\hline
+Output: & Code Generation Strategy & Sept-13 \\
+\end{inoutput}
+
+
+%-----------------------------------------------------------------------
+\subsection{Validation and Verification Tools}
+%-----------------------------------------------------------------------
 
 In the development of a safety-critical rail system like the ETCS OBU,
 several kinds of verification and validation activities have to be
@@ -298,59 +411,54 @@ design artifacts which comes with a model-based process offers the
 possibility to employ tools to a substantial degree for these
 activities. 
 
-The purpose of this subtask is to compose a list of tools which may be
-used in performing or supporting V\&V activities, analyze their
-suitability and propose a selection for inclusion in the openETCS tool
-basis. This has to be coordinated with both
-\begin{itemize}
-\item the core tool chain selection (suitable V\&V tools should be
-  available), and
-\item the definition of the overall development process, as that defines the steps to be performed.
-\end{itemize}
-  The flow of information in the coordination is bidirectional--e.g., the process
-steps should ideally be taylored towards realizability with good
-support by available tools. Techniques complementing the
-tool-supported steps must be included in the process description. 
-\marginpar{(DLR) Which WP is concerned with the global picture, i.e.\ who
-  takes care of the coherency of the proposed parts of the openETCS
-  ecosystem, who defines the process and assigns potential roles to tools?}
-  
+
  
 % Identify potential verification tools with regard to modelling techniques; verification techniques shall be investigated.
 
+%\paragraph{Hardi Hungar}
+%Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts of the development – and are not just used for explanatory purposes – it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
 
-\oldtext{(DLR)
-Verification tools resp. techniques are very important in the development of a safety-critical system like the ETCS OBU. According to the relevant standards (most prominently the EN 50128 of the CENELEC family), every design step has to be verified. Assuming that models will constitute artifacts of the development--and are not just used for explanatory purposes--it is necessary to be able to establish the correctness of each refinement step. Or, to put it differently, the tool chain needs a concept for seamless verification, preferably tool-based, to be fit for its purpose.
+Validation and Verification activities have different goals and methods :
+\begin{description}
+\item [Validation] aims to prove that the build software fulfills the user needs, in particular with respect to safety and quality requirements.
+\item [Verification] aims to prove that the build software fulfills the requirements of that
+phase with respect to completeness, correctness and consistency.
+\end{description}
 
-I think, this must be taken into account already early in the
-definition process. Therefore, while it might not be the first thing
-to consider (without modeling, there is no verification of models), it
-should definitely not be the last.}
 
 
-\oldtext{(ALLTEC) Notice: CENELEC verification activities cannot be systematically addressed with test and tool. For example, source code review could be required to check safety properties of code.}
-\oldtext{(Stanislas Pinte)
-I agree with Hardi.
-In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
-It doesn't have to be model proving (that I think belongs more to other WPs) rather model testing.
-Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
+The choice of VnV methods depends on the kinds of properties which are treated.
 
-- Model tests are part of the model
+%\marginpar{(ALLTEC) Notice: CENELEC verification activities cannot be systematically addressed with test and tool. For example, source code review could be required to check safety properties of code.}
+%\paragraph{Stanislas Pinte}
+%I agree with Hardi.
+%In my opinion, the model should include the tests of the model, so that it could be verifiable in a "model-in-the-loop" fashion.
+%It doesn't have to be model proving (that I think belongs more to other WPs) rather model testing.%
+%Inside our http://www.ertmssolutions.com/ertms-formalspecs/ approach, we assume the following:
 
-- Model should be 100\% covered by tests (proved by model coverage reports)
+%- Model tests are part of the model
 
-- Toolchain must support developing, executing and debugging tests
+%- Model should be 100\% covered by tests (proved by model coverage reports)
 
-Model verification also includes:
+%- Toolchain must support developing, executing and debugging tests
 
-- verifying that the model corresponds to the original requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
+%Model verification also includes:
 
-- verifying that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
+%- verifying that the model corresponds to the original requirements specifications (in our case, UNISIG Subset-026 BL3). ERTMSFormalSpecs also supports marking model artifacts as "verified" against source requirements.
 
-I would think that such verifications are indeed in the critical
-path...i.e. if not implemented we shall not be able to have a fully
-functional model.}
+%- verifying that 100\% of source requirements are traced against one or more model artifacts (proven by traceability reports)
 
+%I would think that such verifications are indeed in the critical path...i.e. if not implemented we shall not be able to have a fully functional model.
+
+%\paragraph{All4TEC}
+%ALL4TEC has already experienced tools at several levels of critical railways system and software developments. 
+%In order to verify the work, tools like CORE (Vitech) could be used for system technical specifications elaboration (it is a kind of SysML approach leading to definition of the system functional and physical architectures).
+%In on other way Safety Architect could be used for safety studies on various
+%models at diverse levels of definition (system, software, functional, organic
+%etc.).\\
+%The following tool chains have been experienced for software testing: 
+%For Unitary Test (UT): MATLAB SIMULINK / DESIGN VERIFIER
+%For Validation: MATELO /TESTAND /VERISTAND
 
 
 \subsubsection{Functional properties}
@@ -366,11 +474,13 @@ high-level requirements, and in turn that the code meet these low-level
 specifications. 
 
 One possibility is to use a completely certified toolchain up
-to code generation. Failing that ({\it i.e.} if not all the code is generated
+to code generation, some formal methods have shown their effectiveness in many industrial cases. Failing that ({\it i.e.} if not all the code is generated
 and/or if the generation cannot be trusted), we will need to have formal
 specifications and to verify the code against them. Hoare logic-based tools
 seem like a good approach in this case, as well as of course test cases
 generation according to a suitable coverage criterion.
+
+Secondly, we have to  show that the high level requirements have been completely specified. This is usually  achieved by coverage technics. 
 
 \subsubsection{Non Functional properties}
 %.......................................................................
@@ -380,6 +490,7 @@ of the components. In particular, this concerns the following points:
 \begin{itemize}
 \item schedulability and Worst Case Execution Time (WCET)
 \item data dependencies between outputs and inputs
+\item modelling and process requirements for SIL4 systems
 \end{itemize}
 
 Schedulability can be done on the models, based on hypotheses for the WCET of
@@ -390,9 +501,13 @@ Data dependencies can also be assessed on the models, but as in the previous
 subsection, some verification on the code itself might be required. Static
 analyzers should be able to handle that.
 
+Traceability  items can help  to  check  that proces requirements are satisfied, code reviews allowed to  verify modelling requirements.
+
 %.......................................................................
 \subsubsection{Safety properties}
 %.......................................................................
+
+\marginpar{(Systerel) a section Safety analysis Tools has been added : this subject is very important for safety critical systems and not yet very well supported.}
 
 This must ensure that components are always able to perform their work.
 It includes in particular:
@@ -400,13 +515,15 @@ It includes in particular:
   \item Absence of runtime error (again if the code generation does
         not guarantee it by construction. Static analysis can be employed
         there also).
-  \item Fault tolerance against unexpected input
+  \item Fault tolerance against unexpected input (safety analyses can raise this unexpected input).
+  \item High-level safety requirements (formal raisonning, test or simulation can show safety requirements are satified).
 \end{itemize}
 
 \begin{inoutput}
-Input: & WP2 Requirements & ??? \\
+Input: & WP2 Requirements & Jan-13 \\
+Input: & Those sufficient elements of WP4 VnV Plan to evaluate tools & Jan-13 \\
 \hline
-Output: & Verification tool choice & ??? \\
+Output: & VnV tool choice & Apr-13 \\
 \end{inoutput}
 
 
@@ -420,6 +537,7 @@ Testing
 process. I think it is clearer, however, to distinguish between verification in the sense of
 static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
 of dynamic testing in an explicit way in this DoW}
+\marginpar{(Systerel) in railway standard (e.g. EN50128), testing and verification are linked. However  it is usual  in railway industry  to  replace unit tests for instance by formal verification and automatic code verification for functionnal  parts. Moreover integration of HW/SW is out of the scope of the OpenETCS projets (because due to industiral choices), thus we do not think this new section is necessary.} 
 is mandatory for the development of safety-critical systems, because no system is allowed
 to become operative without experimental evidence.
 In all situations where formal verification cannot be exhaustive, because 
@@ -436,6 +554,7 @@ correctness
 and (2) the consistency between models and
  object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
  that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
+ \marginpar{(Systerel)  in the case of code generator, testing can be replace by the use of a second generator and some process verification.}
 \end{itemize}
 In any case a high degree of automation is desirable to support an effective testing process.
 Available test tools will be analysed with respect to the following properties.
@@ -458,81 +577,26 @@ Output: & Test automation tool choice with experience report & ??? \\
 \end{inoutput}
 
 
-%-----------------------------------------------------------------------
-\subsection{Code Generation Strategy}
-%-----------------------------------------------------------------------
-
-Analyse the code generation strategy.\marginpar{(jp) Should we move code generation and model
-transformation
-to the beginning of this section, since this produces the proper product, while verification \& test
-are support activities?}
-
-\paragraph{Stanislas Pinte}
-In my opinion, the code generation strategy should be handled in T3.3 Modelling of ETCS specification, that is part of WP3b.
-
-@Fabien, could you confirm WP3b point of view about this?
-
-Additionally, prototypes should be developed for each candidate modelling language, and for each candidate target language.
-\paragraph{C.~Braunstein, J.~Peleska (Uni Bremen)}
-The code generation should be compatible with a domain framework including, for
-example, the designated operating system API to be applied in openETCS. This
-should be decide within the tool chain. \\
-Another issue is that code generation should be covered down to binary code, so that V\&V arguments
-may be applied down to the level of binary code.
-
-A more detailed view of these issues may be find in the PositionPaper directory
-(Uni\_Bremen\_proposed\_Workflow.pdf).\\
-
-
-
-
-\begin{inoutput}
-Input: & WP2 Requirements & ??? \\
-\hline
-Output: & Code Generation Strategy & ??? \\
-\end{inoutput}
-
-%-----------------------------------------------------------------------
-\subsection{Model Transformation}
-%-----------------------------------------------------------------------
-
-Analyse model transformation techniques and tools in order to refine the specification from one description level to another.
-
-\paragraph{Stanislas Pinte}
-In our product ERTMSFormalSpecs (http://www.ertmssolutions.com/ertms-formalspecs/) we use a single, unified model, that is supporting
-complete Subset-026 logic, with full traceability.
-If that approach works, why do we need several specification levels?
-\paragraph{irit-laas} we propose to merge sections 2.2 and 2.3 since
-they are basically the same kind of activity. It could have the added
-benefit to balance the ``size'' with respect to the verification
-activities in Sect. 2.1
-
-\begin{inoutput}
-Input: & WP2 Requirements & ??? \\
-\hline
-Output: & Model Transformation Strategy & ??? \\
-\end{inoutput}
-
-%-----------------------------------------------------------------------
-\subsection{Schedulability}
-%-----------------------------------------------------------------------
-
-\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functional properties" of Section "`Verification"}
-\marginpar{(ALL4TEC)
-We agree with the remark on schedulability (e.g.: should be removed).
-}
-\marginpar{irit-laas: Should we add something about scheduling
-  ``synthesis'' to the subsection on schedulability? Maybe the
-  scheduling method/startegy is mandated by the SRS? Same remark for
-  adding WCET analysis to section 2.4.}
- 
-Analyse schedulability tools.
-
-\begin{inoutput}
-Input: & WP2 Requirements & ??? \\
-\hline
-Output: & Schedulability Strategy & ??? \\
-\end{inoutput}
+%%-----------------------------------------------------------------------
+%\subsection{Schedulability}
+%%-----------------------------------------------------------------------
+%
+%\marginpar{CEA: this section could disappear and the content would be dispatched in subsection "`non functional properties" of Section "`Verification"}
+%\marginpar{(ALL4TEC)
+%We agree with the remark on schedulability (e.g.: should be removed).
+%}
+%\marginpar{irit-laas: Should we add something about scheduling
+%  ``synthesis'' to the subsection on schedulability? Maybe the
+%  scheduling method/startegy is mandated by the SRS? Same remark for
+%  adding WCET analysis to section 2.4.}
+% 
+%Analyse schedulability tools.
+%
+%\begin{inoutput}
+%Input: & WP2 Requirements & ??? \\
+%\hline
+%Output: & Schedulability Strategy & ??? \\
+%\end{inoutput}
 
 %-----------------------------------------------------------------------
 \subsection{Capture Additional Requirements}
@@ -544,6 +608,26 @@ Capture wishes/requirements on how to support the designer in their activities.
 Input: & Designer Wishes and Requirements & ongoing \\
 \hline
 Output: & Captured and organised designer requirements & ??? \\
+\end{inoutput}
+
+
+%-----------------------------------------------------------------------
+\subsection{Safety analyses Tools}
+%-----------------------------------------------------------------------
+
+
+The purpose of this subtask is to propose a list of tools to  support  safety  analyses activities. this task  is to  coordinate with  the requirements issues of WP2 and the needs of WP4 in regards of safety cases definition.
+
+Examples of interresting tools deals with fault-trees and FMEA generation. 
+  
+ 
+
+
+\begin{inoutput}
+Input: & WP2 Requirements & Jan-13 \\
+Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Jan-13 \\
+\hline
+Output: & safety analyses tools choices & Apr-13 \\
 \end{inoutput}
 
 
