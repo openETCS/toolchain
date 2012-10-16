@@ -34,15 +34,15 @@
 
 \author{Christophe Gaston}
 
-\affiliation{WP3.1 Task Leader (Core Tool Chain Analyses and Recommendations)}
+\affiliation{WP3a.1 Task Leader (Core Tool Chain Analyses and Recommendations)}
   
 \author{Jan Peleska}
 
-\affiliation{WP3.3 Task Leader (Define and Develop Tool Chain)}
+\affiliation{WP3a.3 Task Leader (Define and Develop Tool Chain)}
 
 \author{Jonas Helming}
 
-\affiliation{WP3.3 Task Leader (Develop Open Source Ecosystem)}
+\affiliation{WP3a.3 Task Leader (Develop Open Source Ecosystem)}
 
 \author{WP3a participants}
 
@@ -67,7 +67,7 @@ The revised DoW consists of four chapters for the four Tasks of WP3a.
 %Do not change the next three lines
 \maketitle
 \tableofcontents
-\listoffiguresandtables
+%\listoffiguresandtables
 \newpage
 %=============================
 
@@ -296,8 +296,6 @@ models (expressed in a different language) that describe the same part
 of the system, we need to show that they are consistent with each
 other.
 
-\marginpar{(Systerel) Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026. However, how to manage the requirements traceabilitty and how to deal with traceability between models and activity is a main challenge in developping critical and complex systems. Thus, we think it is important to define how to support requirement traceability.}
-
 \begin{inoutput}
 Input: & WP2: List of suitable methods (based on State of the Art Analysis) & Oct-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate a target method & Jan-13 \\
@@ -317,18 +315,21 @@ The languages and tools  of the core chain have to be complemented to support a 
 used in performing or supporting  activities, analyse their
 suitability and propose a selection for inclusion in the openETCS tool
 basis. This has to be coordinated with 
+
 \begin{itemize}
 \item the core tool chain selection (suitable  tools should be
   available), 
 \item the definition of the overall development process, as that defines the steps to be performed and 
 \item the safety analyses to  conclude if the proposed tools are suitable to  respond to standard criteria for certifiable tool chain.
 \end{itemize}
-  The flow of information in the coordination is bidirectional --e.g., the process
+
+The flow of information in the coordination is bidirectional, e.g. the process
 steps should ideally be taylored towards realizability with good
 support by available tools. Techniques complementing the
 tool-supported steps must be included in the process description. 
   
-The following activites have to be take in account :
+The following activites have to be take in account:
+
 \begin{itemize}
 \item Model Transformation and code generation 
 \item Requirement traceability
@@ -435,7 +436,7 @@ The choice of VnV methods depends on the kinds of properties which are treated.
 
 
 
-\paragraph{Functional properties}
+\paragraph{Functional Properties.}
 %.......................................................................
 
 First, we have to show that all of the components of the system behave
@@ -456,15 +457,15 @@ generation according to a suitable coverage criterion.
 
 Secondly, we have to  show that the high level requirements have been completely specified. This is usually  achieved by coverage technics. 
 
-\paragraph{Non Functional properties}
+\paragraph{Non-Functional Properties.}
 %.......................................................................
 
 Such properties include all aspects that are related to the nominal behavior
 of the components. In particular, this concerns the following points:
 \begin{itemize}
-\item schedulability and Worst Case Execution Time (WCET)
-\item data dependencies between outputs and inputs
-\item modelling and process requirements for SIL4 systems
+\item Schedulability and Worst Case Execution Time (WCET)
+\item Data dependencies between outputs and inputs
+\item Modelling and process requirements for SIL4 systems
 \end{itemize}
 
 Schedulability can be done on the models, based on hypotheses for the WCET of
@@ -477,8 +478,7 @@ analyzers should be able to handle that.
 
 Traceability  items can help  to  check  that proces requirements are satisfied, code reviews allowed to  verify modelling requirements.
 
-\paragraph{Safety properties}
-
+\paragraph{Safety properties.}
 
 This must ensure that components are always able to perform their work.
 It includes in particular:
@@ -626,7 +626,7 @@ Specifically, robust integration tests and version management for the tool chain
 
 
 
-\paragraph{Inputs and Outputs for WP3a, Section~\ref{sec:devtoolchain}.}{~}\newline
+\subsection{Inputs and Outputs for Section~\ref{sec:devtoolchain}}
 
 
 \begin{inoutput}

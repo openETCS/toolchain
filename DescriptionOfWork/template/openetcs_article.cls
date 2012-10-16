@@ -104,7 +104,7 @@ openETCS project ]
 \rhead{\textsf{\textbf{\footnotesize\thepage}}}
 \chead{}
 \lfoot{}
-\cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black} - \includegraphics[width=3em]{ccbysa.png}}
+\cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black} - \includegraphics[width=3em]{template/ccbysa.png}}
 \rfoot{}
 \newif\if@frontmatter
 \@frontmatterfalse
@@ -198,7 +198,7 @@ openETCS project ]
 \reporttype{}
 \def\distribution#1{\gdef\@distribution{#1}}
 \distribution{This work is licensed under a Creative Commons
-  Attribution-ShareAlike 3.0 Unported License.\\ \includegraphics[width=40pt]{ccbysabig.png}}
+  Attribution-ShareAlike 3.0 Unported License.\\ \includegraphics[width=40pt]{template/ccbysabig.png}}
 \def\preparedfor#1{\gdef\@preparedfor{#1}}
 \preparedfor{ITEA2 openETCS consortium\\ Europa}
 \def\contractnum#1{\gdef\@contractnum{#1}}
@@ -271,7 +271,7 @@ TERMS AND CONDITIONS.
    \begin{@coverlist}%
      \sffamily\fontseries{k}\selectfont%
      \hfill\parbox{145\p@}{\centering
-       \includegraphics[width=145\p@]{itea}\\
+       \includegraphics[width=145\p@]{template/itea.jpg}\\
        {\bfseries
          ITEA2 Project\\2012 -- 2015}}\\
        \par
