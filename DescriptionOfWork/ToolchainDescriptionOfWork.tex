@@ -14,13 +14,13 @@
 \reportnum{OETCS/WP3a/D01}
 
 %define your workpackage here
-\wp{Work-Package 3a: ``ToolsChain''}
+\wp{Work-Package 3a: ``Toolchain''}
 
 %set a title here
 \title{openETCS Toolchain WP Description of Work}
 
 %set a subtitle here
-\subtitle{A template for short document. Adapted from report template.}
+%\subtitle{Revision}
 
 %set the date of the report here
 \date{October 2012\\Revised October 2012}
@@ -28,10 +28,22 @@
 
 %define a list of authors and their affiliation here
 
-\author{Michael Jamstram}
+\author{Michael Jastram}
 
-\affiliation{WP3a leader}
+\affiliation{WP3a Leader}
+
+\author{Christophe Gaston}
+
+\affiliation{WP3.1 Task Leader (Core Tool Chain Analyses and Recommendations)}
   
+\author{Jan Peleska}
+
+\affiliation{WP3.3 Task Leader (Define and Develop Tool Chain)}
+
+\author{Jonas Helming}
+
+\affiliation{WP3.3 Task Leader (Develop Open Source Ecosystem)}
+
 \author{WP3a participants}
 
 \affiliation{OpenETCS}
@@ -45,7 +57,9 @@
 
 \begin{abstract}
 %define an abstract here
-This document contents the description of work  planned for WP3a.
+This document contains the description of work planned for WP3a.  This revision is necessary, as the workpackage from original ITEA proposal was split.  This document will be the foundation for a revision of the ITEA proposal.
+
+The revised DoW consists of four chapters for the four Tasks of WP3a.
 
 \end{abstract}
 
@@ -87,47 +101,34 @@ This document contents the description of work  planned for WP3a.
 
 
 This Work Package will provide the tool chain, based on formal methods, that is necessary to
-design, develop, verify and validate the ETCS system. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. The formal specification will be used further for verification and code generation.
-\marginpar{(Systerel) Why to restrict the use of formal methods to verification and code generation ? Formal methods can be use at the earliest steps of the design to validate models and to  verify  traceability between steps.} The tool chain must support the following tasks:
+design, develop, verify and validate the ETCS system. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. The formal specification will be used further for verification and code generation.  Other uses of the formel specification are conceivable.
+
+The tool chain must at least support the following tasks:
 
 \begin{enumerate}
 \item Support the writing of the formal ETCS system
-  specifications including modeling languages, graphical or
-    textual editors, version management, \dots.
+  description, which may include a wide range of artefacts, from requirements to actual code (and everything inbetween).  To achieve this, it will include elements like modeling languages, graphical or textual editors, version management, etc.
 
-\item Support the writing of a formal ETCS software specifications (while a system specification describes the \emph{problem}, a software specification describes the \emph{solution}).
+\item Support code generation.
 
-\item Support code generation from software specifications.
+\item Support actions like execution, debugging and simulation of some or all elements of the system description.
 
-\item Support execution, debugging and simulation of software specifications.
-
-\item Support test case/test data/test oracle generation and test procedure
-execution from a software test specification.
-\marginpar{(All4TEC) The software test cases should be scheduled at each step of
-software development life cycle (e.g.: unit test, integration test, final
-validation test)}
-\marginpar{(Syterel)  If the code is automatically  generated from the software specification, is it necessary to generate software test cases e.g unit test ? }
+\item Support the generation of elements that support testing, like test cases, test data, test oracle, test procedure execution, etc.as needed.
 
 \item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
-\marginpar{MPA: should be defined, what are its relation to the system
-    specification that is the requirement for the software
-    specification. It should either be part of it as requirements for
-    the software, or be derived from it}
+% (mj) I took this out, as 50128 is mentioned at the end of this section.
+% \item Comply with the EN 50128 requirements to tools.
 
-\item Comply with the EN 50128 requirements to tools.
+\item Support tracing of artefacts across all tools and build steps, as needed.
 
-\item Support requirements tracing across all tools and build steps.
+\item Analysis of the system description, like transitions and cooperations between models.
+% Several models could be successively performed from system to software level, and at the software level, at least two models could be necessary one for functional specification and one of design.
 
-\item Analyse transitions and cooperations between models (graphical/ textual, System/ software / test,...). Several models could be successively performed from system to software level, and at the software level, at least two models could be necessary one for functional specification and one of design.
-
-\item Provide seamless integration of the tools into one tool chain. 
-\marginpar{(Systerel) "one" integrated tool chain is not necessary the best solution  to  have a certifiable approach. Indeed integration is a source of faults introduction.}
+\item Integrate the tools as needed to support the users as efficient as possible.
  
 \end{enumerate}
 
-\marginpar{MPA: We should state that it should allow to design the
-  system/software safety case}
 The tool chain definition will benefit from other R\&D projects and off-the-shelves tools. The semantics of the modelling languages shall be carefully studied.
 
 The first goal of this WP is to identify sets of consistent languages and tools enabling the design of the system.  This will be done in close collaboration with WP2.
@@ -143,6 +144,7 @@ Quality Plan in close collaboration with WP4.
 \section{Core Tool Chain Analyses and Recommendations}
 \label{sec:core_tool}
 %=======================================================================
+
 The first task is the core tool chain analyses and recommendations. It
 is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the specifications.
 
@@ -205,12 +207,11 @@ Input: & WP2: List of suitable languages (based on State of the Art Analysis) & 
 Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
 \hline
-Output: & Formal Model representing the sample spec, one for each candidate & Feb-13 \\
-Output: & Documentation of the changes to each language used (if any) & Feb-13 \\
-Output: & Evaluation of the models against the WP2 requirements & Mar-13 \\
-Output: & Decision on the final language choice(s) & Apr-13 \\
+Output: & Formal Model representing the sample spec, one for each candidate & Mar-13 \\
+Output: & Documentation of the changes to each language used (if any) & Mar-13 \\
+Output: & Evaluation of the models against the WP2 requirements & Apr-13 \\
+Output: & Decision on the final language choice(s) & May-13 \\
 \end{inoutput}
-\marginpar{(Systerel) A template of criteria to select the language and tools should be defined.}
 
 %-----------------------------------------------------------------------
 \subsection{Identify and compare existing tools}
@@ -220,19 +221,15 @@ Output: & Decision on the final language choice(s) & Apr-13 \\
 Corresponding to Section~\ref{sec:language}, the objective of this subtask is the identification of the target tool, based on the analysis from WP2, by using it for the prototyping described in Section~\ref{sec:language}.
 
 The experience with the tools will be recorded, and the tools will be evaluated against the requirements from WP2.
-%\begin{quotation}
-%\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''.  I'll make it explicit in the input.}
-%(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
-%\end{quotation}
 
 \begin{inoutput}
 Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Oct-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate the tool & Jan-13 \\
 \hline
-Output: & Experience report for each candidate tool & Feb-13 \\
-Output: & Documentation of the changes to each tool (if any) & Feb-13 \\
-Output: & Evaluation of the tools against the WP2 requirements & Mar-13 \\
-Output: & Decision on the final tool choice(s) & Apr-13 \\
+Output: & Experience report for each candidate tool & Mar-13 \\
+Output: & Documentation of the changes to each tool (if any) & Mar-13 \\
+Output: & Evaluation of the tools against the WP2 requirements & Apr-13 \\
+Output: & Decision on the final tool choice(s) & May-13 \\
 \end{inoutput}
 
 %-----------------------------------------------------------------------
@@ -244,22 +241,9 @@ There is a distinction between tool (Section~\ref{sec:tool}) and tool platform: 
 
 As the toolchain will consist of many tools that must work together seamlessly, it should be analysed independently from the tool.  A tool will typically suggest a certain tool platform.  The aim of this task is the identification of a tool platform for each candidate tool from Section~\ref{sec:tool}.
 
-\marginpar{(ALL4TEC) an interface facility should be examined to facilitate the data exchange between the tools constituting the tool chain (e.g.: XML definition) }
 %These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used “off-the-shelves” or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
 
-\paragraph{irit-laas} we could stress that there are several levels
-of interoperability that can be supported by the toolchain. Taking the
-example of Eclipse, the most basic level provides support for plugins
-(OSGi); that is the ability to have several tools inside a common
-platform. In the project, we will also need support for
-interoperability at the data level, which can be found in the Eclipse
-world with the Modeling Framework; that is the ability to have tools
-that converse/interact using a standardized (low-level)
-syntax. Finally, we could also require interoperability at a
-``semantical'' level---for example with support for linking objects in
-different modeling languages---or ask for more basic services, such as
-serialization and versioning. We believe that, for the project, we at
-least need interoperability at the data level.
+
 
 \begin{inoutput}
 Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Oct-12 \\
@@ -274,17 +258,18 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 \subsection{Identify Development Method, including Elicitation Techniques}
 %-----------------------------------------------------------------------
 
+\marginpar{(SP) I would suggest to remove that subtask.
+- This belongs to WP2.
+- Requirement elicitation technique is not a tool, and moreover
+- ERTMS SRS (Subset-026) already include the requirements.
+}
+
 Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS SRS
 
 Without a suitable method, most tools have only limited use.  Formalising a specification of the size of ETCS requires a suitable method.  The method is probably relatively independent from the language used.
 
 The objective of this subtask is the identification of suitable methods and their evaluation while prototyping.
 
-\marginpar{(SP) I would suggest to remove that subtask.
-- This belongs to WP2.
-- Requirement elicitation technique is not a tool, and moreover
-- ERTMS SRS (Subset-026) already include the requirements.
-}
 \paragraph{Christophe GASTON}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
