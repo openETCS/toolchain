@@ -258,11 +258,6 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 \subsection{Identify Development Method, including Elicitation Techniques}
 %-----------------------------------------------------------------------
 
-\marginpar{(SP) I would suggest to remove that subtask.
-- This belongs to WP2.
-- Requirement elicitation technique is not a tool, and moreover
-- ERTMS SRS (Subset-026) already include the requirements.
-}
 
 Analyse requirement elicitation techniques in order to define a strategy to derive OpenETCS formal model requirements from ERTMS SRS
 
@@ -270,10 +265,16 @@ Without a suitable method, most tools have only limited use.  Formalising a spec
 
 The objective of this subtask is the identification of suitable methods and their evaluation while prototyping.
 
+\paragraph{(SP) I would suggest to remove that subtask.}
+- This belongs to WP2.
+- Requirement elicitation technique is not a tool, and moreover
+- ERTMS SRS (Subset-026) already include the requirements.
+
 \paragraph{Christophe GASTON}
 A classical modelling process starts by defining high level models of systems that shall be refined step by steps in order
 to make implementation choices. From a syntactical point of view, the model transformation techniques described below are good technological candidates. However, at the semantical level, refining a model into a more concrete one requires first to define a refinement correctness relation in order to ensure properties preservation. Moreover, systems that will be considered in the project will be based on concepts of interacting processes (since those systems are distributed). Therefore we need to identify techniques allowing us to start from system level properties ({\em i.e.} specifying global behaviors) and to deduce what properties each process should satisfy ({\em i.e.} what behavior should have each process) so that the global cooperation of all processes realize the system properties. In this subtask we will identify potential solutions to that problem.
-\marginpar{(ALL4TEC) Christophe Gaston comments address several previous chapters of the DOW. It could be useful to re dispatch them. }
+
+\paragraph{(ALL4TEC) Christophe Gaston comments} address several previous chapters of the DOW. It could be useful to re dispatch them.
 
 \paragraph{irit-laas} we are also in favor of removing this
 subtask. One drawback of mandating a specific method for developing
