@@ -1,4 +1,6 @@
 \documentclass{template/openetcs_article}
+\usepackage[utf8x]{inputenc}
+\usepackage{color}
 \usepackage{lipsum,url}
 \graphicspath{{./template/}{.}{./images/}}
 \begin{document}
@@ -41,7 +43,7 @@
 
 \author{Jonas Helming}
 
-\affiliation{WP3a.3 Task Leader (Develop Open Source Ecosystem)}
+\affiliation{WP3a.4 Task Leader (Develop Open Source Ecosystem)}
 
 \author{WP3a participants}
 
@@ -146,12 +148,10 @@ Quality Plan in close collaboration with WP4.
 %=======================================================================
 
 The first task is the core tool chain analyses and recommendations. It
-is concerned with languages themselves, tools for authoring, as well as 
-methods used for formalising the specification.
+is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the specifications.
 
-The core tools will be complemented by supporting tools, as outlined
-in Section~\ref{sec:supporting_tools}.  Specific attention shall be
-paid to the semantics and the traceability of each part of the chain.
+The core tools will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
+Specific attention shall be paid to the semantics and the traceability of each part of the chain.
 
 %This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation.  This task is composed of the following activities:
 
@@ -165,6 +165,7 @@ paid to the semantics and the traceability of each part of the chain.
 \subsection{Identify and define the potential modelling languages}
 \label{sec:language}
 %-----------------------------------------------------------------------
+
 The goal of this task is to identify the modelling languages that
 could fit to requirements associated to specific need of ETCS
 design. Those needs may come from specificities of ETCS and also from
@@ -202,14 +203,6 @@ languages will be subsequently evaluated against the requirements from
 WP2.  If a suitable language is identified, but no partner steps up to
 model the prototype, it will not be considered.
 
-%\marginpar{(mj) I think there is a huge overlap with WP2.  Their findings may reduce the possible target languages drastically, and by their requirement must take everything written here into account anyway.}
-%\marginpar{(SP) I agree with michael, so I removed the language analysis, and replaced it by prototyping using the candidate languages selected by WP2.}
-%WP2 shall identify the candidate languages suitable to model the Subset-026. 
-
-%The following prototypes shall be developed, one for each candidate language outlined by WP2 State of the Art Analysis, and this for a representative subset of Subset-026 requirements. 
-
-%\marginpar{(mj) I would suggest a dedicated sesction to prototyping. Keep in mind that prototyping consists of at least two parts: (1) modeling the reference requirements; (2) building a prototypical tool platform}
-
 Given that different levels of abstraction have to be addressed in the
 design phase, several languages may be necessary to handle all design
 phases. Here, the semantics of the languages is the key point; it
@@ -241,10 +234,6 @@ Section~\ref{sec:language}.
 
 The experience with the tools will be recorded, and the tools will be
 evaluated against the requirements from WP2.
-%\begin{quotation}
-%\marginpar{(mj) I'd assume that's part of WP2's ``state of the art''. I'll make it explicit in the input.}
-%(jonasHelming) I think we had this task in the FPP before, was it removed? I think that is already a task we could get started with. I think there was already a proposal on the mailing list to create wiki pages for the tools suggested by the partners. It would make sense, tough to prepare a template for this.
-%\end{quotation}
 
 \begin{inoutput}
 Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Oct-12 \\
@@ -278,7 +267,6 @@ is the identification of a tool platform for each candidate tool from
 Section~\ref{sec:tool}. In particular, the platform should provide an
 suitable to interface (e.g.~XML or JSON definition) to facilitate data
 exchanges between the various tools of the toolchain.
-%These tools enable designers to model using the languages defined before. The interoperability of the tools is a key point to address traceability of the different models in the design process. Tools may already exist and may be used ``off-the-shelves'' or may be developed in the WP. As example, if a standard modelling language is selected such as UML/SysML, open tools already exists (Topcased); if a specific modelling language is needed, WP actors have to develop a grammar or meta model to develop such particular modelling tool.
 
 Several levels of interoperability can be supported by the
 toolchain. For instance, in Eclipse, the most basic level
@@ -321,7 +309,7 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 %\end{inoutput}
 
 %=======================================================================
-\section{Supporting Tools Analyses and Recommendations}\marginpar{(CEA): we do not understand why there is such a Section 2. In fact all its content could fit in Subsection 1.2. Th e other way round: we do not see what to write in Subsection 1.2 if Section 2 exists because we necessarily overlap.}
+\section{Supporting Tools Analyses and Recommendations}\marginpar{(CEA): we do not understand why there is such a Section 2. In fact all its content could fit in Subsection 1.2. The other way round: we do not see what to write in Subsection 1.2 if Section 2 exists because we necessarily overlap.}
 \label{sec:supporting_tools}
 %=======================================================================
 
@@ -385,11 +373,9 @@ Analyse the code generation strategy.
 
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
-\hline
 Input: & WP3-a  Decision on the final language choice & Apr-13 \\
 \hline
 Output: & Model Transformation Strategy & Sept-13 \\
-\hline
 Output: & Code Generation Strategy & Sept-13 \\
 \end{inoutput}
 
@@ -402,9 +388,7 @@ Requirements elicitation is the first step of the process, but we can decide tha
 
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
-\hline
 Input: & WP3-a  Decision on the final language choice & Apr-13 \\
-\hline
 Input: & WP2 Designer Wishes and Requirements & Apr-13 \\
 \hline
 Output: & Captured and organised designer requirements & Sept-13 \\
@@ -644,22 +628,31 @@ Specifically, robust integration tests and version management for the tool chain
 
 
 \begin{inoutput}
-Input: & WP3a, Section~\ref{sec:core_tool}: Formal Model representing the sample spec, one for each candidate  & ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final language choice(s) & ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Experience report for each candidate tool in the core tool chain& ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}:Decision on the final tool choice(s)  & ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Selection of Tool Platform (and reasoning)  & ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final (development) method  & ??? \\
-Input: & WP3a, Section~\ref{sec:supporting_tools}: Verification and test tool choice(s)  & ??? \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Captured and organised designer requirements  & ??? \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Formal Model representing the sample
+spec, one for each candidate  & Mar-13 \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final language
+choice(s) & May-13 \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Experience report for each candidate
+tool in the core tool chain& Mar-13 \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final tool choice(s)
+& May-13 \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Selection of Tool Platform (and
+reasoning)  & Apr-13 \\
+Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final (development)
+method  & Apr-13 \\
+Input: & WP3a, Section~\ref{sec:supporting_tools}: Verification and test tool
+choice(s)  & Apr-13 \\
+Input: & WP3a, Section~\ref{sec:supporting_tools}: Captured and organised designer
+requirements  & Sept-13 \\
 %Input: &   & ??? \\
 %Input: &   & ??? \\
 %Input: &   & ??? \\
 \hline
-Output: & Specification of tool interoperability mechanisms & ??? \\
-Output: & Specification of core and support tool chain architecture and its embedding into the platform & ??? \\
-Output: & Infrastructure evolution strategy & ??? \\
-Output: & Tool chain qualification test suite & ??? \\
+Output: & Specification of tool interoperability mechanisms & May-13 \\
+Output: & Specification of core and support tool chain architecture and its
+embedding into the platform & June-13 \\
+Output: & Infrastructure evolution strategy & Aug-13 \\
+Output: & Tool chain qualification test suite & Aug-13 \\
 \end{inoutput}
 
 
@@ -677,9 +670,10 @@ As the license model and the open source process have high impact on the overall
 Input: & Feedback from project partners (All WPS) & continuosly \\
 Input: & WP1: Requirements for the open source ecosystm & continuosly \\
 Input: & WP1: Legal decisions & continuosly \\
-Output: & Initial proposal for license model & Aug-30 \\
-Output: & Initial proposal for open source development process & Aug-30 \\
-Output: & Initial proposal for infrastructure and tools & Aug-30 \\
+\hline
+Output: & Initial proposal for license model & Aug-13 \\
+Output: & Initial proposal for open source development process & Aug-13 \\
+Output: & Initial proposal for infrastructure and tools & Aug-13 \\
 Output: & Adaptation of license model & continuosly \\
 Output: & Adaptation of open source development process & continuosly \\
 Output: & Adaptation of infrastructure and tools & continuosly \\
