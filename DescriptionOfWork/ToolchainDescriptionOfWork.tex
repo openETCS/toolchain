@@ -11,7 +11,6 @@
 %============================
 % The document metadata is defined below
 
-
 %assign a report number here
 \reportnum{OETCS/WP3a/D01}
 
@@ -151,7 +150,7 @@ Quality Plan in close collaboration with WP4.
 The first task is the core tool chain analyses and recommendations. It
 is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the specifications.
 
-The core tool will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
+The core tools will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
 Specific attention shall be paid to the semantics and the traceability of each part of the chain.
 
 %This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation.  This task is composed of the following activities:
@@ -170,9 +169,8 @@ Specific attention shall be paid to the semantics and the traceability of each p
 The goal of this task is to identify the modelling languages that
 could fit to requirements associated to specific need of ETCS
 design. Those needs may come from specificities of ETCS and also from
-railway norms, and they will be defined by tasks of WP2
-(\textcolor{blue}{CEA: which WP2 tasks are we talking
-  about?}). Depending on recommandation of WP2, several languages may
+railway norms, and they will be defined by tasks of WP2 
+(in particular D2.3.1 - Set of requirements on modeling and D2.2.1 - Process definition). Depending on recommendations of WP2, several languages may
 be necessary to handle the different levels of abstraction of the
 whole design process.  For each candidate, a small subset of the ERTMS
 specification will be modelled. The languages may have to be adapted
@@ -205,6 +203,12 @@ languages will be subsequently evaluated against the requirements from
 WP2.  If a suitable language is identified, but no partner steps up to
 model the prototype, it will not be considered.
 
+Given that different levels of abstraction have to be addressed in the
+design phase, several languages may be necessary to handle all design
+phases. Here, the semantics of the languages is the key point; it
+shall be accurately adapted to the level of description required in
+each phase of the design.
+
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
 Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
@@ -219,14 +223,17 @@ Output: & Decision on the final language choice(s) & May-13 \\
 
 
 %-----------------------------------------------------------------------
-\subsection{Identify and compare existing tools}
+\subsection{Identify and compare existing modelling tools}
 \label{sec:tool}
 %-----------------------------------------------------------------------
 
 Corresponding to Section~\ref{sec:language}, the objective of this
-subtask is the identification of the target tool, based on the
+subtask is the identification of the core modelling tools 
+(analysis and other supporting tools will be the subject of 
+Section~\ref{sec:supporting_tools}), 
+based on the
 analysis from WP2, by using it for the prototyping described in
-Section~\ref{sec:language}.
+Section~\ref{sec:language}. 
 
 The experience with the tools will be recorded, and the tools will be
 evaluated against the requirements from WP2.
@@ -287,7 +294,7 @@ Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
 \end{inoutput}
 
 %=======================================================================
-\section{Supporting Tools Analyses and Recommendations}\marginpar{(CEA): we do not understand why there is such a Section 2. In fact all its content could fit in Subsection 1.2. The other way round: we do not see what to write in Subsection 1.2 if Section 2 exists because we necessarily overlap.}
+\section{Supporting Tools Analyses and Recommendations}
 \label{sec:supporting_tools}
 %=======================================================================
 
