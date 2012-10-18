@@ -473,44 +473,26 @@ It includes in particular:
   \item High-level safety requirements (formal raisonning, test or simulation can show safety requirements are satified).
 \end{itemize}
 
-\begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input: & Those sufficient elements of WP4 VnV Plan to evaluate tools & Jan-13 \\
-\hline
-Output: & VnV tool choice & Apr-13 \\
-\end{inoutput}
+\paragraph{Dynamic testing}
+Testing and simulation is applied,  where formal verification cannot be exhaustive, to
+achieve at least partial verification for the cases considered.
+Testing is mandatory for the development of safety-critical systems, because no
+system is allowed to become operative without experimental evidence.\\
+In the openETCS context, testing is required in two areas.
+\begin{itemize}
+\item Software and HW/SW integration testing: the overall test objective is to
+investigate the correct cooperation between several SW and HW components.
+\item Component (unit, module,  thread, process) testing to investigate 
+(1) their functional correctness  and 
+(2) the consistency between models and  object code generated from the models. 
+The former use case is mandatory if the model has not already been exhaustively 
+verified. 
+The latter use case is relevant when utilising code generators  that have not
+been validated, so that we cannot rely on the correctness of the model-to-code
+transformation.
+\end{itemize}
+In any case a high degree of automation is desirable to support an effective testing process.
 
-
-%
-%%-----------------------------------------------------------------------
-%\subsection{Test Automation Tools}
-%%-----------------------------------------------------------------------
-%
-%Testing 
-%\marginpar{(jp) Some standards (e.~g.~RTCA DO178B/C) regard testing as a part of the verification
-%process. I think it is clearer, however, to distinguish between verification in the sense of
-%static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
-%of dynamic testing in an explicit way in this DoW}
-%\marginpar{(Systerel) in railway standard (e.g. EN50128), testing and verification are linked. However  it is usual  in railway industry  to  replace unit tests for instance by formal verification and automatic code verification for functionnal  parts. Moreover integration of HW/SW is out of the scope of the OpenETCS projets (because due to industiral choices), thus we do not think this new section is necessary.} 
-%is mandatory for the development of safety-critical systems, because no system is allowed
-%to become operative without experimental evidence.
-%In all situations where formal verification cannot be exhaustive, because 
-% the size and complexity of the software or integrated HW/SW system exceeds the
-%capabilities of the formal verification power available, testing or simulation is applied 
-%to achieve at least partial verification for the cases considered.
-%
-%In the openETCS context, testing is required in two areas.
-%\begin{itemize}
-%\item Software and HW/SW integration testing: the overall test objective is to
-%investigate the correct cooperation between several SW and HW components.
-%\item Component (unit, module,  thread, process) testing to investigate (1) their functional
-%correctness 
-%and (2) the consistency between models and
-% object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
-% that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
-% \marginpar{(Systerel)  in the case of code generator, testing can be replace by the use of a second generator and some process verification.}
-%\end{itemize}
-%In any case a high degree of automation is desirable to support an effective testing process.
 %Available test tools will be analysed with respect to the following properties.
 %\begin{itemize}
 %\item Availability in open source
@@ -521,6 +503,17 @@ Output: & VnV tool choice & Apr-13 \\
 %the preferred type of models selected in WP2 / WP3a. 
 %\item Support for automated tracing from requirements to test cases to test procedures to test results and back
 %\end{itemize}
+\begin{inoutput}
+Input: & WP2 Requirements & Jan-13 \\
+Input  & WP3b formalized API & Mar-13 \\ 
+Input: & Those sufficient elements of WP4 VnV Plan to evaluate tools & Jan-13 \\
+\hline
+Output: & VnV tool choice & Apr-13 \\
+Output  &  Test automation tool choice with experience report & Apr-3 \\
+\end{inoutput}
+
+
+
 %
 %
 %
