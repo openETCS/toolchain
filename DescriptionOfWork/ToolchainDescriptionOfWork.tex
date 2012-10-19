@@ -473,25 +473,26 @@ It includes in particular:
   \item High-level safety requirements (formal raisonning, test or simulation can show safety requirements are satified).
 \end{itemize}
 
-\paragraph{Dynamic testing}
-Testing and simulation is applied,  where formal verification cannot be exhaustive, to
-achieve at least partial verification for the cases considered.
-Testing is mandatory for the development of safety-critical systems, because no
-system is allowed to become operative without experimental evidence.\\
-In the openETCS context, testing is required in two areas.
-\begin{itemize}
-\item Software and HW/SW integration testing: the overall test objective is to
-investigate the correct cooperation between several SW and HW components.
-\item Component (unit, module,  thread, process) testing to investigate 
-(1) their functional correctness  and 
-(2) the consistency between models and  object code generated from the models. 
-The former use case is mandatory if the model has not already been exhaustively 
-verified. 
-The latter use case is relevant when utilising code generators  that have not
-been validated, so that we cannot rely on the correctness of the model-to-code
-transformation.
-\end{itemize}
-In any case a high degree of automation is desirable to support an effective testing process.
+
+%\paragraph{Dynamic testing}
+%Testing and simulation is applied,  where formal verification cannot be exhaustive, to
+%achieve at least partial verification for the cases considered.
+%Testing is mandatory for the development of safety-critical systems, because no
+%system is allowed to become operative without experimental evidence.\\
+%In the openETCS context, testing is required in two areas.
+%\begin{itemize}
+%\item Software and HW/SW integration testing: the overall test objective is to
+%investigate the correct cooperation between several SW and HW components.
+%\item Component (unit, module,  thread, process) testing to investigate 
+%(1) their functional correctness  and 
+%(2) the consistency between models and  object code generated from the models. 
+%The former use case is mandatory if the model has not already been exhaustively 
+%verified. 
+%The latter use case is relevant when utilising code generators  that have not
+%been validated, so that we cannot rely on the correctness of the model-to-code
+%transformation.
+%\end{itemize}
+%In any case a high degree of automation is desirable to support an effective testing process.
 
 %Available test tools will be analysed with respect to the following properties.
 %\begin{itemize}
@@ -514,14 +515,6 @@ Output  &  Test automation tool choice with experience report & Apr-3 \\
 
 
 
-%
-%
-%
-%\begin{inoutput}
-%Input: & WP2 Requirements & ??? \\
-%\hline
-%Output: & Test automation tool choice with experience report & ??? \\
-%\end{inoutput}
 
 
 %%-----------------------------------------------------------------------
