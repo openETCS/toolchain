@@ -37,6 +37,10 @@
 
 \affiliation{WP3a.1 Task Leader (Core Tool Chain Analyses and Recommendations)}
   
+\author{Marielle Petit-Doche}
+
+\affiliation{WP3a.2 Task Leader (Supporting Tools Analyses and Recommendations)}
+  
 \author{Jan Peleska}
 
 \affiliation{WP3a.3 Task Leader (Define and Develop Tool Chain)}
@@ -315,14 +319,34 @@ steps should ideally be tailored towards realizability with good
 support by available tools. Techniques complementing the
 tool-supported steps must be included in the process description. 
   
-The following activities have to be take in account:
+
+
+%-----------------------------------------------------------------------
+\subsection{Identify and define the supporting tools and methods}
+%-----------------------------------------------------------------------
+
+
+The goal of this subtask  is to identify  the supporting methods and tools that could complete the tool core chain to  achieve the WP2 requirements.
+
+The following activities  have already be identified and detailled in the following sections :
 
 \begin{itemize}
-\item Model Transformation and code generation 
+\item Model Transformation, code generation,
 \item Requirement traceability
 \item Validation and verification
 \item Safety analyses Tools
 \end{itemize}
+
+\begin{inoutput}
+Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
+Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
+Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
+Input: & WP2: Definition of the process & Jan-13 \\
+Input: & WP3a: Decision of the final choice for the core language & May-13 \\
+\hline
+Output: & Evaluation of supporting tools and methods against the WP2 requirements and task 1 choices & June-13 \\
+Output: & Decision on the supporting tools choice(s) & June-13 \\
+\end{inoutput}
 
 
 %-----------------------------------------------------------------------
@@ -432,7 +456,7 @@ high-level requirements at each stage of specification, and in turn that the cod
 specifications. 
 
 One possibility is to use a completely certified toolchain up
-to code generation, some formal methods have shown their effectiveness in many industrial cases. Failing that ({\it i.e.} if not all the code is generated
+to code generation, some formal methods (for aexample the correct-by construction approaches) have shown their effectiveness in many industrial cases. Failing that ({\it i.e.} if not all the code is generated
 and/or if the generation cannot be trusted), we will need to have formal
 specifications and to verify the code against them. Hoare logic-based tools
 seem like a good approach in this case, as well as of course test cases
@@ -460,6 +484,15 @@ subsection, some verification on the code itself might be required. Static
 analysers should be able to handle that.
 
 Traceability  items can help  to  check  that process requirements are satisfied, code reviews allowed to  verify modelling requirements.
+
+\paragraph{API and modules interfaces properties}
+
+A main part of the VnV activity is to check that all components of the system (software and hardware components) can be integrated together.
+
+The first step  is to integrate the software components, depending of the choice of the modeling approach  formal proof or testing activities could be used to achieved the VnV.
+
+The second step is to  integrate the software and hardware parts. Dynamic testing is currently  the more convenient approach  to  validate this integration.
+
 
 \paragraph{Safety properties.}
 
