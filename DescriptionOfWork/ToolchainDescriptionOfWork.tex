@@ -37,6 +37,10 @@
 
 \affiliation{WP3a.1 Task Leader (Core Tool Chain Analyses and Recommendations)}
   
+\author{Marielle Petit-Doche}
+
+\affiliation{WP3a.2 Task Leader (Supporting Tools Analyses and Recommendations)}
+  
 \author{Jan Peleska}
 
 \affiliation{WP3a.3 Task Leader (Define and Develop Tool Chain)}
@@ -102,19 +106,19 @@ The revised DoW consists of four chapters for the four Tasks of WP3a.
 \section*{Introduction}
 
 This Work Package will provide the tool chain, based on formal methods, that is necessary to
-design, develop, verify and validate the ETCS system. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. The formal specification will be used further for verification and code generation.  Other uses of the formel specification are conceivable.
+design, develop, verify and validate the ETCS system. This tool chain will encompass all description levels of the system design from holistic viewpoint to code generation. Specific attention shall be paid to the semantics and the traceability of each part of the chain. The formal specification will be used further for verification and code generation.  Other uses of the formal specification are conceivable.
 
 The tool chain must at least support the following tasks:
 
 \begin{enumerate}
 \item Support the writing of the formal ETCS system
-  description, which may include a wide range of artefacts, from requirements to actual code (and everything inbetween).  To achieve this, it will include elements like modeling languages, graphical or textual editors, version management, etc.
+  description, which may include a wide range of artefacts, from requirements to actual code (and everything in-between).  To achieve this, it will include elements like modelling languages, graphical or textual editors, version management, etc.
 
 \item Support code generation.
 
 \item Support actions like execution, debugging and simulation of some or all elements of the system description.
 
-\item Support the generation of elements that support testing, like test cases, test data, test oracle, test procedure execution, etc.as needed.
+\item Support the generation of elements that support testing, like test cases, test data, test oracle, test procedure execution, etc. as needed.
 
 \item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
@@ -189,10 +193,10 @@ meta-metamodels\footnote{Recall that the meta-metamodel specifies the
 support language extensions that may become necessary for novel
 releases of the ERTMS specification the in the future.  Since no
 language is universal, and thus not able to address all aspects of
-design needs, the proposed approach is lucky to involve several
+design needs, the proposed approach is likely to involve several
 modelling languages supporting different viewpoints and working at
 different levels of abstractions. With this kind of approach, we will
-need to check the compatibility of the semantics of the modeling
+need to check the compatibility of the semantics of the modelling
 languages that address overlapping viewpoints. There are two problems
 here. First, when dealing with an heterogeneous specification, we need
 a common semantical basis to check the compatibility of the
@@ -203,11 +207,11 @@ languages will be subsequently evaluated against the requirements from
 WP2.  If a suitable language is identified, but no partner steps up to
 model the prototype, it will not be considered.
 
-Given that different levels of abstraction have to be addressed in the
-design phase, several languages may be necessary to handle all design
-phases. Here, the semantics of the languages is the key point; it
-shall be accurately adapted to the level of description required in
-each phase of the design.
+%Given that different levels of abstraction have to be addressed in the
+%design phase, several languages may be necessary to handle all design
+%phases. Here, the semantics of the languages is the key point; it
+%shall be accurately adapted to the level of description required in
+%each phase of the design.
 
 \begin{inoutput}
 Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
@@ -282,7 +286,7 @@ ability to have tools that converse/interact using a standardized
 a ``semantical'' level---for example with support for linking objects
 in different modeling languages---or ask for more basic services, such
 as serialization and versioning. We believe that, for the project, we
-at least need interoperability at the data level.
+at least need interoperability at the data level.  Please note that this example is indicative and does not represent a technology decision.
 
 \begin{inoutput}
 Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Oct-12 \\
@@ -311,18 +315,38 @@ basis. This has to be coordinated with
 \end{itemize}
 
 The flow of information in the coordination is bidirectional, e.g. the process
-steps should ideally be taylored towards realizability with good
+steps should ideally be tailored towards realizability with good
 support by available tools. Techniques complementing the
 tool-supported steps must be included in the process description. 
   
-The following activites have to be take in account:
+
+
+%-----------------------------------------------------------------------
+\subsection{Identify and define the supporting tools and methods}
+%-----------------------------------------------------------------------
+
+
+The goal of this subtask  is to identify  the supporting methods and tools that could complete the tool core chain to  achieve the WP2 requirements.
+
+The following activities  have already be identified and detailed in the following sections :
 
 \begin{itemize}
-\item Model Transformation and code generation 
+\item Model Transformation, code generation,
 \item Requirement traceability
 \item Validation and verification
 \item Safety analyses Tools
 \end{itemize}
+
+\begin{inoutput}
+Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
+Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
+Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
+Input: & WP2: Definition of the process & Jan-13 \\
+Input: & WP3a: Decision of the final choice for the core language & May-13 \\
+\hline
+Output: & Evaluation of supporting tools and methods against the WP2 requirements and task 1 choices & June-13 \\
+Output: & Decision on the supporting tools choice(s) & June-13 \\
+\end{inoutput}
 
 
 %-----------------------------------------------------------------------
@@ -369,7 +393,7 @@ Output: & Code Generation Strategy & Sept-13 \\
 \subsection{Requirement traceability}
 %-----------------------------------------------------------------------
 
-Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026, or selected in WP2. However, how to manage the requirements traceability and how to deal with coverage and traceability of the requirements on models. Thus this activity is a main challenge in developping critical and complex systems.
+Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026, or selected in WP2. However, how to manage the requirements traceability and how to deal with coverage and traceability of the requirements on models. Thus this activity is a main challenge in developing critical and complex systems.
 
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
@@ -392,9 +416,9 @@ verification of the \emph{safety aspect} of every major design
 step. They also list constraints on methods (and tools) which may be used for these
 purposes.  On the other hand, any viable development process for a
 complex real-time system like the OBU needs early validation of design
-artifacts. This concerns for instance functionality and real-time
+artefacts This concerns for instance functionality and real-time
 properties beyond the safety-related issues. The formalisation of
-design artifacts which comes with a model-based process offers the
+design artefacts which comes with a model-based process offers the
 possibility to employ tools to a substantial degree for these
 activities. 
 
@@ -407,14 +431,14 @@ activities.
 
 Validation and Verification activities have different goals and methods :
 \begin{description}
-\item [Validation] aims to prove that the build software fulfills the user needs, in particular with respect to safety and quality requirements.
-\item [Verification] aims to prove that the build software fulfills the requirements of that
+\item [Validation] aims to prove that the build software fulfils the user needs, in particular with respect to safety and quality requirements.
+\item [Verification] aims to prove that the build software fulfils the requirements of that
 phase with respect to completeness, correctness and consistency.
 \end{description}
 
 
 
-The choice of VnV methods depends on the kinds of properties which are treated.
+The choice of V\&V methods depends on the kinds of properties which are treated.
 
 
 
@@ -432,7 +456,7 @@ high-level requirements at each stage of specification, and in turn that the cod
 specifications. 
 
 One possibility is to use a completely certified toolchain up
-to code generation, some formal methods have shown their effectiveness in many industrial cases. Failing that ({\it i.e.} if not all the code is generated
+to code generation, some formal methods (for example the correct-by construction approaches) have shown their effectiveness in many industrial cases. Failing that ({\it i.e.} if not all the code is generated
 and/or if the generation cannot be trusted), we will need to have formal
 specifications and to verify the code against them. Hoare logic-based tools
 seem like a good approach in this case, as well as of course test cases
@@ -457,9 +481,19 @@ the code, the underlying hardware, and the compilation toolchain.
 
 Data dependencies can also be assessed on the models, but as in the previous
 subsection, some verification on the code itself might be required. Static
-analyzers should be able to handle that.
+analysers should be able to handle that.
 
-Traceability  items can help  to  check  that proces requirements are satisfied, code reviews allowed to  verify modelling requirements.
+Traceability  items can help  to  check  that process requirements are satisfied, code reviews allowed to  verify modelling requirements.
+
+\paragraph{API and modules interfaces properties}
+
+A main part of the V\&V activity is to check that all components of the system (software and hardware components) can be integrated together.
+
+The first step  is to integrate the software components, depending of the choice of the modeling approach  formal proof or testing activities could be used to achieved the V\&V.
+
+The second step is to  integrate the software and hardware parts. Dynamic
+testing with test automation tool  is currently  the more convenient approach  to  validate this integration.
+
 
 \paragraph{Safety properties.}
 
@@ -470,47 +504,30 @@ It includes in particular:
         not guarantee it by construction. Static analysis can be employed
         there also).
   \item Fault tolerance against unexpected input (safety analyses can raise this unexpected input).
-  \item High-level safety requirements (formal raisonning, test or simulation can show safety requirements are satified).
+  \item High-level safety requirements (formal reasoning, test or simulation can show safety requirements are satisfied).
 \end{itemize}
 
-\begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input: & Those sufficient elements of WP4 VnV Plan to evaluate tools & Jan-13 \\
-\hline
-Output: & VnV tool choice & Apr-13 \\
-\end{inoutput}
 
-
-%
-%%-----------------------------------------------------------------------
-%\subsection{Test Automation Tools}
-%%-----------------------------------------------------------------------
-%
-%Testing 
-%\marginpar{(jp) Some standards (e.~g.~RTCA DO178B/C) regard testing as a part of the verification
-%process. I think it is clearer, however, to distinguish between verification in the sense of
-%static analysis, abstract interpretation, formal verification, WCET analysis and testing in the sense
-%of dynamic testing in an explicit way in this DoW}
-%\marginpar{(Systerel) in railway standard (e.g. EN50128), testing and verification are linked. However  it is usual  in railway industry  to  replace unit tests for instance by formal verification and automatic code verification for functionnal  parts. Moreover integration of HW/SW is out of the scope of the OpenETCS projets (because due to industiral choices), thus we do not think this new section is necessary.} 
-%is mandatory for the development of safety-critical systems, because no system is allowed
-%to become operative without experimental evidence.
-%In all situations where formal verification cannot be exhaustive, because 
-% the size and complexity of the software or integrated HW/SW system exceeds the
-%capabilities of the formal verification power available, testing or simulation is applied 
-%to achieve at least partial verification for the cases considered.
-%
+%\paragraph{Dynamic testing}
+%Testing and simulation is applied,  where formal verification cannot be exhaustive, to
+%achieve at least partial verification for the cases considered.
+%Testing is mandatory for the development of safety-critical systems, because no
+%system is allowed to become operative without experimental evidence.\\
 %In the openETCS context, testing is required in two areas.
 %\begin{itemize}
 %\item Software and HW/SW integration testing: the overall test objective is to
 %investigate the correct cooperation between several SW and HW components.
-%\item Component (unit, module,  thread, process) testing to investigate (1) their functional
-%correctness 
-%and (2) the consistency between models and
-% object code generated from the models. The former use case is mandatory if the model has not already been exhaustively verified. The latter use case is relevant when utilising code generators 
-% that have not been validated, so that we cannot rely on the correctness of the model-to-code transformation.
-% \marginpar{(Systerel)  in the case of code generator, testing can be replace by the use of a second generator and some process verification.}
+%\item Component (unit, module,  thread, process) testing to investigate 
+%(1) their functional correctness  and 
+%(2) the consistency between models and  object code generated from the models. 
+%The former use case is mandatory if the model has not already been exhaustively 
+%verified. 
+%The latter use case is relevant when utilising code generators  that have not
+%been validated, so that we cannot rely on the correctness of the model-to-code
+%transformation.
 %\end{itemize}
 %In any case a high degree of automation is desirable to support an effective testing process.
+
 %Available test tools will be analysed with respect to the following properties.
 %\begin{itemize}
 %\item Availability in open source
@@ -521,14 +538,17 @@ Output: & VnV tool choice & Apr-13 \\
 %the preferred type of models selected in WP2 / WP3a. 
 %\item Support for automated tracing from requirements to test cases to test procedures to test results and back
 %\end{itemize}
-%
-%
-%
-%\begin{inoutput}
-%Input: & WP2 Requirements & ??? \\
-%\hline
-%Output: & Test automation tool choice with experience report & ??? \\
-%\end{inoutput}
+\begin{inoutput}
+Input: & WP2 Requirements & Jan-13 \\
+Input  & WP3b formalized API & Mar-13 \\ 
+Input: & Those sufficient elements of WP4 V\&V Plan to evaluate tools & Jan-13 \\
+\hline
+Output: & V\&V tool choice & Apr-13 \\
+Output  &  Test automation tool choice with experience report & Apr-13 \\
+\end{inoutput}
+
+
+
 
 
 %%-----------------------------------------------------------------------
@@ -559,7 +579,7 @@ Output: & VnV tool choice & Apr-13 \\
 
 The purpose of this subtask is to propose a list of tools to  support  safety  analyses activities. This task  is to  coordinate with  the requirements issues of WP2 and the needs of WP4 in regards of safety cases definition.
 
-Examples of interresting tools deals with fault-trees and FMEA generation, that can be based on formal methods (automata, pre-post condition logics,...) 
+Examples of interesting tools deals with fault-trees and FMEA generation, that can be based on formal methods (automata, pre-post condition logics,...) 
   
  
 \begin{inoutput}
@@ -647,21 +667,21 @@ Output: & Tool chain qualification test suite & Aug-13 \\
 %=======================================================================
 The goal of this task is the development of an open-source ecosystem for the toolchain under development and all its components as well as for the implementation of the ETCS system. This ecosystem defines the license model to be used, the project infrastructure, usage and contributions of existing open-source projects and the process to coordinate the development efforts from different partners. Additionally as part of this task, suggestions and guidelines for the projects infrastructure are developed. The goal of the ecosystem is to facilitate the collaboration of the industrial partners and enable long-term maintenance of the outcome of the development. For the ecosystem, well-established open source ecosystems, such as the Eclipse ecosystem shall be used as templates.
 
-As the development of an ecosystem needs to react on the on-going project and adapt to needs, the ecosystem has to evolve over the project duration. As a first output, this taks will produce initial proposals for the license model, the process, as well as the infrastructure. Subsequently, these proposals can be adapted based on the feedback from all project partners.
+As the development of an ecosystem needs to react on the on-going project and adapt to needs, the ecosystem has to evolve over the project duration. As a first output, this task will produce initial proposals for the license model, the process, as well as the infrastructure. Subsequently, these proposals can be adapted based on the feedback from all project partners.
 
 As the license model and the open source process have high impact on the overall project, the task will only propose solutions. These solutions are based on requirements given by WP1. Final decisions in this area have to be made by WP1. 
 
 \begin{inoutput}
-Input: & Feedback from project partners (All WPS) & continuosly \\
-Input: & WP1: Requirements for the open source ecosystm & continuosly \\
-Input: & WP1: Legal decisions & continuosly \\
+Input: & Feedback from project partners (All WPS) & continuously \\
+Input: & WP1: Requirements for the open source ecosystem & continuously \\
+Input: & WP1: Legal decisions & continuously \\
 \hline
 Output: & Initial proposal for license model & Aug-13 \\
 Output: & Initial proposal for open source development process & Aug-13 \\
 Output: & Initial proposal for infrastructure and tools & Aug-13 \\
-Output: & Adaptation of license model & continuosly \\
-Output: & Adaptation of open source development process & continuosly \\
-Output: & Adaptation of infrastructure and tools & continuosly \\
+Output: & Adaptation of license model & continuously \\
+Output: & Adaptation of open source development process & continuously \\
+Output: & Adaptation of infrastructure and tools & continuously \\
 \end{inoutput}
 
 
