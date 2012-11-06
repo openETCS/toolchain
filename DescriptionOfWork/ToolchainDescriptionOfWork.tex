@@ -112,13 +112,13 @@ The tool chain must at least support the following tasks:
 
 \begin{enumerate}
 \item Support the writing of the formal ETCS system
-  description, which may include a wide range of artefacts, from requirements to actual code (and everything in-between).  To achieve this, it will include elements like modelling languages, graphical or textual editors, version management, etc.
+  description, which may include a wide range of artefacts, from requirements to actual code (and everything in-between).  To achieve this, it will include elements like means of description (e.g. modelling languages), graphical or textual editors, version management, etc.
 
 \item Support code generation.
 
 \item Support actions like execution, debugging and simulation of some or all elements of the system description.
 
-\item Support the generation of elements that support testing, like test cases, test data, test oracle, test procedure execution, etc. as needed.
+\item Support the generation of elements that are needed for testing, like test cases, test data, test oracle, test procedure execution, etc.
 
 \item Support the verification and validation of the various artefacts, including the formal ETCS specification against the textual ETCS specification.
 
@@ -140,7 +140,7 @@ The first goal of this WP is to identify sets of consistent languages and tools 
 
 In order to be able to progress without depending too much on WP2 requirements and other deliverables, the subtasks shall make use of prototyping in order to gain knowledge regarding the possible modelling languages and tool platforms.  
 
-Compliance with standards as CENELEC or 50128 could have a
+Compliance with CENELEC standards EN 50126, EN 50128 and EN 50129 could have a
 significant impact in terms of workload. Moreover it should be included at the
 beginning of the tools development in the Development Plan or in a Safety or
 Quality Plan in close collaboration with WP4.
@@ -152,7 +152,7 @@ Quality Plan in close collaboration with WP4.
 %=======================================================================
 
 The first task is the core tool chain analyses and recommendations. It
-is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the specifications.
+is concerned with the languages themselves, the tools for authoring, as well as the methods used for formalising the requirements and specifications.
 
 The core tools will be complemented by supporting tools, as outlined in Section~\ref{sec:supporting_tools}.
 Specific attention shall be paid to the semantics and the traceability of each part of the chain.
@@ -166,7 +166,7 @@ Specific attention shall be paid to the semantics and the traceability of each p
 %\end{quotation}
 
 %-----------------------------------------------------------------------
-\subsection{Identify and define the potential modelling languages}
+\subsection{Identify and define the potential means of description}
 \label{sec:language}
 %-----------------------------------------------------------------------
 
@@ -311,7 +311,7 @@ basis. This has to be coordinated with
 \item the core tool chain selection (suitable  tools should be
   available), 
 \item the definition of the overall development process, as that defines the steps to be performed and 
-\item the safety analyses to  conclude if the proposed tools are suitable to  respond to standard criteria for certifiable tool chain.
+\item the safety analyses to  conclude if the proposed tools are suitable to fulfil standard criteria for a certifiable tool chain.
 \end{itemize}
 
 The flow of information in the coordination is bidirectional, e.g. the process
@@ -338,8 +338,8 @@ The following activities  have already be identified and detailed in the followi
 \end{itemize}
 
 \begin{inoutput}
-Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
-Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
+Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
+Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
 Input: & WP2: Definition of the process & Jan-13 \\
 Input: & WP3a: Decision of the final choice for the core language & May-13 \\
@@ -382,7 +382,7 @@ Analyse the code generation strategy.
 
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
-Input: & WP3-a  Decision on the final language choice & Apr-13 \\
+Input: & WP3-a  Decision on the final language choice & May-13 \\
 \hline
 Output: & Model Transformation Strategy & Sept-13 \\
 Output: & Code Generation Strategy & Sept-13 \\
@@ -397,8 +397,8 @@ Requirements elicitation is the first step of the process, but we can decide tha
 
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
-Input: & WP3-a  Decision on the final language choice & Apr-13 \\
-Input: & WP2 Designer Wishes and Requirements & Apr-13 \\
+Input: & WP3-a  Decision on the final language choice & May-13 \\
+Input: & WP2 Designer Wishes and Requirements & March-13 \\
 \hline
 Output: & Captured and organised designer requirements & Sept-13 \\
 \end{inoutput}
@@ -411,7 +411,7 @@ Output: & Captured and organised designer requirements & Sept-13 \\
 
 In the development of a safety-critical rail system like the ETCS OBU,
 several kinds of verification and validation activities have to be
-performed. One the one hand, the relevant standards require the
+performed. On the one hand, the relevant standards require the
 verification of the \emph{safety aspect} of every major design
 step. They also list constraints on methods (and tools) which may be used for these
 purposes.  On the other hand, any viable development process for a
@@ -483,7 +483,7 @@ Data dependencies can also be assessed on the models, but as in the previous
 subsection, some verification on the code itself might be required. Static
 analysers should be able to handle that.
 
-Traceability  items can help  to  check  that process requirements are satisfied, code reviews allowed to  verify modelling requirements.
+Traceability  items can help  to  check  that process requirements are satisfied, code reviews allowed to  verify modelling requirements.  It is also required by all standards.
 
 \paragraph{API and modules interfaces properties}
 
@@ -541,10 +541,10 @@ It includes in particular:
 \begin{inoutput}
 Input: & WP2 Requirements & Jan-13 \\
 Input  & WP3b formalized API & Mar-13 \\ 
-Input: & Those sufficient elements of WP4 V\&V Plan to evaluate tools & Jan-13 \\
+Input: & Those sufficient elements of WP4 V\&V Plan to evaluate tools & Mar-13 \\
 \hline
-Output: & V\&V tool choice & Apr-13 \\
-Output  &  Test automation tool choice with experience report & Apr-13 \\
+Output: & V\&V tool choice & June-13 \\
+Output  &  Test automation tool choice with experience report & June-13 \\
 \end{inoutput}
 
 
@@ -583,10 +583,10 @@ Examples of interesting tools deals with fault-trees and FMEA generation, that c
   
  
 \begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Jan-13 \\
+Input: & WP2 Requirements & Mar-13 \\
+Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Apr-13 \\
 \hline
-Output: & safety analyses tools choices & Apr-13 \\
+Output: & safety analyses tools choices & Sept-13 \\
 \end{inoutput}
 
 
@@ -602,7 +602,7 @@ This subtask defines and develops the tool chain and the infrastructure enabling
 \subsection{Overall Tool Architecture}
 %-----------------------------------------------------------------------
 
-Once language, tools and tool platform have been identified, the architecture can be defined using that as the foundation.  The architecture also contains the specification of tool interaction mechanisms (model changes might trigger code generators, model or code changes might trigger regression tests etc.) 
+Once language, method, tools and tool platform have been identified, the architecture can be defined using that as the foundation.  The architecture also contains the specification of tool interaction mechanisms (model changes might trigger code generators, model or code changes might trigger regression tests etc.) 
 
 Note that this may not be that much work:  A tool platform like Eclipse essentially defines the overall architecture already.  Further, using an agile approach, it is perfectly acceptable if the system changes over time (i.e. APIs change, etc.), as long as the proper mechanisms are in place, like automated testing.
 
@@ -614,7 +614,7 @@ To allow robust distributed development, care must be taken in setting up a func
 \begin{itemize}
 \item a continuous automated build system, 
 \item mechanisms to upgrade tools in the platform, 
-\item mechanisms to add tools to the chain at a later stage,
+\item mechanisms to add tools to the chain at a later stage (without breaking compatibility),
 \item tool chain documentation system. 
 \end{itemize}
  The effort for this must not be underestimated.
