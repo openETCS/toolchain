@@ -171,10 +171,11 @@ Specific attention shall be paid to the semantics and the traceability of each p
 %-----------------------------------------------------------------------
 
 The goal of this task is to identify the modelling languages that
-could fit to requirements associated to specific need of ETCS
-design. Those needs may come from specificities of ETCS and also from
-railway norms, and they will be defined by tasks of WP2 
-(in particular D2.3.1 - Set of requirements on modeling and D2.2.1 - Process definition). Depending on recommendations of WP2, several languages may
+could fit the requirements associated to the specific needs of ETCS
+design and railway norms. Those needs will be defined by tasks of WP2 
+(in particular D2.3.1 - Set of requirements on modeling and 
+D2.2.1 - Process definition). 
+Depending on recommendations of WP2, several languages may
 be necessary to handle the different levels of abstraction of the
 whole design process.  For each candidate, a small subset of the ERTMS
 specification will be modelled. The languages may have to be adapted
@@ -192,8 +193,8 @@ meta-metamodels\footnote{Recall that the meta-metamodel specifies the
   in a DSL.}  will be analysed with respect to their capabilities to
 support language extensions that may become necessary for novel
 releases of the ERTMS specification the in the future.  Since no
-language is universal, and thus not able to address all aspects of
-design needs, the proposed approach is likely to involve several
+language is universal (i.e. able to address all aspects of
+design needs) the proposed approach is likely to involve several
 modelling languages supporting different viewpoints and working at
 different levels of abstractions. With this kind of approach, we will
 need to check the compatibility of the semantics of the modelling
@@ -214,8 +215,8 @@ model the prototype, it will not be considered.
 %each phase of the design.
 
 \begin{inoutput}
-Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Oct-12 \\
-Input: & WP2: Small subset of ERTMS requirements that is representative & Oct-12 \\
+Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
+Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
 \hline
 Output: & Formal Model representing the sample spec, one for each candidate & Mar-13 \\
@@ -240,16 +241,17 @@ analysis from WP2, by using it for the prototyping described in
 Section~\ref{sec:language}. 
 
 The experience with the tools will be recorded, and the tools will be
-evaluated against the requirements from WP2.
+evaluated against the requirements from WP2. In particular, the compliance of
+the candidate tools with respect to EN50128 constraints will be investigated.
 
 \begin{inoutput}
-Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Oct-12 \\
+Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Nov-12 \\
 Input: & Those WP2 Requirements that are sufficient to evaluate the tool & Jan-13 \\
 \hline
-Output: & Experience report for each candidate tool & Mar-13 \\
-Output: & Documentation of the changes to each tool (if any) & Mar-13 \\
-Output: & Evaluation of the tools against the WP2 requirements & Apr-13 \\
-Output: & Decision on the final tool choice(s) & May-13 \\
+Output: & Experience report for each candidate tool & Apr-13 \\
+Output: & Documentation of the changes to each tool (if any) & Apr-13 \\
+Output: & Evaluation of the tools against the WP2 requirements & May-13 \\
+Output: & Decision on the final tool choice(s) & Jun-13 \\
 \end{inoutput}
 
 
@@ -286,15 +288,19 @@ ability to have tools that converse/interact using a standardized
 a ``semantical'' level---for example with support for linking objects
 in different modeling languages---or ask for more basic services, such
 as serialization and versioning. We believe that, for the project, we
-at least need interoperability at the data level.  Please note that this example is indicative and does not represent a technology decision.
+at least need interoperability at the data level. Please note that this 
+example is indicative and does not represent a technology decision.
+
+As with modelling tools, tool platforms will be evaluated against WP2 
+requirements, including in particular compliance against EN50128 constraints.
 
 \begin{inoutput}
-Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Oct-12 \\
+Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Nov-12 \\
 & Those WP2 Requirements that are sufficient to evaluate a target language & Dec-12 \\
 \hline
-Output: & Evaluation of each tool platform against WP2 requirements, independent of target tool & Feb-13 \\
-Output: & Evaluation of tool platform in the context of specific target tools & Mar-13 \\
-Output: & Selection of Tool Platform (and reasoning) & Apr-13 \\
+Output: & Evaluation of each tool platform against WP2 requirements, independent of target tool & Mar-13 \\
+Output: & Evaluation of tool platform in the context of specific target tools & Apr-13 \\
+Output: & Selection of Tool Platform (and reasoning) & May-13 \\
 \end{inoutput}
 
 %=======================================================================
