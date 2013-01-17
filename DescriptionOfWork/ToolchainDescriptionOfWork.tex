@@ -12,7 +12,7 @@
 % The document metadata is defined below
 
 %assign a report number here
-\reportnum{OETCS/WP3a/D01}
+\reportnum{OETCS/WP7/D01}
 
 %define your workpackage here
 \wp{Work-Package 3a: ``Toolchain''}
@@ -31,25 +31,25 @@
 
 \author{Michael Jastram}
 
-\affiliation{WP3a Leader}
+\affiliation{WP7 Leader}
 
 \author{Marielle Petit-Doche (interim)}
 
-\affiliation{WP3a.1 Task Leader (Primary Tool Chain Analyses and Recommendations)}
+\affiliation{WP7.1 Task Leader (Primary Tool Chain Analyses and Recommendations)}
   
 \author{Marielle Petit-Doche}
 
-\affiliation{WP3a.2 Task Leader (Secondary Tools Analyses and Recommendations)}
+\affiliation{WP7.2 Task Leader (Secondary Tools Analyses and Recommendations)}
   
 \author{Jan Peleska}
 
-\affiliation{WP3a.3 Task Leader (Define and Develop Tool Chain)}
+\affiliation{WP7.3 Task Leader (Define and Develop Tool Chain)}
 
 \author{Jonas Helming}
 
-\affiliation{WP3a.4 Task Leader (Develop Open Source Ecosystem)}
+\affiliation{WP7.4 Task Leader (Develop Open Source Ecosystem)}
 
-\author{WP3a participants}
+\author{WP7 participants}
 
 \affiliation{OpenETCS}
     
@@ -62,9 +62,9 @@
 
 \begin{abstract}
 %define an abstract here
-This document contains the description of work planned for WP3a.  This revision is necessary, as the workpackage from original ITEA proposal was split.  This document will be the foundation for a revision of the ITEA proposal.
+This document contains the description of work planned for WP7.  This revision is necessary, as the workpackage from original ITEA proposal was split.  This document will be the foundation for a revision of the ITEA proposal.
 
-The revised DoW consists of four chapters for the four Tasks of WP3a.
+The revised DoW consists of four chapters for the four Tasks of WP7.
 
 \end{abstract}
 
@@ -162,8 +162,16 @@ Specific attention shall be paid to the semantics and the traceability of each p
 
 %\begin{quotation}
 %\marginpar{(mj) That's a good idea that supports Stan's idea of using prototypes.}
-%(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP3a I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that? 
+%(jonasHelming) For both, 1.1 as well as 1.2 it would be helpful to have a reference set of ERTMS requirements from WP2. This should be small sub-set of the specification, but be somehow representative. Using this sub-set would ake it much easier to compare different languages and tools. It can be used as a test set. I think this might be even more useful then detailed requirements for the toolchain, as we have quite some compentence on that in WP7 I think. Of course we will work on the requirements from WP2, but to get startedt with a comparison of existing tools, I think a test set might be the most required piece. Any opinions on that? 
 %\end{quotation}
+
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\textwidth,page=1]{project_plan/WP7_Project_Management.pdf}
+	\caption{Inputs, Outputs and deliverables for WP7.1}
+	\label{fig:wrspm}
+	\end{center}
+\end{figure}
 
 %-----------------------------------------------------------------------
 \subsection{Identify and define the potential means of description}
@@ -214,22 +222,20 @@ model the prototype, it will not be considered.
 %shall be accurately adapted to the level of description required in
 %each phase of the design.
 
-\begin{inoutput}
-Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
-Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
-Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
-\hline
-Output: & Formal Model representing the sample spec, one for each candidate & Mar-13 \\
-Output: & Documentation of the changes to each language used (if any) & Mar-13 \\
-Output: & Evaluation of the models against the WP2 requirements & Apr-13 \\
-Output: & Decision on the final language choice(s) & May-13 \\
-\hline
-Deliverable: & Report on the candidate languages 
-(sample model, evaluation against requirements and evolution needed) & Apr-13 \\
-Deliverable: & Report on the final language choice(s) & May-13 \\
-\end{inoutput}
-
-
+%\begin{inoutput}
+%Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
+%Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
+%Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
+%\hline
+%Output: & Formal Model representing the sample spec, one for each candidate & Mar-13 \\
+%Output: & Documentation of the changes to each language used (if any) & Mar-13 \\
+%Output: & Evaluation of the models against the WP2 requirements & Apr-13 \\
+%Output: & Decision on the final language choice(s) & May-13 \\
+%\hline
+%Deliverable: & Report on the candidate languages 
+%(sample model, evaluation against requirements and evolution needed) & Apr-13 \\
+%Deliverable: & Report on the final language choice(s) & May-13 \\
+%\end{inoutput}
 
 %-----------------------------------------------------------------------
 \subsection{Identify and compare existing modelling tools}
@@ -248,19 +254,19 @@ The experience with the tools will be recorded, and the tools will be
 evaluated against the requirements from WP2. In particular, the compliance of
 the candidate tools with respect to EN50128 constraints will be investigated.
 
-\begin{inoutput}
-Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Nov-12 \\
-Input: & Those WP2 Requirements that are sufficient to evaluate the tool & Jan-13 \\
-\hline
-Output: & Experience report for each candidate tool & Apr-13 \\
-Output: & Documentation of the changes to each tool (if any) & Apr-13 \\
-Output: & Evaluation of the tools against the WP2 requirements & May-13 \\
-Output: & Decision on the final tool choice(s) & Jun-13 \\
-\hline
-Deliverable: & Report on the candidate tools 
- (evaluation against requirements and evolution needed) & May-13 \\
-Deliverable: & Report on the final tool choice(s) & Jun-13 \\
-\end{inoutput}
+%\begin{inoutput}
+%Input: & WP2: List of suitable tools (based on State of the Art Analysis) & Nov-12 \\
+%Input: & Those WP2 Requirements that are sufficient to evaluate the tool & Jan-13 \\
+%\hline
+%Output: & Experience report for each candidate tool & Apr-13 \\
+%Output: & Documentation of the changes to each tool (if any) & Apr-13 \\
+%Output: & Evaluation of the tools against the WP2 requirements & May-13 \\
+%Output: & Decision on the final tool choice(s) & Jun-13 \\
+%\hline
+%Deliverable: & Report on the candidate tools 
+% (evaluation against requirements and evolution needed) & May-13 \\
+%Deliverable: & Report on the final tool choice(s) & Jun-13 \\
+%\end{inoutput}
 
 
 
@@ -302,18 +308,18 @@ example is indicative and does not represent a technology decision.
 As with modelling tools, tool platforms will be evaluated against WP2 
 requirements, including in particular compliance against EN50128 constraints.
 
-\begin{inoutput}
-Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Nov-12 \\
-& Those WP2 Requirements that are sufficient to evaluate a target language & Dec-12 \\
-\hline
-Output: & Evaluation of each tool platform against WP2 requirements, independent of target tool & Mar-13 \\
-Output: & Evaluation of tool platform in the context of specific target tools & Apr-13 \\
-Output: & Selection of Tool Platform (and reasoning) & May-13 \\
-\hline
-Deliverable: & Report on candidate tool platform 
-(evaluation against requirements and target tool) & Apr-13 \\
-Deliverable: & Report on Tool Platform Selection & May-13 \\
-\end{inoutput}
+%\begin{inoutput}
+%Input: & List of target platforms, based on the tools being evaluated (\ref{sec:tool}) & Nov-12 \\
+%& Those WP2 Requirements that are sufficient to evaluate a target language & Dec-12 \\
+%\hline
+%Output: & Evaluation of each tool platform against WP2 requirements, independent of target tool & Mar-13 \\
+%Output: & Evaluation of tool platform in the context of specific target tools & Apr-13 \\
+%Output: & Selection of Tool Platform (and reasoning) & May-13 \\
+%\hline
+%Deliverable: & Report on candidate tool platform 
+%(evaluation against requirements and target tool) & Apr-13 \\
+%Deliverable: & Report on Tool Platform Selection & May-13 \\
+%\end{inoutput}
 
 %=======================================================================
 \section{Secondary Tools Analyses and Recommendations}
@@ -337,6 +343,14 @@ steps should ideally be tailored towards realizability with good
 support by available tools. Techniques complementing the
 tool-supported steps must be included in the process description. 
   
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\textwidth,page=2]{project_plan/WP7_Project_Management.pdf}
+	\caption{Inputs, Outputs and deliverables for WP7.2}
+	\label{fig:wrspm}
+	\end{center}
+\end{figure}
+
 
 
 %-----------------------------------------------------------------------
@@ -355,18 +369,18 @@ The following activities  have already be identified and detailed in the followi
 \item Safety analyses Tools
 \end{itemize}
 
-\begin{inoutput}
-Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
-Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
-Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
-Input: & WP2: Definition of the process & Jan-13 \\
-Input: & WP3a: Decision of the final choice for the core language & May-13 \\
-\hline
-Output: & Evaluation of secondary tools and methods against the WP2 requirements and task 1 choices & June-13 \\
-Output: & Decision on the secondary tools choice(s) & June-13 \\
-\hline
-Deliverable: & Conclusion on the evaluation of secondary tools and methods and choices & July-13\\
-\end{inoutput}
+%\begin{inoutput}
+%Input: & WP2: List of suitable languages (based on State of the Art Analysis) & Nov-12 \\
+%Input: & WP2: Small subset of ERTMS requirements that is representative & Nov-12 \\
+%Input: & Those WP2 Requirements that are sufficient to evaluate a target language & Jan-13 \\
+%Input: & WP2: Definition of the process & Jan-13 \\
+%Input: & WP7: Decision of the final choice for the core language & May-13 \\
+%\hline
+%Output: & Evaluation of secondary tools and methods against the WP2 requirements and task 1 choices & June-13 \\
+%Output: & Decision on the secondary tools choice(s) & June-13 \\
+%\hline
+%Deliverable: & Conclusion on the evaluation of secondary tools and methods and choices & July-13\\
+%\end{inoutput}
 
 
 %-----------------------------------------------------------------------
@@ -400,15 +414,15 @@ Analyse the code generation strategy.
 %A more detailed view of these issues may be find in the PositionPaper directory
 %(Uni\_Bremen\_proposed\_Workflow.pdf).\\
 
-\begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input: & WP3-a  Decision on the final language choice & May-13 \\
-\hline
-Output: & Model Transformation Strategy & Sept-13 \\
-Output: & Code Generation Strategy & Sept-13 \\
-\hline
-Deliverable: & Conclusion on  Model transformation Startegy definition & Oct-13\\
-\end{inoutput}
+%\begin{inoutput}
+%Input: & WP2 Requirements & Jan-13 \\
+%Input: & WP3-a  Decision on the final language choice & May-13 \\
+%\hline
+%Output: & Model Transformation Strategy & Sept-13 \\
+%Output: & Code Generation Strategy & Sept-13 \\
+%\hline
+%Deliverable: & Conclusion on  Model transformation Startegy definition & Oct-13\\
+%\end{inoutput}
 
 
 %-----------------------------------------------------------------------
@@ -417,15 +431,15 @@ Deliverable: & Conclusion on  Model transformation Startegy definition & Oct-13\
 
 Requirements elicitation is the first step of the process, but we can decide that requirements are already elicitate in the subset-026, or selected in WP2. However, how to manage the requirements traceability and how to deal with coverage and traceability of the requirements on models. Thus this activity is a main challenge in developing critical and complex systems.
 
-\begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input: & WP3-a  Decision on the final language choice & May-13 \\
-Input: & WP2 Designer Wishes and Requirements & March-13 \\
-\hline
-Output: & Captured and organised designer requirements & Sept-13 \\
-\hline
-Deliverable: & Conclusion on the selected tools & Oct-13\\
-\end{inoutput}
+%\begin{inoutput}
+%Input: & WP2 Requirements & Jan-13 \\
+%Input: & WP3-a  Decision on the final language choice & May-13 \\
+%Input: & WP2 Designer Wishes and Requirements & March-13 \\
+%\hline
+%Output: & Captured and organised designer requirements & Sept-13 \\
+%\hline
+%Deliverable: & Conclusion on the selected tools & Oct-13\\
+%\end{inoutput}
 
 
 
@@ -559,19 +573,21 @@ It includes in particular:
 %\item Support for different test levels (unit, integration, HW/SW integration, hardware-in-the-loop system testing)
 %\item Support for automated test procedure / test suite execution
 %\item Support for automated test case / test data / test oracle / test procedure generation from
-%the preferred type of models selected in WP2 / WP3a. 
+%the preferred type of models selected in WP2 / WP7. 
 %\item Support for automated tracing from requirements to test cases to test procedures to test results and back
 %\end{itemize}
-\begin{inoutput}
-Input: & WP2 Requirements & Jan-13 \\
-Input  & WP3b formalized API & Mar-13 \\ 
-Input: & Those sufficient elements of WP4 V\&V Plan to evaluate tools & Mar-13 \\
-\hline
-Output: & V\&V tool choice & June-13 \\
-Output  &  Test automation tool choice with experience report & June-13 \\
-\hline
-Deliverable: & Conclusion and choise for the VnV tool strategy & July-13\\
-\end{inoutput}
+
+
+%\begin{inoutput}
+%Input: & WP2 Requirements & Jan-13 \\
+%Input  & WP3 formalized API & Mar-13 \\ 
+%Input: & Those sufficient elements of WP4 V\&V Plan to evaluate tools & Mar-13 \\
+%\hline
+%Output: & V\&V tool choice & June-13 \\
+%Output  &  Test automation tool choice with experience report & June-13 \\
+%\hline
+%Deliverable: & Conclusion and choise for the VnV tool strategy & July-13\\
+%\end{inoutput}
 
 
 
@@ -607,16 +623,16 @@ The purpose of this subtask is to propose a list of tools to  support  safety  a
 
 Examples of interesting tools deals with fault-trees and FMEA generation, that can be based on formal methods (automata, pre-post condition logics,...) 
   
- 
-\begin{inoutput}
-Input: & WP2 Requirements & Mar-13 \\
-Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Apr-13 \\
-\hline
-Output: & safety analyses tools choices & Sept-13 \\
-\hline
-Deliverable: & Conclusion and choices on the safety analyses tools & Oct-13\\
-\end{inoutput}
-
+% 
+%\begin{inoutput}
+%Input: & WP2 Requirements & Mar-13 \\
+%Input: & Those sufficient elements of WP4 Safety case to evaluate tools & Apr-13 \\
+%\hline
+%Output: & safety analyses tools choices & Sept-13 \\
+%\hline
+%Deliverable: & Conclusion and choices on the safety analyses tools & Oct-13\\
+%\end{inoutput}
+%
 
 
 %=======================================================================
@@ -634,6 +650,15 @@ be elaborated for the devellopment of the tool chain, in close collaboration wit
 including compliance against EN50128 constraints and the requirements of WP2.
 Finally, the subtask achieves the development and the integration of the tools.
 
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\textwidth,page=3]{project_plan/WP7_Project_Management.pdf}
+	\caption{Inputs, Outputs and deliverables for WP7.3}
+	\label{fig:wrspm}
+	\end{center}
+\end{figure}
+
+
 %-----------------------------------------------------------------------
 \subsection{Overall Tool Architecture}
 %-----------------------------------------------------------------------
@@ -645,24 +670,23 @@ Note that this may not be that much work:  A tool platform like Eclipse essentia
 
 Moreover, a Devellopement Plan has to be defined capturing the requirements of WP2.
 
-\begin{inoutput}
-Input: & WP3a, Section~\ref{sec:core_tool}: Formal Model representing the sample
-spec, one for each candidate  & Mar-13 \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final language
-choice(s) & May-13 \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Experience report for each candidate
-tool& Apr-13 \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final tool choice(s)
-& Jun-13 \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Selection of Tool Platform  & May-13 \\
-Input: & WP3a, Section~\ref{sec:supporting_tools}: Verification and test tool
-choice(s)  & Jun-13 \\\hline
-Output  & Tool chain development plan (or equivalent) & July-13\\
-Output: & Specification of tool interoperability mechanisms & July-13 \\\hline
-Deliverable & Safety Plan (or equivalent) & Sept-13\\
-Deliverable & Tool  Interoperability  Description & Sept-13\\
-
-\end{inoutput}
+%\begin{inoutput}
+%Input: & WP7, Section~\ref{sec:core_tool}: Formal Model representing the sample
+%spec, one for each candidate  & Mar-13 \\
+%Input: & WP7, Section~\ref{sec:core_tool}: Decision on the final language
+%choice(s) & May-13 \\
+%Input: & WP7, Section~\ref{sec:core_tool}: Experience report for each candidate
+%tool& Apr-13 \\
+%Input: & WP7, Section~\ref{sec:core_tool}: Decision on the final tool choice(s)
+%& Jun-13 \\
+%Input: & WP7, Section~\ref{sec:core_tool}: Selection of Tool Platform  & May-13 \\
+%Input: & WP7, Section~\ref{sec:supporting_tools}: Verification and test tool
+%choice(s)  & Jun-13 \\\hline
+%Output  & Tool chain development plan (or equivalent) & July-13\\
+%Output: & Specification of tool interoperability mechanisms & July-13 \\\hline
+%Deliverable & Safety Plan (or equivalent) & Sept-13\\
+%Deliverable & Tool  Interoperability  Description & Sept-13\\
+%\end{inoutput}
 
 %-----------------------------------------------------------------------
 \subsection{Development Infrastructure}
@@ -677,19 +701,19 @@ To allow robust distributed development, care must be taken in setting up a func
 \end{itemize}
  The effort for this must not be underestimated.
 
-\begin{inoutput}
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final (development)
-method  & Jun-13 \\
-Input: & WP3a, Section~\ref{sec:supporting_tools}: Captured and organised designer
-requirements  & Sept-13 \\
-Input : & Feedback from project partners (All WPS) & continuously\\\hline
-Output: & Specification of primary and support tool chain architecture and its
-embedding into the platform & Oct-13 \\
-Output: & Infrastructure evolution strategy & Nov-13 \\
-Output: & Tool chain infrastructure maintenance & continuously\\\hline
-Deliverable & Tool Chain Infrastructure Description & Dec-13\\\hline
+%\begin{inoutput}
+%Input: & WP7, Section~\ref{sec:core_tool}: Decision on the final (development)
+%method  & Jun-13 \\
+%Input: & WP7, Section~\ref{sec:supporting_tools}: Captured and organised designer
+%requirements  & Sept-13 \\
+%Input : & Feedback from project partners (All WPS) & continuously\\\hline
+%Output: & Specification of primary and support tool chain architecture and its
+%embedding into the platform & Oct-13 \\
+%Output: & Infrastructure evolution strategy & Nov-13 \\
+%Output: & Tool chain infrastructure maintenance & continuously\\\hline
+%Deliverable & Tool Chain Infrastructure Description & Dec-13\\\hline
+%\end{inoutput}
 
-\end{inoutput}
 %-----------------------------------------------------------------------
 \subsection{Decomposition and Distribution of work}
 %-----------------------------------------------------------------------
@@ -700,24 +724,23 @@ Specifically, robust integration tests and version management for the tool chain
 
 
 
-
-\begin{inoutput}
-Input: & WP3a, Section~\ref{sec:core_tool}: Decision on the final tool choice(s)
-& Jun-13 \\
-Input: & WP3a, Section~\ref{sec:core_tool}: Selection of Tool Platform  & May-13 \\
-Input: & Infrastructure evolution strategy & Nov-13 \\
-Input: & Bugs report and feedback from project partners (All WPS) 
-& continuously\\
-%Input: &   & ??? \\
-%Input: &   & ??? \\
-%Input: &   & ??? \\
-\hline
-Output: & Tool chain qualification test suite & Dec-13 \\
-Output: & Tool chain maintenance and debug & continuously \\
-\hline
-Delivarable & Tool Chain Qualification Process Description& Jan-14\\\hline
-
-\end{inoutput}
+%
+%\begin{inoutput}
+%Input: & WP7, Section~\ref{sec:core_tool}: Decision on the final tool choice(s)
+%& Jun-13 \\
+%Input: & WP7, Section~\ref{sec:core_tool}: Selection of Tool Platform  & May-13 \\
+%Input: & Infrastructure evolution strategy & Nov-13 \\
+%Input: & Bugs report and feedback from project partners (All WPS) 
+%& continuously\\
+%%Input: &   & ??? \\
+%%Input: &   & ??? \\
+%%Input: &   & ??? \\
+%\hline
+%Output: & Tool chain qualification test suite & Dec-13 \\
+%Output: & Tool chain maintenance and debug & continuously \\
+%\hline
+%Delivarable & Tool Chain Qualification Process Description& Jan-14\\\hline
+%\end{inoutput}
 
 \subsection{Tool chain development}
 After definig the overall architecture, the development infrastructure and how
@@ -727,16 +750,15 @@ for the tool chain and its secondary tools. Note that in case we choose to
 adapt an existing tool then the first release may be  the unmodified tool,
 and subsequent releases will adapt it more and more according to our requirements. 
 
-\begin{inoutput}
-Input  & Tool chain development plan (or equivalent) & July-13\\
-Input: & Specification of tool interoperability mechanisms & July-13 \\\
-Input: & Infrastructure evolution strategy & Nov-13 \\
-Input: & Tool chain qualification test suite & Dec-13 \\
-Input: & Bugs report and feedback from project partners (All WPS) & continuously\\\hline
-Output: & Tool chain releases & follow the scrum\\ \hline
-
-Delivarable & Tool chain first relase & July-13\\\hline
-\end{inoutput}
+%\begin{inoutput}
+%Input  & Tool chain development plan (or equivalent) & July-13\\
+%Input: & Specification of tool interoperability mechanisms & July-13 \\\
+%Input: & Infrastructure evolution strategy & Nov-13 \\
+%Input: & Tool chain qualification test suite & Dec-13 \\
+%Input: & Bugs report and feedback from project partners (All WPS) & continuously\\\hline
+%Output: & Tool chain releases & follow the scrum\\ \hline
+%Delivarable & Tool chain first relase & July-13\\\hline
+%\end{inoutput}
 
 
 
@@ -749,27 +771,37 @@ As the development of an ecosystem needs to react on the on-going project and ad
 
 As the license model and the open source process have high impact on the overall project, the task will only propose solutions. These solutions are based on requirements given by WP1. Final decisions in this area have to be made by WP1. 
 
-\begin{inoutput}
-Input: & Feedback from project partners (All WPS) & continuously \\
-Input: & WP1: Requirements for the open source ecosystem & continuously \\
-Input: & WP1: Legal decisions & continuously \\
-\hline
-Output: & Initial proposal for license model & Aug-13 2012\\
-Output: & Initial proposal for open source development process & Aug-13 2012\\
-Output: & Initial proposal for infrastructure and tools & Aug-13 2012\\
-Output: & Adaptation of license model & continuously \\
-Output: & Adaptation of open source development process & continuously \\
-Output: & Adaptation of infrastructure and tools & continuously \\
-\hline
-Deliverable: & Proposed Terms of use & Aug-13 2013\\
-Deliverable: & Proposed Committer Agreements & Aug-13 2013\\
-Deliverable: & Proposed IP Policy & Aug-13 2013\\ 
-Deliverable: & Proposed Development Process Description & Aug-13 2013\\ 
-Deliverable: & Development Process Guidelines & Aug-13 2013\\ 
-Deliverable: & Infrastructure Documentation & Aug-13 2013 \\
-Deliverable: & Infrastructure Template & Aug-13 2013\\
-Deliverable: & Evolution Report of previous Deliverables & end of project\\
-\end{inoutput}
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\textwidth,page=4]{project_plan/WP7_Project_Management.pdf}
+	\caption{Inputs, Outputs and deliverables for WP7.4}
+	\label{fig:wrspm}
+	\end{center}
+\end{figure}
+
+
+
+%\begin{inoutput}
+%Input: & Feedback from project partners (All WPS) & continuously \\
+%Input: & WP1: Requirements for the open source ecosystem & continuously \\
+%Input: & WP1: Legal decisions & continuously \\
+%\hline
+%Output: & Initial proposal for license model & Aug-13 2012\\
+%Output: & Initial proposal for open source development process & Aug-13 2012\\
+%Output: & Initial proposal for infrastructure and tools & Aug-13 2012\\
+%Output: & Adaptation of license model & continuously \\
+%Output: & Adaptation of open source development process & continuously \\
+%Output: & Adaptation of infrastructure and tools & continuously \\
+%\hline
+%Deliverable: & Proposed Terms of use & Aug-13 2013\\
+%Deliverable: & Proposed Committer Agreements & Aug-13 2013\\
+%Deliverable: & Proposed IP Policy & Aug-13 2013\\ 
+%Deliverable: & Proposed Development Process Description & Aug-13 2013\\ 
+%Deliverable: & Development Process Guidelines & Aug-13 2013\\ 
+%Deliverable: & Infrastructure Documentation & Aug-13 2013 \\
+%Deliverable: & Infrastructure Template & Aug-13 2013\\
+%Deliverable: & Evolution Report of previous Deliverables & end of project\\
+%\end{inoutput}
 
 
 \end{document}
