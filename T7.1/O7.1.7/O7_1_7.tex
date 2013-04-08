@@ -1,0 +1,234 @@
+\documentclass{template/openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{rotating,url,color}
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/O7.1.3~--~00/01}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Primary tool chain''}
+
+%set a title here
+\title{Evaluation of the tools against the WP2 requirements }
+
+%set a subtitle here
+\subtitle{List of criteria on tools and results on the benchmark}
+
+%set the date of the report here
+\date{April 2013}
+
+%define a list of authors and their affiliation here
+
+\author{Marielle Petit-Doche}
+\affiliation{Systerel}
+
+% define the coverart
+\coverart[width=350pt]{chart}
+ 
+%define the type of report
+\reporttype{Definition}
+
+
+\begin{abstract}
+This document gives elements to evaluate the tools to involve in the OpenETCS process according WP2 requirements. Evaluation on the tools of benchmark is also described.
+
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+%=============================
+
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.1.7\\
+\hline
+Document title & Evaluation of the tools against the WP2 requirements \\
+Document version & 00.01 \\
+Document authors (org.)  & Marielle Petit-Doche (Systerel)  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed & 00.00.00 \\
+\hline
+Main reviewers &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Marielle Petit-Doche & WP7-T7.1 Sub-Task Leader  & \\
+\hline
+Approved by & Michael Jastram & WP7 leader & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.00.01 & 08/04/2013 & M. Petit-Doche &  Document creation  \\
+\hline  
+\end{tabular}
+
+% The actual document starts below this line
+%=============================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              My macros (=> Sylvain Baro)               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tbd}{\colorbox{cyan}{\%\%To Be Defined\%\%}}
+\newcommand{\tbc}{\colorbox{cyan}{\%\%To Be Confirmed\%\%}}
+\newcommand{\todo}[1]{\colorbox{cyan}{\%\%{#1}\%\%}}
+\newlength{\origindent}
+
+\newenvironment{issue}{
+        \begin{quote}
+        \begin{itshape}Open Issue.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{comment}{
+        \begin{quote}
+        \begin{itshape}Comment.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{justif}{
+        \begin{quote}
+        \begin{itshape}Justification.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{author_comment}{
+        \begin{quote}
+        \begin{itshape}\textcolor{green}{Author.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor1}{
+        \begin{quote}
+        \begin{itshape} \textcolor{blue}{Assessor 1.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor2}{
+        \begin{quote}
+        \begin{itshape}\textcolor{magenta}{Assessor 2.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+\input{req}
+
+\def\reqt{R-WP2/D2.3.0}
+% Start here
+
+
+\input{intro.tex}
+
+\input{tool.tex}
+
+\input{conclusion.tex}
+
+\appendix
+
+\chapter{CORE}
+\tbd
+
+\chapter{GOPRR}
+\tbd
+
+\chapter{ERTMSFormalSpecs}
+\tbd
+
+\chapter{Papyrus}
+\tbd
+
+\chapter{Entreprise Architect}
+\tbd
+
+\chapter{SCADE}
+\tbd
+
+\chapter{Rodin }
+\tbd
+
+\chapter{Atelier B }
+\tbd
+
+\chapter{Petri Nets}
+\tbd
+
+\chapter{UPPAAL}
+\tbd
+
+\chapter{GNATprove}
+\tbd
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Bibliography
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{erdc}
+\bibliography{process}
+
+
+
+% \begin{thebibliography}{9}
+
+% \bibitem{lamport94}
+  % Leslie Lamport,
+  % \emph{\LaTeX: A Document Preparation System}.
+  % Addison Wesley, Massachusetts,
+  % 2nd Edition,
+  % 1994.
+
+% \end{thebibliography}
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}
