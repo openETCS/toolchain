@@ -1,0 +1,95 @@
+%% Requirements.
+
+
+\newcounter{reqnum}
+\setcounter{reqnum}{0}
+\newcounter{subreqnum}
+\newcounter{subsubreqnum}
+\newlength{\partopbuf}
+\newlength{\topbuf}
+
+% Automated numbering versions of the macros
+\newcommand{\req}[1]{\addtocounter{reqnum}{1} \setcounter{subreqnum}{0}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\item[{\small\reqt-X-\thereqnum}] #1\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}	
+	}
+
+\newcommand{\subreq}[1]{
+	\addtocounter{subreqnum}{1} \setcounter{subsubreqnum}{0}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\addtolength{\leftmargin}{1cm}
+	\item[{\small\reqt-X-\thereqnum.\thesubreqnum}] #1
+	\addtolength{\leftmargin}{-1cm}\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}
+}
+
+\newcommand{\subsubreq}[1]{
+	\addtocounter{subsubreqnum}{1}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\addtolength{\leftmargin}{1cm}
+	\item[{\small\reqt-X-\thereqnum.\thesubreqnum.\thesubsubreqnum}] #1
+	\addtolength{\leftmargin}{-1cm}\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}
+}
+
+% Fixed version of the commands
+\newcommand{\reqfixed}[3]{\addtocounter{reqnum}{1} \setcounter{subreqnum}{0}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\item[{\small\reqt-#1-#2}] #3\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}	
+	}
+
+\newcommand{\subreqfixed}[4]{
+	\addtocounter{subreqnum}{1} \setcounter{subsubreqnum}{0}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\addtolength{\leftmargin}{1cm}
+	\item[{\small\reqt-#1-#2.#3}] #4
+	\addtolength{\leftmargin}{-1cm}\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}
+}
+
+\newcommand{\subsubreqfixed}[5]{
+	\addtocounter{subsubreqnum}{1}
+	\setlength{\partopbuf}{\partopsep}
+	\setlength{\partopsep}{0pt}
+	\setlength{\topbuf}{\topsep}
+	\setlength{\topsep}{0pt}
+	\begin{description}\addtolength{\leftmargin}{1cm}
+	\item[{\small\reqt-#1-#2.#3.#4}] #5
+	\addtolength{\leftmargin}{-1cm}\end{description}
+	\setlength{\partopsep}{\partopbuf}
+	\setlength{\topsep}{\topbuf}
+}
+
+% Citation of the requirement
+
+% Citation of the reference (for markup purpose)
+\newcommand{\refreq}[1]{\textbf{#1}}
+
+% Citation of the reference and text (for markup purpose)
+% The purpose of this is to automatically replace the placeholder by the 
+% full text. \fullrefreq{R-xxx}{} or \fullrefreq{R-xxx}{blabla} 
+% will be replaced by \fullrefreq{R-xxx}{text of the R-xxx requirement} 
+\newcommand{\fullrefreq}[2]{\textbf{#1}: \textrm{#2}}
+
