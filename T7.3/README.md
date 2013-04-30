@@ -12,7 +12,7 @@ O7.3.5 | Infrastructure evolution strategy                        | Sep-2013
  O7.3.6 | Tool chain infrastructure maintenance                    | Count.   
  O7.3.7 | Tool chain qualification test suite                      | Dec-2013 
  O7.3.8 | Tool chain maintenance and debug                         | Count.   
- 07.3.9 | Tool chain releases                                      | Count.   
+ O7.3.9 | Tool chain releases                                      | Count.   
  D7.3   | Tool Chain Qualification Process Description             | Jan-2014 
  D7.4   | Tool chain first release                                 | Nov-2013 
 
