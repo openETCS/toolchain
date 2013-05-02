@@ -1,4 +1,5 @@
 \chapter{Templates}
+\label{sec:templates}
 
 \begin{description}
 \item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
@@ -9,15 +10,15 @@
 In the sequel, main text is under the responsibilities of the author.
 
 \begin{author_comment}
-Author can add comments using this format
+Author can add comments using this format at any place.
 \end{author_comment}
 
 \begin{assessor1}
-First assessor can add comments using this format
+First assessor can add comments using this format at any place.
 \end{assessor1}
 
 \begin{assessor2}
-Second assessor can add comments using this format
+Second assessor can add comments using this format at any place.
 \end{assessor2}
 
 When a note is required, please follow this list :
@@ -58,7 +59,7 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline 
 System Analysis & & & &  \\
 \hline
-Sub-system  formal  design & & & & \\
+Sub-system formal design & & & & \\
 \hline
 Software design & & & & \\
 \hline
@@ -93,7 +94,7 @@ Safety analyses & & & & \\
 \section{Language}
 This section discusses the main element of the language.
 
-According WP2 requirements, give a note for the characteristics of the language (from 0 to 3) :
+Which are the main characteristics of the language :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -109,29 +110,44 @@ Structured language & & & & \\
 \hline
 Modular language & & & & \\
 \hline
-Extensible language (D.2.6-01-28) & & & & \\
-\hline
 Textual language & & & & \\
 \hline
 Mathematical symbols or code & & & & \\
 \hline
 Graphical language & & & & \\
 \hline
-Declarative and simple formalization of properties (D.2.6-X-27) & & & & \\
+\end{tabular}
+
+According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline
+Declarative formalization of properties (D.2.6-X-28) & & & & \\
+\hline
+Simple formalization of properties (D.2.6-X-28.1) & & & & \\
 \hline
 Scalability : capability to design large model & & & & \\
 \hline
-Easily translatable to other languages (D.2.6-X-28) & & & & \\
+Easily translatable to other languages (D.2.6-X-30) & & & & \\
 \hline
-Executable & & & & \\
+Executable directly (D.2.6-X-33) & & & & \\
 \hline
-Simulation, animation & & & & \\
+Executable after translation to a code (D.2.6-X-33) & & & & \\
+(precise if the translation is automatic) & & & & \\
 \hline
-Easily understandable (D.2.6-X-26) & & & & \\
+Simulation, animation (D.2.6-X-33) & & & & \\
+\hline
+Easily understandable (D.2.6-X-27) & & & & \\
 \hline
 Expertise level needed (0 High level, 3 few level) & & & & \\
 \hline
-Standardization & & & & \\
+Standardization (D.2.6-X-29) & & & & \\
+\hline
+Documented (D.2.6-X-29) & & & & \\
+\hline
+Extensible language (D.2.6-01-28) & & & & \\
 \hline
 \end{tabular}
 
@@ -150,19 +166,19 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.1.1)  & & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  & & & &  \\
 \hline 
-System architecture design (D.2.6-X-10.1.2) & & & &  \\
+System architecture design (D.2.6-X-10.2) & & & &  \\
 \hline
-System data flow identification (D.2.6-X-10.1.3)  & & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  & & & &  \\
 \hline
-Sub-system focus (D.2.6-X-10.1.4)  & & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  & & & &  \\
 \hline
-System interfaces definition (D.2.6-X-10.1.5)  & & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  & & & &  \\
 \hline
-System requirement allocation (D.2.6-X-10.2)  & & & &  \\
+System requirement allocation (D.2.6-X-10.3)  & & & &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.3)  & & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  & & & &  \\
 \hline
 Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
 \hline
@@ -174,6 +190,7 @@ Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
 This section discusses the usage of the approach for sub-system formal design.
 It can be skipped depending the results of \ref{main_usage}.
 
+Two kinds of model can be planned during this phase: semi-formal models to  cover the SSRS (D.2.6-X-12.1) and strictly formal  models to  focuss on some functional and safety aspects (D.2.6-X-14).  Obviously some strictly  formal means can be used to define the semi-formal  model.
 
 \subsection{Semi-formal model}
 
@@ -187,7 +204,13 @@ Consistency to SSRS (D.2.6-X-12.2) & & & &  \\
 \hline
 Coverage of SSRS (D.2.6-X-12.2.1)  & & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.3)  & & & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  & & & &  \\
+\hline
+Management of requirement justification (D.2.6-X-12.2.3)  & & & &  \\
+\hline
+Traceability to  SSRS (D.2.6-X-12.2.5)  & & & &  \\
+\hline
+Traceability of exported requirements (D.2.6-X-12.2.6)  & & & &  \\
 \hline
 Simulation or animation (D.2.6-X-13 partial)  & & & &  \\
 \hline
@@ -199,19 +222,33 @@ Easy to  refine towards strictly formal model (D.2.6-X-14.4) & & & &  \\
 \hline
 Extensible and modular design (D.2.6-X-15)  & & & &  \\
 \hline
-Extensible to software design (???)  & & & &  \\
-\hline
-Safety properties formalisation (D.2.6-01-20)  & & & &  \\
-\hline
-Safety properties validation (D.2.6-X-22 partial)  & & & &  \\
-\hline
-Logical properties assertion (D.2.6-X-32)  & & & &  \\
-\hline
-Check  of assertions (D.2.6-X-32.1)  & & & &  \\
+Extensible to software architecture and design   & & & &  \\
 \hline
 \end{tabular}
 
-Does the language allow to  formalize (D.2.6-X-29):
+Concerning safety properties management, how the WP2 requirements are covered ?
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+Safety function isolation (D.2.6-X-17)  & & & &  \\
+\hline 
+Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+\hline
+Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+\hline
+Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+\hline
+Safety properties validation (D.2.6-X-23.2)  & & & &  \\
+\hline
+Logical properties assertion (D.2.6-X-34)  & & & &  \\
+\hline
+Check  of assertions (D.2.6-X-34.1)  & & & &  \\
+\hline
+\end{tabular}
+
+Does the language allow to  formalize (D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -252,17 +289,23 @@ Traceability to  SSRS (D.2.6-X-14.3)  & & & &  \\
 \hline
 Extensible to software design (D.2.6-X-16)  & & & &  \\
 \hline
-Safety properties formalisation (D.2.6-01-20)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  & & & &  \\
+\hline 
+Safety properties formalisation (D.2.6-X-22)  & & & &  \\
 \hline
-Safety properties validation (D.2.6-X-22 partial)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-32)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
 \hline
-Check  of assertions (D.2.6-X-32.2)  & & & &  \\
+Safety properties validation (D.2.6-X-23.3)  & & & &  \\
+\hline
+Logical properties assertion (D.2.6-X-34)  & & & &  \\
+\hline
+Proof of assertions (D.2.6-X-34.2)  & & & &  \\
 \hline
 \end{tabular}
 
-Does the language allow to  formalize (D.2.6-X-30):
+Does the language allow to  formalize (D.2.6-X-32):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -452,33 +495,35 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-01-029) & & & &  \\
+Open Source (D2.6-X-36) & & & &  \\
 \hline 
-Portability to operating systems (D2.6-01-030) & & & &  \\
+Portability to operating systems (D2.6-X-37) & & & &  \\
 \hline
-Cooperation of tools (D2.6-01-031) & & & &  \\
+Cooperation of tools (D2.6-X-38) & & & &  \\
 \hline
-Robustness (D2.6-01-034) & & & & \\
+Robustness (D2.6-X-41) & & & & \\
 \hline
-Modularity (D2.6-01-034.01) & & & & \\
+Modularity (D2.6-X-41.1) & & & & \\
 \hline
-Documentation management (D.2.6-01-034.02) & & & & \\
+Documentation management (D.2.6-X-41.2) & & & & \\
 \hline
-Distributed software development (D.2.6-01-034.03)  & & & & \\
+Distributed software development (D.2.6-X-41.3)  & & & & \\
 \hline
-Issue tracking (D.2.6-01-034.04) & & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & & & & \\
 \hline
-Differences between models (D.2.6-01-034.05) & & & & \\
+Issue tracking (D.2.6-X-41.5) & & & & \\
 \hline
-Version management (D.2.6-01-034.06) & & & & \\
+Differences between models (D.2.6-X-41.6) & & & & \\
 \hline
-Concurrent version management (D.2.6-01-034.07) & & & & \\
+Version management (D.2.6-X-41.7) & & & & \\
 \hline
-Model-based version control (D.2.6-01-034.08) & & & & \\
+Concurrent version development (D.2.6-X-41.8) & & & & \\
 \hline
-Role traceability (D.2.6-01-034.09) & & & & \\
+Model-based version control (D.2.6-X-41.9) & & & & \\
 \hline
-Safety version traceability (D.2.6-01-034.10) & & & & \\
+Role traceability (D.2.6-X-41.10) & & & & \\
+\hline
+Safety version traceability (D.2.6-X-41.11) & & & & \\
 \hline
 Model traceability (D.2.6-01-035) & & & & \\
 \hline
@@ -490,7 +535,7 @@ Scalability & & & & \\
 
 \section{Certifiability}
 
-This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-49).
+This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
 
 
 \begin{tabular}{|l | c | c | c | c|}
