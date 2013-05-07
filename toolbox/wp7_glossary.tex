@@ -1,0 +1,50 @@
+% new item : 
+% \newglossaryentry{⟨label⟩}{⟨key-val list⟩}
+%--------------------
+% usage in latex file 
+%--------------------
+%     Preamble
+%--------------------
+% \usepackage[section, % add the glossary to the table of content 
+%            description,% acronyms have a user-supplied description,
+%            style=superheaderborder, % table style
+%            nonumberlist      % no page number
+%            ]{glossaries}
+%\renewcommand*{\glossaryname}{List of Terms}
+%\makeglossaries
+%\loadglsentries{wp7_glossary} 
+%--------------------
+%     reference
+%--------------------
+% \gls{label}
+%--------------------
+% compile command
+%--------------------
+% makeglossaries
+%--------------------
+\newglossaryentry{SRS}{
+name={SRS},
+description={System Requirement Specification}
+}
+\newglossaryentry{SSRS}{
+name={SSRS},
+description={Subsystem Requirement Specification}
+}
+\newglossaryentry{ETCS}{
+name={ETCS},
+description={European Train Control System}
+}
+\newglossaryentry{OBU}{
+name={OBU},
+description={On Board Unit}
+}
+\newglossaryentry{SIL}{
+name={SIL},
+description={System Integrity Level}
+}
+\newglossaryentry{IDE}{
+name={IDE},
+description={integrated development environment}
+}
+
+
