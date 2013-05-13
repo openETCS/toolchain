@@ -36,14 +36,42 @@ All the notes can be commented under each table.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] SysML modelisation with Enterprise Architect
+\item[Web site] \url{http://www.sparxsystems.com.au/}
+\item[Licence] Commercial
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} Short abstract on the approach and tool 
+SysML \cite{SysML} is a graphical language that extends UML for a customize
+version suitable for system engineering. It may help modeling system within a board range of
+system variety that may include hardware, software, data, personnel and facilities. It supports the
+specification, analysis design, verification and validation of complex system.
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
+Enterprise architect (EA) version 9.3 \cite{website} has been used to implement
+the model. EA provides SysML and UML modeiling capabilities.
+EA is a visual platform for designing and constructing
+software systems, for business process modeling, and for more generalized modeling purposes. it
+covers all aspects of the development cycle. The main advantages is the requirement management
+and tracing, the team work and the include versionning. The main cons : it is not an open source
+tool.
+
+
+
+\paragraph{Publications} Short list of publications on the approach 
+\begingroup
+\renewcommand{\chapter}[2]{}%
+\renewcommand{\bibname}{}
+\begin{thebibliography}{5}
+
+\bibitem{SysML}Object Management Group,  {\it OMG Systems Modeling Language (OMG
+SysML\textsuperscript{TM})}, \url{www.omgsysml.org}, 2012.
+\bibitem{website}Some useful links are given at \url{http://www.sparxsystems.com.au/products/ea/trial.html}.
+\bibitem{sysmlbook} Jon Holt and Simon Perry,\it{SysML for Systems
+    Engineering},IET, 2008.
+ 
+\end{thebibliography}
+\endgroup
+
 
 
 \section{Main usage of the approach}
@@ -56,39 +84,59 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & & & &  \\
+System Analysis & 3  & & &  \\
 \hline
-Sub-system formal design & & & & \\
+Sub-system formal design & 3 & & & \\
 \hline
-Software design & & & & \\
+Software design & 3 & & & \\
 \hline
-Software code generation & & & & \\
+Software code generation & 1 & & & \\
 \hline
 \end{tabular}
-
+\begin{author_comment}
+Enterprise architect is able to generate C, java ... code from the UML/SysML
+representation. This capability has not been tested by me. Moreover
+from the serialized form of the model (xmi) it is possible to use
+other tool to perform different task including code gneration.
+\end{author_comment}
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation & & & &  \\
+Documentation &2 & & &  \\
 \hline
-Modeling & & & &  \\
+Modeling & 3& & &  \\
 \hline
-Design & & & & \\
+Design &3 & & & \\
 \hline
-Code generation & & & & \\
+Code generation &2 & & & \\
 \hline
-Verification & & & & \\
+Verification & 1 & & & \\
 \hline
-Validation & & & & \\
+Validation & 1 & & & \\
 \hline
-Safety analyses & & & & \\
+Safety analyses & 2  & & & \\
 \hline
 \end{tabular}
+\begin{author_comment}
+As said before, the model from enterprise architect may be imported
+with a bit of effort (adapt parser to EA xmi) into other tools or some
+tool may be plugged to EA. The model may be then used for the
+different tasks of the table.
+\end{author_comment}
 
-\paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
+
+\paragraph{Known usages} Have you some examples of usage of this
+approach to  compare with the OpenETCS objectives ?
+
+Plenty of experiences using SysML or UML in embedded system may be
+found, the reader may refer to the proceeding of international
+conference such as : Conference on Systems Engineering
+Research (CSER), International Conference on Model-Based Systems Engineering
+(MBSE), Embedded realtime software and systems (ERTS).
+ 
 
 \section{Language}
 This section discusses the main element of the language.
@@ -99,21 +147,21 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal language & & & &  \\
+Informal language & 0 & & &  \\
 \hline 
-Semi-formal language & & & &  \\
+Semi-formal language & 2 & & &  \\
 \hline
-Formal language & & & &  \\
+Formal language & 3 & & &  \\
 \hline
-Structured language & & & & \\
+Structured language &3 & & & \\
 \hline
-Modular language & & & & \\
+Modular language &3 & & & \\
 \hline
-Textual language & & & & \\
+Textual language & 1 & & & \\
 \hline
-Mathematical symbols or code & & & & \\
+Mathematical symbols or code &1 &  & & \\
 \hline
-Graphical language & & & & \\
+Graphical language &3 & & & \\
 \hline
 \end{tabular}
 
@@ -123,37 +171,50 @@ According WP2 requirements, give a note for the capabilities of the language (fr
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & & & & \\
+Declarative formalization of properties (D.2.6-X-28) &2 & & & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & & & & \\
+Simple formalization of properties (D.2.6-X-28.1) &2 & & & \\
 \hline
-Scalability : capability to design large model & & & & \\
+Scalability : capability to design large model &3 & & & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30) & & & & \\
+Easily translatable to other languages (D.2.6-X-30) &2 & & & \\
 \hline
-Executable directly (D.2.6-X-33) & & & & \\
+Executable directly (D.2.6-X-33) &1 & & & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) & & & & \\
-(precise if the translation is automatic) & & & & \\
+Executable after translation to a code (D.2.6-X-33) & 2 & & & \\
+(precise if the translation is automatic) &2 & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) & & & & \\
+Simulation, animation (D.2.6-X-33) &1 & & & \\
 \hline
-Easily understandable (D.2.6-X-27) & & & & \\
+Easily understandable (D.2.6-X-27) &3 & & & \\
 \hline
-Expertise level needed (0 High level, 3 few level) & & & & \\
+Expertise level needed (0 High level, 3 few level) &2 & & & \\
 \hline
-Standardization (D.2.6-X-29) & & & & \\
+Standardization (D.2.6-X-29) &3 & & & \\
 \hline
-Documented (D.2.6-X-29) & & & & \\
+Documented (D.2.6-X-29) &3 & & & \\
 \hline
-Extensible language (D.2.6-01-28) & & & & \\
+Extensible language (D.2.6-01-28) &3 & & & \\
 \hline
 \end{tabular}
 
 
-\paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
+\paragraph{Documentation} 
+SysML is  defined and standardized by OMG. They provide a complete
+definition of the language and a guideline on the methodology
+\cite{SysML}. The serialized form (the textual representation of the
+graphical model) is also defined and standardized by OMG (see the XMI
+definition).
 
-\paragraph{Language usage} Describe the possible restriction on the language
+Enterprise architect gives tutorial and sample model to start
+with. The tool is really easy to use.
+
+\paragraph{Language usage} 
+SysML is dedicated on system engineering and suitable for a board range of
+system variety. Using stereotype and profile the language may be
+extended and customized according to the user need following the
+specific domain of the modeled system.
+
 
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
@@ -165,24 +226,30 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1)  & & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  &3 & & &  \\
 \hline 
-System architecture design (D.2.6-X-10.2) & & & &  \\
+System architecture design (D.2.6-X-10.2) &3 & & &  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  & & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  &3 & & &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  & & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  &3 & & &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  & & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  &3 & & &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  & & & &  \\
+System requirement allocation (D.2.6-X-10.3)  &3 & & &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  & & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  &3 & & &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
+Traceability with Safety activities (D.2.6-X-11)  &3 & & &  \\
 \hline
 \end{tabular}
-
+\begin{author_comment}
+  SysML proposes a choice of diagrams to describes the system or the
+  software under consideration. It is then possible to represent the
+  system at different level of abstraction. Moreover one of the main
+  addition of SysML compare to UML is the requirement diagram that
+  makes the link between the model and the requirements.
+\end{author_comment}
 
 
 \section{Sub-System formal design}
@@ -199,79 +266,95 @@ Concerning semi-formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & & & &  \\
+Consistency to SSRS (D.2.6-X-12.2) &3 & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1)  & & & &  \\
+Coverage of SSRS (D.2.6-X-12.2.1)  &3 & & &  \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2)  & & & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  & * & & &  \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3)  & & & &  \\
+Management of requirement justification (D.2.6-X-12.2.3)  &3 & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-12.2.5)  & 3 & & &  \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6)  & & & &  \\
+Traceability of exported requirements (D.2.6-X-12.2.6)  &3 & & &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  & & & &  \\
+Simulation or animation (D.2.6-X-13 partial)  &2 & & &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & & & &  \\
+Execution (D.2.6-X-13 partial)  &2 & & &  \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & & & &  \\
+Extensible to strictly formal model (D.2.6-X-14.3) &3 & & &  \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & & & &  \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) &3 & & &  \\
 \hline
-Extensible and modular design (D.2.6-X-15)  & & & &  \\
+Extensible and modular design (D.2.6-X-15)  &3 & & &  \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30)   & & & &  \\
+Extensible to software architecture and design (D.2.6-X-30)   &3 & & &  \\
 \hline
 \end{tabular}
+\begin{author_comment}
+The link with the SSRS may be really easy if the SSRS is modeled
+with SysML.
 
+For the coverage, I do not know and I did not try.
+
+
+Simulation,animation  and execution may be done by additional plug-in
+or by different tools.
+\end{author_comment}
 Concerning safety properties management, how the WP2 requirements are covered ?
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  & 1& & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalisation (D.2.6-X-22)  &2 & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  &2 & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  &3 & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.2)  & & & &  \\
+Safety properties validation (D.2.6-X-23.2)  &1 & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  &2 & & &  \\
 \hline
-Check  of assertions (D.2.6-X-34.1)  & & & &  \\
+Check  of assertions (D.2.6-X-34.1)  &1 & & &  \\
 \hline
 \end{tabular}
-
+\begin{author_comment}
+SysML formalism may be used to add constraints representing assertion
+or properties. This can then be check by plug-in or external tools
+During the modeling activities I did not try these requirements, I can
+not say much about it.
+\end{author_comment}
 Does the language allow to  formalize (D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  &3 & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  &3 & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  &1 & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  &2 & & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  &2 & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements &3 & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields &3 & & &  \\
 \hline
 \end{tabular}
 
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
-
+\begin{author_comment}
+SysML \cite{sysmlbook} is a good candidate for theses purposes.
+\end{author_comment}
 \subsection{Strictly formal model}
 
 Concerning strictly formal model, how the WP2 requirements are covered ?
@@ -280,56 +363,76 @@ Concerning strictly formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & & & &  \\
+Consistency to SFM (D.2.6-X-14.2) &3 & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2)  & & & &  \\
+Coverage of SSRS (D.2.6-X-14.2)  & & 3& &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-14.3)  & 3& & &  \\
 \hline
-Extensible to software design (D.2.6-X-16)  & & & &  \\
+Extensible to software design (D.2.6-X-16)  &3 & & &  \\
 \hline
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  &*  & & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalization (D.2.6-X-22)  &3* & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  &2 & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  &3 & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.3)  & & & &  \\
+Safety properties validation (D.2.6-X-23.3)  &1 & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  &2 & & &  \\
 \hline
-Proof of assertions (D.2.6-X-34.2)  & & & &  \\
+Proof of assertions (D.2.6-X-34.2)  &1 & & &  \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+\begin{itemize}
+\item Safety function isolation :  I do not know.
+\item Safety properties formalization : I did not try
+\end{itemize}
+
+\end{author_comment}
 Does the language allow to  formalize (D.2.6-X-32):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  &3 & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  &3 & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  &1 & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  & 2& & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  &2 & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements &3 & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields &3 & & &  \\
 \hline
 \end{tabular}
+\begin{author_comment}
 
+The formal semantics of SysML is described in textual form in the UML and SysML standards
+(see \url{http://www.omg.org/spec/UML/2.3/Superstructure/PDF/}, \url{http://www.omg.org/spec/SysML/1.2/PDF/})
+
+The Chapters about State Machines in the UML
+document gives a rather clear description (thought not really easy
+to read ...) about the intended behaviors of state machines and the
+semantic variation points that are NOT fixed by the standard, but may
+be interpreted in different ways. More mathematical descriptions can
+be found in  many research papers.
+\end{author_comment}
 \paragraph{Additional comments on semi-formal  model} Do you think your strictly formal  model can be directly defined from the SSRS ?
 All comments on links to  other models, validation and verification activities are welcomed.
 
-
+\begin{author_comment}
+SysML is a good candidate for these purposes
+\end{author_comment}
 \section{Software design}
 This section discusses the usage of the approach for software design.
 It can be skipped depending the results of \ref{main_usage}.
@@ -342,15 +445,15 @@ How the approach allows to  produce a functional software model of the on-board 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model  & & & &  \\
+Derivation from system semi-formal model  &3 & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  &3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  &3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  &3 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  &2 & & &  \\
 \hline
 \end{tabular}
 
@@ -362,21 +465,21 @@ How the approach allows to  produce in safety a software model ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model  & & & &  \\
+Derivation from system semi-formal or strictly formal model  &3 & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  &3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  &3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  &3 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  &2 & & &  \\
 \hline
-Conformance to EN50128 § 7.2  & & & &  \\
+Conformance to EN50128 § 7.2  &3 & & &  \\
 \hline
-Conformance to EN50128 § 7.3  & & & &  \\
+Conformance to EN50128 § 7.3  &3 & & &  \\
 \hline
-Conformance to EN50128 § 7.4  & & & &  \\
+Conformance to EN50128 § 7.4  & 3& & &  \\
 \hline
 \end{tabular}
 
@@ -387,27 +490,34 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming  & & & &  \\
+Defensive programming  &* & & &  \\
 \hline 
-Fault detection \& diagnostic  & & & &  \\
+Fault detection \& diagnostic  &* & & &  \\
 \hline
-Error detecting code  & & & &  \\
+Error detecting code  &* & & &  \\
 \hline
-Failure assertion programming & & & &  \\
+Failure assertion programming &3 & & &  \\
 \hline
-Diverse programming & & & &  \\
+Diverse programming &3 & & &  \\
 \hline
-Memorising executed cases & & & &  \\
+Memorising executed cases &* & & &  \\
 \hline
-Software error effect analysis & & & &  \\
+Software error effect analysis &* & & &  \\
 \hline
-Fully defined interface & & & &  \\
+Fully defined interface &3 & & &  \\
 \hline
-Modelling  & & & &  \\
+Modelling  &3 & & &  \\
 \hline
-Structured methodology & & & &  \\
+Structured methodology &3 & & &  \\
 \hline
 \end{tabular}
+\begin{author_comment}
+SysML is a modeling language, it can also be used to design
+software. EA first purpose is not to provide a software development
+infrastructure. This can be realized through plug-in or with external
+tools.
+EA itself does not provide mechanism for error detecting code ...
+\end{author_comment}
 
 \section{Software code generation}
 This section discusses the usage of the approach for software code generation.
@@ -420,17 +530,17 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods  & & & &  \\
+Formal methods  &* & & &  \\
 \hline 
-Modeling  & & & &  \\
+Modeling  &3 & & &  \\
 \hline
-Modular approach (mandatory) & & & &  \\
+Modular approach (mandatory) &3 & & &  \\
 \hline
-Components & & & &  \\
+Components &3 & & &  \\
 \hline
-Design and coding standards (mandatory) & & & &  \\
+Design and coding standards (mandatory) &3 & & &  \\
 \hline
-Strongly typed programming language & & & &  \\
+Strongly typed programming language &3 & & &  \\
 \hline
 
 \end{tabular}
@@ -449,40 +559,44 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & & & &  \\
+Modelling support &3 & & &  \\
 \hline
-Automatic translation  & & & & \\
+Automatic translation  &3 & & & \\
 \hline
-Code Generation  & & & & \\
+Code Generation  &2 & & & \\
 \hline
-Model verification & & & & \\
+Model verification &1 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &1 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &1 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &1 & & & \\
 \hline
 \end{tabular}
 
 \paragraph{Modelling support}
-Does the tool provide a  textual or a graphical editor ?
+Does the tool provide a  textual or a graphical editor ? Graphical editor.
 
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
-
+\begin{itemize}
+\item XMI
+\item C++
+\item Java ...
+\end{itemize}
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
-
+None on the basic version of the tool.
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
-
+Not the basic version.
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
-
+Not the basic version.
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
-
+Not the basic version.
 
 
 \section{Use of the tool}
@@ -494,44 +608,47 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & & & &  \\
+Open Source (D2.6-X-36) &0 & & &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & & & &  \\
+Portability to operating systems (D2.6-X-37) &2 & & &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & & & &  \\
+Cooperation of tools (D2.6-X-38) &2 & & &  \\
 \hline
-Robustness (D2.6-X-41) & & & & \\
+Robustness (D2.6-X-41) &3 & & & \\
 \hline
-Modularity (D2.6-X-41.1) & & & & \\
+Modularity (D2.6-X-41.1) &3 & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) & & & & \\
+Documentation management (D.2.6-X-41.2) & 2& & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & & & & \\
+Distributed software development (D.2.6-X-41.3)  &3 & & & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   &1 & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & & & & \\
+Issue tracking (D.2.6-X-41.5) &2 & & & \\
 \hline
-Differences between models (D.2.6-X-41.6) & & & & \\
+Differences between models (D.2.6-X-41.6) &1 & & & \\
 \hline
-Version management (D.2.6-X-41.7) & & & & \\
+Version management (D.2.6-X-41.7) &3 & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & & & & \\
+Concurrent version development (D.2.6-X-41.8) &1 & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & & & & \\
+Model-based version control (D.2.6-X-41.9) &0 & & & \\
 \hline
-Role traceability (D.2.6-X-41.10) & & & & \\
+Role traceability (D.2.6-X-41.10) & 3& & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & & & & \\
+Safety version traceability (D.2.6-X-41.11) &0 & & & \\
 \hline
-Model traceability (D.2.6-01-035) & & & & \\
+Model traceability (D.2.6-01-035) &3 & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration &2* & & & \\
 \hline
-Scalability & & & & \\
+Scalability &3 & & & \\
 \hline
 \end{tabular}
-
+\begin{author_comment}
+For the tool chain integration it depends on the integration methods
+choosen. If it is only by exchanging XMI file, there is no problem.
+\end{author_comment}
 \section{Certifiability}
 
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
@@ -541,19 +658,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) &3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   &2 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &3 & & & \\
 \hline
-Model verification & & & & \\
+Model verification &1 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &0 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &1 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &0 & & & \\
 \hline
 \end{tabular}
 
