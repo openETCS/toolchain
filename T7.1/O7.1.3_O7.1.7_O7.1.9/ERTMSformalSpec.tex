@@ -36,15 +36,19 @@ All the notes can be commented under each table.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] ERTMSFormalSpecs
+\item[Web site] https://www.ertmssolutions.com/ertms-formalspecs/
+\item[Licence] EUPL (https://github.com/openETCS/ERTMSFormalSpecs)
 \end{description}
 
 \paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
 
+ERTMSFormalSpecs provides a domain-specific language, designed to express the ERTMS specification in a concise and verifiable formal representation. It is understandable by domain specialists while retaining the ability to be translated to executable representations by fully automated means.
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
+http://www.ertmssolutions.com/files/ERTMSFormalSpecs_WCRR2011.pdf
+
+http://www.ertmssolutions.com/files/UsingERTMSFormalSpecsToModelBrakingCurves.pdf
 
 \section{Main usage of the approach}
 \label{main_usage}
@@ -56,40 +60,44 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & & & &  \\
+System Analysis & \textcolor{green}{0} & & &  \\
 \hline
-Sub-system formal design & & & & \\
+Sub-system formal design & \textcolor{green}{3} & & & \\
 \hline
-Software design & & & & \\
+Software design & \textcolor{green}{0} & & & \\
 \hline
-Software code generation & & & & \\
+Software code generation & \textcolor{green}{0} & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+The scope of ERTMSFormalSpecs is, as described above, "a domain-specific language, designed to express the ERTMS specification in a concise and verifiable formal representation."
+Therefore, it is targeted to be used for sub-system formal design, not for analysis, software design or software code generation.
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation & & & &  \\
+Documentation & \textcolor{green}{3} & & &  \\
 \hline
-Modeling & & & &  \\
+Modeling & \textcolor{green}{3} & & &  \\
 \hline
-Design & & & & \\
+Design & \textcolor{green}{3} & & & \\
 \hline
-Code generation & & & & \\
+Code generation & \textcolor{green}{0} & & & \\
 \hline
-Verification & & & & \\
+Verification & \textcolor{green}{3} & & & \\
 \hline
-Validation & & & & \\
+Validation & \textcolor{green}{3} & & & \\
 \hline
-Safety analyses & & & & \\
+Safety analyses & \textcolor{green}{0} & & & \\
 \hline
 \end{tabular}
 
 \paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
 
+The ERTMSFormalSpecs approach has been designed specifically for the purpose of modelling an OBU application software. The ERTMSFormalSpecs approach is 100\% aligned with the OpenETCS objective 1, which is to have a 100\% semi-formal model of the SSRS. 
 \section{Language}
 This section discusses the main element of the language.
 
@@ -99,61 +107,73 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal language & & & &  \\
+Informal language & \textcolor{green}{0} & & &  \\
 \hline 
-Semi-formal language & & & &  \\
+Semi-formal language & \textcolor{green}{3} & & &  \\
 \hline
-Formal language & & & &  \\
+Formal language & \textcolor{green}{3} & & &  \\
 \hline
-Structured language & & & & \\
+Structured language & \textcolor{green}{3} & & & \\
 \hline
-Modular language & & & & \\
+Modular language & \textcolor{green}{3} & & & \\
 \hline
-Textual language & & & & \\
+Textual language & \textcolor{green}{3} & & & \\
 \hline
-Mathematical symbols or code & & & & \\
+Mathematical symbols or code & \textcolor{green}{3} & & & \\
 \hline
-Graphical language & & & & \\
+Graphical language & \textcolor{green}{3} & & & \\
 \hline
 \end{tabular}
-
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & & & & \\
+Declarative formalization of properties (D.2.6-X-28) & \textcolor{green}{0} & & & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & & & & \\
+Simple formalization of properties (D.2.6-X-28.1) & \textcolor{green}{2} & & & \\
 \hline
-Scalability : capability to design large model & & & & \\
+Scalability : capability to design large model & \textcolor{green}{3} & & & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30) & & & & \\
+Easily translatable to other languages (D.2.6-X-30) & \textcolor{green}{3} & & & \\
 \hline
-Executable directly (D.2.6-X-33) & & & & \\
+Executable directly (D.2.6-X-33) & \textcolor{green}{3} & & & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) & & & & \\
-(precise if the translation is automatic) & & & & \\
+Executable after translation to a code (D.2.6-X-33) & \textcolor{green}{3} & & & \\
+(precise if the translation is automatic) & \textcolor{green}{2} & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) & & & & \\
+Simulation, animation (D.2.6-X-33) & \textcolor{green}{3} & & & \\
 \hline
-Easily understandable (D.2.6-X-27) & & & & \\
+Easily understandable (D.2.6-X-27) & \textcolor{green}{3} & & & \\
 \hline
-Expertise level needed (0 High level, 3 few level) & & & & \\
+Expertise level needed (0 High level, 3 few level) & \textcolor{green}{2} & & & \\
 \hline
-Standardization (D.2.6-X-29) & & & & \\
+Standardization (D.2.6-X-29) & \textcolor{green}{3} & & & \\
 \hline
-Documented (D.2.6-X-29) & & & & \\
+Documented (D.2.6-X-29) & \textcolor{green}{3} & & & \\
 \hline
-Extensible language (D.2.6-01-28) & & & & \\
+Extensible language (D.2.6-01-28) & \textcolor{green}{3} & & & \\
 \hline
 \end{tabular}
 
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
+ERTMSFormalSpecs provides the following documentation set:
+
+\begin{itemize}
+	\item EFSW_Release_Notes.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_Release_Notes.pdf)
+	\item EFSW_Technical_Design.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_Technical_Design.pdf)
+	\item EFSW_User_Guide.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_User_Guide.pdf)
+	\item ERTMSFormalSpecs-Tutorial (https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-Tutorial)
+	\item ERTMSFormalSpecs-FAQ (https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-FAQ)
+\end{itemize}
+
+
 \paragraph{Language usage} Describe the possible restriction on the language
+
+
 
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
@@ -165,24 +185,27 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1)  & & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  & \textcolor{green}{3} & & &  \\
 \hline 
-System architecture design (D.2.6-X-10.2) & & & &  \\
+System architecture design (D.2.6-X-10.2) & \textcolor{green}{3} & & &  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  & & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  & \textcolor{green}{3} & & &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  & & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  & \textcolor{green}{3} & & &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  & & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  & \textcolor{green}{3} & & &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  & & & &  \\
+System requirement allocation (D.2.6-X-10.3)  & \textcolor{green}{3} & & &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  & & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  & \textcolor{green}{3} & & &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
+Traceability with Safety activities (D.2.6-X-11)  & \textcolor{green}{0} & & &  \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+Although ERTMSFormalSpecs is not made for system analysis, it can be used for the following aspects on system level: Modelling of (separate) system functions, data flows, state machines and interfaces. It also provides complete SRS traceability support.  
+\end{author_comment}
 
 
 \section{Sub-System formal design}
@@ -193,35 +216,40 @@ Two kinds of model can be planned during this phase: semi-formal models to  cove
 
 \subsection{Semi-formal model}
 
+\begin{author_comment}
+ERTMSFormalSpecs models are formal in the sense that the ERTMSFormalSpecs language is fully defined with a grammar and complete semantics. However, they are semi-formal in the sense that there is no mathematical proof theory at the basis of the language definition.  
+\end{author_comment}
+
+
 Concerning semi-formal model, how the WP2 requirements are covered ?
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & & & &  \\
+Consistency to SSRS (D.2.6-X-12.2) & \textcolor{green}{3} & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1)  & & & &  \\
+Coverage of SSRS (D.2.6-X-12.2.1)  & \textcolor{green}{3} & & &  \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2)  & & & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  & \textcolor{green}{3} & & &  \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3)  & & & &  \\
+Management of requirement justification (D.2.6-X-12.2.3)  & \textcolor{green}{3} & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-12.2.5)  & \textcolor{green}{3} & & &  \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6)  & & & &  \\
+Traceability of exported requirements (D.2.6-X-12.2.6)  & \textcolor{green}{3} & & &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  & & & &  \\
+Simulation or animation (D.2.6-X-13 partial)  & \textcolor{green}{3} & & &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & & & &  \\
+Execution (D.2.6-X-13 partial)  & \textcolor{green}{3} & & &  \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & & & &  \\
+Extensible to strictly formal model (D.2.6-X-14.3) & \textcolor{green}{3} & & &  \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & & & &  \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) & \textcolor{green}{3} & & &  \\
 \hline
-Extensible and modular design (D.2.6-X-15)  & & & &  \\
+Extensible and modular design (D.2.6-X-15)  & \textcolor{green}{3} & & &  \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30)   & & & &  \\
+Extensible to software architecture and design (D.2.6-X-30)   & \textcolor{green}{3} & & &  \\
 \hline
 \end{tabular}
 
@@ -231,50 +259,60 @@ Concerning safety properties management, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  & \textcolor{green}{1} & & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalisation (D.2.6-X-22)  & \textcolor{green}{2} & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & \textcolor{green}{2} & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & \textcolor{green}{2} & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.2)  & & & &  \\
+Safety properties validation (D.2.6-X-23.2)  & \textcolor{green}{2} & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  & \textcolor{green}{2} & & &  \\
 \hline
-Check  of assertions (D.2.6-X-34.1)  & & & &  \\
+Check  of assertions (D.2.6-X-34.1)  & \textcolor{green}{2} & & &  \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+ERTMSFormalSpecs is a modelling language for functions. Therefore, only the functional aspects of properties are addressed.  
+\end{author_comment}
 Does the language allow to  formalize (D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  & \textcolor{green}{3} & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  & \textcolor{green}{3} & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  & \textcolor{green}{3} & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  & \textcolor{green}{3} & & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  & \textcolor{green}{3} & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements & \textcolor{green}{3} & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields & \textcolor{green}{3} & & &  \\
 \hline
 \end{tabular}
 
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
 
+\begin{author_comment}
+ERTMSFormalSpecs has been designed to model the Subset-026 and test the S026 model, without taking Safety aspects into account initially.    
+\end{author_comment}
 \subsection{Strictly formal model}
 
 Concerning strictly formal model, how the WP2 requirements are covered ?
+
+\begin{author_comment}
+Even though ERTMSFormalSpecs models are formal, ERTMSFormalSpecs doesn't aim to be used a strictly formal model, for proving purposes, in the context of the OpenETCS project. Therefore that section is skipped from evaluation.  
+\end{author_comment}
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -333,6 +371,10 @@ All comments on links to  other models, validation and verification activities a
 \section{Software design}
 This section discusses the usage of the approach for software design.
 It can be skipped depending the results of \ref{main_usage}.
+
+\begin{author_comment}
+ERTMSFormalSpecs scope is limited to modelling in the large (modelling, test and documentation). Therefore, software design section is skipped.  
+\end{author_comment}
 
 \subsection{Functional design}
 
@@ -413,6 +455,10 @@ Structured methodology & & & &  \\
 This section discusses the usage of the approach for software code generation.
 It can be skipped depending the results of \ref{main_usage}.
 
+\begin{author_comment}
+ERTMSFormalSpecs scope is limited to modelling in the large (modelling, test and documentation). Therefore, software code generation section is skipped.  
+\end{author_comment}
+
 Which criteria for software design and implementation are covered by the methodology
 (see EN50128 table A.4) :
 
@@ -449,40 +495,51 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & & & &  \\
+Modelling support & \textcolor{green}{3} & & &  \\
 \hline
-Automatic translation  & & & & \\
+Automatic translation  & \textcolor{green}{1} & & & \\
 \hline
-Code Generation  & & & & \\
+Code Generation  & \textcolor{green}{1} & & & \\
 \hline
-Model verification & & & & \\
+Model verification & \textcolor{green}{3} & & & \\
 \hline
-Test generation & & & & \\
+Test generation & \textcolor{green}{1} & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & \textcolor{green}{3} & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & \textcolor{green}{0} & & & \\
 \hline
 \end{tabular}
 
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ?
 
+Both.
+
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
+As of today, the ERTMSFormalSpecs model is available both as an XML file and as an EMF model. The EMF model can be used to develop model-to-model translator (for instance ERTMSFormalSpecs->SCADE) or code generators.
 
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
 
+The ERTMSFormalSpecs model can be tested, by writing ERTMSFormalSpecs test cases in ERTMSFormalSpecs language (based on steps, actions and expectations), executing and debugging these test cases, and generating a test report. 
+
+ERTMSFormalSpecs test cases can also be executed in an automated fashion for nightly build non-regression testing purposes.
+
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
+
+No, ERTMSFormalSpecs doesn't allow to generate tests. Integration between ERTMSFormalSpecs and RT-Tester is under study, to allow for automatic ERTMSFormalSpecs model test cases generation.
 
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
 
+Yes, all of this is described in the ERTMSFormalSpecs User Guide.
+
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
-
+No, ERTMSFormalSpecs doesn't allow formal proof. 
 
 
 \section{Use of the tool}
@@ -494,41 +551,41 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & & & &  \\
+Open Source (D2.6-X-36) & \textcolor{green}{3} & & &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & & & &  \\
+Portability to operating systems (D2.6-X-37) & \textcolor{green}{2} & & &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & & & &  \\
+Cooperation of tools (D2.6-X-38) & \textcolor{green}{3} & & &  \\
 \hline
-Robustness (D2.6-X-41) & & & & \\
+Robustness (D2.6-X-41) & \textcolor{green}{3} & & & \\
 \hline
-Modularity (D2.6-X-41.1) & & & & \\
+Modularity (D2.6-X-41.1) & \textcolor{green}{3} & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) & & & & \\
+Documentation management (D.2.6-X-41.2) & \textcolor{green}{2} & & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & & & & \\
+Distributed software development (D.2.6-X-41.3)  & \textcolor{green}{2} & & & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & \textcolor{green}{1} & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & & & & \\
+Issue tracking (D.2.6-X-41.5) & \textcolor{green}{3} & & & \\
 \hline
-Differences between models (D.2.6-X-41.6) & & & & \\
+Differences between models (D.2.6-X-41.6) & \textcolor{green}{1} & & & \\
 \hline
-Version management (D.2.6-X-41.7) & & & & \\
+Version management (D.2.6-X-41.7) & \textcolor{green}{2} & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & & & & \\
+Concurrent version development (D.2.6-X-41.8) & \textcolor{green}{2} & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & & & & \\
+Model-based version control (D.2.6-X-41.9) & \textcolor{green}{2} & & & \\
 \hline
-Role traceability (D.2.6-X-41.10) & & & & \\
+Role traceability (D.2.6-X-41.10) & \textcolor{green}{1} & & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & & & & \\
+Safety version traceability (D.2.6-X-41.11) & \textcolor{green}{0} & & & \\
 \hline
-Model traceability (D.2.6-01-035) & & & & \\
+Model traceability (D.2.6-01-035) & \textcolor{green}{3} & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration & \textcolor{green}{2} & & & \\
 \hline
-Scalability & & & & \\
+Scalability & \textcolor{green}{3} & & & \\
 \hline
 \end{tabular}
 
@@ -536,24 +593,28 @@ Scalability & & & & \\
 
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
 
+\begin{author_comment}
+ERTMSFormalSpecs has EN50128 certifiability compliance outside of its scope, for the version available as of today. Certifiability compliance may be in the scope of future versions. However, relevant sections of this section are filled.
+\end{author_comment}
+
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) & \textcolor{green}{3} & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   & \textcolor{green}{2} & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &  \textcolor{green}{0} & & & \\
 \hline
-Model verification & & & & \\
+Model verification & \textcolor{green}{3} & & & \\
 \hline
-Test generation & & & & \\
+Test generation & \textcolor{green}{0} & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & \textcolor{green}{3} & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & \textcolor{green}{0} & & & \\
 \hline
 \end{tabular}
 
