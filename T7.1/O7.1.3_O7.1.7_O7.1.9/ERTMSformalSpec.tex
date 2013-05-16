@@ -46,9 +46,8 @@ This section gives a quick presentation of the approach and the tool.
 ERTMSFormalSpecs provides a domain-specific language, designed to express the ERTMS specification in a concise and verifiable formal representation. It is understandable by domain specialists while retaining the ability to be translated to executable representations by fully automated means.
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
-http://www.ertmssolutions.com/files/ERTMSFormalSpecs_WCRR2011.pdf
-
-http://www.ertmssolutions.com/files/UsingERTMSFormalSpecsToModelBrakingCurves.pdf
+\url{http://www.ertmssolutions.com/files/ERTMSFormalSpecs\_WCRR2011.pdf   }
+\url{http://www.ertmssolutions.com/files/UsingERTMSFormalSpecsToModelBrakingCurves.pdf}
 
 \section{Main usage of the approach}
 \label{main_usage}
@@ -73,6 +72,8 @@ Software code generation & \textcolor{green}{0} & & & \\
 \begin{author_comment}
 The scope of ERTMSFormalSpecs is, as described above, "a domain-specific language, designed to express the ERTMS specification in a concise and verifiable formal representation."
 Therefore, it is targeted to be used for sub-system formal design, not for analysis, software design or software code generation.
+\end{author_comment}
+
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -97,7 +98,10 @@ Safety analyses & \textcolor{green}{0} & & & \\
 
 \paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
 
+\begin{author_comment}
 The ERTMSFormalSpecs approach has been designed specifically for the purpose of modelling an OBU application software. The ERTMSFormalSpecs approach is 100\% aligned with the OpenETCS objective 1, which is to have a 100\% semi-formal model of the SSRS. 
+\end{author_comment}
+
 \section{Language}
 This section discusses the main element of the language.
 
@@ -124,6 +128,7 @@ Mathematical symbols or code & \textcolor{green}{3} & & & \\
 Graphical language & \textcolor{green}{3} & & & \\
 \hline
 \end{tabular}
+
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -163,11 +168,11 @@ Extensible language (D.2.6-01-28) & \textcolor{green}{3} & & & \\
 ERTMSFormalSpecs provides the following documentation set:
 
 \begin{itemize}
-	\item EFSW_Release_Notes.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_Release_Notes.pdf)
-	\item EFSW_Technical_Design.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_Technical_Design.pdf)
-	\item EFSW_User_Guide.pdf (https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW_User_Guide.pdf)
-	\item ERTMSFormalSpecs-Tutorial (https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-Tutorial)
-	\item ERTMSFormalSpecs-FAQ (https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-FAQ)
+	\item EFSW\_Release\_Notes.pdf (\url{https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW\_Release\_Notes.pdf})
+	\item EFSW\_Technical\_Design.pdf (\url{https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW\_Technical\_Design.pdf})
+	\item EFSW\_User\_Guide.pdf (\url{https://github.com/openETCS/ERTMSFormalSpecs/blob/master/ErtmsFormalSpecs/doc/EFSW\_User\_Guide.pdf})
+	\item ERTMSFormalSpecs-Tutorial (\url{https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-Tutorial})
+	\item ERTMSFormalSpecs-FAQ (\url{https://github.com/openETCS/ERTMSFormalSpecs/wiki/ERTMSFormalSpecs-FAQ})
 \end{itemize}
 
 
@@ -514,33 +519,46 @@ Formal proof & \textcolor{green}{0} & & & \\
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ?
 
+\begin{author_comment}
 Both.
+\end{author_comment}
 
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
+
+\begin{author_comment}
 As of today, the ERTMSFormalSpecs model is available both as an XML file and as an EMF model. The EMF model can be used to develop model-to-model translator (for instance ERTMSFormalSpecs->SCADE) or code generators.
+\end{author_comment}
 
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
 
+\begin{author_comment}
 The ERTMSFormalSpecs model can be tested, by writing ERTMSFormalSpecs test cases in ERTMSFormalSpecs language (based on steps, actions and expectations), executing and debugging these test cases, and generating a test report. 
 
 ERTMSFormalSpecs test cases can also be executed in an automated fashion for nightly build non-regression testing purposes.
+\end{author_comment}
 
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
 
+\begin{author_comment}
 No, ERTMSFormalSpecs doesn't allow to generate tests. Integration between ERTMSFormalSpecs and RT-Tester is under study, to allow for automatic ERTMSFormalSpecs model test cases generation.
+\end{author_comment}
 
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
 
+\begin{author_comment}
 Yes, all of this is described in the ERTMSFormalSpecs User Guide.
+\end{author_comment}
 
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
-No, ERTMSFormalSpecs doesn't allow formal proof. 
 
+\begin{author_comment}
+No, ERTMSFormalSpecs doesn't allow formal proof. 
+\end{author_comment}
 
 \section{Use of the tool}
 
