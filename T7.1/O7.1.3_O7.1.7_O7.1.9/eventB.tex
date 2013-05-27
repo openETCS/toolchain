@@ -1,9 +1,10 @@
 \chapter{EventB and Rodin}
+\label{chap:eventB}
 
 \begin{description}
 \item[\textcolor{green}{Author}] Author of the approaches description  Matthias Gudemann - Marielle Petit-Doche (Systerel)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches David Mentré (MERCE)
-\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Stanislas Pinte (ERTMS Solutions)
+\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Laurent Ferrier (ERTMS Solutions)
 \end{description}
 
 In the sequel, main text is under the responsibilities of the author.
@@ -47,13 +48,16 @@ The formal language Event-B is based on a set-theoretic approach. It is a varian
 language, with a focus on system level modeling and has also be defined by  Jean-Raymond Abrial. An Event-B model is separated into a static
 and a dynamic part.
 
-Rodin is an industrial strength formal modeling tool. It allows for the application of the Event-B approach to formal systems modeling. It provides proof obligation creation for invariants, refinement relations and data types. It comprises an Eclipse based modeling framework and supports numerous plugins, e.g., graphical modeling (iUML), automated proof support (theorem provers, SMT solvers) and traceability of requirements (ProR). It was developed by various academic and industrial partners in the European Union Projects RODIN (2003-2007), DEPLOY (2008-2012) and currently ADVANCE (2011-2014).
+Rodin is an industrial strength formal modeling tool. It allows the application of the Event-B approach to formal systems modeling. It provides proof obligation creation for invariants, refinement relations and data types. It comprises an Eclipse based modeling framework and supports numerous plugins, e.g., graphical modeling (iUML), automated proof support (theorem provers, SMT solvers) and traceability of requirements (ProR). It was developed by various academic and industrial partners in the European Union Projects RODIN (2003-2007), DEPLOY (2008-2012) and currently ADVANCE (2011-2014).
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
 [Abrial2011]Modeling in Event-B: System and Software Engineering
 
 Rodin Handbook (2012): \url{http://handbook.event-b.org}
+
+[DEPLOY\_book2013] Industrial Deployment of System Engineering Methods \url{http://rodintools.org/flyer.pdf}
+
 
 \section{Main usage of the approach}
 \label{main_usage}
@@ -69,11 +73,18 @@ System Analysis & 3 & & &  \\
 \hline
 Sub-system formal design & 3 & & & \\
 \hline
-Software design & 1 & & & \\
+Software design & 2 & & & \\
 \hline
-Software code generation & 0 & & & \\
+Software code generation & 1 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+This approach is designed for analyses at the early stage of the development of a system. Its capabilities of abstraction allow easy system level reasoning, without taking into account implementation details. Classical B, based on the same language is better adapted for software design and code generation \ref{chap:classicalB}.
+
+It is possible to generate C or Ada code from an Event-B model \url{http://eprints.soton.ac.uk/336226/1/ABZ2012_short_v20120202.pdf} and \url{http://deploy-eprints.ecs.soton.ac.uk/375/1/AdaEurope2012.pdf}. Two  approaches are on development: \url{http ://wiki.event-b.org/index.php/Code_Generation_Activity} and \url{http://eb2all.loria.fr/}. However, the Event-B specification must be sufficiently detailed to generate code, and this code generator do not take care of software constraints on critical systems or code optimisation.
+\end{author_comment}
+
 
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
 
@@ -97,7 +108,20 @@ Safety analyses & 2 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+This approach is not sufficient to cover all the safety analyses activities. But it is useful to give confidence on the analyses on a mathematical model. See \url{http://www.erts2012.org/Site/0P2RUC89/4D-2.pdf}.
+\end{author_comment}
+
+
 \paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
+
+
+\begin{author_comment}
+This approach has already been used in railway on two  main critical systems: modelling the DIR41 (instead the generic specification of all interlocking systems used in the metro in Paris)  and modelling the track-side controller from the metro of Lyon. 
+
+There are others application in the automotive and aeronautic domains. See for more details: \url{http://wiki.event-b.org/index.php/Industrial_Projects}
+\end{author_comment}
+
 
 \section{Language}
 This section discusses the main element of the language.
@@ -125,6 +149,10 @@ Mathematical symbols or code & 3 & & & \\
 Graphical language & 2 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+Event-B  is a formal language with a mathematical notation. But the Rodin tool can be completed with plug-in like iUML \url{http://wiki.event-b.org/index.php/IUML-B} allows to model directly state-machine or block diagram  graphically and to  give the event-B mathematical translation.
+\end{author_comment}
 
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
@@ -162,7 +190,19 @@ Extensible language (D.2.6-01-28) & 3 & & & \\
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
+\begin{author_comment}
+A description of the language is available here \url{http://wiki.event-b.org/index.php/Event-B_Language}.
+
+A complete handbook of the Rodin tool is available  here \url{http://handbook.event-b.org/}.
+
+Currently there is no guidelines or coding rules.
+\end{author_comment}
+
 \paragraph{Language usage} Describe the possible restriction on the language
+
+\begin{author_comment}
+No restriction known.
+\end{author_comment}
 
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
@@ -192,7 +232,9 @@ Traceability with Safety activities (D.2.6-X-11)  & 3 & & &  \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+Requirement traceability can be manage with the ProR plug-in \url{http://wiki.event-b.org/index.php/ProR}.
+\end{author_comment}
 
 \section{Sub-System formal design}
 This section discusses the usage of the approach for sub-system formal design.
@@ -201,6 +243,11 @@ It can be skipped depending the results of \ref{main_usage}.
 Two kinds of model can be planned during this phase: semi-formal models to  cover the SSRS (D.2.6-X-12.1) and strictly formal  models to  focuss on some functional and safety aspects (D.2.6-X-14).  Obviously some strictly  formal means can be used to define the semi-formal  model.
 
 \subsection{Semi-formal model}
+
+
+\begin{author_comment}
+As a formal language, Event-B  can cover some artifacts of semi-formal models.
+\end{author_comment}
 
 Concerning semi-formal model, how the WP2 requirements are covered ?
 
@@ -222,7 +269,7 @@ Traceability of exported requirements (D.2.6-X-12.2.6)  & 3 & & &  \\
 \hline
 Simulation or animation (D.2.6-X-13 partial)  & 3 & & &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & 0 & & &  \\
+Execution (D.2.6-X-13 partial)  & 1 & & &  \\
 \hline
 Extensible to strictly formal model (D.2.6-X-14.3) & 3 & & &  \\
 \hline
@@ -233,6 +280,11 @@ Extensible and modular design (D.2.6-X-15)  & 3 & & &  \\
 Extensible to software architecture and design (D.2.6-X-30)   & 3 & & &  \\
 \hline
 \end{tabular}
+
+
+\begin{author_comment}
+Model can be executed after translation.
+\end{author_comment}
 
 Concerning safety properties management, how the WP2 requirements are covered ?
 
@@ -255,6 +307,12 @@ Logical properties assertion (D.2.6-X-34)  & 3 & & &  \\
 Check  of assertions (D.2.6-X-34.1)  & 3 & & &  \\
 \hline
 \end{tabular}
+
+
+\begin{author_comment}
+Concerning time-constraints, it is possible to  model  abstract properties as time-outs, but not performance constraints.
+\end{author_comment}
+
 
 Does the language allow to  formalize (D.2.6-X-31):
 
@@ -280,6 +338,11 @@ Message and fields & 3 & & &  \\
 
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
+
+
+\begin{author_comment}
+Event-B  approach is well adapted for system analysis and design. However other formal approach as Classical-B \ref{chap:classicalB} or Scade are more relevant to be used during software design to code generation of critical systems.
+\end{author_comment}
 
 \subsection{Strictly formal model}
 
@@ -339,13 +402,19 @@ Message and fields & 3 & & &  \\
 All comments on links to  other models, validation and verification activities are welcomed.
 
 
+\begin{author_comment}
+Event-B  approach is well adapted for system analysis and design. However other formal approach as Classical-B \ref{chap:classicalB} or Scade are more relevant to be used during software design to code generation of critical systems.
+\end{author_comment}
+
+
 \section{Software design}
 This section discusses the usage of the approach for software design.
 It can be skipped depending the results of \ref{main_usage}.
 
-\begin{author}
-This section is skipped :  for software design classical B is more adapted than event B.
-\end{author}
+
+\begin{author_comment}
+This section is skipped :  for software design classical B is more adapted than event B \ref{chap:classicalB}.
+\end{author_comment}
 
 
 \subsection{Functional design}
@@ -429,9 +498,9 @@ This section discusses the usage of the approach for software code generation.
 It can be skipped depending the results of \ref{main_usage}.
 
 
-\begin{author}
-This section is skipped :  for software code generation, classical B is more adapted than event B.
-\end{author}
+\begin{author_comment}
+This section is skipped :  for software design classical B is more adapted than event B \ref{chap:classicalB}.
+\end{author_comment}
 
 
 Which criteria for software design and implementation are covered by the methodology
@@ -489,41 +558,61 @@ Formal proof & 3 & & & \\
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ?
 
-The tool provide a textual support, however some plug-ins allow to  model graphical diagrams (as UML or SysML diagram) and to give translation in event-B textual language.
+
+\begin{author_comment}
+The tool provide a textual support, however some plug-ins allow to  model graphical diagrams (as UML or SysML diagram) and to give translation in event-B textual language \url{http://wiki.event-b.org/index.php/IUML-B}
+\end{author_comment}
+
+
 
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
 
-Automatic translation are possible from SysML  or UML diagram to event-B.
+\begin{author_comment}
+Automatic translation are possible from SysML  or UML diagram to event-B, and from event-B to C, C++  or Ada code, see \url{http://wiki.event-b.org/index.php/Code_Generation_Activity} and \url{http://eb2all.loria.fr/}.
+\end{author_comment}
 
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
 
-syntax, type verification.
+\begin{author_comment}
+
+Syntax, type verification,
 refinement verification
 formal proof of properties (validation)
+\end{author_comment}
 
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
 
-the tool is not design to gesnerate test, however we can imagine means to  generate test from event-B machine (Rodin can be linked to the model checker ProB)
+\begin{author_comment}
+
+The tool is not design to generate test, however we can imagine means to  generate test from event-B machine (Rodin can be linked to the model checker ProB).
+\end{author_comment}
 
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
 
-Two plug-ins (ProB and animateB) are currently existing to simulate and animate the event-b model.
+\begin{author_comment}
+
+Two plug-ins (ProB \url{http://wiki.event-b.org/index.php/ProB} and animateB \url{http://wiki.event-b.org/index.php/AnimB}) are currently existing to simulate and animate the Event-B models. It is also possible to animate state machines\url{http://wiki.event-b.org/index.php/UML-B_-_Statemachine_Animation}.
+\end{author_comment}
 
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
 
-Yes : 
+\begin{author_comment}
+
+Formal proof is one of the most important artefacts of the tool. different elements take part of the formal proof:
 \begin{itemize}
-\item proof generation
+\item proof generator
 \item interactive prover
-\item  plug-in to link to SAT solver
 \item automatic prover
+\item plug-in to link to SAT solver
 \item plug-in to model-checker as ProB
+\item plug-in to AtelierB prover
 \end{itemize}
+\end{author_comment}
 
 
 \section{Use of the tool}
@@ -573,6 +662,11 @@ Scalability & 2 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+The tool is based on Eclipse on EUPL licence. Thus is can be associated to  other tools on eclipse easily, for example: EMF model comparator, Git plug-in,...
+\end{author_comment}
+
+
 \section{Certifiability}
 
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
@@ -599,6 +693,11 @@ Formal proof &3  & & & \\
 \end{tabular}
 
 \paragraph{Other elements for tool certification}
+
+\begin{author_comment}
+Event-B method is quoted and recommended for system analyses in the draft version of future standard EN50126.
+
+\end{author_comment}
 
 \section{Other comments}
 Please to  give free comments on the approach.

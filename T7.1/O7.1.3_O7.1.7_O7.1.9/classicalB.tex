@@ -1,4 +1,5 @@
 \chapter{Classical B and Atelier B}
+\label{chap:classicalB}
 
 
 \begin{description}
@@ -42,7 +43,11 @@ This section gives a quick presentation of the approach and the tool.
 \item[Licence] Free but close licence (with progressive Open Source implementation of Atelier B tools)
 \end{description}
 
-\paragraph{Abstract} The B-Method is a formal method developed by J-R. Abrial and used in industry, especially in railroad industry, to develop complex systems. It covers software development from formal specifications to code level. Proof mechanisms guaranty the consistency of specifications properties and the complete consistency of code regarding its formal specification. It is efficient to model  functional  elements of a critical software with respect to  EN50128 contraints.
+\paragraph{Abstract} 
+
+The B-Method is a formal method developed by J-R. Abrial and used in industry, especially in railroad industry, to develop complex systems. It covers software development from formal specifications to code level. Proof mechanisms guaranty the consistency of specifications properties and the complete consistency of code regarding its formal specification. It is efficient to model  functional  elements of a critical software with respect to  EN50128 contraints.
+
+AtelierB is the industrial  tool the most used to develop critical software.
 
 \paragraph{Publications} 
 [Abrial1996] The B Book, Assigning Programs to Meanings
@@ -58,7 +63,7 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & 0 & & &  \\
+System Analysis & 1 & & &  \\
 \hline
 Sub-system formal design & 2 & & & \\
 \hline
@@ -67,6 +72,10 @@ Software design & 3 & & & \\
 Software code generation & 3 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+Classical B can be used for system design, however it is most adapted to software design. Event-B  based on the same language is better for system analyses \ref{chap:eventB}.
+\end{author_comment}
 
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
 
@@ -90,9 +99,21 @@ Safety analyses & 1 & & & \\
 \hline
 \end{tabular}
 
+
+\begin{author_comment}
+Classical B  can be used to  validate safety properties.
+\end{author_comment}
+
 \paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
-Classical B has been used successfully  in railway  industry (mainly by Alstom, aiemens and AREVA) to  develop critical software in urban (CBTC, PMI,...) and mainline domains (KVB, Eurobalise,...).Hundred of different systems are running in the world embedding software developed in B.
+
+\begin{author_comment}
+
+Classical B has been used successfully  in railway  industry (mainly by Alstom, aiemens and AREVA) to  develop critical software in urban (CBTC, PMI,...) and mainline domains (KVB, Eurobalise,...). Hundred of different systems are running in the world embedding software developed in B (see \url{http://www.cs.vu.nl/~wanf/pubs/handbookFFM.pdf}, \url{http://link.springer.com/chapter/10.1007/3-540-48119-2_22} and \url{http://web.tiscali.it/chiccoterri/Metod B.htm}).
+
 It is also used in nuclear, aeronautic and defence area.
+
+\end{author_comment}
+
 
 \section{Language}
 This section discusses the main element of the language.
@@ -156,9 +177,17 @@ Extensible language (D.2.6-01-28) & 1 & & & \\
 
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
-Language is documented with language manual reference. Industrial have developed their own coding rules and guidelines.
+
+\begin{author_comment}
+
+Language is documented with language manual reference (\url{http://www.atelierb.eu/ressources/manrefb1.8.6.uk.pdf}), tool with the user manual (\url{http://www.tools.clearsy.com/wp1/?page_id=196}). Industrial have developed their own coding rules and guidelines.
+\end{author_comment}
+
 
 \paragraph{Language usage} Describe the possible restriction on the language
+\begin{author_comment}
+Some restrictions in the language manual reference. Industrial guides can add restrictions.
+\end{author_comment}
 
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
@@ -188,7 +217,9 @@ Traceability with Safety activities (D.2.6-X-11)  & 2 & & &  \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+Classical B can be used to  support partly  system analysis. However Event B, based on the same language, is more suitable \ref{chap:eventB}.
+\end{author_comment}
 
 \section{Sub-System formal design}
 This section discusses the usage of the approach for sub-system formal design.
@@ -197,6 +228,11 @@ It can be skipped depending the results of \ref{main_usage}.
 Two kinds of model can be planned during this phase: semi-formal models to  cover the SSRS (D.2.6-X-12.1) and strictly formal  models to  focuss on some functional and safety aspects (D.2.6-X-14).  Obviously some strictly  formal means can be used to define the semi-formal  model.
 
 \subsection{Semi-formal model}
+
+
+\begin{author_comment}
+As a formal language, classical B  can cover some artifacts of semi-formal models.
+\end{author_comment}
 
 Concerning semi-formal model, how the WP2 requirements are covered ?
 
@@ -230,6 +266,12 @@ Extensible to software architecture and design (D.2.6-X-30)   & 3 & & &  \\
 \hline
 \end{tabular}
 
+
+\begin{author_comment}
+Execution is possible after translation.
+\end{author_comment}
+
+
 Concerning safety properties management, how the WP2 requirements are covered ?
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -251,6 +293,12 @@ Logical properties assertion (D.2.6-X-34)  &  3 & & &  \\
 Check  of assertions (D.2.6-X-34.1)  & 3 & & &  \\
 \hline
 \end{tabular}
+
+
+\begin{author_comment}
+Timing constraints like time-outs can be modelled.
+\end{author_comment}
+
 
 Does the language allow to  formalize (D.2.6-X-31):
 
@@ -274,8 +322,22 @@ Message and fields & 3 & & &  \\
 \hline
 \end{tabular}
 
+
+\begin{author_comment}
+Braking curves have already been specifyed in classical b  in past industrial projects. However this need specific skills.
+\end{author_comment}
+
+
+
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
+
+
+
+\begin{author_comment}
+Classical B  approach is well adapted for software design untill code generation. However a formal approach as Event B \ref{chap:eventB} is more relevant to be used for system analysis and design.
+\end{author_comment}
+
 
 \subsection{Strictly formal model}
 
@@ -309,6 +371,13 @@ Proof of assertions (D.2.6-X-34.2)  & 3 & & &  \\
 \hline
 \end{tabular}
 
+
+
+\begin{author_comment}
+Timing constraints like time-outs can be modelled.
+\end{author_comment}
+
+
 Does the language allow to  formalize (D.2.6-X-32):
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -331,8 +400,20 @@ Message and fields & 3 & & &  \\
 \hline
 \end{tabular}
 
+
+\begin{author_comment}
+Braking curves have already been specifyed in classical b  in past industrial projects. However this need specific skills.
+\end{author_comment}
+
+
 \paragraph{Additional comments on semi-formal  model} Do you think your strictly formal  model can be directly defined from the SSRS ?
 All comments on links to  other models, validation and verification activities are welcomed.
+
+
+
+\begin{author_comment}
+Classical B  approach is well adapted for software design untill code generation. However a formal approach as Event B \ref{chap:eventB} is more relevant to be used for system analysis and design.
+\end{author_comment}
 
 
 \section{Software design}
@@ -472,30 +553,47 @@ Formal proof & 3 & & & \\
 
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ?
+
+\begin{author_comment}
 Textual editor
+\end{author_comment}
 
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
+
+\begin{author_comment}
 Automatic translation to  C, Ada or HIA is possible with existing tools. Automatic translators to other languages can be developed.
+\end{author_comment}
 
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
-simulation, Validation and formal proof, test coverage
+
+\begin{author_comment}
+simulation, verification, validation and formal proof, test coverage
+\end{author_comment}
 
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
+
+\begin{author_comment}
 No
+\end{author_comment}
 
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
-Code can be simulated step  by step with specific tool of the target language.
+
+\begin{author_comment}
+Code can be simulated step  by step with specific tool of the target language or animated with ProB \url{http://www.tools.clearsy.com/wp1/?page_id=124}.
+\end{author_comment}
 
 
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
 
+\begin{author_comment}
 Yes, a set of rules describes how to  produce proof obligations to cover verification of the model (type verification, invariant preservation, refinement,...)
 A set of rules can be defined to  write proofs.  
+\end{author_comment}
 
 \section{Use of the tool}
 
@@ -544,6 +642,12 @@ Scalability & 3 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+The tool is partly open-source, but it is free for use.
+For more details \url{http://www.atelierb.eu/outil-atelier-b/}.
+\end{author_comment}
+
+
 \section{Certifiability}
 
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
@@ -570,6 +674,12 @@ Formal proof & 3 & & & \\
 \end{tabular}
 
 \paragraph{Other elements for tool certification}
+
+
+\begin{author_comment}
+Method and tool have already been used to  develop numbers of  SIL4 software for railway.
+\end{author_comment}
+
 
 \section{Other comments}
 Please to  give free comments on the approach.
