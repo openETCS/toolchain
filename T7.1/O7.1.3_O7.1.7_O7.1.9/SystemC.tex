@@ -146,17 +146,18 @@ Modular language &3 & & & \\
 \hline
 Textual language &3 & & & \\
 \hline
-Mathematical symbols or code &3 & & & \\
+Mathematical symbols or code &2** & & & \\
 \hline
 Graphical language &* & & & \\
 \hline
 \end{tabular}
 
 \begin{author_comment}
-* Not graphical, but we are investigating SystemC and UML/SysML integration, the \href{http://www.martes-idea.org/}{ITEA MARTES Project} is addressing this aspect
+* We would set this to 2, because there are languages where you can write the mathematical formula directly like in written text. 
+** Not graphical, but we are investigating SystemC and UML/SysML integration, the \href{http://www.martes-idea.org/}{ITEA MARTES Project} is addressing this aspect
 \end{author_comment}
 
-According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
+According to WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -175,7 +176,7 @@ Executable directly (D.2.6-X-33) &3 & & & \\
 Executable after translation to a code (D.2.6-X-33) &3 & & & \\
 (precise if the translation is automatic) & & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) &3 & & & \\
+Simulation, animation (D.2.6-X-33) &3* & & & \\
 \hline
 Easily understandable (D.2.6-X-27) &2 & & & \\
 \hline
@@ -188,6 +189,10 @@ Documented (D.2.6-X-29) &3 & & & \\
 Extensible language (D.2.6-01-28) &3 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+* Should be two rows. SystemC provides simulation but not animation.
+\end{author_comment}
 
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
@@ -206,33 +211,10 @@ There is an IEEE Standard covering SystemC, an official specification from the A
 This section discusses the usage of the approach for system analysis.
 It can be skipped depending the results of \ref{main_usage}.
 
-Acoording WP2 requirements, how the approach can be involved for the sub-system requirement specification ?
-
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline
-Independent System functions definition (D.2.6-X-10.2.1)  &3 & & &  \\
-\hline 
-System architecture design (D.2.6-X-10.2) &3 & & &  \\
-\hline
-System data flow identification (D.2.6-X-10.2.3)  &3 & & &  \\
-\hline
-Sub-system focus (D.2.6-X-10.2.4)  &3 & & &  \\
-\hline
-System interfaces definition (D.2.6-X-10.2.5)  &3 & & &  \\
-\hline
-System requirement allocation (D.2.6-X-10.3)  &2* & & &  \\
-\hline
-Traceability with SRS (D.2.6-X-10.5)  &** & & &  \\
-\hline
-Traceability with Safety activities (D.2.6-X-11)  &2* & & &  \\
-\hline
-\end{tabular}
+According WP2 requirements, how the approach can be involved for the sub-system requirement specification ?
 
 \begin{author_comment}
-* Can possibly be covered by an associated SysML model. In addition, standardised, machine readable comments in the code could be used.\\
-** This is not the scope of SystemC
+This is not the main purpose of SystemC. Thus we skip this section.
 \end{author_comment}
 
 \section{Sub-System formal design}
@@ -261,7 +243,7 @@ Traceability to  SSRS (D.2.6-X-12.2.5)  &** & & &  \\
 \hline
 Traceability of exported requirements (D.2.6-X-12.2.6)  &*** & & &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  &3 & & &  \\
+Simulation or animation (D.2.6-X-13 partial)  &3**** & & &  \\
 \hline
 Execution (D.2.6-X-13 partial)  &3 & & &  \\
 \hline
@@ -279,6 +261,7 @@ Extensible to software architecture and design (D.2.6-X-30)   &3 & & &  \\
 * The coverage has to be achieved by the \textbf{model}, not by the language or tool and should be removed from the table.\\
 ** See table above\\
 *** What are ``exported requirements''?\\
+**** This cannot be extracted from the requirement as the requirement is on execution which is in the next row.
 \end{author_comment}
 
 Concerning safety properties management, how the WP2 requirements are covered ?
@@ -338,59 +321,8 @@ All comments on links to  other models, validation and verification activities a
 Not filled, since we do not consider SystemC to be a strictly formal modelling language, as it has no mathematically formalized sematics. Fully formal models should also support ``really'' formal verification (not only testing) which requires additional work here. However, there are many approaches in the literature to, e.g., apply model checking to SystemC models.
 \end{author_comment}
 
-Concerning strictly formal model, how the WP2 requirements are covered ?
 
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Consistency to SFM (D.2.6-X-14.2) & & & &  \\
-\hline
-Coverage of SSRS (D.2.6-X-14.2)  & & & &  \\
-\hline
-Traceability to  SSRS (D.2.6-X-14.3)  & & & &  \\
-\hline
-Extensible to software design (D.2.6-X-16)  & & & &  \\
-\hline
-Safety function isolation (D.2.6-X-17)  & & & &  \\
-\hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
-\hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
-\hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
-\hline
-Safety properties validation (D.2.6-X-23.3)  & & & &  \\
-\hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
-\hline
-Proof of assertions (D.2.6-X-34.2)  & & & &  \\
-\hline
-\end{tabular}
-
-Does the language allow to  formalize (D.2.6-X-32):
-
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-State machines  & & & &  \\
-\hline
-Time-outs  & & & &  \\
-\hline
-Truth tables  & & & &  \\
-\hline
-Arithmetic  & & & &  \\
-\hline
-Braking curves  & & & &  \\
-\hline
-Logical statements & & & &  \\
-\hline
-Message and fields & & & &  \\
-\hline
-\end{tabular}
-
-\paragraph{Additional comments on semi-formal  model} Do you think your strictly formal  model can be directly defined from the SSRS ?
+\paragraph{Additional comments on strictly formal  model} Do you think your strictly formal  model can be directly defined from the SSRS ?
 All comments on links to  other models, validation and verification activities are welcomed.
 
 
@@ -423,7 +355,7 @@ Executable  &3 & & &  \\
 \end{tabular}
 
 \begin{author_comment}
-* Item unclear to me\\
+* Derivation not necessary because the model is fully executable\\
 ** Can possibly be covered by an associated SysML model. In addition, standardised, machine readable comments in the code could be used.\\
 \end{author_comment}
 
@@ -605,29 +537,29 @@ Robustness (D2.6-X-41) &3 & & & \\
 \hline
 Modularity (D2.6-X-41.1) &3 & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) &0 & & & \\
+Documentation management (D.2.6-X-41.2) &** & & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  &3** & & & \\
+Distributed software development (D.2.6-X-41.3)  &3*** & & & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   &3** & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   &3*** & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) &0 & & & \\
+Issue tracking (D.2.6-X-41.5) &** & & & \\
 \hline
-Differences between models (D.2.6-X-41.6) &3** & & & \\
+Differences between models (D.2.6-X-41.6) &3*** & & & \\
 \hline
-Version management (D.2.6-X-41.7) &3** & & & \\
+Version management (D.2.6-X-41.7) &3*** & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) &3** & & & \\
+Concurrent version development (D.2.6-X-41.8) &3*** & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) &*** & & & \\
+Model-based version control (D.2.6-X-41.9) &**** & & & \\
 \hline
 Role traceability (D.2.6-X-41.10) &* & & & \\
 \hline
 Safety version traceability (D.2.6-X-41.11) &* & & & \\
 \hline
-Model traceability (D.2.6-01-035) &**** & & & \\
+Model traceability (D.2.6-01-035) &***** & & & \\
 \hline
-Tool chain integration &2***** & & & \\
+Tool chain integration &2****** & & & \\
 \hline
 Scalability &3 & & & \\
 \hline
@@ -635,10 +567,11 @@ Scalability &3 & & & \\
 
 \begin{author_comment}
   * Unclear to me\\
- ** By means of versioning systems such as Git or SVN\\
-*** For SystemC text-based version control is equivalent to model-based version control.\\
-**** Can possibly be covered by an associated SysML model. In addition, standardised, machine readable comments in the code could be used.\\
-***** Tool chain integration can be achieved at different levels. E.g., SystemC can be the target language from graphical, higher-level languages (e.g., SysML). SystemC models are executable and thus code generation is possibly no issue if we want to obtain just an executable model but no real code running on the target platform (which is out of scope for openETCS).
+  ** Not directly; by means of external tools such as Doxygen (or in the case of issue tracking, e.g., GitHub)\\
+ *** By means of versioning systems such as Git or SVN\\
+**** For SystemC text-based version control is equivalent to model-based version control.\\
+***** Can possibly be covered by an associated SysML model. In addition, standardised, machine readable comments in the code could be used.\\
+****** Tool chain integration can be achieved at different levels. E.g., SystemC can be the target language from graphical, higher-level languages (e.g., SysML). SystemC models are executable and thus code generation is possibly no issue if we want to obtain just an executable model but no real code running on the target platform (which is out of scope for openETCS).
 \end{author_comment}
 
 \section{Certifiability}
@@ -646,7 +579,7 @@ Scalability &3 & & & \\
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
 
 \begin{author_comment}
-  I have no clue here.
+  We do not have the information to fill this completely. But the broad industrial usage suggests that certifiability should not be an issue.
 \end{author_comment}
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -657,13 +590,13 @@ Tool manual (D.2.6-01-42.02) & & & &  \\
 \hline
 Proof of correctness (D.2.6-01-42.03)   & & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &3 & & & \\
 \hline
 Model verification & & & & \\
 \hline
 Test generation & & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &3 & & & \\
 \hline
 Formal proof & & & & \\
 \hline
