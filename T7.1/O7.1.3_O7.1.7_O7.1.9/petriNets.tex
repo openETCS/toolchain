@@ -6,7 +6,7 @@
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
 \end{description}
 
-In the sequel, main text is under the responsibilities of the author.
+\begin{comment}
 
 \begin{author_comment}
 Author can add comments using this format at any place.
@@ -20,7 +20,9 @@ First assessor can add comments using this format at any place.
 Second assessor can add comments using this format at any place.
 \end{assessor2}
 
-When a note is required, please follow this list :
+\end{comment}
+
+When a note is required, these have been given using the following list:
 \begin{description}
 \item[0] not recommended, not adapted, rejected
 \item[1] weakly recommended, adapted after major improvements, weakly rejected
@@ -29,71 +31,87 @@ When a note is required, please follow this list :
 \item[*] difficult to evaluate with a note (please add a comment under the table)
 \end{description}
 
-All the notes can be commented under each table.
+Where needed additional comments for the given notes are under each table.
 
 \section{Presentation}
 
-This section gives a quick presentation of the approach and the tool.
+This section gives a quick presentation of the approach and the supporting tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] \todo{means of description: Coloures Petri nets; tool: CPN Tools}
+\item[Web site] \todo{http://cpntools.org}
+\item[Licence] \todo{CPN Tools GUI: GNU GPL version 2; Simulator: GNU GPL version 2 andBSD license; Access/CPN: GNU LGPL version 2.1}
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} 
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
+The following evaluation of petri nets and the CPN Tools is in contrast to all other means of description not based on a preliminary model but on earlier formal model of the then current ERTMS/ETCS specification done for Deutsche Bahn AG in 1997. This work developed a full formal system model which was able to provide a
+universal means of description for all the development phases. Thereby, an integrated event and data-oriented approach has been used, which is able to describe the different aspects of the  system  on  their  own net  levels.  Coloured Petri nets have been as means of description for this procedure, as they permit universal application, the use of different methods and formal analysis. CPN Tools is a mature tool suite which provides support to edit, check, simulate and analyse nets on all relevant abstraction levels.
+
+
+\paragraph{Publications} 
+
+\begin{itemize}
+\item Van der Aalst, W.M.P. and Stahl, C.: Modeling Business Processes -- A Petri Net-Oriented Approach. The MIT Press, 2011.
+\item K. Jensen and Kristensen, L.M.: Coloured Petri Nets -- Modeling and Validation of Concurrent Systems. Springer-Verlag Berlin, 2009.
+\item Janhsen, A.; Lemmer, K.; Ptok, B.; Schnieder, E.: Formal Specifications of the European Train Control System. In: Papageorgiou, M.; Pouliezos, A., Hrsg.: Proceedings of 8th IFAC Symposium on Transportation Systems, S. 1215-1220, Chania, Juni 1997. Chania.
+\item Meyer zu Hörste, M.; Ptok, B.; Schnieder, E.; Schulz, H.-M.: Modelling and Simulation of the European Train Control System for test case generation. In: Mellitt, B; Hill, R. J.; Allan, J.; Sciutto, G.; Brebbia, C. A., Hrsg.: Proceedings COMPRAIL '98: Computers in Railways VI, Lissabon, S. 649-658, Southampton, Boston, Juli 1998. Sixth international conference on computer aided design, manufacture and operation in the railway and other advanced mass transit systems / Lissabon, WIT Press.
+\item Jensen, K.; Kristensen, L.M. and Wells, L.: Coloured Petri Nets and CPN Tools for Modelling and Validation of Concurrent Systems. International Journal on Software Tools for Technology Transfer (STTT)9(3-4), pp. 213-254, 2007. 
+\end{itemize}
 
 
 \section{Main usage of the approach}
 \label{main_usage}
-This section discusses the main usage of the approach.
+The approach has been used to develop a strictly formal model based on an earlier  System  Requirements  Specification version. Therefore the approach uses context, process, scenario and function models to provide visualisation of the system and sub-systen processes as well as the operational processes. 
+Petri Nets as a means of description are used in research an in industrial applications used for Process Modeling, Data analysis, Software design and Reliability engineering. Coloured Petri Nets are  High-level Petri Nets which are mainly used to describe, simulate and validated communication between humans and/or computers. As a means of description Coloured and  Hierarchic Petri nets allow to use one uniform means of description for the entire development cycle, starting with  the specification through to  implementation. In addition Petri  nets  provide  the capacity  that allows  different  methods  to  be  used  during  one  single  phase  of  the  development cycle  and also phase-specific methods.
+CPN Tools has a graphical editor to model nets and provides various methods to analyse the nets, most importantly a reachability analysis. Resprechtivily the tool supports most applications for Coloured Petri Nets.
 
-According to the figure \ref{fig:main_process}, for which phases do you recommend the approach (give a note from 0 to  3) :
-
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-System Analysis & & & &  \\
-\hline
-Sub-system formal design & & & & \\
-\hline
-Software design & & & & \\
-\hline
-Software code generation & & & & \\
-\hline
-\end{tabular}
-
-According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
+According to the figure \ref{fig:main_process}, the approach is recommanded for the following phases (note from 0 to  3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation & & & &  \\
+System Analysis & 3 & & &  \\
 \hline
-Modeling & & & &  \\
+Sub-system formal design & 3 & & & \\
 \hline
-Design & & & & \\
+Software design & 3 & & & \\
 \hline
-Code generation & & & & \\
-\hline
-Verification & & & & \\
-\hline
-Validation & & & & \\
-\hline
-Safety analyses & & & & \\
+Software code generation & 1 & & & \\
 \hline
 \end{tabular}
 
-\paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
+According to the figure \ref{fig:main_process}, the approach is recommanded for the following types of activities (note from 0 to  3) :
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+Documentation & 1 & & &  \\
+\hline
+Modeling & 3 & & &  \\
+\hline
+Design & 3 & & & \\
+\hline
+Code generation & 1 & & & \\
+\hline
+Verification & 3 & & & \\
+\hline
+Validation & 3 & & & \\
+\hline
+Safety analyses & 3 & & & \\
+\hline
+\end{tabular}
+
+\paragraph{Known usages} 
+
+The first goal of the openETCS project, formalising subset 26, has already been handled by this approach as  an earlier version of the ERTMS system requirement specifications has been modeled this way. Thereby it  was  demonstrated  that  during  the  phases  of  system development, covering the system specification through to the final system design, a  model based on Petri nets can be used.
 
 \section{Language}
 This section discusses the main element of the language.
 
-Which are the main characteristics of the language :
+Coloured Petri nets have the following main characteristics:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -103,83 +121,82 @@ Informal language & & & &  \\
 \hline 
 Semi-formal language & & & &  \\
 \hline
-Formal language & & & &  \\
+Formal language & x & & &  \\
 \hline
-Structured language & & & & \\
+Structured language & x & & & \\
 \hline
-Modular language & & & & \\
+Modular language & x & & & \\
 \hline
 Textual language & & & & \\
 \hline
-Mathematical symbols or code & & & & \\
+Mathematical symbols or code & x & & & \\
 \hline
-Graphical language & & & & \\
+Graphical language & x & & & \\
 \hline
 \end{tabular}
 
-According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
+According WP2 requirements, notes are given for the capabilities of Coloured Petri nets (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & & & & \\
+Declarative formalization of properties (D.2.6-X-28) & 3 & & & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & & & & \\
+Simple formalization of properties (D.2.6-X-28.1) & 3 & & & \\
 \hline
-Scalability : capability to design large model & & & & \\
+Scalability : capability to design large model & 3 & & & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30) & & & & \\
+Easily translatable to other languages (D.2.6-X-30) & 2 & & & \\
 \hline
-Executable directly (D.2.6-X-33) & & & & \\
+Executable directly (D.2.6-X-33) & 3 & & & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) & & & & \\
-(precise if the translation is automatic) & & & & \\
+Executable after translation to a code (D.2.6-X-33) & 3 & & & \\
+(precise if the translation is automatic) & 2 & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) & & & & \\
+Simulation, animation (D.2.6-X-33) & 3 & & & \\
 \hline
-Easily understandable (D.2.6-X-27) & & & & \\
+Easily understandable (D.2.6-X-27) & 2 & & & \\
 \hline
-Expertise level needed (0 High level, 3 few level) & & & & \\
+Expertise level needed (0 High level, 3 few level) & 1 & & & \\
 \hline
-Standardization (D.2.6-X-29) & & & & \\
+Standardization (D.2.6-X-29) & 3 & & & \\
 \hline
-Documented (D.2.6-X-29) & & & & \\
+Documented (D.2.6-X-29) & 3 & & & \\
 \hline
-Extensible language (D.2.6-01-28) & & & & \\
+Extensible language (D.2.6-01-28) & 3 & & & \\
 \hline
 \end{tabular}
 
 
-\paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
+\paragraph{Documentation} Coloured petri nets are standardised as part of the high level petri nets in ISO/IEC 15909 Systems and software engineering - High-level Petri nets. The use of petri nets for the system dependability analysis is standardised in IEC 62551 Analysis techniques for dependability - Petri net modeling. In addition Coloured petri nets and the CPN Tools are introduced and documented in the book \textit{Coloured Petri Nets -- Modeling and Validation of Concurrent Systems} by K. Jensen and L.M. Kristensen. 
 
-\paragraph{Language usage} Describe the possible restriction on the language
+\paragraph{Language usage} Basically petri nets are a very powerful completely mathematical defined means of description to graphically model systems in a discrete way. Over the time various extensions have be developed to extend the concept of petri nets to handle a larger amount of system properties and  behaviour. Some of these extensions require export knowledge, so that their models can be difficult to understand for users not familiar with the theory behind petri nets.
 
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
-It can be skipped depending the results of \ref{main_usage}.
 
-Acoording WP2 requirements, how the approach can be involved for the sub-system requirement specification ?
+Acoording WP2 requirements, the approach can be involved for the sub-system requirement specification in the following ways:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1)  & & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  & 3 & & &  \\
 \hline 
-System architecture design (D.2.6-X-10.2) & & & &  \\
+System architecture design (D.2.6-X-10.2) & 3 & & &  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  & & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  & 3 & & &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  & & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  & 3 & & &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  & & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  & 3 & & &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  & & & &  \\
+System requirement allocation (D.2.6-X-10.3)  & 2 & & &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  & & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  & 2 & & &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
+Traceability with Safety activities (D.2.6-X-11)  & 2 & & &  \\
 \hline
 \end{tabular}
 
@@ -187,200 +204,202 @@ Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
 
 \section{Sub-System formal design}
 This section discusses the usage of the approach for sub-system formal design.
-It can be skipped depending the results of \ref{main_usage}.
 
-Two kinds of model can be planned during this phase: semi-formal models to  cover the SSRS (D.2.6-X-12.1) and strictly formal  models to  focuss on some functional and safety aspects (D.2.6-X-14).  Obviously some strictly  formal means can be used to define the semi-formal  model.
+Petri nets can be used to model both kind of models during this phase: semi-formal models tocover the SSRS (D.2.6-X-12.1) and strictly formal  models to  focus on some functional and safety aspects (D.2.6-X-14).  Obviously petri nets as a strictly  formal means can be used to define the semi-formalmodel.
 
 \subsection{Semi-formal model}
 
-Concerning semi-formal model, how the WP2 requirements are covered ?
+Concerning semi-formal model, the following WP2 requirements are covered:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & & & &  \\
+Consistency to SSRS (D.2.6-X-12.2) & 2 & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1)  & & & &  \\
+Coverage of SSRS (D.2.6-X-12.2.1)  & 3 & & &  \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2)  & & & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  & 3 & & &  \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3)  & & & &  \\
+Management of requirement justification (D.2.6-X-12.2.3)  & 1 & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-12.2.5)  & 2 & & &  \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6)  & & & &  \\
+Traceability of exported requirements (D.2.6-X-12.2.6)  & 2 & & &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  & & & &  \\
+Simulation or animation (D.2.6-X-13 partial)  & 3 & & &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & & & &  \\
+Execution (D.2.6-X-13 partial)  & 3 & & &  \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & & & &  \\
+Extensible to strictly formal model (D.2.6-X-14.3) & 3 & & &  \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & & & &  \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) & 3 & & &  \\
 \hline
-Extensible and modular design (D.2.6-X-15)  & & & &  \\
+Extensible and modular design (D.2.6-X-15)  & 3 & & &  \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30)   & & & &  \\
+Extensible to software architecture and design (D.2.6-X-30)   & 3 & & &  \\
 \hline
 \end{tabular}
 
-Concerning safety properties management, how the WP2 requirements are covered ?
+Concerning safety properties management, the following WP2 requirements are covere:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  & 3 & & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalisation (D.2.6-X-22)  & 3 & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & 3 & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & 3 & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.2)  & & & &  \\
+Safety properties validation (D.2.6-X-23.2)  & 3 & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  & 3 & & &  \\
 \hline
-Check  of assertions (D.2.6-X-34.1)  & & & &  \\
+Check  of assertions (D.2.6-X-34.1)  & 3 & & &  \\
 \hline
 \end{tabular}
 
-Does the language allow to  formalize (D.2.6-X-31):
+Coloured Petri nets allow to  formalize the following(D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  & 3 & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  & 3 & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  & 2 & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  & 3 & & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  & 1 & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements & 3 & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields & 3 & & &  \\
 \hline
 \end{tabular}
 
-\paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
-All comments on links to  other models, validation and verification activities are welcomed.
+\paragraph{Additional comments on semi-formal  model} 
+Since the approach has already been used to model the ERTMS/ETCS specification in an earlier version, it is sufficient for the task.
+As petri nets are closely related to all means of descriptions based on state machines and automatas the can be compared or translated relatively easy. In addition all verification and validation activities supported by those means of descriptions can be used on petri nets. Although hazard and risk analysis techniques as FTA and FMEA can be translated intro petri nets and petri nets can be used for formal hazard and risk analysis methods.
+
 
 \subsection{Strictly formal model}
 
-Concerning strictly formal model, how the WP2 requirements are covered ?
+Concerning the strictly formal model, the following WP2 requirements are covered:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & & & &  \\
+Consistency to SFM (D.2.6-X-14.2) & 3 & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2)  & & & &  \\
+Coverage of SSRS (D.2.6-X-14.2)  & 3 & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-14.3)  & 2 & & &  \\
 \hline
-Extensible to software design (D.2.6-X-16)  & & & &  \\
+Extensible to software design (D.2.6-X-16)  & 3 & & &  \\
 \hline
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  & 3 & & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalisation (D.2.6-X-22)  & 3 & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & 3 & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & 3 & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.3)  & & & &  \\
+Safety properties validation (D.2.6-X-23.3)  & 3 & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  & 3 & & &  \\
 \hline
-Proof of assertions (D.2.6-X-34.2)  & & & &  \\
+Proof of assertions (D.2.6-X-34.2)  & 3 & & &  \\
 \hline
 \end{tabular}
 
-Does the language allow to  formalize (D.2.6-X-32):
+Coloured petri nets allow to formalize the following(D.2.6-X-32):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  & 3 & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  & 3 & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  & 2 & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  & 3 & & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  & 1 & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements & 3 & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields & 3 & & &  \\
 \hline
 \end{tabular}
 
-\paragraph{Additional comments on semi-formal  model} Do you think your strictly formal  model can be directly defined from the SSRS ?
-All comments on links to  other models, validation and verification activities are welcomed.
+\paragraph{Additional comments on semi-formal  model} 
+Petri nets models can be build directly from the SSRS and then be systematically refined. 
+Since petri nets are closely related to all means of descriptions based on state machines and automatas the can be compared or translated relatively easy. In addition all verification and validation activities supported by those means of descriptions can be used on petri nets. Although hazard and risk analysis techniques as FTA and FMEA can be translated intro petri nets and petri nets can be used for formal hazard and risk analysis methods.
 
 
 \section{Software design}
 This section discusses the usage of the approach for software design.
-It can be skipped depending the results of \ref{main_usage}.
 
 \subsection{Functional design}
 
-How the approach allows to  produce a functional software model of the on-board unit ?
+The approach allows to  produce a functional software model of the on-board unit in the following ways:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model  & & & &  \\
+Derivation from system semi-formal model  & 3 & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  & 3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  & 3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  & 2 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  & 3 & & &  \\
 \hline
 \end{tabular}
+Since petri nets are a formal means of description usually all refinements require a formal model.
 
 \subsection{SSIL4 design}
 
-How the approach allows to  produce in safety a software model ?
+The approach allows to  produce in safety a software model by the following ways:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model  & & & &  \\
+Derivation from system semi-formal or strictly formal model  & 3 & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  & 3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  & 3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  & 2 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  & 3 & & &  \\
 \hline
-Conformance to EN50128 § 7.2  & & & &  \\
+Conformance to EN50128 § 7.2  & 3 & & &  \\
 \hline
-Conformance to EN50128 § 7.3  & & & &  \\
+Conformance to EN50128 § 7.3  & 3 & & &  \\
 \hline
-Conformance to EN50128 § 7.4  & & & &  \\
+Conformance to EN50128 § 7.4  & 3 & & &  \\
 \hline
 \end{tabular}
 
-Which criteria for software architecture are covered by the methodology
+The following criteria for software architecture are covered by the methodology
 (see EN50128 table A.3) :
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -389,48 +408,48 @@ Which criteria for software architecture are covered by the methodology
 \hline
 Defensive programming  & & & &  \\
 \hline 
-Fault detection \& diagnostic  & & & &  \\
+Fault detection \& diagnostic  & 2 & & &  \\
 \hline
-Error detecting code  & & & &  \\
+Error detecting code  & 1 & & &  \\
 \hline
 Failure assertion programming & & & &  \\
 \hline
-Diverse programming & & & &  \\
+Diverse programming & 1 & & &  \\
 \hline
-Memorising executed cases & & & &  \\
+Memorising executed cases & 1 & & &  \\
 \hline
-Software error effect analysis & & & &  \\
+Software error effect analysis & 3 & & &  \\
 \hline
-Fully defined interface & & & &  \\
+Fully defined interface & 3 & & &  \\
 \hline
-Modelling  & & & &  \\
+Modelling  & 3 & & &  \\
 \hline
-Structured methodology & & & &  \\
+Structured methodology & 3 & & &  \\
 \hline
 \end{tabular}
 
 \section{Software code generation}
-This section discusses the usage of the approach for software code generation.
-It can be skipped depending the results of \ref{main_usage}.
 
-Which criteria for software design and implementation are covered by the methodology
+CPN Tools does not directly generate source code, but the petri nets models are provided in the CPN ML file format, which can be used by other tools to create code
+
+The following criteria for software design and implementation are covered by the methodology:
 (see EN50128 table A.4) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods  & & & &  \\
+Formal methods  & 3 & & &  \\
 \hline 
-Modeling  & & & &  \\
+Modeling  & 3 & & &  \\
 \hline
-Modular approach (mandatory) & & & &  \\
+Modular approach (mandatory) & 3 & & &  \\
 \hline
-Components & & & &  \\
+Components & 3 & & &  \\
 \hline
-Design and coding standards (mandatory) & & & &  \\
+Design and coding standards (mandatory) & 2 & & &  \\
 \hline
-Strongly typed programming language & & & &  \\
+Strongly typed programming language & 0 & & &  \\
 \hline
 
 \end{tabular}
@@ -442,93 +461,93 @@ Strongly typed programming language & & & &  \\
 
 This section discusses the main usage of the tool.
 
-Which task are covered by the tool ?
+The following tasks are covered by the tool:
 
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & & & &  \\
+Modelling support & 3 & & &  \\
 \hline
-Automatic translation  & & & & \\
+Automatic translation  & 1 & & & \\
 \hline
-Code Generation  & & & & \\
+Code Generation  & 1 & & & \\
 \hline
-Model verification & & & & \\
+Model verification & 3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation & 2 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & 3 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & 3 & & & \\
 \hline
 \end{tabular}
 
 \paragraph{Modelling support}
-Does the tool provide a  textual or a graphical editor ?
+Since petri nets are a primarily graphic means of descrition CPN Tools provide a graphical modelling editor.
 
 \paragraph{Automatic translation and code generation}
-Which translation or code generation is supported by the tool ?
+CPN Tools does not directly generate source code, but the petri nets models are provided in the CPN ML file format, which can be used by other tools to create code. Petri nets can relatively easy been translated to other means of description based on state machines and automatas. 
 
 \paragraph{Model verification}
-Which verification on models are provided by the tool?
+Petri nets are mainly verified by generation and analysis of the state space. The tool supports the calculation and drawing of the state space, which is used to verify certain logical and temporal properties of the system.
 
 \paragraph{Test generation}
-Does the tool allow to generate tests ? For  which purpose ?
+CPN Tools itself allows simulation of the models. It does not support test generation, but provides interfaces for other tools to do so. Correspondingly, tools like SPENAT can be used to generate and manage all kinds of tests for the nets created with CPN Tools.
 
 \paragraph{Simulation, execution, debugging}
-Does the tool allow to simulate or to debbug step by step a model or a code ?
+The simulation engine of CPN tools provides a powerful simulation of petri nets and has a number of debugging functions.
 
 \paragraph{Formal proof}
-Does the tool allow formal proof ?  How ?
+Petri nets are a strictly formal means of description suited for formal proof of behavioural and structural properties. The analysis of the state space can provide proofs for some kinds of properties. Additional model checker can be combined with the tool to provide aditional functionalities.
 
 
 
 \section{Use of the tool}
 
 
-According WP2 requirements, give a note for characteristics of the use of the tool (from 0 to 3) :
+According WP2 requirements, the following notes are given on characteristics of the use of the tool (from 0 to 3):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & & & &  \\
+Open Source (D2.6-X-36) & 3 (almost complete)& 3 (almost complete) & &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & & & &  \\
+Portability to operating systems (D2.6-X-37) & 3 & & &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & & & &  \\
+Cooperation of tools (D2.6-X-38) & 2 & & &  \\
 \hline
-Robustness (D2.6-X-41) & & & & \\
+Robustness (D2.6-X-41) & 2 & & & \\
 \hline
-Modularity (D2.6-X-41.1) & & & & \\
+Modularity (D2.6-X-41.1) & 3 & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) & & & & \\
+Documentation management (D.2.6-X-41.2) & 0 & & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & & & & \\
+Distributed software development (D.2.6-X-41.3)  & 2 & & & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & 2 & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & & & & \\
+Issue tracking (D.2.6-X-41.5) & 0 & & & \\
 \hline
-Differences between models (D.2.6-X-41.6) & & & & \\
+Differences between models (D.2.6-X-41.6) & 1 & & & \\
 \hline
-Version management (D.2.6-X-41.7) & & & & \\
+Version management (D.2.6-X-41.7) & 0 & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & & & & \\
+Concurrent version development (D.2.6-X-41.8) & 0 & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & & & & \\
+Model-based version control (D.2.6-X-41.9) & 1 & & & \\
 \hline
-Role traceability (D.2.6-X-41.10) & & & & \\
+Role traceability (D.2.6-X-41.10) & 0 & & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & & & & \\
+Safety version traceability (D.2.6-X-41.11) & 0 & & & \\
 \hline
-Model traceability (D.2.6-01-035) & & & & \\
+Model traceability (D.2.6-01-035) & 2 & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration & 2 & & & \\
 \hline
-Scalability & & & & \\
+Scalability & 3 & & & \\
 \hline
 \end{tabular}
 
@@ -541,26 +560,29 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) & 3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   & 3  & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  & 2 & & & \\
 \hline
-Model verification & & & & \\
+Model verification & 3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation & 1 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & 3 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & 2 & & & \\
 \hline
 \end{tabular}
 
+\begin{comment}
 \paragraph{Other elements for tool certification}
+Open issue.
+\end{comment}
 
 \section{Other comments}
-Please to  give free comments on the approach.
+In the context of this approach coloured petri nets present only a very well suited formal means of description. However the method is basically independent of the means of description and can also be applied on other formal means of description. Thereby the proven method to build context models which are then further refined in process, scenario and function models can be successfully used for many formal means of description. 
 
 
 
