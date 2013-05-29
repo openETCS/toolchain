@@ -1,0 +1,210 @@
+\documentclass{openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{rotating,url,color}
+\usepackage[hidelinks]{hyperref}
+%hidelinks put some problems on some distributions
+%\usepackage{hyperref} 
+\usepackage[section=section,numberedsection,
+            description,% acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist % no page number
+]{glossaries} 
+\renewcommand*{\glossaryname}{List of terms}
+ \makeglossaries
+\loadglsentries{wp7_glossary}
+
+\renewcommand*{\bibname}{Reference documents}
+\renewcommand*{\bibsection}{\section{\bibname}}
+\graphicspath{{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/O7.1.9~--~00/02}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Primary tool chain''}
+
+%set a title here
+\title{Evaluation of the tool platform against the WP2 requirements }
+
+%set a subtitle here
+\subtitle{List of criteria on tool platform and results on the benchmark}
+
+%set the date of the report here
+\date{June 2013}
+
+%define a list of authors and their affiliation here
+
+\author{C\'ecile Braunstein}
+\affiliation{University Bremen}
+
+% define the coverart
+\coverart[width=350pt]{chart}
+ 
+%define the type of report
+\reporttype{Definition}
+
+
+\begin{abstract}
+This document gives elements to evaluate the tool platform according
+WP2 requirements and presents the results of the evaluation of each
+tool platform.
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+%=============================
+
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.1.9\\
+\hline
+Document title & Evaluation of the tool platform against the WP2 requirements \\
+Document version & 00.00 \\
+Document authors (org.)  & C\'ecile Braunstein (Uni. Bremen)  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed & 00.01 \\
+\hline
+Main reviewers & \\
+ \hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  C\'ecile Braunstein & WP7 Contributor  & 01.06.2013 \\
+\hline
+Approved by & Marielle Petit-Doche & WP7-T7.1 Sub-task  leader & \\
+\hline
+Approved by & Michael Jastram & WP7 leader & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.01 & 28/05/2013 & C. Braunstein &  Document creation  \\
+\hline  
+
+\end{tabular}
+
+% The actual document starts below this line
+%=============================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              My macros (=> Sylvain Baro)               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tbd}{\colorbox{cyan}{\%\%To Be Defined\%\%}}
+\newcommand{\tbc}{\colorbox{cyan}{\%\%To Be Confirmed\%\%}}
+\newcommand{\todo}[1]{\colorbox{cyan}{\%\%{#1}\%\%}}
+\newlength{\origindent}
+
+\newenvironment{issue}{
+        \begin{quote}
+        \begin{itshape}Open Issue.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{comment}{
+        \begin{quote}
+        \begin{itshape}Comment.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{justif}{
+        \begin{quote}
+        \begin{itshape}Justification.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{author_comment}{
+        \begin{quote}
+        \begin{itshape}\textcolor{green}{Author.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor1}{
+        \begin{quote}
+        \begin{itshape} \textcolor{blue}{Assessor 1.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor2}{
+        \begin{quote}
+        \begin{itshape}\textcolor{magenta}{Assessor 2.}
+}{
+        \end{itshape}
+        \end{quote}
+}
+% \input{req}
+
+\def\reqt{R-WP2/D2.3.0}
+% Start here
+
+\mainmatter
+
+\input{intro.tex}
+
+%% Bibliography
+%\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{wp7_bibliography}
+%\bibliography{process}
+
+\input{template_description}
+
+
+%\input{conclusion.tex}
+
+
+
+
+\appendix
+
+
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}

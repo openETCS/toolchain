@@ -1,0 +1,13 @@
+*.aux
+*.lof
+*.log
+*.lot
+*.toc
+*.bbl
+*.out
+*.blg
+*.glg
+*.gls
+*.glo
+*.ist
+_region_*
