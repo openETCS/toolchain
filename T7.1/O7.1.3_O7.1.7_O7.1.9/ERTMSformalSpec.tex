@@ -1,7 +1,7 @@
 \chapter{ERTMSFormalSpecs}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  Stanislas Pinte (ERTMS Solutions)
+\item[\textcolor{green}{Author}] Author of the approaches description Stanislas Pinte (ERTMS Solutions)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches Renaud De Landtsheer (Alstom Be)
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Marielle Petit-Doche (Systerel)
 \end{description}
@@ -24,8 +24,8 @@ When a note is required, please follow this list :
 \begin{description}
 \item[0] not recommended, not adapted, rejected
 \item[1] weakly recommended, adapted after major improvements, weakly rejected
-\item[2] recommended, adapted (with light improvements if necessary)  weakly accepted
-\item[3] highly recommended, well adapted,strongly accepted
+\item[2] recommended, adapted (with light improvements if necessary) weakly accepted
+\item[3] highly recommended, well adapted, strongly accepted
 \item[*] difficult to evaluate with a note (please add a comment under the table)
 \end{description}
 
@@ -38,7 +38,7 @@ This section gives a quick presentation of the approach and the tool.
 \begin{description}
 \item[Name] ERTMSFormalSpecs
 \item[Web site] https://www.ertmssolutions.com/ertms-formalspecs/
-\item[Licence] EUPL (https://github.com/openETCS/ERTMSFormalSpecs)
+\item[License] EUPL (https://github.com/openETCS/ERTMSFormalSpecs)
 \end{description}
 
 \paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
@@ -108,7 +108,7 @@ Safety analyses & \textcolor{green}{0} & \textcolor{blue}{0} & & \\
 
 \begin{assessor1}
 ERTMSFormalSpec incorporates a simulator, which can be driven step by feeding it with test cases. 
-The ERTMS tooling performs a limited set of validation described in section 6.9 "`Model validations"' of the document EFSW\_User\_Guide.pdf. These are rather syntactic validation, and not behavioral ones. More validation can be done through testing. Test cases incorporate expectations that are checked during the execution of the test case. Notice that there is no mechanism to attach expectation to the model, eg to a state, or state machine.
+The ERTMS tooling performs a limited set of validation described in section 6.9 "`Model validations"' of the document EFSW\_User\_Guide.pdf. These are rather syntactic validation, and not behavioral ones. More validation can be done through testing. Test cases incorporate expectations that are checked during the execution of the test case. Notice that there is no mechanism to attach expectation to the model, e.g. to a state, or state machine.
 \end{assessor1}
 
 \paragraph{Known usages} Have you some examples of usage of this approach to compare with the OpenETCS objectives ?
@@ -145,7 +145,7 @@ Graphical language & \textcolor{green}{3} & \textcolor{blue}{3} & & \\
 \end{tabular}
 
 \begin{assessor1}
-Regarding the "`Graphical Language"' item, ERTMSFormalSpec provides a graphical rendering of the state machines present in the model, and these these representation are editeable. Besides, I did not see a graphical rendering of the data flows between components ie: an architectural view. 
+Regarding the "`Graphical Language"' item, ERTMSFormalSpec provides a graphical rendering of the state machines present in the model, and these representation are editable. Besides, I did not see a graphical rendering of the data flows between components i.e.: an architectural view. 
 \end{assessor1}
 
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
@@ -233,7 +233,7 @@ Although ERTMSFormalSpecs is not made for system analysis, it can be used for th
 \end{author_comment}
 
 \begin{assessor1}
-Although the data flows between components, and the interfaces of components (which are a fragment of the data flows) are represented in the model, I do not see a simple (eg graphical) rendering of them, so a user needing this information in a synthetic way might need to extract it by hand with the current version of the tool. I do believe that this feature is rather easy to add, so my score is 2 for (D.2.6-X-10.2.3). 
+Although the data flows between components, and the interfaces of components (which are a fragment of the data flows) are represented in the model, I do not see a simple (e.g. graphical) rendering of them, so a user needing this information in a synthetic way might need to extract it by hand with the current version of the tool. I do believe that this feature is rather easy to add, so my score is 2 for (D.2.6-X-10.2.3). 
 \end{assessor1}
 
 \section{Sub-System formal design}
@@ -317,7 +317,7 @@ ERTMSFormalSpecs is a modelling language for functions. Therefore, only the func
 \end{author_comment}
 
 \begin{assessor1}
-ERTMSFormalSpec includes the possibility to declaratively state a property, called "`expectation"', and attached to a test step. Their truth value is evaluated during the test execution. They can encompass logical conditions, dedlines, and some state-machine specific conditions. Notice that they could usefully be attached to states or rules of the model, for a more torough checking. 
+ERTMSFormalSpec includes the possibility to declaratively state a property, called "`expectation"', and attached to a test step. Their truth value is evaluated during the test execution. They can encompass logical conditions, deadlines, and some state-machine specific conditions. 
 Timing constraints are restricted to deadline enforcement. More intricate conditions on time cannot be represented, as they would require the use of non-available temporal operators. 
 \end{assessor1}
 
@@ -697,7 +697,7 @@ To me, the main strengths of this approach are:
 \item its very strong support for traceability to the Subset26, and to the Subset-076 for test cases
 \item its domain-specific language, which is
 \begin{itemize}
-\item productive for this field, thanks to its expressivity, cfr. the vocabulary developed for braking curves; 
+\item productive for this field, thanks to its expressivity, illustrated by the primitives developed for braking curves; 
 \item scalable, as is demonstrated by the large fraction of the Subset26 which has been represented so far. 
 \end{itemize}
 \end{itemize}
@@ -713,6 +713,6 @@ The ERTMSFormalSpec tooling is nearly exclusively centered on the model elaborat
 
 ERTMSFormalSpec is specifically devoted to the modeling of the Subset26 as it is which makes it a very credible and adapted tooling for the elaboration of a semi-formal model of this system. It is especially credible given the large fraction of the Subset26 that is already modeled in this framework. 
 
-Finally, all languages are a trade-off between what we want to express, and what we are able to handle (i.e.: compile, analyze, verify, etc). As a domain-specific language ERTMSFormalSpec is clearly choosing the expressivity over the handling, yet it remains an interpretable (but turing-complete) language.
+Finally, all languages are a trade-off between what we want to express, and what we are able to handle (i.e.: compile, analyze, verify, etc). As a domain-specific language ERTMSFormalSpec is clearly choosing the expressivity over the handling, yet it remains an interpretable (but Turing-complete) language.
 \end{assessor1}
 
