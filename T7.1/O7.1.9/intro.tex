@@ -1,0 +1,81 @@
+\chapter{Introduction}
+This document is the results report of the evaluation of the tool
+platform. This work is the first part of the tool platform selection
+as described in the WP7 description of work \cite{WP7_D01}.
+This task aims at evaluating tool platform integration capabilities,
+regardless the primary and second tools that will be chosen for the
+tool chain implementation.
+
+The tool platform should provide mechanisms to integrate various
+tools. The tool platform is not the primary nor secondary tools, nor
+the tool chain. It is the support for the tool chain implementation,
+it shall help to integrate the of tools into a seamless tool chain.
+The evaluation will focus on the integration capabilities of the tool platform.
+
+This document will set up a way to evaluate tool platform and to
+determine the set of best candidate according to the WP2 requirements
+\cite{baro_requirements_2013}. This task will be followed by finding
+the best tool platform candidates, e.g.finding the best the adequacy
+between primary and secondary tools and the tool platform.
+
+
+\section{The tool integration problem}
+The tool platform raises the question of tool integration.
+Wassermann \cite{wasserman_tool_1990}  defines the 5 problems of tool integration that must
+be addressed:
+\begin{enumerate}
+\item Platform integration: How to deal with heterogeneous OS ?
+\item Data integration: How to share data and how to manage their
+  relationships ?
+\item Presentation integration: How to unify the user-interface, the ``look and feel'' ?
+\item Control integration: How to enable service sharing between tools and
+how to notify one another of events ?
+\item Process integration: How to support engineering process within
+  the tool platform ?
+\end{enumerate}
+More recently  Asplund and al. in \cite{asplund_tool_2011} add some
+metrics to evaluate the tool chain integration. Following these
+propositions {\bf the tool platform evaluation will focus on
+these integration capabilities}. 
+
+Moreover, one of the openETCS's goal is to develop a tool chain to
+generate a software meeting the CENELEC EN 50128:2011 requirements and
+certifiable \gls{SIL}4. {\bf The tool platform shall help to support the EN 50128
+standard}. 
+
+This standard imposes the qualification of each tool within
+the tool chain.
+Nevertheless  as shown by  Asplund and al. in
+\cite{asplund_qualifying_2012}, the tool integration may lead to new
+safety issues that have to be taken into account. This implies that
+the tool chain should be considered as a whole and not only individual
+tools.
+Moreover, Asplund and al. as well as Slotoch and al. in
+\cite{slotosch_iso_2012} shows that taking a holistic approach and use
+some rearrangement or extension of the tool chain allow to avoid the
+qualification of all tools and mitigate the certification process.
+The evaluation of {\bf The tool platform with regards to the tool chain analysis
+  capabilities} will be made. 
+
+%------ List of terms and definition ----------------
+\printglossary
+
+\section{Structure of the document}
+
+Chapter \ref{sec:template} presents the template of the evaluation
+criteria.
+The appendix show the evaluation of each tool platform :
+\begin{itemize}
+\item Eclipse
+\item SCADE
+\item TopCased
+\item RTP-Cesar
+\item File systems
+\end{itemize}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Evaluation_Platform_against_WP2"
+%%% End: 
