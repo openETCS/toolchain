@@ -1,7 +1,8 @@
 \chapter{GOPRR}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  Johannes Feuser (Uni. Bremen)
+\item[\textcolor{green}{Author}] Author of the approaches description
+  Johannes Feuser/C\'ecile Braunstein  (Uni. Bremen)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches Alexandre Ginisty (All4Tec)
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Matthias Gudemann (Systerel)
 \end{description}
@@ -36,14 +37,28 @@ All the notes can be commented under each table.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] An openETCS donain specific language Based on GOPPRR
+\item[Web site] http://www.informatik.uni-bremen.de/agbs/jfeuser/
+\item[Licence] GPL V3
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} 
+The approach proposes an open  domain specific language for
+openETCS. The language is based on the meta-meta-model  GOPPRR, and the
+tool used is MetaEdit+.
+
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
+\begin{itemize}
+\item ``MetaEdit+ Workbench User’s Guide'' accessed April 27, 2011. [Online].:
+http://www.metacase.com/support/45/manuals/mwb/Mw.html
+\item S. Kelly and J.-P. Tolvanen, ``Domain-Specific Modeling''. JOHN WILEY \& SONS, INC.,
+2008.
+\item J. Feuser and J. Peleska, ``Model Based Development and Tests for openETCS Applications
+– A Comprehensive Tool Chain'', 12 2012, in in Proceedings of FORMS/FORMAT 2012.
+\item J. Feuser, ``Open source Software for Train Control and
+  Application and its Architectural Implication'', PhD. Thesis, 2013.
+\end{itemize}
 
 
 \section{Main usage of the approach}
@@ -56,13 +71,14 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & & & &  \\
+System Analysis &
+2 & & &  \\
 \hline
-Sub-system formal design & & & & \\
+Sub-system formal design &3 & & & \\
 \hline
-Software design & & & & \\
+Software design &3 & & & \\
 \hline
-Software code generation & & & & \\
+Software code generation &3 & & & \\
 \hline
 \end{tabular}
 
@@ -72,19 +88,19 @@ According to the figure \ref{fig:main_process}, for which type of activities do 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation & & & &  \\
+Documentation &1 & & &  \\
 \hline
-Modeling & & & &  \\
+Modeling &3 & & &  \\
 \hline
-Design & & & & \\
+Design &2 & & & \\
 \hline
-Code generation & & & & \\
+Code generation &3 & & & \\
 \hline
-Verification & & & & \\
+Verification &0 & & & \\
 \hline
-Validation & & & & \\
+Validation &0 & & & \\
 \hline
-Safety analyses & & & & \\
+Safety analysis &0 & & & \\
 \hline
 \end{tabular}
 
@@ -96,63 +112,68 @@ This section discusses the main element of the language.
 Which are the main characteristics of the language :
 
 \begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Informal language & & & &  \\
-\hline 
-Semi-formal language & & & &  \\
-\hline
-Formal language & & & &  \\
-\hline
-Structured language & & & & \\
-\hline
-Modular language & & & & \\
-\hline
-Textual language & & & & \\
-\hline
-Mathematical symbols or code & & & & \\
-\hline
-Graphical language & & & & \\
-\hline
+  \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+  \hline 
+  Informal language &0 & & &  \\
+  \hline 
+  Semi-formal language &0 & & &  \\
+  \hline
+  Formal language &3 & & &  \\
+  \hline
+  Structured language &3 & & & \\
+  \hline
+  Modular language &3 & & & \\
+  \hline
+  Textual language &0 & & & \\
+  \hline
+  Mathematical symbols or code &0 & & & \\
+  \hline
+  Graphical language &3 & & & \\
+  \hline
 \end{tabular}
 
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline
-Declarative formalization of properties (D.2.6-X-28) & & & & \\
-\hline
-Simple formalization of properties (D.2.6-X-28.1) & & & & \\
-\hline
-Scalability : capability to design large model & & & & \\
-\hline
-Easily translatable to other languages (D.2.6-X-30) & & & & \\
-\hline
-Executable directly (D.2.6-X-33) & & & & \\
-\hline
-Executable after translation to a code (D.2.6-X-33) & & & & \\
-(precise if the translation is automatic) & & & & \\
-\hline
-Simulation, animation (D.2.6-X-33) & & & & \\
-\hline
-Easily understandable (D.2.6-X-27) & & & & \\
-\hline
-Expertise level needed (0 High level, 3 few level) & & & & \\
-\hline
-Standardization (D.2.6-X-29) & & & & \\
-\hline
-Documented (D.2.6-X-29) & & & & \\
-\hline
-Extensible language (D.2.6-01-28) & & & & \\
-\hline
+  \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+  \hline
+  Declarative formalization of properties (D.2.6-X-28) &3 & & & \\
+  \hline
+  Simple formalization of properties (D.2.6-X-28.1) & 2& & & \\
+  \hline
+  Scalability : capability to design large model & 3 & & & \\
+  \hline
+  Easily translatable to other languages (D.2.6-X-30) &3 & & & \\
+  \hline
+  Executable directly (D.2.6-X-33) &0 & & & \\
+  \hline
+  Executable after translation to a code (D.2.6-X-33) &3 & & & \\
+  (precise if the translation is automatic) &3 & & & \\
+  \hline
+  Simulation, animation (D.2.6-X-33) &0 & & & \\
+  \hline
+  Easily understandable (D.2.6-X-27) &2 & & & \\
+  \hline
+  Expertise level needed (0 High level, 3 few level) &2 & & & \\
+  \hline
+  Standardization (D.2.6-X-29) &* & & & \\
+  \hline
+  Documented (D.2.6-X-29) &3 & & & \\
+  \hline
+  Extensible language (D.2.6-01-28) &3 & & & \\
+  \hline
 \end{tabular}
 
+\begin{author_comment}
+(*) The meta-meta model (GOPPRR) is not a standard but it is formally defined.
+\end{author_comment}
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
+The language is fully documented, and the meta-model of the language
+is given.
 \paragraph{Language usage} Describe the possible restriction on the language
 
 \section{System Analysis}
@@ -165,21 +186,21 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1)  & & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  &2 & & &  \\
 \hline 
-System architecture design (D.2.6-X-10.2) & & & &  \\
+System architecture design (D.2.6-X-10.2) &3 & & &  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  & & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  &3 & & &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  & & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  &3 & & &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  & & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  &3 & & &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  & & & &  \\
+System requirement allocation (D.2.6-X-10.3)  &3 & & &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  & & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  &2 & & &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & & & &  \\
+Traceability with Safety activities (D.2.6-X-11)  &2 & & &  \\
 \hline
 \end{tabular}
 
@@ -280,49 +301,52 @@ Concerning strictly formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & & & &  \\
+Consistency to SFM (D.2.6-X-14.2) &* & & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2)  & & & &  \\
+Coverage of SSRS (D.2.6-X-14.2)  &1 & & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3)  & & & &  \\
+Traceability to  SSRS (D.2.6-X-14.3)  &3 & & &  \\
 \hline
-Extensible to software design (D.2.6-X-16)  & & & &  \\
+Extensible to software design (D.2.6-X-16)  &1 & & &  \\
 \hline
-Safety function isolation (D.2.6-X-17)  & & & &  \\
+Safety function isolation (D.2.6-X-17)  &1 & & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & & & &  \\
+Safety properties formalisation (D.2.6-X-22)  &2 & & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & & & &  \\
+Logical expression (D.2.6-X-28.2.2)  &3 & & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  &0 & & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.3)  & & & &  \\
+Safety properties validation (D.2.6-X-23.3)  &3 & & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & & & &  \\
+Logical properties assertion (D.2.6-X-34)  &3 & & &  \\
 \hline
-Proof of assertions (D.2.6-X-34.2)  & & & &  \\
+Proof of assertions (D.2.6-X-34.2)  &3 & & &  \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+(*) Since the semi-formal model is not yet done, it is hard to say.
+\end{author_comment}
 Does the language allow to  formalize (D.2.6-X-32):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & & & &  \\
+State machines  &3 & & &  \\
 \hline
-Time-outs  & & & &  \\
+Time-outs  &0 & & &  \\
 \hline
-Truth tables  & & & &  \\
+Truth tables  &0 & & &  \\
 \hline
-Arithmetic  & & & &  \\
+Arithmetic  &3 & & &  \\
 \hline
-Braking curves  & & & &  \\
+Braking curves  &3 & & &  \\
 \hline
-Logical statements & & & &  \\
+Logical statements &3 & & &  \\
 \hline
-Message and fields & & & &  \\
+Message and fields &3 & & &  \\
 \hline
 \end{tabular}
 
@@ -342,17 +366,20 @@ How the approach allows to  produce a functional software model of the on-board 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model  & & & &  \\
+Derivation from system semi-formal model  &* & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  &3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  &3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  &3 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  &3 & & &  \\
 \hline
 \end{tabular}
+\begin{author_comment}
+(*) Since we do not know the format of the semi-formal model  yet, it is hard to say.
+\end{author_comment}
 
 \subsection{SSIL4 design}
 
@@ -362,23 +389,26 @@ How the approach allows to  produce in safety a software model ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model  & & & &  \\
+Derivation from system semi-formal or strictly formal model  &* & & &  \\
 \hline 
-Software architecture description  & & & &  \\
+Software architecture description  &3 & & &  \\
 \hline
-Software constraints  & & & &  \\
+Software constraints  &3 & & &  \\
 \hline
-Traceability  & & & &  \\
+Traceability  &3 & & &  \\
 \hline
-Executable  & & & &  \\
+Executable  &3 & & &  \\
 \hline
-Conformance to EN50128 § 7.2  & & & &  \\
+Conformance to EN50128 § 7.2  &0 & & &  \\
 \hline
-Conformance to EN50128 § 7.3  & & & &  \\
+Conformance to EN50128 § 7.3  &0 & & &  \\
 \hline
-Conformance to EN50128 § 7.4  & & & &  \\
+Conformance to EN50128 § 7.4  &0 & & &  \\
 \hline
 \end{tabular}
+\begin{author_comment}
+(*) Since we do not know the format of the semi-formal model  yet, it is hard to say.
+\end{author_comment}
 
 Which criteria for software architecture are covered by the methodology
 (see EN50128 table A.3) :
@@ -387,25 +417,25 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming  & & & &  \\
+Defensive programming  &3 & & &  \\
 \hline 
-Fault detection \& diagnostic  & & & &  \\
+Fault detection \& diagnostic  &3 & & &  \\
 \hline
-Error detecting code  & & & &  \\
+Error detecting code  &3 & & &  \\
 \hline
-Failure assertion programming & & & &  \\
+Failure assertion programming &3 & & &  \\
 \hline
-Diverse programming & & & &  \\
+Diverse programming &1 & & &  \\
 \hline
-Memorising executed cases & & & &  \\
+Memorising executed cases &0 & & &  \\
 \hline
-Software error effect analysis & & & &  \\
+Software error effect analysis &0 & & &  \\
 \hline
-Fully defined interface & & & &  \\
+Fully defined interface &3 & & &  \\
 \hline
-Modelling  & & & &  \\
+Modeling  &3 & & &  \\
 \hline
-Structured methodology & & & &  \\
+Structured methodology &3 & & &  \\
 \hline
 \end{tabular}
 
@@ -420,17 +450,17 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods  & & & &  \\
+Formal methods  &3 & & &  \\
 \hline 
-Modeling  & & & &  \\
+Modeling  &3 & & &  \\
 \hline
-Modular approach (mandatory) & & & &  \\
+Modular approach (mandatory) &3 & & &  \\
 \hline
-Components & & & &  \\
+Components &3 & & &  \\
 \hline
-Design and coding standards (mandatory) & & & &  \\
+Design and coding standards (mandatory) &3 & & &  \\
 \hline
-Strongly typed programming language & & & &  \\
+Strongly typed programming language &3 & & &  \\
 \hline
 
 \end{tabular}
@@ -449,41 +479,51 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & & & &  \\
+Modelling support &3 & & &  \\
 \hline
-Automatic translation  & & & & \\
+Automatic translation  & 1& & & \\
 \hline
-Code Generation  & & & & \\
+Code Generation  &3 & & & \\
 \hline
-Model verification & & & & \\
+Model verification &2 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &* & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & 2& & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &0 & & & \\
 \hline
 \end{tabular}
+\begin{author_comment}
+(*) The new version of MetaEdit+ provides this feature.
+\end{author_comment}
 
-\paragraph{Modelling support}
+\paragraph{Modeling support}
 Does the tool provide a  textual or a graphical editor ?
 
+Graphical
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
 
+MERL generator
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
+
+Inspection
 
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
 
+No
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
 
+
+The new version yes.
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
 
-
+No
 
 \section{Use of the tool}
 
@@ -494,41 +534,41 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & & & &  \\
+Open Source (D2.6-X-36) &0 & & &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & & & &  \\
+Portability to operating systems (D2.6-X-37) &3 & & &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & & & &  \\
+Cooperation of tools (D2.6-X-38) &1 & & &  \\
 \hline
-Robustness (D2.6-X-41) & & & & \\
+Robustness (D2.6-X-41) &3 & & & \\
 \hline
-Modularity (D2.6-X-41.1) & & & & \\
+Modularity (D2.6-X-41.1) &0 & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) & & & & \\
+Documentation management (D.2.6-X-41.2) &0 & & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & & & & \\
+Distributed software development (D.2.6-X-41.3)  &3 & & & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   &3 & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & & & & \\
+Issue tracking (D.2.6-X-41.5) &0 & & & \\
 \hline
-Differences between models (D.2.6-X-41.6) & & & & \\
+Differences between models (D.2.6-X-41.6) &0 & & & \\
 \hline
-Version management (D.2.6-X-41.7) & & & & \\
+Version management (D.2.6-X-41.7) &1 & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & & & & \\
+Concurrent version development (D.2.6-X-41.8) &0 & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & & & & \\
+Model-based version control (D.2.6-X-41.9) &0 & & & \\
 \hline
-Role traceability (D.2.6-X-41.10) & & & & \\
+Role traceability (D.2.6-X-41.10) &0 & & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & & & & \\
+Safety version traceability (D.2.6-X-41.11) &0 & & & \\
 \hline
-Model traceability (D.2.6-01-035) & & & & \\
+Model traceability (D.2.6-01-035) &1 & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration &3 & & & \\
 \hline
-Scalability & & & & \\
+Scalability &3 & & & \\
 \hline
 \end{tabular}
 
@@ -541,19 +581,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) &3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   &0 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &3 & & & \\
 \hline
-Model verification & & & & \\
+Model verification &1 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &0 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &0 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &0 & & & \\
 \hline
 \end{tabular}
 
@@ -564,3 +604,5 @@ Please to  give free comments on the approach.
 
 
 
+
+%  LocalWords:  MetaEdit GOPPRR
