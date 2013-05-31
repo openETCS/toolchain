@@ -47,7 +47,6 @@ ERTMSFormalSpecs provides a domain-specific language, designed to express the ER
 
 \begin{assessor1}
 From my experience, a domain-specific language really provides an interesting productivity gain, provided two conditions are met: first: the language should indeed be adapted to the domain, which seems to be the case given the covertness of the subset26 by the models written in this formalism, second: that something can be done downwards with this model, such as code generation, or translation to some other model, or a better understanding of the original document. 
-For the automated translation claim, I intuitively agree with this claim, given that some formal semantics was provided in the "`EFSW\_Technical\_Design.pdf"' mentioned later in this section. 
 \end{assessor1}
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
@@ -81,7 +80,7 @@ Therefore, it is targeted to be used for sub-system formal design, not for analy
 \end{author_comment}
 
 \begin{assessor1}
-Some code could be generated from such models, as discussed in the introduction. I feel that such code will be mostly for simulation purpose. However, it could also be translated into embedded code, possibly after some software engineering is performed e.g. through the B tool chain. 
+Software code could be generated from such models, eg for simulation purposes, given that the semantics is executable. This could be done from the exports provided by ERTMSFormalSpec (XML or EMF/Eclipse). 
 \end{assessor1}
 
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
@@ -98,7 +97,7 @@ Design & \textcolor{green}{3} & \textcolor{blue}{3} & & \\
 \hline
 Code generation & \textcolor{green}{0} & \textcolor{blue}{1} & & \\
 \hline
-Verification & \textcolor{green}{3} & \textcolor{blue}{2} & & \\
+Verification & \textcolor{green}{3} & \textcolor{blue}{3} & & \\
 \hline
 Validation & \textcolor{green}{3} & \textcolor{blue}{3} & & \\
 \hline
@@ -108,7 +107,7 @@ Safety analyses & \textcolor{green}{0} & \textcolor{blue}{0} & & \\
 
 \begin{assessor1}
 ERTMSFormalSpec incorporates a simulator, which can be driven step by feeding it with test cases. 
-The ERTMS tooling performs a limited set of validation described in section 6.9 "`Model validations"' of the document EFSW\_User\_Guide.pdf. These are rather syntactic validation, and not behavioral ones. More validation can be done through testing. Test cases incorporate expectations that are checked during the execution of the test case. Notice that there is no mechanism to attach expectation to the model, e.g. to a state, or state machine.
+The ERTMS tooling performs a limited set of validation described in section 6.9 "`Model validations"' of the document EFSW\_User\_Guide.pdf. These are rather syntactic validation, and not behavioral ones. More validation can be done through testing. Test cases incorporate expectations that are checked during the execution of the test case. Notice that there is no mechanism to attach expectation to the model, e.g. to a state, or state machine. ERTMSFormalSpec provides a covertness report mechanism for test cases, to identify which rule has been executed during a test suite. 
 \end{assessor1}
 
 \paragraph{Known usages} Have you some examples of usage of this approach to compare with the OpenETCS objectives ?
@@ -331,7 +330,7 @@ State machines  & \textcolor{green}{3} & \textcolor{blue}{3} & &  \\
 \hline
 Time-outs  & \textcolor{green}{3} & \textcolor{blue}{3} & &  \\
 \hline
-Truth tables  & \textcolor{green}{3} & \textcolor{blue}{2} & &  \\
+Truth tables  & \textcolor{green}{3} & \textcolor{blue}{2+} & &  \\
 \hline
 Arithmetic  & \textcolor{green}{3} & \textcolor{blue}{3} & &  \\
 \hline
@@ -342,6 +341,10 @@ Logical statements & \textcolor{green}{3} & \textcolor{blue}{3} & &  \\
 Message and fields & \textcolor{green}{3} & \textcolor{blue}{3} & &  \\
 \hline
 \end{tabular}
+
+\begin{assessor1}
+Truth tables can de represented as functions ranging on booleans, and returning a boolean. There is no graphical support for them, but this can be added very easily to the tool, hence I've put a mark 2+ for this criterion. 
+\end{assessor1}
 
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
@@ -704,15 +707,15 @@ To me, the main strengths of this approach are:
 
 To me, the main weaknesses of this approach are: 
 \begin{itemize}
-\item its rather unfriendly look and feel, notably for the graphical editing of state machine, and for the global overview of the model, whose structure seems to match the one of the Subset26. 
-\item the lack of support for analysis, e.g.: no assertion can be attached to states or to state machines, no covertness analysis of test cases (identify which portions of the model have been executed by a test suite), no graphical rendering of the architecture
+\item its rather unfriendly look and feel, notably for the graphical editing of state machine, and for the global overview of the model, whose structure seems to match the one of the Subset26, and its lack of graphical rendering of the architecture, which would possibly ease the navigation in the model. 
+\item its rather unfamiliar notation. 
 \end{itemize}
-These can be improved rather easily, and should not be considered blocking issues. 
+The first can be improved rather easily, and the second can be coped with given that it was developped specifically to capture the Subset26. They should not be considered as blocking issues. 
 
-The ERTMSFormalSpec tooling is nearly exclusively centered on the model elaboration. Some analysis could easily be performed on it by incorporating them into the ERTMSFormalSpec tooling. Alternatively, one could also try to translate the existing model to another modeling language. 
+The ERTMSFormalSpec tooling is nearly exclusively centered on the model elaboration. Some tool integration should be developed to exploit the model developed with ERTMSFormalSpec. This can be done based on the exports of ERTMSFormalSpec (XML or EMF/Eclipse). 
 
 ERTMSFormalSpec is specifically devoted to the modeling of the Subset26 as it is which makes it a very credible and adapted tooling for the elaboration of a semi-formal model of this system. It is especially credible given the large fraction of the Subset26 that is already modeled in this framework. 
 
-Finally, all languages are a trade-off between what we want to express, and what we are able to handle (i.e.: compile, analyze, verify, etc). As a domain-specific language ERTMSFormalSpec is clearly choosing the expressivity over the handling, yet it remains an interpretable (but Turing-complete) language.
+Finally, all languages are a trade-off between what we want to express, and what we are able to handle (i.e.: compile, analyze, verify, etc). As a domain-specific language ERTMSFormalSpec is clearly choosing the expressivity over the handling, yet it remains an interpretable (but Turing-complete) language. 
 \end{assessor1}
 
