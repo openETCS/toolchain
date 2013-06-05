@@ -46,41 +46,65 @@ This section gives a quick presentation of the tool.
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
-\section{Use of the Tool}
+\section{Use and usage of  of the Tool}
 According WP2 requirements, give a note for characteristics of the use of the tool (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & & & &  \\
+Open Source (D2.6-02-074) & & & &  \\
 \hline 
-Cooperation of tools (D2.6-X-38) & & & &  \\
+Cooperation of tools (D2.6-02-076) & & & &  \\
 \hline
-Robustness (D2.6-X-41) & & & & \\
+Robustness (D2.6-02-078) & & & & \\
 \hline
-Modularity (D2.6-X-41.1) & & & & \\
+Modularity (D2.6-02-078.01) & & & & \\
 \hline
-Documentation management (D.2.6-X-41.2) & & & & \\
+Documentation management (D.2.6-02-078.02) & & & & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & & & & \\
+Distributed software development (D.2.6-02-078.03)  & & & & \\
 \hline
-Simultaneous Multi-users (D.2.6-X-41.4)   & & & & \\
+Simultaneous Multi-users (D.2.6-02-078.04)   & & & & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & & & & \\
+Issue tracking (D.2.6-02-078.05) & & & & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & & & & \\
+Concurrent version development (D.2.6-02-078.08) & & & & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & & & & \\
+Model-based version control (D.2.6-02-078.09) & & & & \\
 \hline
-Role traceability (D.2.6-X-41.10) & & & & \\
+Role traceability (D.2.6-02-078.10) & & & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & & & & \\
+Safety version traceability (D.2.6-02-078.11) & & & & \\
 \hline
 Scalability & & & & \\
 \hline
 \end{tabular}
 
+The next table resume the capabilities of the tool platform.
+\begin{enumerate}
+\item Easy integration of a new tool in the tool platform.
+\item How expert should we be ?
+\item Mechanism for maintaining the tools within the tool platform.
+\item Mechanism for bug tracking the tools within the tool platform.
+\item Mechanism for updating the tools within the tool platform.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline Easy integration of a new tool &
+  &                 &                  &\\
+\hline Expertise &
+  &                 &                  &\\
+\hline Maintenance &
+  &                 &                  &\\
+\hline Bug tracking &
+  &                 &                  &\\
+\hline Update &
+  &                 &                  &\\
+\hline
+\end{tabular}
 
 \section{Platform integration}
 Capabilities of the tool platform to  be integrated to common operating systems.
@@ -93,13 +117,13 @@ Capabilities of the tool platform to  be integrated to common operating systems.
 \begin{tabular}{|l | c | c | c | c|}
   \hline
   & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline  Portable (R-WP2/D2.6-X-37) &
+  \hline  Portable (R-WP2/D2.6-02-076) &
   &                 &                  &\\
-  \hline   Stable (R-WP2/D2.6-X-37.1)&
+  \hline   Stable (R-WP2/D2.6-02-076.01)&
   &                 &                  &\\
-  \hline   Same performance (R-WP2/D2.6-X-37.2)&
+  \hline   Same performance (R-WP2/D2.6-02-076.02)&
   &                 &                  &\\
-  \hline  Easy exchange&
+  \hline  Easy exchange (R-WP2/D2.6-02-076)&
   &                 &                  &\\
   \hline
 \end{tabular}
@@ -143,23 +167,25 @@ How the tool platform supports the data integration ?
 \item All possible input and output formats of a tool have to be
   documented.
 \item Automatic parser/generator support compliant with a common format.
-\item All possible input and output formats of a tool have to be documented.
+\item Open data formats shall be used for data exchange.
+ 
 \end{enumerate}
 
 \begin{tabular}{|l | c | c | c | c|} \hline
   & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
   \hline Common data format&
   &                 &                  &\\
-  \hline Common data format documentation(R-WP2/D2.6-X-38.1) &
+  \hline Common data format documentation(R-WP2/D2.6-02-076.01) &
   &                 &                  &\\
   \hline Generator/parser &
   &                 &                  &\\
-  \hline Open data format (R-WP2/D2.6-X-38.2)&
+  \hline Open data format (R-WP2/D2.6-02-076.02)&
   &                 &                  &\\
   \hline
 \end{tabular}
 
-
+{\bf Does the tool platform define mechanisms to check the data produces
+by a tool ?}
 
 \section{Presentation integration}
 The tool chain would be easier to use if the tool may share a common
@@ -253,12 +279,17 @@ Specific mechanism related to EN 50128 standard
   specification and the inputs shall be provided. The tool platform
   provides output/input comparison  or other mechanism to guarantee
   the correctness.
-\item Is it possible to test the test platform.
+\item Does the tool platform provides help to generate or to produce
+  documentation about the tool chain such as manual, specification  EN
+  50128 §6.7 ?
+\item The tool platform helps to define the maintenance process of the
+  tool chain.
+\item The tool platform provides bug tracker for the tool chain.
 \end{enumerate}
 
 \begin{tabular}{|l | c | c | c | c|} \hline
   & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Integrated Tools classification (R-WP2/D2.6-X-50)  &
+  \hline Integrated Tools classification (R-WP2/D2.6-02-085)  &
   &                 &                  &\\
   \hline Document production (R-WP2/D2.6-01-042.01) &
   &                 &                  &\\
@@ -267,6 +298,12 @@ Specific mechanism related to EN 50128 standard
   \hline Measure for correctness (R-WP2/D2.6-01-042.03) &
   &                 &                  &\\
   \hline Test of the tool platform &
+  &                 &                  &\\
+  \hline Tool chain documents  production &
+  &                 &                  &\\
+  \hline Tool chain maintenance process specification &
+  &                 &                  &\\
+ \hline Tool chain bug tracker &
   &                 &                  &\\
   \hline
 \end{tabular}
