@@ -479,19 +479,19 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming  & \textcolor{green}{3} & &3 &  \\
+Defensive programming  & \textcolor{green}{3*} & &3 &  \\
 \hline 
-Fault detection \& diagnostic  & \textcolor{green}{0} & &0 &  \\
+Fault detection \& diagnostic  & \textcolor{green}{0*} & &0 &  \\
 \hline
-Error detecting code  & \textcolor{green}{0} & &0 &  \\
+Error detecting code  & \textcolor{green}{0*} & &0 &  \\
 \hline
 Failure assertion programming & \textcolor{green}{1} & &0 &  \\
 \hline
-Diverse programming & \textcolor{green}{0} & &0 &  \\
+Diverse programming & \textcolor{green}{0*} & &0 &  \\
 \hline
-Memorising executed cases & \textcolor{green}{0} & &2 &  \\
+Memorising executed cases & \textcolor{green}{0*} & &2 &  \\
 \hline
-Software error effect analysis & \textcolor{green}{0} & &0 &  \\
+Software error effect analysis & \textcolor{green}{0*} & &0 &  \\
 \hline
 Fully defined interface & \textcolor{green}{3} & &3 &  \\
 \hline
@@ -500,6 +500,11 @@ Modelling  & \textcolor{green}{3} & &3 &  \\
 Structured methodology & \textcolor{green}{3} & &3 &  \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+The * are out of scope of SCADE. It does not support or prohibit these techniques in a specific way.   
+\end{author_comment}
+
 
 \section{Software code generation}
 This section discusses the usage of the approach for software code generation.
@@ -559,31 +564,54 @@ Formal proof & \textcolor{green}{3} & &2 & \\
 
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ? 
-Both.
+
+\begin{itemize}
+	\item Yes, both.
+\end{itemize}
+
 
 \paragraph{Automatic translation and code generation}
 Which translation or code generation is supported by the tool ?
-Validated translation of SCADE models into C or ADA code.
+
+\begin{itemize}
+	\item Validated translation of SCADE models into C or ADA code.
+\end{itemize}
 
 \paragraph{Model verification}
 Which verification on models are provided by the tool?
-Simulation, animation, test via manual or script-based test suites. 
-Model test coverage for structural model coverage measurement.
-Formal proving.
+
+\begin{itemize}
+	\item Simulation
+	\item animation
+	\item verification via manual or script-based test suites
+	\item Model test coverage for structural model coverage measurement
+	\item Formal proving
+\end{itemize}
 
 \paragraph{Test generation}
 Does the tool allow to generate tests ? For  which purpose ?
-SCADE offers test suites to be built via test scripts. For automatic model based test case generation tools like RT-Tester are applicable.
+
+\begin{itemize}
+	\item SCADE offers test suites to be built via test scripts
+	\item For automatic model based test case generation tools like RT-Tester are applicable
+\end{itemize}
 
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debug step by step a model or a code ?
-It allows simulation on a clock by clock base by executing the generated code while the model behaviour is visualized graphically. Graphical model debugging with breakpoint capabilities. Playback function for logfiles from the field. 
+
+\begin{itemize}
+	\item It allows simulation on a clock by clock base by executing the generated code while the model behaviour is visualized graphically
+	\item Graphical model debugging with breakpoint capabilities
+	\item Playback function for logfiles from the field
+\end{itemize}
 
 \paragraph{Formal proof}
 Does the tool allow formal proof ?  How ?
-SCADE integrates the Prover design verifier. The provable properties have to be modelled with SCADE Suite and connected to the target model in an observer configuration.   
 
-
+\begin{itemize}
+	\item SCADE integrates the Prover design verifier. 
+	\item he provable properties have to be modelled with SCADE Suite and connected to the target model in an target-observer configuration
+\end{itemize}
 
 \section{Use of the tool}
 
@@ -596,7 +624,7 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline 
 Open Source (D2.6-X-36) &  \textcolor{green}{0}& &0 &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) &  \textcolor{green}{3}& &0 &  \\
+Portability to operating systems (D2.6-X-37) &  \textcolor{green}{3*}& &0 &  \\
 \hline
 Cooperation of tools (D2.6-X-38) &  \textcolor{green}{3}& &2 &  \\
 \hline
@@ -631,6 +659,10 @@ Tool chain integration & \textcolor{green}{3} & &* & \\
 Scalability & \textcolor{green}{3} & &3 & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+* The SCADE tool suite requires MS Windows. The generated executable code is able to run on any operating system and on platforms without an operation system.   
+\end{author_comment}
 
 \begin{assessor2}managment
 SCADE is a almost complete tool chain. Missing multi-users and system design.
