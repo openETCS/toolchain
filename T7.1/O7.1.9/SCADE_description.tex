@@ -1,0 +1,378 @@
+\chapter{Template Description}
+\label{sec:template}
+
+\begin{description}
+\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Uwe Steinke -  Siemens}
+\item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
+\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
+\end{description}
+
+In the sequel, main text is under the responsibilities of the author.
+
+\begin{author_comment}
+Author can add comments using this format at any place.
+\end{author_comment}
+
+\begin{assessor1}
+First assessor can add comments using this format at any place.
+\end{assessor1}
+
+\begin{assessor2}
+Second assessor can add comments using this format at any place.
+\end{assessor2}
+
+When a note is required, please follow this list :
+\begin{description}
+\item[0] not recommended, not adapted, rejected
+\item[1] weakly recommended, adapted after major improvements, weakly rejected
+\item[2] recommended, adapted (with light improvements if necessary)  weakly accepted
+\item[3] highly recommended, well adapted,strongly accepted
+\item[*] difficult to evaluate with a note (please add a comment under the table)
+\end{description}
+
+All the notes can be commented under each table.
+
+\section{Presentation}
+
+This section gives a quick presentation of the tool.
+
+\begin{description}
+\item[Name] SCADE Suite / SCADE System / SCADE LifeCycle
+\item[Web site] http://esterel-technologies.com 
+\item[License] Commercial
+\end{description}
+
+\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+
+SCADE is a formal modelling language targeted for safety-critical embedded control applications
+in the avionics, rail, automotive and industrial automation domain. SCADE source code can be
+written as text (for anyone who likes writing plain text) or (more usual) as schematic diagrams.
+
+SCADE models are synchronously clocked data flow and state machines, that can be nested
+and intermixed with each other without limitations. SCADE provides DO-178B- and EN50128-
+certified code generators producing C or ADA code as output. SCADE models are therefore concrete, deterministic, executable and verifiable; it allows the production of rapid prototype as
+well as of safety related target system software.
+
+SCADE comes with an integrated development environment (SCADE Suite IDE) including
+code generator, graphical simulator, model checker/prover, model test coverage analyzer, report
+generators, version and requirements management gateway with interfaces to various other tools
+like static code and timing analyzers, System/SysML modelling tools etc.. The IDE provides
+automatization interfaces to be controlled from external tools, and all SCADE tools itself can
+also be used in batch mode. In addition, plugins for Eclipse integration are available.
+
+The SCADE paradigm of synchronously clocked data flow and state machines works perfect for
+embedded control or industry automation software. It is less suitable for tasks like text processing
+or computer graphic applications. SCADE models do not only describe the structure of software;
+instead, they are the software implementation itself too. System architectures typically require a
+higher abstraction means of description at top level like SysML. While SysML modelling can
+be achieved with any SysML tools, SCADE System provides an automatic transformation from
+SysML to SCADE.
+
+
+\paragraph{Publications} Short list of publications on the approach (5 max)
+\begin{itemize}
+	\item http://www.interested-ip.eu/
+  \item http://http://www.interested-ip.eu/final-report.html/
+
+\end{itemize}
+
+
+\section{Use of the Tool}
+According WP2 requirements, give a note for characteristics of the use of the tool (from 0 to 3) :
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+Open Source (D2.6-X-36) & 0& & &  \\
+\hline 
+Cooperation of tools (D2.6-X-38) & 3& & &  \\
+\hline
+Robustness (D2.6-X-41) & 3& & & \\
+\hline
+Modularity (D2.6-X-41.1) & 3& & & \\
+\hline
+Documentation management (D.2.6-X-41.2) & 3& & & \\
+\hline
+Distributed software development (D.2.6-X-41.3)  & 2& & & \\
+\hline
+Simultaneous Multi-users (D.2.6-X-41.4)   & 1& & & \\
+\hline
+Issue tracking (D.2.6-X-41.5) & 0& & & \\
+\hline
+Concurrent version development (D.2.6-X-41.8) & 0& & & \\
+\hline
+Model-based version control (D.2.6-X-41.9) & 3& & & \\
+\hline
+Role traceability (D.2.6-X-41.10) & *& & & \\
+\hline
+Safety version traceability (D.2.6-X-41.11) & *& & & \\
+\hline
+Scalability & 3& & & \\
+\hline
+\end{tabular}
+
+\begin{author_comment}
+* SCADE does not address these issues specifically, but does not inhibit them.
+\end{author_comment}
+
+
+\section{Platform integration}
+Capabilities of the tool platform to  be integrated to common operating systems.
+\begin{enumerate}
+\item  The tools chain shall be portable to common \gls{OS}.
+\item   The tool chain shall run stable on all main \gls{OS}.
+\item  The tool chain shall run with a good performance on all main \gls{OS}.
+\item  Data produce on an \gls{OS} should be readable by an other \gls{OS}.
+\end{enumerate}
+\begin{tabular}{|l | c | c | c | c|}
+  \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline  Portable (R-WP2/D2.6-X-37) & *
+  &                 &                  &\\
+  \hline   Stable (R-WP2/D2.6-X-37.1)& *
+  &                 &                  &\\
+  \hline   Same performance (R-WP2/D2.6-X-37.2)& *
+  &                 &                  &\\
+  \hline  Easy exchange& *
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+\begin{author_comment}
+* The SCADE tools are executable on several MS Windows versions. I simply don't know which of the numbers to apply to this. 
+\end{author_comment}
+
+
+\section{Data integration}
+How the tool platform supports the data integration ?
+
+\subsection{How to share data ?}
+\begin{enumerate}
+\item Files contains all info and are read/write when needed.
+\item A central repository contains all data (maybe distributed in a
+  set of files).
+\item A common database is shared among tools
+\item Tools communicate via messages.
+\item A meta-model is defined to harmonized the data input/output
+\item Representational State Transfer (REST), distributed architecture (like the web) and data access by an
+  unique identifier (URL-like).
+\end{enumerate}
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline File based sharing & 3*
+  &                 &                  &\\
+  \hline Shared repository &*
+  &                 &                  &\\
+  \hline Database based sharing& 0*
+  &                 &                  &\\
+  \hline Message Passing& 2*
+  &                 &                  &\\
+  \hline Meta-Model based sharing & 3*
+  &                 &                  &\\
+  \hline REST architecture style & 0*
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+\begin{author_comment}
+* The SCADE source XML-based data format, the interfaces to the tools, the metamodel has been published, Eclipse plugins and a JAVA API are available. This enables them to be combined in intermixed tool chains. 
+\end{author_comment}
+
+
+\subsection{Data definition}
+\begin{enumerate}
+\item Definition of a common data format
+\item All possible input and output formats of a tool have to be
+  documented.
+\item Automatic parser/generator support compliant with a common format.
+\item All possible input and output formats of a tool have to be documented.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Common data format& 0
+  &                 &                  &\\
+  \hline Common data format documentation(R-WP2/D2.6-X-38.1) & 3
+  &                 &                  &\\
+  \hline Generator/parser & 0
+  &                 &                  &\\
+  \hline Open data format (R-WP2/D2.6-X-38.2)& 3
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+
+
+\section{Presentation integration}
+The tool chain would be easier to use if the tool may share a common
+"look and fell'.
+\begin{enumerate}
+\item The tool platform proposes a common \gls{GUI}.
+\item The tool platform proposes some presentation guidelines
+\item The tool platform provides a user interface creation toolkit
+\item The tool platform integrates new tools as plug-in of the \gls{IDE}.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Common \gls{GUI}& *
+  &                 &                  &\\
+  \hline Presentation guidelines &*
+  &                 &                  &\\
+  \hline User interface toolkit &*
+  &                 &                  &\\
+  \hline Plug-in support &*
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+
+
+\section{Control integration}
+The mechanism that allows tools to notify and activate others tools.
+\begin{enumerate}
+\item Tools may subscribe to some notification.
+\item Tools may notify changes.
+\item The change may be logged and traced.
+\item The tool platform provides a version management.
+\item Script based change control.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Service Subscriber&
+  &                 &                  &\\
+  \hline Service Notifier &
+  &                 &                  &\\
+  \hline Change traceability &
+  &                 &                  &\\
+  \hline Version Management &
+  &                 &                  &\\
+  \hline Script control &
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+
+\section{Process integration}
+\subsection{Support for engineering process}
+Support for a well-defined software engineering process. 
+\begin{enumerate}
+\item Process definition support.
+\item Integrated process : the process is transparent to the users.
+\item Process Management support.
+\item Script based process: the process is implemented via scripts.
+\item The defined tool chain  may be analyzed within the tool platform.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Process Definition &
+  &                 &                  &\\
+  \hline Process Management &
+  &                 &                  &\\
+  \hline Integrated Process &
+  &                 &                  &\\
+  \hline Script based process &
+  &                 &                  &\\
+  \hline Tool chain Analysis &
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+
+
+\subsection{Support for EN 50128 standard}
+Specific mechanism related to EN 50128 standard
+\begin{enumerate}
+\item  Each tool in the tool chain shall be classified among T1, T2
+  and T3 depending on its usage in the process.
+\item  For T2 and T3 tools 7 , the choice of tools shall be justified,
+  and the justification shall include how the tools failures are
+  covered, avoided or taken into account (ref. to EN 50128 6.7.4.2).
+\item  All T2 and T3 tools must be provided with their user manuals.
+\item  For all T3 tool, the proof of correctness or the measure taken
+  to guarantee the correctness of the output w.r.t. their
+  specification and the inputs shall be provided. The tool platform
+  provides output/input comparison  or other mechanism to guarantee
+  the correctness.
+\item Is it possible to test the test platform.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Integrated Tools classification (R-WP2/D2.6-X-50)  &3
+  &                 &                  &\\
+  \hline Document production (R-WP2/D2.6-01-042.01) &3
+  &                 &                  &\\
+  \hline Automatic information on tools (R-WP2/D2.6-01-042.02) &3
+  &                 &                  &\\
+  \hline Measure for correctness (R-WP2/D2.6-01-042.03) &3
+  &                 &                  &\\
+  \hline Test of the tool platform &3
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+\section{Tool chain Analysis}
+Is the tool platform able to analyze the tool chain.
+\begin{enumerate}
+\item The tool platform provides a met-model to represents tool chain
+\item The tool platform provides a graphical representation of the
+  tool chain
+\item The tool platform provides a textual description of the
+  tool chain
+\item The tool platform may help to analyze the tool chain by means
+  of the tools inputs and outputs.
+\item The tool platform allows the rearrangement and/or the extension
+  of the tool chain
+\item Previously define tool chain may be re-use and their confidence too.
+\end{enumerate}
+
+\begin{tabular}{|l | c | c | c | c|} \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
+  \hline Tool chain Meta-Model definition &
+  &                 &                  &\\
+  \hline Tool chain graphical representation &
+  &                 &                  &\\
+  \hline Tool chain textual representation &
+  &                 &                  &\\
+  \hline Tool's Input/output Analysis &
+  &                 &                  &\\
+  \hline Tool chain Analysis &
+  &                 &                  &\\
+  \hline Tool chain rearrangement and extension &
+  &                 &                  &\\
+  \hline Confidence preservation &
+  &                 &                  &\\
+  \hline
+\end{tabular}
+
+
+\section{Other comments}
+Please to  give free comments on the approach.
+
+\begin{author_comment}
+The SCADE Suite comes with it's own IDE, that might be extended with other tools. But I don't convinced that this will be appropriate for the openETCS project. My proposal for the openETCS tool chain:
+
+The integration capabilities of the SCADE tool suite: 
+\begin{itemize}
+	\item All components of the tool chain can be controlled from outside the SCADE IDE (At least from command line).
+	\item The data formats and interfaces to the SCADE tools are documentated and published.
+	\item SCADE Suite itself provides Eclipse plugins and interfaces for integration with Eclipse. 
+\end{itemize}
+
+The concept of integrating the SCADE tools into a tool chain could rely on: 
+	\item Use the SCADE IDE for graphical modelling, debugging, simulation, requirements management and model test coverage measurement. 
+	\item Integrate the SCADE tools and plugins into an unique openETCS build tool chain.
+	\item Make use of the documented SCADE interfaces and data formats, whereever useful. 
+\end{itemize}
+
+\end{author_comment}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Evaluation_Platform_against_WP2"
+%%% End: 
