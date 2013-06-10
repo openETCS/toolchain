@@ -1,0 +1,27 @@
+\chapter{Why3}
+
+
+\begin{description}
+\item[\textcolor{green}{Author}] Author of the approaches description: David Mentré (Mitsubishi Electric R\&D Centre
+Europe)
+\end{description}
+
+The evaluation of this approach has been stop by the author before the end of the benchmark activity :
+
+
+\begin{author_comment}
+
+Main reason to stop Why3 model: Why3 and GNATprove have roughly the same capabilities but GNATprove is less error prone.
+
+Both GNATprove and Why3 are using a contract approach, with pre and post-conditions on functions (and some kind of data invariant). Both have same expression capabilities with complicated data structures: sum types (record with discriminant in Ada), array, record, etc. GNATprove code can be compiled with an Ada compiler. Why3 can be translated to OCaml (at least for the latest git version). Both are using several automated SMT solvers, thus they are rather easy to use (once correct invariant are written ;-) ).
+
+However GNATprove or at least Ada supports tasking, thus making concurrent models can be considered. This is not possible with Why3.
+
+Moreover, Why3 rallies heavily on axiomatizations that are fragile: it is easy to make a mistake when writing axioms. GNATprove has a fixed set of expression capabilities within its logical framework, but at least it is much less risky for a regular user which is not expert in formal methods.
+
+By the way, the new name of GNATprove is SPARK 2014: \url{http://www.spark-2014.org/}.
+
+\end{author_comment}
+
+
+
