@@ -1,12 +1,53 @@
 \chapter{Why3}
 
-
 \begin{description}
 \item[\textcolor{green}{Author}] Author of the approaches description: David Mentré (Mitsubishi Electric R\&D Centre
 Europe)
 \end{description}
 
-The evaluation of this approach has been stop by the author before the end of the benchmark activity :
+
+\section{Presentation}
+
+This section gives a quick presentation of the approach and the tool.
+
+\begin{description}
+\item[Name:] Why3
+\item[Web site: ] \url{http://why3.lri.fr/}
+\item[Licence: ] GNU LGPL
+\end{description}
+
+\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+
+Why3 is a platform for deductive program verification. It provides a
+rich language for specification and programming, called WhyML, and
+relies on external theorem provers, both automated and interactive, to
+discharge verification conditions. Why3 comes with a standard library
+of logical theories (integer and real arithmetic, Boolean operations,
+sets and maps, etc.) and basic programming data structures (arrays,
+queues, hash tables, etc.). A user can write WhyML programs directly
+and get correct-by-construction OCaml programs through an automated
+extraction mechanism. WhyML is also used as an intermediate language
+for the verification of C, Java, or Ada programs.
+
+
+
+\paragraph{Publications} Short list of publications on the approach (5 max)
+
+\begin{itemize}
+	\item Why3: Shepherd Your Herd of Provers (BOOGIE 2011)
+\url{http://proval.lri.fr/submissions/boogie11.pdf}
+
+\item Verifying Two Lines of C with Why3: an Exercise in Program Verification (VSTTE 2012)
+\url{http://why3.lri.fr/queens/queens.pdf}
+
+\item Why3 -- Where Programs Meet Provers  (ESOP 2013)
+\url{http://hal.inria.fr/hal-00789533}
+
+\end{itemize}
+
+\section{Evaluation}
+
+The evaluation of this approach has been stop by the author before the end of the benchmark activity:
 
 
 \begin{author_comment}
@@ -17,9 +58,7 @@ Both GNATprove and Why3 are using a contract approach, with pre and post-conditi
 
 However GNATprove or at least Ada supports tasking, thus making concurrent models can be considered. This is not possible with Why3.
 
-Moreover, Why3 rallies heavily on axiomatizations that are fragile: it is easy to make a mistake when writing axioms. GNATprove has a fixed set of expression capabilities within its logical framework, but at least it is much less risky for a regular user which is not expert in formal methods.
-
-By the way, the new name of GNATprove is SPARK 2014: \url{http://www.spark-2014.org/}.
+Moreover, Why3 heavily relies on axiomatizations that are fragile: it is easy to make a mistake when writing axioms. GNATprove has a fixed set of expression capabilities within its logical framework, but at least it is much less risky for a regular user which is not expert in formal methods.
 
 \end{author_comment}
 
