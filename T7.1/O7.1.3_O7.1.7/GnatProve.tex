@@ -75,13 +75,13 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & 1 & & &  \\
+System Analysis & 1 & & 1 &  \\
 \hline
-Sub-system formal design & 2 & & & \\
+Sub-system formal design & 2 & & 1 & \\
 \hline
-Software design & 3 & & & \\
+Software design & 3 & & 3 & \\
 \hline
-Software code generation & 3 & & & \\
+Software code generation & 3 & & 3 & \\
 \hline
 \end{tabular}
 
@@ -91,19 +91,19 @@ According to the figure \ref{fig:main_process}, for which type of activities do 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation & 1 & & &  \\
+Documentation & 1 & & 1 &  \\
 \hline
-Modeling & 1 & & &  \\
+Modeling & 1 & & 1 &  \\
 \hline
-Design & 2 & & & \\
+Design & 2 & & 1 & \\
 \hline
-Code generation & 3 & & & \\
+Code generation & 3 & & 3 & \\
 \hline
-Verification & 3 & & & \\
+Verification & 3 & & 3 & \\
 \hline
-Validation & 3 & & & \\
+Validation & 3 & & 3 & \\
 \hline
-Safety analyses & 1 & & & \\
+Safety analyses & 1 & & 1 & \\
 \hline
 \end{tabular}
 
@@ -121,21 +121,21 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal language & 0 & & &  \\
+Informal language & 0 & & 0 &  \\
 \hline 
-Semi-formal language & 0 & & &  \\
+Semi-formal language & 0 & & 0 &  \\
 \hline
-Formal language & 3 & & &  \\
+Formal language & 3 & & 3 &  \\
 \hline
-Structured language & 3 & & & \\
+Structured language & 3 & & 3 & \\
 \hline
-Modular language & 3 & & & \\
+Modular language & 3 & & 3 & \\
 \hline
-Textual language & 3 & & & \\
+Textual language & 3 & & 3 & \\
 \hline
-Mathematical symbols or code & 3 & & & \\
+Mathematical symbols or code & 3 & & 3 & \\
 \hline
-Graphical language & 0 & & & \\
+Graphical language & 0 & & 0 & \\
 \hline
 \end{tabular}
 
@@ -145,32 +145,38 @@ According WP2 requirements, give a note for the capabilities of the language (fr
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & 3 & & & \\
+Declarative formalization of properties (D.2.6-X-28) & 3 & & 3 & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & 2 & & & \\
+Simple formalization of properties (D.2.6-X-28.1) & 2 & & 2 & \\
 \hline
-Scalability : capability to design large model & 3 & & & \\
+Scalability : capability to design large model & 3 & & 3 & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30) & 2 & & & \\
+Easily translatable to other languages (D.2.6-X-30) & 2 & & 2 & \\
 \hline
-Executable directly (D.2.6-X-33) & 3 & & & \\
+Executable directly (D.2.6-X-33) & 3 & & 3 & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) & 3 & & & \\
+Executable after translation to a code (D.2.6-X-33) & 3 & & 3* & \\
 (precise if the translation is automatic) & 3\footnote{No translation needed.} & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) & 1 & & & \\
+Simulation, animation (D.2.6-X-33) & 1 & & 2* & \\
 \hline
-Easily understandable (D.2.6-X-27) & 2 & & & \\
+Easily understandable (D.2.6-X-27) & 2 & & 2 & \\
 \hline
-Expertise level needed (0 High level, 3 few level) & 2 & & & \\
+Expertise level needed (0 High level, 3 few level) & 2 & & 2 & \\
 \hline
-Standardization (D.2.6-X-29) & 3 & & & \\
+Standardization (D.2.6-X-29) & 3 & & 3 & \\
 \hline
-Documented (D.2.6-X-29) & 3 & & & \\
+Documented (D.2.6-X-29) & 3 & & 3 & \\
 \hline
-Extensible language (D.2.6-01-28) & 3 & & & \\
+Extensible language (D.2.6-01-28) & 3 & & 3 & \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} Executable after translation to a code is not
+applicable, as it is directly executable code, i.e., no intermediate step is
+needed for compilation.
+
+Simulation, animation should be possible with the GNAT Visual Debugger.
 
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
@@ -184,6 +190,10 @@ guidelines.
 
 The Ada language is a general purpose programming language.
 
+\textcolor{magenta}{Assessor 2} For GNATprove / SPARK 2014, only a subset of
+full Ada can be used, nevertheless this still represents a general purpose
+programming language.
+
 \section{System Analysis}
 This section discusses the usage of the approach for system analysis.
 It can be skipped depending the results of \ref{main_usage}.
@@ -195,21 +205,21 @@ the sub-system requirement specification?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1)  & 1 & & &  \\
+Independent System functions definition (D.2.6-X-10.2.1)  & 1 & & 1 &  \\
 \hline
-System architecture design (D.2.6-X-10.2) & 2 & & &  \\
+System architecture design (D.2.6-X-10.2) & 2 & & 2 &  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  & 2 & & &  \\
+System data flow identification (D.2.6-X-10.2.3)  & 2 & & 2 &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  & 1 & & &  \\
+Sub-system focus (D.2.6-X-10.2.4)  & 1 & & 1 &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  & 2 & & &  \\
+System interfaces definition (D.2.6-X-10.2.5)  & 2 & & 2 &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  & 0 & & &  \\
+System requirement allocation (D.2.6-X-10.3)  & 0 & & 0 &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  & 1 & & &  \\
+Traceability with SRS (D.2.6-X-10.5)  & 1 & & 1 &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & 2 & & &  \\
+Traceability with Safety activities (D.2.6-X-11)  & 2 & & 2 &  \\
 \hline
 \end{tabular}
 
@@ -229,29 +239,29 @@ Concerning semi-formal model, how the WP2 requirements are covered?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & 2 & & &  \\
+Consistency to SSRS (D.2.6-X-12.2) & 2 & & 2 &  \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1)  & 3 & & &  \\
+Coverage of SSRS (D.2.6-X-12.2.1)  & 3 & & 2 &  \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2)  & 2 & & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  & 2 & & 2 &  \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3)  & 0 & & &  \\
+Management of requirement justification (D.2.6-X-12.2.3)  & 0 & & 0 &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5)  & 1 & & &  \\
+Traceability to  SSRS (D.2.6-X-12.2.5)  & 1 & & 1 &  \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6)  & 1 & & &  \\
+Traceability of exported requirements (D.2.6-X-12.2.6)  & 1 & & 1 &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  & 3 & & &  \\
+Simulation or animation (D.2.6-X-13 partial)  & 3 & & 3 &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & 3 & & &  \\
+Execution (D.2.6-X-13 partial)  & 3 & & 3 &  \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & 3 & & &  \\
+Extensible to strictly formal model (D.2.6-X-14.3) & 3 & & 3 &  \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & 3 & & &  \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) & 3 & & 3 &  \\
 \hline
-Extensible and modular design (D.2.6-X-15)  & 3 & & &  \\
+Extensible and modular design (D.2.6-X-15)  & 3 & & 3 &  \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30)   & 3 & & &  \\
+Extensible to software architecture and design (D.2.6-X-30)   & 3 & & 3 &  \\
 \hline
 \end{tabular}
 
@@ -261,21 +271,27 @@ Concerning safety properties management, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Safety function isolation (D.2.6-X-17)  & 2 & & &  \\
+Safety function isolation (D.2.6-X-17)  & 2 & & 2 &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & 3 & & &  \\
+Safety properties formalisation (D.2.6-X-22)  & 3 & & 2* &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & 3 & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & 3 & & 3 &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & 1 & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & 1 & & 1 &  \\
 \hline
-Safety properties validation (D.2.6-X-23.2)  & 3 & & &  \\
+Safety properties validation (D.2.6-X-23.2)  & 3 & & 2* &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & 3 & & &  \\
+Logical properties assertion (D.2.6-X-34)  & 3 & & 3 &  \\
 \hline
-Check  of assertions (D.2.6-X-34.1)  & 3 & & &  \\
+Check  of assertions (D.2.6-X-34.1)  & 3 & & 3 &  \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} Safety properties formalization and validation
+is probably not easy if it cannot be reduced to pre-/ postconditions of a single
+function. If several functions are concerned, I am not sure how it can be
+assured that the conjunction of the post-conditions correctly implies a higher
+level safety property.
 
 Does the language allow to  formalize (D.2.6-X-31):
 
@@ -283,21 +299,24 @@ Does the language allow to  formalize (D.2.6-X-31):
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & 3 & & &  \\
+State machines  & 3 & & 3 &  \\
 \hline
-Time-outs  & 1 & & &  \\
+Time-outs  & 1 & & 1* &  \\
 \hline
-Truth tables  & 3 & & &  \\
+Truth tables  & 3 & & 3 &  \\
 \hline
-Arithmetic  & 3 & & &  \\
+Arithmetic  & 3 & & 3 &  \\
 \hline
-Braking curves  & 3 & & &  \\
+Braking curves  & 3 & & 3 &  \\
 \hline
-Logical statements & 3 & & &  \\
+Logical statements & 3 & & 3 &  \\
 \hline
-Message and fields & 3 & & &  \\
+Message and fields & 3 & & 3 &  \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} Ada offers time-outs, is this not within the
+subset supported by SPARK 2014?
 
 \paragraph{Additional comments on semi-formal  model} Do you think your semi-formal  model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to  other models, validation and verification activities are welcomed.
@@ -313,27 +332,27 @@ Concerning strictly formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & 2 & & &  \\
+Consistency to SFM (D.2.6-X-14.2) & 2 & & 2 &  \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2)  & 3 & & &  \\
+Coverage of SSRS (D.2.6-X-14.2)  & 3 & & 3 &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3)  & 1 & & &  \\
+Traceability to  SSRS (D.2.6-X-14.3)  & 1 & & 1 &  \\
 \hline
-Extensible to software design (D.2.6-X-16)  & 3 & & &  \\
+Extensible to software design (D.2.6-X-16)  & 3 & & 3 &  \\
 \hline
-Safety function isolation (D.2.6-X-17)  & 3 & & &  \\
+Safety function isolation (D.2.6-X-17)  & 3 & & 2 &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  & 3 & & &  \\
+Safety properties formalisation (D.2.6-X-22)  & 3 & & 2 &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  & 3 & & &  \\
+Logical expression (D.2.6-X-28.2.2)  & 3 & & 3 &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  & 1 & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  & 1 & & 1 &  \\
 \hline
-Safety properties validation (D.2.6-X-23.3)  & 3 & & &  \\
+Safety properties validation (D.2.6-X-23.3)  & 3 & & 3 &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  & 3 & & &  \\
+Logical properties assertion (D.2.6-X-34)  & 3 & & 3 &  \\
 \hline
-Proof of assertions (D.2.6-X-34.2)  & 3 & & &  \\
+Proof of assertions (D.2.6-X-34.2)  & 3 & & 3 &  \\
 \hline
 \end{tabular}
 
@@ -343,19 +362,19 @@ Does the language allow to  formalize (D.2.6-X-32):
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & 3 & & &  \\
+State machines  & 3 & & 3 &  \\
 \hline
-Time-outs  & 1 & & &  \\
+Time-outs  & 1 & & 1 &  \\
 \hline
-Truth tables  & 3 & & &  \\
+Truth tables  & 3 & & 3 &  \\
 \hline
-Arithmetic  & 3 & & &  \\
+Arithmetic  & 3 & & 3 &  \\
 \hline
-Braking curves  & 3 & & &  \\
+Braking curves  & 3 & & 3 &  \\
 \hline
-Logical statements & 3 & & &  \\
+Logical statements & 3 & & 3 &  \\
 \hline
-Message and fields & 3 & & &  \\
+Message and fields & 3 & & 3 &  \\
 \hline
 \end{tabular}
 
@@ -378,15 +397,15 @@ How the approach allows to  produce a functional software model of the on-board 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model  & 3 & & &  \\
+Derivation from system semi-formal model  & 3 & & 3 &  \\
 \hline 
-Software architecture description  & 3 & & &  \\
+Software architecture description  & 3 & & 2 &  \\
 \hline
-Software constraints  & 3 & & &  \\
+Software constraints  & 3 & & 3 &  \\
 \hline
-Traceability  & 1 & & &  \\
+Traceability  & 1 & & 1 &  \\
 \hline
-Executable  & 3 & & &  \\
+Executable  & 3 & & 3 &  \\
 \hline
 \end{tabular}
 
@@ -398,21 +417,21 @@ How the approach allows to  produce in safety a software model ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model  & 3 & & &  \\
+Derivation from system semi-formal or strictly formal model  & 3 & & 3 &  \\
 \hline 
-Software architecture description  & 3 & & &  \\
+Software architecture description  & 3 & & 3 &  \\
 \hline
-Software constraints  & 3 & & &  \\
+Software constraints  & 3 & & 3 &  \\
 \hline
-Traceability  & 1 & & &  \\
+Traceability  & 1 & & 1 &  \\
 \hline
-Executable  & 3 & & &  \\
+Executable  & 3 & & 3 &  \\
 \hline
-Conformance to EN50128 § 7.2  & 1 & & &  \\
+Conformance to EN50128 § 7.2  & 1 & & 1 &  \\
 \hline
-Conformance to EN50128 § 7.3  & 3 & & &  \\
+Conformance to EN50128 § 7.3  & 3 & & 2 &  \\
 \hline
-Conformance to EN50128 § 7.4  & 3 & & &  \\
+Conformance to EN50128 § 7.4  & 3 & & 3 &  \\
 \hline
 \end{tabular}
 
@@ -423,25 +442,25 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming  & 3 & & &  \\
+Defensive programming  & 3 & & 3 &  \\
 \hline 
-Fault detection \& diagnostic  & 3 & & &  \\
+Fault detection \& diagnostic  & 3 & & 3 &  \\
 \hline
-Error detecting code  & 3 & & &  \\
+Error detecting code  & 3 & & 3 &  \\
 \hline
-Failure assertion programming & 3 & & &  \\
+Failure assertion programming & 3 & & 3 &  \\
 \hline
-Diverse programming & 3 & & &  \\
+Diverse programming & 3 & & 3 &  \\
 \hline
-Memorising executed cases & 3 & & &  \\
+Memorising executed cases & 3 & & 3 &  \\
 \hline
-Software error effect analysis & 1 & & &  \\
+Software error effect analysis & 1 & & 1 &  \\
 \hline
-Fully defined interface & 3 & & &  \\
+Fully defined interface & 3 & & 3 &  \\
 \hline
-Modelling  & 2 & & &  \\
+Modelling  & 2 & & 2&  \\
 \hline
-Structured methodology & 1 & & &  \\
+Structured methodology & 1 & & 1 &  \\
 \hline
 \end{tabular}
 
@@ -456,17 +475,17 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods  & 3 & & &  \\
+Formal methods  & 3 & & 3 &  \\
 \hline 
-Modeling  & 1 & & &  \\
+Modeling  & 1 & & 1 &  \\
 \hline
-Modular approach (mandatory) & 3 & & &  \\
+Modular approach (mandatory) & 3 & & 3 &  \\
 \hline
-Components & 3 & & &  \\
+Components & 3 & & 3 &  \\
 \hline
-Design and coding standards (mandatory) & 3 & & &  \\
+Design and coding standards (mandatory) & 3 & & 3 &  \\
 \hline
-Strongly typed programming language & 3 & & &  \\
+Strongly typed programming language & 3 & & 3 &  \\
 \hline
 
 \end{tabular}
@@ -485,21 +504,24 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & 1 & & &  \\
+Modelling support & 1 & & 1 &  \\
 \hline
-Automatic translation  & - & & & \\
+Automatic translation  & - & & * & \\
 \hline
-Code Generation  & 3 & & & \\
+Code Generation  & 3 & & 3 & \\
 \hline
-Model verification & 3 & & & \\
+Model verification & 3 & & 3 & \\
 \hline
-Test generation & 2 & & & \\
+Test generation & 2 & & 2 & \\
 \hline
-Simulation, execution, debugging & 3 & & & \\
+Simulation, execution, debugging & 3 & & 3 & \\
 \hline
-Formal proof & 3 & & & \\
+Formal proof & 3 & & 3* & \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} The formal proofs are made by using external
+tools.
 
 \paragraph{Modelling support}
 Does the tool provide a  textual or a graphical editor ?
@@ -535,6 +557,8 @@ Yes. Properties to verify are expressed as first order contracts and
 code annotations (loops, assertions). An automatic prover can then be
 used to prove those contracts and annotations.
 
+\textcolor{magenta}{Assessor 2} How well are interactive proofs supported?
+
 \section{Use of the tool}
 
 
@@ -544,43 +568,49 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & 3 & & &  \\
+Open Source\textcolor{magenta}{Assessor 2} & Total \\ (D2.6-X-36) & 3 & & 2*&  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & 3 & & &  \\
+Portability to operating systems (D2.6-X-37) & 3 & & 3 &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & 3 & & &  \\
+Cooperation of tools (D2.6-X-38) & 3 & & 3 &  \\
 \hline
-Robustness (D2.6-X-41) & 3 & & & \\
+Robustness (D2.6-X-41) & 3 & & 3 & \\
 \hline
-Modularity (D2.6-X-41.1) & 3 & & & \\
+Modularity (D2.6-X-41.1) & 3 & & 3 & \\
 \hline
-Documentation management (D.2.6-X-41.2) & 3 & & & \\
+Documentation management (D.2.6-X-41.2) & 3 & & 3 & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & 3 & & & \\
+Distributed software development (D.2.6-X-41.3)  & 3 & & 3 & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & 3 & & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & 3 & & 3 & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & 0 & & & \\
+Issue tracking (D.2.6-X-41.5) & 0 & & 0 & \\
 \hline
-Differences between models (D.2.6-X-41.6) & 1 & & & \\
+Differences between models (D.2.6-X-41.6) & 1* & & 2 & \\
 \hline
-Version management (D.2.6-X-41.7) & 0 & & & \\
+Version management (D.2.6-X-41.7) & 0 & & 1* & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & 3 & & & \\
+Concurrent version development (D.2.6-X-41.8) & 3 & & 3 & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & - & & & \\
+Model-based version control (D.2.6-X-41.9) & - & & * & \\
 \hline
 Role traceability (D.2.6-X-41.10) & - & & & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & 3 & & & \\
+Safety version traceability (D.2.6-X-41.11) & 3 & & 3 & \\
 \hline
-Model traceability (D.2.6-01-035) & 1 & & & \\
+Model traceability (D.2.6-01-035) & 1 & & 1 & \\
 \hline
-Tool chain integration & 2 & & & \\
+Tool chain integration & 2 & & 2 & \\
 \hline
-Scalability & 3 & & & \\
+Scalability & 3 & & 3 & \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} The tool is free only for non-commercial or free
+software development.
+
+The development tool GPS supports a visual file diff view and different version
+management systems.
 
 \section{Certifiability}
 
@@ -591,21 +621,24 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & 3 & & &  \\
+Tool manual (D.2.6-01-42.02) & 3 & & 3 &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & ? & & & \\
+Proof of correctness (D.2.6-01-42.03)   & ? & & * & \\
 \hline
-Existing industrial  usage  & 3 & & & \\
+Existing industrial  usage  & 3 &  & 3 & \\
 \hline
-Model verification & 3 & & & \\
+Model verification & 3 & & 3 & \\
 \hline
-Test generation & 1 & & & \\
+Test generation & 1 & & * & \\
 \hline
-Simulation, execution, debugging & 2 & & & \\
+Simulation, execution, debugging & 2 & & 2 & \\
 \hline
-Formal proof & 3 & & & \\
+Formal proof & 3 & & 3 & \\
 \hline
 \end{tabular}
+
+\textcolor{magenta}{Assessor 2} I did not look into test generation for
+GNATprove / SPARK 2013 with the GPS tool.
 
 \paragraph{Other elements for tool certification}
 
