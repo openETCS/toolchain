@@ -202,11 +202,11 @@ According to WP2 requirements, give a note for the capabilities of the language 
   \hline
   Scalability : capability to design large model &3 &3 & 3 & \\
   \hline
-  Easily translatable to other languages (D.2.6-X-30) & 2 &  & 2* & \\
+  Easily translatable to other languages (D.2.6-X-30) & 2 & 2  & 2* & \\
   \hline
   Executable directly (D.2.6-X-33) &3 & 3  & & \\
   \hline
-  Executable after translation to a code (D.2.6-X-33) &3 & &3 & \\
+  Executable after translation to a code (D.2.6-X-33) &3 &3 &3 & \\
   (precise if the translation is automatic) & & & 2*& \\
   \hline
   Simulation, animation (D.2.6-X-33) &3* &3* &3 & \\
@@ -315,7 +315,7 @@ Extensible to software architecture and design (D.2.6-X-30) &3 &3 &3 & \\
 \begin{assessor1}
 \begin{itemize}
 \item[*] The coverage may just be a metric, the number of function
-  implemented versus the total ETCS functions. U think this can be
+  implemented versus the total ETCS functions. I think this can be
   easily added
 \item[**] This may be achieve by standardized comments.
 \end{itemize}
@@ -337,7 +337,7 @@ Concerning safety properties management, how the WP2 requirements are covered ?
 \hline
 Safety function isolation (D.2.6-X-17) &* & & & \\
 \hline
-Safety properties formalisation (D.2.6-X-22) &2 & & & \\
+Safety properties formalisation (D.2.6-X-22) &2 &1* & & \\
 \hline
 Logical expression (D.2.6-X-28.2.2) &3 &3 &3 & \\
 \hline
@@ -351,10 +351,15 @@ Check of assertions (D.2.6-X-34.1) &3 &3 &3 & \\
 \hline
 \end{tabular}
 
+
 \begin{author_comment}
 * Item not clear to me, should be a requirement for the actual implementation, not a model
 \end{author_comment}
 
+\begin{assesor1}
+(*) The safety analysis may be done with external temporal model
+checker for example or by means of monitor. 
+\end{assessor1}
 Does the language allow to formalize (D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -500,7 +505,7 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming &* &* & & \\
+Defensive programming &* & & & \\
 \hline
 Fault detection \& diagnostic &2 &2 &2 & \\
 \hline
@@ -508,7 +513,7 @@ Error detecting code &3 &3 &3 & \\
 \hline
 Failure assertion programming &3 &3 &3 & \\
 \hline
-Diverse programming &* &* & & \\
+Diverse programming &* & & & \\
 \hline
 Memorising executed cases &3 &3 &3 & \\
 \hline
@@ -668,9 +673,9 @@ Issue tracking (D.2.6-X-41.5) &** &1 &2 & \\
 \hline
 Differences between models (D.2.6-X-41.6) &3*** &3 &2 & \\
 \hline
-Version management (D.2.6-X-41.7) &3*** &0 &2 & \\
+Version management (D.2.6-X-41.7) &3*** &2 &2 & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) &3*** &0 &2 & \\
+Concurrent version development (D.2.6-X-41.8) &3*** &2 &2 & \\
 \hline
 Model-based version control (D.2.6-X-41.9) &**** &0 &0 & \\
 \hline
@@ -726,7 +731,7 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 Tool manual (D.2.6-01-42.02) & &3 &3 & \\
 \hline
-Proof of correctness (D.2.6-01-42.03) & & &0 & \\
+Proof of correctness (D.2.6-01-42.03) & &0 &0 & \\
 \hline
 Existing industrial usage &3 &3 &3 & \\
 \hline
@@ -750,20 +755,27 @@ SystemC is a powerful tool for modeling concurrent systems. The key
 feature is that the model is executable with  an integrate simulation
 environment. Moreover, the user just need a C++ compiler and an editor
 to edit and run the model. 
-The simulation is event-driven but with notion of time, so the model
+The simulation is event-driven  with notion of time, so the model
 may be used for time-simulation.
 One big advantage of this approach is to be able to use different c++
 library like arithmetic library. It is also possible to do
 architectural exploration. This is not in the scope of the project but
 this can be useful to speed up some computation by hardware
 co-processor. SystemC may simulate hardware and software components together.
-Furthermore, it is possible to achieve cross-compilation to then be able
+Furthermore, it is possible to replace the simulation kernel by an
+appropriate run-time system  to then be able
 to take into account the OBU hardware and to be conform with some OS
 API.
 
+The integration with the test from SUBSET076 seems quite straightforward
+and can be easily realized. 
+
 The approach proposed with SysML seems promising and shows that
 SystemC is easily integrated in a tool chain and be good candidate for
-target code.
+target code. Nevertheless the translation or the result of the
+translation should be proven. Moreover, for the moment the description
+is more at high level and the software should be refined to be
+embedded. The definition of the refinement is not yet well-defined.
 
 \subsection{Assessor 2 summary}
 \label{sec:assessor-2-summary}
