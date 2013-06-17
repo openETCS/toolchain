@@ -1,3 +1,4 @@
+
 \chapter{System C}
 
 \textcolor{red}{
@@ -7,7 +8,7 @@ This is a preliminary version of the description and there are still some open q
 \begin{description}
 \item[\textcolor{green}{Author}] Author of the approaches description Stefan Rieger (TWT)/ Frank Golatowski (Uni Rostock)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches Cecile Braunstein (Uni. Bremen)
-\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Silvano DalZilio / LAAS
+\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches Silvano Dal~Zilio / LAAS
 \end{description}
 
 In the sequel, main text is under the responsibilities of the author.
@@ -63,7 +64,7 @@ SystemC is a C++ library providing an event-driven simulation interface suitable
 \section{Main usage of the approach}
 \label{main_usage}
 
-SystemC is suitable for system level design at various abstraction levels (from high level down to individual hardware components) and can thus be employed to build a full system model. Due to its modular design and abstraction priciples sub-components and a lower abstraction level of the model can be considered as ``black boxes''. SystemC models can be executed and simulated allowing for testing of the entire model or individual components.
+SystemC is suitable for system level design at various abstraction levels (from high level down to individual hardware components) and can thus be employed to build a full system model. Due to its modular design and abstraction principles sub-components and a lower abstraction level of the model can be considered as ``black boxes''. SystemC models can be executed and simulated allowing for testing of the entire model or individual components.
 
 According to the figure \ref{fig:main_process}, for which phases do you recommend the approach (give a note from 0 to 3) :
 
@@ -71,13 +72,13 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-System Analysis &1 & 0 & & \\
+System Analysis &1 & 0 & 1 & \\
 \hline
-Sub-system formal design & 3 & *  & & \\
+Sub-system formal design & 3 & *  &  1 & \\
 \hline
-Software design &3 &3 & & \\
+Software design &3 &3 & 3 & \\
 \hline
-Software code generation &2 & 2** & & \\
+Software code generation &2 & 2** & 2 & \\
 \hline
 \end{tabular}
 \begin{assessor1}
@@ -94,24 +95,40 @@ According to the figure \ref{fig:main_process}, for which type of activities do 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Documentation &0 & 0 & & \\
+Documentation &0 & 0 & 0 & \\
 \hline
-Modeling &3 & 3 & & \\
+Modeling &3 & 3 & 2 & \\
 \hline
-Design &3 &3 & & \\
+Design &3 &3 & 3 & \\
 \hline
-Code generation &3 &  & & \\
+Code generation &3 &  & * & \\
 \hline
-Verification &2 &* & & \\
+Verification &2 &* & ** & \\
 \hline
-Validation &2 &3 & & \\
+Validation &2 &3 & 2 & \\
 \hline
-Safety analysis &2 &* & & \\
+Safety analysis &2 &* & ** & \\
 \hline
 \end{tabular}
 \begin{assessor1}
 This is not explained in the report or shown in  the provided example.
 \end{assessor1}
+
+\begin{assessor2}
+  \begin{item}
+  \item[(*)] One of the problem here is that simulation of SystemC
+    models do not take into account the execution platform, like for
+    example the actual hardware limitation of the EVC or the
+    characteristics of the API. How precisely should you model the
+    hardware part of the system ?
+  \item[(**)] Simulation and testing can be used for V\&V, with the
+    usual caveats associated with non-formal languages. I also agree
+    with Assessor~1 on the fact that safety and verification
+    capabilities are not really demonstrated right now. Actually I am
+    quite doubtful about safety since the only type of safety analysis
+    that I can see performed is error injection during the simulation.
+  \end{item}
+\end{assessor2}
 
 \paragraph{Known usages} Have you some examples of usage of this approach to compare with the OpenETCS objectives ?
 
@@ -144,21 +161,21 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Informal language &0 & 0 & & \\
+Informal language &0 & 0 & 0 & \\
 \hline
-Semi-formal language &3 & 3& & \\
+Semi-formal language &3 & 3& 3 & \\
 \hline
-Formal language &2 &1 & & \\
+Formal language &2 &1 & 1 & \\
 \hline
-Structured language &3 &3 & & \\
+Structured language &3 &3 & 3 & \\
 \hline
-Modular language &3 &3 & & \\
+Modular language &3 &3 & 3 & \\
 \hline
-Textual language &3 &3 & & \\
+Textual language &3 &3 & 3 & \\
 \hline
-Mathematical symbols or code &2* &2* & & \\
+Mathematical symbols or code &2* &2* & 2 & \\
 \hline
-Graphical language &** & 0**& & \\
+Graphical language &** & 0**& 0 & \\
 \hline
 \end{tabular}
 
@@ -176,34 +193,34 @@ Graphical language &** & 0**& & \\
 According to WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline
-Declarative formalization of properties (D.2.6-X-28) &1 &1 & & \\
-\hline
-Simple formalization of properties (D.2.6-X-28.1) &1 &1 & & \\
-\hline
-Scalability : capability to design large model &3 &3 & & \\
-\hline
-Easily translatable to other languages (D.2.6-X-30) & 2 &  & & \\
-\hline
-Executable directly (D.2.6-X-33) &3 & 3  & & \\
-\hline
-Executable after translation to a code (D.2.6-X-33) &3 & & & \\
-(precise if the translation is automatic) & & & & \\
-\hline
-Simulation, animation (D.2.6-X-33) &3* &3* & & \\
-\hline
-Easily understandable (D.2.6-X-27) &2 &2 & & \\
-\hline
-Expertise level needed (0 High level, 3 few level) &1 &2 & & \\
-\hline
-Standardization (D.2.6-X-29) &3 &3 & & \\
-\hline
-Documented (D.2.6-X-29) &3 &3 & & \\
-\hline
-Extensible language (D.2.6-01-28) &3 &3 & & \\
-\hline
+  \hline
+  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+  \hline
+  Declarative formalization of properties (D.2.6-X-28) &1 &1 & 1& \\
+  \hline
+  Simple formalization of properties (D.2.6-X-28.1) &1 &1 &1 & \\
+  \hline
+  Scalability : capability to design large model &3 &3 & 3 & \\
+  \hline
+  Easily translatable to other languages (D.2.6-X-30) & 2 &  & 2* & \\
+  \hline
+  Executable directly (D.2.6-X-33) &3 & 3  & & \\
+  \hline
+  Executable after translation to a code (D.2.6-X-33) &3 & &3 & \\
+  (precise if the translation is automatic) & & & 2*& \\
+  \hline
+  Simulation, animation (D.2.6-X-33) &3* &3* &3 & \\
+  \hline
+  Easily understandable (D.2.6-X-27) &2 &2 &3 & \\
+  \hline
+  Expertise level needed (0 High level, 3 few level) &1 &2 &1 & \\
+  \hline
+  Standardization (D.2.6-X-29) &3 &3 &3** & \\
+  \hline
+  Documented (D.2.6-X-29) &3 &3 &3 & \\
+  \hline
+  Extensible language (D.2.6-01-28) &3 &3 &3 & \\
+  \hline
 \end{tabular}
 
 \begin{author_comment}
@@ -214,6 +231,18 @@ Extensible language (D.2.6-01-28) &3 &3 & & \\
 simulation. his is not a code animation but this offer another view of
 the model behaviors.
 \end{assessor1}
+
+\begin{assessor2}
+\item[(*)] There is a large collection of tools providing translation
+  from and to SystemC, so I am even willing to put a 3 for
+  ``translatability''. Once again, to the best of my knowledge, there
+  are no ``certified compiler'' for SystemC, like it is the case for
+  SCADE for example, so it is necessary to check the result of the
+  translation.
+\item[(**)] It is not clear if (or where) all the proprietary tools
+  follow the standards consistently. By definition, Accellera provides
+  an implementation of the SystemC standard 
+\end{assessor2}
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
@@ -251,29 +280,29 @@ Concerning semi-formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Consistency to SSRS (D.2.6-X-12.2) &3 &3 & & \\
+Consistency to SSRS (D.2.6-X-12.2) &3 &3 &3 & \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1) &* &2 & & \\
+Coverage of SSRS (D.2.6-X-12.2.1) &* &2 &* & \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2) &* &1 & & \\
+Coverage of SSHA (D.2.6-X-12.2.2) &* &1 &* & \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3) &2 &2 & & \\
+Management of requirement justification (D.2.6-X-12.2.3) &2 &2 &2 & \\
 \hline
-Traceability to SSRS (D.2.6-X-12.2.5) &** &2** & & \\
+Traceability to SSRS (D.2.6-X-12.2.5) &** &2** &* & \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6) &*** & 2**& & \\
+Traceability of exported requirements (D.2.6-X-12.2.6) &*** & 2**&* & \\
 \hline
-Simulation or animation (D.2.6-X-13 partial) &3**** & 3 & & \\
+Simulation or animation (D.2.6-X-13 partial) &3**** & 3 &3 & \\
 \hline
-Execution (D.2.6-X-13 partial) &3 &3 & & \\
+Execution (D.2.6-X-13 partial) &3 &3 &3 & \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) &2 &1 & & \\
+Extensible to strictly formal model (D.2.6-X-14.3) &2 &1 &1 & \\
 \hline
-Easy to refine towards strictly formal model (D.2.6-X-14.4) &2 &2 & & \\
+Easy to refine towards strictly formal model (D.2.6-X-14.4) &2 &2 &2 & \\
 \hline
-Extensible and modular design (D.2.6-X-15) &3 &3 & & \\
+Extensible and modular design (D.2.6-X-15) &3 &3 &3 & \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30) &3 &3 & & \\
+Extensible to software architecture and design (D.2.6-X-30) &3 &3 &3 & \\
 \hline
 \end{tabular}
 
@@ -291,6 +320,15 @@ Extensible to software architecture and design (D.2.6-X-30) &3 &3 & & \\
 \item[**] This may be achieve by standardized comments.
 \end{itemize}
 \end{assessor1}
+
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] I am not familiar enough with the SSRS and SSHA to provide a
+    valid answer at the moment.
+  \end{itemize}  
+\end{assessor2}
+
+
 Concerning safety properties management, how the WP2 requirements are covered ?
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -301,15 +339,15 @@ Safety function isolation (D.2.6-X-17) &* & & & \\
 \hline
 Safety properties formalisation (D.2.6-X-22) &2 & & & \\
 \hline
-Logical expression (D.2.6-X-28.2.2) &3 &3 & & \\
+Logical expression (D.2.6-X-28.2.2) &3 &3 &3 & \\
 \hline
-Timing constraints (D.2.6-X-28.2.3) &3 &3 & & \\
+Timing constraints (D.2.6-X-28.2.3) &3 &3 &3 & \\
 \hline
-Safety properties validation (D.2.6-X-23.2) &3 &3 & & \\
+Safety properties validation (D.2.6-X-23.2) &3 &3 &3 & \\
 \hline
-Logical properties assertion (D.2.6-X-34) &3 &3 & & \\
+Logical properties assertion (D.2.6-X-34) &3 &3 &3 & \\
 \hline
-Check of assertions (D.2.6-X-34.1) &3 &3 & & \\
+Check of assertions (D.2.6-X-34.1) &3 &3 &3 & \\
 \hline
 \end{tabular}
 
@@ -323,21 +361,30 @@ Does the language allow to formalize (D.2.6-X-31):
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-State machines &3 &3 & & \\
+State machines &3 &3 & 2* & \\
 \hline
-Time-outs &3 &3 & & \\
+Time-outs &3 &3 &3 & \\
 \hline
-Truth tables &3 &3 & & \\
+Truth tables &3 &3 &3 & \\
 \hline
-Arithmetic &3 &3 & & \\
+Arithmetic &3 &3 &3 & \\
 \hline
-Braking curves &3 &3 & & \\
+Braking curves &3 &3 &3 & \\
 \hline
-Logical statements &3 &3 & & \\
+Logical statements &3 &3 &3 & \\
 \hline
-Message and fields &3 &3 & & \\
+Message and fields &3 &3 &3 & \\
 \hline
 \end{tabular}
+
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] State machines are not part of the language and should be
+    ``interpreted'' in the code.
+  \end{itemize}  
+\end{assessor2}
+
+
 
 \paragraph{Additional comments on semi-formal model} Do you think your semi-formal model is sufficient to cover a safe design of the on-board unit until code generation ?
 All comments on links to other models, validation and verification activities are welcomed.
@@ -369,15 +416,15 @@ How the approach allows to produce a functional software model of the on-board u
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model &* &2 & & \\
+Derivation from system semi-formal model &* &2 &2 & \\
 \hline
-Software architecture description &3 &3 & & \\
+Software architecture description &3 &3 &3* & \\
 \hline
-Software constraints &3 &3 & & \\
+Software constraints &3 &3 &3* & \\
 \hline
-Traceability &2** &2 & & \\
+Traceability &2** &2 &2* & \\
 \hline
-Executable &3 &3 & & \\
+Executable &3 &3 &3 & \\
 \hline
 \end{tabular}
 
@@ -385,6 +432,16 @@ Executable &3 &3 & & \\
 * Derivation not necessary because the model is fully executable\\
 ** Can possibly be covered by an associated SysML model. In addition, standardised, machine readable comments in the code could be used.\\
 \end{author_comment}
+
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] The architecture description cannot be easily extracted
+    from the source files, it is spread around the source code; this
+    is not a problem if SystemC is only use as the target of
+    transformations though.
+  \end{itemize}  
+\end{assessor2}
+
 
 \subsection{SSIL4 design}
 
@@ -394,15 +451,15 @@ How the approach allows to produce in safety a software model ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model &* & & & \\
+Derivation from system semi-formal or strictly formal model &* & &2* & \\
 \hline
-Software architecture description &3 & 3 & & \\
+Software architecture description &3 & 3 &3 & \\
 \hline
-Software constraints &3 &3 & & \\
+Software constraints &3 &3 &3 & \\
 \hline
-Traceability &2** &2 & & \\
+Traceability &2** &2 &2 & \\
 \hline
-Executable &3 &3 & & \\
+Executable &3 &3 &3 & \\
 \hline
 Conformance to EN50128 § 7.2 &*** &0 & & \\
 \hline
@@ -426,6 +483,16 @@ Conformance to EN50128 § 7.4 &*** &3 & & \\
 *** No idea, why don't you cite these items?
 \end{author_comment}
 
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] The approach followed in the demonstrator is based on
+    Model-Driven Engineering (with the MOF model to text transform)
+    and the use of the Acceleo Eclipse plugin.
+  \end{itemize}  
+\end{assessor2}
+
+
+
 Which criteria for software architecture are covered by the methodology
 (see EN50128 table A.3) :
 
@@ -435,21 +502,21 @@ Which criteria for software architecture are covered by the methodology
 \hline
 Defensive programming &* &* & & \\
 \hline
-Fault detection \& diagnostic &2 &2 & & \\
+Fault detection \& diagnostic &2 &2 &2 & \\
 \hline
-Error detecting code &3 &3 & & \\
+Error detecting code &3 &3 &3 & \\
 \hline
-Failure assertion programming &3 &3 & & \\
+Failure assertion programming &3 &3 &3 & \\
 \hline
 Diverse programming &* &* & & \\
 \hline
-Memorising executed cases &3 &3 & & \\
+Memorising executed cases &3 &3 &3 & \\
 \hline
 Software error effect analysis &* &2* & & \\
 \hline
-Fully defined interface &3 &3 & & \\
+Fully defined interface &3 &3 &3 & \\
 \hline
-Modelling &3 & & & \\
+Modelling &3 & &2 & \\
 \hline
 Structured methodology &3 & & & \\
 \hline
@@ -473,17 +540,17 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods &0* &0 & & \\
+Formal methods &0* &0 &0 & \\
 \hline
-Modeling &3 &3 & & \\
+Modeling &3 &3 &3 & \\
 \hline
-Modular approach (mandatory) &3 &3 & & \\
+Modular approach (mandatory) &3 &3 &3 & \\
 \hline
-Components &3 &3 & & \\
+Components &3 &3 &3 & \\
 \hline
-Design and coding standards (mandatory) &** &3 & & \\
+Design and coding standards (mandatory) &** &3 &3 & \\
 \hline
-Strongly typed programming language &2 &2 & & \\
+Strongly typed programming language &2 &2 &2 & \\
 \hline
 
 \end{tabular}
@@ -505,25 +572,41 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Modelling support &3 &3 & & \\
+Modelling support &3 &3 &3 & \\
 \hline
-Automatic translation &3 &3 & & \\
+Automatic translation &3 &3 &3 & \\
 \hline
-Code Generation &2* & & & \\
+Code Generation &2* & &0 & \\
 \hline
-Model verification &2 & & & \\
+Model verification &2 & &2 & \\
 \hline
-Test generation &2 &0 & & \\
+Test generation &2 &0 &0 & \\
 \hline
-Simulation, execution, debugging &3 &3 & & \\
+Simulation, execution, debugging &3 &3 &3 & \\
 \hline
-Formal proof &0 &3 & & \\
+Formal proof &0 &3 &2* & \\
 \hline
 \end{tabular}
 
 \begin{author_comment}
  * The model is itself executable
 \end{author_comment}
+
+
+
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] There are some model-checking tools that can accept SystemC
+    code; for example CBMC in the case of a restricted set of
+    properties (see
+    e.g.~\url{http://www.informatik.uni-bremen.de/agra/doc/konf/10MEMOCODE-tlmpc.pdf}). Nonetheless
+    I am not sure that we have the expertise for using these
+    prototypes in the project.
+  \end{itemize}  
+\end{assessor2}
+
+
+
 
 \paragraph{Modelling support}
 Does the tool provide a textual or a graphical editor ?
@@ -565,41 +648,41 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Open Source (D2.6-X-36) &3 &3 & & \\
+Open Source (D2.6-X-36) &3 &3 &3* & \\
 \hline
-Portability to operating systems (D2.6-X-37) &3 &3 & & \\
+Portability to operating systems (D2.6-X-37) &3 &3 &3 & \\
 \hline
-Cooperation of tools (D2.6-X-38) &* &2$\clubsuit$ & & \\
+Cooperation of tools (D2.6-X-38) &* &2$\clubsuit$ &2 & \\
 \hline
-Robustness (D2.6-X-41) &3 &3 & & \\
+Robustness (D2.6-X-41) &3 &3 &3 & \\
 \hline
-Modularity (D2.6-X-41.1) &3 &3 & & \\
+Modularity (D2.6-X-41.1) &3 &3 &3 & \\
 \hline
-Documentation management (D.2.6-X-41.2) &** &2 & & \\
+Documentation management (D.2.6-X-41.2) &** &2 &2 & \\
 \hline
-Distributed software development (D.2.6-X-41.3) &3*** &3 & & \\
+Distributed software development (D.2.6-X-41.3) &3*** &3 &3 & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4) &3*** & 3& & \\
+Simultaneous multi-users (D.2.6-X-41.4) &3*** & 3&3 & \\
 \hline
-Issue tracking (D.2.6-X-41.5) &** &1 & & \\
+Issue tracking (D.2.6-X-41.5) &** &1 &2 & \\
 \hline
-Differences between models (D.2.6-X-41.6) &3*** &3 & & \\
+Differences between models (D.2.6-X-41.6) &3*** &3 &2 & \\
 \hline
-Version management (D.2.6-X-41.7) &3*** &0 & & \\
+Version management (D.2.6-X-41.7) &3*** &0 &2 & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) &3*** &0 & & \\
+Concurrent version development (D.2.6-X-41.8) &3*** &0 &2 & \\
 \hline
-Model-based version control (D.2.6-X-41.9) &**** &0 & & \\
+Model-based version control (D.2.6-X-41.9) &**** &0 &0 & \\
 \hline
-Role traceability (D.2.6-X-41.10) &* &0 & & \\
+Role traceability (D.2.6-X-41.10) &* &0 &0 & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) &* &0 & & \\
+Safety version traceability (D.2.6-X-41.11) &* &0 &0 & \\
 \hline
-Model traceability (D.2.6-01-035) &***** & & & \\
+Model traceability (D.2.6-01-035) &***** & &0 & \\
 \hline
-Tool chain integration &2****** &3 & & \\
+Tool chain integration &2****** &3 &3 & \\
 \hline
-Scalability &3 &3 & & \\
+Scalability &3 &3 &3 & \\
 \hline
 \end{tabular}
 
@@ -617,6 +700,18 @@ Scalability &3 &3 & & \\
 \end{itemize}
 \end{assessor1}
 
+
+
+\begin{assessor2}
+  \begin{itemize}
+  \item[*] Access to SystemC is restricted and subject to the terms of
+    the SystemC Open Source License
+    (\url{http://www.accellera.org/about/policies/SystemC_Open_Source_License_v3.3.pdf}). YAOSLA
+    = Yet Another Open Source Licence Agreement !
+  \end{itemize}  
+\end{assessor2}
+
+
 \section{Certifiability}
 
 This section discusses how the tool can be classified according EN50128 requirements (D.2.6-X-50).
@@ -629,19 +724,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Tool manual (D.2.6-01-42.02) & &3 & & \\
+Tool manual (D.2.6-01-42.02) & &3 &3 & \\
 \hline
-Proof of correctness (D.2.6-01-42.03) & & & & \\
+Proof of correctness (D.2.6-01-42.03) & & &0 & \\
 \hline
-Existing industrial usage &3 &3 & & \\
+Existing industrial usage &3 &3 &3 & \\
 \hline
-Model verification & &0 & & \\
+Model verification & &0 &0 & \\
 \hline
-Test generation & &0 & & \\
+Test generation & &0 &0 & \\
 \hline
-Simulation, execution, debugging &3 &3 & & \\
+Simulation, execution, debugging &3 &3 &3 & \\
 \hline
-Formal proof & &0 & & \\
+Formal proof & &0 &0 & \\
 \hline
 \end{tabular}
 
@@ -669,3 +764,41 @@ API.
 The approach proposed with SysML seems promising and shows that
 SystemC is easily integrated in a tool chain and be good candidate for
 target code.
+
+\subsection{Assessor 2 summary}
+\label{sec:assessor-2-summary}
+
+While SystemC has strong similarities with VHDL and is often only
+presented as an hardware description language, it is also widely used
+in the automotive and avionic industries to provide a high-level,
+executable models for the dynamic architecture of systems. In this
+respect, its use in the industry is close in spirit to technologies
+like Matlab/Simulink or even SCADE.
+
+Actually the comparison with Matlab/Simulink is quite interesting
+since both technologies face similar problems, like for instance a
+lack of a proper, unambiguous semantics (partly because of the ease
+with which the language can be extended). They also share similar
+advantages: very efficient tooling; a large community of users; a very
+versatile and expressive language; etc.
+
+SystemC can be used for hardware synthesis (e.g. FPGA) or for
+generating executable code (software); one of its distinctive
+advantage with respect to the other modeling languages presented in
+this document is the large collection of simulators that are
+available. This makes it a good candidate for testing at the subsystem
+level and for early architecture exploration; e.g. for architecture
+dimensioning. Nonetheless it is not clear that different simulators
+will produce equivalent, reproducible results. This is my motivation
+for attributing a ``1'' for its applicability during the ``Sub-system
+formal design'' phase (because of the \emph{formal}).
+
+In the proposal from TWT and Uni. Rostock, SystemC is used as the
+target language in a transformation from SysML. When restricted to
+this particular usage, some of the problems with the approach could be
+lessened. The problem of proving that this transformation preserves
+the semantics of SysML still remains. Still, SystemC could be an
+interesting choice, in parallel with other modeling languages, as a
+way to provide ``technology/design diversity'' and therefore have a
+more dependable system.
+
