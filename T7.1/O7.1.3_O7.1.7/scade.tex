@@ -37,7 +37,7 @@ This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
 \item[Name:] SCADE Suite / SCADE System / SCADE LifeCycle
-\item[Web site: ] http://esterel-technologies.com 
+\item[Web site: ] \url{http://esterel-technologies.com }
 \item[Licence: ] Commercial
 \end{description}
 
@@ -70,8 +70,8 @@ SysML to SCADE.
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
 \begin{itemize}
-	\item http://www.interested-ip.eu/
-  \item http://http://www.interested-ip.eu/final-report.html/
+	\item \url{http://www.interested-ip.eu/}
+  \item \url{http://http://www.interested-ip.eu/final-report.html/}
 
 \end{itemize}
 
@@ -85,13 +85,13 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-System Analysis & \textcolor{green}{1}  & &1 &  \\
+System Analysis & \textcolor{green}{1}  & 1 &1 &  \\
 \hline
-Sub-system  formal  design &  \textcolor{green}{3} & &3 & \\
+Sub-system  formal  design &  \textcolor{green}{3} & 3 &3 & \\
 \hline
-Software design & \textcolor{green}{3}  & &3 & \\
+Software design & \textcolor{green}{3}  & 3 & 3 & \\
 \hline
-Software code generation & \textcolor{green}{3} & &3 & \\
+Software code generation & \textcolor{green}{3} & 3 &3 & \\
 \hline
 \end{tabular}
 
@@ -104,21 +104,31 @@ According to the figure \ref{fig:main_process}, for which type of activities do 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Documentation &  \textcolor{green}{3}  & &3 &  \\
+Documentation &  \textcolor{green}{3}  & 2 &3 &  \\
 \hline
-Modeling &  \textcolor{green}{3}  & &3 &  \\
+Modeling &  \textcolor{green}{3}  & 3 &3 &  \\
 \hline
-Design &  \textcolor{green}{3}  & &3 & \\
+Design &  \textcolor{green}{3}  & 3 &3 & \\
 \hline
-Code generation &  \textcolor{green}{3}  & &3 & \\
+Code generation &  \textcolor{green}{3}  & 3 &3 & \\
 \hline
-Verification &  \textcolor{green}{3}  & &3 & \\
+Verification &  \textcolor{green}{3}  & 2 &3 & \\
 \hline
-Validation &  \textcolor{green}{3}  & &3 & \\
+Validation &  \textcolor{green}{3}  & 2 &3 & \\
 \hline
-Safety analyses &  \textcolor{green}{0}  & &0 & \\
+Safety analyses &  \textcolor{green}{0}  & 1 &0 & \\
 \hline
 \end{tabular}
+
+
+\begin{assessor1}
+Verification capabilities of SCADE Verifier are limited by state space
+explosion. As far as I know, very few SCADE users are doing formal
+verification except for very small designs.
+
+The test facilities are however much used.
+\end{assessor1}
+
 
 \paragraph{Known usages} Have you some examples of usage of this approach to  compare with the OpenETCS objectives ?
 
@@ -140,21 +150,21 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal language &  \textcolor{green}{0}  & &0 &  \\
+Informal language &  \textcolor{green}{0}  & 0 &0 &  \\
 \hline 
-Semi-formal language &  \textcolor{green}{0}  & &0 &  \\
+Semi-formal language &  \textcolor{green}{0}  & 3 &0 &  \\
 \hline
-Formal language &  \textcolor{green}{3}  & &3 &  \\
+Formal language &  \textcolor{green}{3}  & 3 &3 &  \\
 \hline
-Structured language &  \textcolor{green}{3}  & &3 & \\
+Structured language &  \textcolor{green}{3}  & 3 &3 & \\
 \hline
-Modular language &  \textcolor{green}{3}  & &3 & \\
+Modular language &  \textcolor{green}{3}  & 2 &3 & \\
 \hline
-Textual language & \textcolor{green}{3} & &3 & \\
+Textual language & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Mathematical symbols or code & \textcolor{green}{3} & &3 & \\
+Mathematical symbols or code & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Graphical language & \textcolor{green}{3} & &3 & \\
+Graphical language & \textcolor{green}{3} & 3 &3 & \\
 \hline
 \end{tabular}
 
@@ -164,36 +174,50 @@ According WP2 requirements, give a note for the capabilities of the language (fr
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & \textcolor{green}{2}  & &2 & \\
+Declarative formalization of properties (D.2.6-X-28) &
+\textcolor{green}{2}  & 2 &2 & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & \textcolor{green}{2} & &2 & \\
+Simple formalization of properties (D.2.6-X-28.1) &
+\textcolor{green}{2} & 2 &2 & \\
 \hline
-Scalability : capability to design large model &  \textcolor{green}{3}  & &3 & \\
+Scalability : capability to design large model &  \textcolor{green}{3}
+& 2 &3 & \\
 \hline
-Easily translatable to other languages (D.2.6-X-28) &  \textcolor{green}{3}  & &3 & \\
+Easily translatable to other languages (D.2.6-X-28) &
+\textcolor{green}{3}  & 3 &3 & \\
 \hline
-Executable directly (D.2.6-X-33) & \textcolor{green}{3}  & &3 & \\
+Executable directly (D.2.6-X-33) & \textcolor{green}{3}  & 3 &3 & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) &  \textcolor{green}{3}& &3 & \\
-(precise if the translation is automatic) &  \textcolor{green}{3}& &3 & \\
+Executable after translation to a code (D.2.6-X-33) &
+\textcolor{green}{3}& 3 &3 & \\
+(precise if the translation is automatic) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Simulation, animation (D.2.6-X-33) &  \textcolor{green}{3} & &3 & \\
+Simulation, animation (D.2.6-X-33) &  \textcolor{green}{3} & 3 &3 & \\
 \hline
-Easily understandable (D.2.6-X-27) &  \textcolor{green}{3}& &3 & \\
+Easily understandable (D.2.6-X-27) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Expertise level needed (0 High level, 3 few level) &  \textcolor{green}{2} & &2 & \\
+Expertise level needed (0 High level, 3 few level) &
+\textcolor{green}{2} & 2 &2 & \\
 \hline
-Standardization (D.2.6-X-29) &  \textcolor{green}{3}& &3 & \\
+Standardization (D.2.6-X-29) &  \textcolor{green}{3}& 0 &3 & \\
 \hline
-Documented (D.2.6-X-29) &  \textcolor{green}{3} & &3 & \\
+Documented (D.2.6-X-29) &  \textcolor{green}{3} & 2 &3 & \\
 \hline
-Extensible language (D.2.6-01-28) &  \textcolor{green}{2}& &1 & \\
+Extensible language (D.2.6-01-28) &  \textcolor{green}{2}& 2 &1 & \\
 \hline
 \end{tabular}
 \begin{author_comment}
 SCADE is a strictly textual and graphical formal language. It allows to be extended with user-defined operators. Especially the graphical representation is easy to learn and understand; nevertheless the rich tool suite covering most aspects of a EN50128 compliant process causes an appropriate learning effort by amount.
 \end{author_comment}
 
+
+\begin{assessor1}
+  I am still skeptical that graphical representation is the best way
+  to represent big systems.
+
+  SCADE language lacks some facilities, like library parametrization
+  by parameters (like OCaml functor, C++ template or Ada generics).
+\end{assessor1}
 
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
@@ -231,22 +255,27 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Independent System functions definition (D.2.6-X-10.1.1)  &  \textcolor{green}{3}& &3 &  \\
+Independent System functions definition (D.2.6-X-10.1.1)  &
+\textcolor{green}{3}& 3 &3 &  \\
 \hline 
-System architecture design (D.2.6-X-10.1.2) & \textcolor{green}{1} & &
+System architecture design (D.2.6-X-10.1.2) & \textcolor{green}{1} & 1 &
 0&  \\
 \hline
-System data flow identification (D.2.6-X-10.2.3)  &  \textcolor{green}{3}& &3 &  \\
+System data flow identification (D.2.6-X-10.2.3)  &
+\textcolor{green}{3}& 2 &3 &  \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4)  &  \textcolor{green}{2}& &2 &  \\
+Sub-system focus (D.2.6-X-10.2.4)  &  \textcolor{green}{2}& 2 &2 &  \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5)  &  \textcolor{green}{2}& &3 &  \\
+System interfaces definition (D.2.6-X-10.2.5)  &
+\textcolor{green}{2}& 3 &3 &  \\
 \hline
-System requirement allocation (D.2.6-X-10.3)  &  \textcolor{green}{3}& &3 &  \\
+System requirement allocation (D.2.6-X-10.3)  &  \textcolor{green}{3}&
+1 &3 &  \\
 \hline
-Traceability with SRS (D.2.6-X-10.5)  &  \textcolor{green}{3}& &3 &  \\
+Traceability with SRS (D.2.6-X-10.5)  &  \textcolor{green}{3}& 3 &3 &  \\
 \hline
-Traceability with Safety activities (D.2.6-X-11)  & \textcolor{green}{3} & &3 &  \\
+Traceability with Safety activities (D.2.6-X-11)  &
+\textcolor{green}{3} & 3 &3 &  \\
 \hline
 \end{tabular}
 
@@ -274,29 +303,35 @@ Concerning formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & \textcolor{green}{2} & & &  \\
+Consistency to SSRS (D.2.6-X-12.2) & \textcolor{green}{2} & 2 & &  \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1)  & \textcolor{green}{3} & & &  \\
+Coverage of SSRS (D.2.6-X-12.2.1)  & \textcolor{green}{3} & 2 & &  \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2)  &  \textcolor{green}{3}& & &  \\
+Coverage of SSHA (D.2.6-X-12.2.2)  &  \textcolor{green}{3}& 3 & &  \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3)  &  \textcolor{green}{3}& & &  \\
+Management of requirement justification (D.2.6-X-12.2.3)  &
+\textcolor{green}{3}& 3 & &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5)  &  \textcolor{green}{3}& & &  \\
+Traceability to  SSRS (D.2.6-X-12.2.5)  &  \textcolor{green}{3}& 3 & &  \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6)  &  \textcolor{green}{3}& & &  \\
+Traceability of exported requirements (D.2.6-X-12.2.6)  &
+\textcolor{green}{3}& 3 & &  \\
 \hline
-Simulation or animation (D.2.6-X-13 partial)  &  \textcolor{green}{3}& & &  \\
+Simulation or animation (D.2.6-X-13 partial)  &  \textcolor{green}{3}&
+3& &  \\
 \hline
-Execution (D.2.6-X-13 partial)  & \textcolor{green}{3} & & &  \\
+Execution (D.2.6-X-13 partial)  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & \textcolor{green}{3}  & & &  \\
+Extensible to strictly formal model (D.2.6-X-14.3) &
+\textcolor{green}{3}  & 3 & &  \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & \textcolor{green}{3} & & &  \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) &
+\textcolor{green}{3} & 3 & &  \\
 \hline
-Extensible and modular design (D.2.6-X-15)  & \textcolor{green}{3} & & &  \\
+Extensible and modular design (D.2.6-X-15)  & \textcolor{green}{3} & 2 & &  \\
 \hline
-Extensible to software architecture and design (D.2.6-X-30)   &  \textcolor{green}{3}& & &  \\
+Extensible to software architecture and design (D.2.6-X-30)   &
+\textcolor{green}{3}& 3 & &  \\
 \hline
 \end{tabular}
 
@@ -306,19 +341,20 @@ Concerning safety properties management, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Safety function isolation (D.2.6-X-17)  &  \textcolor{green}{2}& & &  \\
+Safety function isolation (D.2.6-X-17)  &  \textcolor{green}{2}& 2 & &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  &  \textcolor{green}{2}& & &  \\
+Safety properties formalisation (D.2.6-X-22)  &  \textcolor{green}{2}&
+1 & &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  &  \textcolor{green}{3}& & &  \\
+Logical expression (D.2.6-X-28.2.2)  &  \textcolor{green}{3}& 3 & &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  &  \textcolor{green}{2} & & &  \\
+Timing constraints (D.2.6-X-28.2.3)  &  \textcolor{green}{2} & 2 & &  \\
 \hline
-Safety properties validation (D.2.6-X-23.2)  &  \textcolor{green}{2}& & &  \\
+Safety properties validation (D.2.6-X-23.2)  &  \textcolor{green}{2}& 2 & &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  &  \textcolor{green}{2}& & &  \\
+Logical properties assertion (D.2.6-X-34)  &  \textcolor{green}{2}& 2 & &  \\
 \hline
-Check  of assertions (D.2.6-X-34.1)  &  \textcolor{green}{2}& & &  \\
+Check  of assertions (D.2.6-X-34.1)  &  \textcolor{green}{2}& 2 & &  \\
 \hline
 \end{tabular}
 
@@ -326,25 +362,32 @@ Check  of assertions (D.2.6-X-34.1)  &  \textcolor{green}{2}& & &  \\
 SCADE is a modelling language for functions. Therefore, only the functional aspects of properties are addressed.  
 \end{author_comment}
 
+
+\begin{assessor1}
+  SCADE lacks facilities to check for example data flow properties
+  (inputs, outputs, in-outs) of a function.
+\end{assessor1}
+
+
 Does the language allow to  formalize (D.2.6-X-31):
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & \textcolor{green}{3} & & &  \\
+State machines  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Time-outs  & \textcolor{green}{3} & & &  \\
+Time-outs  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Truth tables  & \textcolor{green}{3} & & &  \\
+Truth tables  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Arithmetic  & \textcolor{green}{3} & & &  \\
+Arithmetic  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Braking curves  & \textcolor{green}{3} & & &  \\
+Braking curves  & \textcolor{green}{3} & 3 & &  \\
 \hline
-Logical statements & \textcolor{green}{3} & & &  \\
+Logical statements & \textcolor{green}{3} & 3 & &  \\
 \hline
-Message and fields & \textcolor{green}{2} & & &  \\
+Message and fields & \textcolor{green}{2} & 2 & &  \\
 \hline
 \end{tabular}
 
@@ -364,27 +407,28 @@ Concerning strictly formal model, how the WP2 requirements are covered ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & \textcolor{green}{3} & &3 &  \\
+Consistency to SFM (D.2.6-X-14.2) & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2)  &\textcolor{green}{3} & &3 &  \\
+Coverage of SSRS (D.2.6-X-14.2)  &\textcolor{green}{3} & 3 &3 &  \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3)  &\textcolor{green}{3} & &3 &  \\
+Traceability to  SSRS (D.2.6-X-14.3)  &\textcolor{green}{3} & 3 &3 &  \\
 \hline
-Extensible to software design (D.2.6-X-16)  &\textcolor{green}{3} & &3 &  \\
+Extensible to software design (D.2.6-X-16)  &\textcolor{green}{3} & 3 &3 &  \\
 \hline
-Safety function isolation (D.2.6-X-17)  &  \textcolor{green}{3}& &3 &  \\
+Safety function isolation (D.2.6-X-17)  &  \textcolor{green}{3}& 2 &3 &  \\
 \hline 
-Safety properties formalisation (D.2.6-X-22)  &  \textcolor{green}{2}& &2 &  \\
+Safety properties formalisation (D.2.6-X-22)  &  \textcolor{green}{2}&
+2&2 &  \\
 \hline
-Logical expression (D.2.6-X-28.2.2)  &  \textcolor{green}{3}& &3 &  \\
+Logical expression (D.2.6-X-28.2.2)  &  \textcolor{green}{3}&3 &3 &  \\
 \hline
-Timing constraints (D.2.6-X-28.2.3)  &  \textcolor{green}{3}& &3 &  \\
+Timing constraints (D.2.6-X-28.2.3)  &  \textcolor{green}{3}&2 &3 &  \\
 \hline
-Safety properties validation (D.2.6-X-23.3)  &  \textcolor{green}{2}& &2 &  \\
+Safety properties validation (D.2.6-X-23.3)  &  \textcolor{green}{2}& 2 &2 &  \\
 \hline
-Logical properties assertion (D.2.6-X-34)  &  \textcolor{green}{2}& &2 &  \\
+Logical properties assertion (D.2.6-X-34)  &  \textcolor{green}{2}& 2 &2 &  \\
 \hline
-Proof of assertions (D.2.6-X-34.2)  &  \textcolor{green}{2} & &3 &  \\
+Proof of assertions (D.2.6-X-34.2)  &  \textcolor{green}{2} & 2 &3 &  \\
 \hline
 \end{tabular}
 
@@ -394,19 +438,19 @@ Does the language allow to  formalize (D.2.6-X-32):
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-State machines  & \textcolor{green}{3} & &3 &  \\
+State machines  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Time-outs  & \textcolor{green}{3} & &3 &  \\
+Time-outs  & \textcolor{green}{3} & 2 &3 &  \\
 \hline
-Truth tables  & \textcolor{green}{3} & &3 &  \\
+Truth tables  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Arithmetic  & \textcolor{green}{3}& &3 &  \\
+Arithmetic  & \textcolor{green}{3}& 3 &3 &  \\
 \hline
-Braking curves  & \textcolor{green}{3}& &3 &  \\
+Braking curves  & \textcolor{green}{3}& 3 &3 &  \\
 \hline
-Logical statements & \textcolor{green}{3}& &3 &  \\
+Logical statements & \textcolor{green}{3}& 3 &3 &  \\
 \hline
-Message and fields &\textcolor{green}{3} & &3 &  \\
+Message and fields &\textcolor{green}{3} & 2 &3 &  \\
 \hline
 \end{tabular}
 
@@ -417,7 +461,7 @@ All comments on links to  other models, validation and verification activities a
 SCADE is targeted for these purposes.   
 \end{author_comment}
 \begin{assessor2}
-A SCADE model my be diretly defined from the SSRS, this implies that
+A SCADE model my be directly defined from the SSRS, this implies that
 code may directly be generated from the SSRS.
 \end{assessor2}
 
@@ -434,15 +478,15 @@ How the approach allows to  produce a functional software model of the on-board 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal model  & \textcolor{green}{3} & &3 &  \\
+Derivation from system semi-formal model  & \textcolor{green}{3} & 3 &3 &  \\
 \hline 
-Software architecture description  & \textcolor{green}{3} & &3 &  \\
+Software architecture description  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Software constraints  & \textcolor{green}{3} & &3 &  \\
+Software constraints  & \textcolor{green}{3} & 2 &3 &  \\
 \hline
-Traceability  & \textcolor{green}{3} & &3 &  \\
+Traceability  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Executable  & \textcolor{green}{3} & &3 &  \\
+Executable  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
 \end{tabular}
 
@@ -454,21 +498,22 @@ How the approach allows to  produce in safety a software model ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Derivation from system semi-formal or strictly formal model  & \textcolor{green}{3} & &3 &  \\
+Derivation from system semi-formal or strictly formal model  &
+\textcolor{green}{3} & 3 &3 &  \\
 \hline 
-Software architecture description  & \textcolor{green}{3} & &3 &  \\
+Software architecture description  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Software constraints  & \textcolor{green}{3} & &3 &  \\
+Software constraints  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Traceability  & \textcolor{green}{3} & &3 &  \\
+Traceability  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Executable  & \textcolor{green}{3} & &3 &  \\
+Executable  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Conformance to EN50128 § 7.2  & \textcolor{green}{3} & &3 &  \\
+Conformance to EN50128 § 7.2  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Conformance to EN50128 § 7.3  & \textcolor{green}{3} & &3 &  \\
+Conformance to EN50128 § 7.3  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Conformance to EN50128 § 7.4  & \textcolor{green}{3}& &3 &  \\
+Conformance to EN50128 § 7.4  & \textcolor{green}{3}& 3 &3 &  \\
 \hline
 \end{tabular}
 
@@ -479,25 +524,25 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Defensive programming  & \textcolor{green}{3*} & &3 &  \\
+Defensive programming  & \textcolor{green}{3*} & 0 &3 &  \\
 \hline 
-Fault detection \& diagnostic  & \textcolor{green}{0*} & &0 &  \\
+Fault detection \& diagnostic  & \textcolor{green}{0*} & 0 &0 &  \\
 \hline
-Error detecting code  & \textcolor{green}{0*} & &0 &  \\
+Error detecting code  & \textcolor{green}{0*} & 0 &0 &  \\
 \hline
-Failure assertion programming & \textcolor{green}{1} & &0 &  \\
+Failure assertion programming & \textcolor{green}{1} & 0 &0 &  \\
 \hline
-Diverse programming & \textcolor{green}{0*} & &0 &  \\
+Diverse programming & \textcolor{green}{0*} & 0 &0 &  \\
 \hline
-Memorising executed cases & \textcolor{green}{0*} & &2 &  \\
+Memorising executed cases & \textcolor{green}{0*} & 1 &2 &  \\
 \hline
-Software error effect analysis & \textcolor{green}{0*} & &0 &  \\
+Software error effect analysis & \textcolor{green}{0*} & 0 &0 &  \\
 \hline
-Fully defined interface & \textcolor{green}{3} & &3 &  \\
+Fully defined interface & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Modelling  & \textcolor{green}{3} & &3 &  \\
+Modelling  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Structured methodology & \textcolor{green}{3} & &3 &  \\
+Structured methodology & \textcolor{green}{3} & 3 &3 &  \\
 \hline
 \end{tabular}
 
@@ -517,20 +562,30 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Formal methods  & \textcolor{green}{3} & &3 &  \\
+Formal methods  & \textcolor{green}{3} & 2 &3 &  \\
 \hline 
-Modeling  & \textcolor{green}{3} & &3 &  \\
+Modeling  & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Modular approach (mandatory) & \textcolor{green}{3} & &3 &  \\
+Modular approach (mandatory) & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Components & \textcolor{green}{3} & &3 &  \\
+Components & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Design and coding standards (mandatory) & \textcolor{green}{3} & &3 &  \\
+Design and coding standards (mandatory) & \textcolor{green}{3} & 2 &3 &  \\
 \hline
-Strongly typed programming language & \textcolor{green}{3} & &3 &  \\
+Strongly typed programming language & \textcolor{green}{3} & 3 &3 &  \\
 \hline
 
+
+
 \end{tabular}
+
+\begin{assessor1}
+  Does SCADE allow to check coding rules at diagram level? I don't
+  think so.
+
+  Set of properties and extent of their verification is limited in
+  SCADE.
+\end{assessor1}
 
 
 
@@ -546,19 +601,19 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & \textcolor{green}{3} & &3 &  \\
+Modelling support & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Automatic translation  & \textcolor{green}{3} & &3 & \\
+Automatic translation  & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Code Generation  & \textcolor{green}{3} & &3 & \\
+Code Generation  & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Model verification & \textcolor{green}{3} & &2 & \\
+Model verification & \textcolor{green}{3} & 2 &2 & \\
 \hline
-Test generation & \textcolor{green}{2} & &1 & \\
+Test generation & \textcolor{green}{2} & 1 &1 & \\
 \hline
-Simulation, execution, debugging & \textcolor{green}{3} & &3 & \\
+Simulation, execution, debugging & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Formal proof & \textcolor{green}{3} & &2 & \\
+Formal proof & \textcolor{green}{3} & 2 &2 & \\
 \hline
 \end{tabular}
 
@@ -610,8 +665,13 @@ Does the tool allow formal proof ?  How ?
 
 \begin{itemize}
 	\item SCADE integrates the Prover design verifier. 
-	\item he provable properties have to be modelled with SCADE Suite and connected to the target model in an target-observer configuration
+	\item the provable properties have to be modelled with SCADE Suite and connected to the target model in an target-observer configuration
 \end{itemize}
+
+
+\begin{assessor1}
+  Formal verification is limited by state space explosion.
+\end{assessor1}
 
 \section{Use of the tool}
 
@@ -622,41 +682,44 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) &  \textcolor{green}{0}& &0 &  \\
+Open Source (D2.6-X-36) &  \textcolor{green}{0}& 0 &0 &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) &  \textcolor{green}{3*}& &0 &  \\
+Portability to operating systems (D2.6-X-37) &  \textcolor{green}{3*}&
+1 &0 &  \\
 \hline
-Cooperation of tools (D2.6-X-38) &  \textcolor{green}{3}& &2 &  \\
+Cooperation of tools (D2.6-X-38) &  \textcolor{green}{3}& 3 &2 &  \\
 \hline
-Robustness (D2.6-X-41) &  \textcolor{green}{3}& &3 & \\
+Robustness (D2.6-X-41) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Modularity (D2.6-X-41.1) &  \textcolor{green}{3}& &3 & \\
+Modularity (D2.6-X-41.1) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Documentation management (D.2.6-X-41.2) &  \textcolor{green}{3}& &3 & \\
+Documentation management (D.2.6-X-41.2) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  &  \textcolor{green}{2}& &2 & \\
+Distributed software development (D.2.6-X-41.3)  &
+\textcolor{green}{2}& 2 &2 & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   &  \textcolor{green}{1}& &1 & \\
+Simultaneous multi-users (D.2.6-X-41.4)   &  \textcolor{green}{1}& 1 &1 & \\
 \hline
-Issue tracking (D.2.6-X-41.5) &  \textcolor{green}{0}& &0 & \\
+Issue tracking (D.2.6-X-41.5) &  \textcolor{green}{0}&0 &0 & \\
 \hline
-Differences between models (D.2.6-X-41.6) &  \textcolor{green}{3}& &3 & \\
+Differences between models (D.2.6-X-41.6) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Version management (D.2.6-X-41.7) &  \textcolor{green}{3}& &3 & \\
+Version management (D.2.6-X-41.7) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) &  \textcolor{green}{2}& & & \\
+Concurrent version development (D.2.6-X-41.8) &  \textcolor{green}{2}&
+2& & \\
 \hline
-Model-based version control (D.2.6-X-41.9) &  \textcolor{green}{3}& &3 & \\
+Model-based version control (D.2.6-X-41.9) &  \textcolor{green}{3}& 3 &3 & \\
 \hline
-Role traceability (D.2.6-X-41.10) &  \textcolor{green}{0}& &0 & \\
+Role traceability (D.2.6-X-41.10) &  \textcolor{green}{0}& 0 &0 & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) &  \textcolor{green}{0}& &0 & \\
+Safety version traceability (D.2.6-X-41.11) &  \textcolor{green}{0}& 0 &0 & \\
 \hline
-Model traceability (D.2.6-01-035) & \textcolor{green}{3} & &3 & \\
+Model traceability (D.2.6-01-035) & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Tool chain integration & \textcolor{green}{3} & &* & \\
+Tool chain integration & \textcolor{green}{3} & 3 &* & \\
 \hline
-Scalability & \textcolor{green}{3} & &3 & \\
+Scalability & \textcolor{green}{3} & 3 &3 & \\
 \hline
 \end{tabular}
 
@@ -680,19 +743,19 @@ SCADE is targeted to be certifiable. Validation documentation is available.
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & \textcolor{green}{3} & &3 &  \\
+Tool manual (D.2.6-01-42.02) & \textcolor{green}{3} & 3 &3 &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & \textcolor{green}{3} & &3 & \\
+Proof of correctness (D.2.6-01-42.03)   & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Existing industrial  usage  & \textcolor{green}{3} & &3 & \\
+Existing industrial  usage  & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Model verification & \textcolor{green}{3} & &3 & \\
+Model verification & \textcolor{green}{3} & 2 &3 & \\
 \hline
-Test generation & \textcolor{green}{2} & &2 & \\
+Test generation & \textcolor{green}{2} & 2 &2 & \\
 \hline
-Simulation, execution, debugging & \textcolor{green}{3} & &3 & \\
+Simulation, execution, debugging & \textcolor{green}{3} & 3 &3 & \\
 \hline
-Formal proof & \textcolor{green}{3} & &2 & \\
+Formal proof & \textcolor{green}{3} & 2 &2 & \\
 \hline
 \end{tabular}
 
@@ -703,3 +766,5 @@ Please to  give free comments on the approach.
 
 
 
+
+% LocalWords:  SCADE
