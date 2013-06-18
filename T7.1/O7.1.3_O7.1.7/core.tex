@@ -1,14 +1,60 @@
-\chapter{CORE Workstation 5.1}
+\chapter{CORE}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description: Cyril Cornu (All4Tec)
+\item[\textcolor{green}{Author}] Author of the approaches description: Cyril Cornu (All4tec)
 \end{description}
 
 
-The evaluation of this approach has been stop by the author before the end of the benchmark activity :
+\section{Presentation}
+
+This section gives a quick presentation of the approach and the tool.
+
+\begin{description}
+\item[Name:] Core Workstation 5.1
+\item[Web site: ] \url{http://www.vitechcorp.com/products/core.shtml}
+\item[Licence: ] Shareware
+\end{description}
+
+\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+
+CORE is a comprehensive modeling environment built for complex systems engineering problems and based on EFFBD structured language.
+It integrates graphical modeling capabilities to assess and control design and program risks. By linking all elements of a system through a central model, a greater visibility is then provided into drivers for risk and system weaknesses. It allows building better models and delivering better products to market through:
+\begin{itemize}
+\item Integrated requirements management
+\item  Fully executable behavior models
+\item Architecture development tools
+\item Validation and Verification (simulation)
+\item Comprehensive system documentation
+\end{itemize}
+
+
+
+\paragraph{Publications} Short lisvenduabandonnét of literature on the approach (5 max)
+
+\begin{itemize}
+\item Model-Based Systems Engineering by Vitech
+\url{http://www.mbseprimer.com/}
+
+\item System Engineering \& Architecting with CORE
+\url{http://fr.scribd.com/doc/49887858/07-02-28-Vitech-CORE}
+
+\end{itemize}
+
+\section{Evaluation}
+
+The evaluation of this approach has been stop by the author before the end of the benchmark activity.
 
 
 \begin{author_comment}
-Author can add comments using this format at any place.
-\end{author_comment}
 
+The Main reasons to stop CORE tool evaluation are the following:
+\begin{itemize}
+\item The Software is not Open Source, and can not be used for free in industrial fields of for industrial purposes. Moreover, this tool is no more provided in France, where just old versions are distributed and sold.
+\item The Software has very few possibilities for interfacing with other tools, thanks to its proprietary EFFBD language. Therefore, interface this tool with specific model checker or secondary Toolchain software (for instance Model Based Testing solution, of Safety Analysis tool) would need specific gateway development, that All4tec could not provide in the framework of All4tec contribution within OpenETCS. Therefore, a major part of  CORE models added avalue would be lost.
+\item This software is supposed to model scenarii based on user approach of the system. Such an approach can be started only once the operating rules are provided as input. These inputs are still incomplete for the project Open ETCS, and the Open ETCS process is willing to base its model on Sub-System Requirements Specification, currently under construction.
+\item For all previous reasons, All4tec has decided to focus its effort on modeling and toolchain development on the Papyrus SysML/ UML Modeler tool. Indeed, the partnership with the CEA and the Papyrus tool developers, and the amount of perspectives for interfacing Papyrus with other part of the toolchain are supporting this decision as well.
+\end{itemize}
+
+All4tec keeps although the possibility to support its system Safety analysis or functional approaches with this tool, but no Core development perspectives have to be expected for the Open ETCS project.
+
+\end{author_comment}
