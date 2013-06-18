@@ -1,10 +1,6 @@
 
 \chapter{System C}
 
-\textcolor{red}{
-This is a preliminary version of the description and there are still some open questions, also due to unclarities in this template.
-}
-
 \begin{description}
 \item[\textcolor{green}{Author}] Author of the approaches description \textcolor{green}{Stefan Rieger (TWT)/ Frank Golatowski (Uni Rostock)}
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \textcolor{blue}{Cecile Braunstein (Uni. Bremen)}
@@ -84,8 +80,14 @@ Software code generation &2 & 2** & 2 & 6 \\
 \begin{assessor1}
 \begin{itemize}
 \item[(*)] How is it formal ?
+\begin{author_comment}
+The question is whether you consider only \emph{fully} formal or also \emph{semi} formal modelling methods here. As there is no separate item for semi formal sub-system design I considered it to be included.
+\end{author_comment}
 \item[(**)] Is it the SysML to  SystemC code generation  you have in
   mind here ?
+\begin{author_comment}
+No, the generation of low-level software from the SystemC model.
+\end{author_comment}
 \end{itemize}
 \end{assessor1}
 
@@ -121,12 +123,18 @@ This is not explained in the report or shown in  the provided example.
     example the actual hardware limitation of the EVC or the
     characteristics of the API. How precisely should you model the
     hardware part of the system ?
+\begin{author_comment}
+If you would model the hardware in SystemC, you could have a quite exact model of the entire system. This, however, is not in the scope of openETCS and would increase the modelling effort tremendously. Which other approach takes into account the actual behaviour of the hardware? I don't see that this will be done in any of the approaches as we model only the software. The integration of the API should be doable.
+\end{author_comment}
   \item[(**)] Simulation and testing can be used for V\&V, with the
     usual caveats associated with non-formal languages. I also agree
     with Assessor~1 on the fact that safety and verification
     capabilities are not really demonstrated right now. Actually I am
     quite doubtful about safety since the only type of safety analysis
     that I can see performed is error injection during the simulation.
+\begin{author_comment}
+You are right, there is no verification integrated into the current state of the model. This is due to time constraints. Of course, you will not be able to fully formally verify a SystemC model in general. You will have to use testing approaches.
+\end{author_comment}
   \end{item}
 \end{assessor2}
 
@@ -165,7 +173,7 @@ Informal language &0 & 0 & 0 & 0 \\
 \hline
 Semi-formal language &3 & 3& 3 & 9 \\
 \hline
-Formal language &2 &1 & 1 & 2 \\
+Formal language &2 &1 & 1 & 4 \\
 \hline
 Structured language &3 &3 & 3 & 9 \\
 \hline
@@ -186,7 +194,13 @@ Graphical language &** & 0**& 0 &  0* \\
 \begin{assessor1}
 \begin{itemize}
 \item[(*)] But it is possible to use a variety of C++ library
+\begin{author_comment}
+True.
+\end{author_comment}
 \item[(**)] SystemC itself is not a graphical language
+\begin{author_comment}
+True as well. We never stated anything else.
+\end{author_comment}
 \end{itemize}
 \end{assessor1}
 
@@ -209,7 +223,7 @@ According to WP2 requirements, give a note for the capabilities of the language 
   Executable after translation to a code (D.2.6-X-33) &3 &3 &3 & 9 \\
   (precise if the translation is automatic) & & & 2*& 2*\\
   \hline
-  Simulation, animation (D.2.6-X-33) &3* &3* &3 & 3 \\
+  Simulation, animation (D.2.6-X-33) &3* &3* &3 & 9 \\
   \hline
   Easily understandable (D.2.6-X-27) &2 &2 &3 & 7 \\
   \hline
@@ -359,6 +373,9 @@ Check of assertions (D.2.6-X-34.1) &3 &3 &3 & 9 \\
 \begin{assessor1}
 (*) The safety analysis may be done with external temporal model
 checker for example or by means of monitor. 
+\begin{author_comment}
+There are approaches for model checking SystemC models, such as transformations to the timed model checker UPPAAL. However, as far as I know there are no ready-to-use (free) tools.
+\end{author_comment}
 \end{assessor1}
 Does the language allow to formalize (D.2.6-X-31):
 
@@ -386,6 +403,9 @@ Message and fields &3 &3 &3 & 9 \\
   \begin{itemize}
   \item[*] State machines are not part of the language and should be
     ``interpreted'' in the code.
+\begin{author_comment}
+I am not exactly sure what is meant with ``interpreted'' here. In our model we provided an example how you can transform state machines, e.g., SysML statecharts, to SystemC (or any other procedural programming language) in a structured manner.
+\end{author_comment}
   \end{itemize}  
 \end{assessor2}
 
@@ -444,6 +464,9 @@ Executable &3 &3 &3 & 9 \\
     from the source files, it is spread around the source code; this
     is not a problem if SystemC is only use as the target of
     transformations though.
+\begin{author_comment}
+True. That's why we advocate a SysML-based approach generating (parts) of the SystemC model from a more abstract SysML model.
+\end{author_comment}
   \end{itemize}  
 \end{assessor2}
 
@@ -607,6 +630,9 @@ Formal proof &0 &3 &2* &  5\\
     e.g.~\url{http://www.informatik.uni-bremen.de/agra/doc/konf/10MEMOCODE-tlmpc.pdf}). Nonetheless
     I am not sure that we have the expertise for using these
     prototypes in the project.
+\begin{author_comment}
+I believe that would have to resort to (model-based) testing here, if we want to verify the whole model. But this will be the case anyway for most approaches as we will not be able to formally verify the entire ETCS system. This is simply infeasible. However, we could try to apply model checking to parts of it. The SystemC-frontend of CBMC is currently not supporting full SystemC (there are some restrictions) but the authors are working on it. This is a work done in the context of the Artemis Project \emph{VeTeSS} (\url{http://vetess.eu/}).
+\end{author_comment}
   \end{itemize}  
 \end{assessor2}
 
@@ -665,7 +691,7 @@ Modularity (D2.6-X-41.1) &3 &3 &3 & 9 \\
 \hline
 Documentation management (D.2.6-X-41.2) &** &2 &2 & 4* \\
 \hline
-Distributed software development (D.2.6-X-41.3) &3*** &3 &3 & 6* \\
+Distributed software development (D.2.6-X-41.3) &3*** &3 &3 & 9 \\
 \hline
 Simultaneous multi-users (D.2.6-X-41.4) &3*** & 3&3 & 9 \\
 \hline
