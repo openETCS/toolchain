@@ -552,19 +552,19 @@ Which task are covered by the tool ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Modelling support & 3 & 3 & &  \\
+Modelling support & 3 & 3 & 3 &  \\
 \hline
-Automatic translation  & 3 & 2 & & \\
+Automatic translation  & 3 & 2 & 2 & \\
 \hline
-Code Generation  & 1 & 1 & & \\
+Code Generation  & 1 & 1 & 1 & \\
 \hline
-Model verification & 3 & 3 & & \\
+Model verification & 3 & 3 & 3 & \\
 \hline
-Test generation & 1 & 1 & & \\
+Test generation & 1 & 1 & 2 & \\
 \hline
-Simulation, execution, debugging & 3 & 2 & & \\
+Simulation, execution, debugging & 3 & 2 & 2 & \\
 \hline
-Formal proof & 3 & 3 & & \\
+Formal proof & 3 & 3 & 3 & \\
 \hline
 \end{tabular}
 
@@ -603,6 +603,10 @@ Does the tool allow to generate tests ? For  which purpose ?
 The tool is not design to generate test, however we can imagine means to  generate test from event-B machine (Rodin can be linked to the model checker ProB).
 \end{author_comment}
 
+\begin{assessor2}
+There exist literature regarding test generation based on Event-B models, for example \url{http://deploy-eprints.ecs.soton.ac.uk/349/13/multiobj_testop.pdf}. Furthermore, a MBT plugin exists for Rodin, \see{http://wiki.event-b.org/index.php/MBT_plugin}.
+\end{assessor2}
+
 \paragraph{Simulation, execution, debugging}
 Does the tool allow to simulate or to debbug step by step a model or a code ?
 
@@ -637,41 +641,41 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-X-36) & 3 & 2 & &  \\
+Open Source (D2.6-X-36) & 3 & 2 & 2 &  \\
 \hline 
-Portability to operating systems (D2.6-X-37) & 3 & 3 & &  \\
+Portability to operating systems (D2.6-X-37) & 3 & 3 & 3 &  \\
 \hline
-Cooperation of tools (D2.6-X-38) & 3 & 3 & &  \\
+Cooperation of tools (D2.6-X-38) & 3 & 3 & 3 &  \\
 \hline
-Robustness (D2.6-X-41) & 2 & 2 & & \\
+Robustness (D2.6-X-41) & 2 & 2 & 2 & \\
 \hline
-Modularity (D2.6-X-41.1) & 3 & 3 & & \\
+Modularity (D2.6-X-41.1) & 3 & 3 & 3 & \\
 \hline
-Documentation management (D.2.6-X-41.2) & 3 & 3 & & \\
+Documentation management (D.2.6-X-41.2) & 3 & 3 & 3 & \\
 \hline
-Distributed software development (D.2.6-X-41.3)  & 2 & 2 & & \\
+Distributed software development (D.2.6-X-41.3)  & 2 & 2 & 2 & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & 1 & 1 & & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & 1 & 1 & 2 & \\
 \hline
-Issue tracking (D.2.6-X-41.5) & 0 & 0 & & \\
+Issue tracking (D.2.6-X-41.5) & 0 & 0 & 0 & \\
 \hline
-Differences between models (D.2.6-X-41.6) & 2 & & & \\
+Differences between models (D.2.6-X-41.6) & 2 & & 2 & \\
 \hline
-Version management (D.2.6-X-41.7) & 3 & 1 & & \\
+Version management (D.2.6-X-41.7) & 3 & 1 & 2 & \\
 \hline
-Concurrent version development (D.2.6-X-41.8) & 2 & 1 & & \\
+Concurrent version development (D.2.6-X-41.8) & 2 & 1 & 2 & \\
 \hline
-Model-based version control (D.2.6-X-41.9) & 2 & 2 & & \\
+Model-based version control (D.2.6-X-41.9) & 2 & 2 & 1 & \\
 \hline
-Role traceability (D.2.6-X-41.10) & 1 & 1 & & \\
+Role traceability (D.2.6-X-41.10) & 1 & 1 & 1 & \\
 \hline
-Safety version traceability (D.2.6-X-41.11) & 1 & 1 & & \\
+Safety version traceability (D.2.6-X-41.11) & 1 & 1 & 1 & \\
 \hline
-Model traceability (D.2.6-01-035) & 3 & 2 & & \\
+Model traceability (D.2.6-01-035) & 3 & 2 & 2 & \\
 \hline
-Tool chain integration & 3 & 3 & & \\
+Tool chain integration & 3 & 3 & 3 & \\
 \hline
-Scalability & 2 & 2 & & \\
+Scalability & 2 & 2 & 2 & \\
 \hline
 \end{tabular}
 
@@ -679,6 +683,18 @@ Scalability & 2 & 2 & & \\
 The tool is based on Eclipse on EUPL licence. Thus is can be associated to  other tools on eclipse easily, for example: EMF model comparator, Git plug-in,...
 \end{author_comment}
 
+\begin{assessor2}
+  The Rodin tool is composed of a collection of plugins. Depending on
+  the plugin, the license vary from proprietary to open source,
+  e.g. EPL.
+\end{assessor2}
+
+\begin{assessor2}
+  Distributed development is supported via plugins for SCM on a file
+  basis. I don't know if CDO \url{http://wiki.eclipse.org/CDO} is
+  supported by Rodin, which would enhance version controlling,
+  distributed and concurrent development.
+\end{assessor2}
 
 \section{Certifiability}
 
@@ -689,19 +705,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & 3 & 3 & &  \\
+Tool manual (D.2.6-01-42.02) & 3 & 3 & - &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & 0 & 0 & & \\
+Proof of correctness (D.2.6-01-42.03)   & 0 & 0 & 0 & \\
 \hline
-Existing industrial  usage  & 2 & 2 & & \\
+Existing industrial usage  & 2 & 2 & 2 & \\
 \hline
-Model verification & 3 & 3 & & \\
+Model verification & 3 & 3 & 3 & \\
 \hline
-Test generation & 0 & 0 & & \\
+Test generation & 0 & 0 & - & \\
 \hline
-Simulation, execution, debugging & 3 & 2 & & \\
+Simulation, execution, debugging & 3 & 2 & - & \\
 \hline
-Formal proof &3  & 3 & & \\
+Formal proof &3  & 3 & 3 & \\
 \hline
 \end{tabular}
 
