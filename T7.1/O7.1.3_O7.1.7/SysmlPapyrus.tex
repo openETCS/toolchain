@@ -76,6 +76,11 @@ I agree comment of assesor 1, SysML is a "semi-formal" approach and does not all
 However SysML is good to produce a structured model of the system  and to help  in its analyses, but it shall be completed to cover all the needs of system analysis.
 \end{assessor2}
 
+\begin{author_comment}
+We have to clearly define what is considered by the term "approach". Is it SysML, SysML with Papyrus or Papyrus alone?
+After highlights, would have put * to Software code generation. SysML is for System Engineering purpose, and code generation is out of the scope of the SysML indeed. Consequently, the evaluation of Papyrus-SysML does not make sense on this aspect. However, Papyrus does provide code generation facilities
+\end{author_comment}
+
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -107,6 +112,13 @@ Concerning the safety analyses, I do not see how Papyrus helps in driving such a
 \begin{assessor2}
 SysML can provide useful elements for documentation, however, a clear methodology shall be provide to understand and drive the models. For verification, validation and safety analysis, SysML alone is not sufficient for critical systems. 
 \end{assessor2}
+
+\begin{author_comment}
+After highlights, agree with Assessor 1: good point.
+Moreover, SysML, via the Comment concepts, can also put all the documentation that a user would like to do in the model. Moreover, the hyperlink facility of papyrus shall also enable to add external information to a model. Finally, it is easy to use as for example GenDoc2 to generate a document from a model. This latter module is intergrated within Papyrus.
+So would assess as a 3 also.
+Again, what is considered here? Agree with comments on Safety Analysis if only SysML is considered. However, Papyrus may be extended with an additional plug-in that enable to perform model-based safety analysis, SoPHIA, designed by the CEA List/LISE team.
+\end{author_comment}
 
 \paragraph{Known usages} Have you some examples of usage of this approach to compare with the OpenETCS objectives ?
 
@@ -188,12 +200,20 @@ I have no see example of execution, simulation,...
 Concerning scalability, translation, understanding or expertise level, SysML can not be used with a good methodology guide (standard are not sufficient)  to  precisely define how and with which elements we can draw models. If a model as been defined without following a set of predefined rules, it can not be easily translate in an another language, or only  partly.
 \end{assessor2}
 
+\begin{author_comment}
+OCL can be used to declare properties. Moreover, using profile defining specific properties kind, may be used to annotate model elementts with properties in a declarative manner.
+\end{author_comment}
+
 \paragraph{Documentation} Describe how the language is documented, the existing guidelines, coding rules, standardization...
 
 
 \begin{assessor2}
 Elements missing
 \end{assessor2}
+
+\begin{author_comment}
+Language is documented via its standard specification published by OMG. In addition, there a lot of book, papers tutorials, and training that can be used.
+\end{author_comment}
 
 
 \paragraph{Language usage} Describe the possible restriction on the language
