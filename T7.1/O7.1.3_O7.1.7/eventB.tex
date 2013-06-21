@@ -132,21 +132,21 @@ Which are the main characteristics of the language :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal language & 0 & 0 & &  \\
+Informal language & 0 & 0 & 0 &  \\
 \hline 
-Semi-formal language & 0 & 0 & &  \\
+Semi-formal language & 0 & 0 & 0 &  \\
 \hline
-Formal language & 3 & 3 & &  \\
+Formal language & 3 & 3 & 3 &  \\
 \hline
-Structured language & 3 & 3 & & \\
+Structured language & 3 & 3 & 3 & \\
 \hline
-Modular language & 3 & 2 & & \\
+Modular language & 3 & 2 & * & \\
 \hline
-Textual language & 0 & 3 & & \\
+Textual language & 0 & 3 & 1 & \\
 \hline
-Mathematical symbols or code & 3 & 3 & & \\
+Mathematical symbols or code & 3 & 3 & 3 & \\
 \hline
-Graphical language & 2 & 2 & & \\
+Graphical language & 2 & 2 & 2 & \\
 \hline
 \end{tabular}
 
@@ -154,36 +154,43 @@ Graphical language & 2 & 2 & & \\
 Event-B  is a formal language with a mathematical notation. But the Rodin tool can be completed with plug-in like iUML \url{http://wiki.event-b.org/index.php/IUML-B} allows to model directly state-machine or block diagram  graphically and to  give the event-B mathematical translation.
 \end{author_comment}
 
+\begin{assessor2}
+  The Rodin editor suggest a textual representation of Machines and
+  Contexts, however under the hood it uses XML files. The Event-B
+  Context and Event-B Machine Editor has a form based interface for
+  editing, making the non plain text models more apparent.
+\end{assessor2}
+
 According WP2 requirements, give a note for the capabilities of the language (from 0 to 3) :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline
-Declarative formalization of properties (D.2.6-X-28) & 3 & 3 & & \\
+Declarative formalization of properties (D.2.6-X-28) & 3 & 3 & 3 & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1) & 3 & 2 & & \\
+Simple formalization of properties (D.2.6-X-28.1) & 3 & 2 & 2 & \\
 \hline
-Scalability : capability to design large model & 2 & 2 & & \\
+Scalability : capability to design large model & 2 & 2 & 2 & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30) & 3 & 3 & & \\
+Easily translatable to other languages (D.2.6-X-30) & 3 & 3 & - & \\
 \hline
-Executable directly (D.2.6-X-33) & 0 & 0 & & \\
+Executable directly (D.2.6-X-33) & 0 & 0 & 0 & \\
 \hline
-Executable after translation to a code (D.2.6-X-33) & 2 & 2 & & \\
+Executable after translation to a code (D.2.6-X-33) & 2 & 2 & 2 & \\
 (precise if the translation is automatic) & & & & \\
 \hline
-Simulation, animation (D.2.6-X-33) & 3 & 3 & & \\
+Simulation, animation (D.2.6-X-33) & 3 & 3 & 3 & \\
 \hline
-Easily understandable (D.2.6-X-27) & 3 & 2 & & \\
+Easily understandable (D.2.6-X-27) & 3 & 2 & 3 & \\
 \hline
-Expertise level needed (0 High level, 3 few level) & 1 & 1 & & \\
+Expertise level needed (0 High level, 3 few level) & 1 & 1 & 1 & \\
 \hline
-Standardization (D.2.6-X-29) & 1 & 1 & & \\
+Standardization (D.2.6-X-29) & 1 & 1 & 1 & \\
 \hline
-Documented (D.2.6-X-29) & 3 & 3 & & \\
+Documented (D.2.6-X-29) & 3 & 3 & 3 & \\
 \hline
-Extensible language (D.2.6-01-28) & 3 & - & & \\
+Extensible language (D.2.6-01-28) & 3 & - & - & \\
 \hline
 \end{tabular}
 
