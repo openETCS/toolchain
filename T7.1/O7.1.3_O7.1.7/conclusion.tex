@@ -22,13 +22,13 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 &  \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-System Analysis & \textcolor{blue}{5} & & \textcolor{magenta}{7} & 9 & 3 & 9 & & & \textcolor{green}{2} & \\
+System Analysis & \textcolor{blue}{5} & & \textcolor{magenta}{7} & 9 & 3 & 9 & 3 & & \textcolor{green}{2} & \\
 \hline
-Sub-system formal design  & \textcolor{red}{\textbf{9}} & & 6 & 7 & 9 & 9 & & & 5  & \\
+Sub-system formal design  & \textcolor{red}{\textbf{9}} & & 6 & 7 & 9 & 9 & 5 & & 5  & \\
 \hline
-Software design  & 9 & & 6 & 7 & 9 & 6 & & & 9 & \\
+Software design  & 9 & & 6 & 7 & 9 & 6 & 9 & & 9 & \\
 \hline
-Software code generation  & 9 & & 3 & 3 & 9 & 3 & & & 6 & \\
+Software code generation  & 9 & & 3 & 3 & 9 & 3 & 9 & & 6 & \\
 \hline
 \end{tabular}
 
@@ -38,19 +38,19 @@ According to the figure \ref{fig:main_process}, for which type of activities do 
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Documentation & 3 & & 6 & 7 & 8 & 7 & & & 0 & \\
+Documentation & 3 & & 6 & 7 & 8 & 7 & 0 & & 0 & \\
 \hline
-Modeling & 9 & & 9 & 9 & 9 & 9 & & & 8 & \\
+Modeling & 9 & & 9 & 9 & 9 & 9 & 9 & & 8 & \\
 \hline
-Design  & 6 & & 6 & 7 & 9 & 7 & & & 9 & \\
+Design  & 6 & & 6 & 7 & 9 & 7 & 8 & & 9 & \\
 \hline
-Code generation  & 9 & & 3 & 4 & 9 & 3 & & & 5* & \\
+Code generation  & 9 & & 3 & 4 & 9 & 3 & 9 & & 5* & \\
 \hline
-Verification  & 0 & & 6 & 3 & 8 & 9 & & & 4* & \\
+Verification  & 0 & & 6 & 3 & 8 & 9 & 9 & & 4* & \\
 \hline
-Validation  & 0 & & 5 & 4 & 8 & 9 & & & 7 & \\
+Validation  & 0 & & 5 & 4 & 8 & 9 & 4 & & 7 & \\
 \hline
-Safety analyses  & 0 & & 4* & 6 & 1 & 6 & & & 3* & \\
+Safety analyses  & 0 & & 4* & 6 & 1 & 6 & 3 & & 3* & \\
 \hline
 \end{tabular}
 
@@ -63,21 +63,21 @@ Which are the main characteristics of the language :
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Informal language & 0 & & 9 & 0 & 0 & 0 & & & 0 & \\
+Informal language & 0 & & 9 & 0 & 0 & 0 & 0 & & 0 & \\
 \hline 
-Semi-formal language & 0 & & 9 & 7 & 3 & 0 & & & 9 & \\
+Semi-formal language & 0 & & 9 & 7 & 3 & 0 & 0 & & 9 & \\
 \hline
-Formal language & 8 & & 3 & 7 & 9 & 9 & & & 4 & \\
+Formal language & 8 & & 3 & 7 & 9 & 9 & 9 & & 4 & \\
 \hline
-Structured language  & 9 & & 9 & 9 & 9 & 9 & & & 9 & \\
+Structured language  & 9 & & 9 & 9 & 9 & 9 & 9 & & 9 & \\
 \hline
-Modular language  & 9 & & 6 & 9 & 8 & 5* & & & 9 & \\
+Modular language  & 9 & & 6 & 9 & 8 & 5* & 9 & & 9 & \\
 \hline
-Textual language  & 0 & & 7 & 3 & 9 & 4 & & & 9 & \\
+Textual language  & 0 & & 7 & 3 & 9 & 4 & 3 & & 9 & \\
 \hline
-Mathematical symbols or code  & 0 & & 0 & 5 & 9 & 9 & & & 6 & \\
+Mathematical symbols or code  & 0 & & 0 & 5 & 9 & 9 & 9 & & 6 & \\
 \hline
-Graphical language  & 9 & & 9 & 9 & 9 & 6 & & & 0* & \\
+Graphical language  & 9 & & 9 & 9 & 9 & 6 & 2 & & 0* & \\
 \hline
 \end{tabular}
 
@@ -87,30 +87,30 @@ According WP2 requirements, give a note for the capabilities of the language (fr
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Declarative formalization of properties (D.2.6-X-28)  & 7 & & 5(2) & 6 & 6 & 9 & & & 3 & \\
+Declarative formalization of properties (D.2.6-X-28)  & 7 & & 5(2) & 6 & 6 & 9 & 9 & & 3 & \\
 \hline
-Simple formalization of properties (D.2.6-X-28.1)  & 6 & & 6 & 6 & 6 & 7 & & & 3 & \\
+Simple formalization of properties (D.2.6-X-28.1)  & 6 & & 6 & 6 & 6 & 7 & 9 & & 3 & \\
 \hline
-Scalability : capability to design large model  & 8 & & 5* & 9 & 8 & 6 & & & 9 & \\
+Scalability : capability to design large model  & 8 & & 5* & 9 & 8 & 6 & 9 & & 9 & \\
 \hline
-Easily translatable to other languages (D.2.6-X-30)  & 9 & & 7 & 6 & 9 & 6* & & & 6 & \\
+Easily translatable to other languages (D.2.6-X-30)  & 9 & & 7 & 6 & 9 & 6* & 9 & & 6 & \\
 \hline
-Executable directly (D.2.6-X-33)  & 0 & & 0 & 3 & 9 & 0 & & & 6* & \\
+Executable directly (D.2.6-X-33)  & 0 & & 0 & 3 & 9 & 0 & 0 & & 6* & \\
 \hline
-Executable after translation to a code (D.2.6-X-33)  & 9 & & 3* & 6 & 9 & 6 & & & 9 & \\
-(precise if the translation is automatic)  & 8 & & & 6 & 9 &  & & & 2* & \\
+Executable after translation to a code (D.2.6-X-33)  & 9 & & 3* & 6 & 9 & 6 & 9 & & 9 & \\
+(precise if the translation is automatic)  & 8 & & & 6 & 9 & & & & 2* & \\
 \hline
-Simulation, animation (D.2.6-X-33)  & 0 & & 4* & 3 & 9 & 9 & & & 9 & \\
+Simulation, animation (D.2.6-X-33)  & 0 & & 4* & 3 & 9 & 9 & 8 & & 9 & \\
 \hline
-Easily understandable (D.2.6-X-27)  & 6 & & 4 & 8 & 9 & 8 & & & 7 & \\
+Easily understandable (D.2.6-X-27)  & 6 & & 4 & 8 & 9 & 6 & & & 7 & \\
 \hline
-Expertise level needed (0 High level, 3 few level)  & 6 & & 4 & 6 & 6 & 3 & & & 4 & \\
+Expertise level needed (0 High level, 9 few level)  & 6 & & 4 & 6 & 6 & 3 & 3 & & 4 & \\
 \hline
-Standardization (D.2.6-X-29)  & * & & 9 & 9 & 6 & 3 & & & 9 & \\
+Standardization (D.2.6-X-29)  & * & & 9 & 9 & 6 & 3 & 9 & & 9 & \\
 \hline
-Documented (D.2.6-X-29)  & 7 & & 6 & 9 & 8 & 9 & & & 9 & \\
+Documented (D.2.6-X-29)  & 7 & & 6 & 9 & 8 & 9 & 9 & & 9 & \\
 \hline
-Extensible language (D.2.6-01-28)  & 8 & & 9 & 9 & 5 & 3* & & & 9 & \\
+Extensible language (D.2.6-01-28)  & 8 & & 9 & 9 & 5 & 3* & 2* & & 9 & \\
 \hline
 \end{tabular}
 
@@ -125,21 +125,21 @@ Acoording WP2 requirements, how the approach can be involved for the sub-system 
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Independent System functions definition (D.2.6-X-10.2.1) & 6 & & 4 & 9 & 9 & 9 & & & - & \\
+Independent System functions definition (D.2.6-X-10.2.1) & 6 & & 4 & 9 & 9 & 9 & 9 & & - & \\
 \hline 
-System architecture design (D.2.6-X-10.2) & 9 & & 9 & 9 & 3 & 9 & & & - & \\
+System architecture design (D.2.6-X-10.2) & 9 & & 9 & 9 & 3 & 9 & 7 & & - & \\
 \hline
-System data flow identification (D.2.6-X-10.2.3) & 9 & & 6 & 9 & 8 & & & & - & \\
+System data flow identification (D.2.6-X-10.2.3) & 9 & & 6 & 9 & 8 & 8 & & & - & \\
 \hline
-Sub-system focus (D.2.6-X-10.2.4) & 9 & & 9 & 9 & 6 & 6 & & & - & \\
+Sub-system focus (D.2.6-X-10.2.4) & 9 & & 9 & 9 & 6 & 6 & 9 & & - & \\
 \hline
-System interfaces definition (D.2.6-X-10.2.5) & 9 & & 9 & 9 & 8 & 9 & & & - & \\
+System interfaces definition (D.2.6-X-10.2.5) & 9 & & 9 & 9 & 8 & 9 & 9 & & - & \\
 \hline
-System requirement allocation (D.2.6-X-10.3) & 8 & & 9 & 9 & 7 & 9 & & & - & \\
+System requirement allocation (D.2.6-X-10.3) & 8 & & 9 & 9 & 7 & 9 & 5 & & - & \\
 \hline
-Traceability with SRS (D.2.6-X-10.5) & 6 & & 6 & 9 & 9 & 9 & & & - & \\
+Traceability with SRS (D.2.6-X-10.5) & 6 & & 6 & 9 & 9 & 9 & 5 & & - & \\
 \hline
-Traceability with Safety activities (D.2.6-X-11) & 6 & & 6 & 9 & 9 & 9 & & & - & \\
+Traceability with Safety activities (D.2.6-X-11) & 6 & & 6 & 9 & 9 & 9 & 5 & & - & \\
 \hline
 \end{tabular}
 
@@ -159,29 +159,29 @@ Concerning semi-formal model, how the WP2 requirements are covered ?
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Consistency to SSRS (D.2.6-X-12.2) & - & & 6 & 8 & - & 6 & & & 9 & \\
+Consistency to SSRS (D.2.6-X-12.2) & - & & 6 & 8 & - & 6 & 5 & & 9 & \\
 \hline
-Coverage of SSRS (D.2.6-X-12.2.1) & - & & 5 & 9 & - & 6 & & & 2* & \\
+Coverage of SSRS (D.2.6-X-12.2.1) & - & & 5 & 9 & - & 6 & 8 & & 2* & \\
 \hline
-Coverage of SSHA (D.2.6-X-12.2.2) & - & & 5 & * & - & 6 & & & 1* & \\
+Coverage of SSHA (D.2.6-X-12.2.2) & - & & 5 & * & - & 6 & 6 & & 1* & \\
 \hline
-Management of requirement justification (D.2.6-X-12.2.3) & - & & 9 & 9 & - & 9 & & & 6 & \\
+Management of requirement justification (D.2.6-X-12.2.3) & - & & 9 & 9 & - & 9 & 3 & & 6 & \\
 \hline
-Traceability to  SSRS (D.2.6-X-12.2.5) & - & & 8 & 9 & - & 9 & & & 2* & \\
+Traceability to  SSRS (D.2.6-X-12.2.5) & - & & 8 & 9 & - & 9 & 6 & & 2* & \\
 \hline
-Traceability of exported requirements (D.2.6-X-12.2.6) & - & & 8 & 9 & - & 9 & & & 2* & \\
+Traceability of exported requirements (D.2.6-X-12.2.6) & - & & 8 & 9 & - & 9 & 2* & & 2* & \\
 \hline
-Simulation or animation (D.2.6-X-13 partial) & - & & 4* & 4 & - & 9 & & & 9 & \\
+Simulation or animation (D.2.6-X-13 partial) & - & & 4* & 4 & - & 9 & 5 & & 9 & \\
 \hline
-Execution (D.2.6-X-13 partial) & - & & 0* & 5 & - & 3 & & & 9 & \\
+Execution (D.2.6-X-13 partial) & - & & 0* & 5 & - & 3 & 3 & & 9 & \\
 \hline
-Extensible to strictly formal model (D.2.6-X-14.3) & - & & 3 & 8 & - & 9 & & & 4 & \\
+Extensible to strictly formal model (D.2.6-X-14.3) & - & & 3 & 8 & - & 9 & 9 & & 4 & \\
 \hline
-Easy to  refine towards strictly formal model (D.2.6-X-14.4) & - & & 4 & 8 & - & 9 & & & 6 & \\
+Easy to  refine towards strictly formal model (D.2.6-X-14.4) & - & & 4 & 8 & - & 9 & 9 & & 6 & \\
 \hline
-Extensible and modular design (D.2.6-X-15) & - & & 9 & 9 & - & 8 & & & 9 & \\
+Extensible and modular design (D.2.6-X-15) & - & & 9 & 9 & - & 8 & 9 & & 9 & \\
 \hline
-Extensible to software architecture and design (D.2.6-X-15) & - & & 8 & 9 & - & 8 & & & 9 & \\
+Extensible to software architecture and design (D.2.6-X-15) & - & & 8 & 9 & - & 8 & 9 & & 9 & \\
 \hline
 \end{tabular}
 
@@ -191,19 +191,19 @@ Concerning safety properties management, how the WP2 requirements are covered ?
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Safety function isolation (D.2.6-X-17) & - & & 9 & 3 & - & 9 & & & * & \\
+Safety function isolation (D.2.6-X-17) & - & & 9 & 3 & - & 9 & 9 & & * & \\
 \hline 
-Safety properties formalisation (D.2.6-X-22) & - & & 4* & 6 & - & 9 & & & 3* & \\
+Safety properties formalisation (D.2.6-X-22) & - & & 4* & 6 & - & 9 & 6 & & 3* & \\
 \hline
-Logical expression (D.2.6-X-28.2.2) & - & & 5 & 6 & - & 9 & & & 9 & \\
+Logical expression (D.2.6-X-28.2.2) & - & & 5 & 6 & - & 9 & 9 & & 9 & \\
 \hline
-Timing constraints (D.2.6-X-28.2.3) & - & & 3 & 9 & - & 3 & & & 9 & \\
+Timing constraints (D.2.6-X-28.2.3) & - & & 3 & 9 & - & 3 & 3 & & 9 & \\
 \hline
-Safety properties validation (D.2.6-X-23.2) & - & & 0 & 3 & - & 7 & & & 9 & \\
+Safety properties validation (D.2.6-X-23.2) & - & & 0 & 3 & - & 7 & 9 & & 9 & \\
 \hline
-Logical properties assertion (D.2.6-X-34) & - & & 3 & 5 & - & 9 & & & 9 & \\
+Logical properties assertion (D.2.6-X-34) & - & & 3 & 5 & - & 9 & 9 & & 9 & \\
 \hline
-Check  of assertions (D.2.6-X-34.1) & - & & 0 & 3 & - & 9 & & & 9 & \\
+Check  of assertions (D.2.6-X-34.1) & - & & 0 & 3 & - & 9 & 9 & & 9 & \\
 \hline
 \end{tabular}
 
@@ -213,19 +213,19 @@ Does the language allow to  formalize (D.2.6-X-31):
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-State machines & - & & 8 & 9 & - & 9 & & & 8 & \\
+State machines & - & & 8 & 9 & - & 9 & 9 & & 8 & \\
 \hline
-Time-outs & - & & 6 & 9 & - & 5 & & & 9 & \\
+Time-outs & - & & 6 & 9 & - & 5 & 5 & & 9 & \\
 \hline
-Truth tables & - & & 3 & 3 & - & 9 & & & 9 & \\
+Truth tables & - & & 3 & 3 & - & 9 & 9 & & 9 & \\
 \hline
-Arithmetic & - & & 0 & 6 & - & 9 & & & 9 & \\
+Arithmetic & - & & 0 & 6 & - & 9 & 9 & & 9 & \\
 \hline
-Braking curves & - & & 0 & 6 & - & 3 & & & 9 & \\
+Braking curves & - & & 0 & 6 & - & 3 & 6 & & 9 & \\
 \hline
-Logical statements & - & & 7 & 9 & - & 9 & & & 9 & \\
+Logical statements & - & & 7 & 9 & - & 9 & 9 & & 9 & \\
 \hline
-Message and fields & - & & 9 & 9 & - & 7 & & & 9 & \\
+Message and fields & - & & 9 & 9 & - & 7 & 9 & & 9 & \\
 \hline
 \end{tabular}
 
@@ -238,27 +238,27 @@ Concerning strictly formal model, how the WP2 requirements are covered ?
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Consistency to SFM (D.2.6-X-14.2) & * & & - & 8 & 9 & 9 & & & - & \\
+Consistency to SFM (D.2.6-X-14.2) & * & & - & 8 & 9 & 9 & 9 & & - & \\
 \hline
-Coverage of SSRS (D.2.6-X-14.2) & 3 & & - & 9 & 9 & 6 & & & - & \\
+Coverage of SSRS (D.2.6-X-14.2) & 3 & & - & 9 & 9 & 6 & 9 & & - & \\
 \hline
-Traceability to  SSRS (D.2.6-X-14.3) & 7 & & - & 9 & 9 & 9 & & & - & \\
+Traceability to  SSRS (D.2.6-X-14.3) & 7 & & - & 9 & 9 & 9 & 6 & & - & \\
 \hline
-Extensible to software design (D.2.6-X-16) & 3 & & - & 8 & 9 & 7 & & & - & \\
+Extensible to software design (D.2.6-X-16) & 3 & & - & 8 & 9 & 7 & 9 & & - & \\
 \hline
-Safety function isolation (D.2.6-X-17) & 3 & & - & * & 8 & 9 & & & - & \\
+Safety function isolation (D.2.6-X-17) & 3 & & - & * & 8 & 9 & 9 & & - & \\
 \hline 
-Safety properties formalisation (D.2.6-X-22) & 5 & & - & 7 & 6 & 9 & & & - & \\
+Safety properties formalisation (D.2.6-X-22) & 5 & & - & 7 & 6 & 9 & 7 & & - & \\
 \hline
-Logical expression (D.2.6-X-28.2.2) & 9 & & - & 7 & 9 & 9 & & & - & \\
+Logical expression (D.2.6-X-28.2.2) & 9 & & - & 7 & 9 & 9 & 9 & & - & \\
 \hline
-Timing constraints (D.2.6-X-28.2.3) & 0 & & - & 9 & 8 & 4 & & & - & \\
+Timing constraints (D.2.6-X-28.2.3) & 0 & & - & 9 & 8 & 4 & 6 & & - & \\
 \hline
-Safety properties validation (D.2.6-X-23.3) & 7 & & - & 3 & 6 & 7 & & & - & \\
+Safety properties validation (D.2.6-X-23.3) & 7 & & - & 3 & 6 & 7 & 8 & & - & \\
 \hline
-Logical properties assertion (D.2.6-X-34) & 9 & & - & 5 & 6 & 9 & & & - & \\
+Logical properties assertion (D.2.6-X-34) & 9 & & - & 5 & 6 & 9 & 9 & & - & \\
 \hline
-Proof of assertions (D.2.6-X-34.2) & 8 & & - & 3 & 7 & 9 & & & - & \\
+Proof of assertions (D.2.6-X-34.2) & 8 & & - & 3 & 7 & 9 & 9 & & - & \\
 \hline
 \end{tabular}
 
@@ -268,19 +268,19 @@ Does the language allow to  formalize (D.2.6-X-32):
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-State machines & 9 & & - & 7 & 9 & 9 & & & - & \\
+State machines & 9 & & - & 7 & 9 & 9 & 9 & & - & \\
 \hline
-Time-outs & 0 & & - & 9 & 8 & 4 & & & - & \\
+Time-outs & 0 & & - & 9 & 8 & 4 & 5 & & - & \\
 \hline
-Truth tables & 0 & & - & 3 & 9 & 9 & & & - & \\
+Truth tables & 0 & & - & 3 & 9 & 9 & 9 & & - & \\
 \hline
-Arithmetic & 9 & & - & 6 & 9 & 9 & & & - & \\
+Arithmetic & 9 & & - & 6 & 9 & 9 & 9 & & - & \\
 \hline
-Braking curves & 9 & & - & 4 & 9 & 3 & & & - & \\
+Braking curves & 9 & & - & 4 & 9 & 3 & 6 & & - & \\
 \hline
-Logical statements & 9 & & - & 9 & 9 & 9 & & & - & \\
+Logical statements & 9 & & - & 9 & 9 & 9 & 9 & & - & \\
 \hline
-Message and fields & 9 & & - & 9 & 8 & 7 & & & - & \\
+Message and fields & 9 & & - & 9 & 8 & 7 & 9 & & - & \\
 \hline
 \end{tabular}
 
@@ -297,15 +297,15 @@ How the approach allows to  produce a functional software model of the on-board 
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Derivation from system semi-formal model & * & & 9 & 9 & 9 & - & & & 4* & \\
+Derivation from system semi-formal model & * & & 9 & 9 & 9 & - & 9 & & 4* & \\
 \hline 
-Software architecture description & 9 & & 8 & 9 & 9 & - & & &  9 & \\
+Software architecture description & 9 & & 8 & 9 & 9 & - & 9 & &  9 & \\
 \hline
-Software constraints & 9 & & 6 & 9 & 8 & - & & & 9 & \\
+Software constraints & 9 & & 6 & 9 & 8 & - & 9 & & 9 & \\
 \hline
-Traceability & 9 & & 6 & 9 & 9 & - & & & 6 & \\
+Traceability & 9 & & 6 & 9 & 9 & - & 9 & & 6 & \\
 \hline
-Executable & 8 & & 2* & 9 & 9 & - & & & 9 & \\
+Executable & 8 & & 2* & 9 & 9 & - & 9 & & 9 & \\
 \hline
 \end{tabular}
 
@@ -317,21 +317,21 @@ How the approach allows to  produce in safety a software model ?
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Derivation from system semi-formal or strictly formal model & * & & 3 & 9 & 9 & - & & & 2* & \\
+Derivation from system semi-formal or strictly formal model & * & & 3 & 9 & 9 & - & 9 & & 2* & \\
 \hline 
-Software architecture description & 9 & & 9 & 9 & 9 & - & & & 9 & \\
+Software architecture description & 9 & & 9 & 9 & 9 & - & 9 & & 9 & \\
 \hline
-Software constraints & 9 & & 4 & 9 & 9 & - & & & 9 & \\
+Software constraints & 9 & & 4 & 9 & 9 & - & 9 & & 9 & \\
 \hline
-Traceability & 9 & & 5 & 9 & 9 & - & & & 6 & \\
+Traceability & 9 & & 5 & 9 & 9 & - & 9 & & 6 & \\
 \hline
-Executable & 8 & & 0* & 4 & 9 & - & & & 9 & \\
+Executable & 8 & & 0* & 4 & 9 & - & 9 & & 9 & \\
 \hline
-Conformance to EN50128 § 7.2 & 0 & & 5* & 9 & 9 & - & & & 0* & \\
+Conformance to EN50128 § 7.2 & 0 & & 5* & 9 & 9 & - & 9 & & 0* & \\
 \hline
-Conformance to EN50128 § 7.3 & 0 & & 4* & 9 & 9 & - & & & 3* & \\
+Conformance to EN50128 § 7.3 & 0 & & 4* & 9 & 9 & - & 9 & & 3* & \\
 \hline
-Conformance to EN50128 § 7.4 & 0 & & 4* & 9 & 9 & - & & & 3* & \\
+Conformance to EN50128 § 7.4 & 0 & & 4* & 9 & 9 & - & 9 & & 3* & \\
 \hline
 \end{tabular}
 
@@ -342,25 +342,25 @@ Which criteria for software architecture are covered by the methodology
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Defensive programming & 7 & & 0 & 3* & 6 & - & & & * & \\
+Defensive programming & 7 & & 0 & 3* & 6 & - & 9 & & * & \\
 \hline 
-Fault detection \& diagnostic & 7 & & 0 & * & 0 & - & & & 6 & \\
+Fault detection \& diagnostic & 7 & & 0 & * & 0 & - & 4 & & 6 & \\
 \hline
-Error detecting code & 7 & & 0 & * & 0 & - & & & 9 & \\
+Error detecting code & 7 & & 0 & * & 0 & - & 2 & & 9 & \\
 \hline
-Failure assertion programming & 9 & & 6 & 3* & 1 & - & & & 9 & \\
+Failure assertion programming & 9 & & 6 & 3* & 1 & - & 6 & & 9 & \\
 \hline
-Diverse programming & 3 & & 0 & 3* & 0 & - & & & * & \\
+Diverse programming & 3 & & 0 & 3* & 0 & - & 0 & & * & \\
 \hline
-Memorising executed cases & 0 & & 0 & * & 3 & - & & & 9 & \\
+Memorising executed cases & 0 & & 0 & * & 3 & - & 0 & & 9 & \\
 \hline
-Software error effect analysis & 0 & & 2 & * & 0 & - & & & 2* & \\
+Software error effect analysis & 0 & & 2 & * & 0 & - & 0 & & 2* & \\
 \hline
-Fully defined interface & 9 & & 9 & 9 & 9 & - & & & 9 & \\
+Fully defined interface & 9 & & 9 & 9 & 9 & - & 9 & & 9 & \\
 \hline
-Modelling & 9 & & 8 & 9 & 9 & - & & & 5* & \\
+Modelling & 9 & & 8 & 9 & 9 & - & 9 & & 5* & \\
 \hline
-Structured methodology & 9 & & 8 & 9 & 9 & - & & & 3* & \\
+Structured methodology & 9 & & 8 & 9 & 9 & - & 9 & & 3* & \\
 \hline
 \end{tabular}
 
@@ -375,17 +375,17 @@ Which criteria for software design and implementation are covered by the methodo
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline
-Formal methods & 6* & & 0 & 5* & 8 & - & & & 0 & \\
+Formal methods & 6* & & 0 & 5* & 8 & - & 9 & & 0 & \\
 \hline 
-Modeling & 6* & & 4 & 9 & 9 & - & & & 9 & \\
+Modeling & 6* & & 4 & 9 & 9 & - & 9 & & 9 & \\
 \hline
-Modular approach (mandatory) & 9 & & 6 & 9 & 9 & - & & & 9 & \\
+Modular approach (mandatory) & 9 & & 6 & 9 & 9 & - & 9 & & 9 & \\
 \hline
-Components & 9 & & 3 & 6* & 9 & - & & & 9 & \\
+Components & 9 & & 3 & 6* & 9 & - & 9 & & 9 & \\
 \hline
-Design and coding standards (mandatory) & 6* & & 1 & 7 & 8 & - & & & 6* & \\
+Design and coding standards (mandatory) & 6* & & 1 & 7 & 8 & - & 9 & & 6* & \\
 \hline
-Strongly typed programming language & 9 & & 9 & 8 & 9 & - & & & 6 & \\
+Strongly typed programming language & 9 & & 9 & 8 & 9 & - & 9 & & 6 & \\
 \hline
 
 \end{tabular}
@@ -404,19 +404,19 @@ Which task are covered by the tool ?
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Modelling support & 9 & & 9 & 9 & 9 & 9 & & & 9 & \\
+Modelling support & 9 & & 9 & 9 & 9 & 9 & 9 & & 9 & \\
 \hline
-Automatic translation   & 3 & & 2 & 8 & 9 & 7 & & & 9 & \\
+Automatic translation   & 3 & & 2 & 8 & 9 & 7 & 8 & & 9 & \\
 \hline
-Code Generation   & 9 & & 0 & 5 & 9 & 3 & & & 2* & \\
+Code Generation   & 9 & & 0 & 5 & 9 & 3 & 9 & & 2* & \\
 \hline
-Model verification  & 6 & & 0 & 3 & 7 & 9 & & & 4* & \\
+Model verification  & 6 & & 0 & 3 & 7 & 9 & 9 & & 4* & \\
 \hline
-Test generation  & * & & 5 & 3 & 4 & 4 & & & 2 & \\
+Test generation  & * & & 5 & 3 & 4 & 4 & 0 & & 2 & \\
 \hline
-Simulation, execution, debugging  & 6 & & 0 & 3 & 9 & 7 & & & 9 & \\
+Simulation, execution, debugging  & 6 & & 0 & 3 & 9 & 7 & 6 & & 9 & \\
 \hline
-Formal proof  & 0 & & 0 & 3 & 7 & 9 & & & 5 & \\
+Formal proof  & 0 & & 0 & 3 & 7 & 9 & 9 & & 5 & \\
 \hline
 \end{tabular}
 
@@ -427,41 +427,41 @@ Formal proof  & 0 & & 0 & 3 & 7 & 9 & & & 5 & \\
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Open Source (D2.6-X-36) & 0 & & 9 & 2 & 0 & 7 & & & 9 & \\
+Open Source (D2.6-X-36) & 0 & & 9 & 2 & 0 & 7 & 3 & & 9 & \\
 \hline 
-Portability to operating systems (D2.6-X-37) & 9 & & 6 & 6 & 4 & 9 & & & 9 & \\
+Portability to operating systems (D2.6-X-37) & 9 & & 6 & 6 & 4 & 9 & 9 & & 9 & \\
 \hline
-Cooperation of tools (D2.6-X-38) & 3 & & 8 & 6 & 8 & 9 & & & 4* & \\
+Cooperation of tools (D2.6-X-38) & 3 & & 8 & 6 & 8 & 9 & 6 & & 4* & \\
 \hline
-Robustness (D2.6-X-41)  & 6* & & 3 & 8 & 9 & 6 & & & 9 & \\
+Robustness (D2.6-X-41)  & 6* & & 3 & 8 & 9 & 6 & 9 & & 9 & \\
 \hline
-Modularity (D2.6-X-41.1)  & 0 & & 8 & 9 & 9 & 9 & & & 9 & \\
+Modularity (D2.6-X-41.1)  & 0 & & 8 & 9 & 9 & 9 & 9 & & 9 & \\
 \hline
-Documentation management (D.2.6-X-41.2)  & 0 & & 5 & 6 & 9 & 9 & & & 4* & \\
+Documentation management (D.2.6-X-41.2)  & 0 & & 5 & 6 & 9 & 9 & 6 & & 4* & \\
 \hline
-Distributed software development (D.2.6-X-41.3)   & 9 & & 6 & 8 & 6 & 6 & & & 9 & \\
+Distributed software development (D.2.6-X-41.3)   & 9 & & 6 & 8 & 6 & 6 & 7 & & 9 & \\
 \hline
-Simultaneous multi-users (D.2.6-X-41.4)   & 9 & & 6 & 3 & 3 & 4 & & & 9 & \\
+Simultaneous multi-users (D.2.6-X-41.4)   & 9 & & 6 & 3 & 3 & 4 & 7 & & 9 & \\
 \hline
-Issue tracking (D.2.6-X-41.5)  & 0 & & 4 & 3* & 0 & 0 & & & 3* & \\
+Issue tracking (D.2.6-X-41.5)  & 0 & & 4 & 3* & 0 & 0 & 0 & & 3* & \\
 \hline
-Differences between models (D.2.6-X-41.6)  & 0 & & 4 & 3 & 9 & 4* & & & 8 & \\
+Differences between models (D.2.6-X-41.6)  & 0 & & 4 & 3 & 9 & 4* & 6 & & 8 & \\
 \hline
-Version management (D.2.6-X-41.7)  & 3 & & 5 & 9 & 9 & 6 & & & 7 & \\
+Version management (D.2.6-X-41.7)  & 3 & & 5 & 9 & 9 & 6 & 3 & & 7 & \\
 \hline
-Concurrent version development (D.2.6-X-41.8)  & 0 & & 6 & 3 & 4* & 5 & & & 7 & \\
+Concurrent version development (D.2.6-X-41.8)  & 0 & & 6 & 3 & 4* & 5 & 3 & & 7 & \\
 \hline
-Model-based version control (D.2.6-X-41.9)  & 0 & & 3 & 0 & 9 & 5 & & & 0* & \\
+Model-based version control (D.2.6-X-41.9)  & 0 & & 3 & 0 & 9 & 5 & 0 & & 0* & \\
 \hline
-Role traceability (D.2.6-X-41.10)  & 0 & & 4 & 3* & 0 & 3 & & & 0* & \\
+Role traceability (D.2.6-X-41.10)  & 0 & & 4 & 3* & 0 & 3 & 4 & & 0* & \\
 \hline
-Safety version traceability (D.2.6-X-41.11)  & 0 & & 5 & 0 & 0 & 3 & & & 0* & \\
+Safety version traceability (D.2.6-X-41.11)  & 0 & & 5 & 0 & 0 & 3 & 0 & & 0* & \\
 \hline
-Model traceability (D.2.6-01-035) & 3 & & 7 & 9 & 9 & 7 & & & 0* & \\
+Model traceability (D.2.6-01-035) & 3 & & 7 & 9 & 9 & 7 & 5 & & 0* & \\
 \hline
-Tool chain integration  & 6* & & 9 & 6 & 6* & 9 & & & 8 & \\
+Tool chain integration  & 6* & & 9 & 6 & 6* & 9 & 6 & & 8 & \\
 \hline
-Scalability  & 6* & & 6 & 9 & 9 & 6 & & & 9 & \\
+Scalability  & 6* & & 6 & 9 & 9 & 6 & 9 & & 9 & \\
 \hline
 \end{tabular}
 
@@ -474,19 +474,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{System C} &  \rotatebox{90}{GNATprove} \\
 \hline 
-Tool manual (D.2.6-01-42.02) & 9 & & 7 & 9 & 9 & 6* & & & 6* & \\
+Tool manual (D.2.6-01-42.02) & 9 & & 7 & 9 & 9 & 6* & 9 & & 6* & \\
 \hline
-Proof of correctness (D.2.6-01-42.03)    & 0 & & 1 & 4 & 9 & 0 & & & 0* & \\
+Proof of correctness (D.2.6-01-42.03)    & 0 & & 1 & 4 & 9 & 0 & 9 & & 0* & \\
 \hline
-Existing industrial  usage  & 9 & & 5 & 9 & 9 & 6 & & & 9 & \\
+Existing industrial  usage  & 9 & & 5 & 9 & 9 & 6 & 9 & & 9 & \\
 \hline
-Model verification  & 3 & & 0 & 3 & 8 & 9 & & & 0* & \\
+Model verification  & 3 & & 0 & 3 & 8 & 9 & 9 & & 0* & \\
 \hline
-Test generation  & 0 & & 5 & 0 & 6 & 0* & & & 0* & \\
+Test generation  & 0 & & 5 & 0 & 6 & 0* & 0 & & 0* & \\
 \hline
-Simulation, execution, debugging  & 0 & & 5 & 3 & 9 & 5* & & & 9 & \\
+Simulation, execution, debugging  & 0 & & 5 & 3 & 9 & 5* & 8 & & 9 & \\
 \hline
-Formal proof  & 0 & & 0 & 0 & 7 & 9 & & & 0* & \\
+Formal proof  & 0 & & 0 & 0 & 7 & 9 & 9 & & 0* & \\
 \hline
 \end{tabular}
 
