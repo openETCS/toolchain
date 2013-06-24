@@ -54,7 +54,7 @@
 %%   Right brace   \}     Tilde         \~}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{openetcs}
+\ProvidesClass{template/openetcs_report}
 [2012/08/03 v0.1 Typesetting Technical Information Reports of
 openETCS project based on ERDC class v1.1]
 % \long\def\erdc@size@warning#1{%
@@ -92,6 +92,9 @@ openETCS project based on ERDC class v1.1]
 \usepackage{txfonts}
 
 
+%% \setlength{\textheight}{15cm}%%unsere änderung
+
+
 \def\@projectfont{%
   \sffamily\itshape\bfseries\fontsize{22pt}{25pt}\selectfont}
 \def\@reportnumfont{%
@@ -103,7 +106,7 @@ openETCS project based on ERDC class v1.1]
 \def\@distributionfont{%
   \sffamily\fontseries{k}\fontsize{9pt}{11pt}\selectfont}
 \def\@eqtagfont{\sffamily\bfseries\footnotesize}
-\RequirePackage[a4paper, top=1in, bottom=0.7in,
+\RequirePackage[a4paper, top=1in, bottom=1.0in,
   left=1.25in, right=1.25in]{geometry}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
@@ -134,14 +137,17 @@ openETCS project based on ERDC class v1.1]
 \raggedbottom
 \RequirePackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
 \fancyhfoffset{35pt}
 \pagestyle{fancy}
 \lhead{\textsf{\textbf{\footnotesize\@reportnum}}}
 \rhead{\textsf{\textbf{\footnotesize\thepage}}}
 \chead{}
 \lfoot{}
-\cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black}\IsLicensedUnderCC{ - \includegraphics[width=3em]{ccbysa.png}}}
+%% \cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black}
+%% \IsLicensedUnderCC{ - \includegraphics[width=3em]{oOLT.png}}}
+\cfoot{\scriptsize\textit{This work is licensed under the "openETCS Open License Terms" (oOLT).}} 
+%% \includegraphics[width=30pt]{oOLT.png}}
 \rfoot{}
 \newif\if@frontmatter
 \@frontmatterfalse
@@ -234,10 +240,9 @@ openETCS project based on ERDC class v1.1]
 \def\reporttype#1{\gdef\@reporttype{#1}}
 \reporttype{}
 \def\distribution#1{\gdef\@distribution{#1}}
-\distribution{This work is licensed under  the European Union Public Licence (EUPL v.1.1) a Creative Commons
-  Attribution-ShareAlike 3.0 Unported License.\\ \includegraphics[width=40pt]{ccbysabig.png}}
+\distribution{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing:  \includegraphics[width=30pt]{oOLT.png}}
 \def\preparedfor#1{\gdef\@preparedfor{#1}}
-\preparedfor{ITEA2 openETCS consortium\\ Europa}
+\preparedfor{openETCS@ITEA2 Project}
 \def\contractnum#1{\gdef\@contractnum{#1}}
 \contractnum{}
 \def\monitoredby#1{\gdef\@monitoredby{#1}}
@@ -259,13 +264,16 @@ openETCS project based on ERDC class v1.1]
  \endlist\egroup}
       \long\def\disclaimer#1{\long\gdef\@disclaimer{#1}}
       \disclaimer{
-\textbf{This work is licensed under the European Union Public Licence (EUPL v.1.1) and a Creative Commons
+\textbf{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing: European Union Public Licence (EUPL v.1.1+) AND Creative Commons
   Attribution-ShareAlike 3.0 -- (cc by-sa 3.0)}
 
-THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC
-LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY COPYRIGHT
-AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS
-AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
+THE WORK IS PROVIDED UNDER openETCS OPEN LICENSE TERMS (oOLT) WHICH IS A DUAL 
+LICENSE AGREEMENT INCLUDING THE TERMS OF THE EUROPEAN UNION
+PUBLIC LICENSE (VERSION 1.1 OR ANY LATER VERSION) AND THE TERMS OF
+THE CREATIVE COMMONS PUBLIC LICENSE ("CCPL"). THE WORK 
+IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF
+THE WORK OTHER THAN AS AUTHORIZED UNDER THIS OLT LICENSE OR COPYRIGHT
+LAW IS PROHIBITED.
 
 BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND
 AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. TO THE EXTENT THIS
@@ -360,7 +368,7 @@ TERMS AND CONDITIONS.
    \end{minipage}\rule[-2.7in]{\z@}{3.7in}\par
    \begin{minipage}{\textwidth}
      \@reporttype\par\vspace*{3\p@}%
-     {\IsLicensedUnderCC{\@distributionfont\@distribution\par}}%
+     %{\IsLicensedUnderCC{\@distributionfont\@distribution\par}}%
    \end{minipage}
  \end{@titlelist}%
   \vfill
