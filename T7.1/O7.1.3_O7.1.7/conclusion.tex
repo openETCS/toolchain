@@ -12,6 +12,11 @@ Minus mark "-" means this criteria as not been evaluated for this approach.
 
 Star mark "*" means this criteria has been difficult to evaluate for this approach.
 
+The figures correspond to the sum of the scores put by one author and two assessors for each criteria and each means.
+In the case of PetriNets and GnatProve, there is only one assessors thus the first figure is the sum of the 2 scores and the second in parenthesis is the result multiplied by 1.5.
+
+The higher scores is \textcolor{red}{\textbf{9}} and means that the criteria is fully respected, the lower scores is \textcolor{green}{0}.
+
 \section{Main usage of the approach}
 \label{main_usage}
 This section discusses the main usage of the approach.
@@ -22,7 +27,7 @@ According to the figure \ref{fig:main_process}, for which phases do you recommen
 \hline
 &  \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} &  \rotatebox{90}{System C} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{GNATprove} \\
 \hline 
-System Analysis & \textcolor{blue}{5} & 1     & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{9}} & 3     & \textcolor{green}{2} & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
+System Analysis & \textcolor{blue}{5} & 1     & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{9}} & 3     & 2 & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
 \hline
 Sub-system formal design  & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{blue}{5}  & \textcolor{red}{\textbf{6(9)}}   & 3 (4) \\
 \hline
@@ -88,13 +93,13 @@ According WP2 requirements, give a note for the capabilities of the language (fr
 & \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} &  \rotatebox{90}{System C} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{GNATprove} \\
 \hline
 Declarative formalization of properties & \textcolor{magenta}{7} & 1     & \textcolor{blue}{5} (2) & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
-\hline
 (D2.6-02-066)  &  &      &  &  & & &  &    &   &   \\
 \hline
 Simple formalization of properties  & \textcolor{blue}{6} & 2     & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
 (D2.6-02-066.01)  &  &      &  &  & & &  &    &   &   \\
 \hline
-Scalability : capability to design large model  & \textcolor{magenta}{8} & \textcolor{magenta}{7} & \textcolor{blue}{5} * & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}   \\
+Scalability : capability to design  & \textcolor{magenta}{8} & \textcolor{magenta}{7} & \textcolor{blue}{5} * & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}   \\
+large model   &  &      &  &  & & &  &    &   &   \\
 \hline
 Easily translatable to other languages  & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{magenta}{7} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} * & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{4(6)}  & \textcolor{blue}{4(6)}  \\
 (D2.6-02-068)  &  &      &  &  & & &  &    &   &   \\
@@ -136,13 +141,15 @@ Independent System functions definition  & \textcolor{blue}{6} & \textcolor{mage
 \hline 
 System architecture design (D2.6-02-045.02) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
 \hline
-System data flow identification (D2.6-02-045.02.3) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{blue}{6}  & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
+System data flow identification  & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{blue}{6}  & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
+(D2.6-02-045.02.3)   &  &      &  &  & & &  &    &   &   \\
 \hline
 Sub-system focus (D2.6-02-045.02.4) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
 \hline
 System interfaces definition (D2.6-02-045.02.5) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
 \hline
-System requirement allocation (D2.6-02-045.03) & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & - & \textcolor{blue}{4(6)}  & \textcolor{green}{0(0)}  \\
+System requirement allocation  & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & - & \textcolor{blue}{4(6)}  & \textcolor{green}{0(0)}  \\
+(D2.6-02-045.03)   &  &      &  &  & & &  &    &   &   \\
 \hline
 Traceability with SRS (D2.6-02-045.05) & \textcolor{blue}{6} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & - & \textcolor{blue}{4(6)}  & 2 (3) \\
 \hline
@@ -180,11 +187,13 @@ Traceability to  SSRS (D2.6-02-047.02.05) & - & \textcolor{red}{\textbf{9}} & \t
 Traceability of exported requirements  & - & \textcolor{magenta}{7} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{9}} & 2    * & 2    * & \textcolor{blue}{4(6)}  & 2 (3) \\
 (D2.6-02-047.02.06) &  &      &  &  & & &  &    &   &   \\
 \hline
-Simulation or animation (D2.6-02-048 partial) & - & \textcolor{red}{\textbf{9}} & 4    * & 4     & - & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}   \\
+Simulation or animation & - & \textcolor{red}{\textbf{9}} & 4    * & 4     & - & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}   \\
+(D2.6-02-048 partial)   &  &      &  &  & & &  &    &   &   \\
 \hline
 Execution (D2.6-02-048 partial) & - & \textcolor{magenta}{8} & \textcolor{green}{0} * & \textcolor{blue}{5} & - & 3     & 3     & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
 \hline
-Extensible to strictly formal model (D2.6-02-049.3) & - & \textcolor{magenta}{7} & 3     & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & 4     & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
+Extensible to strictly formal model & - & \textcolor{magenta}{7} & 3     & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & 4     & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
+(D2.6-02-049.3)  &  &      &  &  & & &  &    &   &   \\
 \hline
 Easy to  refine towards strictly formal model & - & \textcolor{blue}{6} & 4     & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
 (D2.6-02-049.4)  &  &      &  &  & & &  &    &   &   \\
@@ -441,7 +450,8 @@ Formal proof  & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{
 \hline 
 Open Source (D2.6-02-074) & \textcolor{green}{0} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & 2     & \textcolor{green}{0} & \textcolor{magenta}{7} & 3     & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{magenta}{5(7)}  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{blue}{6} & 4     & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}}  \\
+Portability to operating systems  & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{blue}{6} & 4     & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}  & \textcolor{red}{\textbf{6(9)}} \\
+(D2.6-02-075)  &  &      &  &  & & &  &    &   &   \\
 \hline
 Cooperation of tools (D2.6-02-076) & 3     & \textcolor{magenta}{7} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & 4    * & \textcolor{blue}{4(6)}  & \textcolor{red}{\textbf{6(9)}}  \\
 \hline
@@ -449,25 +459,32 @@ Robustness (D2.6-02-078)  & \textcolor{blue}{6} * & \textcolor{magenta}{7} & 3  
 \hline
 Modularity (D2.6-02-078.1)  & \textcolor{green}{0} & \textcolor{magenta}{8} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}   & \textcolor{red}{\textbf{6(9)}}   \\
 \hline
-Documentation management (D2.6-02-078.02)  & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & 4    * & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}   \\
+Documentation management   & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & 4    * & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}   \\
+(D2.6-02-078.02)  &  &      &  &  & & &  &    &   &   \\
 \hline
-Distributed software development (D2.6-02-078.03)   & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{4(6)}  & \textcolor{red}{\textbf{6(9)}}  \\
+Distributed software development    & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{blue}{6} & \textcolor{magenta}{8} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{4(6)}  & \textcolor{red}{\textbf{6(9)}}  \\
+(D2.6-02-078.03)   &  &      &  &  & & &  &    &   &   \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & \textcolor{red}{\textbf{9}} & 3     & \textcolor{blue}{6} & 3     & 3     & 4     & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 2 *(*) & \textcolor{red}{\textbf{6(9)}}  \\
+Simultaneous multi-users    & \textcolor{red}{\textbf{9}} & 3     & \textcolor{blue}{6} & 3     & 3     & 4     & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 2 *(*) & \textcolor{red}{\textbf{6(9)}}  \\
+(D2.6-02-078.04)  &  &      &  &  & & &  &    &   &   \\
 \hline
 Issue tracking (D2.6-02-078.05)  & \textcolor{green}{0} & 3     & 4     & 3    * & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & 3    * & \textcolor{green}{0(0)}  & \textcolor{green}{0(0)}  \\
 \hline
-Differences between models (D2.6-02-078.06)  & \textcolor{green}{0} & 4     & 4     & 3     & \textcolor{red}{\textbf{9}} & 4    * & \textcolor{blue}{6} & \textcolor{magenta}{8} & 2 (3) & 3 (4) \\
+Differences between models  & \textcolor{green}{0} & 4     & 4     & 3     & \textcolor{red}{\textbf{9}} & 4    * & \textcolor{blue}{6} & \textcolor{magenta}{8} & 2 (3) & 3 (4) \\
+(D2.6-02-078.06)    &  &      &  &  & & &  &    &   &   \\
 \hline
 Version management (D2.6-02-078.07)  & 3     & \textcolor{blue}{6} & \textcolor{blue}{5} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & 3     & \textcolor{magenta}{7} & \textcolor{green}{0(0)}  & 1 (1) \\
 \hline
-Concurrent version development (D2.6-02-078.08)  & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{blue}{6} & 3     & 4    * & \textcolor{blue}{5} & 3     & \textcolor{magenta}{7} & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}  \\
+Concurrent version development   & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{blue}{6} & 3     & 4    * & \textcolor{blue}{5} & 3     & \textcolor{magenta}{7} & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}  \\
+(D2.6-02-078.08)  &  &      &  &  & & &  &    &   &   \\
 \hline
-Model-based version control (D2.6-02-078.09)  & \textcolor{green}{0} & \textcolor{blue}{5} & 3     & \textcolor{green}{0} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{green}{0} & \textcolor{green}{0} * & 2 (3) & * \\
+Model-based version control   & \textcolor{green}{0} & \textcolor{blue}{5} & 3     & \textcolor{green}{0} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{5} & \textcolor{green}{0} & \textcolor{green}{0} * & 2 (3) & * \\
+(D2.6-02-078.09)  &  &      &  &  & & &  &    &   &   \\
 \hline
 Role traceability (D2.6-02-078.10)  & \textcolor{green}{0} & 2     & 4     & 3    * & \textcolor{green}{0} & 3     & 4     & \textcolor{green}{0} * & \textcolor{green}{0(0)}  & - \\
 \hline
-Safety version traceability (D2.6-02-078.11)  & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{green}{0} & \textcolor{green}{0} & 3     & \textcolor{green}{0} & \textcolor{green}{0} * & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}  \\
+Safety version traceability   & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{blue}{5} & \textcolor{green}{0} & \textcolor{green}{0} & 3     & \textcolor{green}{0} & \textcolor{green}{0} * & \textcolor{green}{0(0)}  & \textcolor{red}{\textbf{6(9)}}  \\
+(D2.6-02-078.11) &  &      &  &  & & &  &    &   &   \\
 \hline
 Model traceability (D2.6-02-079) & 3     & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{blue}{5} & \textcolor{green}{0} * & \textcolor{blue}{4(6)}  & 2 (3) \\
 \hline
