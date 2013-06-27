@@ -15,7 +15,7 @@ Star mark "*" means this criteria has been difficult to evaluate for this approa
 The figures correspond to the sum of the scores put by one author and two assessors for each criteria and each means.
 In the case of PetriNets and GnatProve, there is only one assessors thus the first figure is the sum of the 2 scores and the second in parenthesis is the result multiplied by 1.5.
 
-The higher scores is \textcolor{red}{\textbf{9}} and means that the criteria is fully respected, the lower scores is \textcolor{green}{0}.
+The highest scores is \textcolor{red}{\textbf{9}} and means that the criteria is fully respected, the lowest scores is \textcolor{green}{0}.
 
 \section{Main usage of the approach}
 \label{main_usage}
@@ -144,7 +144,7 @@ System architecture design (D2.6-02-045.02) & \textcolor{red}{\textbf{9}} & \tex
 System data flow identification  & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{blue}{6}  & \textcolor{magenta}{8} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
 (D2.6-02-045.02.3)   &  &      &  &  & & &  &    &   &   \\
 \hline
-Sub-system focus (D2.6-02-045.02.4) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
+Sub-system focus (D2.6-02-045.02.4) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
 \hline
 System interfaces definition (D2.6-02-045.02.5) & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{magenta}{8} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{6(9)}}  & \textcolor{blue}{4(6)}  \\
 \hline
@@ -325,7 +325,7 @@ Software constraints & \textcolor{red}{\textbf{9}} & - & \textcolor{blue}{6} & \
 \hline
 Traceability & \textcolor{red}{\textbf{9}} & - & \textcolor{blue}{6} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{9}} & \textcolor{blue}{6} & \textcolor{blue}{4(6)}  & 2 (3) \\
 \hline
-Executable & \textcolor{magenta}{8} & - & 2    * & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & - & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}   & \textcolor{red}{\textbf{6(9)}}  \\
+Executable & \textcolor{magenta}{8} & - & 2    * & \textcolor{red}{\textbf{9}} & 4 & - & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{9}} & \textcolor{red}{\textbf{6(9)}}   & \textcolor{red}{\textbf{6(9)}}  \\
 \hline
 \end{tabular}
 
@@ -525,6 +525,15 @@ Formal proof  & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{
 \tbd
 
 \begin{description}
-\item[SystemC]  appears as a good candidate for system design with facilities to drive VnV activities, especially for all real-time aspects. While SystemC cannot cover all aspects of the openETCS (model) development it may especially prove useful for simulating the system's real-time behaviour. Generating SystemC code/models from higher-level SysML models with subsequent refinement could improve the toolchain integration. Interfacing with C-based APIs/libraries should be no problem. 
-
+\item[GOPRR] is a domain specific language allowing definition of meta-models. University of Bremen is currently  more in favour of SysML based approach \url{https://github.com/openETCS/model-evaluation/blob/master/Munich_20130415/b_openETCS-DSL.pdf}.
+\item[CORE] is a tool  develop for the analysis of system.  This approach has not be maintain due to close source tools, difficult to  integrate. All4Tec is supporting for OpenETCS SysML approach (see Appendix \ref{sec:core}).
+\item[ERTMSFormalSpecs] is a domain specific language, tool supported, dedicaded to the formalisation of ERTMS system.
+\item[SysML with Papyrus and Entreprise architect]: SysML is a graphical language, extending UML, suitable for system engineering. This language is adapted to  system  analysis and design. Two  tools have been evaluated : Papyrus and Enterprise Architect.
+\item[Scade] is a formal modelling language dedicaded to the design of critical system. Scade is largelly  involved in industry  especially  railway. However, is not yet an open-source approach.
+\item[EventB and Rodin] are dedicated to the analyse and design of critical  systems. EventB is a formal language based on predicate logic and set theory as classical B and links with some SysML  diagrams are already defined. Rodin is an open-source tool based on Eclipse.
+\item[Classical B] is a formal  language largely used in railway industry  to  design and develop critical software. B models can be translated automatically to  C or Ada code. The main supporting tool Atelier B is free but close source.
+\item[SystemC]  appears as a good candidate for software design with facilities to drive VnV activities, especially for all real-time aspects. While SystemC cannot cover all aspects of the openETCS (model) development it may especially prove useful for simulating the system's real-time behaviour. Generating SystemC code/models from higher-level SysML models with subsequent refinement could improve the toolchain integration. Interfacing with C-based APIs/libraries should be no problem. 
+\item[PetriNets]
+\item[GnatProve]
+\item[Why3]
 \end{description}
