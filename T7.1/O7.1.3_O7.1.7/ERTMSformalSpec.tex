@@ -52,6 +52,7 @@ From my experience, a domain-specific language really provides an interesting pr
 \paragraph{Publications} Short list of publications on the approach (5 max)
 
 \url{http://www.ertmssolutions.com/files/ERTMSFormalSpecs\_WCRR2011.pdf   }
+
 \url{http://www.ertmssolutions.com/files/UsingERTMSFormalSpecsToModelBrakingCurves.pdf}
 
 \section{Main usage of the approach}
@@ -84,7 +85,7 @@ Software code could be generated from such models, eg for simulation purposes, g
 \end{assessor1}
 
 \begin{assessor2}
-ERTMSFormalSpecs is a new language, tool supported, to design semi-formal model of ERTMS specification. However, elements of methjods are still missing to know how to use and integrate the language and tools in a whole development. 
+ERTMSFormalSpecs is a new language, tool supported, to design semi-formal model of ERTMS specification. However, elements of methods (as how to start a model, which modelling rules to follow, which verification are possible,...) are still missing to know how to use and integrate the language and tools in a whole development, and interaction with other activities.
 \end{assessor2}
 
 According to the figure \ref{fig:main_process}, for which type of activities do you recommend the approach (give a note from 0 to  3) :
@@ -103,7 +104,7 @@ Code generation & \textcolor{green}{0} & 1     & \textcolor{green}{0} & 1    \\
 \hline
 Verification & 3     & 3     & 1     & \textcolor{magenta}{7} \\
 \hline
-Validation & 3     & 3     & 3     & \textcolor{magenta}{8} \\
+Validation & 3     & 3     & 3     & \textcolor{red}{\textbf{9}}  \\
 \hline
 Safety analyses & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
 \hline
@@ -115,9 +116,9 @@ The ERTMS tooling performs a limited set of validation described in section 6.9 
 \end{assessor1}
 
 \begin{assessor2}
-The tool allow the generation of some reports as data dictionary, specification issues or coverage reports, but no element to understand how the system works in the model. The current produced elements are not sufficient for a design process.
+The tool allows the generation of some reports as data dictionary, specification issues or coverage reports, but no element to understand how the system works in the model. The current produced elements are not sufficient for a design process.
 
-For verification, it is difficult through the document to understand what is verified. It is verifications are those provided by the tool as lexical or syntax verification. I have not find other kind of verification as type or coverage. How to verify the model in a more general way (indeed that the model specifies well the informal specification) is not describe in the documents.
+For verification, it is difficult through the document to understand what is verified. The verification provided by the tool are lexical or syntax verification. I have not find other kind of verification as type or coverage. How to verify the model in a more general way (indeed that the model specifies well the informal specification) is not describe in the documents.
 \end{assessor2}
 
 
@@ -160,9 +161,9 @@ Regarding the "`Graphical Language"' item, ERTMSFormalSpec provides a graphical 
 
 
 \begin{assessor2}
-ERTMS Formal Spec is not a formal language :  semantic is not clearly defined thus no formal verification can be done.
+ERTMS Formal Spec is not a formal language :  semantic is not sufficiently defined to allow formal  reasoning and formal verification.
 
-Concerning structure and modularity, the language allows to follows for the model the structure of the input document, and modules follow this structure. But this way do not allow to have a really modular design :  all the data are stored in the same database, and not clear share of function is provide to allow the design of module in an independent way.
+Concerning structure and modularity, the language allows to follow for the model the structure of the input document, and modules follow this structure. But this way do not allow to have a really modular design :  all the data are stored in the same database, and not clear share of function is provide to allow the design of module in an independent way.
 
 Graphical language concerns only state machines.
 \end{assessor2}
@@ -264,7 +265,7 @@ Although the data flows between components, and the interfaces of components (wh
 
 
 \begin{assessor2}
-Data are reprenset by a general data base, and decomposition between components and functions is not obviously  accessible in a graphical way. How to obtain the data flow between two  functions is not clearly defined.
+Data are represented by a general data base, and decomposition between components and functions is not obviously  accessible in a graphical way. How to obtain the data flow between two  functions is not clearly defined.
 I do not see how to have with tool a clear and easy understanding (graphical as an SADT diagram for example) view of the architecture of the system, the data flow between functions and interfaces.
 \end{assessor2}
 
@@ -490,6 +491,8 @@ Formal proof & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0
 The only verification supported is lexical and syntactical verification, no means are provided to check for example types, domains, or properties.
 
 It is possible to write and simulate tests.
+
+For Verification, see section C.2.
 \end{assessor2}
 
 
@@ -517,6 +520,10 @@ As of today, the ERTMSFormalSpecs model is available both as an XML file and as 
 Is there any document to describe this translation from ERTMSFormalSpecs to an another language ?
 \end{assessor2}
 
+
+\begin{author_comment}
+This is now tracked by issue: \url{https://github.com/openETCS/ERTMSFormalSpecs/issues/112}
+\end{author_comment}
 
 
 \paragraph{Model verification}
@@ -612,6 +619,11 @@ Scalability & 3     & 3     & 1     & \textcolor{magenta}{7} \\
 \begin{assessor2}
 The current version of the tool does not allow to  define how to  have a multi-users development of large scale system.
 \end{assessor2}
+
+\begin{author_comment}
+Concerning portability to operatin systems, an issue is openned to study protability on linux :
+\url{https://github.com/openETCS/ERTMSFormalSpecs/issues/113}
+\end{author_comment}
 
 \section{Certifiability}
 
