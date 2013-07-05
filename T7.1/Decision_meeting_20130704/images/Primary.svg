@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.56357568"
-     inkscape:cx="189.29881"
-     inkscape:cy="422.00368"
+     inkscape:zoom="0.67915272"
+     inkscape:cx="241.02483"
+     inkscape:cy="354.52423"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1997,14 +1997,14 @@
     <text
        sodipodi:linespacing="125%"
        id="text5317"
-       y="489.42285"
-       x="605.20782"
+       y="352.48752"
+       x="606.68024"
        style="font-size:28px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="605.20782"
-         x="489.42285"
+         y="468.27249"
+         x="490.89526"
          id="tspan5319"
-         sodipodi:role="line">SysML </tspan></text>
+         sodipodi:role="line">SysML Papyrus </tspan></text>
     <rect
        transform="matrix(1,0,0,3.9698446,-8.6854161,-1689.6741)"
        y="559.02576"
