@@ -1,36 +1,11 @@
+\begin{description}
+\item[Name] Eclipse and the Eclipse Modeling Framework (EMF)
+\item[Web site] http://eclipse.org http://eclipse.org/emf
+\item[License] EPL
+\end{description}
 
-\chapter{Results on tool platform}
-The tool platform should provide mechanisms to integrate various
-tools. The tool platform is not the primary nor secondary tools, nor
-the tool chain. It is the support for the tool chain implementation,
-it shall help to integrate the tools into a seamless tool chain.
-The evaluation will focus on the integration capabilities of the tool platform.
-\begin{todo_comment}
-Description of the candidates by Cecile Braunstein
-\end{todo_comment}
 
-\section{Initial list of candidates}
-\begin{itemize}
-\item Eclipse 
-\item TopCased/Polarsys
-\item RTP-Cesar
-\item Mono/.NET 
-\item SCADE
-\end{itemize}
-
-After a first round, Mono/.NET and SCADE were discard because they do
-not comply to our tool platform definition.  RTP-CESAR was also
-discard, the maturity of this project is not yet usable. Finally,
-{\bf Eclipse with the modeling framework (EMF)} has been chosen as a tool
-platform, the possibility to use Polarsys and take some part of the
-TopCased tool chain as well as which version of Eclipse  and EMF to choose are
-discussed in the next sections.  
-
-Eclipse can also integrate framework, It has also be decided that any
-framework added to the Eclipse platform within the OpenETCS tool chain
-should be documented (version, usage ...) and clearly justify.
-
-\section{Eclipse}
+\section{Abstract}
 Eclipse is an open source Tool Platform originally developed at
 IBM. It has been explicitly designed as an extensible platform to
 enable different tools to exchange data and share common
@@ -48,7 +23,7 @@ provides common features such as command-based editing and XMI
 serialization for generated models. In the following we show how
 Eclipse and EMF aligns with the openETCS requirements.
 
-\paragraph {Open Source}
+\section{Open Source}
 All Eclipse core components including EMF are open source and under
 the Eclipse Public licenses, which allows for commercial use and is
 compatible to the EUPL. The Eclipse Foundation and the Eclipse
@@ -57,14 +32,14 @@ properties for all Eclipse projects. Additionally all Eclipse projects
 follow a common infrastructure and process allowing external partners
 to contribute and maintain projects. 
 
-\paragraph{Long-Term Maintenance}
+\section{Long-Term Maintenance}
 The Eclipse Foundation also provides infrastructure and a process for
 Long-Term Maintenance for all Eclipse projects. It enables users of a
 technology to contract service providers to maintain current and older
 versions of these technologies. These service providers do not
 necessarily have to be committers on the original projects.
 
-\paragraph{Portability}
+\section{Portability}
 Eclipse itself is implemented in Java and therefore portable to all
 major operating systems. The underlying UI technology SWT is
 implemented for all major and even most uncommon window kits. As SWT
@@ -75,7 +50,7 @@ supported platforms. Since version 4.2, EMF is part of the core
 platform. However, EMF does not contain any OS specific components and
 is therefore highly portable.
 
-\paragraph{Tools Interoperability}
+\section{Tools Interoperability}
 The Eclipse Platform has been explicitly designed to enable various
 tools of the software lifecycle to collaborate. It provides
 mechanisms, such as a service oriented architecture and extension
@@ -84,7 +59,7 @@ chain. EMF is well-suited as a common data-format. The collaboration
 of a large number of tools is shown and validated in the various
 Eclipse packages, which are released in the yearly release train.
 
-\paragraph{Modularity}
+\section{Modularity}
 Eclipse is based on OSGi, a standard for modularization of Java
 applications. The Eclipse OSGi runtime Equinox is the reference
 implementation of OSGi. OSGi enables to modularize a system, in this
@@ -95,7 +70,7 @@ features. The extensibility and OSGi as an underlying technology allow
 fully customizing the Eclipse Platform. Existing pieces and frameworks
 can be added to a tool chain, new parts can be developed.
 
-\paragraph{Framework Support}
+\section{Framework Support}
 Over the last ten years, a rich ecosystem of frameworks has developed
 around the Eclipse Platform. All these frameworks are developed under
 the EPL and checked for IP cleanliness. Eclipse frameworks cover all
@@ -115,23 +90,3 @@ provided by Eclipse projects include:
 \item User Interfaces (e.g. JFace, Databinding, EMF Client Platform, EEF)
 \item ALM Tooling (e.g. Mylyn)
 \end{enumerate}
-
-
-\section{Version Management}
-
-\section{Topcased and Polarsys}
-
-Topcased is a tool for systems engineering, based on Eclipse and various Eclipse projects.  Polarsys is a project concerned with the long term support of the Topcased tool chain.  There is an overlap between Topcased and the openETCS tool chain.  There is also an overlap between the objectives of openETCS and Polarsys:
-
-\textbf{Topcased and openETCS tool chain.} Both, Topcased and the openETCS tool chain are based on Eclipse.  Further, the openETCS tool chain will definitely use Papyrus, which is also part of Topcased.  And last, both are concerned with covering all aspects of the V-Model, although for different domains (aviation vs. rail).
-
-\textbf{Polarsys and openETCS.}  The objectives of Polarsys and openETCS overlap significantly as well: Both are concerned with tools in a safety-critical domain, requiring tool qualification, etc.  They are also concerned with long term support through open source.
-
-\subsection{State of Topcased and Polarsys}
-
-While the state of the art document mentions Topcased \cite{}, it was not evaluated as a whole.  Merely the Papyurus component of Topcased was evaluated, but a newer version than the one used by Topcased.
-
-Topcased is using a fork of an old version of Papyrus (Ver. 0.8.2) which is no more supported by the CEA (actual version 0.10.X) and, as the CEA is not part of Topcased, no more code development over this version/Topcased will be done by CEA.  Unfortunately, the development on Topcased modeler (forked version of Papyrus) is not so active anymore: 60 commits on the 3 last months (as of July 2013) against more than 1600 commit for Papyrus.  Further, the actual version of Papyrus have been greatly improved with respect to stability since version 0.8.2, and some stability issues may have not been corrected in Topcased.
-
-To conclude, Topcased requires Eclipse 3.7.2 Indigo (1.5 year-old version) which is no more supported by the Eclipse foundation.  Some part of Topcased initiative (plugins/add-ons) may still be very useful to the openETCS project, so we will reach out to the Polarsys community to see whether there is an interest in aligning versions for long term support.  The versions currently used in Topcased are not suitable for the openETCS tool chain, unfortunately.
-

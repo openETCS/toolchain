@@ -1,40 +1,9 @@
 \chapter{Template Description}
 \label{sec:template}
 
-\begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
-\item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
-\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
-\end{description}
 
-In the sequel, main text is under the responsibilities of the author.
+Each tool platform candidates  should  fill the following sections
 
-\begin{author_comment}
-Author can add comments using this format at any place.
-\end{author_comment}
-
-\begin{assessor1}
-First assessor can add comments using this format at any place.
-\end{assessor1}
-
-\begin{assessor2}
-Second assessor can add comments using this format at any place.
-\end{assessor2}
-
-When a note is required, please follow this list :
-\begin{description}
-\item[0] not recommended, not adapted, rejected
-\item[1] weakly recommended, adapted after major improvements, weakly rejected
-\item[2] recommended, adapted (with light improvements if necessary)  weakly accepted
-\item[3] highly recommended, well adapted,strongly accepted
-\item[*] difficult to evaluate with a note (please add a comment under the table)
-\end{description}
-
-All the notes can be commented under each table.
-
-\section{Presentation}
-
-This section gives a quick presentation of the tool.
 
 \begin{description}
 \item[Name] \todo{Name of the approach and the tool}
@@ -42,313 +11,31 @@ This section gives a quick presentation of the tool.
 \item[License] \todo{Kind of license}
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\section{Abstract}
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
+Short introduction to the tool
 
-\section{Use and usage of  of the Tool}
-According WP2 requirements, give a note for characteristics of the use of the tool (from 0 to 3) :
-
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Open Source (D2.6-02-074) & & & &  \\
-\hline 
-Cooperation of tools (D2.6-02-076) & & & &  \\
-\hline
-Robustness (D2.6-02-078) & & & & \\
-\hline
-Modularity (D2.6-02-078.01) & & & & \\
-\hline
-Documentation management (D.2.6-02-078.02) & & & & \\
-\hline
-Distributed software development (D.2.6-02-078.03)  & & & & \\
-\hline
-Simultaneous Multi-users (D.2.6-02-078.04)   & & & & \\
-\hline
-Issue tracking (D.2.6-02-078.05) & & & & \\
-\hline
-Concurrent version development (D.2.6-02-078.08) & & & & \\
-\hline
-Model-based version control (D.2.6-02-078.09) & & & & \\
-\hline
-Role traceability (D.2.6-02-078.10) & & & & \\
-\hline
-Safety version traceability (D.2.6-02-078.11) & & & & \\
-\hline
-Scalability & & & & \\
-\hline
-\end{tabular}
-
-The next table resume the capabilities of the tool platform.
-\begin{enumerate}
-\item Easy integration of a new tool in the tool platform.
-\item How expert should we be ?
-\item Mechanism for maintaining the tools within the tool platform.
-\item Mechanism for bug tracking the tools within the tool platform.
-\item Mechanism for updating the tools within the tool platform.
-\item Mechanism to know the set of tool used.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|}
-\hline
-& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline Easy integration of a new tool &
-  &                 &                  &\\
-\hline Expertise &
-  &                 &                  &\\
-\hline Maintenance &
-  &                 &                  &\\
-\hline Bug tracking &
-  &                 &                  &\\
-\hline Update &
-  &                 &                  &\\
-\hline  Catalog &
-  &                 &                  &\\
-\hline
-\end{tabular}
+\section{Open Source (D2.6-02-07) }
+Describes the license. 
 
 
-\section{Platform integration}
-Capabilities of the tool platform to  be integrated to common operating systems.
-\begin{enumerate}
-\item  The tools chain shall be portable to common \gls{OS}.
-\item   The tool chain shall run stable on all main \gls{OS}.
-\item  The tool chain shall run with a good performance on all main \gls{OS}.
-\item  Data produce on an \gls{OS} should be readable by an other \gls{OS}.
-\end{enumerate}
-\begin{tabular}{|l | c | c | c | c|}
-  \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline  Portable (R-WP2/D2.6-02-076) &
-  &                 &                  &\\
-  \hline   Stable (R-WP2/D2.6-02-076.01)&
-  &                 &                  &\\
-  \hline   Same performance (R-WP2/D2.6-02-076.02)&
-  &                 &                  &\\
-  \hline  Easy exchange (R-WP2/D2.6-02-076)&
-  &                 &                  &\\
-  \hline
-\end{tabular}
+\section{Long-Term Maintenance}
+maintenance infrastructure.
 
 
-\section{Data integration}
-How the tool platform supports the data integration ?
-
-\subsection{How to share data ?}
-\begin{enumerate}
-\item Files contains all info and are read/write when needed.
-\item A central repository contains all data (maybe distributed in a
-  set of files).
-\item A common database is shared among tools
-\item Tools communicate via messages.
-\item A meta-model is defined to harmonized the data input/output
-\item Representational State Transfer (REST), distributed architecture (like the web) and data access by an
-  unique identifier (URL-like).
-\end{enumerate}
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline File based sharing &
-  &                 &                  &\\
-  \hline Shared repository &
-  &                 &                  &\\
-  \hline Database based sharing&
-  &                 &                  &\\
-  \hline Message Passing&
-  &                 &                  &\\
-  \hline Meta-Model based sharing &
-  &                 &                  &\\
-  \hline REST architecture style &
-  &                 &                  &\\
-  \hline
-\end{tabular}
+\section{Portability (R-WP2/D2.6-02-076)}
+As the tools chain shall be portable to common OS, the tool platform too.
 
 
-\subsection{Data definition}
-\begin{enumerate}
-\item Definition of a common data format
-\item All possible input and output formats of a tool have to be
-  documented.
-\item Automatic parser/generator support compliant with a common format.
-\item Open data formats shall be used for data exchange.
- 
-\end{enumerate}
+\section{Tools Interoperability}
+How the tool platform support tool integration.
 
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Common data format&
-  &                 &                  &\\
-  \hline Common data format documentation(R-WP2/D2.6-02-076.01) &
-  &                 &                  &\\
-  \hline Generator/parser &
-  &                 &                  &\\
-  \hline Open data format (R-WP2/D2.6-02-076.02)&
-  &                 &                  &\\
-  \hline
-\end{tabular}
+\section{Modularity (D2.6-02-078.01) }
+How to perform modularity.
 
-{\bf Does the tool platform define mechanisms to check the data produces
-by a tool ?}
+\section{Framework Support}
 
-\section{Presentation integration}
-The tool chain would be easier to use if the tool may share a common
-"look and fell'.
-\begin{enumerate}
-\item The tool platform proposes a common \gls{GUI}.
-\item The tool platform proposes some presentation guidelines
-\item The tool platform provides a user interface creation toolkit
-\item The tool platform integrates new tools as plug-in of the \gls{IDE}.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Common \gls{GUI}&
-  &                 &                  &\\
-  \hline Presentation guidelines &
-  &                 &                  &\\
-  \hline User interface toolkit &
-  &                 &                  &\\
-  \hline Plug-in support &
-  &                 &                  &\\
-  \hline
-\end{tabular}
-
-
-\section{Control integration}
-The mechanism that allows tools to notify and activate others tools.
-\begin{enumerate}
-\item Tools may subscribe to some notification.
-\item Tools may notify changes.
-\item The change may be logged and traced.
-\item The tool platform provides a version management.
-\item Script based change control.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Service Subscriber&
-  &                 &                  &\\
-  \hline Service Notifier &
-  &                 &                  &\\
-  \hline Change traceability &
-  &                 &                  &\\
-  \hline Version Management &
-  &                 &                  &\\
-  \hline Script control &
-  &                 &                  &\\
-  \hline
-\end{tabular}
-
-
-\section{Process integration}
-\subsection{Support for engineering process}
-Support for a well-defined software engineering process. 
-\begin{enumerate}
-\item Process definition support.
-\item Integrated process : the process is transparent to the users.
-\item Process Management support.
-\item Script based process: the process is implemented via scripts.
-\item The defined tool chain  may be analyzed within the tool platform.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Process Definition &
-  &                 &                  &\\
-  \hline Process Management &
-  &                 &                  &\\
-  \hline Integrated Process &
-  &                 &                  &\\
-  \hline Script based process &
-  &                 &                  &\\
-  \hline Tool chain Analysis &
-  &                 &                  &\\
-  \hline
-\end{tabular}
-
-
-
-\subsection{Support for EN 50128 standard}
-Specific mechanism related to EN 50128 standard
-\begin{enumerate}
-\item  Each tool in the tool chain shall be classified among T1, T2
-  and T3 depending on its usage in the process.
-\item  For T2 and T3 tools 7 , the choice of tools shall be justified,
-  and the justification shall include how the tools failures are
-  covered, avoided or taken into account (ref. to EN 50128 6.7.4.2).
-\item  All T2 and T3 tools must be provided with their user manuals.
-\item  For all T3 tool, the proof of correctness or the measure taken
-  to guarantee the correctness of the output w.r.t. their
-  specification and the inputs shall be provided. The tool platform
-  provides output/input comparison  or other mechanism to guarantee
-  the correctness.
-\item Does the tool platform provides help to generate or to produce
-  documentation about the tool chain such as manual, specification  EN
-  50128 §6.7 ?
-\item The tool platform helps to define the maintenance process of the
-  tool chain.
-\item The tool platform provides bug tracker for the tool chain.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Integrated Tools classification (R-WP2/D2.6-02-085)  &
-  &                 &                  &\\
-  \hline Document production (R-WP2/D2.6-01-042.01) &
-  &                 &                  &\\
-  \hline Automatic information on tools (R-WP2/D2.6-01-042.02) &
-  &                 &                  &\\
-  \hline Measure for correctness (R-WP2/D2.6-01-042.03) &
-  &                 &                  &\\
-  \hline Test of the tool platform &
-  &                 &                  &\\
-  \hline Tool chain documents  production &
-  &                 &                  &\\
-  \hline Tool chain maintenance process specification &
-  &                 &                  &\\
- \hline Tool chain bug tracker &
-  &                 &                  &\\
-  \hline
-\end{tabular}
-
-\section{Tool chain Analysis}
-Is the tool platform able to analyze the tool chain.
-\begin{enumerate}
-\item The tool platform provides a met-model to represents tool chain
-\item The tool platform provides a graphical representation of the
-  tool chain
-\item The tool platform provides a textual description of the
-  tool chain
-\item The tool platform may help to analyze the tool chain by means
-  of the tools inputs and outputs.
-\item The tool platform allows the rearrangement and/or the extension
-  of the tool chain
-\item Previously define tool chain may be re-use and their confidence too.
-\end{enumerate}
-
-\begin{tabular}{|l | c | c | c | c|} \hline
-  & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} &  \textcolor{magenta}{Assessor 2} & Total \\
-  \hline Tool chain Meta-Model definition &
-  &                 &                  &\\
-  \hline Tool chain graphical representation &
-  &                 &                  &\\
-  \hline Tool chain textual representation &
-  &                 &                  &\\
-  \hline Tool's Input/output Analysis &
-  &                 &                  &\\
-  \hline Tool chain Analysis &
-  &                 &                  &\\
-  \hline Tool chain rearrangement and extension &
-  &                 &                  &\\
-  \hline Confidence preservation &
-  &                 &                  &\\
-  \hline
-\end{tabular}
-
-
-\section{Other comments}
-Please to  give free comments on the approach.
+How the tool platform deals with framework integration.
 
 %%% Local Variables: 
 %%% mode: latex
