@@ -11,24 +11,111 @@ Description of the candidates by Cecile Braunstein
 
 \section{Initial list of candidates}
 \begin{itemize}
-\item  Eclipse 
-\item  TopCased/Polarsys
+\item Eclipse 
+\item TopCased/Polarsys
 \item RTP-Cesar
 \item Mono/.NET 
 \item SCADE
 \end{itemize}
 
-After a first round, Mono/.NET and  SCADE were discard because they do
-not comply to our tool platform definition.
-RTP-CESAR was also discard, the maturity of this project is not yet
-usable. Finally, Eclipse with the modeling framework (EMF) has been chosen as a tool platform, the possibility
-to use Polarsys and take some part of the TopCased tool chain as well
-as which version of Eclipse and EMF are
-discussed in the next sections.
-It has also be decided that any framework added to Eclipse should be
-documented.
+After a first round, Mono/.NET and SCADE were discard because they do
+not comply to our tool platform definition.  RTP-CESAR was also
+discard, the maturity of this project is not yet usable. Finally,
+{\bf Eclipse with the modeling framework (EMF)} has been chosen as a tool
+platform, the possibility to use Polarsys and take some part of the
+TopCased tool chain as well as which version of Eclipse  and EMF to choose are
+discussed in the next sections.  
+
+Eclipse can also integrate framework, It has also be decided that any
+framework added to the Eclipse platform within the OpenETCS tool chain
+should be documented (version, usage ...) and clearly justify.
 
 \section{Eclipse}
+Eclipse is an open source Tool Platform originally developed at
+IBM. It has been explicitly designed as an extensible platform to
+enable different tools to exchange data and share common
+functionality. Additionally Eclipse is a rich open source ecosystem
+with a variety of frameworks for different purposes, such as
+versioning, code generation, language support and many more. The
+Eclipse Modeling Framework (EMF) as a top level project bundles all
+modeling frameworks at Eclipse. Additionally it technically provides a
+common data format for modeling purposes. Originally it has
+implemented the OMG Standard Meta-Object Facility (MOF) and has then
+be reduce to the OMG standard essential MOF (eMOF). EMF provides
+model-driven approach to develop modeling languages. It allows to
+define custom meta-models and generate code form them. Additionally it
+provides common features such as command-based editing and XMI
+serialization for generated models. In the following we show how
+Eclipse and EMF aligns with the openETCS requirements.
+
+\paragraph {Open Source}
+All Eclipse core components including EMF are open source and under
+the Eclipse Public licenses, which allows for commercial use and is
+compatible to the EUPL. The Eclipse Foundation and the Eclipse
+Development process assure the management of the intellectual
+properties for all Eclipse projects. Additionally all Eclipse projects
+follow a common infrastructure and process allowing external partners
+to contribute and maintain projects. 
+
+\paragraph{Long-Term Maintenance}
+The Eclipse Foundation also provides infrastructure and a process for
+Long-Term Maintenance for all Eclipse projects. It enables users of a
+technology to contract service providers to maintain current and older
+versions of these technologies. These service providers do not
+necessarily have to be committers on the original projects.
+
+\paragraph{Portability}
+Eclipse itself is implemented in Java and therefore portable to all
+major operating systems. The underlying UI technology SWT is
+implemented for all major and even most uncommon window kits. As SWT
+uses native widgets, the performance of the UI is close to native
+applications. The Eclipse Java IDE has a user based of several million
+developers, which ensures, that the platform runs stable on the
+supported platforms. Since version 4.2, EMF is part of the core
+platform. However, EMF does not contain any OS specific components and
+is therefore highly portable.
+
+\paragraph{Tools Interoperability}
+The Eclipse Platform has been explicitly designed to enable various
+tools of the software lifecycle to collaborate. It provides
+mechanisms, such as a service oriented architecture and extension
+points to enable the communication between different parts of a tool
+chain. EMF is well-suited as a common data-format. The collaboration
+of a large number of tools is shown and validated in the various
+Eclipse packages, which are released in the yearly release train.
+
+\paragraph{Modularity}
+Eclipse is based on OSGi, a standard for modularization of Java
+applications. The Eclipse OSGi runtime Equinox is the reference
+implementation of OSGi. OSGi enables to modularize a system, in this
+case the tool chain. Additionally it allows to specify the API of
+modules and the dependencies between them. Additionally, the existing
+platform provides many possibilities to be extended by new
+features. The extensibility and OSGi as an underlying technology allow
+fully customizing the Eclipse Platform. Existing pieces and frameworks
+can be added to a tool chain, new parts can be developed.
+
+\paragraph{Framework Support}
+Over the last ten years, a rich ecosystem of frameworks has developed
+around the Eclipse Platform. All these frameworks are developed under
+the EPL and checked for IP cleanliness. Eclipse frameworks cover all
+different kinds of purposes, however there is a strong focus in
+support for tool development and modeling. Modeling technologies are
+almost all compatible with EMF as a common data format. Technologies
+provided by Eclipse projects include:
+\begin{enumerate}
+\item Textual Modeling and DSL (e.g. Xtext)
+\item Language Support (e.g. CDT, JDT)
+\item Source Code Versioning Clients (e.g. Egit, Subclipse, Subversion)
+\item Model Repositories and Versioning (e.g. EMFCompare, EMF Diff/merge, EMFStore and CDO)
+\item Code Generation (e.g. Xpand, Xtend)
+\item Model Transformation (e.g. ATL, QVT)
+\item Model Development Tools (e.g. Papyrus, OCL, RMF, Sphinx, eTrice)
+\item Graphical Modeling (e.g. Graphiti, GMF)
+\item User Interfaces (e.g. JFace, Databinding, EMF Client Platform, EEF)
+\item ALM Tooling (e.g. Mylyn)
+\end{enumerate}
+
 
 \section{Version Management}
 
