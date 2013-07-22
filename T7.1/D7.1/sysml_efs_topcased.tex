@@ -10,7 +10,8 @@ to code generation.
 
 \begin{figure}
 	\centering
-		\includegraphics[width=\linewidth]{images/ERTMSSolutionsAlt_1.png}
+		\includegraphics[width=1.10\textwidth]{images/ERTMSSolutionsAlt_1.png}
+		\caption{SysML, ErtmsFormalSpec and Eclipse/Polarsys Proposal}
 	\label{fig:ERTMSSolutionsAlt_1}
 \end{figure}
 
@@ -86,8 +87,8 @@ Discuss the shortcommings in regards of OpenETCS requirements and expected resul
 The shortcomings of the SysML/Papyrus/ERTMSFormalSpecs/Eclipse/Polarsys proposal are the following:
 
 \begin{itemize}
-	\item ERTMSFormalSpecs has a perfectible look and feel and lacks graphical rendering of the architecture
-	\item As of today, the code generation in Eclipse/Polarsys, transforming the ERTMSFormalSpecs in generated source code, is not yet available, and must be developed during task 3.8 of the project.
+	\item ERTMSFormalSpecs has a perfectible look and feel and lacks graphical rendering of the architecture. \emph{This shortcoming might be addressed with the integration of SysML as a language for the higher level architecture.}
+	\item As of today, the code generation in Eclipse/Polarsys, transforming the ERTMSFormalSpecs in generated source code, is not yet available, and must be developed during task 3.8 of the project. \emph{This shortcoming can be mitigated by integrating the scade code generator as a itermediates solution.}
 \end{itemize}
 
 \section{On going work for openETCS project}
@@ -103,15 +104,18 @@ which skills is needed ?
 The following elements should be further developed during the OpenETCS project, to alleviate the shortcomings listed above:
 
 \begin{enumerate}
+  \item Develop conceptual and technical strategies to integrate SysML with ERTMSFormalSpecs model, going beyond the state-of-the-art. The state-of-the-art in integrating SysML models and industrial (semi-)formal languages being SCADESystem, in which only the module, interfaces and dataflows are connected to the lower-level model.
 	\item Further develop ERTMSFormalSpecs model to cover 100\% of Subset-026, 100\% of Subset-076, and to fully test the model within ERTMSFormalSpecs. 
 	\item Either implement a full eclipse-based version of the ERTMSFormalSpecs workbench for model development, traceability and testing, or improve the ERTMSFormalSpecs user interface to be fully productive for T3.5 and T3.6 tasks
 	\item Develop code-generation strategies during T3.8 tasks
 \end{enumerate}
 
-Among theses tasks, Task 1 and 3 fit inside the WP3 existing tasks, and do not need additional skills than the ones present in the OpenETCS consortium as of today.
+Among theses tasks, Task 2 and 4 fit inside the WP3 existing tasks, and do not need additional skills than the ones present in the OpenETCS consortium as of today. Task 1 is also seriously represented in the consortium, in which a lot of SysML experience is present. 
 
-Task 2 (porting the ERTMSFormalSpecs workbench to Eclipse) is a task that falls in the scope of WP7, and for which Eclipse development and integration skills are required.
+Task 3 (porting the ERTMSFormalSpecs workbench to Eclipse) is a task that falls in the scope of WP7, and for which Eclipse development and integration skills are required.
 
 \section{Conclusion and other comments}
 
-As a conclusion, the SysML/Papyrus/ERTMSFormalSpecs/Eclipse/Polarsys proposal has as key strength to be fully available today, to already model 44\% of Subset-026, and to be fully open-source. Moreover, it proposes a realistic technical foundation to achieve the WP3 and projects top-priority objectives with the skills and resources available in the project.
+As a conclusion, the SysML/Papyrus/ERTMSFormalSpecs/Eclipse/Polarsys proposal has as 3 key strengths 1/ to be fully available today, 2/ to already model 44\% of Subset-026, and 3/ to be fully open-source. 
+
+Moreover, it proposes a realistic technical foundation to achieve the WP3 and projects top-priority objectives with the skills and resources available in the project.
