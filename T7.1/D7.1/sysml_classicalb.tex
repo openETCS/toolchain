@@ -6,7 +6,62 @@
 Description of the approach by Alexander Stante.
 \end{todo_comment}
 
+This section describes the approach of combining SysML modeling with
+the B Method. The technical realization is shown in Figure
+\ref{fig:classical-b-toolchain}. Modeling starts in SysML based on the
+tool Papyrus. At the current stage of the project, it is undefined
+which SysML elements and diagrams will be used. This must be well
+defined to ensure that a transformation from SysML to Classical B is
+semantically correct. To ensure this, the approach suggest the use of
+the \emph{Object Constraint Language (OCL)} or the \emph{Eclipse
+  Validation Framework} for validating the SysML model according to
+defined modeling guidelines. Such guidelines may restrict the usage of
+certain modeling elements and may enforce certain naming conventions.
+
+The validated SysML model will be transformed to a Classical B model
+with a model to text transformation language (e.g. Xtend2). That B
+model is considered as read-only and is only allowed to be further
+refined. From that point, the existing Atelier B toolchain will be
+used for refining the model until reaching the implementation
+model. Provers support the V\&V activities and the open source code
+generator c4g is capable of generating C code.
+
+The proposed toolchain is intended to be a first version. The yellow
+boxes in Figure \ref{fig:classical-b-toolchain} indicate non existing
+software artifacts that have to be developed within the openETCS
+project. Furthermore, it is desirable to move parts from the Atelier B
+tool into Eclipse. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=6in]{images/classical_b_toolchain.pdf}
+  \caption{Technical overview of the Papyrus and Classical-B toolchain}
+  \label{fig:classical-b-toolchain}
+\end{figure}
+
+
+In Table \ref{tab:classical-b-tools} the list of tools used in the
+proposed toolchain is given.
+
+\begin{center}
+\begin{table}
+  \begin{tabular}{ l | l | l }
+    Tool                               & License & Link \\ 
+    \hline \hline
+    Bart (B Automatic Refinement Tool) & GPL & \url{http://sf.net/projects/bartrefiner/} \\ \hline
+    Atelier B GUI                      & GPL & \url{http://sf.net/projects/atelierbgui/} \\ \hline
+    Bcomp (B Compiler)                 & GPL & \url{http://sf.net/projects/bcomp/} \\ \hline
+    C4b (C Code Generator)             & GPL & \url{http://sf.net/projects/c4b/} \\ \hline
+    \hline
+  \end{tabular}
+  \caption{Tools used in the Classical B toolchain}
+  \label{tab:classical-b-tools}
+\end{table}
+\end{center}
+
 \section{Description of the approach for OpenETCS design process}
+
+
 
 \begin{todo_comment}
 How the proposed approach covers all "blue" design process ( see \ref{fig:main_process}) ?
