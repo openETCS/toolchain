@@ -147,7 +147,7 @@ openETCS project based on ERDC class v1.1]
 %% \cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black}
 %% \IsLicensedUnderCC{ - \includegraphics[width=3em]{oOLT.png}}}
 \cfoot{\scriptsize\textit{This work is licensed under the "openETCS Open License Terms" (oOLT).}} 
-%% \includegraphics[width=30pt]{oOLT.png}}
+%% \includegraphics[width=30pt]{template/oOLT.png}}
 \rfoot{}
 \newif\if@frontmatter
 \@frontmatterfalse
@@ -240,7 +240,7 @@ openETCS project based on ERDC class v1.1]
 \def\reporttype#1{\gdef\@reporttype{#1}}
 \reporttype{}
 \def\distribution#1{\gdef\@distribution{#1}}
-\distribution{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing:  \includegraphics[width=30pt]{oOLT.png}}
+\distribution{This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing:  \includegraphics[width=30pt]{template/oOLT.png}}
 \def\preparedfor#1{\gdef\@preparedfor{#1}}
 \preparedfor{openETCS@ITEA2 Project}
 \def\contractnum#1{\gdef\@contractnum{#1}}
@@ -317,7 +317,7 @@ TERMS AND CONDITIONS.
    \begin{@coverlist}%
      \sffamily\fontseries{k}\selectfont%
      \hfill\parbox{145\p@}{\centering
-       \includegraphics[width=145\p@]{itea}\\
+       \includegraphics[width=145\p@]{template/itea}\\
        {\bfseries
          ITEA2 Project\\Call 6 11025\\2012 -- 2015}}\\
        \par
