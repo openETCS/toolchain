@@ -1,11 +1,6 @@
 \chapter{SysML and ClassicalB}
 \label{sec:sysML-B}
 
-
-\begin{todo_comment}
-Description of the approach by Alexander Stante.
-\end{todo_comment}
-
 This section describes the approach of combining SysML modeling with
 the B Method. The technical realization is shown in Figure
 \ref{fig:classical-b-toolchain}. Modeling starts in SysML based on the
@@ -61,17 +56,50 @@ proposed toolchain is given.
 
 \section{Description of the approach for OpenETCS design process}
 
+Taking into account the results presented in Section
+\ref{sec:results}, the proposed toolchain completely covers both, the
+system phase as well as the software phase (see
+Fig. \ref{fig:results}). On system analysis level, SysML with Papyrus
+would be used for modeling the SSRS. Also for the sub-system semi
+formal model, which will be created during the sub-system formal
+design phase, it is proposed to use SysML with Papyrus. The finished
+models will then be transformed to B models, to perform further
+development steps according to the B method.
 
+For both, the sub-system strictly formal model and the software
+semi-formal model it is proposed to use the B method. The development
+of the B models will be done by further refining the read-only B
+model, generated from the SysML model. It has to be investigated where
+\emph{exactly} the transition between SysML and the B model will be
+done. In particular, it is currently unclear which SysML language
+constructs and diagrams will be used and transformed to B. The
+structure described in SysML with \emph{Block Definition Diagrams
+  (BDD)} and \emph{Internal Block Diagram (IBD)} are obviously prime
+candidates for a transformation to B, but which behavior diagram can
+and will can be transformed is still under investigation.
 
-\begin{todo_comment}
-How the proposed approach covers all "blue" design process ( see \ref{fig:main_process}) ?
-\end{todo_comment}
+The last part of the development process, the code generation, is
+performed with an existing code generator tool.
 
 \section{Integration of the approach with SysML/Papyrus}
 
 \begin{todo_comment}
 How the proposed approach can be integrated with the SysML/ Papyrus selected for the high level of design process ?
 \end{todo_comment}
+
+On the technical side, the integration will be performed by utilizing
+the EMF framework of Eclipse. With an appropriate transformation
+language (e.g. Xtend), the SysML model can be transformed to a textual
+B model. If it is advantageous to perform the transformation with an
+intermediate B meta-model and an a mode-to-model transformation (see
+Fig. \ref{}) is under investigation.
+
+The semantic integration of SysML and B method imposes a greater
+challenge. There already exist literature regarding the alignment of
+SysML and the B method. The work in \cite{} provides such an alignment
+focusing on V\&V, which could be used as a base for further research
+which consider in particular the openETCS requirements.
+
 
 \section{Integration of the approach with Eclipse}
 
