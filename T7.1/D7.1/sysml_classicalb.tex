@@ -146,26 +146,37 @@ Fig. \ref{fig:classical-b-toolchain}). During the project these parts
 will be further investigated with the goal to be replaced by
 open-source equivalents.
 
+
+
 \begin{todo_comment}
 Discuss the shortcommings in regards of OpenETCS requirements and expected results.
 \end{todo_comment}
 
 \section{On going work for openETCS project}
 
-\begin{todo_comment}
-Which are the elements to clarify, to specify or to develop, in order the approach suit the openETCS process ?
+One of the most important parts is to define a subset of SysML which
+can be transformed to Classical B and preserves it semantics. Probably
+the other toolchains also need a restricted usage of SysML, therefore
+a collaboration on this topic would be advantageous. Furthermore, it
+would be ideal if one subset could be defined, which is applicable to
+all proposed toolchains.
 
-How can we evaluate and plan this work ?
+Another ongoing work is the precise definition of the border between
+SysML and Classical B. This work is also linked to the work described
+in the previous paragraph, as the border my have implication on
+diagrams used in SysML.
 
-which skills is needed ?
-\end{todo_comment}
+The transformation from SysML to Classical B must be planned and
+developed within this project. On the implementation part a desirable
+skill is the knowledge of transformation languages in Eclipse.
 
-\begin{itemize}
-\item Define a subset of SysML that can be transformed to Classical B
-\item Specify the precise border between SysML and Classical B
-\item Plan and develop the model transformation from SysML to Classical B
-\item Develop checks to ensure the completeness of the SysML model
-\item 
-\end{itemize}
+Experience has shown that for model transformations the source model
+should be checked according to guidelines. An obvious one is naming as
+the source model may allow character combinations that are prohibited
+in the destination model.
+
+To show the capabilities and to identify any currently unforeseen
+barriers, an early prototype should be developed which illustrates all
+steps using an example use-case.
 
 \section{Conclusion and other comments}
