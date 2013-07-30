@@ -93,8 +93,8 @@ Fig. \ref{}) is under investigation.
 The semantic integration of SysML and B method imposes a greater
 challenge. There already exist literature regarding the alignment of
 SysML and the B method. The work in \cite{} provides such an alignment
-focusing on V\&V, which could be used as a base for further research
-which consider in particular the openETCS requirements.
+focusing on V\&V, which could be used as a base for further research,
+which considers in particular the openETCS requirements.
 
 
 \section{Integration of the approach with Eclipse}
@@ -120,9 +120,23 @@ Transportaion Systems (see \ref{} for an extensive list).
 
 Most parts of the toolchain are already available and distributed
 under an open source license. The transformation from SysML to B is
-the only missing software artifact that has to be developed for the
+the only missing software artifact, that has to be developed for the
 first version of the toolchain (see
 Fig. \ref{fig:classical-b-toolchain}).
+
+The project consortium includes partner with great expertise in both
+languages, SysML and B. By incorporating these expertise, there is a
+good chance that the proclaimed goals of openETCS will be achieved.
+
+The modular architecture allows the exchange of certain tools with
+more powerful alternatives, even if they are closed-source. For
+example, there is a closed source code generator which allows the
+creation of ADA or C++ code. This code generator could be used as a
+drop-in replacement for the open-source c4b if necessary.
+
+Furthermore, with Eclipse and Atelier-B versions for Windows, Mac OS
+and Linux, the most common operating systems are supported by the
+proposed toolchain.
 
 \section{Shortcommings versus OpenETCS requirements}
 
@@ -139,5 +153,13 @@ How can we evaluate and plan this work ?
 
 which skills is needed ?
 \end{todo_comment}
+
+\begin{itemize}
+\item Define a subset of SysML that can be transformed to Classical B
+\item Specify the precise border between SysML and Classical B
+\item Plan and develop the model transformation from SysML to Classical B
+\item Develop checks to ensure the completeness of the SysML model
+\item 
+\end{itemize}
 
 \section{Conclusion and other comments}
