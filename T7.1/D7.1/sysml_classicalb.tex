@@ -1,4 +1,4 @@
-\chapter{SysML and ClassicalB}
+\chapter{SysML and Classical B}
 \label{sec:sysML-B}
 
 This section describes the approach of combining SysML modeling with
@@ -140,17 +140,29 @@ proposed toolchain.
 
 \section{Shortcommings versus OpenETCS requirements}
 
-Although the majority of tools used in the toolchain are open-source,
-there is a small amount of tools which are closed source (see
-Fig. \ref{fig:classical-b-toolchain}). During the project these parts
-will be further investigated with the goal to be replaced by
+Although the majority of the toolchain are open-source, there is still
+a small amount of tools which are closed source (see
+Fig. \ref{fig:classical-b-toolchain}). During this project, these
+parts will be further investigated with the goal to be replaced by
 open-source equivalents.
 
+A general weak point of the approach is the interface between Eclipse
+and Atelier-B. It would be favorable if the tool flow is only
+unidirectional. However, if during refinement steps in Classical B an
+bug in the initial B model is encountered, a correction in the
+original SysML model is necessary. This change triggers the generation
+of a new, initial B model. A bi-directional transformation could ease
+this issue, which would require a tighter integration of both
+tools. This is amongst other one reason why moving parts from
+Atelier-B to Eclipse should be further investigated.
 
-
-\begin{todo_comment}
-Discuss the shortcommings in regards of OpenETCS requirements and expected results.
-\end{todo_comment}
+The example from the previous paragraph also show that the modeler
+should preferable have knowledge of both, SysML and Classical B. The
+reason is that otherwise bugs found in the SysML model during the
+Classical B development phase have to be fixed by the modeler of the
+original SysML model, which may be inefficient. This issue should be
+also considered when the border between SysML and Classical B is
+defined.
 
 \section{On going work for openETCS project}
 
@@ -180,3 +192,16 @@ barriers, an early prototype should be developed which illustrates all
 steps using an example use-case.
 
 \section{Conclusion and other comments}
+
+The proposed toolchain based on SysML and Classical B covers the
+openETCS design phases from system analysis, sub-system formal design,
+software design and software code generation.
+
+Both, the proposed languages and tools have industry acceptance and
+were used in projects developing safety critical embedded systems. 
+
+After defining the border between SysML and Classical B, only the
+transformation between both languages has to be developed for an
+initial version of the toolchain. During the project, this initial
+version can be gradually improved to remove the last remaining
+closed-source (see Fig. \ref{fig:classical-b-toolchain}) tools.
