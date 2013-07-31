@@ -1,30 +1,25 @@
-\chapter{SysML and ClassicalB}
+\chapter{SysML and Classical B}
 \label{sec:sysML-B}
 
-
-\begin{todo_comment}
-Description of the approach by Alexander Stante.
-\end{todo_comment}
-
 This section describes the approach of combining SysML modeling with
-the B Method. The technical realization is shown in Figure
+Classical B. The technical realization is shown in Figure
 \ref{fig:classical-b-toolchain}. Modeling starts in SysML based on the
 tool Papyrus. At the current stage of the project, it is undefined
 which SysML elements and diagrams will be used. This must be well
 defined to ensure that a transformation from SysML to Classical B is
-semantically correct. To ensure this, the approach suggest the use of
-the \emph{Object Constraint Language (OCL)} or the \emph{Eclipse
-  Validation Framework} for validating the SysML model according to
-defined modeling guidelines. Such guidelines may restrict the usage of
-certain modeling elements and may enforce certain naming conventions.
+semantically correct. To validate the SysML model according to define
+modeling guidelines, the approach suggest the use of the \emph{Object
+  Constraint Language (OCL)} or the \emph{Eclipse Validation
+  Framework}. Such guidelines may restrict the usage of certain
+modeling elements and may enforce certain naming conventions.
 
 The validated SysML model will be transformed to a Classical B model
-with a model to text transformation language (e.g. Xtend2). That B
-model is considered as read-only and is only allowed to be further
-refined. From that point, the existing Atelier B toolchain will be
-used for refining the model until reaching the implementation
-model. Provers support the V\&V activities and the open source code
-generator c4g is capable of generating C code.
+with a model-to-text transformation language (e.g. Xtend). The
+generated Classical B model is considered as read-only and is only
+allowed to be further refined. From that point, the existing Atelier B
+toolchain will be used for refining the model until reaching the
+implementation. Provers support the V\&V activities and the open
+source code generator c4b is capable of generating C code.
 
 The proposed toolchain is intended to be a first version. The yellow
 boxes in Figure \ref{fig:classical-b-toolchain} indicate non existing
@@ -61,44 +56,164 @@ proposed toolchain is given.
 
 \section{Description of the approach for OpenETCS design process}
 
+Taking into account the results presented in Section
+\ref{sec:results}, the proposed toolchain completely covers both, the
+system phase as well as the software phase (see
+Fig. \ref{fig:results}). SysML with Papyrus would be used for modeling
+the SSRS on analysis level. The same tools will be used for the
+sub-system semi formal model, which will be created during the
+sub-system formal design phase. The SysML models will then be
+transformed to Classical B models, with the intention to perform
+further development steps according to the B method.
 
+For both, the sub-system strictly formal model and the software
+semi-formal model it is proposed to use Classical B. The development
+of the B model will be done by further refining the read-only B
+models, which was generated from the SysML model. It has to be
+investigated where \emph{exactly} the transition between SysML and
+Classical B will be done. In particular, it is currently unclear which
+SysML language constructs and diagrams will be used that can be
+transformed to Classical B. The structure described in SysML with
+\emph{Block Definition Diagrams (BDD)} and \emph{Internal Block
+  Diagram (IBD)} are obviously prime candidates for a transformation
+to Classical B, but which behavior diagram will can be transformed is
+still under investigation.
 
-\begin{todo_comment}
-How the proposed approach covers all "blue" design process ( see \ref{fig:main_process}) ?
-\end{todo_comment}
+The last part of the development process is the code generation and it
+is proposed to be performed with an existing code generator tool
+(c4b).
 
 \section{Integration of the approach with SysML/Papyrus}
 
-\begin{todo_comment}
-How the proposed approach can be integrated with the SysML/ Papyrus selected for the high level of design process ?
-\end{todo_comment}
+On the technical side, the integration will be performed by utilizing
+the EMF framework of Eclipse. With an appropriate transformation
+language (e.g. Xtend), the SysML model can be transformed to a textual
+representation in Classical B. Whether or not it is advantageous to
+perform the transformation with an intermediate Classical B meta-model
+and an a mode-to-model transformation (see
+Fig. \ref{fig:classical-b-transformation-alternatives}) is under
+investigation.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4in]{images/classical_b_transformation_alternatives.pdf}
+  \caption{Alternatives in the transformation from SysML to Classical B}
+  \label{fig:classical-b-transformation-alternatives}
+\end{figure}
+
+The semantic integration of SysML and B method imposes a greater
+challenge. There already exist literature regarding the alignment of
+SysML and the B method. The work in \citep{bousse}
+provides such an alignment focusing on V\&V, which could be used as a
+base for further research, that considers in particular the openETCS
+requirements.
+
 
 \section{Integration of the approach with Eclipse}
 
-\begin{todo_comment}
-How the proposed approach can be integrated with the Eclipse, selected as platform for OpenETCS tool chain ?
-\end{todo_comment}
+The integration of the proposed toolchain is mainly done as described
+in the previous section. After using SysML, the used tool is changed
+to Atelier B. This obviously does not correspond to a fully Eclipse
+based toolchain. However, this proposal only reflects an initial
+toolchain, which could be improved during the project and beyond. The
+parts of the toolchain which are user visible and realized with
+Atelier B in the first version, could be progressively moved to an
+Eclipse based solution. To what extend components from existing
+solutions (e.g. the Rodin platform) can be used and if there are
+enough resources available in the project, has to be investigated.
 
 \section{Benefits versus OpenETCS requirements}
 
-\begin{todo_comment}
-Discuss the benefits in regards of OpenETCS requirements and expected results.
-\end{todo_comment}
+Both, SysML and the B Methods are accepted in the industry and have
+been successful used in the development of safety critical embedded
+systems. The B Method was used in projects like KVB by Alstom, SAET
+METEOR or in the driverless metro line 1 in Paris by Siemens
+Transportaion Systems (see \ref{} for an extensive list).
+
+Most parts of the toolchain are already available and distributed
+under an open source license. The transformation from SysML to B is
+the only missing software artifact, that has to be developed for the
+first version of the toolchain (see
+Fig. \ref{fig:classical-b-toolchain}).
+
+The project consortium includes partner with great expertise in both
+languages, SysML and B. By incorporating these expertise, there is a
+good chance that the proclaimed goals of openETCS will be achieved.
+
+The modular architecture allows the exchange of certain tools with
+more powerful alternatives, even if they are closed-source. For
+example, there is a closed source code generator which allows the
+creation of ADA or C++ code. This code generator could be used as a
+drop-in replacement for the open-source c4b if necessary.
+
+Furthermore, with Eclipse and Atelier-B versions for Windows, Mac OS
+and Linux, the most common operating systems are supported by the
+proposed toolchain.
 
 \section{Shortcommings versus OpenETCS requirements}
 
-\begin{todo_comment}
-Discuss the shortcommings in regards of OpenETCS requirements and expected results.
-\end{todo_comment}
+Although the majority of the toolchain are open-source, there is still
+a small amount of tools which are closed source (see
+Fig. \ref{fig:classical-b-toolchain}). During this project, these
+parts will be further investigated with the goal to be replaced by
+open-source equivalents.
+
+A general weak point of the approach is the interface between Eclipse
+and Atelier-B. It would be favorable if the tool flow is only
+unidirectional. However, if during refinement steps in Classical B an
+bug in the initial B model is encountered, a correction in the
+original SysML model is necessary. This change triggers the generation
+of a new, initial B model. A bi-directional transformation could ease
+this issue, which would require a tighter integration of both
+tools. This is amongst other one reason why moving parts from
+Atelier-B to Eclipse should be further investigated.
+
+The example from the previous paragraph also show that the modeler
+should preferable have knowledge of both, SysML and Classical B. The
+reason is that otherwise bugs found in the SysML model during the
+Classical B development phase have to be fixed by the modeler of the
+original SysML model, which may be inefficient. This issue should be
+also considered when the border between SysML and Classical B is
+defined.
 
 \section{On going work for openETCS project}
 
-\begin{todo_comment}
-Which are the elements to clarify, to specify or to develop, in order the approach suit the openETCS process ?
+One of the most important parts is to define a subset of SysML which
+can be transformed to Classical B and preserves it semantics. Probably
+the other toolchains also need a restricted usage of SysML, therefore
+a collaboration on this topic would be advantageous. Furthermore, it
+would be ideal if one subset could be defined, which is applicable to
+all proposed toolchains.
 
-How can we evaluate and plan this work ?
+Another ongoing work is the precise definition of the border between
+SysML and Classical B. This work is also linked to the work described
+in the previous paragraph, as the border my have implication on
+diagrams used in SysML.
 
-which skills is needed ?
-\end{todo_comment}
+The transformation from SysML to Classical B must be planned and
+developed within this project. On the implementation part a desirable
+skill is the knowledge of transformation languages in Eclipse.
+
+Experience has shown that for model transformations the source model
+should be checked according to guidelines. An obvious one is naming as
+the source model may allow character combinations that are prohibited
+in the destination model.
+
+To show the capabilities and to identify any currently unforeseen
+barriers, an early prototype should be developed which illustrates all
+steps using an example use-case.
 
 \section{Conclusion and other comments}
+
+The proposed toolchain based on SysML and Classical B covers the
+openETCS design phases from system analysis, sub-system formal design,
+software design and software code generation.
+
+Both, the proposed languages and tools have industry acceptance and
+were used in projects developing safety critical embedded systems. 
+
+With the exact definition of the border between SysML and Classical B,
+only the transformation between both languages has to be developed for
+an initial version of the toolchain. During the project, this initial
+version can be gradually improved to remove the last remaining
+closed-source (see Fig. \ref{fig:classical-b-toolchain}) tools.
