@@ -1,26 +1,26 @@
-\chapter{Results on means and tools for primary tool chain}
+\chapter{Results on means and tools for primary toolchain}
 \label{sec:results}
 
-\section{Proposed Tool Chains}
+\section{Proposed Toolchains}
 
-This chapter describes the proposed tool chains and the selection process for finding them.
+This chapter describes the proposed toolchains and the selection process for finding them.
 
-There were three tool chain proposals in total (Figure~\ref{fig:proposals}).  These are:
+There were three toolchain proposals in total (Figure~\ref{fig:proposals}).  These are:
 
  \begin{figure}[b!]
   \centering
   \includegraphics[width=\linewidth]{images/compare-toolchains.pdf}
-  \caption{Proposed Tool Chains}
+  \caption{Proposed Toolchains}
   \label{fig:proposals}
 \end{figure}
 
 \begin{description}
 
-\item[Scade.] A Scade-based primary toolchain would consist of the two tools Papyrus and Scade.  An integration between the tools already exists, and both tools cover all activities.  The biggest advantage is that there would be little additional work necessary to cover the primary tool chain.  The biggest drawback of this solution is the fact that Scade is not open source.
+\item[Scade.] A Scade-based primary toolchain would consist of the two tools Papyrus and Scade.  An integration between the tools already exists, and both tools cover all activities.  The biggest advantage is that there would be little additional work necessary to cover the primary toolchain.  The biggest drawback of this solution is the fact that Scade is not open source.
 
-\item[ERTMS Formal Specs (EFS).] An EFS-based primary toolchain would mainly consists of the Papyrus, EFS and additional components from the Eclipse ecosystem, looking at Polarsys for guidance.  It is not clear if and how the formal models could be modelled with this tool chain.  The biggest advantage of this approach is that it is open source, and that a significant portion of Subset 26 has already modelled with EFS.  The biggest drawback is that it is not clear how the integration with Papyrus would look like, that EFS is only partly ported to Eclipse, and that it is not clear how laborious the tailoring of the Eclipse-based formal modeling tools would be.
+\item[ERTMS Formal Specs (EFS).] An EFS-based primary toolchain would mainly consists of the Papyrus, EFS and additional components from the Eclipse ecosystem, looking at Polarsys for guidance.  It is not clear if and how the formal models could be modelled with this toolchain.  The biggest advantage of this approach is that it is open source, and that a significant portion of Subset 26 has already modelled with EFS.  The biggest drawback is that it is not clear how the integration with Papyrus would look like, that EFS is only partly ported to Eclipse, and that it is not clear how laborious the tailoring of the Eclipse-based formal modeling tools would be.
 
-\item[B.] In contrast to the previous proposals, this one starts bottom-up, starting with the assumption that code generation from B models is possible and practical.   This tool chain proposes working with B on the bottom two layers, but leaves open how these are connected to the Papyrus-based top.  The biggest advantage of this approach is that the resulting model will be usable, and that there is a rich existing ecosystem for B, both open source and commercial.  The biggest drawback is that there are many blanks to fill in, which may require significant development work.
+\item[B.] In contrast to the previous proposals, this one starts bottom-up, starting with the assumption that code generation from B models is possible and practical.   This toolchain proposes working with B on the bottom two layers, but leaves open how these are connected to the Papyrus-based top.  The biggest advantage of this approach is that the resulting model will be usable, and that there is a rich existing ecosystem for B, both open source and commercial.  The biggest drawback is that there are many blanks to fill in, which may require significant development work.
 
 \end{description}
 
@@ -34,13 +34,13 @@ The selection process consisted of the six steps shown here, with more detail be
 
 \item[Assessment (Section~\ref{sec:assessment}).] Each Benchmark was assessed by its author and by two additional assessors (in the case of Petri Nets and GNATprove, there was just one assessor).  The assessment quantified evaluation criteria, resulting in a report consisting of hundreds of scores for each completed benchmark.
 
-\item[Decision Meeting(Section~\ref{sec:decision_meeting}).] A decision meeting took place to eliminate tools and to start looking at possible tool configuration that would form the primary tool chain.  During this meeting, Enterprise Architect (SysML) was also elimiated, in favor of the open source alternative Papyrus.  Further, Papyrus/Scade was identified as one promising tool chain.  Further, Papyurs had been selected as the tool for the Sub System Semi-formal model.
+\item[Decision Meeting(Section~\ref{sec:decision_meeting}).] A decision meeting took place to eliminate tools and to start looking at possible tool configuration that would form the primary toolchain.  During this meeting, Enterprise Architect (SysML) was also elimiated, in favor of the open source alternative Papyrus.  Further, Papyrus/Scade was identified as one promising toolchain.  Further, Papyurs had been selected as the tool for the Sub System Semi-formal model.
 
-\item[Composition of Tool Chains (Section~\ref{sec:composition_of_tool_chains}).] With the number of tools reduced significantly and one selected tool (Papyurus), team members were invited to propose concrete tool chains covering the primary tool chain.  This resulted in two more proposals, in addition to Papyrus/Scade.
+\item[Composition of Toolchains (Section~\ref{sec:composition_of_tool_chains}).] With the number of tools reduced significantly and one selected tool (Papyurus), team members were invited to propose concrete toolchains covering the primary toolchain.  This resulted in two more proposals, in addition to Papyrus/Scade.
 
-\item[Documenting the Decision (Section~\ref{sec:documenting_the_decision}).] This deliverable documents the three tool chains, as well as their respective strength and weaknesses.  As has been determined a long time ago\footnote{Tool Selection Process: https://github.com/openETCS/model-evaluation/wiki/Benchmark--to-evaluate-model-and-tools\#tool-selection-process}, we didn't expect a clear single ``best'' solution.  The document will steer the upcoming activities to prevent redundant or unnecessary work.
+\item[Documenting the Decision (Section~\ref{sec:documenting_the_decision}).] This deliverable documents the three toolchains, as well as their respective strength and weaknesses.  As has been determined a long time ago\footnote{Tool Selection Process: https://github.com/openETCS/model-evaluation/wiki/Benchmark--to-evaluate-model-and-tools\#tool-selection-process}, we didn't expect a clear single ``best'' solution.  The document will steer the upcoming activities to prevent redundant or unnecessary work.
 
-\item[Final Choice of Toolchain.] Which of the three competing toolchains will eventually be used for openETCS shall be decided six month after D7.1 the latest (as documented in the tool selection process).  Note that this may not be one of the three suggested, but could also be a composition of elements of the three tool chains.
+\item[Final Choice of Toolchain.] Which of the three competing toolchains will eventually be used for openETCS shall be decided six month after D7.1 the latest (as documented in the tool selection process).  Note that this may not be one of the three suggested, but could also be a composition of elements of the three toolchains.
 
 \end{description}
 
@@ -67,7 +67,7 @@ $\dagger$ The evaluation of three tools was stopped prematurely.  They are menti
 \item[UPPAAL] It is a tool dedicated to the verification and validation of time-constraints properties, for example joined with SystemC. It has been proposed for the benchmark on secondary tools (T7.2).
 \end{description}
 
-$\ddagger$ At the end of the evaluation, three others approaches have been discard from the primary tool chain:
+$\ddagger$ At the end of the evaluation, three others approaches have been discard from the primary toolchain:
 
 \begin{description}
 \item[GOPPR] SysML seems a better candidate to offer the same services.
@@ -80,13 +80,13 @@ $\ddagger$ At the end of the evaluation, three others approaches have been disca
 
 Each Benchmark was assessed by its author and by two additional assessors (in the case of Petri Nets and GNATprove, there was just one assessor).  This has been documented in \citep{WP7_O719}, which contains the ``raw data'', as well as some rudimentary aggregation of the data and some analysis.
 
-The criteria in \ref{WP7_O719} were derived from WP2 requirements and quantified on scale from 0 to 3.  The results were recorded as the sum of the author and the two assessors, resulting in a score from 0 to 9 for each criteria.  The benchmarks with only one assessor have been adjusted by interpolating the score, shown in parenteses.
+The criteria in \citep{WP7_O719} were derived from WP2 requirements and quantified on scale from 0 to 3.  The results were recorded as the sum of the author and the two assessors, resulting in a score from 0 to 9 for each criteria.  The benchmarks with only one assessor have been adjusted by interpolating the score, shown in parenteses.
 
-To give an idea of the results, Figure~\ref{fig:phaseresults} shows the aggregated result of the benchmark for process phases.  These results must be taken with a grain of salt: This aggregation simply averages all relevant scores, thereby giving all criteria equal weight.  This is an unrealistic (and dangerous) assumption.  In fact in the case of the criteria ``open source'' it created a real problem.  As Open Proof is the foundation of openETCS, using a closed-source tool with no open alternative should be a show stopper.  But this does not show in the results of \citep{WP7_O719}.
+To give an idea of the results, Table~\ref{tab:phaseresults} shows the aggregated result of the benchmark for process phases.  These results must be taken with a grain of salt: This aggregation simply averages all relevant scores, thereby giving all criteria equal weight.  This is an unrealistic (and dangerous) assumption.  In fact in the case of the criteria ``open source'' it created a real problem.  As Open Proof is the foundation of openETCS, using a closed-source tool with no open alternative should be a show stopper.  But this does not show in the results of \citep{WP7_O719}.
 
 Futher, not all criteria could be quantified easily, resulting in surprising and suspicious results.  For instance, the assessments of Papyrus and Enterprise Architect sometimes differed drastically, even in areas, where the notation (and not the tool) was concerned.  This was not expected, as both tools support the same notation.  This means that the results must be inspected carefully, before drawing conclusions.
 
- \begin{figure}
+ \begin{table}
   \centering
 \begin{tabular}{|l | c | c | c | c | c | c | c | c | c | c |}
 \hline
@@ -102,13 +102,13 @@ Software code generation  & \textcolor{red}{\textbf{9}} & \textcolor{green}{0} &
 \hline
 \end{tabular}
   \caption{Use of the approaches during process phases}
-  \label{fig:phaseresults}
-\end{figure}
+  \label{tab:phaseresults}
+\end{table}
 
 \subsection{Decision Meeting}
 \label{sec:decision_meeting}
 
-On July 4th, a WP7 workshop took place with the objective of chosing suitable tools for the toolchain.  To ease the process, the results from \citep{WP7_O719} were condensed into Figure~\ref{fig:results}.  The vertical stripes represent the individual tools.  The length and position of the stripe is determined by Figure~\ref{fig:phaseresults}: The bar only covers area with a score of 6 or higher.
+On July 4th, a WP7 workshop took place with the objective of chosing suitable tools for the toolchain.  To ease the process, the results from \citep{WP7_O719} were condensed into Figure~\ref{fig:results}.  The vertical stripes represent the individual tools.  The length and position of the stripe is determined by Table~\ref{tab:phaseresults}: The bar only covers area with a score of 6 or higher.
 
  \begin{figure}
   \centering
@@ -121,6 +121,8 @@ On July 4th, a WP7 workshop took place with the objective of chosing suitable to
 
 Using the available data as the foundation, the objective was to narrow the choices down as much as possible.  One obvious redundancy was the availability of two SysML tools, Papyrus and Enterprise Architect. After discussion of pros and cons of each, the partners agreed that Papyrus covers better the objectives of the project, especially the open-source requirement. 
 
+Further, by vote, all the partners agree on the use Papyrus/SysML to cover the higher level of the  OpenETCS V-cycle.
+
 \subsubsection{Short List}
 
 Due to the evaluation and discussion during the decision meeting, the partners agreed on a short-list of six approaches. These are shown in red in Figure~\ref{fig:results}. and include the following:
@@ -131,17 +133,17 @@ SysML with Papyrus & System C \\
 Classical B with Atelier B & EventB with Rodin
 \end{tabular}
 
-\subsection{Composition of Tool Chains}
+\subsection{Composition of Toolchains}
 \label{sec:composition_of_tool_chains}
 
-One tool chain was already suggested during the Paris meeting, namely Papyrus and Scade.  Nevertheless, partners had the chance to propose additional tool chains using the tools from the shortlist.  It was necessary to find alternatives, as one severe weakness of the Papyrus/Scade solution had already been pointed out in Paris: By not being open source, this solution would miss one of the main objectives of openETCS.
+One toolchain was already suggested during the Paris meeting, namely Papyrus and Scade.  Nevertheless, partners had the chance to propose additional toolchains using the tools from the shortlist.  It was necessary to find alternatives, as one severe weakness of the Papyrus/Scade solution had already been pointed out in Paris: By not being open source, this solution would miss one of the main objectives of openETCS.
 
-Two more tool chains have been proposed, resulting in three tool chains in total.  These have been documented by their respective owners in the appendix.
+Two more toolchains have been proposed, resulting in three toolchains in total.  These have been documented by their respective owners in the appendix.
 
 \subsection{Documenting the Decision}
 \label{sec:documenting_the_decision}
 
-What has been documented so far is a promising foundation for an openETCS primary tool chain.  However, it is not clear on how to proceed from here, as there are multiple competing avenues.  Resources in the project are thin and should be employed wisely.  Therefore, Section~\ref{} contains an elaborate analysis with a clear roadmap for the next six month, ensuring that we will choose the best option for openETCS while minimizing risk.
+What has been documented so far is a promising foundation for an openETCS primary toolchain.  However, it is not clear on how to proceed from here, as there are multiple competing avenues.  Resources in the project are thin and should be employed wisely.  Therefore, Section~\ref{sec:decision} contains an elaborate analysis with clear decisions that will guide the activities of the next six month, ensuring that we will choose the best option for openETCS while minimizing risk.
 
 
 

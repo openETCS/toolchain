@@ -1,46 +1,140 @@
+
+% (mj) a macro for clearly marking decisions as such.
+\newcounter{decision}
+\newcommand{\decision}[1]{
+\begin{center}
+\begin{tabular}{ p{13cm} }
+\stepcounter{decision}\textbf{Decision~\arabic{decision}}  \\
+\hline
+\multicolumn{1}{|p{13cm}|}{#1} \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+
 \chapter{Decision}
 \label{sec:decision}
 
-As anticipalted there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting ressources and being unfocussed.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.
-
-\section{Four Models}
-
-The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
-
-
-
-
+As anticipalted there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting ressources and being unfocussed.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.  However, the choice of the tool platform was easy and unanimous.
 
 \section{Decision on the tool platform}
 
-By vote, all the partners agree on the use of \textbf{Eclipse} as tool platform.
+By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform.  Which version of Eclipse will be used is up to the implementing team (WP7.3).  The last release is Kepler 4.3, launched the 26 of June 2013.
 
-The last release is Kepler 4.3, launched the 26 of June 2013.
+\section{SWOT Analysis}
+
+By looking a the strengths, weaknesses, opportunities and threads (SWOT) of each toolchain, we will get a qualitative impression on what we could gain with each solution, and what the risks are.
+
+\subsection{Scade SWOT Analysis}
+
+\subsubsection{Strengths (Scade)}
+
+The biggest strength of Scade by far is that it works ``out of the box'', barely any tailoring is required.  Scade has been developed for systems engineering, and this is exactly the right field of application.  Further, a Papyrus integration is already available, so little work has to be done here.  Another strength is the fact that some of the secondary tool activities are covered by Scade as well.
+
+\subsubsection{Weaknesses (Scade)}
+
+The biggest weakness of Scade is a show stopper: Scade is not open source, and as no open source alternative exists, openETCS would miss its open proofs objective.
+
+\subsubsection{Opportunities (Scade)}
+
+Using Scade would doubtless increase the chances of success of the modeling activities.  Thus, Scade is an excellent backup plan.  By nominating Scade as a backup, we would ensure damange control: A successful model, even if not created with open tools is preferrable to no model at all.
+
+There is another opportunity: by dangling the chance to adapt Scade and potentially opening a large market segment, Esterel (manufacturer of Scade) may decide to open Scade --- at least enough for our purposes.
+
+\subsubsection{Threads (Scade)}
+
+There is the real thread that Esterel is encouraging us to adapt Scade under the premis of opening parts of Scade to be compliant with open proofs.  If such discussions would breakdown, after modelling has already started, we'd have a problem.
+
+\subsection{ERTMS Formal Specs SWOT Analysis}
+
+\subsubsection{Strengths (EFS)}
+
+EFS is open source.  Even better, a significant portion of the ETCS specification has already been modelled using the tool.  The creator of the tool (ERTMS Formal Specs) is available in the project and has project resources for WP7, which should result in fast turnaround during development.
+
+It has already been proven that all features of the ETCS specification can be modelled.
+
+EFS has been developed as a commercial tool and is based on real-world needs in the rail industry.
+
+\subsubsection{Weaknesses (EFS)}
+
+EFS has originally been written using the .NET platform.  Even though a prototype based on Eclipse EMF exists, a significant amount of work is required to make it truly user friendly.  However, it should be possible to work during a transition phase with the old tool.
+
+As the notation of EFS is more of a domain-specific language (DSL), A debate has been going on whether EFS is ``formal enough''.  This is not a big problem, as the model could be extended with fully-formal models in relevant places.  A bigger question is how the integration of the various models would be realized.  There won't be a clear answer on that, until we try it out.
+
+Last, the ``lower part'' of the toolchain is citing technologies that need a significant investment of energy before they can be used.  For instance, Xtend is a programming language, which is not doing anything domain-specific.
+
+\subsubsection{Opportunities (EFS)}
+
+The main opportunity is to safe time and resources, as a significant portion of the ETCS specification has already been modelled.  Another is the certainty that a commercial partner will be engaged in the ongoing activities, even after the end of openETCS.
+
+\subsubsection{Threads (EFS)}
+
+The continuation of the toolchain, as shown in Figure~\ref{fig:ERTMSSolutionsAlt_1}, leaves a lot of questions open.  Compare that to the much more concise description of the B-approach in Figure~\ref{fig:classical-b-toolchain}.  Due to the ambiguity there is a significant risk that the model integration won't work as shown.
+
+\subsection{B SWOT Analysis}
+
+\subsubsection{Strengths (B)}
+
+B is proven in the rail industry, where it has been deployed successfully.  There is also a strong body of academic research that can be taken advantage of.
+
+There is a decent amount of tooling already available, both open source and commercial.  However, an almost complete open toolchain has been suggested in Table~\ref{tab:classical-b-tools}, with the Atelier B typchecker being the only exception (see Weaknesses below).
+
+There is B-related expertise in the consortium, ensuring that quesations can be answered and that there is a commercial incentive.
+
+\subsubsection{Weaknesses (B)}
+
+Atelier B not Eclipse-based, and Appendix~\ref{sec:sysML-B} points out this shortcoming.  On the positive side, it is available on all relevant platforms (Windows, Mac, Linux).
+
+There is also the Atelier B typechecker, which is not open source.  Finding an open replacement for this relatively small component would be one mandatory activity.
+
+While B is well-suited for modelling state-based systems, it is not clear how continuous modeling (e.g. breaking curves) would be realized.
 
 
-\section{Decisions for high level step}
+\subsubsection{Opportunities (B)}
 
-By vote, all the partners agree on the use of the \textbf{SysML} approach supported by the \textbf{Papyrus} tool to cover the higher level of the  OpenETCS V-cycle.
+B could be the sweet spot between using a commercially proven approach (like Scade), while still residing in the open source realm (like Topcased).  And as there are more options available, both open and closed, the risk is lower.
 
-SysML 1.1 is completely supported on Papyrus, 1.2 is largely supported, moreover not implemented part of the norm may be added through motivated requests.
-The last release of Papyrus is 0.10.0, launched the 26 of June 2013 and is based on Eclipse Kepler 4.3.
+\subsubsection{Threads (B)}
 
-\section{Propositions of approach to cover all the design process}
+Acceptance may be the biggest problem, as B is a ``hard core'' formal notation, which is considered hard to read.  We must be prepared to train the users and ensure that they accept it beforehand.
 
-No vote has been done during the meeting on the approaches to cover the lower  levels of OpenETCS V-cycle.
-Three propositions of chain are still under evaluation:
+\section{Decisions}
 
-\begin{itemize}
-\item a combination of \textbf{SysML  and Scade} described in \ref{sec:sysML-Scade}
-\item a combination of \textbf{SysML, ERTMSFormalSpec and Topcased} described in \ref{sec:sysML-EFS}
-\item a combination of \textbf{SysML  and Classical B} described in \ref{sec:sysML-B}
-\end{itemize}
+In the following, we will document a number of decisions that follow from our analysis and that will guide the activities until the end of 2013.
 
-For the moment, all the candidates of the short-list (see figure \ref{fig:short_list}) are still take in consideration for example to  cover lack  of the main tool chain or verification and validation purposes.
+\subsection{Scade}
+
+The analysis shows that we have two promising open proposals (EFS, B), and a third non-open proposal, that is extremely powerful (Scade).  Considering the constraints of the project, it is clear that Scade should only be employed if everything else fails.  It is a ``Plan B'' that we should be greatful for, as it may allow us to make openETCS at least a partial success, in case of a larger tool crisis (of whatever nature).  Therefore, we decide:
+
+\decision{The Scade toolchain will be the ``Plan B'' toolchain, to be employed if ``all else fails''.}
+
+\decision{Therefore, activities on the Scade toolchain will be suspended for the time being.}
+
+If we are in a real crisis (this will hopefully never happen), we'll have to put relatively little effort into migrating whatever has been done to the Scade toolchain.  This will be particularly true if we carefully define the scope of the Papyrus component.
+
+The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
+
+\subsection{Papyrus/SysML}
+
+All proposed toolchains will use SysML with Papyrus.  To keep things as flexible as possible, it would be desirable to use SysML in exactly the same way for all approaches.  The B team suggested to create modeling guidelines, and to build a validator for validating the SysML model accordingly.
+
+\decision{All three teams will work together to create modeling guidelines that will apply to all three toolchains.  If this turns out not to be possible, they should create a superset guideline, with extensions for the three approaches.}
+
+\subsection{Aligning EFS and B toolchains}
+
+For better or worse, there is no clear winner between the EFS and B toolchains.  We will know more when the rubber hits the road --- when we start modelling.  Therefore, modelling activities should start as soon as possible with a well-defined case study.
+
+\decision{A case study will be defined that should allow us to better understand the pros and cons of the B and EFS toolchains.  It should be small enough to allow modeling and evaluation before the end of 2013.}
+
+It is conceivable to continue with the radio subsystem that has been used for the benchmarking, but the modeling expert may suggest a better case study.
+
+It is quite conceivable that no clear winner emerges, but that individual components show unexpected strengths or weaknesses.  Therefore, the toolchain must first define clear interfaces, similar to what the B team already hinted at in Figures~\ref{fig:classical-b-toolchain} and \ref{fig:classical-b-transformation-alternatives}.  Again, there is no reason to not look for similarities between the two open toolchains and to align the interfaces, wherever it makes sense.  For instance, if the Polarsys tools are not performing as expected, they may be replaceable by B tools.  Therefore:
+
+\decision{The EFS and B toolchains shall clarify their architecture, keep it as modular as possible and align interfaces between the two wherever it makes sense.}
 
 \section{Conclusion}
 
+While there was some discontent in the team of not having one single solution to move forward with, we simply have to turn this to our advantage.  Having options helps us reduce risk, and by aligning the activities, we prevent our effort from dissipating.  We believe that the documented decisions will act as high-level guidelines for achieving this goal.
 
-\begin{todo_comment}
-To  complete if necessary.
-\end{todo_comment}
+
