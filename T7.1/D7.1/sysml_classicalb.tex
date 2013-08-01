@@ -128,7 +128,7 @@ Both, SysML and the B Methods are accepted in the industry and have
 been successful used in the development of safety critical embedded
 systems. The B Method was used in projects like KVB by Alstom, SAET
 METEOR or in the driverless metro line 1 in Paris by Siemens
-Transportaion Systems (see \ref{} for an extensive list).
+Transportaion Systems (see \citep{clearsy} for an extensive list).
 
 Most parts of the toolchain are already available and distributed
 under an open source license. The transformation from SysML to B is
@@ -152,7 +152,7 @@ proposed toolchain.
 
 \section{Shortcommings versus OpenETCS requirements}
 
-Although the majority of the toolchain are open-source, there is still
+Although the majority of the toolchain is open-source, there is still
 a small amount of tools which are closed source (see
 Fig. \ref{fig:classical-b-toolchain}). During this project, these
 parts will be further investigated with the goal to be replaced by
@@ -166,7 +166,9 @@ original SysML model is necessary. This change triggers the generation
 of a new, initial B model. A bi-directional transformation could ease
 this issue, which would require a tighter integration of both
 tools. This is amongst other one reason why moving parts from
-Atelier-B to Eclipse should be further investigated.
+Atelier-B to Eclipse should be further investigated. This issue
+applies to all proposed toolchains as all change at a certain point
+the modeling tool and the used language.
 
 The example from the previous paragraph also show that the modeler
 should preferable have knowledge of both, SysML and Classical B. The
