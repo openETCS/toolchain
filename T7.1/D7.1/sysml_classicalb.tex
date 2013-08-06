@@ -39,14 +39,14 @@ In Table \ref{tab:classical-b-tools} the list of tools used in the
 proposed toolchain is given. The GPLv3 licensed tools are stand-alone
 executables. It is not expected that GPLv3 licensed tool will lead to
 license issues with EUPL code, as these tools are only executed and
-not linked with other parts of the toolchain.  The ComenC code
+not linked with other parts of the toolchain. The ComenC code
 generator is listed in the table, because the current version of
 Atelier-B ships with it instead of c4b. The source code of ComenC is
 available, however it is unclear under which license the source code
 is distributed. The Type Checker, B0 Checker, Prover and Proof
 Obligation Generator are currently only distributed under a
-proprietary license. However, GPLv3 licensed Proof Obligation Generator is
-currently under development within in CERCLES-2 project.
+proprietary license. However, a GPLv3 licensed Proof Obligation
+Generator is currently under development within in CERCLES-2 project.
 
 \begin{center}
 \begin{table}
@@ -57,13 +57,13 @@ currently under development within in CERCLES-2 project.
     Atelier B GUI                      & GPLv3 & \url{http://sf.net/projects/atelierbgui/} \\ \hline
     Bcomp (B Compiler)                 & GPLv3 & \url{http://sf.net/projects/bcomp/} \\ \hline
     c4b (C Code Generator)             & GPLv3 & \url{http://sf.net/projects/c4b/} \\ \hline
-    ComenC (C Code Generator)          & ?     & \url{http://sf.net/projects/comenc/} \\ \hline
+    ComenC (C Code Generator)          & -     & \url{http://sf.net/projects/comenc/} \\ \hline
     Papyrus                            & EPL   & \url{http://www.eclipse.org/papyrus/} \\ \hline
     Xtend                              & EPL   & \url{http://www.eclipse.org/xtend/} \\ \hline
-    Type Checker                       & proprietary &  \\ \hline
-    B0 Checker                         & proprietary &  \\ \hline
-    Prover                             & proprietary &  \\ \hline
-    Proof Obligation Generator         & proprietary &  \\ \hline
+    Type Checker                       & proprietary & - \\ \hline
+    B0 Checker                         & proprietary & - \\ \hline
+    Prover                             & proprietary & - \\ \hline
+    Proof Obligation Generator         & proprietary & - \\ \hline
     \hline
   \end{tabular}
   \caption{Tools used in the Classical B toolchain}
