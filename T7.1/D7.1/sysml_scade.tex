@@ -1,4 +1,4 @@
-\chapter{SysML and Scade}
+\chapter{SysML and SCADE}
 \label{sec:sysML-Scade}
 
 Diagram \ref{fig:SysML_SCADE_Toolchain} illustrates the most important components and operational relationships of a system and software modelling toolchain based on SysML, Papyrus, SCADE and Eclipse. 
@@ -27,11 +27,11 @@ Within the following paragraphs and subsections a short description of this appr
 \subsection{Requirements management}
 \label{sec:RequirementsManagement}
 
-The SCADE Requirements Management Gateway is based on Reqtify from Geensoft / Dassault Systems and serves to collect and link all requirements from the openETCS input documents and related objects as design und verification documents, model and source code artefacts, test cases, test protocols etc. It supports impact analyses and generates requirements traceability and requirements coverage reports. 
+The SCADE Requirements Management Gateway is based on Reqtify from Geensoft / Dassault Systems and serves to collect and link all requirements from the openETCS input documents and related objects as design and verification documents, model and source code artifacts, test cases, test protocols etc. It supports impact analyses and generates requirements traceability and requirements coverage reports. 
 If needed for the openETCS process, it can be complemented with other requirement management systems and already comes with interfaces to these. ProR for example could be integrated in this way. 
 
 
-\subsection{Semiformal System and Subsystem Modelling with SCADE System / Papyrus}
+\subsection{Semi-formal System and Subsystem Modelling with SCADE System / Papyrus}
 \label{sec:SemiformalModelling}
 
 SCADE System is an integration of Papyrus into the SCADE IDE intended for SysML system modeling. It allows to modelize the interactions and hierarchical dependencies between the various parts of a complex system through design elements representing functions, data and interfaces. 
@@ -64,28 +64,28 @@ More details about the relationship between Papyrus and SCADE System:
 	\end{itemize}
 	
 	\item Actually, SCADE System does not support behavior modeling, but has it on the road map for the next year.
-	\item SCADE System uses the same file formats as Papyrus, so that SCADE System and Papyrus files are exchangeable in both directions. SCADE System simply hides SysML artefacts it does not support. This gives the opportunity for:
+	\item SCADE System uses the same file formats as Papyrus, so that SCADE System and Papyrus files are exchangeable in both directions. SCADE System simply hides SysML artifacts it does not support. This gives the opportunity for:
 	
 	\begin{itemize}
 		\item Using SCADE System for non-UML/SysML experts (architects and rail engineers)
 		\item Using Papyrus for UML/SysML experts software experts
 	\end{itemize}
 	
-	\item For integration with Eclipe, SCADE System (as well as SCADE Suite) comes with an Eclipse EMF API including the enhancements on top of Papyrus
+	\item For integration with Eclipse, SCADE System (as well as SCADE Suite) comes with an Eclipse EMF API including the enhancements on top of Papyrus
 \end{enumerate}
 
 With the exception of the synchronization with SCADE Suite, the mentioned easements and enhancements may also be achievable with Papyrus by tailoring and added functionality.
-For openETCS, behavioural modeling seems to be necessary for a rather complete model on SysML level. 
+For openETCS, behavioral modeling seems to be necessary for a rather complete model on SysML level. 
 Therefore, SCADE System, because ready to use right now, could be chosen for architectural modeling and SSRS matters at the beginning and then continued with Papyrus, when a tailored Papyrus variant becomes available.  
 
 \subsection{Formal Modelling with SCADE Suite}
 \label{sec:FormalModellingwithSCADESuite}
 
-SCADE Suite integrates all modelling, verifation and supporting SCADE tools under the roof of the SCADE IDE. The components relevant for descending part of the development "`V"' process are
+SCADE Suite integrates all modelling, verification and supporting SCADE tools under the roof of the SCADE IDE. The components relevant for descending part of the development "`V"' process are
 
 \begin{itemize}
 	\item SCADE Suite Editor (Graphical and textual modelling)
-	\item SCADE Requirements Gateway Integration (Linking of model artefacts with requirements)
+	\item SCADE Requirements Gateway Integration (Linking of model artifacts with requirements)
 	\item SCADE Model Check (model syntax check)
 	\item SCADE Model Diff (model comparison)
 	\item SCADE Simulator (graphical debugging, simulation and testing) 
@@ -94,7 +94,7 @@ SCADE Suite integrates all modelling, verifation and supporting SCADE tools unde
 	\item SCADE Reporter ( (Design) report generator)
 \end{itemize}
 
-The most important tools for modelling are editor and code generator. The others mentioned are mainly verification tools, but very useful and practically indespensible for agile development.
+The most important tools for modelling are editor and code generator. The others mentioned are mainly verification tools, but very useful and practically indispensable for agile development.
 
 At least, to cover all elements of the "blue" design process in diagram \ref{fig:main_process} a C / C++ / ADA compiler is required. 
 For building not safety-relevant executables any C-Compiler (gnu c, ...) is suitable, for safety relevant executables the compiler must be compliant with EN50128.   
@@ -105,11 +105,11 @@ For building not safety-relevant executables any C-Compiler (gnu c, ...) is suit
 The verification of openETCS SCADE models can be performed with the "`red"' components shown in diagram \ref{fig:SysML_SCADE_Toolchain}. Most of them are part of SCADE System or SCADE Suite:
 
 \begin{itemize}
-	\item SCADE Simulator: The SCADE Simulator should be used in an agile iterative development process for a steady accompanying verification of the modeling work. Simulator test scripts allow executing verificaton suites for the models automatically. Via its automation and co-simulation interface it is able to be integrated in the openETCS tool chain. 
+	\item SCADE Simulator: The SCADE Simulator should be used in an agile iterative development process for a steady accompanying verification of the modeling work. Simulator test scripts allow executing verification suites for the models automatically. Via its automation and co-simulation interface it is able to be integrated in the openETCS tool chain. 
 	\item  SCADE Model Test Coverage MTC: The MTC serves to determine structural model test coverage while executing test scenarios. Instead of measuring code coverage on the generated code, it works on the model structure directly. The MTC tool is automatable. 
 	\item SCADE Design Verifier: The verifier performs formal proving and bases upon a model checker from from Prover Technology AB.  
-	\item SCADE Timing Verifier: Execution timing verificaton based on aiT from AbsInt.
-	\item SCADE Report Generator: Generation of design reports for SCADE Suite and Scade System model als well as for verification results. 
+	\item SCADE Timing Verifier: Execution timing verification based on aiT from AbsInt.
+	\item SCADE Report Generator: Generation of design reports for SCADE Suite and SCADE System model as well as for verification results. 
 	\item RT-Tester: Test engine and environment with model based test case generation and interface to SCADE, see openETCS contributions of the University of Bremen. The ability to derive test cases from a test model complements the verification tool chain with model based testing capabilities.  
 \end{itemize}
   
@@ -117,7 +117,7 @@ The verification of openETCS SCADE models can be performed with the "`red"' comp
 \section{Description of the approach for OpenETCS design process}
 
 The approach as specified in the previous subsections (Chapt. A0) (insert ref xxx ) covers all elements of the "blue" design process ( see \ref{fig:main_process}) 
-by using the SCADE tool chain including requirements management, semiformal system and formal subsystem/software modelling, code and executable generation. 
+by using the SCADE tool chain including requirements management, semi-formal system and formal subsystem/software modelling, code and executable generation. 
 An Eclipse integration is provided (see following Chapt. xxx ). 
 
 \section{Integration of the approach with SysML/Papyrus}
@@ -127,7 +127,7 @@ Models can be edited with both, Papyrus and SCADE System and therefore exchanged
 
 Behavioral modeling has to be done with Papyrus until supported by SCADE System as announced for the near future. 
 
-A thrilling question for the openETCS process might be, if and - if yes - which of the artefacts on system level should be modelled with SysML, that can not be transferred to native SCADE automatically. 
+A thrilling question for the openETCS process might be, if and - if yes - which of the artifacts on system level should be modelled with SysML, that can not be transferred to native SCADE automatically. 
 
 
 \section{Integration of the approach with Eclipse}
@@ -139,7 +139,7 @@ The plugins additionally display the model structure, but they don't show the mo
 
 If graphical modelling should be done within Eclipse, this has to be implemented by openETCS. It is in doubt, if the effort for this activity would be applicable; without any effort, the SCADE editor should be used instead. 
  
-Nevertheless, the provided Eclipse integration is worthwile to supply all openETCS users, that are not directly working on the SCADE models, with an integrated Eclipse tool chain. 
+Nevertheless, the provided Eclipse integration is worthwhile to supply all openETCS users, that are not directly working on the SCADE models, with an integrated Eclipse tool chain. 
 The idea of such an integration is to have one build tool chain, that starts and runs an openETCS executable build process with one button click beginning from all (heterogeneous) sources and performing all necessary model transformations, code and executable generation. 
 This could be achieved with an "`openETCS Eclipse Tool Chain Plugin"', implemented as part of the openETCS project with the goals ease-of-use and convenience. 
 
@@ -156,7 +156,7 @@ The most important benefits of the SysML/SCADE approach are:
 	\item maturity,
 	\item qualification for safety critical development,
 	\item productivity
-	\item availabilty just now.
+	\item availability just now.
 \end{itemize}
  
 The SysML/SCADE approach covers almost all aspects of the openETCS process and lets expect to fill gaps with manageable effort.
@@ -166,7 +166,7 @@ Therefore, the modelling work for openETCS can begin immediately.
 Additionally, the SCADE language covers the capabilities of the ERTMSFormalSpec language, so that ERTMSFormalSpecs models could be transferred to SCADE automatically. Nevertheless, this would require a model transformator, that does not exist actually.   
 
 
-\section{Shortcommings versus OpenETCS requirements}
+\section{Shortcomings versus OpenETCS requirements}
 
 The SysML/SCADE approach has one drawback: the tools are mainly not open source. 
 These facts may help to better come to terms with it:
@@ -199,21 +199,21 @@ The availability of the nearly complete SysML/SCADE tool chain gives the freedom
 The most challenging question is, how deep the openETCS functionality should be modeled semi-formal and when to start with formal modeling. 
 The question could be answered best if focusing on adequacy: A justifiable balance of technical and non-technical aspects as feasibility, complexity, efficiency,  overall effort,  project schedule etc..
 
-Using SysML/Papyrus with SCADE offers two different alternatives for semiformal modeling:
+Using SysML/Papyrus with SCADE offers two different alternatives for semi-formal modeling:
 
 
 \begin{enumerate}
-	\item Use SysML/Papyrus for semi-formal modeling by utilizing only the SysML language artefacts, for which an automatic transformation to SCADE exists today. The remaining – formal – modeling then has to be done with SCADE. 
+	\item Use SysML/Papyrus for semi-formal modeling by utilizing only the SysML language artifacts, for which an automatic transformation to SCADE exists today. The remaining – formal – modeling then has to be done with SCADE. 
 Advantage: The interfacing between SysML/Papyrus is done, the tool chain already complete and ready for modeling right now.
 Disadvantage: The semi-formal SysML model will not be as comprehensive as the second alternative 2; there will be system aspects that only reside within the SCADE model, but not in the SysML model.
 	\item Use SysML/Papyrus for modeling all system aspects as far as justifiable with respect to understandability, maintainability, adequacy and effort. It requires the determination of a suitable subset of SysML to avoid the model becoming unrulable. 
 Advantage: This approach leads to a most complete model on SysML level. It allows to benefit from future transformations between SysML and appropriate formal modeling languages, as soon as they may become available. 
-Disadvantage: The openETCS project has to implement the transformation tools from SysML to formal modeling languages; for SCADE, that applies to all SysML artefacts not supported by the existing transformators.
+Disadvantage: The openETCS project has to implement the transformation tools from SysML to formal modeling languages; for SCADE, that applies to all SysML artifacts not supported by the existing transformators.
 \end{enumerate}
 
 In summary, alternative 1 is easy and ready to use and needs little effort. Alternative 2 offers more flexibility on SysML level but needs more effort and time. 
 At least, finding a suitable balance between technical and non-technical aspects could answer the question.  
 
 The fact, that the SysML/Papyrus approach already exists and is operable, offers the chance to start the openETCS modeling process just now without delay. 
-In parallel, a truely complete open source and open proof openETCS tool chain can be set up without causing inacceptable impact on the modeling work until it becomes mature enough for practical usage. 
+In parallel, a truly complete open source and open proof openETCS tool chain can be set up without causing unacceptable impact on the modeling work until it becomes mature enough for practical usage. 
 
