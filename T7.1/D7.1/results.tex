@@ -16,7 +16,7 @@ There were three toolchain proposals in total (Figure~\ref{fig:proposals}).  The
 
 \begin{description}
 
-\item[Scade.] A Scade-based primary toolchain would consist of the two tools Papyrus and Scade.  An integration between the tools already exists, and both tools cover all activities.  The biggest advantage is that there would be little additional work necessary to cover the primary toolchain.  The biggest drawback of this solution is the fact that Scade is not open source.
+\item[SCADE.] A SCADE-based primary toolchain would consist of the two tools Papyrus and SCADE.  An integration between the tools already exists, and both tools cover all activities.  The biggest advantage is that there would be little additional work necessary to cover the primary toolchain.  The biggest drawback of this solution is the fact that SCADE is not open source.
 
 \item[ERTMS Formal Specs (EFS).] An EFS-based primary toolchain would mainly consists of the Papyrus, EFS and additional components from the Eclipse ecosystem, looking at Polarsys for guidance.  It is not clear if and how the formal models could be modelled with this toolchain.  The biggest advantage of this approach is that it is open source, and that a significant portion of Subset 26 has already modelled with EFS.  The biggest drawback is that it is not clear how the integration with Papyrus would look like, that EFS is only partly ported to Eclipse, and that it is not clear how laborious the tailoring of the Eclipse-based formal modeling tools would be.
 
@@ -30,13 +30,13 @@ The selection process consisted of the six steps shown here, with more detail be
 
 \begin{description}
 
-\item[Benchmarking. (Section~\ref{sec:benchmarking})] Project partners were asked to step up and perform a benchmark of the tool of their choice.  The proposals were checked against D2.1 (State of the art) to make sure that no important tools were missed (or if so, why).  Not all benchmarks were completed, CORE, Why3 and UPAAL dropped out.  Further, after completing the benchmark, GOPPR, GnatProve and PretriNets decided to run, due to the evaluation results.
+\item[Benchmarking. (Section~\ref{sec:benchmarking})] Project partners were asked to step up and perform a benchmark of the tool of their choice.  The proposals were checked against D2.1 (State of the art) to make sure that no important tools were missed (or if so, why).  Not all benchmarks were completed, CORE, Why3 and UPPAAL dropped out.  Further, after completing the benchmark, GOPPR, GNATprove and Petri Nets decided to run, due to the evaluation results.
 
 \item[Assessment (Section~\ref{sec:assessment}).] Each Benchmark was assessed by its author and by two additional assessors (in the case of Petri Nets and GNATprove, there was just one assessor).  The assessment quantified evaluation criteria, resulting in a report consisting of hundreds of scores for each completed benchmark.
 
-\item[Decision Meeting(Section~\ref{sec:decision_meeting}).] A decision meeting took place to eliminate tools and to start looking at possible tool configuration that would form the primary toolchain.  During this meeting, Enterprise Architect (SysML) was also elimiated, in favor of the open source alternative Papyrus.  Further, Papyrus/Scade was identified as one promising toolchain.  Further, Papyurs had been selected as the tool for the Sub System Semi-formal model.
+\item[Decision Meeting(Section~\ref{sec:decision_meeting}).] A decision meeting took place to eliminate tools and to start looking at possible tool configuration that would form the primary toolchain.  During this meeting, Enterprise Architect (SysML) was also eliminated, in favor of the open source alternative Papyrus.  Further, Papyrus/SCADE was identified as one promising toolchain.  Further, Papyrus had been selected as the tool for the Sub System Semi-formal model.
 
-\item[Composition of Toolchains (Section~\ref{sec:composition_of_tool_chains}).] With the number of tools reduced significantly and one selected tool (Papyurus), team members were invited to propose concrete toolchains covering the primary toolchain.  This resulted in two more proposals, in addition to Papyrus/Scade.
+\item[Composition of Toolchains (Section~\ref{sec:composition_of_tool_chains}).] With the number of tools reduced significantly and one selected tool (Papyrus), team members were invited to propose concrete toolchains covering the primary toolchain.  This resulted in two more proposals, in addition to Papyrus/SCADE.
 
 \item[Documenting the Decision (Section~\ref{sec:documenting_the_decision}).] This deliverable documents the three toolchains, as well as their respective strength and weaknesses.  As has been determined a long time ago\footnote{Tool Selection Process: https://github.com/openETCS/model-evaluation/wiki/Benchmark--to-evaluate-model-and-tools\#tool-selection-process}, we didn't expect a clear single ``best'' solution.  The document will steer the upcoming activities to prevent redundant or unnecessary work.
 
@@ -51,8 +51,8 @@ The following thirteen tools have been selected for benchmarking:
 
 \begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} }
 SCADE & ERTMSFormalSpecs \\
-SysML with Papyrus & SysML with Entreprise Architect \\
-Classical B with Atelier B & EventB with Rodin \\
+SysML with Papyrus & SysML with Enterprise Architect \\
+Classical B with Atelier B & Event-B with Rodin \\
 System C & Petri Nets$^\ddagger$ \\
 GOPRR$^\ddagger$ & GNATprove$^\ddagger$ \\
 UPPAAL$^\dagger$ & Why3$^\dagger$ \\
@@ -71,8 +71,8 @@ $\ddagger$ At the end of the evaluation, three others approaches have been disca
 
 \begin{description}
 \item[GOPPR] SysML seems a better candidate to offer the same services.
-\item[GnatProve] According the results, GantProve has been proposed to joined the evaluation of secondary tools (task T7.2).
-\item[PetriNets] However it is a well-known formal approaches, more recent approaches seems more adapted to the goals of the project.
+\item[GNATprove] According the results, GNATprove has been proposed to joined the evaluation of secondary tools (task T7.2).
+\item[Petri Nets] However it is a well-known formal approaches, more recent approaches seems more adapted to the goals of the project.
 \end{description}
 
 \subsection{Assessment}
@@ -80,17 +80,17 @@ $\ddagger$ At the end of the evaluation, three others approaches have been disca
 
 Each Benchmark was assessed by its author and by two additional assessors (in the case of Petri Nets and GNATprove, there was just one assessor).  This has been documented in \citep{WP7_O719}, which contains the ``raw data'', as well as some rudimentary aggregation of the data and some analysis.
 
-The criteria in \citep{WP7_O719} were derived from WP2 requirements and quantified on scale from 0 to 3.  The results were recorded as the sum of the author and the two assessors, resulting in a score from 0 to 9 for each criteria.  The benchmarks with only one assessor have been adjusted by interpolating the score, shown in parenteses.
+The criteria in \citep{WP7_O719} were derived from WP2 requirements and quantified on scale from 0 to 3.  The results were recorded as the sum of the author and the two assessors, resulting in a score from 0 to 9 for each criteria.  The benchmarks with only one assessor have been adjusted by interpolating the score, shown in parentheses.
 
 To give an idea of the results, Table~\ref{tab:phaseresults} shows the aggregated result of the benchmark for process phases.  These results must be taken with a grain of salt: This aggregation simply averages all relevant scores, thereby giving all criteria equal weight.  This is an unrealistic (and dangerous) assumption.  In fact in the case of the criteria ``open source'' it created a real problem.  As Open Proof is the foundation of openETCS, using a closed-source tool with no open alternative should be a show stopper.  But this does not show in the results of \citep{WP7_O719}.
 
-Futher, not all criteria could be quantified easily, resulting in surprising and suspicious results.  For instance, the assessments of Papyrus and Enterprise Architect sometimes differed drastically, even in areas, where the notation (and not the tool) was concerned.  This was not expected, as both tools support the same notation.  This means that the results must be inspected carefully, before drawing conclusions.
+Further, not all criteria could be quantified easily, resulting in surprising and suspicious results.  For instance, the assessments of Papyrus and Enterprise Architect sometimes differed drastically, even in areas, where the notation (and not the tool) was concerned.  This was not expected, as both tools support the same notation.  This means that the results must be inspected carefully, before drawing conclusions.
 
  \begin{table}
   \centering
 \begin{tabular}{|l | c | c | c | c | c | c | c | c | c | c |}
 \hline
-&  \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{EventB} &  \rotatebox{90}{Classical B} &  \rotatebox{90}{System C} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{GNATprove} \\
+&  \rotatebox{90}{GOPRR} & \rotatebox{90}{ERTMSFormalSpecs} &  \rotatebox{90}{SysML with Papyrus} &  \rotatebox{90}{SysML with EA} &  \rotatebox{90}{SCADE} &  \rotatebox{90}{Event-B} &  \rotatebox{90}{Classical B} &  \rotatebox{90}{System C} & \rotatebox{90}{Petri Nets} &  \rotatebox{90}{GNATprove} \\
 \hline 
 System Analysis & \textcolor{blue}{5} & 1     & \textcolor{magenta}{7} & \textcolor{red}{\textbf{9}} & 3     & \textcolor{red}{\textbf{9}} & 3     & 2 & \textcolor{red}{\textbf{6(9)}}  & 2 (3) \\
 \hline
@@ -108,7 +108,7 @@ Software code generation  & \textcolor{red}{\textbf{9}} & \textcolor{green}{0} &
 \subsection{Decision Meeting}
 \label{sec:decision_meeting}
 
-On July 4th, a WP7 workshop took place with the objective of chosing suitable tools for the toolchain.  To ease the process, the results from \citep{WP7_O719} were condensed into Figure~\ref{fig:results}.  The vertical stripes represent the individual tools.  The length and position of the stripe is determined by Table~\ref{tab:phaseresults}: The bar only covers area with a score of 6 or higher.
+On July 4th, a WP7 workshop took place with the objective of choosing suitable tools for the toolchain.  To ease the process, the results from \citep{WP7_O719} were condensed into Figure~\ref{fig:results}.  The vertical stripes represent the individual tools.  The length and position of the stripe is determined by Table~\ref{tab:phaseresults}: The bar only covers area with a score of 6 or higher.
 
  \begin{figure}
   \centering
@@ -130,13 +130,13 @@ Due to the evaluation and discussion during the decision meeting, the partners a
 \begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} }
 SCADE & ERTMSFormalSpecs \\
 SysML with Papyrus & System C \\
-Classical B with Atelier B & EventB with Rodin
+Classical B with Atelier B & Event-B with Rodin
 \end{tabular}
 
 \subsection{Composition of Toolchains}
 \label{sec:composition_of_tool_chains}
 
-One toolchain was already suggested during the Paris meeting, namely Papyrus and Scade.  Nevertheless, partners had the chance to propose additional toolchains using the tools from the shortlist.  It was necessary to find alternatives, as one severe weakness of the Papyrus/Scade solution had already been pointed out in Paris: By not being open source, this solution would miss one of the main objectives of openETCS.
+One toolchain was already suggested during the Paris meeting, namely Papyrus and SCADE.  Nevertheless, partners had the chance to propose additional toolchains using the tools from the shortlist.  It was necessary to find alternatives, as one severe weakness of the Papyrus/SCADE solution had already been pointed out in Paris: By not being open source, this solution would miss one of the main objectives of openETCS.
 
 Two more toolchains have been proposed, resulting in three toolchains in total.  These have been documented by their respective owners in the appendix.
 
