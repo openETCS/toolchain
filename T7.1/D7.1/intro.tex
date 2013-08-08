@@ -8,14 +8,14 @@ The aim of this document is to report the results of the task T7.1 of WP7:  "Pri
 
 \section{Executive Summary}
 
-The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, these have been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \citep{WP7_D01}.  This document is concerned with the selection of tools for the primary toolchain.  As the tools shall be integrated, the selection of an integration plaform was required as well.
+The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, these have been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \citep{WP7_D01}.  This document is concerned with the selection of tools for the primary toolchain.  As the tools shall be integrated, the selection of an integration platform was required as well.
 
 Eclipse was selected as tool platform, and the decision was unanimous.
 
 Three toolchains have been proposed, which will be referred to with the following shortcuts for brevity:
 
 \begin{description}
-\item[Scade.] This toolchain is based on Scade in connection with Papyrus, for which an integration already exisists.
+\item[SCADE.] This toolchain is based on SCADE in connection with Papyrus, for which an integration already exists.
 
 \item[EFS.] This toolchain is based on ERTMS Formal Specs (EFS), in connection with Papyrus, for which an integration has to be developed.  It will take advantage of elements from the Eclipse Ecosystem (and from Topcased, wherever possible).  The methods for integrating the various models have to be developed, as well as the gluing code that will hold everything together.
 
@@ -23,7 +23,7 @@ Three toolchains have been proposed, which will be referred to with the followin
 
 \end{description}
 
-Scade is the perfect candidate for a backup plan: While offering pretty much everything the project needs, it has a major fault: Scade is not open source.  At the same time, Scade is a backup that could be activated very quickly.  It is preferrable to model successfully with a closed-source solution than to fail with an open one.  But of course, modelling successfully with an open source solution is what we should strive for.
+SCADE is the perfect candidate for a backup plan: While offering pretty much everything the project needs, it has a major fault: SCADE is not open source.  At the same time, SCADE is a backup that could be activated very quickly.  It is preferable to model successfully with a closed-source solution than to fail with an open one.  But of course, modelling successfully with an open source solution is what we should strive for.
 
 As all three solutions use Papyrus as the first modeling tool, activities should focus on narrowing down which elements of Papyrus should be used.  Once this is clear, WP3 can get started with their modeling activities.
 
@@ -37,7 +37,7 @@ Section~\ref{sec:decision} contains specific decisions intended to concisely gui
 
 \section{T7.1 Objective}
 
-The goal of WP7 is to provide other openETCS workpackages with tooling for their activities.  Tools have been separated into primary and secondary tooling.  Task T7.1 is concerned with the identification of the best primary tooling, considering all constraints of the project.  Selecting tools also entails selecting modeling languages and an integration platform.
+The goal of WP7 is to provide other openETCS work packages with tooling for their activities.  Tools have been separated into primary and secondary tooling.  Task T7.1 is concerned with the identification of the best primary tooling, considering all constraints of the project.  Selecting tools also entails selecting modeling languages and an integration platform.
 
  \begin{figure}[b!]
   \centering
@@ -72,7 +72,7 @@ The SSRS poses a special challenge, as activities in its creation have already s
 
 The connection between SSRS and Sub-System Semi-formal model is described as: ``A semi-formal model of the system specification is defined from the SSRS. (...) In practice, all the requirements of SSRS and of the subsystem Hazard analysis shall be covered by the semi-formal model.''
 
-There is even less information regarding the API, except that it is handled corresponding to the SSRS: ``The SSRS and API shall be described as textual documents. However these documents shall be completed by a semiformal model to describe the functional architecture of the on-board unit.'' (D2.3, 4.3.4).
+There is even less information regarding the API, except that it is handled corresponding to the SSRS: ``The SSRS and API shall be described as textual documents. However these documents shall be completed by a semi-formal model to describe the functional architecture of the on-board unit.'' (D2.3, 4.3.4).
 
 There is little relevant information with regard to code generation in this report, except that it makes some implications regarding the software functional model: ``A first executable code is produced from the software functional model.  This executable code shall be non vital. However it shall be able to run in real time on a on-board computer.  Thus it shall comply to the standardised interfaces.'' (D2.3, 4.6.2).
 

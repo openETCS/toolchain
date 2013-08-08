@@ -9,18 +9,18 @@ The evaluation will focus on the integration capabilities of the tool platform.
 \section{Initial list of candidates}
 \begin{itemize}
 \item Eclipse 
-\item TopCased/Polarsys
-\item RTP-Cesar
+\item TOPCASED/Polarsys
+\item CAESAR RTP
 \item Mono/.NET 
 \item SCADE
 \end{itemize}
 
 After a first round, Mono/.NET and SCADE were discard because they do
-not comply to our tool platform definition.  RTP-CESAR was also
+not comply to our tool platform definition.  CESAR RTP was also
 discard, the maturity of this project is not yet usable. Finally,
 {\bf Eclipse with the modeling framework (EMF)} has been chosen as a tool
 platform, the possibility to use Polarsys and take some part of the
-TopCased tool chain as well as which version of Eclipse  and EMF to choose are
+TOPCASED tool chain as well as which version of Eclipse  and EMF to choose are
 discussed in the next sections.  
 
 Eclipse can also integrate framework, It has also be decided that any
@@ -74,7 +74,7 @@ is therefore highly portable.
 
 \paragraph{Tools Interoperability}
 The Eclipse Platform has been explicitly designed to enable various
-tools of the software lifecycle to collaborate. It provides
+tools of the software life cycle to collaborate. It provides
 mechanisms, such as a service oriented architecture and extension
 points to enable the communication between different parts of a tool
 chain. EMF is well-suited as a common data-format. The collaboration
@@ -126,7 +126,7 @@ Topcased is a tool for systems engineering, based on Eclipse and various Eclipse
 
 \subsection{State of Topcased and Polarsys}
 
-While the state of the art document mentions Topcased \cite{}, it was not evaluated as a whole.  Merely the Papyurus component of Topcased was evaluated, but a newer version than the one used by Topcased.
+While the state of the art document mentions Topcased \cite{}, it was not evaluated as a whole.  Merely the Papyrus component of Topcased was evaluated, but a newer version than the one used by Topcased.
 
 Topcased is using a fork of an old version of Papyrus (Ver. 0.8.2) which is no more supported by the CEA (actual version 0.10.X) and, as the CEA is not part of Topcased, no more code development over this version/Topcased will be done by CEA.  Unfortunately, the development on Topcased modeler (forked version of Papyrus) is not so active anymore: 60 commits on the 3 last months (as of July 2013) against more than 1600 commit for Papyrus.  Further, the actual version of Papyrus have been greatly improved with respect to stability since version 0.8.2, and some stability issues may have not been corrected in Topcased.
 

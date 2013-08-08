@@ -16,7 +16,7 @@
 \chapter{Decision}
 \label{sec:decision}
 
-As anticipalted there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting ressources and being unfocussed.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.  However, the choice of the tool platform was easy and unanimous.
+As anticipated there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting resources and being unfocused.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.  However, the choice of the tool platform was easy and unanimous.
 
 \section{Decision on the tool platform}
 
@@ -26,25 +26,25 @@ By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf
 
 By looking a the strengths, weaknesses, opportunities and threads (SWOT) of each toolchain, we will get a qualitative impression on what we could gain with each solution, and what the risks are.
 
-\subsection{Scade SWOT Analysis}
+\subsection{SCADE SWOT Analysis}
 
-\subsubsection{Strengths (Scade)}
+\subsubsection{Strengths (SCADE)}
 
-The biggest strength of Scade by far is that it works ``out of the box'', barely any tailoring is required.  Scade has been developed for systems engineering, and this is exactly the right field of application.  Further, a Papyrus integration is already available, so little work has to be done here.  Another strength is the fact that some of the secondary tool activities are covered by Scade as well.
+The biggest strength of SCADE by far is that it works ``out of the box'', barely any tailoring is required.  SCADE has been developed for systems engineering, and this is exactly the right field of application.  Further, a Papyrus integration is already available, so little work has to be done here.  Another strength is the fact that some of the secondary tool activities are covered by SCADE as well.
 
-\subsubsection{Weaknesses (Scade)}
+\subsubsection{Weaknesses (SCADE)}
 
-The biggest weakness of Scade is a show stopper: Scade is not open source, and as no open source alternative exists, openETCS would miss its open proofs objective.
+The biggest weakness of SCADE is a show stopper: SCADE is not open source, and as no open source alternative exists, openETCS would miss its open proofs objective.
 
-\subsubsection{Opportunities (Scade)}
+\subsubsection{Opportunities (SCADE)}
 
-Using Scade would doubtless increase the chances of success of the modeling activities.  Thus, Scade is an excellent backup plan.  By nominating Scade as a backup, we would ensure damange control: A successful model, even if not created with open tools is preferrable to no model at all.
+Using SCADE would doubtless increase the chances of success of the modeling activities.  Thus, SCADE is an excellent backup plan.  By nominating SCADE as a backup, we would ensure damage control: A successful model, even if not created with open tools is preferable to no model at all.
 
-There is another opportunity: by dangling the chance to adapt Scade and potentially opening a large market segment, Esterel (manufacturer of Scade) may decide to open Scade --- at least enough for our purposes.
+There is another opportunity: by dangling the chance to adapt SCADE and potentially opening a large market segment, Esterel (manufacturer of SCADE) may decide to open SCADE --- at least enough for our purposes.
 
-\subsubsection{Threads (Scade)}
+\subsubsection{Threads (SCADE)}
 
-There is the real thread that Esterel is encouraging us to adapt Scade under the premis of opening parts of Scade to be compliant with open proofs.  If such discussions would breakdown, after modelling has already started, we'd have a problem.
+There is the real thread that Esterel is encouraging us to adapt SCADE under the premise of opening parts of SCADE to be compliant with open proofs.  If such discussions would breakdown, after modelling has already started, we'd have a problem.
 
 \subsection{ERTMS Formal Specs SWOT Analysis}
 
@@ -78,22 +78,22 @@ The continuation of the toolchain, as shown in Figure~\ref{fig:ERTMSSolutionsAlt
 
 B is proven in the rail industry, where it has been deployed successfully.  There is also a strong body of academic research that can be taken advantage of.
 
-There is a decent amount of tooling already available, both open source and commercial.  However, an almost complete open toolchain has been suggested in Table~\ref{tab:classical-b-tools}, with the Atelier B typchecker being the only exception (see Weaknesses below).
+There is a decent amount of tooling already available, both open source and commercial.  However, an almost complete open toolchain has been suggested in Table~\ref{tab:classical-b-tools}, with the Atelier B type checker being the only exception (see Weaknesses below).
 
-There is B-related expertise in the consortium, ensuring that quesations can be answered and that there is a commercial incentive.
+There is B-related expertise in the consortium, ensuring that questions can be answered and that there is a commercial incentive.
 
 \subsubsection{Weaknesses (B)}
 
 Atelier B not Eclipse-based, and Appendix~\ref{sec:sysML-B} points out this shortcoming.  On the positive side, it is available on all relevant platforms (Windows, Mac, Linux).
 
-There is also the Atelier B typechecker, which is not open source.  Finding an open replacement for this relatively small component would be one mandatory activity.
+There is also the Atelier B type checker, which is not open source.  Finding an open replacement for this relatively small component would be one mandatory activity.
 
 While B is well-suited for modelling state-based systems, it is not clear how continuous modeling (e.g. breaking curves) would be realized.
 
 
 \subsubsection{Opportunities (B)}
 
-B could be the sweet spot between using a commercially proven approach (like Scade), while still residing in the open source realm (like Topcased).  And as there are more options available, both open and closed, the risk is lower.
+B could be the sweet spot between using a commercially proven approach (like SCADE), while still residing in the open source realm (like Topcased).  And as there are more options available, both open and closed, the risk is lower.
 
 \subsubsection{Threads (B)}
 
@@ -103,15 +103,15 @@ Acceptance may be the biggest problem, as B is a ``hard core'' formal notation, 
 
 In the following, we will document a number of decisions that follow from our analysis and that will guide the activities until the end of 2013.
 
-\subsection{Scade}
+\subsection{SCADE}
 
-The analysis shows that we have two promising open proposals (EFS, B), and a third non-open proposal, that is extremely powerful (Scade).  Considering the constraints of the project, it is clear that Scade should only be employed if everything else fails.  It is a ``Plan B'' that we should be greatful for, as it may allow us to make openETCS at least a partial success, in case of a larger tool crisis (of whatever nature).  Therefore, we decide:
+The analysis shows that we have two promising open proposals (EFS, B), and a third non-open proposal, that is extremely powerful (SCADE).  Considering the constraints of the project, it is clear that SCADE should only be employed if everything else fails.  It is a ``Plan B'' that we should be grateful for, as it may allow us to make openETCS at least a partial success, in case of a larger tool crisis (of whatever nature).  Therefore, we decide:
 
-\decision{The Scade toolchain will be the ``Plan B'' toolchain, to be employed if ``all else fails''.}
+\decision{The SCADE toolchain will be the ``Plan B'' toolchain, to be employed if ``all else fails''.}
 
-\decision{Therefore, activities on the Scade toolchain will be suspended for the time being.}
+\decision{Therefore, activities on the SCADE toolchain will be suspended for the time being.}
 
-If we are in a real crisis (this will hopefully never happen), we'll have to put relatively little effort into migrating whatever has been done to the Scade toolchain.  This will be particularly true if we carefully define the scope of the Papyrus component.
+If we are in a real crisis (this will hopefully never happen), we'll have to put relatively little effort into migrating whatever has been done to the SCADE toolchain.  This will be particularly true if we carefully define the scope of the Papyrus component.
 
 The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
 
