@@ -59,7 +59,7 @@ UPPAAL$^\dagger$ & Why3$^\dagger$ \\
 CORE$^\dagger$
 \end{tabular}
 
-$\dagger$ The evaluation of three tools was stopped prematurely.  They are mentioned in \cite{WP7_O719}, but are not evaluated.  They dropped out for the following reasons:
+$\dagger$ The evaluation of three tools was stopped prematurely.  They are mentioned in \citep{WP7_O719}, but are not evaluated.  They dropped out for the following reasons:
 
 \begin{description}
 \item[CORE] The tool is not open source and difficult to obtain, it seems possible to cover the same task with an open-source approach as SysML.
@@ -74,6 +74,13 @@ $\ddagger$ At the end of the evaluation, three others approaches have been disca
 \item[GNATprove] According the results, GNATprove has been proposed to joined the evaluation of secondary tools (task T7.2).
 \item[Petri Nets] However it is a well-known formal approaches, more recent approaches seems more adapted to the goals of the project.
 \end{description}
+
+ \begin{figure}
+  \centering
+  \fbox{\includegraphics[width=\linewidth]{images/First.png}}
+  \caption{Results of candidates}
+  \label{fig:results}
+\end{figure}
 
 \subsection{Assessment}
 \label{sec:assessment}
@@ -110,13 +117,6 @@ Software code generation  & \textcolor{red}{\textbf{9}} & \textcolor{green}{0} &
 
 On July 4th, a WP7 workshop took place with the objective of choosing suitable tools for the toolchain.  To ease the process, the results from \citep{WP7_O719} were condensed into Figure~\ref{fig:results}.  The vertical stripes represent the individual tools.  The length and position of the stripe is determined by Table~\ref{tab:phaseresults}: The bar only covers area with a score of 6 or higher.
 
- \begin{figure}
-  \centering
-  \fbox{\includegraphics[width=\linewidth]{images/First.png}}
-  \caption{Results of candidates}
-  \label{fig:results}
-\end{figure}
-
 \subsubsection{SysML}
 
 Using the available data as the foundation, the objective was to narrow the choices down as much as possible.  One obvious redundancy was the availability of two SysML tools, Papyrus and Enterprise Architect. After discussion of pros and cons of each, the partners agreed that Papyrus covers better the objectives of the project, especially the open-source requirement. 
@@ -125,13 +125,21 @@ Further, by vote, all the partners agree on the use Papyrus/SysML to cover the h
 
 \subsubsection{Short List}
 
-Due to the evaluation and discussion during the decision meeting, the partners agreed on a short-list of six approaches. These are shown in red in Figure~\ref{fig:results}. and include the following:
+Due to the evaluation and discussion during the decision meeting, the partners agreed on a short-list of six approaches. These are shown in red in Figure~\ref{fig:short}. and include the following:
 
 \begin{tabular}{ p{0.5\linewidth} p{0.5\linewidth} }
 SCADE & ERTMSFormalSpecs \\
 SysML with Papyrus & System C \\
 Classical B with Atelier B & Event-B with Rodin
 \end{tabular}
+
+
+ \begin{figure}
+  \centering
+  \fbox{\includegraphics[width=\linewidth]{images/Interaction.png}}
+  \caption{Short list}
+  \label{fig:short}
+\end{figure}
 
 \subsection{Composition of Toolchains}
 \label{sec:composition_of_tool_chains}

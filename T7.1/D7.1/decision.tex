@@ -19,12 +19,13 @@
 As anticipated there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting resources and being unfocused.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.  However, the choice of the tool platform was easy and unanimous.
 
 \section{Decision on the tool platform}
+\label{sec:decision_platform}
 
 By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform.  Which version of Eclipse will be used is up to the implementing team (WP7.3).  The last release is Kepler 4.3, launched the 26 of June 2013.
 
 \section{SWOT Analysis}
 
-By looking a the strengths, weaknesses, opportunities and threads (SWOT) of each toolchain, we will get a qualitative impression on what we could gain with each solution, and what the risks are.
+By looking a the strengths, weaknesses, opportunities and threats (SWOT) of each toolchain, we will get a qualitative impression on what we could gain with each solution, and what the risks are.
 
 \subsection{SCADE SWOT Analysis}
 
@@ -42,9 +43,9 @@ Using SCADE would doubtless increase the chances of success of the modeling acti
 
 There is another opportunity: by dangling the chance to adapt SCADE and potentially opening a large market segment, Esterel (manufacturer of SCADE) may decide to open SCADE --- at least enough for our purposes.
 
-\subsubsection{Threads (SCADE)}
+\subsubsection{Threats (SCADE)}
 
-There is the real thread that Esterel is encouraging us to adapt SCADE under the premise of opening parts of SCADE to be compliant with open proofs.  If such discussions would breakdown, after modeling has already started, we'd have a problem.
+There is the real threat that Esterel is encouraging us to adapt SCADE under the premise of opening parts of SCADE to be compliant with open proofs.  If such discussions would breakdown, after modeling has already started, we'd have a problem.
 
 \subsection{ERTMS Formal Specs SWOT Analysis}
 
@@ -68,7 +69,7 @@ Last, the ``lower part'' of the toolchain is citing technologies that need a sig
 
 The main opportunity is to safe time and resources, as a significant portion of the ETCS specification has already been modeled.  Another is the certainty that a commercial partner will be engaged in the ongoing activities, even after the end of openETCS.
 
-\subsubsection{Threads (EFS)}
+\subsubsection{Threats (EFS)}
 
 The continuation of the toolchain, as shown in Figure~\ref{fig:ERTMSSolutionsAlt_1}, leaves a lot of questions open.  Compare that to the much more concise description of the B-approach in Figure~\ref{fig:classical-b-toolchain}.  Due to the ambiguity there is a significant risk that the model integration won't work as shown.
 
@@ -95,7 +96,7 @@ While B is well-suited for modeling state-based systems, it is not clear how con
 
 B could be the sweet spot between using a commercially proven approach (like SCADE), while still residing in the open source realm (like TOPCASED).  And as there are more options available, both open and closed, the risk is lower.
 
-\subsubsection{Threads (B)}
+\subsubsection{Threats (B)}
 
 Acceptance may be the biggest problem, as B is a ``hard core'' formal notation, which is considered hard to read.  We must be prepared to train the users and ensure that they accept it beforehand.
 
