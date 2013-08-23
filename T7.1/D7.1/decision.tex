@@ -13,17 +13,13 @@
 }
 
 
-\chapter{Decision}
+\chapter{Decisions}
 \label{sec:decision}
 
-As anticipated there is not one single tool choice. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting resources and being unfocused.  The objective of this chapter is to summarize the decision and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this.  However, the choice of the tool platform was easy and unanimous.
-
-\section{Decision on the tool platform}
-\label{sec:decision_platform}
-
-By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform.  Which version of Eclipse will be used is up to the implementing team (WP7.3).  The last release is Kepler 4.3, launched the 26 of June 2013.
+As anticipated there is not one single tool choice done by WP7 partners. This has the advantage of reducing risk (if a tool does not work out), but the disadvantage of potentially wasting resources and being unfocused.  The objective of this chapter is to summarize results of analyses ( in section \ref{sec:swot}) and the decisions and to propose a work plan that leverages the advantage of having multiple tools, while reducing the risks resulting from this. (see section \ref{sec:dec}.  However, the choice of the tool platform was easy and unanimous.
 
 \section{SWOT Analysis}
+\label{sec:swot}
 
 By looking a the strengths, weaknesses, opportunities and threats (SWOT) of each toolchain, we will get a qualitative impression on what we could gain with each solution, and what the risks are.
 
@@ -61,7 +57,7 @@ EFS has been developed as a commercial tool and is based on real-world needs in 
 
 EFS has originally been written using the .NET platform.  Even though a prototype based on Eclipse EMF exists, a significant amount of work is required to make it truly user friendly.  However, it should be possible to work during a transition phase with the old tool.
 
-As the notation of EFS is more of a domain-specific language (DSL), A debate has been going on whether EFS is ``formal enough''.  This is not a big problem, as the model could be extended with fully-formal models in relevant places.  A bigger question is how the integration of the various models would be realized.  There won't be a clear answer on that, until we try it out.
+As the notation of EFS is more of a domain-specific language (DSL), a debate has been going on whether EFS is ``formal enough''.  This is not a big problem, as the model could be extended with fully-formal models in relevant places.  A bigger question is how the integration of the various models would be realized.  There won't be a clear answer on that, until we try it out.
 
 Last, the ``lower part'' of the toolchain is citing technologies that need a significant investment of energy before they can be used.  For instance, Xtend is a programming language, which is not doing anything domain-specific.
 
@@ -85,7 +81,7 @@ There is B-related expertise in the consortium, ensuring that questions can be a
 
 \subsubsection{Weaknesses (B)}
 
-Atelier B not Eclipse-based, and Appendix~\ref{sec:sysML-B} points out this shortcoming.  On the positive side, it is available on all relevant platforms (Windows, Mac, Linux).
+Atelier B is not Eclipse-based, and Appendix~\ref{sec:sysML-B} points out this shortcoming.  On the positive side, it is available on all relevant platforms (Windows, Mac, Linux).
 
 There is also the Atelier B type checker, which is not open source.  Finding an open replacement for this relatively small component would be one mandatory activity.
 
@@ -101,8 +97,28 @@ B could be the sweet spot between using a commercially proven approach (like SCA
 Acceptance may be the biggest problem, as B is a ``hard core'' formal notation, which is considered hard to read.  We must be prepared to train the users and ensure that they accept it beforehand.
 
 \section{Decisions}
+\label{sec:dec}
 
 In the following, we will document a number of decisions that follow from our analysis and that will guide the activities until the end of 2013.
+
+The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
+
+
+\subsection{Decision on the tool platform}
+\label{sec:decision_platform}
+
+\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform. }
+
+ Which version of Eclipse will be used is up to the implementing team (WP7.3).  The last release is Kepler 4.3, launched the 26 of June 2013.
+
+
+\subsection{Papyrus/SysML}
+
+\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use Papyrus/SysML to cover the highest level of the OpenETCS V-cycle.}
+
+All proposed toolchains will use SysML with Papyrus.  To keep things as flexible as possible, it would be desirable to use SysML in exactly the same way for all approaches.  The B team suggested to create modeling guidelines, and to build a validator for validating the SysML model accordingly.
+
+\decision{All three teams will work together to create modeling guidelines that will apply to all three toolchains.  If this turns out not to be possible, they should create a superset guideline, with extensions for the three approaches.}
 
 \subsection{SCADE}
 
@@ -114,13 +130,6 @@ The analysis shows that we have two promising open proposals (EFS, B), and a thi
 
 If we are in a real crisis (this will hopefully never happen), we'll have to put relatively little effort into migrating whatever has been done to the SCADE toolchain.  This will be particularly true if we carefully define the scope of the Papyrus component.
 
-The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
-
-\subsection{Papyrus/SysML}
-
-All proposed toolchains will use SysML with Papyrus.  To keep things as flexible as possible, it would be desirable to use SysML in exactly the same way for all approaches.  The B team suggested to create modeling guidelines, and to build a validator for validating the SysML model accordingly.
-
-\decision{All three teams will work together to create modeling guidelines that will apply to all three toolchains.  If this turns out not to be possible, they should create a superset guideline, with extensions for the three approaches.}
 
 \subsection{Aligning EFS and B toolchains}
 
@@ -130,12 +139,46 @@ For better or worse, there is no clear winner between the EFS and B toolchains. 
 
 It is conceivable to continue with the radio subsystem that has been used for the benchmarking, but the modeling expert may suggest a better case study.
 
-It is quite conceivable that no clear winner emerges, but that individual components show unexpected strengths or weaknesses.  Therefore, the toolchain must first define clear interfaces, similar to what the B team already hinted at in Figures~\ref{fig:classical-b-toolchain} and \ref{fig:classical-b-transformation-alternatives}.  Again, there is no reason to not look for similarities between the two open toolchains and to align the interfaces, wherever it makes sense.  For instance, if the Polarsys tools are not performing as expected, they may be replaceable by B tools.  Therefore:
+It is quite conceivable that no clear winner emerges, but that individual components show unexpected strengths or weaknesses.  Therefore, the toolchain must first define clear interfaces, similar to what the B team already hinted at in Figures~\ref{fig:classical-b-toolchain} and \ref{fig:classical-b-transformation-alternatives}.  Again, there is no reason not to look for similarities between the two open toolchains and to align the interfaces, wherever it makes sense.  For instance, if the Polarsys tools are not performing as expected, they may be replaceable by B tools.  Therefore:
 
 \decision{All toolchains shall clarify their architecture, keep it as modular as possible and align interfaces between them, wherever it makes sense.}
+
+\subsection{Intermediate solution and migration path}
+
+\begin{comment}
+Issue \#79 openned by Uwe Steinke to discuss here :
+
+
+WP 7 is in the obligation to provide and supply all other WPs with an intermediate tool chain until the preferred tool chain becomes operabel. The reason is to enable the other WPs to work productivly.
+Additionally, there must be a migration path between the intermediate tool chain and the preferred one, that assures that the results produced with the intermediate tools can be transferred automatically.
+
+The intermediate path has to be specified in this document.
+
+\end{comment}
 
 \section{Conclusion}
 
 While there was some discontent in the team of not having one single solution to move forward with, we simply have to turn this to our advantage.  Having options helps us reduce risk, and by aligning the activities, we prevent our effort from dissipating.  We believe that the documented decisions will act as high-level guidelines for achieving this goal.
+
+The previous section \ref{sec:dec} gives the actual decisions taken by WP7 and project partners.
+However, decisions or points of view have been given by the leaders of other workpackages and are summed up in the sequel.
+
+\subsection{WP3 point of view}
+
+\paragraph{WP3 leader point of view (issue \#109):}
+\emph{Indeed, ALSTOM, as modeling WP leader, needs now to organize WP3 kick-off meeting and ressources working within a clear framework and objective. With D7.1 conclusion as it is now, WP3 ressources are working now in the tools they want to work on without clear strategy nore objective.
+Therefore, ALSTOM proposed following D7.1 conclusions to be :
+1 - Despite the fact it is not fully open tools, "SYSML / SCADE" is the baseline primary tools chain to be used for any modeling activity within the frame of the OpenETCS project unless other agreement and.or decision not late than January 2014
+2 - In order to allow availability of another complete full OpenETCS Tools chain, complementary analysis and work will be carried out on the 2 other options "SYSML/EFS/Eclpse Polarys" and SYSML / Classical B" for final decision on "OpenETCS" Tools chain not late than January 2014
+Such conclusion is likely to avoid dispersion of WP3 ressources that lead to impossibility to manage modeling WP while keeping intact the possibility for the other candidate tools chain to be adopted if confirmed as complete and usable as the only today's available fitted for purpose "SYSML / SCADE" solution.}
+
+
+\subsection{WP4 point of view}
+
+Some decisions have been made by the WP4 partners regarding VnV and safety activities. these decision have been announced during the decision in Paris on July 4th, 2013:
+
+\decision{WP4 is going to consider the artifacts of "SysML+ Scade" toolchain for the first round of verification and validation launched in July 2013.}
+
+\decision{For the following rounds, starting in February 2014, WP4 will adapt the verification and validation activities to the models and code provides by WP3.}
 
 

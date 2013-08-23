@@ -8,7 +8,7 @@ The aim of this document is to report the results of the task T7.1 of WP7:  "Pri
 
 \section{Executive Summary}
 
-The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, these have been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \citep{WP7_D01}.  This document is concerned with the selection of tools for the primary toolchain.  As the tools shall be integrated, the selection of an integration platform was required as well.
+The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, this has been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \cite{WP7_D01}.  This document is concerned with the selection of tools for the primary toolchain.  As the tools shall be integrated, the selection of an integration platform was required as well.
 
 Eclipse was selected as tool platform, and the decision was unanimous \ref{sec:decision_platform}.
 
@@ -23,13 +23,13 @@ Three toolchains have been proposed, which will be referred to with the followin
 
 \end{description}
 
-SCADE is the perfect candidate for a backup plan: While offering pretty much everything the project needs, it has a major fault: SCADE is not open source.  At the same time, SCADE is a backup that could be activated very quickly.  It is preferable to model successfully with a closed-source solution than to fail with an open one.  But of course, modeling successfully with an open source solution is what we should strive for.
+SCADE is the perfect candidate for a backup plan: While offering pretty much everything the project needs, it has a major drawback: SCADE is not open source.  At the same time, SCADE is a backup that could be activated very quickly.  It is preferable to model successfully with a closed-source solution than to fail with an open one.  But of course, modeling successfully with an open source solution is what we should strive for.
 
 As all three solutions use Papyrus as the first modeling tool, activities should focus on narrowing down which elements of Papyrus should be used.  Once this is clear, WP3 can get started with their modeling activities.
 
-Some effort needs to be spent on defining the interfaces between the various tool elements.  How this could look like has been demonstrated nicely by the B-team, as visualized in Figure~\ref{fig:classical-b-toolchain}.  We encourage the EFS-team to do the same.
+Some effort needs to be spent on defining the interfaces between the various tool elements.  This has been demonstrated nicely by the B-team, as visualized in Figure~\ref{fig:classical-b-toolchain}.  We encourage the EFS-team to do the same.
 
-The interfaces of the three toolchains should be aligned as much as possible.  Doing so will allow to switch tool components between the three toolchains with comparatively little effort, if the needs arises.
+The interfaces of the three toolchains should be aligned as much as possible.  Doing so will allow to switch tool components between the three toolchains with comparatively little effort, if the need arises.
 
 Once the toolchains are defined in detail, a pilot model will be created using the B and EFS toolchains.  This pilot will be the foundation for deciding on one single toolchain, by the end of 2013 the latest.
 
@@ -117,6 +117,7 @@ This report is organized as follows:
 \item[OBU] On-Board Unit
 \item[PHA] Preliminary Hazard Analysis
 \item[SIL] Safety Integrity Level
+\item[SSIL] Software Safety Integrity Level
 \item[SRS] System Requirement Specification
 \item[SSHA] Sub-System Hazard Analysis
 \item[SSRS] Sub-System Requirement Specification
