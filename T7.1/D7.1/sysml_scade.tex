@@ -30,7 +30,7 @@ Within the following paragraphs and subsections a short description of this appr
 \label{sec:RequirementsManagement}
 
 The SCADE Requirements Management Gateway is based on Reqtify from Geensoft / Dassault Systems and serves to collect and link all requirements from the openETCS input documents and related objects as design and verification documents, model and source code artifacts, test cases, test protocols etc. It supports impact analyses and generates requirements traceability and requirements coverage reports. 
-If needed for the openETCS process, it can be complemented with other requirement management systems and already comes with interfaces to these. ProR for example could be integrated in this way. 
+If needed for the openETCS process, it can be complemented with other requirement management systems and already comes with interfaces to these. Because ProR bases upon the ReqIF file format, and one working principle of Reqtify is to access any type of requirement files via configurable import/export filters, an intergration with ProR is achieveable with little effort. 
 
 
 \subsection{Semi-formal System and Subsystem Modeling with SCADE System / Papyrus}
@@ -45,7 +45,8 @@ SCADE System supports SysML Block Definition Diagrams (BDD) and	Internal Block D
 More details about the relationship between Papyrus and SCADE System: 
 
 \begin{enumerate}
-	\item SCADE System incorporates Papyrus, but SCADE System is more than Papyrus, as outlined in the following list. 
+	\item SCADE System 2.x incorporates Papyrus 0.9, but SCADE System is more than Papyrus, as outlined in the following list. SCADE System 3.x (Mar 2014) will be based on Papyrus 0.10.
+	
 	\item SCADE System enhances Papyrus with functionalities on top: 
 	
 	\begin{itemize}
@@ -53,7 +54,7 @@ More details about the relationship between Papyrus and SCADE System:
 		\item Model Check: user expandable checker on SysML models (OCL rule checking, …)
 		\item Model Diff: Semantic comparison of models
 		\item Interface to requirements management (Reqtify)
-		\item Synchronization with SCADE Suite
+		\item Synchronization with SCADE Suite: Mainly blocks and functions with their structure, interfaces, flowports and data types can be transferred to SCADE Suite.   
 	\end{itemize}
 	
 	\item The idea of SCADE System is to ease the work for system and software architects.  SCADE Systems users don’t need so deep knowledge and experience of UML, SysML and …profiles as native Papyrus requires, so that architects or rail engineers, that are not UML experts, are able to work with. Therefore, SCADE System tailors Papyrus in several aspects:
