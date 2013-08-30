@@ -6,5 +6,8 @@
 *.lot
 *.out
 *.toc
-
+*.glg
+*.glo
+*.gls
+*.ist
 
