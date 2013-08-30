@@ -1,0 +1,120 @@
+%----------------------------------------------------
+\section{The OpenETCS tool chain}
+%----------------------------------------------------
+\subsection{Definition}
+%----------------------------------------------------
+The tool chain provides the tool support and the development process
+to achieve the \gls{EVC}. It implements the lifecycle of the EVC
+development and provide a set of integrated tools to realize the
+\gls{EVC}.
+
+
+The tool chain is composed by two kind of tools :
+\begin{enumerate}
+\item {\it Development tools}: those used along the phases of the software
+  development process (Requirement engineering, modeling ...).
+\item {\it Management tools}:  those used transversely during the
+  complete development process (version management, requirements
+  traceability ...).
+\end{enumerate}
+These tools are called vertical and horizontal tools in
+\cite{wasserman_tool_1990}. 
+Figure \ref{fig:toolchain} shows the idea of the complete tool chain
+integration.
+
+\begin{figure}[htbp]
+\centering
+  \includegraphics[width=.5\textwidth]{images/toolchain_archi-dev}
+  \caption{The OpenETCS tool chain}
+  \label{fig:toolchain}
+\end{figure}
+
+In the next chapters  we will give more details on the
+data integration between the development tools by defining the inputs
+and outputs artifact of each tools. This document describes the
+interface between the tool chain activities.
+The interoperability mechanism will be defined in a separate
+document. However, the first version of the tool chain will implement a
+file-based data exchange.
+ 
+It has been decided (see \cite{D7.1}) that the tool platform hosting
+the tool chain is Eclipse with the eclipse modeling framework
+(\gls{EMF}).
+This implies that the tool chain will be a set of eclipse
+plug-ins. It also implies that we can rely on already
+available plug-in and features for the versioning, the project
+management or the build system.  The use of EMF will also the software
+development, by providing a meta model and an \gls{API} for
+manipulating EMF components. 
+
+
+%----------------------------------------------------
+\subsection{The SysML Model}
+%----------------------------------------------------
+A SysML model of the tool chain will be added to this document. It
+will allow us to have a formal representation of the tool chain and
+help to model precisely the different interaction between the
+development tools as well as the management tools.  The SysML model
+may be also seen as a guideline for integrated new tool: each new tool
+should be fully described and comply to the defined interfaces
+Moreover following the idea of Slotosch \cite{slotosch_iso_2012} the
+model will be the basis to the qualification analysis.
+
+The requirements of WP2 \cite{baro_requirements_2013} as well as our
+intern requirement (Appendixes \ref{app:wp2req} and \ref{app:WP7Req})
+will be included in the SysML model. Each tools and their connection
+should then also comply to the requirements list.
+
+%----------------------------------------------------
+\section{OpenETCS \gls{EVC} lifecycle}
+%----------------------------------------------------
+The openETCS lifecycle has been defined in 
+ \cite{D2.3} as  presented figure \ref{fig:openETCSProcess}.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width= \textwidth]{images/ProcessOpenETCS}
+  \caption{openETCS Process (rough view)}
+  \label{fig:openETCSProcess}
+\end{figure}
+
+The lifecycle defined all the different steps needed to produce a
+\gls{EVC} certifiable SIL4. However in order to define a tool chain we
+need to define the lifecycle by means of activities
+(Fig. \ref{fig:openETCSActivities}). Each activities may be achieved by
+one or more tools in the tool chain. 
+
+The next chapters will define the limits of each activities, we will
+show what should be consumed and produced by each activities. 
+Note that lifecycle activities may be realized by more than one tool, thus some
+activities will be presented with alternative tools.
+
+This vision of the tool chain allowed us to think in term of interface
+and not about tool only. This will give more flexibility for the
+implementation of tool chain alternatives. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{images/WholeProcess_Activities}
+  \caption{openETCS Process Tool chain activities}
+  \label{fig:openETCSActivities}
+\end{figure}
+
+\todo[inline]{add description of each activities}
+
+%----------------------------------------------------
+\section{Management tools}
+%----------------------------------------------------
+\todo[inline] {add the list of the management tools and a description}
+\begin{itemize}
+\item Version Management
+\item Collaborative work
+\item Project  Management
+\item Build system
+\item Non regression test
+\end{itemize}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "toolchain_archi"
+%%% End: 

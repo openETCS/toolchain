@@ -1,0 +1,248 @@
+ \documentclass{openetcs_article}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[section, % add the glossary to the table of content 
+            description,% acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist      % no page number
+]{glossaries}
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+\renewcommand*{\glossaryname}{List of Terms}
+\makeglossaries
+\loadglsentries{glossary} 
+%===========================
+
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/O7.3.1}
+
+%define your workpackage here
+\wp{Work-Package 3: ``Tool chain''}
+
+%set a title here
+\title{Tool chain Development Plan}
+
+%set a subtitle here
+\subtitle{Description of the tool chain development process}
+
+%set the date of the report here
+\date{May 2012}
+
+%define a list of authors and their affiliation here
+
+\author{Cecile Braunstein \and Jan Peleska}
+
+\affiliation{University Bremen}
+
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{Software development Plan}
+
+
+\begin{abstract}
+%define an abstract here
+  This document defines the development process of the openETCS tool
+  chain. 
+
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\section*{Document Information}
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.3.1\\
+\hline
+Document title & Tool chain development Plan \\
+Document version & 00.02 \\
+Document authors (org.)  & Cécile Braunstein  (Uni.Bremen)  \\
+& Jan Peleska (Uni. Bremen)\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Cécile Braunstein & WP7-T7.3 Sub-Task  & \\
+& Jan Peleska & Leaders&\\
+\hline
+Approved by & &  & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.01 & 29.04.2013 & C. Braunstein  &  Document creation  \\
+00.01 & 26.06.2013 & C. Braunstein  &  Document correction  \\
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+\printglossary
+%==========================================
+\mainmatter
+%----------------------
+\section{Introduction and Motivation}
+
+\input{intro}
+%----------------------
+\section{Reference documents}
+
+\bibliographystyle{unsrt}
+\begin{btSect}{intern-doc}
+\subsection{Project documents}
+\btPrintAll
+\end{btSect}
+\begin{btSect}{standards}
+\subsection{Standards documents}
+\btPrintAll
+\end{btSect}
+
+%----------------------
+\section{OpenETCS Tool chain Definition Methods}
+\label{sec:toolchaindef}
+\input{definition}
+
+%----------------------
+
+\section{OpenETCS Tool chain Life Cycle}
+\label{sec:lifecycle}
+\input{lifecycle}
+%----------------------
+
+\section{OpenETCS Tool chain Development Environment}
+\label{sec:env}
+\subsection{Development environment}
+Any GNU system running on a PC may be used. \gls{IDE}  such as Eclipse may
+also be used. 
+The tool chain should be under the GIT  version control system
+\cite{Chacon:2009}.
+
+
+To allow robust distributed development, the  environment provides~:
+\begin{itemize}
+\item  a continuous automated build system,
+\item an issue tracker,
+\item a request/extension tracker,
+\item a backlog
+\item a  documentation system.
+\end{itemize}
+The environment will also provides the infrastructure for a SCRUM development.
+
+
+\subsection{Design Method}
+The tool chain will be designed with SysML (\cite{SysML}) Block
+diagram with associated interface specifications following the SysML syntax.
+The interface will provide the set of artifacts produced or consumed by each tools.
+
+More information may be added to the tool chain model in
+order to facilitate the design, the certification and the analysis  of
+the openETCS tool chain following the approach
+\cite{slotosch_model-based_2012} or \cite{asplund_towards_2012}.
+
+\subsection{Tool chain Development}
+Following the scrum process, there will be regular releases for the tool chain.
+
+The tool chain is the integration of  tools, thus the tool chain development
+takes care of all the aspects of the tool integration problem (see  
+\cite{wasserman_tool_1990}): (1) Platform integration, (2) Data integration,
+(3) Presentation integration, (4) Control integration, and (5) Process
+integration.
+The point (1) is resolved by the choice of the tool platform. The point (5) is
+addressed during the design phase of the tool chain.
+
+It has been design that the tool platform hosting the tools will be
+eclipse with eclipse modeling framework (\gls{EMF}) plug-in. 
+To ensure a good  integration, the tool chain development should follow these steps:
+\begin{enumerate}
+\item Register tool in Eclipse (3)
+\item Defining the communication with other tools: method of data exchange (2),
+  Control Integration (4)
+\end{enumerate}
+
+
+
+
+\subsection{Tool chain  verification}
+The validation and verification plan of the tool chain is described in the
+a separate  document \cite{}.
+
+
+
+\begin{btSect}{biblio}
+\section{References}
+\btPrintAll
+\end{btSect}
+
+
+\appendix
+
+\includepdf[pages={1},landscape=true,pagecommand=\section{WP2 requirements}\label{app:wp2req}]{req_D2_6.pdf}
+
+\includepdf[pages={2},landscape=true,pagecommand={}]{req_D2_6.pdf}
+
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}
