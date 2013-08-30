@@ -1,0 +1,46 @@
+To make the tool chain flexible, easy to maintained etc ... We need to
+define the interface between the tools in a loosely way. The interoperability
+mechanism should assist the flexibility as well as give some guidance
+to integrate new tools along the tool chain development. 
+
+We propose that for each tool chain activities the WP7 will agree on a
+common input/output format. This will help to link the activities
+altogether and ease the tools update or change.
+It keeps the tools independent.
+
+That implies to have an open interoperability specification.
+The interoperability mechanism can be decomposed in different
+concept.
+\begin{itemize}
+\item Architecture: what are the principles of the interoperability
+  mechanism all tools agree on (e.g. RESTful architecture)
+\item Communication : the communication protocol and data exchange
+  format (e.g. XML)
+\item Syntax: the structure of information represented in a common
+  data format. What tools need to parse and interpret information
+  (e.g. RDF)
+\item Semantic layer : Basic semantic to make the tools understand
+  each others. (e.g. Meta model EMF)
+\end{itemize}
+
+The OSLC project proposes a set of standard interface to link  the
+different lifecycle activities together. The idea is to have a common
+core protocol and architecture and then for each activities a
+domain specific interface. All activities do not necessarily share the
+same interest for the same data. Some part of the interfaces are
+already covered, others still need to be specify. The amount of needed
+work to comply to this specification should be quantified and a
+decision of whether or not OpenETCS join the OSLC project should be
+made.
+
+During the tool chain development we need to maybe go step by step and
+start with exchange by file and then add more restful architecture.
+At each development step each tool should conform to the defined
+interface.
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "toolchain_archi"
+%%% End: 

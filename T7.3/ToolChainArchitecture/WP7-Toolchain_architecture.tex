@@ -1,0 +1,228 @@
+ \documentclass{openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{appendix}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+%\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[section,                 % add the glossary to the table of content 
+            description,             % acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist             % no page number
+]{glossaries}
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+\renewcommand*{\glossaryname}{List of Terms}
+\makeglossaries
+\loadglsentries{wp7_glossary} 
+%===========================
+%===========================
+% Todo note margin
+%===========================
+\setlength{\marginparwidth}{7em}
+%===========================
+
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/O7.3.2}
+
+%define your workpackage here
+\wp{Work-Package 3: ``Tool chain''}
+
+%set a title here
+\title{Tool chain Development Plan}
+
+%set a subtitle here
+\subtitle{Description of the tool chain}
+
+%set the date of the report here
+\date{July 2012}
+
+%define a list of authors and their affiliation here
+
+\author{Cecile Braunstein \and Jan Peleska}
+
+\affiliation{University Bremen}
+
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{Tool chain Architecture}
+
+
+\begin{abstract}
+%define an abstract here
+This document defines the tool chain architecture : the links between
+the tools and the interoperability mechanism implemented.
+
+The present tool chain will propose some alternative path to give more
+flexibility with the chosen tools.
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\chapter{Document Information}
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.3.2\\
+\hline
+Document title & Tool chain architecture \\
+Document version & 00.00 \\
+Document authors (org.)  & Cécile Braunstein  (Uni.Bremen)  \\
+& Jan Peleska (Uni. Bremen)\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Cécile Braunstein & WP7-T7.3 Sub-Task  & \\
+& Jan Peleska & Leaders&\\
+\hline
+Approved by & &  & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.00 & 25.07.2013 & C. Braunstein  &  Document creation  \\
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+\printglossary
+%==========================================
+\mainmatter
+%----------------------
+\chapter{Introduction and Motivation}
+\todo[color=green!40,noline]{Chap resp. CB/JP}
+\input{intro}
+
+
+%----------------------
+\chapter{OpenETCS Tool chain Presentation}
+%----------------------
+\label{chap:toolchaindef}
+\todo[color=green!40,noline]{Chap resp. CB/JP}
+
+\input{definition}
+
+%----------------------
+\chapter{OpenETCS Requirement Engineering}
+%----------------------
+\label{chap:reqhandling}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+\input{req_handle}
+
+%----------------------
+\chapter{OpenETCS Sub-System Modeling}
+%----------------------
+\label{chap:sysphase}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+\input{modeling}
+
+%----------------------
+\chapter{OpenETCS  Software Modeling}
+%----------------------
+\label{chap:softphase}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+\input{soft_phase}
+
+%----------------------
+\chapter{V\&V tools}
+%----------------------
+\label{chap:VnV}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+
+%----------------------
+\chapter{Interoperability specification}
+%----------------------
+\label{chap:interope}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+\input{interoperability}
+
+%----------------------
+\chapter{Integration in the tool platform}
+%----------------------
+\label{chap:integration}
+\todo[color=green!40,noline]{Chap resp. ??}
+
+\input{integration}
+
+
+
+\appendix
+
+\includepdf[pages={1},landscape=true,pagecommand=\chapter{WP2
+  requirements}\label{app:wp2req}]{images/req_D2_6.pdf}
+
+\includepdf[pages={2},landscape=true,pagecommand={}]{images/req_D2_6.pdf}
+
+\chapter{WP7-specific requirements}
+\label{app:WP7Req}
+\input{wp7_req}
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}
