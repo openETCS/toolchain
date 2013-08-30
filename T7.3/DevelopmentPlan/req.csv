@@ -1,0 +1,50 @@
+Check;7.7 Tools chain;
+;7.7.1 Usage;
+;R-WP2/D2.6-X-36 ; The tools chain shall be composed as far as possible of Open Source components licensed under a license compatible with the EUPL license.
+;R-WP2/D2.6-X-36.1 ; Closed source components may be used, but only if their use is not mandatory in the process, or if an open source counterpart is provided.
+;R-WP2/D2.6-X-36.2 ; If a closed source component is used, it has to be displayed how an open source component has to be designed to replace the closed component later.
+;R-WP2/D2.6-X-37; The tools chain shall be portable to common operating systems.
+;R-WP2/D2.6-X-37.1; The tool chain shall run stable on all main operating systems.
+;R-WP2/D2.6-X-37.2; The tool chain shall run with a good performance on all main operating systems.
+;R-WP2/D2.6-X-38; The tools used in the tool chain shall be able to cooperate, i.e. the outputs of one tool will be suitable to be used as the inputs of another tool.
+;R-WP2/D2.6-X-38.1; All possible input and output formats of a tool have to be documented.
+;R-WP2/D2.6-X-38.2; Open data formats shall be used for the tool cooperation.
+;R-WP2/D2.6-01-032; If tools are required for configuration management, they will be considered as part of the tool chain.
+;R-WP2/D2.6-X-40 ; The tools chain shall allow to generate executable code from the model(s).
+;7.7.2 Information management;
+;R-WP2/D2.6-X-41; The tools chain shall be sufficiently robust to allow large software management (at least covering the onboard part of the SUBSET-026).
+;R-WP2/D2.6-X-41.1; It shall allow modularity at any level (proof, models, software).
+;R-WP2/D2.6-X-41.2; It shall allow the management of documentation.
+;R-WP2/D2.6-X-41.3; It shall allow distributed software development.
+;R-WP2/D2.6-X-41.4; It shall allow simultaneous multi user usage.
+;R-WP2/D2.6-X-41.5; It shall include an issue-tracking system, in order to allow change management and errors/bugs management.
+;R-WP2/D2.6-X-41.6; It shall allow to document/track the differences between the models and the ERTMS reference.
+;R-WP2/D2.6-X-41.7; It shall support management of subsequent Subset-026 versions, as well as differences tracking between Subset-026 versions.
+;R-WP2/D2.6-X-41.8;  It shall allow concurrent version development, or be compatible with tools allowing concurrent version development.
+;R-WP2/D2.6-X-41.9; The version management tools shall use model-based version control instead of text-based version control, when appropriate.
+;R-WP2/D2.6-X-41.10; In particular it shall allow to track the roles and responsibilities of each participant on a configuration item, at each step of the project lifecycle.
+;R-WP2/D2.6-X-41.11; In particular, version management shall allow to track version of the safety properties together with the models.
+;R-WP2/D2.6-01-035; The tool chain shall allow traceability between:
+;R-WP2/D2.6-01-035.01; the documentation/requirements and the models,
+;R-WP2/D2.6-01-035.02; the documentation/requirements and the tests,
+;R-WP2/D2.6-01-035.03; the models and the tests,
+;R-WP2/D2.6-01-035.04; the documentation/requirements and the models,
+;R-WP2/D2.6-01-035.05; the documentation/requirements and the safety properties/requirements,
+;R-WP2/D2.6-01-035.06; the models and the safety properties/requirements,
+;R-WP2/D2.6-01-035.07; the tests and the safety properties/requirements.
+;R-WP2/D2.6-X-43; The tools chain shall be compliant to EN 50128 for the corresponding tool
+;7.7.3 Testing;
+;R-WP2/D2.6-01-036; The SFM shall be executable in debug mode (step-by-step), allowing inspection of states, variables and I/O.
+;R-WP2/D2.6-01-037; The environment shall be emulated by high level construction of the inputs. Justification. “High level” means that it will not be necessary to define bitwise the inputs at each cycle. On the contrary, some automation will be available to define the behavior of the inputs.
+;R-WP2/D2.6-01-038; The tool chain shall allow to write, execute and store test cases and use cases for the SFM.
+;R-WP2/D2.6-X-47; Version management will allow to map test cases version to the SFM, the FFM and source code versions.
+;R-WP2/D2.6-X-48; The tool chain shall allow to generate test cases for the SFM, the FFM and source code from a test model.
+;R-WP2/D2.6-X-49; The tool chain shall allow to write, execute and store test sequences combining multiple test cases for the SFM, the FFM and source code.
+;7.7.4 Conformance to standards ;
+;R-WP2/D2.6-X-50 ; Each tool in the tool chain shall be classified among T1, T2 and T3 depending on its usage in the process.
+;R-WP2/D2.6-01-042; The tool chain shall conform to EN 50128 requirements, for the corresponding SIL and tool class 6 .
+;R-WP2/D2.6-01-042.01; For T2 and T3 tools 7 , the choice of tools shall be justified, and the justification shall include how the tools failures are covered, avoided or taken into account (ref. to EN 50128 6.7.4.2).
+;R-WP2/D2.6-01-042.02; All T2 and T3 tools must be provided with their user manuals.
+;R-WP2/D2.6-01-042.03; For all T3 tool, the proof of correctness or the measure taken to guarantee the correctness of the output w.r.t. their specification and the inputs shall be provided
+;R-WP2/D2.6-01-042.03.01; . . . for data transformation,
+;R-WP2/D2.6-01-042.03.02; . . . for software transformation (e.g. translation, compilation. . . ).
