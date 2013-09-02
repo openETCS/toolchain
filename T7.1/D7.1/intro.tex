@@ -4,22 +4,22 @@
 \chapter{Introduction}
 \label{sec:intro}
 
-The aim of this document is to report the results of the task T7.1 of WP7:  "Primary Toolchain Analyses and Recommendations".
+The aim of this document is to report the results of the task T7.1 of WP7:  ``Primary Toolchain Analyses and Recommendations''.
 
 \section{Executive Summary}
 
-The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, this has been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \citep{WP7_D01}.  This document is concerned with the selection of methods and tools for the primary toolchain, which are means and tools to specify and design a critical system from the system specification to the executable code. Secondary methods and tools selection concerns means to complete the toolchain to obtain a proper engineering environment to  development of critical system: thus means and tools for verification and  validation activities, to support safety analysis or data or requirement management will be analysed during this second phase.  As the tools shall be integrated, the selection of an integration platform was required as well.
+The task of WP7 is to produce an integrated chain of software tools.  To simplify the selection process, this has been separated into a primary and secondary toolchain in the WP7 Description of Work (DoW) \citep{WP7_D01}.  This document is concerned with the selection of methods and tools for the \emph{primary} toolchain, which are means and tools to specify and design a critical system from the system specification to the executable code. Secondary methods and tools selection concerns means to complete the toolchain to obtain a proper engineering environment for the development of critical systems: thus means and tools for verification and  validation activities, to support safety analysis or data or requirement management will be analyzed during this second phase.  As the tools shall be integrated, the selection of an integration platform was required as well.
 
-Eclipse was selected as tool platform, and the decision was unanimous \ref{sec:decision_platform}.
+Eclipse was selected as tool platform, and the decision was unanimous, see Section~\ref{sec:platform}.
 
-Use of SysML and Papyrus for the hisghest level of specification was also a unanimous decision \ref{sec:dec}. 
+Use of SysML and Papyrus for the highest level of specification was also a unanimous decision, see Section~\ref{sec:decision_meeting}. 
 
 Three toolchains have been proposed to complete the use of SysML and Papyrus, which will be referred to with the following shortcuts for brevity:
 
 \begin{description}
 \item[SCADE.] This toolchain is based on SCADE in connection with Papyrus, for which an integration already exists.
 
-\item[EFS.] This toolchain is based on ERTMS Formal Specs (EFS), in connection with Papyrus, for which an integration has to be developed.  It will take advantage of elements from the Eclipse Ecosystem (and from TOPCASED, wherever possible).  The methods for integrating the various models have to be developed, as well as the gluing code that will hold everything together.
+\item[EFS.] This toolchain is based on ERTMS Formal Specs (EFS), in connection with Papyrus, for which an integration has to be developed.  It will take advantage of elements from the Eclipse ecosystem (and from TOPCASED, wherever possible).  The methods for integrating the various models have to be developed, as well as the gluing code that will hold everything together.
 
 \item[B.] This toolchain is based on B in connection with Papyrus, for which an integration has to be developed.
 
@@ -29,7 +29,7 @@ SCADE is the perfect candidate for a backup plan: While offering pretty much eve
 
 As all three solutions use Papyrus as the first modeling tool, activities should focus on narrowing down which elements of Papyrus should be used.  Once this is clear, WP3 can get started with their modeling activities.
 
-Some effort needs to be spent on defining the interfaces between the various tool elements.  This has been demonstrated nicely by the B-team, as visualized in Figure~\ref{fig:classical-b-toolchain}.  We encourage the EFS-team to do the same.
+Some effort needs to be spent on defining the interfaces between the various tool elements.  This has been demonstrated nicely by the B-team, as visualized in Figure~\ref{fig:classical-b-toolchain}.  The EFS-team updated their proposal with a similar picture.
 
 The interfaces of the three toolchains should be aligned as much as possible.  Doing so will allow to switch tool components between the three toolchains with comparatively little effort, if the need arises.
 
@@ -51,7 +51,7 @@ The goal of WP7 is to provide other openETCS work packages with tooling for thei
 
 \section{Scope of Task T7.1}
 
-The scope of the primary tooling has been defined in the WP7 Description of Work \citep{WP7_D01}.  Figure~\ref{fig:main_process} depicts the main process (from \citep{D2_3}, from more details on the process and the meaning of formal methods, please to look at \citep{D2_3} and \citep{D2_4}).  In the scope of the primary tooling are (according to the DoW):
+The scope of the primary tooling has been defined in the WP7 Description of Work \citep{WP7_D01}.  Figure~\ref{fig:main_process} depicts the main process (taken from \citep{D2_3}, for more details on the process and the meaning of formal methods, please to look at \citep{D2_3} and \citep{D2_4}).  In the scope of the primary tooling are (according to the DoW):
 
 \begin{description}
   \item [Sub-System Semi-formal model.]  ``A semi-formal model of the system specification is defined from the SSRS. This model shall reflect the architecture defined in SSRS. (...) The semi-formal model shall be as consistent as possible with the SSRS level of abstraction, in particular choices concerning
@@ -68,16 +68,16 @@ software architecture and design have not to be described at this level. In prac
 
 \subsection{Scope with respect to SSRS, API and code}
 
-API, Code and SSRS\footnote{Note that the DoW does not even mention the SSRS, as its creation has been proposed the first time in February 2013, when the DoW was already finalized.  Therefore, we include SSRS-related activities with T7.2.3 (Requirement traceability) and report on them in O7.2.5 (Requirement management tool choices).}  are in the scope of the secondary toolchain (T7.2).  Of course, choices in the primary toolchain that may affect the secondary toolchain will be covered in this document.
+API, Code and SSRS\footnote{Note that the DoW does not even mention the SSRS, as its creation has been proposed the first time in February 2013, when the DoW was already finalized.  Therefore, we include SSRS-related activities with T7.2.3 (Requirement traceability) and report on them in O7.2.5 (Requirement management tool choices).}  are in the scope of the secondary toolchain (T7.2).  Choices in the primary toolchain that may affect the secondary toolchain will be covered in this document.
 
-The SSRS poses a special challenge, as activities in its creation have already started.  Even though no tools have been selected yet.  Deliverable D2.3 \citep{D2_3} describes the form of the SSRS as follows:
-``The SSRS (...) shall be described as textual documents.'' (4.3.4).  It continues to state: ``However these documents shall be completed by a semi-formal model to describe the functional architecture of the on-board unit''.
+The SSRS poses a special challenge, as activities in its creation have already started.  However, no tools have been selected yet.  Deliverable D2.3 \citep{D2_3} describes the form of the SSRS as follows:
+``The SSRS (...) shall be described as textual documents.'' (D2.3, 4.3.4).  It continues to state: ``However these documents shall be completed by a semi-formal model to describe the functional architecture of the on-board unit''.
 
 The connection between SSRS and Sub-System Semi-formal model is described as: ``A semi-formal model of the system specification is defined from the SSRS. (...) In practice, all the requirements of SSRS and of the subsystem Hazard analysis shall be covered by the semi-formal model.''
 
-There is even less information regarding the API, except that it is handled corresponding to the SSRS: ``The SSRS and API shall be described as textual documents. However these documents shall be completed by a semi-formal model to describe the functional architecture of the on-board unit.'' (D2.3, 4.3.4 \citep{D2_3}).
+There is even less information regarding the API, except that it is handled corresponding to the SSRS: ``The SSRS and API shall be described as textual documents. However these documents shall be completed by a semi-formal model to describe the functional architecture of the on-board unit.'' (D2.3, 4.3.4).
 
-There is little relevant information with regard to code generation in this report, except that it makes some implications regarding the software functional model: ``A first executable code is produced from the software functional model.  This executable code shall be non vital. However it shall be able to run in real time on a on-board computer.  Thus it shall comply to the standardized interfaces.'' (D2.3, 4.6.2).
+There is little relevant information with regard to code generation in this report, except that it makes some implications regarding the software functional model: ``A first executable code is produced from the software functional model.  This executable code shall be non vital. However, it shall be able to run in real time on a on-board computer.  Thus, it shall comply to the standardized interfaces.'' (D2.3, 4.6.2).
 
 \section{Organization of this Report}
 
@@ -86,13 +86,13 @@ This report is organized as follows:
 \begin{description}
 \item[Introduction (Section \ref{sec:intro}).] An executive summary, as well as an overview of the WP7 Task T7.1 activities.  It shows how T7.1 fits into openETCS in general and WP7 in particular.  It also describes the scope of the results described in this deliverable, making sure the boundary to the secondary toolchain is properly defined.
 
-\item[Results on Means and Tools (Section \ref{sec:results}).] A description of the three proposed toolchains.  The selection process is described in detail.
+\item[Results on Means and Tools (Section \ref{sec:results}).] A short description of the three proposed toolchains.  The selection process is described in detail.
 
-\item[Discussion and Results on Tool platform (Section \ref{sec:platform}).] A description of the proposed tool platform and results of selection is given.
+\item[Discussion and Results on Tool Platform (Section \ref{sec:platform}).] A description of the proposed tool platform and results of selection is given.
 
 \item[Decision (Section \ref{sec:decision}).] This conclusion sums up  the pro and cons of each proposals and gives the decisions made by the consortium.
 
-\item[Detailed description of the toolchains] The detailled description of each toolchain is given in Appendix \ref{sec:sysML-Scade} For SysMl and Scade, \ref{sec:sysML-EFS} for SysML and EFS and \ref{sec:sysML-B} for SysML and B.
+\item[Detailed Description of the Toolchains (Appendices).] The detailled description of each toolchain is given in Appendix \ref{sec:sysML-Scade} For SysMl and Scade, \ref{sec:sysML-EFS} for SysML and EFS and \ref{sec:sysML-B} for SysML and B.
 
 
 \end{description}

@@ -2,8 +2,8 @@
 \label{sec:sysML-B}
 
 This section describes the approach of combining SysML modeling with
-Classical B. The technical realization is shown in Figure
-\ref{fig:classical-b-toolchain}. Modeling starts in SysML based on the
+Classical B. The technical realization is shown in Figure~\ref{fig:classical-b-toolchain}.
+Modeling starts in SysML based on the
 tool Papyrus. At the current stage of the project, it is undefined
 which SysML elements and diagrams will be used. This must be well
 defined to ensure that a transformation from SysML to Classical B is
@@ -12,6 +12,13 @@ modeling guidelines, the approach suggest the use of the \emph{Object
   Constraint Language (OCL)} or the \emph{Eclipse Validation
   Framework}. Such guidelines may restrict the usage of certain
 modeling elements and may enforce certain naming conventions.
+
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=6in]{images/classical_b_toolchain.pdf}
+  \caption{Technical overview of the Papyrus and Classical-B toolchain}
+  \label{fig:classical-b-toolchain}
+\end{figure}
 
 The validated SysML model will be transformed to a Classical B model
 with a model-to-text transformation language (e.g. Xtend). The
@@ -27,14 +34,6 @@ software artifacts that have to be developed within the openETCS
 project. Furthermore, it is desirable to move parts from the Atelier B
 tool into Eclipse. 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=6in]{images/classical_b_toolchain.pdf}
-  \caption{Technical overview of the Papyrus and Classical-B toolchain}
-  \label{fig:classical-b-toolchain}
-\end{figure}
-
-
 In Table \ref{tab:classical-b-tools} the list of tools used in the
 proposed toolchain is given. The GPLv3 licensed tools are stand-alone
 executables. It is not expected that GPLv3 licensed tool will lead to
@@ -48,7 +47,6 @@ Obligation Generator are currently only distributed under a
 proprietary license. However, a GPLv3 licensed Proof Obligation
 Generator is currently under development within in CERCLES-2 project.
 
-\begin{center}
 \begin{table}
   \begin{tabular}{ l | l | l }
     Tool                               & License & Link \\ 
@@ -69,7 +67,6 @@ Generator is currently under development within in CERCLES-2 project.
   \caption{Tools used in the Classical B toolchain}
   \label{tab:classical-b-tools}
 \end{table}
-\end{center}
 
 
 
@@ -113,7 +110,7 @@ and an a mode-to-model transformation (see
 Fig. \ref{fig:classical-b-transformation-alternatives}) is under
 investigation.
 
-\begin{figure}
+\begin{figure}[b!]
   \centering
   \includegraphics[width=4in]{images/classical_b_transformation_alternatives.pdf}
   \caption{Alternatives in the transformation from SysML to Classical B}
