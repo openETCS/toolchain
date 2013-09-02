@@ -174,6 +174,29 @@ In figure 2 we could highlight them more explicitly, obviously after semi-formal
 
 \end{comment}
 
+\section{Recommendations for WP3 Modeling}
+
+We can make decisions for WP7, but can only articulate recommendations for WP3.  Making these will hopefully clarify the intentions behind our decisions even more.
+
+Three toolchains have been proposed, all with their various advantages and drawbacks. The weakest candidate is B, as this option cannot be used any time soon in order to meet the openETCS project schedule, and because there is no clear partner backing it with resources.  This toolchain candidate is therefore ruled out for now, unless a B-based  toolchain becomes available, to be used down to software generation and verification.  This would require a partner with WP7/WP3 resources to step up and take ownership.
+
+This leaves two toolchains, Scade and EFS.  We recommend WP3 to pursue both, with two independent teams:
+
+\begin{description}
+
+\item[Team SCADE.] This team will first structure the system by applying structural analysis and functional decomposition using the Papyrus functionality of the SCADE system level.  Later it will generate an executable functional model and then a real-time model, finally generating executable software for either an PC based simulation system or for embedded control units providing the proposed non-vital OBU reference.
+
+\item[Team EFS.] This team will develop a mapping from the EFS model to SysML, providing a visual representation of the EFS model with Papyrus. In parallel, they will complete the already started formalization work of the SRS and related SubSets by using the EFS tool.  Last, and also in parallel, they will develop a transformation of the EFS model to code, thereby demonstrating that a code generator is feasible.
+
+\end{description}
+
+In order to minimize the risk that the teams deviate too much from each other, we recommend nominating an expert or a team to synchronize their activities.  WP3 must decide whether they want the teams to model the same artifacts, or prefer complimentary artifacts.  The former approach allows the comparison of the models, or their use for a basic verification cycle.  The latter approach makes more efficient use of resources. Further, such an expert should also ensure that the two toolchains / models have as many common interfaces as possible (e.g. both should use the same subset of SysML features).
+
+Potential shortcomings of either approach can be addressed and used for further improvement or influence the development work to be accomplished in WP7, for instance by leveraging the B approach after all.  Since no further delay for the modeling work needs to be taken into account, that approach allows to start right away.
+
+All parties who want to work in the modeling phase have to decide either to acquire licenses for SCADE in order to create models and software or work with EFS, which comes free of charge.
+For the first modeling step with SCADE, which is functional decomposition and interface description, Papyrus can be used alternatively to SCADE Systems. A users guide has to be generated to make sure that artifacts are interchangeable between SCADE System and Papyrus. 
+
 \section{Conclusion}
 
 While there was some discontent in the team of not having one single solution to move forward with, we simply have to turn this to our advantage.  Having options helps us reduce risk, and by aligning the activities, we prevent our effort from dissipating.  We believe that the documented decisions will act as high-level guidelines for achieving this goal.
