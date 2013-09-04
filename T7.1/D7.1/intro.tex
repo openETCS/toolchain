@@ -57,13 +57,16 @@ The scope of the primary tooling has been defined in the WP7 Description of Work
 
 \begin{description}
   \item [Sub-System Semi-formal model.]  ``A semi-formal model of the system specification is defined from the SSRS. This model shall reflect the architecture defined in SSRS. (...) The semi-formal model shall be as consistent as possible with the SSRS level of abstraction, in particular choices concerning
-software architecture and design have not to be described at this level. In practice, all the requirements of SSRS and of the sub-system Hazard analysis shall be covered by the semi-formal model.'' (D2.3, 4.4.3).  ``The means of description of the semi-formal model shall be understandable by domain experts, providing graphical description'' (D2.3, 4.4.4).
+software architecture and design have not to be described at this level. In practice, all the requirements of SSRS and of the sub-system Hazard analysis shall be covered by the semi-formal model.'' (D2.3, 4.4.3). In particular the architecture shall allow "to classify Vital versus Non-Vital items (functions, input/output, requirements, ...) from the
+safety analysis results" (D2.3, 4.3.3). "This model shall reflect the
+architecture defined in SSRS " (D2.3, 4.4.3).
+ ``The means of description of the semi-formal model shall be understandable by domain experts, providing graphical description'' (D2.3, 4.4.4).
 
   \item [Sub-System Strictly formal model.] ``This semi-formal model \emph{can} be extended with strictly formal models to improve the understanding of some part of the sub-system.'' (D2.3, 4.4.2).  ``To facilitate safety activities, the safety relevant function should be as much as possible insulated from non safety relevant functions.'' (D2.3, 4.4.3).
 
   \item [Software Semi-formal model + architecture description.] The main output of this step is a semi-formal model which allows to produce executable code. ``This model shall be completed by a Software Architecture and Design Specification, which describes the software architecture and the design choices. (...) The semi-formal model defined during the system phase shall be completed, keeping the same language or extending it to cover specific software aspects.'' (D2.3, 4.5.2).
 
-  \item [Software Strictly formal model + Software design description.]  This model is concerned with the functional and safety branch.  This activity ``shall provide methods and a toolchain to obtain SIL4 executable code of the on-board software application.'' (D2.3, 4.5.3).
+  \item [Software Strictly formal model + Software design description.]  This model is concerned with the functional and safety branch.  This activity ``shall provide methods and a toolchain to obtain SIL4 executable code of the on-board software application.'' (D2.3, 4.5.3). Inparticular T3 class tools shall be necessary  to  automatically produce SIL4 code form software model.
 
 \end{description}
 

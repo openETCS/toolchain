@@ -42,10 +42,15 @@ not linked with other parts of the toolchain. The ComenC code
 generator is listed in the table, because the current version of
 Atelier-B ships with it instead of c4b. The source code of ComenC is
 available, however it is unclear under which license the source code
-is distributed. The Type Checker, B0 Checker, Prover and Proof
-Obligation Generator are currently only distributed under a
-proprietary license. However, a GPLv3 licensed Proof Obligation
-Generator is currently under development within in CERCLES-2 project.
+is distributed. The Type Checker, Checker, Prover and Proof Obligation
+Generator are currently only distributed under a proprietary
+license. However, with BEval and BWare (see Table
+\ref{tab:classical-b-tools}) open-source alternatives are
+available. BEval is a tool which allows verification of models by
+model-checking with the ProB model-checker. In the BWare project a new
+open-source proof obligation generator is under development. Both
+tools could complete the toolchain to have open-source alternatives
+for V\& V activities.
 
 \begin{table}
   \begin{tabular}{ l | l | l }
@@ -56,6 +61,8 @@ Generator is currently under development within in CERCLES-2 project.
     Bcomp (B Compiler)                 & GPLv3 & \url{http://sf.net/projects/bcomp/} \\ \hline
     c4b (C Code Generator)             & GPLv3 & \url{http://sf.net/projects/c4b/} \\ \hline
     ComenC (C Code Generator)          & -     & \url{http://sf.net/projects/comenc/} \\ \hline
+    BEval                              & EPL   & \url{http://github.com/ValerioMedeiros/BEval} \\ \hline
+    BWare                              & -     & \url{http://bware.lri.fr/index.php/BWare_project} \\ \hline
     Papyrus                            & EPL   & \url{http://www.eclipse.org/papyrus/} \\ \hline
     Xtend                              & EPL   & \url{http://www.eclipse.org/xtend/} \\ \hline
     Type Checker                       & proprietary & - \\ \hline
@@ -134,9 +141,12 @@ based toolchain. However, this proposal only reflects an initial
 toolchain, which could be improved during the project and beyond. The
 parts of the toolchain which are user visible and realized with
 Atelier B in the first version, could be progressively moved to an
-Eclipse based solution. To what extend components from existing
-solutions (e.g. the Rodin platform) can be used and if there are
-enough resources available in the project, has to be investigated.
+Eclipse based solution. The open source tools involved in the
+toolchain (automatic refiner, code generator, compiler, etc.) can be
+executed from the command line, which allows an easy integration into
+Eclipse. To what extend components from existing solutions (e.g. the
+Rodin platform) can be used and if there are enough resources
+available in the project, has to be investigated.
 
 \section{Benefits versus OpenETCS requirements}
 
@@ -225,10 +235,13 @@ steps using an example use-case.
 
 The proposed toolchain based on SysML and Classical B covers the
 openETCS design phases from system analysis, sub-system formal design,
-software design and software code generation.
+software design and software code generation. Furthermore, an
+operational open source toolchain is already available from high level
+B model design to C code.
 
 Both, the proposed languages and tools have industry acceptance and
-were used in projects developing safety critical embedded systems. 
+there exists a significant experiences in developing safety critical
+system with such languages.
 
 With the exact definition of the border between SysML and Classical B,
 only the transformation between both languages has to be developed for
