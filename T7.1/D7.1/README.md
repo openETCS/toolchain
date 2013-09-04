@@ -13,7 +13,7 @@ Product Owner
 Review Duration
 ===
 * Start: 1-Aug-2013
-* End: 20-Aug-2013
+* End: 13-Sep-2013
 
 Review Team
 ===
@@ -22,7 +22,7 @@ Person | Status | Review Goal
 ------ | ------ | -----------
 PF Jauquet | Invited | Well-Suitedness for WP3
 Marc Behrens | Invited | Well-Suitedness for WP4
-Gilles Dalmas  | Invited | Consistency with WP2 Requirements
+Sylvain Baro | Invited | Consistency with WP2 Requirements (was Gilles Dalmas, who retired from the project)
 Patrick Deutsch | Invited | Well-Suitedness for WP5
 Bernd Hekele  | Accepted | Overall Form, especially with respect to itea requirememnts
 Matthieu Perin | Accepted | Confirm Feasability of presented toolchains
