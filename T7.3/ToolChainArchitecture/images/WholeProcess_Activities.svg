@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="WholeProcess_Activities.pdf">
+   sodipodi:docname="WholeProcess_Activities.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -1579,13 +1579,6 @@
        d="M 47.642638,572.1582 1046.0258,567.69119"
        id="path5189-8"
        inkscape:connector-curvature="0" />
-    <rect
-       style="fill:url(#pattern6278);fill-opacity:1;stroke:#0000ff;stroke-width:0.89103168;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.7820634, 0.89103169;stroke-dashoffset:0"
-       width="265.94775"
-       height="80.583954"
-       x="70.655365"
-       y="956.84265"
-       id="rect5857" />
     <path
        style="fill:#0000ff;stroke:#0000ff;stroke-width:1.46976459;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.4697646, 2.93952921;stroke-dashoffset:0"
        d="M 56.576665,926.54129 1041.5587,922.07428"
@@ -1716,18 +1709,6 @@
          y="1024.0482"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan5292-9">design</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Sans"
-       x="151.20219"
-       y="1028.5555"
-       id="text5228-3-7"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="151.20219"
-         y="1028.5555"
-         style="font-size:12px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif Italic"
-         id="tspan5318-3">Out of OpenETCS project</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10.78575802px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
