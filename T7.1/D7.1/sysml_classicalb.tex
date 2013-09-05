@@ -26,7 +26,13 @@ generated Classical B model is considered as read-only and is only
 allowed to be further refined. From that point, the existing Atelier B
 toolchain will be used for refining the model until reaching the
 implementation. Provers support the V\&V activities and the open
-source code generator c4b is capable of generating C code.
+source code generator c4b is capable of generating C code. However,
+the generated C code is not SIL4 certified. For SIL4 code generation,
+there is the option to replace it with a commercial T3 translator or
+to develop an own translator. As the software structure is closely
+captured in the resulting B model, the translation from B to the
+target language is less complex than it is the case with languages
+that lack this strong relationship.
 
 The proposed toolchain is intended to be a first version. The yellow
 boxes in Figure \ref{fig:classical-b-toolchain} indicate non existing
