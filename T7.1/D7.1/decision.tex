@@ -1,16 +1,18 @@
 
 % (mj) a macro for clearly marking decisions as such.
 \newcounter{decision}
-\newcommand{\decision}[1]{
+
+\newcommand{\decision}[2]{
 \begin{center}
 \begin{tabular}{ p{13cm} }
-\stepcounter{decision}\textbf{Decision~\arabic{decision}}  \\
+\refstepcounter{decision}\label{#2}\textbf{Decision~\arabic{decision}}  \\
 \hline
 \multicolumn{1}{|p{13cm}|}{#1} \\
 \hline
 \end{tabular}
 \end{center}
 }
+
 
 
 \chapter{Decisions}
@@ -102,6 +104,10 @@ B could be the sweet spot between using a commercially proven approach (like SCA
 
 Acceptance may be the biggest problem, as B is a ``hard core'' formal notation, which is considered hard to read.  We must be prepared to train the users and ensure that they accept it beforehand.
 
+% =========================================================================
+\pagebreak
+% =========================================================================
+
 \section{Decisions}
 \label{sec:dec}
 
@@ -109,70 +115,69 @@ In the following, we will document a number of decisions that follow from our an
 
 The tools covered here must allow working with the four models shown in Figure~\ref{fig:main_process}.
 
+During the review process, a number of issues were discussed, which are available in the toolchain issue tracker (identified by the tag ``D7.1 Review'').  A number of core ideas have been identified from this, which are documented on the wiki\footnote{\url{https://github.com/openETCS/model-evaluation/wiki/D7.1-review}}.  These ideas are referred to in the following by their IDs.
 
-\subsection{Decision on the tool platform}
+\subsection{Decision on the Tool Platform}
 \label{sec:decision_platform}
 
-\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform. }
+There was no ambiguity with respect to the platform choice.
 
- Which version of Eclipse will be used is up to the implementing team (T7.3).  The last release is Kepler 4.3, launched the 26 of June 2013.
+\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use of \textbf{Eclipse} as tool platform. }{d:eclipse}
 
+ Which version of Eclipse\footnote{The last release is Kepler 4.3, launched the 26 of June 2013.} will be used is up to the implementing team T7.3.
 
-\subsection{Papyrus/SysML}
+\subsection{Decisions on the Modeling Tool}
 
-\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use Papyrus/SysML to cover the highest level of the OpenETCS V-cycle.}
+The vote for Papyrus-based SysML had already been done in Paris, but later it was clarified that the SysML model must be an original artifact (core idea O-7):
 
-All proposed toolchains will use SysML with Papyrus.  To keep things as flexible as possible, it would be desirable to use SysML in exactly the same way for all approaches.  The B team suggested to create modeling guidelines, and to build a validator for validating the SysML model accordingly. It is recommended to use the last release of Papyrus and associated version of SysML  language. the last release is Papyrus 0.10.0 launched 26 of June 2013 and based on Eclipse Kepler 4.3. It support completely SysML 1.1 and largely SysML 1.2.
+\decision{By vote in Paris on July 4th, 2013, all the partners agree on the use Papyrus/SysML to cover the highest level of the OpenETCS V-cycle.  Later it was clarified that it will be an original (and not a derived) artifact.}{d:sysml}
 
-\decision{All three teams will work together to create modeling guidelines that will apply to all three toolchains.  If this turns out not to be possible, they should create a superset guideline, with extensions for the three approaches.}
+All proposed toolchains will use SysML with Papyrus.  To keep things as flexible as possible, it would be desirable to use SysML in exactly the same way for all approaches.  The B team suggested to create modeling guidelines, and to build a validator for validating the SysML model accordingly. It is recommended to use the last release of Papyrus and associated version of SysML  language\footnote{The last release is Papyrus 0.10.0 launched 26 of June 2013 and based on Eclipse Kepler 4.3. It support completely SysML 1.1 and largely SysML 1.2.}.
 
-\subsection{SCADE}
+\decision{With input from WP2 and WP3, a WP7 will develop a validator for Papyrus-based SysML.}{d:sysml_validator}
 
-The analysis shows that we have two promising open proposals (EFS, B), and a third non-open proposal, that is extremely powerful (SCADE).  Considering the constraints of the project, it is clear that SCADE should only be employed if everything else fails.  It is a ``Plan B'' that we should be grateful for, as it may allow us to make openETCS at least a partial success, in case of a larger tool crisis (of whatever nature).  Therefore, we decide:
+During the review meeting, consensus was reached that it would be possible for WP3 to start SysML modeling, without knowing which other tools would complement the toolchain (core idea O-6).  This is an important premise, upon which the rests of the decision rest, and which must be confirmed by the WP3 stakeholders. To a degree, this is in conflict with core idea S-4, but this is softened by Decision~\ref{d:scade}.
 
-\decision{The SCADE toolchain will be the ``Plan B'' toolchain, to be employed if ``all else fails''.}
+\decision{As the first toolchain release, WP7 will provide at a minimum a Papyrus SysML environment to WP3, under the assumption that this is sufficient for WP3 to start modeling, until the final decision has been made (see Decision~\ref{d:deadline}).}{d:start_sysml}
 
-\decision{Therefore, activities on the SCADE toolchain will be suspended for the time being.}
+Nevertheless, The rest of the tool chain must be decided upon eventually.  It is unambiguous when this has to happen (core idea O-1):
 
-If we are in a real crisis (this will hopefully never happen), we'll have to put relatively little effort into migrating whatever has been done to the SCADE toolchain.  This will be particularly true if we carefully define the scope of the Papyrus component.
+\decision{A final decision on the primary toolchain must be made by the end of January 2014.  After this point, WP7 resources must not be spread between competing tools.}{d:deadline}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{images/2013_08_28_Toolchain_proposal.pdf}
+  \caption{Proposal for putting the various tools to use.  Note that work on EFS will be performed in the context of WP3.}
+  \label{fig:proposal}
+\end{figure}
 
-\subsection{Aligning EFS and B toolchains}
+An toolchain proposal had been made by Matthieu Perin, shown in Figure{ref:proposal}.  This proposal was generally met with agreement (discussed in issue \#144, see core idea E-3).
 
-For better or worse, there is no clear winner between the EFS and B toolchains.  We will know more when the rubber hits the road --- when we start modeling.  Therefore, modeling activities should start as soon as possible with a well-defined case study.
+In particular, this approach is interesting with the respect to EFS, as its main objective would become supporting V\&V activities.  However, should there be a problem with the primary toolchain, this would still allow EFS to be used as the main model.  This approach makes EFS complementary (rather than competing) to the primary toolchain and allows openETCS to take advantage of the existing modeling that has already been done with EFS.
 
-\decision{As the toolchains are being built, modeling will start immediately on a small, well-defined case study, which will represent a subset of the spec.  The model will cover the tool from top to bottom, thereby demonstrating that the toolchain actually works as advertised.}
+\decision{EFS activities will be coordinated with WP4, to support V\&V activities (as these are modeling activities, they still belong in WP3).}{d:efs_vv}
 
-It is conceivable to continue with the radio subsystem that has been used for the benchmarking, but the modeling expert may suggest a better case study.
+Further, Matthieu proposes to use SCADE to be the primary toolchain.  This is based on core idea S-4, that Scade is the only viable option to get started NOW.  Note that this point of view is dominating, but by no means universal.  There are proponents for B and EFS, who will still be able to influence this decision, as outlined by Decision~\ref{d:deadline}.
 
-It is quite conceivable that no clear winner emerges, but that individual components show unexpected strengths or weaknesses.  Therefore, the toolchain must first define clear interfaces, similar to what the B team already hinted at in Figures~\ref{fig:classical-b-toolchain} and \ref{fig:classical-b-transformation-alternatives}.  Again, there is no reason not to look for similarities between the two open toolchains and to align the interfaces, wherever it makes sense.  For instance, if the Polarsys tools are not performing as expected, they may be replaceable by B tools.  Therefore:
+This also means that Decision~\ref{d:sysml_validator} must be performed in a way to take the constraints of the  SCADE Papyrus model into account.
 
-\decision{All toolchains shall clarify their architecture, keep it as modular as possible and align interfaces between them, wherever it makes sense.}
+\decision{Unless new evidence is provided in agreement with Decision~\ref{d:deadline}, SCADE will be considered the foundation for the primary toolchain.}{d:scade}
 
-\subsection{Intermediate solution and migration path}
+SCADE two major drawbacks: (1) it is not open source, and (2) it is very expensive (core idea S-3).  Figure~\ref{fig:proposal} addresses the first issue, which is also recorded in core idea S-1, by proposing an OSS migration to a B or EFS-based toolchain.  In fact, as outlined in Decision~\ref{d:scade}, this migration may happen much sooner, if evidence is presented. 
 
-\begin{comment}
-Issue \#79 openned by Uwe Steinke to discuss here :
+\decision{Work on the toolchain must always take the objective of an OSS migration into account, e.g. by standardizing interfaces between tools.  It is acknowledged that such a migration may not be feasible within the timeframe of the openETCS project.}{d:oss}
 
+The second issue can only be resolved in collaboration with Esterel, the manufacturer of SCADE.  Klaus-Rüdiger Hase expressed confidence in finding a solution for all parties, after the initial negotiations with Esterel.  To make sure that we won't have a problem in this regard, we formulate the following ``nuclear option'' and will make Esterel aware of it:
 
-WP 7 is in the obligation to provide and supply all other WPs with an intermediate tool chain until the preferred tool chain becomes operabel. The reason is to enable the other WPs to work productivly.
-Additionally, there must be a migration path between the intermediate tool chain and the preferred one, that assures that the results produced with the intermediate tools can be transferred automatically.
+\decision{All openETCS project partners must be made aware of the need for acquiring a SCADE license (depending on their activities).  If a partner feels that this is not achievable, this must be escalated to the project office by \textbf{November 15, 2013}.  The project office will assist in finding a solution.  If no solution has been found by January 31, 2014 for all partners who escalated, then SCADE will be abandoned for anything on the critical path of the toolchain.}{d:price}
 
-The intermediate path has to be specified in this document.
+Last, there are proponents for EFS and B.  While work on EFS will continue, as described in Decision~\ref{d:efs_vv}, we will state explicitly that the B team may continue to investigate the possibilities of its use, in the spirit of a meritocracy:
 
-\end{comment}
+\decision{According to the spirit of an open proofs project, team members are permitted to continue evaluating B, even with the objective of contradicting Decision~\ref{d:scade}.  However, if unsuccessful by the deadline set by Decision~\ref{d:deadline}, they must refocus either by contributing elsewhere, or by focusing on the transition to OSS, as outlined in Figure~\ref{fig:proposal}.}{d:b}
 
-\begin{comment}
-Issue \#99 openned by Christophe Ponsard :
-
-
-I like the point about interfaces enabling to "cross-over" between toolchains
-
-In figure 2 we could highlight them more explicitly, obviously after semi-formal (common papyrus) but also at the interface with code generation.
-
-(maybe the figure is not suited to show them all)
-
-\end{comment}
+% =========================================================================
+\pagebreak
+% =========================================================================
 
 \section{Recommendations for WP3 Modeling}
 
@@ -218,8 +223,8 @@ Such conclusion is likely to avoid dispersion of WP3 ressources that lead to imp
 
 Some decisions have been made by the WP4 partners regarding VnV and safety activities. these decision have been announced during the decision in Paris on July 4th, 2013:
 
-\decision{WP4 is going to consider the artifacts of "SysML+ Scade" toolchain for the first round of verification and validation launched in July 2013.}
+\decision{WP4 is going to consider the artifacts of "SysML+ Scade" toolchain for the first round of verification and validation launched in July 2013.}{d:wp4_scade}
 
-\decision{For the following rounds, starting in February 2014, WP4 will adapt the verification and validation activities to the models and code provides by WP3.}
+\decision{For the following rounds, starting in February 2014, WP4 will adapt the verification and validation activities to the models and code provides by WP3.}{d:wp4_future}
 
 
