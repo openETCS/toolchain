@@ -12,8 +12,16 @@ Product Owner
 
 Review Duration
 ===
+
+Review Round 1 (Complete)
+====
 * Start: 1-Aug-2013
-* End: 13-Sep-2013
+* End: 10-Sep-2013
+
+Review Round 2 (Ongoing)
+====
+* Start: 10-Sep-2013
+* End: 15-Sep-2013 (optimistic)
 
 Review Team
 ===
