@@ -10,8 +10,9 @@
 \usepackage[section, % add the glossary to the table of content 
             description,% acronyms have a user-supplied description,
             style=superheaderborder, % table style
-            nonumberlist      % no page number
+            nonumberlist,      % no page number
 ]{glossaries}
+
 %===========================
 % Graphicpath
 %===========================
@@ -46,7 +47,7 @@
 \subtitle{Description of the tool chain development process}
 
 %set the date of the report here
-\date{May 2012}
+\date{September 2013}
 
 %define a list of authors and their affiliation here
 
@@ -172,6 +173,7 @@ Version &  Date & Author(s) & Justification  \\
 
 \section{OpenETCS Tool chain Development Environment}
 \label{sec:env}
+The tool chain development will follow the Quality assurance plan \cite{D1.3.1}.
 \subsection{Development environment}
 Any GNU system running on a PC may be used. \gls{IDE}  such as Eclipse may
 also be used. 
@@ -213,7 +215,7 @@ The point (1) is resolved by the choice of the tool platform. The point (5) is
 addressed during the design phase of the tool chain.
 
 It has been design that the tool platform hosting the tools will be
-eclipse with eclipse modeling framework (\gls{EMF}) plug-in. 
+Eclipse with Eclipse modeling framework (\gls{EMF}) plug-in. 
 To ensure a good  integration, the tool chain development should follow these steps:
 \begin{enumerate}
 \item Register tool in Eclipse (3)
@@ -222,7 +224,10 @@ To ensure a good  integration, the tool chain development should follow these st
 \end{enumerate}
 
 
-
+Furthermore, each tool should register to the tool version
+manager. The tool version manager is responsible to keep track of the
+version and/or changes of tools and provides the list of compatible
+tools versions.
 
 \subsection{Tool chain  verification}
 The validation and verification plan of the tool chain is described in the
@@ -247,3 +252,5 @@ a separate  document \cite{}.
 %Do NOT change anything below this line
 
 \end{document}
+
+% LocalWords:  metadata

@@ -1278,13 +1278,13 @@
      transform="translate(0,-308.2677)">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.97709823px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 532.39258,992.73156 914.72111,408.9736"
+       d="M 529.23294,1025.9077 911.56147,442.14979"
        id="path6520-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.97709823px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 149.90705,408.971 532.23557,992.72896"
+       style="fill:none;stroke:#000000;stroke-width:1.00131047px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 149.91916,408.98311 529.85374,1025.893"
        id="path6520"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -1782,7 +1782,7 @@
            x="821.4668"
            sodipodi:role="line"
            style="text-align:center;text-anchor:middle"
-           id="tspan7111">1c) V&amp;V SSRS</tspan></text>
+           id="tspan7111">1c) V&amp;V SSRS &amp; API</tspan></text>
     </g>
     <g
        id="g7105"
@@ -2094,7 +2094,7 @@
     </g>
     <g
        id="g6558-2"
-       transform="translate(75.979918,146.26356)">
+       transform="translate(78.349646,142.31401)">
       <rect
          ry="5.4892364"
          y="804.66351"
@@ -2150,6 +2150,35 @@
            sodipodi:role="line"
            x="289.83734"
            y="844.2915" /></text>
+    </g>
+    <g
+       id="g6558-2-6"
+       transform="translate(60.971626,191.28839)">
+      <rect
+         ry="5.4892364"
+         y="804.66351"
+         x="467.78754"
+         height="35.409454"
+         width="226.87402"
+         id="rect3763-5-9-2-4-6-4"
+         style="fill:#ffd5d5;fill-opacity:1;stroke:#ff0000;stroke-width:0.9078145;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5405-59-8-5-9-2"
+         y="826.79486"
+         x="581.48126"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+         xml:space="preserve"><tspan
+           id="tspan6516-4-9"
+           style="text-align:center;text-anchor:middle"
+           y="826.79486"
+           x="581.48126"
+           sodipodi:role="line">4e) V&amp;V Software integration</tspan><tspan
+           style="text-align:center;text-anchor:middle"
+           y="844.29486"
+           x="581.48126"
+           sodipodi:role="line"
+           id="tspan3799" /></text>
     </g>
   </g>
 </svg>

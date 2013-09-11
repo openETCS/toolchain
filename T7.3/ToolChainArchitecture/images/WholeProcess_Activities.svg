@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="WholeProcess_Activities.svg">
+   sodipodi:docname="WholeProcess_Activities.pdf">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -1853,28 +1853,27 @@
       </g>
     </g>
     <g
-       transform="translate(-102.77353,207.75581)"
-       id="g5413-2">
+       id="g4937">
       <rect
          ry="5.4892364"
-         y="515.7843"
-         x="708.56299"
+         y="723.5401"
+         x="605.78943"
          height="35.409454"
          width="226.87402"
          id="rect3763-5-18"
          style="fill:#ffd5d5;fill-opacity:1;stroke:#ff0000;stroke-width:0.9078145;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text5405-5"
-         y="537.12573"
-         x="770.05029"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-         xml:space="preserve"><tspan
-           id="tspan5409-2"
-           y="537.12573"
-           x="770.05029"
-           sodipodi:role="line">Model Checking</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+       x="609.61334"
+       y="745.67145"
+       id="text5405-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="609.61334"
+         y="745.67145"
+         id="tspan5409-2">Model Checking, static analysis ...  </tspan></text>
     <g
        id="g5557"
        transform="translate(159.0641,36.419283)">
