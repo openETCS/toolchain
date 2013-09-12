@@ -28,9 +28,9 @@ Review Team
 
 Person | Status | Review Goal
 ------ | ------ | -----------
-PF Jauquet | Invited | Well-Suitedness for WP3
-Marc Behrens | Invited | Well-Suitedness for WP4
-Sylvain Baro | Invited | Consistency with WP2 Requirements (was Gilles Dalmas, who retired from the project)
+PF Jauquet | Accepted | Well-Suitedness for WP3
+Marc Behrens | Accepted | Well-Suitedness for WP4
+Sylvain Baro | Declined | Consistency with WP2 Requirements (was Gilles Dalmas, who retired from the project)
 Patrick Deutsch | Invited | Well-Suitedness for WP5
 Bernd Hekele  | Accepted | Overall Form, especially with respect to itea requirememnts
 Matthieu Perin | Accepted | Confirm Feasability of presented toolchains
