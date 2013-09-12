@@ -34,7 +34,7 @@ Sylvain Baro | Invited | Consistency with WP2 Requirements (was Gilles Dalmas, w
 Patrick Deutsch | Invited | Well-Suitedness for WP5
 Bernd Hekele  | Accepted | Overall Form, especially with respect to itea requirememnts
 Matthieu Perin | Accepted | Confirm Feasability of presented toolchains
-Frederique | Open | Review with respect to Safety
+Frédérique Vallée | Open | Review with respect to Safety
 * More Volunteers Wanted!
 
 References
