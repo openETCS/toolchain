@@ -55,15 +55,16 @@ For which activities are dedicaded the means or tools (give a note from 0 to  3)
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Verification & & & &  \\
+Verification (WP4) & & & &  \\
 \hline
-Validation & & & & \\
+Validation (WP4) & & & & \\
 \hline
-Safety analysis & & & & \\
+Safety analysis (WP4) & & & & \\
 \hline
 Data, function or requirement management & & & & \\
+(SSRS, WP3 and WP4) & & & & \\
 \hline
-Model or code transformation & & & & \\
+Model or code transformation (WP3 and WP4) & & & & \\
 \hline
 \end{tabular}
 
@@ -74,6 +75,8 @@ According the results of this table, some of the following sections can be skipp
 This section discusses the common criteria of the means and tools according to the project requirements on tools and the results of T7.1.
 
 \subsection{Project and WP2 requirements}
+
+The objectives of this list of criteria is to check if the proposed means and tools meet the main criteria of the project: open-source approaches, usability, modularity, coverage of the objectives,...
 
 According WP2 requirements, give a note for characteristics of the use of the tool (from 0 to 3) :
 
@@ -121,7 +124,7 @@ Scalability & & & & \\
 
 \subsection{Certifiability}
 
-This section discusses how the tool can be classified according EN50128 requirements (D2.6-02-085).
+This section discusses how the tool can be classified according EN50128 requirements (D2.6-02-085). Some qualification shall be mandatory  if the tool is involved to design a SIL4 software.
 
 
 \begin{tabular}{|l | c | c | c | c|}
@@ -149,7 +152,10 @@ Formal proof & & & & \\
 
 \subsection{Complementarity with primary toolchain}
 
-According to the decisions and the propositions of T7.1, how the mean and approach can be addapted to or can complete:
+The objectives of this list of criteria is to check if the proposed means and tools can be easily integrated to the primary toolchain.
+
+
+According to the decisions and the propositions of T7.1, how the mean and approach can be adapted to or can complete:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -189,11 +195,13 @@ How the means or tools can complete or be adapted to SIL4 software in C code ?
 \section{Means and tools for verification and validation purposes}
 \label{sec:vnv}
 
+This section defines the criteria for the means and tools dedicated to verification and validation activities, in the WP4 workpackage. 
 
 Criteria of this section are defined according \citep{D4.1}.
 
 \subsection{VnV Activities}
 
+The VnV activities are described in details in the verification and Validation Plan  \citep{D4.1}.
 
 \begin{figure}[htb]
   \centering
@@ -232,7 +240,37 @@ According figure \ref{fig:openETCSProcess}, for which activities is the mean or 
 \end{tabular}
 
 
-\subsection{Methods and tools}
+\subsection{Properties}
+
+Which kind of properties or elements are verified or validated by the mean or tool (see also \citep{D4.1} section 4)  ?
+
+
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+Functionalities of the system and sub-system & & & &  \\
+\hline
+System and sub-system architecture & & & &  \\
+\hline
+External and internal interfaces of sub-system & & & &  \\
+\hline
+Software components & & & &  \\
+\hline
+Performance constraints & & & &  \\
+\hline
+Safety objectives & & & &  \\
+\hline
+Functional properties & & & &  \\
+\hline
+Safety properties & & & &  \\
+\hline
+\end{tabular}
+
+
+
+\subsection{Verification methods and tools}
 
 Which kind of methods is proposed (see also \citep{D4.1} section 5.3) ?
 
@@ -266,45 +304,57 @@ Verification with Formal Methods & & & &  \\
 \hline
 \end{tabular}
 
+\subsection{Validation means and tools}
+
+The following list of criteria focuss on means and tools to support validation activities, according WP2  requirements :
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+Step-by-step simulation (D2.6-01-036) & & & &  \\
+\hline
+Environment emulation (D2.6-01-037 and D2.6-02-080) & & & &  \\
+\hline
+Time-based test case (D2.6-02-081) & & & &  \\
+\hline
+Test cases writing (D2.6-01-038) & & & &  \\
+\hline
+Test cases execution (D2.6-01-038) & & & &  \\
+\hline
+Test cases storage (D2.6-01-038) & & & &  \\
+\hline
+Version management of test cases (D2.6-02-082) & & & &  \\
+\hline
+Test generation from independant test model (D2.6-02-083) & & & &  \\
+\hline
+Test sequences writing (D2.6-02-084) & & & &  \\
+\hline
+Test sequences execution (D2.6-02-084) & & & &  \\
+\hline
+Test sequences storage (D2.6-02-084) & & & &  \\
+\hline
+\end{tabular}
+
+\subsection{Other Criterias}
+
+
+
 \begin{comment}
 MPD : Todo
-
-The sequel is let as an example is this early version.
-
-Criteria to discuss here are those which concerns means and tools for VnV
-
-7.7.3
-Testing
-R-WP2/D2.6-01-036 The SFM shall be simulable in debug mode (step-by-step), allowing inspec-
-tion of states, variables and I/O.
-R-WP2/D2.6-01-037 The environment shall be emulated by high level construction of the inputs.
-Justification. “High level” means that it will not be necessary to define bitwise the inputs
-at each cycle. On the contrary, some automation will be available to define the behavior
-of the inputs.
-R-WP2/D2.6-02-080 The environment shall be emulated by construction of the inputs compliant
-to SUBSET-026.
-R-WP2/D2.6-02-081 The tool chain shall allow time-based test cases.
-R-WP2/D2.6-01-038 The tool chain shall allow to write, execute and store test cases and use
-cases for the SFM.
-R-WP2/D2.6-02-082 Version management will allow to map test cases version to the SFM, the
-FFM and source code versions.
-R-WP2/D2.6-02-083 The tool chain shall allow to generate test cases for the SFM, the FFM and
-source code from a test model.
-R-WP2/D2.6-02-083.01 The test model is independant from the tested model.
-Justification. The test model can be either a model of the environment, or a model of the
-same subsystem that is being tested, but in both cases this test model must be completely
-independant from the tested model.
-R-WP2/D2.6-02-084 The tool chain shall allow to write, execute and store test sequences com-
-bining multiple test cases for the SFM, the FFM and source code.
-
+Ideas welcomed !
 
 \end{comment}
 
 
 
 
+
 \section{Means and tools for safety activities support}
 \label{sec:safety}
+
+
+This section defines the criteria for the means and tools dedicated to support of safety activities, in the WP4 workpackage. 
 
 Criteria of this section are defined according \citep{D4.2.a}.
 
@@ -443,6 +493,12 @@ Generation of documentation & & & & \\
 \label{sec:management}
 
 
+This section defines the criteria for the means and tools dedicated to data, function and requirement management. These activities are shared by the work packages WP3, WP4 and the activities dedicated to  SSRS.
+These means and tools shall integrate the primary toolchain to  complete its gap and facilitate the integration of different activities. First of all, they  allow the management of a common repository of data, functions and requirements, shared between the models (from SSRS informal specification to code) and the verification and validation activities.  
+Then, they shall support traceability of requirements between models and activities, and facilitate the verification of the traceability.
+Besides they shall support the design of SIL4 software with model comparison or document production facilities, and version management.
+
+\subsection{Management activities}
 
 Which activites, linked to help the management of SSRS definition and whole process are covered by the mean or tool  ?
 
@@ -450,7 +506,7 @@ Which activites, linked to help the management of SSRS definition and whole proc
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Requirement Capturing & & & &  \\
+Requirement capturing & & & &  \\
 \hline
 Requirement management  & & & & \\
 \hline
@@ -465,6 +521,10 @@ Model traceability & & & & \\
 Function architecture & & & & \\
 \hline
 Version management & & & & \\
+\hline
+Model comparison & & & & \\
+\hline
+Documentation production & & & & \\
 \hline
 Others (give details) & & & & \\
 \hline
@@ -538,6 +598,16 @@ Ideas welcomed !
 \section{Means and tools for model transformation and code generation}
 \label{sec:transformation}
 
+
+
+This section defines the criteria for the means and tools dedicated to model and code transformation. These activities are shared by the work packages WP3 and WP4.
+
+
+\subsection{Activities}
+
+These transformations concern the design models  (from a model to an another, or to  executable code) but also validation activities (for model-based testing techniques for example).
+
+Besides dedicated verification activities shall be necessary to  check these transformation (conformance, coverage, traceability,...)
 
 Which transformations are covered by the mean or tool  ?
 
@@ -630,6 +700,15 @@ EMF models & & & & \\
 others & & & & \\
 \hline
 \end{tabular}
+
+
+\section{Other comments}
+
+
+
+\begin{comment}
+This section is available for the author or the assessors to  complete the description and criteria.
+\end{comment}
 
 
 
