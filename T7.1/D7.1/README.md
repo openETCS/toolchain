@@ -21,10 +21,14 @@ Review Round 1 (Complete)
 Review Round 2 (Ongoing)
 ====
 * Start: 10-Sep-2013
-* End: 15-Sep-2013 (optimistic)
+* End: 20-Sep-2013 (optimistic)
 
 Review Team
 ===
+
+NOTE: As there was no response from WP2 leadership, this was escalated to the project office.  
+WP2 did not engage in review activities of D7.1.
+
 
 Person | Status | Review Goal
 ------ | ------ | -----------
