@@ -120,6 +120,8 @@ Tool chain integration & & & & \\
 \hline
 Scalability & & & & \\
 \hline
+User Friendliness & & & & \\
+\hline
 \end{tabular}
 
 
@@ -152,6 +154,14 @@ Formal proof & & & & \\
 
 Which scope of qualification is expected according EN50128 (section 6.7) ?
 
+Score :
+\begin{description}
+\item[3] already qualified for this level
+\item[2] qualification possible to this level, but some elements shall be provided
+\item[0] qualification not recommended for this level
+\end{description}
+
+
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
@@ -171,8 +181,40 @@ class T3  & & & & \\
 
 The objectives of this list of criteria is to check if the proposed means and tools can be easily integrated to the primary toolchain.
 
+\subsubsection{Language}
 
-According to the decisions and the propositions of T7.1, how the mean and approach can be adapted to or can complete:
+
+According to the decisions and the propositions of T7.1, how the mean and approach can be adapted to or can complete the chosen language and methods:
+
+\begin{tabular}{|l | c | c | c | c|}
+\hline
+& \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
+\hline 
+SysML  & & & & \\
+\hline
+Scade method & & & & \\
+\hline
+EFS language & & & & \\
+\hline
+B Method & & & & \\
+\hline
+C language & & & & \\
+\hline
+\end{tabular}
+
+\paragraph{SysML}
+How the means or tools can complete SysML ?
+
+
+\paragraph{Scade, EFS, Classical B}
+How the means or tools can complete the current proposals for formal modeling language ?
+
+\paragraph{C language}
+How the means or tools can complete or be adapted to SIL4 software in C language ?
+
+\subsubsection{Tools and platforms}
+
+According to the decisions and the propositions of T7.1, how the mean and approach can be integrated to or can complete the chosen tools and platforms:
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -180,33 +222,26 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline 
 Eclipse & & & &  \\
 \hline
-SysML  & & & & \\
-\hline
 Papyrus  & & & & \\
 \hline
 Scade & & & & \\
 \hline
-EFS & & & & \\
+EFS tools & & & & \\
 \hline
-Classical B approach & & & & \\
-\hline
-C code & & & & \\
+B tools & & & & \\
 \hline
 \end{tabular}
 
-\paragraph{Eclipse}
-How the means or tools can be adapted to the Eclipse platform ?
 
-\paragraph{SysML and Papyrus}
-How the means or tools can complete SysML with Papyrus ?
+\paragraph{Eclipse}
+How the means or tools can be integrated to the Eclipse platform ?
+
+\paragraph{Papyrus}
+How the means or tools can complete  Papyrus ?
 
 
 \paragraph{Scade, EFS, Classical B}
-How the means or tools can complete the current proposals for formal modeling ?
-
-\paragraph{C code}
-How the means or tools can complete or be adapted to SIL4 software in C code ?
-
+How the means or tools can complete the current proposals for formal modeling tools ?
 
 
 \section{Means and tools for verification and validation purposes}
@@ -253,6 +288,10 @@ According figure \ref{fig:openETCSProcess}, for which activities is the mean or 
 3e Code Verification & & & &  \\
 \hline
 3e Code Validation & & & &  \\
+\hline
+DAS2V Verification \footnote{DAS2V : Design Artifact Subject to Verification and Validation, see \citep{D4.1}}& & & &  \\
+\hline
+DAS2V Validation & & & &  \\
 \hline
 \end{tabular}
 
@@ -389,8 +428,6 @@ Which safety design activities are covered by the mean or tool (see \citep{D4.2.
 \hline 
 Preliminary Hazard Analysis & & & &  \\
 \hline
-Establish Safety Plan & & & & \\
-\hline
 System Hazard and Risk Analysis & & & & \\
 \hline
 Risk Assessment & & & & \\
@@ -401,8 +438,6 @@ Define Safety Related Functional Requirements & & & & \\
 \hline
 Specify Sub-System and Component & & & & \\
 Safety requirements & & & & \\
-\hline
-Implement Safety Plan & & & & \\
 \hline
 Verify System, Sub-System and Component & & & &  \\
 Safety requirements & & & &  \\
@@ -427,15 +462,7 @@ Safety Requirement & & & &  \\
 \hline
 Hazard log & & & & \\
 \hline
-Safety Plan & & & & \\
-\hline
 Safety Case & & & & \\
-\hline
-Code Safety Backlog & & & &  \\
-\hline
-Detailed Model Safety Backlog & & & & \\
-\hline
-High Level Safety Backlog & & & & \\
 \hline
 \end{tabular}
 
@@ -454,15 +481,7 @@ Safety Requirement & & & &  \\
 \hline
 Hazard log & & & & \\
 \hline
-Safety Plan & & & & \\
-\hline
 Safety Case & & & & \\
-\hline
-Code Safety Backlog & & & &  \\
-\hline
-Detailed Model Safety Backlog & & & & \\
-\hline
-High Level Safety Backlog & & & & \\
 \hline
 \end{tabular}
 
@@ -642,8 +661,6 @@ Model transformation for VnV  & & & & \\
 \hline
 Code Generation & & & & \\
 \hline
-EMF transformation & & & & \\
-\hline
 \end{tabular}
 
 
@@ -716,7 +733,7 @@ Model To Text (M2T) & & & & \\
 \hline
 Model To Model (M2M) & & & & \\
 \hline
-EMF models & & & & \\
+EMF models compliant & & & & \\
 \hline
 others & & & & \\
 \hline
