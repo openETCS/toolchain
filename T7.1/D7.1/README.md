@@ -18,10 +18,10 @@ Review Round 1 (Complete)
 * Start: 1-Aug-2013
 * End: 10-Sep-2013
 
-Review Round 2 (Ongoing)
+Review Round 2 (Complete)
 ====
 * Start: 10-Sep-2013
-* End: 20-Sep-2013 (optimistic)
+* End: 1-Oct-2013
 
 Review Team
 ===
