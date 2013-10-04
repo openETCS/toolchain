@@ -12,3 +12,6 @@
 /O7-2-1_Management.out
 /O7-2-1_Management.synctex.gz
 /O7-2-1_Management.toc
+*.bbl
+*.blg
+
