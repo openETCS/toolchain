@@ -6,7 +6,7 @@ to code generation.
 
 \begin{figure}[b!]
 	\centering
-		\includegraphics[width=\textwidth]{images/ERTMSFormalSpecsProposal_V2.png}
+		\includegraphics[width=\textwidth]{images/ERTMSFormalSpecsProposal_V3.png}
 		\caption{SysML, ErtmsFormalSpec and Eclipse/Polarsys Proposal}
 	\label{fig:ERTMSFormalSpecsProposal}
 \end{figure}
@@ -59,7 +59,7 @@ The benefits of the SysML/Papyrus/ERTMSFormalSpecs/Eclipse proposal are the foll
 
 \begin{itemize}
 	\item As of today, already 44\% of Subset-026 requirements modelled. This proposal enables the OpenETCS project to start with a headstart, instead of nothing.
-	\item ERTMSFormalSpecs is the only semi-formal candidate to have built-in braking curves modellings and visualization, verified with the ERA model
+	\item ERTMSFormalSpecs is a semi-formal candidate to have built-in braking curves modellings and visualization, verified with the ERA model
 	\item ERTMSFormalSpecs has very strong support for traceability to the Subset-026, and to the Subset-076 for test cases. More specifically, inside the ERTMSFormalSpecs workbench, every requirements of Subset-026 can be linked to one or more model artifacts. These links are used by the ERTMSFormalSpecs workbench to generate specification coverage reports. Tests from Subset-076 can also be linked to requirements of Subset-026. For more details, see the online ERTMSFormalSpecs User Guide.  Note: traceability to/from SysML and to generated code remains to be addressed (see section ongoing work for OpenETCS project).
 	\item ERTMSFormalSpecs has its domain-specific language, which is highly productive to model Subset-026, thanks to its expressivity, illustrated by the primitives
 developed for braking curves and scalable, as is demonstrated by the large fraction of the Subset-026 which has been modelled so far
@@ -74,7 +74,7 @@ The shortcomings of the SysML/Papyrus/ERTMSFormalSpecs/Eclipse proposal are the 
 
 \begin{itemize}
 	\item ERTMSFormalSpecs has a perfectible look and feel and lacks graphical rendering of the architecture. \emph{This shortcoming might be addressed with the integration of SysML as a visualization language.}
-	\item As of today, the code generation in Eclipse, transforming the ERTMSFormalSpecs in generated source code, is not yet available, and must be developed during task 3.8 of the project. This should be a relatively easy task, as the code generator doesn't need to be qualified according to CENELEC standards (See Section 3. OPENETCS PROJECT – SCOPE OF WORK AND OBJECTIVES in \citep{WP3_WP4_WP7_SafetyMeetingMinutes_April2013}). \emph{This shortcoming can be mitigated by integrating the scade code generator as an alternate solution, or by transforming the ERTMSFormalSpecs model to Atelier B model, to enjoy Atelier B's readily available code generators. However, such alternative strategies are the subject of further work.}
+	\item As of today, the code generation in Eclipse, transforming the ERTMSFormalSpecs in generated source code, is not yet available, and must be developed during task 3.8 of the project. This should be a relatively easy task, as the code generator doesn't need to be qualified according to CENELEC standards (See Section 3. OPENETCS PROJECT – SCOPE OF WORK AND OBJECTIVES in \citep{WP3_WP4_WP7_SafetyMeetingMinutes_April2013}).
 \end{itemize}
 
 \section{On going work for openETCS project}

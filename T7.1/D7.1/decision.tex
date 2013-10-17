@@ -93,7 +93,7 @@ Atelier B is not Eclipse-based, and Appendix~\ref{sec:sysML-B} points out this s
 
 There is also the Atelier B type checker, which is not open source.  Finding an open replacement for this relatively small component would be one mandatory activity.
 
-While B is well-suited for modeling state-based systems, it is not clear how continuous modeling (e.g. breaking curves) would be realized.
+While B is well-suited for modelling state-based systems, it is more difficult to model real-time behaviour.
 
 
 \subsubsection{Opportunities (B)}
@@ -142,12 +142,12 @@ Nevertheless, The rest of the tool chain must be decided upon eventually.  It is
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{images/2013_08_28_Toolchain_proposal.pdf}
+  \includegraphics[width=\linewidth]{images/2013_08_28_Toolchain_proposal.png}
   \caption{Proposal for putting the various tools to use.}
   \label{fig:proposal}
 \end{figure}
 
-An toolchain proposal had been made by Matthieu Perin, shown in Figure \ref{fig:proposal}.  This proposal was generally met with agreement (discussed in issue \#144, see core idea E-3).
+A toolchain proposal had been made by Matthieu Perin, shown in Figure \ref{fig:proposal}.  This proposal was generally met with agreement (discussed in issue \#144, see core idea E-3).
 
 In particular, this approach is interesting with the respect to EFS, as its main objective would become supporting V\&V activities.  However, should there be a problem with the primary toolchain, this would still allow EFS to be used as the main model.  This approach makes EFS complementary (rather than competing) to the primary toolchain and allows openETCS to take advantage of the existing modeling that has already been done with EFS.
 
@@ -157,7 +157,7 @@ Further, Matthieu proposes to use SCADE to be the primary toolchain.  This is ba
 
 This also means that Decision~\ref{d:sysml_validator} must be performed in a way to take the constraints of the  SCADE Papyrus model into account.
 
-\decision{Unless new evidence is provided in agreement with Decision~\ref{d:deadline}, SCADE will be considered the foundation for the primary toolchain.  A feasible migration from what had been done with SCADE is essential.}{d:scade}
+\decision{Unless new evidence is provided in agreement with Decision~\ref{d:deadline}, SCADE will be considered the foundation for the primary toolchain.  In that case, a feasible migration from what had been done with SCADE is essential.}{d:scade}
 
 SCADE two major drawbacks: (1) it is not open source, and (2) it is very expensive (core idea S-3).  Figure~\ref{fig:proposal} addresses the first issue, which is also recorded in core idea S-1, by proposing an OSS migration to a B or EFS-based toolchain.  In fact, as outlined in Decision~\ref{d:scade}, this migration may happen much sooner, if evidence is presented. 
 
@@ -171,8 +171,9 @@ Last, there are proponents for EFS and B.  While work on EFS will continue, as d
 
 Outside help for this task may be available, as Polarsys (an Eclipse Industry Working Group) has similar objectives.  The team is strongly advised to coordinate with them. This is reflected in core idea O-5.
 
-\decision{According to the spirit of an open proofs project, team members are permitted to continue evaluating B, even with the objective of contradicting Decision~\ref{d:scade}.  However, if unsuccessful by the deadline set by Decision~\ref{d:deadline}, they must refocus either by contributing elsewhere, or by focusing on the transition to OSS, as outlined in Figure~\ref{fig:proposal}.  The team is strongly encouraged to coordinate with Polarsys.}{d:b}
+\decision{According to the spirit of an open proofs project, team members are permitted to continue evaluating B, even with the objective of contradicting Decision~\ref{d:scade}.  However, if unsuccessful by the deadline set by Decision~\ref{d:deadline}, they must refocus either by contributing elsewhere, or by focusing on the transition to OSS, as outlined in Figure~\ref{fig:proposal}\footnotemark.  The team is strongly encouraged to coordinate with Polarsys.}{d:b}
 
+\footnotetext{This decision assumes that the WP leader has managerial authority over the work package's resources (and consequently, that these activities are coordinated with WP leadership).  If it turns out that this is not the case, then this aspect of the decision will be void.  This is currently investigated and documented in \url{https://github.com/openETCS/governance/issues/60}.}
 \section{Recommendations for WP3 Modeling}
 
 We can make decisions for WP7, but can only articulate recommendations for WP3.  Making these will hopefully clarify the intentions behind our decisions even more.
@@ -181,7 +182,7 @@ While the decisions document that for now, SCADE and Papyurus will be the founda
 
 \section{Conclusion}
 
-Reaching the decisions documented here was the result of the constructive collaboration of a large number of people.  We believe that we decided on an approach that will allow WP3 and WP4 to confidently pursue their activities (modeling and V\&V, respectively), while still leaving room to adjust course within the next six months.  The decisions lay the groundwork for building an open proofs toolchain.  However, should we not manage to achieve this ambitious goal, this will not jeopardize the project.
+Reaching the decisions documented here was the result of the constructive collaboration of a large number of partners.  We believe that we decided on an approach that will allow WP3 and WP4 to confidently pursue their activities (modeling and V\&V, respectively), while still leaving room to adjust course within the next six months.  The decisions lay the groundwork for building an open proofs toolchain.  However, should we not manage to achieve this ambitious goal, this will not jeopardize the project.
 
 The previous section \ref{sec:dec} gives the actual decisions taken by WP7 and project partners.
 However, decisions or points of view have been given by the leaders of other workpackages and are summed up in the sequel.

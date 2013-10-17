@@ -1,0 +1,211 @@
+\documentclass{template/openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{rotating,url,color}
+%\usepackage[hidelinks]{hyperref}
+%hidelinks put some problems on some distributions
+\usepackage{hyperref}
+\graphicspath{{./template/}{.}{./images/}}
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/O7.2.1~--~00/05}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Secondary tools - Transformation''}
+
+%set a title here
+\title{Evaluation of supporting tools and methods against the WP2 requirements and task 1}
+
+%set a subtitle here
+\subtitle{Means and tools for model transformation and code generation}
+
+\subtitle{List of criteria on supporting tools and methods and results on the benchmark}
+
+%set the date of the report here
+\date{October 2013}
+
+%define a list of authors and their affiliation here
+
+\author{Marielle Petit-Doche}
+\affiliation{Systerel}
+
+
+\author{all participants of the benchmark}
+\affiliation{WP7 partners}
+
+
+\author{all participants of VnV  and Safety process}
+\affiliation{WP4 partners}
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL.png}
+ 
+%define the type of report
+\reporttype{Evaluation}
+
+
+\begin{abstract}
+This document gives elements to evaluate the tools and methods to complete the primary toolchain and to support verification and validation activities, safety activities, moodel transformation and data management for the whole project.
+ Evaluation on the means and tools of benchmark is also described.
+
+This document focusses on means and tools for model transformation and code generation.
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+\listoffiguresandtables
+\newpage
+%=============================
+
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.2.1\\
+\hline
+Document title & Evaluation of supporting tools and methods against the WP2 requirements and task 1 - Transformation \\
+Document version & 00.05 \\
+Document authors (org.)  & Marielle Petit-Doche (Systerel)  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed & 00.04 \\
+\hline
+Main reviewers &  \\
+ 
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Marielle Petit-Doche & WP7-T7.1 Sub-Task Leader  & \\
+\hline
+Approved by & Michael Jastram & WP7 leader & \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.01 & 19/07/2013 & M. Petit-Doche &  Document creation  \\
+00.02 & 09/09/2013 & M. Petit-Doche &  Major evolutions in all document  \\
+00.03 & 19/09/2013 & M. Petit-Doche &  Issues: 167, 168, 170  \\
+00.04 & 23/09/2013 & M. Petit-Doche &  Issues: 164, 169, 174, 175, 177, 178 \\
+00.05 & 01/10/2013 & M. Petit-Doche &  Split of document O7.2.1. Transformation Part \\
+\hline  
+\end{tabular}
+
+% The actual document starts below this line
+%=============================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              My macros (=> Sylvain Baro)               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tbd}{\colorbox{cyan}{\%\%To Be Defined\%\%}}
+\newcommand{\tbc}{\colorbox{cyan}{\%\%To Be Confirmed\%\%}}
+\newcommand{\todo}[1]{\colorbox{cyan}{\%\%{#1}\%\%}}
+\newlength{\origindent}
+
+\newenvironment{issue}{
+        \begin{quote}
+        \begin{itshape}Open Issue.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{comment}{
+        \begin{quote}
+        \begin{itshape}Comment.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+\newenvironment{justif}{
+        \begin{quote}
+        \begin{itshape}Justification.
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{author_comment}{
+        \begin{quote}
+        \begin{itshape}\textcolor{green}{Author:}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor1}{
+        \begin{quote}
+        \begin{itshape} \textcolor{blue}{Assessor 1:}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+
+\newenvironment{assessor2}{
+        \begin{quote}
+        \begin{itshape}\textcolor{magenta}{Assessor 2:}
+}{
+        \end{itshape}
+        \end{quote}
+}
+
+% Start here
+
+\mainmatter
+
+\input{intro.tex}
+
+\input{common.tex}
+
+\input{conclusion.tex}
+
+\appendix
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Bibliography
+
+\bibliographystyle{plain}
+\bibliography{wp7_bibliography}
+
+
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}

@@ -18,23 +18,27 @@ Review Round 1 (Complete)
 * Start: 1-Aug-2013
 * End: 10-Sep-2013
 
-Review Round 2 (Ongoing)
+Review Round 2 (Complete)
 ====
 * Start: 10-Sep-2013
-* End: 15-Sep-2013 (optimistic)
+* End: 1-Oct-2013
 
 Review Team
 ===
 
+NOTE: As there was no response from WP2 leadership, this was escalated to the project office.  
+WP2 did not engage in review activities of D7.1.
+
+
 Person | Status | Review Goal
 ------ | ------ | -----------
-PF Jauquet | Invited | Well-Suitedness for WP3
-Marc Behrens | Invited | Well-Suitedness for WP4
-Sylvain Baro | Invited | Consistency with WP2 Requirements (was Gilles Dalmas, who retired from the project)
+PF Jauquet | Accepted | Well-Suitedness for WP3
+Marc Behrens | Accepted | Well-Suitedness for WP4
+Sylvain Baro | Declined | Consistency with WP2 Requirements (was Gilles Dalmas, who retired from the project)
 Patrick Deutsch | Invited | Well-Suitedness for WP5
 Bernd Hekele  | Accepted | Overall Form, especially with respect to itea requirememnts
 Matthieu Perin | Accepted | Confirm Feasability of presented toolchains
- | Open | Review with respect to Safety
+Frédérique Vallée | Open | Review with respect to Safety
 * More Volunteers Wanted!
 
 References
