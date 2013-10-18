@@ -7,12 +7,16 @@
 \usepackage{pdfpages}
 %\usepackage{bibtopic} % Multibib
 \usepackage{booktabs}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+
 \usepackage[section,                 % add the glossary to the table of content 
             description,             % acronyms have a user-supplied description,
             style=superheaderborder, % table style
             nonumberlist             % no page number
 ]{glossaries}
+\hypersetup{
+linkbordercolor 	={1 1 1}}
+
 %===========================
 % Graphicpath
 %===========================
@@ -21,9 +25,9 @@
 %===========================
 % Abbreviation file
 %===========================
-\renewcommand*{\glossaryname}{List of Terms}
-\makeglossaries
-\loadglsentries{wp7_glossary} 
+% \renewcommand*{\glossaryname}{List of Terms}
+% \makeglossaries
+% \loadglsentries{wp7_glossary} 
 %===========================
 %===========================
 % Todo note margin
@@ -40,19 +44,19 @@
 % The document metadata is defined below
 
 %assign a report number here
-\reportnum{OETCS/WP7/O7.3.2}
+\reportnum{OETCS/WP7/O7.3.3}
 
 %define your workpackage here
 \wp{Work-Package 3: ``Tool chain''}
 
 %set a title here
-\title{Tool chain Design Specification}
+\title{Tool chain Release 1.0}
 
 %set a subtitle here
-\subtitle{Description of the OpenETCS tool chain implementation}
+\subtitle{Installation Guide}
 
 %set the date of the report here
-\date{August 2013}
+\date{October 2013}
 
 %define a list of authors and their affiliation here
 
@@ -66,16 +70,13 @@
 \coverart[width=350pt]{openETCS_EUPL}
 
 %define the type of report
-\reporttype{Tool chain Architecture}
+\reporttype{Installation guide}
 
 
 \begin{abstract}
 %define an abstract here
-This document defines the tool chain architecture : the links between
-the tools and the interoperability mechanism implemented.
-
-The present tool chain will propose some alternative path to give more
-flexibility with the chosen tools.
+This document defines the first release of the openETCS tool chain. It
+describes the installation procedure of the tool chain.
 \end{abstract}
 
 %=============================
@@ -99,12 +100,11 @@ flexibility with the chosen tools.
 \multicolumn{2}{|c|}{Document information} \\
 \hline
 Work Package &  WP7  \\
-Deliverable ID or doc. ref. & O7.3.2\\
+Deliverable ID or doc. ref. & O7.3.3\\
 \hline
-Document title & Tool chain architecture \\
+Document title & Tool chain release 1.0 \\
 Document version & 00.00 \\
 Document authors (org.)  & Cécile Braunstein  (Uni.Bremen)  \\
-& Jan Peleska (Uni. Bremen)\\
 \hline
 \end{tabular}
 
@@ -125,7 +125,7 @@ Main reviewers & \\
   &  Name & Role & Date   \\
 \hline  
 Written by    &  Cécile Braunstein & WP7-T7.3 Sub-Task  & \\
-& Jan Peleska & Leaders&\\
+&  & Leaders&\\
 \hline
 Approved by & &  & \\
 \hline
@@ -145,85 +145,66 @@ Version &  Date & Author(s) & Justification  \\
 
 
 %------ List of terms and definition ----------------
-\printglossary
+%\printglossary
 %==========================================
 \mainmatter
 %----------------------
-\chapter{Introduction and Motivation}
-\todo[color=green!40,noline]{Chap resp. CB/JP}
-\input{intro}
+\chapter{Release 1.0}
+%----------------------
+\todo[color=green!40,inline]{The name has to be define see  \url{https://github.com/openETCS/toolchain/wiki/ToolchainName}}
+
+This release provides the tools for modeling at the system level and
+for managing the requirements.
 
 
 %----------------------
-\chapter{OpenETCS Tool chain Presentation}
-%----------------------
-\label{chap:toolchaindef}
-\todo[color=green!40,noline]{Chap resp. CB/JP}
+\section{List of Software}
+Following the decision of WP7 deliverable D7.1 the first release of
+the OpenETCS tool chain consists of the eclipse IDE with a set of plug-ins.
 
-\input{definition}
+\begin{itemize}
+\item Eclipse : contains Egit 
+\item EMF : Contains EMF and XSD 
+\item Papyrus
+\item ProR
+\end{itemize}
 
-\todo[inline]{Highlight the documentation production for each activity}
-%----------------------
-\chapter{OpenETCS Requirement Engineering}
-%----------------------
-\label{chap:reqhandling}
-\todo[color=green!40,noline]{Chap resp. ??}
-
-\input{req_handle}
+\todo[color=green!40,inline]{Short explanation and contains of each
+  plug-in ?}
 
 %----------------------
-\chapter{OpenETCS Sub-System Modeling}
-%----------------------
-\label{chap:sysphase}
-\todo[color=green!40,noline]{Chap resp. ??}
+\section{Installation Guide}
+\subsection{Install Eclipse}
+\begin{enumerate}
+\item  Install a JVM (JRE or JDK)  if one is not already installed,  JDK 1.4 will work
+\item Download
+  \href{http://eclipse.org/downloads/packages/eclipse-standard-431/keplersr1}{Eclipse
+    4.3.1 Kepler} choose the right version acc. to your installation.
+\item Run eclipse
+\end{enumerate}
 
-\input{modeling}
+\subsection{Install  \href{http://www.eclipse.org/modeling/emf/}{EMF}}
+You can find more information
+\href{http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-124.htm}{here}
+\begin{enumerate}
+\item Click \verb+Help>Install new Software ...+ 
+\item add the new update site~:
+\url{http://download.eclipse.org/modeling/emf/emf/updates/releases/}
+\item Install : EMF Core and MDT XSD
+\end{enumerate}
+\todo[color=green!40,inline]{Which version of EMF ?}
 
-%----------------------
-\chapter{OpenETCS  Software Modeling}
-%----------------------
-\label{chap:softphase}
-\todo[color=green!40,noline]{Chap resp. ??}
+ \subsection{Install \href{http://www.eclipse.org/papyrus/}{Papyrus}}
+Same procedure as EMF with the following update site:
+\url{http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/kepler}
 
-\input{soft_phase}
+\subsection{Install \href{http://www.eclipse.org/rmf/pror/}{ProR}}
+Same procedure as EMF with the following update site:
+\url{http://download.eclipse.org/rmf/update}.
 
-%----------------------
-\chapter{V\&V Activities}
-%----------------------
-\label{chap:VnV}
-\todo[color=green!40,noline]{Chap resp. ??}
+\section{Link to the SSRS git repository}
 
-
-%----------------------
-\chapter{Interoperability specification}
-%----------------------
-\label{chap:interope}
-\todo[color=green!40,noline]{Chap resp. ??}
-
-\input{interoperability}
-
-%----------------------
-\chapter{Integration in the tool platform}
-%----------------------
-\label{chap:integration}
-\todo[color=green!40,noline]{Chap resp. ??}
-
-\input{integration}
-
-
-
-
-\appendix
-
-\includepdf[pages={1},landscape=true,pagecommand=\chapter{WP2
-  requirements}\label{app:wp2req}]{images/req_D2_6.pdf}
-
-\includepdf[pages={2},landscape=true,pagecommand={}]{images/req_D2_6.pdf}
-
-\chapter{WP7-specific requirements}
-\label{app:WP7Req}
-\input{wp7_req}
-
+\todo[color=green!40,inline]{Explain how to import a project via EGIT}
 %===================================================
 %Do NOT change anything below this line
 
