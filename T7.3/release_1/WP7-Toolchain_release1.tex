@@ -163,8 +163,7 @@ Following the decision of WP7 deliverable D7.1 the first release of
 the OpenETCS tool chain consists of the eclipse IDE with a set of plug-ins.
 
 \begin{itemize}
-\item Eclipse : contains Egit 
-\item EMF : Contains EMF and XSD 
+\item Eclipse Modeling : Contains EMF, Egit, myLin, JDT, xsd ... 
 \item Papyrus
 \item ProR
 \end{itemize}
@@ -177,11 +176,14 @@ the OpenETCS tool chain consists of the eclipse IDE with a set of plug-ins.
 \subsection{Install Eclipse}
 \begin{enumerate}
 \item  Install a JVM (JRE or JDK)  if one is not already installed,  JDK 1.4 will work
-\item Download
-  \href{http://eclipse.org/downloads/packages/eclipse-standard-431/keplersr1}{Eclipse
-    4.3.1 Kepler} choose the right version acc. to your installation.
+\item Download the
+  \href{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplerr}{Eclipse
+    Modeling} choose the right version acc. to your installation.
+\item Extract the contents 
 \item Run eclipse
 \end{enumerate}
+To configure the eclipse installation a guide is available
+\href{https://github.com/openETCS/toolchain/blob/master/ToolDescription/Papyrus/HowTo_install_papyrus_V1.2.0.pdf}{here}.
 
 \subsection{Install  \href{http://www.eclipse.org/modeling/emf/}{EMF}}
 You can find more information
@@ -195,8 +197,13 @@ You can find more information
 \todo[color=green!40,inline]{Which version of EMF ?}
 
  \subsection{Install \href{http://www.eclipse.org/papyrus/}{Papyrus}}
-Same procedure as EMF with the following update site:
-\url{http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/kepler}
+More info
+\href{https://github.com/openETCS/toolchain/blob/master/ToolDescription/Papyrus/HowTo_install_papyrus_V1.2.0.pdf}{here}.
+\begin{enumerate}
+\item Click \verb+Help> Install Modeling Components+
+\item Select Papyrus
+\item confirm and accept the licence
+\end{enumerate}
 
 
 Guidelines for Papyrus are available on GitHub at this
