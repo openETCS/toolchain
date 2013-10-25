@@ -50,7 +50,7 @@ linkbordercolor 	={1 1 1}}
 \wp{Work-Package 3: ``Tool chain''}
 
 %set a title here
-\title{Tool chain Release 1.0}
+\title{openETCS  Release 1.0}
 
 %set a subtitle here
 \subtitle{Installation Guide}
@@ -60,7 +60,7 @@ linkbordercolor 	={1 1 1}}
 
 %define a list of authors and their affiliation here
 
-\author{Cecile Braunstein \and Jan Peleska}
+\author{Cecile Braunstein}
 
 \affiliation{University Bremen}
 
@@ -83,7 +83,7 @@ describes the installation procedure of the tool chain.
 %Do not change the next three lines
 \maketitle
 \tableofcontents
-\listoffiguresandtables
+%\listoffiguresandtables
 
 \newpage
 %=============================
@@ -149,9 +149,8 @@ Version &  Date & Author(s) & Justification  \\
 %==========================================
 \mainmatter
 %----------------------
-\chapter{Release 1.0}
+\chapter{openETCS release 1.0}
 %----------------------
-\todo[color=green!40,inline]{The name has to be define see  \url{https://github.com/openETCS/toolchain/wiki/ToolchainName}}
 
 This release provides the tools for modeling at the system level and
 for managing the requirements.
@@ -169,35 +168,22 @@ the OpenETCS tool chain consists of the eclipse IDE with a set of plug-ins.
 \end{itemize}
 
 \todo[color=green!40,inline]{Short explanation and contains of each
-  plug-in ?}
+  components  ?}
 
 %----------------------
 \section{Installation Guide}
-\subsection{Install Eclipse}
+\subsection{Install Eclipse Modeling tools}
 \begin{enumerate}
-\item  Install a JVM (JRE or JDK)  if one is not already installed,  JDK 1.4 will work
 \item Download the
   \href{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplerr}{Eclipse
-    Modeling} choose the right version acc. to your installation.
+    Modeling}, choose the right version according to your Operating System.
 \item Extract the contents 
 \item Run eclipse
 \end{enumerate}
-To configure the eclipse installation a guide is available
-\href{https://github.com/openETCS/toolchain/blob/master/ToolDescription/Papyrus/HowTo_install_papyrus_V1.2.0.pdf}{here}.
 
-\subsection{Install  \href{http://www.eclipse.org/modeling/emf/}{EMF}}
-You can find more information
-\href{http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-124.htm}{here}
-\begin{enumerate}
-\item Click \verb+Help>Install new Software ...+ 
-\item add the new update site~:
-\url{http://download.eclipse.org/modeling/emf/emf/updates/releases/}
-\item Install : EMF Core and MDT XSD
-\end{enumerate}
-\todo[color=green!40,inline]{Which version of EMF ?}
 
  \subsection{Install \href{http://www.eclipse.org/papyrus/}{Papyrus}}
-More info
+A more detailed installation guide may be found
 \href{https://github.com/openETCS/toolchain/blob/master/ToolDescription/Papyrus/HowTo_install_papyrus_V1.2.0.pdf}{here}.
 \begin{enumerate}
 \item Click \verb+Help> Install Modeling Components+
@@ -210,11 +196,17 @@ Guidelines for Papyrus are available on GitHub at this
 \href{https://github.com/openETCS/model-evaluation/tree/master/model/Papyrus-CEA-All4tec/papyrus_guidelines}{location}
 
 \subsection{Install \href{http://www.eclipse.org/rmf/pror/}{ProR}}
-Same procedure as EMF with the following update site:
-\url{http://download.eclipse.org/rmf/update}.
-
+\begin{enumerate}
+\item Click \verb+Help>Install new Software ...+
+\item Add the new update site~:
+\url{http://download.eclipse.org/rmf/update} 
+in the \verb+Work with:+ box
+\item Select all items
+\item Accept the terms of the license agreement
+\item Finish the installation
+\end{enumerate}
 \section{Eclipse and  git repositories}
-More detail led in formations may be found \href{http://www.vogella.com/articles/EGit/article.html}{here}.
+A tutorial on how to configure Egit may be found  \href{http://eclipsesource.com/blogs/tutorials/egit-tutorial/}{here}.
 \subsection{How to import an Eclipse project from GitHub}
 \begin{enumerate}
 \item From Menu 
