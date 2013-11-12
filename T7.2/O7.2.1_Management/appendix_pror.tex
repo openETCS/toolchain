@@ -6,7 +6,7 @@
 \begin{description}
 \item[\textcolor{green}{Author}] Michael Jastram, Formal Mind GmbH
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
-\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
+\item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches: Christophe Ponsard - for Alstom
 \end{description}
 
 \section{Presentation}
@@ -40,28 +40,32 @@ For which activities are dedicaded the means or tools (give a note from 0 to  3)
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Data Management & 2 & & &  \\
 \hline
-Function Management & 2 & & & \\
+Data Management & 2 & & 2 &  \\
 \hline
-Requirement Management & 3 & & & \\
+Function Management & 2 & & 2 & \\
 \hline
-Version Management & 2 & & & \\
+Requirement Management & 3 & & 3 & \\
 \hline
-Other (give details below) & 3 & & & \\
+Version Management & 2 & & 1 & \\
+\hline
+Other (give details below) & 3 & & 3 & \\
 \hline
 \end{tabular}
 
 \begin{author_comment}
 ProR clearly is a specialized tool for requirements management.  While data and functions could be managed as plain text or numeric data in ProR, this would not be very productive.
 
-\textbf{Data and Function Management.} However, ProR is capable of ``pulling information together'' from various sources.  It would be feasible to show data and functions from Papyurus in-line in a ProR specification.  Such an integration plug-in does not currently exist, but could be creeated with not too much effort.
+\textbf{Data and Function Management.} However, ProR is capable of ``pulling information together'' from various sources.  It would be feasible to show data and functions from Papyrus in-line in a ProR specification.  Such an integration plug-in does not currently exist, but could be created with not too much effort.
 
 \textbf{Version Management.} ProR does not contain version management, but works well with any underlying version management tool like Subversion of git, which already works today.  However, the granularity of the versioning would be file-based, which is less than perfect.  Versioning of individual requirements would be better.  Further, higher-level versioning, like baselining, currently does not exist.
 
 \textbf{Other.} Missing from the list is Traceability Management and Model Integration.  ProR works very well in these two areas.  Specialized traceability to Event-B exists and has been evaluated in \cite{event_b_benchmark}.  At least two third-party traceability solutions exist: ReqCycle\footnote{\url{http://www.eclipsecon.org/france2013/sessions/reqcycle-coming-some-details}} is an open source solution for Toopcased (hosted on gitHub), and Yakindu Crema\footnote{\url{http://www.guersoy.net/knowledge/crema}}, which is commercial and closed-source.
 \end{author_comment}
+
+\begin{assessor2}
+I agree with the author's comments. Data and function management should probably not be managed at requirements level but requirements should be able to identify and reflect them as mentioned. I am more severe for version management as this feature is quite important for the industry so we probably need to check it in more details.
+\end{assessor2}
 
 According the results of this table, some of the following sections can be skipped.
 
@@ -78,51 +82,54 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Open Source (D2.6-02-074) & 3 & & &  \\
-\hline 
-Portability to operating systems (D2.6-02-075) & 3 & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & 3 & & &  \\
+Open Source (D2.6-02-074) & 3 & & 3 &  \\
 \hline
-Robustness (D2.6-02-078) & 3 & & & \\
+Portability to operating systems (D2.6-02-075) & 3 & & 3 &  \\
 \hline
-Modularity (D2.6-02-078.1) & 3 & & & \\
+Cooperation of tools (D2.6-02-076) & 3 & & 3 &  \\
 \hline
-Documentation management (D2.6-02-078.02) & 2 & & & \\
+Robustness (D2.6-02-078) & 3 & & 2 & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & 2 & & & \\
+Modularity (D2.6-02-078.1) & 3 & & 3 & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & 2 & & & \\
+Documentation management (D2.6-02-078.02) & 2 & & 2 & \\
 \hline
-Issue tracking (D2.6-02-078.05) & 1 & & & \\
+Distributed software development (D2.6-02-078.03)  & 2 & & 2 & \\
 \hline
-Differences between models (D2.6-02-078.06) & 2 & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   & 2 & & 2 & \\
 \hline
-Version management (D2.6-02-078.07) & 2 & & & \\
+Issue tracking (D2.6-02-078.05) & 1 & & 1 & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & 2 & & & \\
+Differences between models (D2.6-02-078.06) & 2 & & 2 & \\
 \hline
-Model-based version control (D2.6-02-078.09) & 3 & & & \\
+Version management (D2.6-02-078.07) & 2 & & 1 & \\
 \hline
-Role traceability (D2.6-02-078.10) & 1 & & & \\
+Concurrent version development (D2.6-02-078.08) & 2 & & 1 & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & 2 & & & \\
+Model-based version control (D2.6-02-078.09) & 3 & & 2 & \\
 \hline
-Model traceability (D2.6-02-079) & 2 & & & \\
+Role traceability (D2.6-02-078.10) & 1 & & 1 & \\
 \hline
-Tool chain integration & 3 & & & \\
+Safety version traceability (D2.6-02-078.11) & 2 & & 2 & \\
 \hline
-Scalability & 3 & & & \\
+Model traceability (D2.6-02-079) & 2 & & 2 & \\
 \hline
-User Friendliness & 2 & & & \\
+Tool chain integration & 3 & & 2 & \\
+\hline
+Scalability & 3 & & 3 & \\
+\hline
+User Friendliness & 2 & & 2 & \\
 \hline
 \end{tabular}
 
 \begin{author_comment}
 Generally, the data structures of the underlying requirements model will not change, as they are based on an international standard, ReqIF 1.0.1 \cite{omg_requirements_2011}.  These data structures are powerful enough to model pretty much everything described here.  However, just the existence of the right data structures does not mean that they are used properly.  In many cases, it would be preferrable to integrate a separate tool (e.g. Mylyn for issue tracking), or to constrain the behavior of the tool programmatically.  The bottom line is that for many questions the answer is: Yes, it is possible, but not very comfortable.  For a comfortable solution, development resources are required.
-
 \end{author_comment}
+
+\begin{assessor2}
+Although ProR is Open Source, it relies on closed source software for some features like importing/exporting in several (closed) formats. This is not a show stopper for using ProR as it supports ReqIF (enabling tool cooperation and most industrial own the software enabling those specific features. Documentation is still minimal however come with a tutorial and accessible within the tool. Robustness looks good but not sure about the test level as the project is still in incubation (test are present in sources but did not check in detail nor try to run them). About toolchain integration, good through model (ReqIF echange) but maybe check about support of protocols like OSLC. The project published some evidence of scalability and performance on the web: \url{http://nirmalsasidharan.wordpress.com/2011/08/03/2-fast-thrice-furious}. Support of multiple/simultaneous users is possible at EMF level but there is no mention of whether/how it is available. Same for versioning which is only available through generic support thus not aware of the requirements model structure.
+\end{assessor2}
 
 \subsection{Qualification}
 
@@ -132,20 +139,20 @@ This section discusses how the tool can be classified according EN50128 requirem
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Tool manual (D.2.6-01-42.02) & 2 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03) & * & & & \\
+Tool manual (D.2.6-01-42.02) & 2 & & 2 &  \\
 \hline
-Existing industrial  usage  & 2 & & & \\
+Proof of correctness (D.2.6-01-42.03) & * & & * & \\
 \hline
-Model verification & 1 & & & \\
+Existing industrial  usage  & 2 & & 1 & \\
 \hline
-Test generation & * & & & \\
+Model verification & 1 & & 1 & \\
 \hline
-Simulation, execution, debugging & * & & & \\
+Test generation & * & & * & \\
 \hline
-Formal proof & * & & & \\
+Simulation, execution, debugging & * & & * & \\
+\hline
+Formal proof & * & & * & \\
 \hline
 \end{tabular}
 
@@ -155,6 +162,11 @@ The sections marked with asterisk are not applicable.
 \textbf{Model verification.} There is ongoing research in supporting V\&V activities by establishing a traceability to the corresponding model \cite {HalJasLad2013}.
 
 \end{author_comment}
+
+
+\begin{assessor2}
+I agree with non-applicable sections as stated by the author. Note however that requirements can be traced to generated tests and to formal proofs (property to verify). About industrial usage, some interested parties are listed in: http://www.eclipse.org/proposals/modeling.mdt.rmf but some concrete reference would be welcome.
+\end{assessor2}
 
 Which scope of qualification is expected according EN50128 (section 6.7)?
 
@@ -169,8 +181,8 @@ Score:
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-class T1 & 2 & & &  \\
+\hline
+class T1 & 2 & & 2 &  \\
 \hline
 class T2   & * & & & \\
 \hline
@@ -180,8 +192,11 @@ class T3  & * & & & \\
 
 \begin{author_comment}
 I don't quite understand this section.  ProR should be classified as T1 and has never been qualified.
-
 \end{author_comment}
+
+\begin{assessor2}
+I agree with the author's comment: requirements management tool is T1 The strong process imposed by Eclipse should help to achieve qualification.
+\end{assessor2}
 
 \paragraph{Other elements for tool certification}
 
@@ -198,16 +213,16 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-SysML  & 3 & & & \\
 \hline
-Scade method & 3 & & & \\
+SysML  & 3 & & 3 & \\
 \hline
-EFS language & 3 & & & \\
+Scade method & 3 & & 2 & \\
 \hline
-B Method & 3 & & & \\
+EFS language & 3 & & 3 & \\
 \hline
-C language & * & & & \\
+B Method & 3 & & 3 & \\
+\hline
+C language & * & & * & \\
 \hline
 \end{tabular}
 
@@ -220,6 +235,10 @@ SysML itself provides a requirements element.  However, this is little more than
 A good SysML integration would go much further, allowing diagrams (e.g. state diagrams) to be inserted into the requirements text, or to color highlight symbols in the requirements text.
 \end{author_comment}
 
+\begin{assessor2}
+There is a large potential of complementarity as mentioned by the author.
+\end{assessor2}
+
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling language ?
 
@@ -227,11 +246,15 @@ How the means or tools can complete the current proposals for formal modeling la
 By providing a traceability between textual requirements and model elements.
 \end{author_comment}
 
+\begin{assessor2}
+Evidence of traceability has been shown on Event-B (RODIN) and through CREMA in a more general perspective. It is feasible but not provided out-of-the box. It will probably be more difficult to achieve for Scade at it is closed source.
+\end{assessor2}
+
 \paragraph{C language}
 How the means or tools can complete or be adapted to SIL4 software in C language ?
 
 \begin{author_comment}
-This is not clear.  Conceivable are traceabillity to code, or incorporation of test results.  How useful this would be and how much effort would be required depends on the underlying process.
+This is not clear.  Conceivable are traceability to code, or incorporation of test results.  How useful this would be and how much effort would be required depends on the underlying process.
 \end{author_comment}
 
 \subsubsection{Tools and platforms}
@@ -241,22 +264,26 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Eclipse & 3 & & &  \\
 \hline
-Papyrus  & 2 & & & \\
+Eclipse & 3 & & 3 &  \\
 \hline
-Scade & 2 & & & \\
+Papyrus  & 2 & & 2 & \\
 \hline
-EFS tools & 2 & & & \\
+Scade & 2 & & 2 & \\
 \hline
-B tools & * & & & \\
+EFS tools & 2 & & 2 & \\
+\hline
+B tools & * & & * & \\
 \hline
 \end{tabular}
 
 \begin{author_comment}
 \textbf{B tools.} For Event-B, an integration already exists.  Classical B is much trickier, as has been described below.
 \end{author_comment}
+
+\begin{assessor2}
+Eclipse integration is available. Papyrus, Scade (Papyrus), EFS looks feasible through EMF. B (if applied at component level) comes later in the toolchain and probably not directly integrated.
+\end{assessor2}
 
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
@@ -286,62 +313,62 @@ To create a traceability, ProR would need access to the other tool's model.  If 
 
 
 This section defines the criteria for the means and tools dedicated to data, function and requirement management. These activities are shared by the work packages WP3, WP4 and the activities dedicated to  SSRS.
-These means and tools shall integrate the primary toolchain to  complete its gap and facilitate the integration of different activities. First of all, they  allow the management of a common repository of data, functions and requirements, shared between the models (from SSRS informal specification to code) and the verification and validation activities.  
+These means and tools shall integrate the primary toolchain to  complete its gap and facilitate the integration of different activities. First of all, they  allow the management of a common repository of data, functions and requirements, shared between the models (from SSRS informal specification to code) and the verification and validation activities.
 Then, they shall support traceability of requirements between models and activities, and facilitate the verification of the traceability.
 Besides they shall support the design of SIL4 software with model comparison or document production facilities, and version management.
 
 \subsection{Management activities}
 
-Which activites, linked to help the management of SSRS definition and whole process are covered by the mean or tool  ?
+Which activities, linked to help the management of SSRS definition and whole process are covered by the mean or tool  ?
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Requirement capturing & 3 & & &  \\
 \hline
-Requirement management  & 3 & & & \\
+Requirement capturing & 3 & & 3 &  \\
 \hline
-Data management & 1 & & & \\
+Requirement management  & 3 & & 3 & \\
 \hline
-Function management & 1 & & & \\
+Data management & 1 & & 1 & \\
 \hline
-Requirement traceability  & 3 & & & \\
+Function management & 1 & & 1 & \\
 \hline
-Model traceability & 2 & & & \\
+Requirement traceability  & 3 & & 3 & \\
 \hline
-Function architecture & 1 & & & \\
+Model traceability & 2 & & 2 & \\
 \hline
-Version management & 2 & & & \\
+Function architecture & 1 & & 1 & \\
 \hline
-Model comparison & 2 & & & \\
+Version management & 2 & & 2 & \\
 \hline
-Documentation production & 2 & & & \\
+Model comparison & 2 & & 2 & \\
 \hline
-Others (give details) & n/a & & & \\
+Documentation production & 2 & & 2 & \\
+\hline
+Others (give details) & n/a & & n/a & \\
 \hline
 \end{tabular}
 
 \subsection{Input Artifacts}
 
-Which artifacts are used as input of the mean or tool  ? 
+Which artifacts are used as input of the mean or tool  ?
 
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Informal description & 3 & & &  \\
 \hline
-Structured description & 3 & & & \\
+Informal description & 3 & & 3 &  \\
 \hline
-Spread sheet & 3 & & & \\
+Structured description & 3 & & 3 & \\
 \hline
-XML files & 3 & & & \\
+Spread sheet & 3 & & 2 & \\
 \hline
-EFS model & 1 & & & \\
+XML files & 3 & & 2 & \\
 \hline
-DSL & 2 & & & \\
+EFS model & 1 & & 1 & \\
+\hline
+DSL & 2 & & 2 & \\
 \hline
 Others (give details) & n/a & & & \\
 \hline
@@ -356,64 +383,73 @@ Others (give details) & n/a & & & \\
 \textbf{DSL.} There have been prototypical implementations of XText (DSL framework) and ProR.  Such an implementation allows to edit in the ProR-cells with a DSL editor.
 \end{author_comment}
 
-
+\begin{assessor2}
+Format other than ReqIF require an external tool. The way to manage import/export (possibly partial) is not well documented.
+\end{assessor2}
 
 \subsection{Output Artifacts}
 
-Which artifacts are used as output of the mean or tool  ? 
+Which artifacts are used as output of the mean or tool  ?
 
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Informal description & 2 & & &  \\
 \hline
-Structured description & 3 & & & \\
+Informal description & 2 & & 2 &  \\
 \hline
-Spread sheet & 2 & & & \\
+Structured description & 3 & & 2 & \\
 \hline
-XML files & 3 & & & \\
+Spread sheet & 2 & & 2 & \\
 \hline
-EFS model & 0 & & & \\
+XML files & 3 & & 3 & \\
 \hline
-DSL & 2 & & & \\
+EFS model & 0 & & 0 & \\
+\hline
+DSL & 2 & & 2 & \\
 \hline
 Others (give details) & & & & \\
 \hline
 \end{tabular}
 
+\begin{assessor2}
+Export require external converter. There does not seem to be a report generator nor direct way to query the model at UI level (e.g. using an OCL query) although this is probably easy to achieve using the ReqIF API or EMF. The extension point provided may also help.
+\end{assessor2}
 
 \subsection{Requirement Management}
 
-This section is link to reauirement definition and management activities.
+This section is link to requirement definition and management activities.
 
-Are these criteria coverd by the tool or mean ? 
+Are these criteria coverd by the tool or mean ?
 
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
-\hline 
-Editing of Textual Requirements & 3 & & &  \\
 \hline
-Represent Relations between Req (Textual-Based) & 3 & & & \\
+Editing of Textual Requirements & 3 & & 3 &  \\
 \hline
-Represent Relations between Req (Modelling-Based) & 2 & & & \\
+Represent Relations between Req (Textual-Based) & 3 & & 3 & \\
 \hline
-Glossary and Abbreviation handling (Linked to Req)) & 2 & & & \\
+Represent Relations between Req (Modelling-Based) & 2 & & 2 & \\
 \hline
-Traceability of Textual Requirements to Modelling & 2 & & & \\
+Glossary and Abbreviation handling (Linked to Req)) & 2 & & 2 & \\
 \hline
-Import/Export of Industrial Standard Data (e.g., REQIF) & 3 & & & \\
+Traceability of Textual Requirements to Modelling & 2 & & 2 & \\
 \hline
-Documentation generation & 2 & & &  \\
+Import/Export of Industrial Standard Data (e.g., REQIF) & 3 & & 3 & \\
 \hline
-Search and Filtering functions & 1 & & & \\
+Documentation generation & 2 & & 1 &  \\
+\hline
+Search and Filtering functions & 1 & & 1 & \\
 \hline
 Others (give details) & & & & \\
 \hline
 \end{tabular}
+
+\begin{assessor2}
+There does not seem to be a report generator nor direct way to query the model at UI level (e.g. using an OCL query) although this is probably easy to achieve using the ReqIF API or EMF. The extension point provided may also help.
+\end{assessor2}
 
 
 \section{Other comments}
