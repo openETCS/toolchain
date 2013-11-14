@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="openETCS-Kepler" sequenceNumber="6">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.9.0.201310111533"/>
+<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.9.0.201310111533"/>
+<repository location="http://download.eclipse.org/rmf/updates"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="0.10.1.v201309181302"/>
+<unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="0.10.1.v201309181302"/>
+<unit id="org.eclipse.papyrus.extra.feature.feature.group" version="0.10.1.v201309181343"/>
+<unit id="org.eclipse.papyrus.extra.sources.feature.feature.group" version="0.10.1.v201309181343"/>
+<repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.feature.group" version="4.3.1.v20130911-1000"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.6.0.v20130807-1835"/>
+<unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
+<unit id="org.eclipse.core.runtime.feature.feature.group" version="1.1.0.v20130814-1242"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+</locations>
+</target>
