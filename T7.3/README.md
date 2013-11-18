@@ -1,7 +1,7 @@
 This folder is orginized following the outputs and delivrable define in the description of work
 
 ## Requirements covered from D2.6
-![Requirements from D2.6](req_D2_6.png)
+![Requirements from D2.6](req_D2_6.jpeg)
 
 ## Outputs and deliverables
 
