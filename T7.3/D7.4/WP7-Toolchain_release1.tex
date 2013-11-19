@@ -157,24 +157,35 @@ Version &  Date & Author(s) & Justification  \\
 This release provides the tools for modeling at the system level and
 for managing the requirements.
 
+\section{What is openETCS ?}
+The openETCS tool chain provides the tool support and the development process to achieve a (semi-)formalized
+specification of ETCS EVC down to and an executable code of the
+OBU. The tool chain implements the development lifecycle defined in \cite{D2.3}.
 
+\begingroup
+%\renewcommand{\section}[2]{}%
+\renewcommand{\chapter}[2]{}% for other classes
+  \bibliographystyle{plain}
+  \bibliography{wp7_bibliography}
+\endgroup
 %----------------------
 \section{List of Software}
 Following the decision of WP7 deliverable D7.1 the first release of
-the OpenETCS tool chain consists of the eclipse IDE with a set of plug-ins.
+the OpenETCS tool chain consists of the eclipse Kepler SR1  IDE with a set of plug-ins.
 
 \begin{itemize}
-\item Eclipse Modeling : Contains EMF, Egit, myLin, JDT, xsd ... 
+\item Eclipse Modeling Tools package 
 \item Papyrus
 \item ProR
 \end{itemize}
 
-%\todo[color=green!40,inline]{Short explanation and contains of each
-%  components  ?}
 
 %----------------------
 \section{Installation Guide}
 \subsection{Install Eclipse Modeling tools}
+The eclipse modeling tools package is available for Windows
+(32/64-bit), Mac OS X(Cocoa 32/64) and Linux(32/64-bits)
+
 \begin{enumerate}
 \item Download the
   \href{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/keplerr}{Eclipse
@@ -194,19 +205,27 @@ A more detailed installation guide may be found
 \end{enumerate}
 
 
-Guidelines for Papyrus are available on GitHub at this
-\href{https://github.com/openETCS/model-evaluation/tree/master/model/Papyrus-CEA-All4tec/papyrus_guidelines}{location}
-
 \subsection{Install \href{http://www.eclipse.org/rmf/pror/}{ProR}}
 \begin{enumerate}
 \item Click \verb+Help>Install new Software ...+
 \item Add the new update site~:
-\url{http://download.eclipse.org/rmf/update} 
+\url{http://download.eclipse.org/rmf/updates} 
 in the \verb+Work with:+ box
 \item Select all items
 \item Accept the terms of the license agreement
 \item Finish the installation
 \end{enumerate}
+
+\chapter{Getting Started}
+
+\section{Plug-in tutorial}
+Here is a list of tutorial to start using the openETCS components.
+
+\begin{itemize}
+\item Guidelines for Papyrus are available on GitHub \href{https://github.com/openETCS/model-evaluation/tree/master/model/Papyrus-CEA-All4tec/papyrus_guidelines}{here}
+\item  ProR documentation with a video introduction is available  \href{http://www.eclipse.org/rmf/pror/}{Here}
+\end{itemize}
+
 \section{Eclipse and  git repositories}
 A tutorial on how to configure Egit may be found  \href{http://eclipsesource.com/blogs/tutorials/egit-tutorial/}{here}.
 \subsection{How to import an Eclipse project from GitHub}
@@ -221,8 +240,6 @@ A tutorial on how to configure Egit may be found  \href{http://eclipsesource.com
 \item Click \verb+Import existing project+ and  select a project.
 
 \end{enumerate}
-
-
 
 %===================================================
 %Do NOT change anything below this line
