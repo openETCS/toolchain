@@ -4,7 +4,7 @@
 \section{Instructions}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
+\item[\textcolor{green}{Author}] Stefan Rieger (TWT)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
 \end{description}
@@ -50,9 +50,10 @@ This section gives a quick presentation of the approach and the tool.
 \item[Licence] \todo{Kind of licence}
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} Uppaal is an integrated tool environment for modeling, validation and verification of real-time systems modeled as networks of timed automata, extended with data types (bounded integers, arrays, etc.).
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
+Please refer to \verb|http://dblp.org/search/#query=uppaal|
 
 
 \section{Common criteria on secondary means and tools}
@@ -69,46 +70,53 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-02-074) & & & &  \\
+Open Source (D2.6-02-074) &0 & & &  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & & & &  \\
+Portability to operating systems (D2.6-02-075) &3 & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & & & &  \\
+Cooperation of tools (D2.6-02-076) &2 & & &  \\
 \hline
-Robustness (D2.6-02-078) & & & & \\
+Robustness (D2.6-02-078) &2* & & & \\
 \hline
-Modularity (D2.6-02-078.1) & & & & \\
+Modularity (D2.6-02-078.1) &2 & & & \\
 \hline
-Documentation management (D2.6-02-078.02) & & & & \\
+Documentation management (D2.6-02-078.02) &0** & & & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & & & & \\
+Distributed software development (D2.6-02-078.03)  &0** & & & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   &0** & & & \\
 \hline
-Issue tracking (D2.6-02-078.05) & & & & \\
+Issue tracking (D2.6-02-078.05) &0** & & & \\
 \hline
-Differences between models (D2.6-02-078.06) & & & & \\
+Differences between models (D2.6-02-078.06) &0** & & & \\
 \hline
-Version management (D2.6-02-078.07) & & & & \\
+Version management (D2.6-02-078.07) &0** & & & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & & & & \\
+Concurrent version development (D2.6-02-078.08) &0** & & & \\
 \hline
-Model-based version control (D2.6-02-078.09) & & & & \\
+Model-based version control (D2.6-02-078.09) &0** & & & \\
 \hline
-Role traceability (D2.6-02-078.10) & & & & \\
+Role traceability (D2.6-02-078.10) &0** & & & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & & & & \\
+Safety version traceability (D2.6-02-078.11) &0** & & & \\
 \hline
-Model traceability (D2.6-02-079) & & & & \\
+Model traceability (D2.6-02-079) &0** & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration &2** & & & \\
 \hline
-Scalability & & & & \\
+Scalability &2*** & & & \\
 \hline
-User Friendliness & & & & \\
+User Friendliness &3& & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+\begin{description}
+\item[*] Sub-criteria of robustness in D2.6 do not make sense here, e.g., a tool is not robust if it supports version management.
+\item[**] Out of scope of this tool. The requirements address an tool chain, so other tools should be used to cover these aspects.
+\item[***] Scalability is difficult to judge. As with most tools for model checking it is important how a system model is specified (e.g., bounded datatypes, etc.).
+\end{description}
+\end{author_comment}
 
 
 \subsection{Qualification}
@@ -120,24 +128,36 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) &2* & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   &0 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &** & & & \\
 \hline
-Model verification & & & & \\
+Model verification &3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &2 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &2 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &3 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+The above table is not entirely clear to me. I filled the items 4-7 according to applicability of the tool.
+\begin{description}
+\item[*] Several tutorial papers available.
+\item[**] Not checked in this context.
+\end{description}
+\end{author_comment}
+
 
 Which level of tool qualification has been reached or will be reached within the next year ?
+
+\begin{author_comment}
+The possible answers below are not aligned with the above question and thus make no sense. The tool is not / will not be pre-qualified by the tool author. Tool qualification by a third party is not possible because the tool is closed source at the moment.
+\end{author_comment}
 
 Score :
 \begin{description}
@@ -175,31 +195,62 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-SysML  & & & & \\
+SysML  &2*& & & \\
 \hline
-Scade method & & & & \\
+Scade method &** & & & \\
 \hline
-EFS language & & & & \\
+EFS language &** & & & \\
 \hline
-B Method & & & & \\
+B Method &** & & & \\
 \hline
-C language & & & & \\
+C language &0 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+\begin{description}
+\item[*] Due to XML input and output formats it can be adapted to be combined with SysML, e.g., generating timed automata from SysML Statecharts (Acceleo seems suitable for that)
+\item[**] I am lacking the information to judge these items regarding direct integration. Please also read my answers below.
+\end{description}
+\end{author_comment}
 
 \paragraph{SysML}
 How the means or tools can complete SysML ?
 
+\begin{author_comment}
+\begin{itemize}
+  \item Transformation from SysML, e.g., by using Acceleo
+  \item Use UPPAAL to simulate and verify timed aspects of the primary model
+  \item Timed model checking using a (manual) abstraction of the SysML-Model
+  \item Test cases from counter examples
+\end{itemize}
+\end{author_comment}
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling language ?
 
+\begin{author_comment}
+\begin{itemize}
+  \item Use UPPAAL to simulate and verify timed aspects of the primary model
+  \item Timed model checking using a (manual) abstraction of the primary Model
+  \item Test cases from counter examples
+\end{itemize}
+\end{author_comment}
+
 \paragraph{C language}
 How the means or tools can complete or be adapted to SIL4 software in C language ?
+
+\begin{author_comment}
+This is not the goal in proposing this tool.
+\end{author_comment}
 
 \subsubsection{Tools and platforms}
 
 According to the decisions and the propositions of T7.1, how the mean and approach can be integrated to or can complete the chosen tools and platforms:
+
+\begin{author_comment}
+This section in my opinion is redundant for CPN Tools, see my answers above (the answers for Eclipse and Papyrus are the same as for SysML).
+\end{author_comment}
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
@@ -221,15 +272,24 @@ B tools & & & & \\
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
 
+\begin{author_comment}
+See comments regarding SysML above.
+\end{author_comment}
+
 \paragraph{Papyrus}
 How the means or tools can complete  Papyrus ?
+
+\begin{author_comment}
+See comments regarding SysML above.
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling tools ?
 
-
-
+\begin{author_comment}
+See comments regarding cade, EFS, Classical B above.
+\end{author_comment}
 
 
 \section{VnV Activities}
@@ -250,36 +310,42 @@ According figure \ref{fig:openETCSProcess}, for which activities is the mean or 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-1c SSRS Verification & & & &  \\
+1c SSRS Verification & 3& & &  \\
 \hline
-1c SSRS Validation & & & &  \\
+1c SSRS Validation & 3& & &  \\
 \hline
-2c SFM Verification & & & &  \\
+2c SFM Verification & 3& & &  \\
 \hline
-2c SFM Validation & & & &  \\
+2c SFM Validation & 3& & &  \\
 \hline
-3d SW-SFM Verification & & & &  \\
+3d SW-SFM Verification & 2*& & &  \\
 \hline
-3d SW-SFM Validation & & & &  \\
+3d SW-SFM Validation & 2*& & &  \\
 \hline
-3d SW-FFM Verification & & & &  \\
+3d SW-FFM Verification & 2*& & &  \\
 \hline
-3d SW-FFM Validation & & & &  \\
+3d SW-FFM Validation & 2*& & &  \\
 \hline
-3e Code Verification & & & &  \\
+3e Code Verification & 0& & &  \\
 \hline
-3e Code Validation & & & &  \\
+3e Code Validation & 0& & &  \\
 \hline
-DAS2V Verification & & & &  \\
+DAS2V Verification & 3& & &  \\
 \hline
-DAS2V Validation & & & &  \\
+DAS2V Validation & 3& & &  \\
 \hline
-Automatic model transformation verification & & & &  \\
+Automatic model transformation verification & 0& & &  \\
 \hline
-Automatic code generation verification & & & &  \\
+Automatic code generation verification & 0& & &  \\
 \hline
 \end{tabular}
 
+
+\begin{author_comment}
+\begin{description}
+\item[*] Assuming that SW-SFM means Software Semi Formal Model and SW-FFM Software Fully Formal Model
+\end{description}
+\end{author_comment}
 
 \section{Properties}
 
@@ -291,21 +357,21 @@ Which kind of properties or elements are verified or validated by the mean or to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Functionalities of the system and sub-system & & & &  \\
+Functionalities of the system and sub-system & 3& & &  \\
 \hline
-System and sub-system architecture & & & &  \\
+System and sub-system architecture & 0& & &  \\
 \hline
-External and internal interfaces of sub-system & & & &  \\
+External and internal interfaces of sub-system & 0& & &  \\
 \hline
-Software components & & & &  \\
+Software components & 2& & &  \\
 \hline
-Performance constraints & & & &  \\
+Performance constraints & 2& & &  \\
 \hline
-Safety objectives & & & &  \\
+Safety objectives & 3& & &  \\
 \hline
-Functional properties & & & &  \\
+Functional properties & 3& & &  \\
 \hline
-Safety properties & & & &  \\
+Safety properties & 3& & &  \\
 \hline
 \end{tabular}
 
@@ -313,7 +379,7 @@ Safety properties & & & &  \\
 
 \section{Verification methods and tools}
 
-Which kind of methods is proposed (see also \citep{D4.1} section 5.3) ?
+Which kind of methods are proposed (see also \citep{D4.1} section 5.3) ?
 
 
 
@@ -321,29 +387,29 @@ Which kind of methods is proposed (see also \citep{D4.1} section 5.3) ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Reviews & & & &  \\
+Reviews & 0& & &  \\
 \hline
-Inspections & & & &  \\
+Inspections & 0& & &  \\
 \hline
-Software Architecture Analysis Method & & & &  \\
+Software Architecture Analysis Method & 0& & &  \\
 \hline
-Architecture Tradeoff Analysis Method & & & &  \\
+Architecture Tradeoff Analysis Method & 0& & &  \\
 \hline
-Model-Based System Integration Testing & & & &  \\
+Model-Based System Integration Testing & 0& & &  \\
 \hline
-Model-Based Testing of Generated High-Level Code & & & &  \\
+Model-Based Testing of Generated High-Level Code & 0& & &  \\
 \hline
-Abstract Interpretation & & & &  \\
+Abstract Interpretation & 0& & &  \\
 \hline
-Deductive Verification & & & &  \\
+Deductive Verification & 0& & &  \\
 \hline
-Model Checking & & & &  \\
+Model Checking & 3& & &  \\
 \hline
-Correct by Construction Formal Methods & & & &  \\
+Correct by Construction Formal Methods & 0& & &  \\
 \hline
-Verification with Formal Methods & & & &  \\
+Verification with Formal Methods & 3& & &  \\
 \hline
-Simulation-based & & & &  \\
+Simulation-based & 2& & &  \\
 \hline
 \end{tabular}
 
@@ -355,29 +421,29 @@ The following list of criteria focuss on means and tools to support validation a
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Simulation-based & & & &  \\
+Simulation-based & 3& & &  \\
 \hline
-Step-by-step simulation (D2.6-01-036) & & & &  \\
+Step-by-step simulation (D2.6-01-036) & 3& & &  \\
 \hline
-Environment emulation (D2.6-01-037 and D2.6-02-080) & & & &  \\
+Environment emulation (D2.6-01-037 and D2.6-02-080) & 0& & &  \\
 \hline
-Time-based test case (D2.6-02-081) & & & &  \\
+Time-based test case (D2.6-02-081) & 0& & &  \\
 \hline
-Test cases writing (D2.6-01-038) & & & &  \\
+Test cases writing (D2.6-01-038) & 0& & &  \\
 \hline
-Test cases execution (D2.6-01-038) & & & &  \\
+Test cases execution (D2.6-01-038) & 0& & &  \\
 \hline
-Test cases storage (D2.6-01-038) & & & &  \\
+Test cases storage (D2.6-01-038) & 0& & &  \\
 \hline
-Version management of test cases (D2.6-02-082) & & & &  \\
+Version management of test cases (D2.6-02-082) & 0& & &  \\
 \hline
-Test generation from independant test model (D2.6-02-083) & & & &  \\
+Test generation from independant test model (D2.6-02-083) & 2& & &  \\
 \hline
-Test sequences writing (D2.6-02-084) & & & &  \\
+Test sequences writing (D2.6-02-084) & 0& & &  \\
 \hline
-Test sequences execution (D2.6-02-084) & & & &  \\
+Test sequences execution (D2.6-02-084) & 0& & &  \\
 \hline
-Test sequences storage (D2.6-02-084) & & & &  \\
+Test sequences storage (D2.6-02-084) & 0& & &  \\
 \hline
 \end{tabular}
 
@@ -388,21 +454,38 @@ Concerning the artifacts used or produced by the mean or tool, please to detail:
 
 \paragraph{Input}
     Which is the list of the input artifacts for the mean or tools ?
+
+\begin{author_comment}
+   Network of timed automata in XML format, this could be a transformed SysML diagram (e.g., statechart).
+\end{author_comment}
     
     
 \paragraph{Output}
     Which is the list of the output artifacts for the mean or tools ?
+
+\begin{author_comment}
+   UPPAAL is an analysis tool that does not provide a single output. Possible results may include:
+   \begin{itemize}
+     \item Identification of timing issues in the system design or the specification
+     \item Specification findings due to simulation/validation of the ETCS specificaiton
+     \item Results from model verification with possible error traces / bad states
+   \end{itemize}
+\end{author_comment}
     
 \paragraph{Syntax}
     Which are the reference documents which give a description of the artifacts syntax  ?
+    \verb|http://www.it.uu.se/research/group/darts/uppaal/documentation.shtml|
     
 \paragraph{Semantic}
     Which are the reference documents which give a description of the artifacts semantic  ?
-
+    \verb|http://www.it.uu.se/research/group/darts/uppaal/documentation.shtml|
 
 \paragraph{Integration}
     How these artifacts can be integrated with the elements of the toolchain (language, mangement,...) ?
 
+\begin{author_comment}
+   See above.
+\end{author_comment}
 
 \section{Detailled Criterias for VnV}
 
@@ -416,11 +499,11 @@ Please  fill only the section concerning the proposed mean or tool, other sectio
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-User Scenario Modelling & & & &  \\
+User Scenario Modelling & 2& & &  \\
 \hline
-Test Case Modelling & & & &  \\
+Test Case Modelling & 0& & &  \\
 \hline
-Test Sequence Modelling & & & &  \\
+Test Sequence Modelling & 0& & &  \\
 \hline
 \end{tabular}
 	
@@ -431,11 +514,11 @@ Test Sequence Modelling & & & &  \\
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Input/ Output checking & & & &  \\
+Input/ Output checking &0 & & &  \\
 \hline
-System Behavior Simulation (Mathematical) & & & &  \\
+System Behavior Simulation (Mathematical) & 3& & &  \\
 \hline
-System Behavior Simulation (Animated) & & & &  \\
+System Behavior Simulation (Animated) &3 & & &  \\
 \hline
 \end{tabular}
 
@@ -447,19 +530,19 @@ System Behavior Simulation (Animated) & & & &  \\
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Static Model Verification & & & &  \\
+Static Model Verification & 3& & &  \\
 \hline
-Property Proofing & & & &  \\
+Property Proofing &3 & & &  \\
 \hline
-Dynamic Testing & & & &  \\
+Dynamic Testing &0 & & &  \\
 \hline
-Automatic Test Generation & & & &  \\
+Automatic Test Generation & 0& & &  \\
 \hline
-Input/ Output checking & & & &  \\
+Input/ Output checking & 0& & &  \\
 \hline
-Software Behaviour Simulation (Mathematical) & & & &  \\
+Software Behaviour Simulation (Mathematical) & 2& & &  \\
 \hline
-Software Behaviour Simulation (Animated) & & & &  \\
+Software Behaviour Simulation (Animated) & 2& & &  \\
 \hline
 \end{tabular}
 
