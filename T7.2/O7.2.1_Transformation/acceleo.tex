@@ -4,7 +4,7 @@
 \section{Instructions}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
+\item[\textcolor{green}{Author}] Stefan Rieger (TWT)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
 \end{description}
@@ -41,15 +41,16 @@ All the notes can be commented under each table.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] Acceleo
+\item[Web site] http://www.eclipse.org/acceleo/
+\item[Licence] Eclipse
 \end{description}
 
 \paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+Acceleo is an implementation of the Object Management Group (OMG) MOF Model to Text Language (MTL) standard. Based on a special template language model to text transformations can be defined. It is fully integrated with Eclipse and also part of Polarsys.
 
 \paragraph{Publications} Short list of publications on the approach (5 max)
-
+Most imformation is available on the homepage http://www.eclipse.org/acceleo/
 
 \section{Common criteria on secondary means and tools}
 \label{common}
@@ -65,47 +66,53 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-02-074) & & & &  \\
+Open Source (D2.6-02-074) &3 & & &  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & & & &  \\
+Portability to operating systems (D2.6-02-075) &3 & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & & & &  \\
+Cooperation of tools (D2.6-02-076) &3 & & &  \\
 \hline
-Robustness (D2.6-02-078) & & & & \\
+Robustness (D2.6-02-078) &3* & & & \\
 \hline
-Modularity (D2.6-02-078.1) & & & & \\
+Modularity (D2.6-02-078.1) &3 & & & \\
 \hline
-Documentation management (D2.6-02-078.02) & & & & \\
+Documentation management (D2.6-02-078.02) &0** & & & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & & & & \\
+Distributed software development (D2.6-02-078.03)  &0** & & & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   &0** & & & \\
 \hline
-Issue tracking (D2.6-02-078.05) & & & & \\
+Issue tracking (D2.6-02-078.05) &0** & & & \\
 \hline
-Differences between models (D2.6-02-078.06) & & & & \\
+Differences between models (D2.6-02-078.06) &0** & & & \\
 \hline
-Version management (D2.6-02-078.07) & & & & \\
+Version management (D2.6-02-078.07) &0** & & & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & & & & \\
+Concurrent version development (D2.6-02-078.08) &0** & & & \\
 \hline
-Model-based version control (D2.6-02-078.09) & & & & \\
+Model-based version control (D2.6-02-078.09) &0** & & & \\
 \hline
-Role traceability (D2.6-02-078.10) & & & & \\
+Role traceability (D2.6-02-078.10) &0** & & & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & & & & \\
+Safety version traceability (D2.6-02-078.11) &0** & & & \\
 \hline
-Model traceability (D2.6-02-079) & & & & \\
+Model traceability (D2.6-02-079) &0** & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration &3 & & & \\
 \hline
-Scalability & & & & \\
+Scalability &*** & & & \\
 \hline
-User Friendliness & & & & \\
+User Friendliness &3& & & \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+\begin{description}
+\item[*] Sub-criteria of robustness in D2.6 do not make sense here, e.g., version management is not a sub-criterion to robustness.
+\item[**] Out of scope of this tool. The requirements address an tool chain, so other tools should be used to cover these aspects.
+\item[***] Scalability is difficult to judge and has not been evaluated.
+\end{description}
+\end{author_comment}
 
 \subsection{Qualification}
 
@@ -116,24 +123,34 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) &3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   &0 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &* & & & \\
 \hline
-Model verification & & & & \\
+Model verification &0 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &0 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &0 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &0 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+The above table is not entirely clear to me. I filled the items 4-7 according to applicability of the tool.
+\begin{description}
+\item[*] Not checked in this context.
+\end{description}
+\end{author_comment}
 
 Which level of tool qualification has been reached or will be reached within the next year ?
+
+\begin{author_comment}
+The possible answers below are not aligned with the above question and thus make no sense. This is an open source tool that is not / will not be pre-qualified by the tool community (as is, e.g., gcc). As the tool is open source a qualification should be possible but may involve considerable effort.
+\end{author_comment}
 
 Score :
 \begin{description}
@@ -171,45 +188,69 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-SysML  & & & & \\
+SysML  & 3& & & \\
 \hline
-Scade method & & & & \\
+Scade method & 2*& & & \\
 \hline
-EFS language & & & & \\
+EFS language & 2**& & & \\
 \hline
-B Method & & & & \\
+B Method & 0& & & \\
 \hline
-C language & & & & \\
+C language & 3& & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+\begin{description}
+\item[*] As Scade System is based on EMF and Papyrus an integration should be possible
+\item[**] If based on EMF integration is possible
+\end{description}
+\end{author_comment}
+
+
 \paragraph{SysML}
 How the means or tools can complete SysML ?
+
+\begin{author_comment}
+Full integration with Eclipse and SysML is available.
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling language ?
 
+\begin{author_comment}
+An integration with EMF-based tools should be possible.
+\end{author_comment}
+
 \paragraph{C language}
 How the means or tools can complete or be adapted to SIL4 software in C language ?
+
+\begin{author_comment}
+C-Code (as code in any language) can be generated but generation templates need to be defined.
+\end{author_comment}
 
 \subsubsection{Tools and platforms}
 
 According to the decisions and the propositions of T7.1, how the mean and approach can be integrated to or can complete the chosen tools and platforms:
 
+\begin{author_comment}
+This section in my opinion is redundant for Acceleo, see my answers above (the answers for Eclipse and Papyrus are the same as for SysML).
+\end{author_comment}
+
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Eclipse & & & &  \\
+Eclipse & 3& & &  \\
 \hline
-Papyrus  & & & & \\
+Papyrus  & 3& & & \\
 \hline
-Scade & & & & \\
+Scade & 2& & & \\
 \hline
-EFS tools & & & & \\
+EFS tools & 2& & & \\
 \hline
-B tools & & & & \\
+B tools &0 & & & \\
 \hline
 \end{tabular}
 
@@ -217,12 +258,24 @@ B tools & & & & \\
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
 
+\begin{author_comment}
+See comments regarding SysML above.
+\end{author_comment}
+
 \paragraph{Papyrus}
 How the means or tools can complete  Papyrus ?
+
+\begin{author_comment}
+See comments regarding SysML above.
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling tools ?
+
+\begin{author_comment}
+See comments regarding cade, EFS, Classical B above.
+\end{author_comment}
 
 
 \section{Means and tools for model transformation and code generation}
@@ -245,11 +298,11 @@ Which transformations are covered by the mean or tool  ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Model transformation for design & & & &  \\
+Model transformation for design & 3& & &  \\
 \hline
-Model transformation for VnV  & & & & \\
+Model transformation for VnV  & 3& & & \\
 \hline
-Code Generation & & & & \\
+Code Generation & 3& & & \\
 \hline
 \end{tabular}
 
@@ -265,21 +318,23 @@ Which artifacts are used as input of the mean or tool  ?
 \hline 
 Informal description & & & &  \\
 \hline
-SysML model & & & & \\
+SysML model & 3& & & \\
 \hline
-Scade model & & & & \\
+Scade model & 2*& & & \\
 \hline
-EFS model & & & & \\
+EFS model & 2*& & & \\
 \hline
-Classical B modes & & & &  \\
+Classical B modes & 0& & &  \\
 \hline
-C Code & & & & \\
+C Code & 0& & & \\
 \hline
-Others (give details) & & & & \\
+Others (give details) & 0& & & \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+* EMF-based parts/tools
+\end{author_comment}
 
 \subsection{Output Artifacts}
 
@@ -290,22 +345,28 @@ Which artifacts are used as output of the mean or tool  ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal description & & & &  \\
+Informal description & 0& & &  \\
 \hline
-SysML model & & & & \\
+SysML model & 1*& & & \\
 \hline
-Scade model & & & & \\
+Scade model & 0& & & \\
 \hline
-EFS model & & & & \\
+EFS model & 0& & & \\
 \hline
-Classical B modes & & & &  \\
+Classical B modes & 0& & &  \\
 \hline
-C Code & & & & \\
+C Code & 3& & & \\
 \hline
-Others (give details) & & & & \\
+Others (give details) & 3**& & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+\begin{description}
+\item[*] Model-to-model transformation is possible if the generated model can be imported as text. However SysML $\rightarrow$ SysML does not make much sense in my opinion.
+\item[**] Code in any language or text-based files/models can be generated.
+\end{description}
+\end{author_comment}
 
 \subsection{Process}
 
@@ -317,18 +378,23 @@ How process the tool, with which characteristics (please provides comments) ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal & & & &  \\
+Informal & 0& & &  \\
 \hline
-Model To Text (M2T) & & & & \\
+Model To Text (M2T) & 3& & & \\
 \hline
-Model To Model (M2M) & & & & \\
+Model To Model (M2M) & 2*& & & \\
 \hline
-EMF models compliant & & & & \\
+EMF models compliant & 3& & & \\
 \hline
-others & & & & \\
+others & 3*& & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+\begin{description}
+\item[*] Code in any language or text-based files/models can be generated.
+\end{description}
+\end{author_comment}
 
 \section{Other comments}
 
