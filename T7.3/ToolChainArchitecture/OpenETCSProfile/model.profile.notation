@@ -58,6 +58,10 @@
         <element xmi:type="uml:Property" href="model.profile.uml#_DXJvMFIOEeO2iOU1Kjl0YQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_DXV8cVIOEeO2iOU1Kjl0YQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_rJQpwFK7EeOpBuHOgD0AnA" type="3002" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="model.profile.uml#_rH5-4FK7EeOpBuHOgD0AnA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rJQpwVK7EeOpBuHOgD0AnA"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_-xmyV1ILEeO2iOU1Kjl0YQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-xmyWFILEeO2iOU1Kjl0YQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-xmyWVILEeO2iOU1Kjl0YQ"/>

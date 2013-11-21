@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OpenETCSProfile="http:///schemas/OpenETCSProfile/_GTwqQFIOEeO2iOU1Kjl0YQ/6" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/OpenETCSProfile/_GTwqQFIOEeO2iOU1Kjl0YQ/6 ../OpenETCSProfile/model.profile.uml#_GTwqQVIOEeO2iOU1Kjl0YQ">
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OpenETCSProfile="http:///schemas/OpenETCSProfile/_v3Qp8FK7EeOpBuHOgD0AnA/7" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/OpenETCSProfile/_v3Qp8FK7EeOpBuHOgD0AnA/7 ../OpenETCSProfile/model.profile.uml#_v3TGMFK7EeOpBuHOgD0AnA">
   <uml:Model xmi:id="_bqN8YFIMEeO2iOU1Kjl0YQ" name="SysMLmodel">
     <packagedElement xmi:type="uml:Activity" xmi:id="_38mz8FIMEeO2iOU1Kjl0YQ" name="Activity1" node="_DBHqQFINEeO2iOU1Kjl0YQ _G8yOkFINEeO2iOU1Kjl0YQ _esiocFINEeO2iOU1Kjl0YQ _MVEscFIOEeO2iOU1Kjl0YQ _Q_jekFIOEeO2iOU1Kjl0YQ _XxgTgFIOEeO2iOU1Kjl0YQ _b4McEFIOEeO2iOU1Kjl0YQ _gEMicFIOEeO2iOU1Kjl0YQ _j6GdAFIOEeO2iOU1Kjl0YQ _pQ0qEFIOEeO2iOU1Kjl0YQ _yn4gEFIOEeO2iOU1Kjl0YQ _7OQgAFIOEeO2iOU1Kjl0YQ _ByVRAFIPEeO2iOU1Kjl0YQ">
       <edge xmi:type="uml:ControlFlow" xmi:id="_y9u-0FIPEeO2iOU1Kjl0YQ" name="ControlFlow1" source="_esiocFINEeO2iOU1Kjl0YQ" target="_DBHqQFINEeO2iOU1Kjl0YQ"/>
@@ -110,7 +110,7 @@
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_kKuk4FIMEeO2iOU1Kjl0YQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kLKpwFIMEeO2iOU1Kjl0YQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../OpenETCSProfile/model.profile.uml#_GTwqQVIOEeO2iOU1Kjl0YQ"/>
+        <references xmi:type="ecore:EPackage" href="../OpenETCSProfile/model.profile.uml#_v3TGMFK7EeOpBuHOgD0AnA"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../OpenETCSProfile/model.profile.uml#_bBRigFILEeO2iOU1Kjl0YQ"/>
     </profileApplication>
@@ -127,5 +127,5 @@
   <OpenETCSProfile:OpenETCSActivity xmi:id="_1sQ3EFIOEeO2iOU1Kjl0YQ" Issue="204" base_Action="_yn4gEFIOEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_9h6ksFIOEeO2iOU1Kjl0YQ" Issue="204" base_Action="_7OQgAFIOEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_D7jnUFIPEeO2iOU1Kjl0YQ" base_Action="_ByVRAFIPEeO2iOU1Kjl0YQ"/>
-  <OpenETCSProfile:OpenETCSArtifacts xmi:id="_LgG94FIPEeO2iOU1Kjl0YQ" base_DataStoreNode="_gEMicFIOEeO2iOU1Kjl0YQ"/>
+  <OpenETCSProfile:OpenETCSArtifacts xmi:id="_LgG94FIPEeO2iOU1Kjl0YQ" base_DataStoreNode="_gEMicFIOEeO2iOU1Kjl0YQ" Issue="193"/>
 </xmi:XMI>

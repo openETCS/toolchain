@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_bBRigFILEeO2iOU1Kjl0YQ" name="OpenETCSProfile" metaclassReference="_P27fEFINEeO2iOU1Kjl0YQ _zKQCwFINEeO2iOU1Kjl0YQ" metamodelReference="_bBRigVILEeO2iOU1Kjl0YQ">
   <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GDMwoFIMEeO2iOU1Kjl0YQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_v3TGMFK7EeOpBuHOgD0AnA" name="OpenETCSProfile" nsURI="http:///schemas/OpenETCSProfile/_v3Qp8FK7EeOpBuHOgD0AnA/7" nsPrefix="OpenETCSProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v5pPkFK7EeOpBuHOgD0AnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v5pPkVK7EeOpBuHOgD0AnA" key="Version" value="0.0.8"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v5pPklK7EeOpBuHOgD0AnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v5pPk1K7EeOpBuHOgD0AnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v5pPlFK7EeOpBuHOgD0AnA" key="Date" value="2013-11-21"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v5pPlVK7EeOpBuHOgD0AnA" key="Author" value="Cecile B."/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_v3TGMVK7EeOpBuHOgD0AnA" name="OpenETCSActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v3TGMlK7EeOpBuHOgD0AnA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_o46nwFILEeO2iOU1Kjl0YQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TGM1K7EeOpBuHOgD0AnA" name="Implemented" ordered="false" lowerBound="1" defaultValueLiteral="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TGNVK7EeOpBuHOgD0AnA" name="Issue" ordered="false" lowerBound="1" defaultValueLiteral="0">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_v3TGN1K7EeOpBuHOgD0AnA" name="base_Action" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Action"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_v3TGOVK7EeOpBuHOgD0AnA" name="OpenETCSArtifacts">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v3TGOlK7EeOpBuHOgD0AnA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_-xVskFILEeO2iOU1Kjl0YQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TtQFK7EeOpBuHOgD0AnA" name="Implemented" ordered="false" lowerBound="1" defaultValueLiteral="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_v3TtQlK7EeOpBuHOgD0AnA" name="base_Artifact" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_v3TtRFK7EeOpBuHOgD0AnA" name="base_DataStoreNode" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//DataStoreNode"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TtRlK7EeOpBuHOgD0AnA" name="Format" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TtSFK7EeOpBuHOgD0AnA" name="isEcoreDataModel" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_v3TtSlK7EeOpBuHOgD0AnA" name="Issue" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_GTwqQVIOEeO2iOU1Kjl0YQ" name="OpenETCSProfile" nsURI="http:///schemas/OpenETCSProfile/_GTwqQFIOEeO2iOU1Kjl0YQ/6" nsPrefix="OpenETCSProfile">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GUKS4FIOEeO2iOU1Kjl0YQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GUKS4VIOEeO2iOU1Kjl0YQ" key="Version" value="0.0.7"/>
@@ -297,6 +339,14 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Dnf4UFIOEeO2iOU1Kjl0YQ" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Dnq3cFIOEeO2iOU1Kjl0YQ" value="1"/>
       <defaultValue xmi:type="uml:LiteralString" xmi:id="_Dn-ZcFIOEeO2iOU1Kjl0YQ">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rH5-4FK7EeOpBuHOgD0AnA" name="Issue" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rvMBUFK7EeOpBuHOgD0AnA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rvWZYFK7EeOpBuHOgD0AnA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_rvrJgFK7EeOpBuHOgD0AnA">
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>

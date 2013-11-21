@@ -219,11 +219,11 @@
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gEZ91VIOEeO2iOU1Kjl0YQ" key="QualifiedNameDepth" value="1000"/>
         </eAnnotations>
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pBWOMFIPEeO2iOU1Kjl0YQ" source="Stereotype_Annotation">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qi7VsFIPEeO2iOU1Kjl0YQ" key="StereotypeWithQualifiedNameList" value=""/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qi7VsVIPEeO2iOU1Kjl0YQ" key="StereotypeList" value="OpenETCSProfile::OpenETCSArtifacts"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qi7VslIPEeO2iOU1Kjl0YQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qi7Vs1IPEeO2iOU1Kjl0YQ" key="PropStereoDisplay" value="OpenETCSProfile::OpenETCSArtifacts.Implemented,OpenETCSProfile::OpenETCSArtifacts.Format,OpenETCSProfile::OpenETCSArtifacts.isEcoreDataModel"/>
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qi78wFIPEeO2iOU1Kjl0YQ" key="StereotypePropertyLocation" value="Compartment"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_21eZQFK7EeOpBuHOgD0AnA" key="StereotypeWithQualifiedNameList" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_21eZQVK7EeOpBuHOgD0AnA" key="StereotypeList" value="OpenETCSProfile::OpenETCSArtifacts"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_21eZQlK7EeOpBuHOgD0AnA" key="PropStereoDisplay" value="OpenETCSProfile::OpenETCSArtifacts.Implemented,OpenETCSProfile::OpenETCSArtifacts.Format,OpenETCSProfile::OpenETCSArtifacts.isEcoreDataModel,OpenETCSProfile::OpenETCSArtifacts.Issue"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_21eZQ1K7EeOpBuHOgD0AnA" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_21eZRFK7EeOpBuHOgD0AnA" key="StereotypePropertyLocation" value="Compartment"/>
         </eAnnotations>
         <children xmi:type="notation:DecorationNode" xmi:id="_gEZ91lIOEeO2iOU1Kjl0YQ" type="5127">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iN0hYFIOEeO2iOU1Kjl0YQ" source="Stereotype_Annotation">
