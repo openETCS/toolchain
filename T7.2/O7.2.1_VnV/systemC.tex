@@ -4,7 +4,7 @@
 \section{Instructions}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
+\item[\textcolor{green}{Author}] Alexander Nitsch (URO), Benjamin Beichler (URO), Stefan Rieger (TWT)
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
 \end{description}
@@ -45,14 +45,23 @@ Criteria of this section are defined according \citep{D4.1}.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] SystemC
+\item[Web site] \url{www.accellera.org/downloads/standards/systemc/about_systemc/}
+\item[Licence] SystemC Open Source License
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} SystemC is a C++ library providing an event-driven simulation interface suitable for electronic system level design. It enables a system designer to simulate concurrent processes. SystemC processes can communicate in a simulated real-time environment, using channels of different datatypes (all C++ types and user defined types are supported). SystemC supports hardware and software synthesis (with the corresponding tools). SystemC models are executable.
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
+\paragraph{Publications} 
+
+\begin{itemize}
+\item D. C. Black, SystemC: From the ground up. Springer, 2010.
+\item IEEE 1666 Standard SystemC Language Reference Manual, \url{http://standards.ieee.org/getieee/1666/}
+\item The ITEA MARTES Project, from UML to SystemC, \url{http://www.martes-itea.org/}
+\item J. Bhasker, A SystemC Primer, Second Edition, Star Galaxy Publishing, 2004
+\item F. Ghenassia (Editor), Transaction-Level Modeling with SystemC: TLM Concepts and
+Applications for Embedded Systems, Springer 2006
+\end{itemize}
 
 
 \section{Common criteria on secondary means and tools}
@@ -69,47 +78,52 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-02-074) & & & &  \\
+Open Source (D2.6-02-074) &3 & & &  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & & & &  \\
+Portability to operating systems (D2.6-02-075) &3 & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & & & &  \\
+Cooperation of tools (D2.6-02-076) &2 & & &  \\
 \hline
-Robustness (D2.6-02-078) & & & & \\
+Robustness (D2.6-02-078) &3 & & & \\
 \hline
-Modularity (D2.6-02-078.1) & & & & \\
+Modularity (D2.6-02-078.1) &3 & & & \\
 \hline
-Documentation management (D2.6-02-078.02) & & & & \\
+Documentation management (D2.6-02-078.02) &2 & & & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & & & & \\
+Distributed software development (D2.6-02-078.03)  &3 & & & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   &3 & & & \\
 \hline
-Issue tracking (D2.6-02-078.05) & & & & \\
+Issue tracking (D2.6-02-078.05) &2* & & & \\
 \hline
-Differences between models (D2.6-02-078.06) & & & & \\
+Differences between models (D2.6-02-078.06) &3 & & & \\
 \hline
-Version management (D2.6-02-078.07) & & & & \\
+Version management (D2.6-02-078.07) &3** & & & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & & & & \\
+Concurrent version development (D2.6-02-078.08) &3 & & & \\
 \hline
-Model-based version control (D2.6-02-078.09) & & & & \\
+Model-based version control (D2.6-02-078.09) &3 & & & \\
 \hline
-Role traceability (D2.6-02-078.10) & & & & \\
+Role traceability (D2.6-02-078.10) &2 & & & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & & & & \\
+Safety version traceability (D2.6-02-078.11) &2 & & & \\
 \hline
-Model traceability (D2.6-02-079) & & & & \\
+Model traceability (D2.6-02-079) &2 & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration &3 & & & \\
 \hline
-Scalability & & & & \\
+Scalability &3 & & & \\
 \hline
-User Friendliness & & & & \\
+User Friendliness &3 & & & \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+\begin{description}
+\item[*] Not directly; by means of external tools such as Doxygen (or in the case of issue tracking, e.g., GitHub)
+\item[**] By means of versioning systems such as Git or SVN
+\end{description}
+\end{author_comment}
 
 \subsection{Qualification}
 
@@ -120,19 +134,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) &3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   &1 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  &3 & & & \\
 \hline
-Model verification & & & & \\
+Model verification &3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation &0 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging &3 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof &1 & & & \\
 \hline
 \end{tabular}
 
@@ -175,27 +189,49 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-SysML  & & & & \\
+SysML  &2 & & & \\
 \hline
-Scade method & & & & \\
+Scade method &2 & & & \\
 \hline
-EFS language & & & & \\
+EFS language &1 & & & \\
 \hline
-B Method & & & & \\
+B Method &1 & & & \\
 \hline
-C language & & & & \\
+C language &3 & & & \\
 \hline
 \end{tabular}
 
 \paragraph{SysML}
 How the means or tools can complete SysML ?
 
+\begin{author_comment}
+\begin{description}
+\item [•] Transformation from SysML, e.g., by using Acceleo
+\item [•] SystemC provide executable models
+\item [•] allows performance evaluation with target hardware
+\end{description}
+\end{author_comment}
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling language ?
 
+\begin{author_comment}
+\begin{description}
+\item [•] SystemC provide executable models
+\item [•] allows performance evaluation with target hardware
+\item [•] providing a SystemC Testenviroment for generated C/C++ code
+\end{description}
+\end{author_comment}
+
 \paragraph{C language}
 How the means or tools can complete or be adapted to SIL4 software in C language ?
+
+\begin{author_comment}
+\begin{description}
+\item [•] allows performance evaluation with target hardware
+\item [•] providing a test environment for generated C/C++ code
+\end{description}
+\end{author_comment}
 
 \subsubsection{Tools and platforms}
 
@@ -205,15 +241,15 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Eclipse & & & &  \\
+Eclipse &3 & & &  \\
 \hline
-Papyrus  & & & & \\
+Papyrus  &1 & & & \\
 \hline
-Scade & & & & \\
+Scade &1 & & & \\
 \hline
-EFS tools & & & & \\
+EFS tools &1 & & & \\
 \hline
-B tools & & & & \\
+B tools &1 & & & \\
 \hline
 \end{tabular}
 
@@ -221,16 +257,30 @@ B tools & & & & \\
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
 
+\begin{author_comment}
+\begin{description}
+\item [•] basically modeling with SystemC is the development of C++ code, therefore the CDT tools provide already a good integration in to eclipse
+\end{description}
+\end{author_comment}
+
 \paragraph{Papyrus}
 How the means or tools can complete  Papyrus ?
+
+\begin{author_comment}
+\begin{description}
+\item [•] both papyrus and SystemC(CDT) are parts of the eclipse IDE
+\end{description}
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling tools ?
 
-
-
-
+\begin{author_comment}
+\begin{description}
+\item [•] due to the widespread usage of C++, many libraries are available for adaptions of other software, e.g. XML parser, json, java bridges, web services, ...
+\end{description}
+\end{author_comment}
 
 \section{VnV Activities}
 
@@ -250,33 +300,33 @@ According figure \ref{fig:openETCSProcess}, for which activities is the mean or 
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-1c SSRS Verification & & & &  \\
+1c SSRS Verification &2 & & &  \\
 \hline
-1c SSRS Validation & & & &  \\
+1c SSRS Validation &3 & & &  \\
 \hline
-2c SFM Verification & & & &  \\
+2c SFM Verification &2 & & &  \\
 \hline
-2c SFM Validation & & & &  \\
+2c SFM Validation &3 & & &  \\
 \hline
-3d SW-SFM Verification & & & &  \\
+3d SW-SFM Verification &3 & & &  \\
 \hline
-3d SW-SFM Validation & & & &  \\
+3d SW-SFM Validation &3 & & &  \\
 \hline
-3d SW-FFM Verification & & & &  \\
+3d SW-FFM Verification &3 & & &  \\
 \hline
-3d SW-FFM Validation & & & &  \\
+3d SW-FFM Validation &3 & & &  \\
 \hline
-3e Code Verification & & & &  \\
+3e Code Verification &0 & & &  \\
 \hline
-3e Code Validation & & & &  \\
+3e Code Validation &0 & & &  \\
 \hline
-DAS2V Verification & & & &  \\
+DAS2V Verification &3 & & &  \\
 \hline
-DAS2V Validation & & & &  \\
+DAS2V Validation &3 & & &  \\
 \hline
-Automatic model transformation verification & & & &  \\
+Automatic model transformation verification &0 & & &  \\
 \hline
-Automatic code generation verification & & & &  \\
+Automatic code generation verification &0 & & &  \\
 \hline
 \end{tabular}
 
@@ -291,59 +341,55 @@ Which kind of properties or elements are verified or validated by the mean or to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Functionalities of the system and sub-system & & & &  \\
+Functionalities of the system and sub-system &3 & & &  \\
 \hline
-System and sub-system architecture & & & &  \\
+System and sub-system architecture &3 & & &  \\
 \hline
-External and internal interfaces of sub-system & & & &  \\
+External and internal interfaces of sub-system &3 & & &  \\
 \hline
-Software components & & & &  \\
+Software components &3 & & &  \\
 \hline
-Performance constraints & & & &  \\
+Performance constraints &3 & & &  \\
 \hline
-Safety objectives & & & &  \\
+Safety objectives &1 & & &  \\
 \hline
-Functional properties & & & &  \\
+Functional properties &3 & & &  \\
 \hline
-Safety properties & & & &  \\
+Safety properties &1 & & &  \\
 \hline
 \end{tabular}
-
-
 
 \section{Verification methods and tools}
 
 Which kind of methods is proposed (see also \citep{D4.1} section 5.3) ?
 
-
-
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Reviews & & & &  \\
+Reviews &0 & & &  \\
 \hline
-Inspections & & & &  \\
+Inspections &0 & & &  \\
 \hline
-Software Architecture Analysis Method & & & &  \\
+Software Architecture Analysis Method &2 & & &  \\
 \hline
-Architecture Tradeoff Analysis Method & & & &  \\
+Architecture Tradeoff Analysis Method &2 & & &  \\
 \hline
-Model-Based System Integration Testing & & & &  \\
+Model-Based System Integration Testing &1 & & &  \\
 \hline
-Model-Based Testing of Generated High-Level Code & & & &  \\
+Model-Based Testing of Generated High-Level Code &1 & & &  \\
 \hline
-Abstract Interpretation & & & &  \\
+Abstract Interpretation &0 & & &  \\
 \hline
-Deductive Verification & & & &  \\
+Deductive Verification &0 & & &  \\
 \hline
-Model Checking & & & &  \\
+Model Checking &1 & & &  \\
 \hline
-Correct by Construction Formal Methods & & & &  \\
+Correct by Construction Formal Methods &0 & & &  \\
 \hline
-Verification with Formal Methods & & & &  \\
+Verification with Formal Methods &0 & & &  \\
 \hline
-Simulation-based & & & &  \\
+Simulation-based &3 & & &  \\
 \hline
 \end{tabular}
 
@@ -355,29 +401,29 @@ The following list of criteria focuss on means and tools to support validation a
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Simulation-based & & & &  \\
+Simulation-based &3 & & &  \\
 \hline
-Step-by-step simulation (D2.6-01-036) & & & &  \\
+Step-by-step simulation (D2.6-01-036) &3 & & &  \\
 \hline
-Environment emulation (D2.6-01-037 and D2.6-02-080) & & & &  \\
+Environment emulation (D2.6-01-037 and D2.6-02-080) &2 & & &  \\
 \hline
-Time-based test case (D2.6-02-081) & & & &  \\
+Time-based test case (D2.6-02-081) &3 & & &  \\
 \hline
-Test cases writing (D2.6-01-038) & & & &  \\
+Test cases writing (D2.6-01-038) &1 & & &  \\
 \hline
-Test cases execution (D2.6-01-038) & & & &  \\
+Test cases execution (D2.6-01-038) &3 & & &  \\
 \hline
-Test cases storage (D2.6-01-038) & & & &  \\
+Test cases storage (D2.6-01-038) &1 & & &  \\
 \hline
-Version management of test cases (D2.6-02-082) & & & &  \\
+Version management of test cases (D2.6-02-082) &3 & & &  \\
 \hline
-Test generation from independant test model (D2.6-02-083) & & & &  \\
+Test generation from independant test model (D2.6-02-083) &1 & & &  \\
 \hline
-Test sequences writing (D2.6-02-084) & & & &  \\
+Test sequences writing (D2.6-02-084) &3 & & &  \\
 \hline
-Test sequences execution (D2.6-02-084) & & & &  \\
+Test sequences execution (D2.6-02-084) &3 & & &  \\
 \hline
-Test sequences storage (D2.6-02-084) & & & &  \\
+Test sequences storage (D2.6-02-084) &3 & & &  \\
 \hline
 \end{tabular}
 
@@ -389,16 +435,39 @@ Concerning the artifacts used or produced by the mean or tool, please to detail:
 \paragraph{Input}
     Which is the list of the input artifacts for the mean or tools ?
     
-    
+\begin{author_comment}
+\begin{description}
+\item [•] due to the abilities of an universal programming language, many different types of inputs are feasible and could be implemented, e.g. XML structures, transformed SysML models, ...
+\end{description}
+\end{author_comment}
+     
 \paragraph{Output}
     Which is the list of the output artifacts for the mean or tools ?
+
+\begin{author_comment}
+\begin{description}
+\item [•] due to the abilities of an universal programming language, many different types of outputs are feasible and could be implemented, e.g. XML structures, source code, ...
+\item [•] already included part of SystemC: value dump files of variable and signals after SystemC simulation
+\end{description}
+\end{author_comment}
     
 \paragraph{Syntax}
     Which are the reference documents which give a description of the artifacts syntax  ?
     
+\begin{author_comment}
+\begin{description}
+\item [•] \url {http://standards.ieee.org/findstds/standard/1666-2011.html}
+\end{description}
+\end{author_comment}
+    
 \paragraph{Semantic}
     Which are the reference documents which give a description of the artifacts semantic  ?
 
+\begin{author_comment}
+\begin{description}
+\item [•]  \url {http://standards.ieee.org/findstds/standard/1666-2011.html}
+\end{description}
+\end{author_comment}
 
 \paragraph{Integration}
     How these artifacts can be integrated with the elements of the toolchain (language, mangement,...) ?
@@ -416,11 +485,11 @@ Please  fill only the section concerning the proposed mean or tool, other sectio
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-User Scenario Modelling & & & &  \\
+User Scenario Modelling &3 & & &  \\
 \hline
-Test Case Modelling & & & &  \\
+Test Case Modelling &3 & & &  \\
 \hline
-Test Sequence Modelling & & & &  \\
+Test Sequence Modelling &3 & & &  \\
 \hline
 \end{tabular}
 	
@@ -509,19 +578,19 @@ Interface Testing & & & &  \\
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Test Coverage & & & &  \\
+Test Coverage &1 & & &  \\
 \hline
-Use Case Validation of Model & & & &  \\
+Use Case Validation of Model &1 & & &  \\
 \hline
-Functional or Black-box Testing & & & &  \\
+Functional or Black-box Testing &3 & & &  \\
 \hline
-User Scenario Testing & & & &  \\
+User Scenario Testing &3 & & &  \\
 \hline
-Traceability & & & &  \\
+Traceability &1 & & &  \\
 \hline
-Schedulability Analyzer / UseCase Check all & & & &  \\
+Schedulability Analyzer / UseCase Check all &1 & & &  \\
 \hline
-Schedulability Analyzer / UseCase Check single mode & & & &  \\
+Schedulability Analyzer / UseCase Check single mode &1 & & &  \\
 \hline
 
 \end{tabular}
