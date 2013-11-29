@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OpenETCSProfile="http:///schemas/OpenETCSProfile/_v3Qp8FK7EeOpBuHOgD0AnA/7" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/OpenETCSProfile/_v3Qp8FK7EeOpBuHOgD0AnA/7 ../OpenETCSProfile/model.profile.uml#_v3TGMFK7EeOpBuHOgD0AnA">
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OpenETCSProfile="http:///schemas/OpenETCSProfile/_FJLbAFj0EeOu38sUqSEbjQ/8" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/OpenETCSProfile/_FJLbAFj0EeOu38sUqSEbjQ/8 ../OpenETCSProfile/model.profile.uml#_FJMCEFj0EeOu38sUqSEbjQ">
   <uml:Model xmi:id="_bqN8YFIMEeO2iOU1Kjl0YQ" name="SysMLmodel">
-    <packagedElement xmi:type="uml:Activity" xmi:id="_38mz8FIMEeO2iOU1Kjl0YQ" name="Activity1" node="_DBHqQFINEeO2iOU1Kjl0YQ _G8yOkFINEeO2iOU1Kjl0YQ _esiocFINEeO2iOU1Kjl0YQ _MVEscFIOEeO2iOU1Kjl0YQ _Q_jekFIOEeO2iOU1Kjl0YQ _XxgTgFIOEeO2iOU1Kjl0YQ _b4McEFIOEeO2iOU1Kjl0YQ _gEMicFIOEeO2iOU1Kjl0YQ _j6GdAFIOEeO2iOU1Kjl0YQ _pQ0qEFIOEeO2iOU1Kjl0YQ _yn4gEFIOEeO2iOU1Kjl0YQ _7OQgAFIOEeO2iOU1Kjl0YQ _ByVRAFIPEeO2iOU1Kjl0YQ">
+    <packagedElement xmi:type="uml:Activity" xmi:id="_38mz8FIMEeO2iOU1Kjl0YQ" name="Activity1" node="_DBHqQFINEeO2iOU1Kjl0YQ _G8yOkFINEeO2iOU1Kjl0YQ _esiocFINEeO2iOU1Kjl0YQ _MVEscFIOEeO2iOU1Kjl0YQ _Q_jekFIOEeO2iOU1Kjl0YQ _XxgTgFIOEeO2iOU1Kjl0YQ _b4McEFIOEeO2iOU1Kjl0YQ _gEMicFIOEeO2iOU1Kjl0YQ _j6GdAFIOEeO2iOU1Kjl0YQ _pQ0qEFIOEeO2iOU1Kjl0YQ _yn4gEFIOEeO2iOU1Kjl0YQ _7OQgAFIOEeO2iOU1Kjl0YQ _ByVRAFIPEeO2iOU1Kjl0YQ _MfpSQFj0EeOu38sUqSEbjQ _p9ok0Fj1EeOu38sUqSEbjQ">
       <edge xmi:type="uml:ControlFlow" xmi:id="_y9u-0FIPEeO2iOU1Kjl0YQ" name="ControlFlow1" source="_esiocFINEeO2iOU1Kjl0YQ" target="_DBHqQFINEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_zhRJsFIPEeO2iOU1Kjl0YQ" name="ControlFlow2" source="_DBHqQFINEeO2iOU1Kjl0YQ" target="_G8yOkFINEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_6MiH0FIPEeO2iOU1Kjl0YQ" name="ControlFlow3" source="_MVEscFIOEeO2iOU1Kjl0YQ" target="_j6GdAFIOEeO2iOU1Kjl0YQ"/>
@@ -14,8 +14,12 @@
       <edge xmi:type="uml:ControlFlow" xmi:id="_NsfgcFIQEeO2iOU1Kjl0YQ" name="ControlFlow10" source="_7OQgAFIOEeO2iOU1Kjl0YQ" target="_Q_jekFIOEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_OIYLMFIQEeO2iOU1Kjl0YQ" name="ControlFlow11" source="_Q_jekFIOEeO2iOU1Kjl0YQ" target="_ByVRAFIPEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_Om1BwFIQEeO2iOU1Kjl0YQ" name="ControlFlow12" source="_ByVRAFIPEeO2iOU1Kjl0YQ" target="_XxgTgFIOEeO2iOU1Kjl0YQ"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_ChACYFj1EeOu38sUqSEbjQ" name="ControlFlow13" source="_b4McEFIOEeO2iOU1Kjl0YQ" target="_MfpSQFj0EeOu38sUqSEbjQ"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_DQRjMFj1EeOu38sUqSEbjQ" name="ControlFlow14" source="_MfpSQFj0EeOu38sUqSEbjQ" target="_Q_jekFIOEeO2iOU1Kjl0YQ"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_5rhaAFj1EeOu38sUqSEbjQ" name="ControlFlow15" source="_G8yOkFINEeO2iOU1Kjl0YQ" target="_p9ok0Fj1EeOu38sUqSEbjQ"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_6S9NcFj1EeOu38sUqSEbjQ" name="ControlFlow16" source="_p9ok0Fj1EeOu38sUqSEbjQ" target="_Q_jekFIOEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_DBHqQFINEeO2iOU1Kjl0YQ" name="Import Requirement" outgoing="_zhRJsFIPEeO2iOU1Kjl0YQ" incoming="_y9u-0FIPEeO2iOU1Kjl0YQ"/>
-      <node xmi:type="uml:DataStoreNode" xmi:id="_G8yOkFINEeO2iOU1Kjl0YQ" name="Subset-026 Requirements" incoming="_zhRJsFIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
+      <node xmi:type="uml:DataStoreNode" xmi:id="_G8yOkFINEeO2iOU1Kjl0YQ" name="Subset-026 Requirements" outgoing="_5rhaAFj1EeOu38sUqSEbjQ" incoming="_zhRJsFIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_G84VMFINEeO2iOU1Kjl0YQ" value="1"/>
       </node>
       <node xmi:type="uml:DataStoreNode" xmi:id="_esiocFINEeO2iOU1Kjl0YQ" name="Subset-026 chap1-6" outgoing="_y9u-0FIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
@@ -24,13 +28,13 @@
       <node xmi:type="uml:DataStoreNode" xmi:id="_MVEscFIOEeO2iOU1Kjl0YQ" name="Subset-026 chap7-8" outgoing="_6MiH0FIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_MVJk8FIOEeO2iOU1Kjl0YQ" value="1"/>
       </node>
-      <node xmi:type="uml:DataStoreNode" xmi:id="_Q_jekFIOEeO2iOU1Kjl0YQ" name="Papyrus System Model" outgoing="_MXte0FIQEeO2iOU1Kjl0YQ _OIYLMFIQEeO2iOU1Kjl0YQ" incoming="_NsfgcFIQEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
+      <node xmi:type="uml:DataStoreNode" xmi:id="_Q_jekFIOEeO2iOU1Kjl0YQ" name="Papyrus System Model" outgoing="_MXte0FIQEeO2iOU1Kjl0YQ _OIYLMFIQEeO2iOU1Kjl0YQ" incoming="_NsfgcFIQEeO2iOU1Kjl0YQ _DQRjMFj1EeOu38sUqSEbjQ _6S9NcFj1EeOu38sUqSEbjQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_Q_nwAFIOEeO2iOU1Kjl0YQ" value="1"/>
       </node>
       <node xmi:type="uml:DataStoreNode" xmi:id="_XxgTgFIOEeO2iOU1Kjl0YQ" name="Scade Model" incoming="_Om1BwFIQEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_Xxkk8FIOEeO2iOU1Kjl0YQ" value="1"/>
       </node>
-      <node xmi:type="uml:DataStoreNode" xmi:id="_b4McEFIOEeO2iOU1Kjl0YQ" name="BitWalker delivery" outgoing="_Bus4wFIQEeO2iOU1Kjl0YQ" incoming="_6oS2wFIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
+      <node xmi:type="uml:DataStoreNode" xmi:id="_b4McEFIOEeO2iOU1Kjl0YQ" name="BitWalker delivery" outgoing="_Bus4wFIQEeO2iOU1Kjl0YQ _ChACYFj1EeOu38sUqSEbjQ" incoming="_6oS2wFIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_b4QGcFIOEeO2iOU1Kjl0YQ" value="1"/>
       </node>
       <node xmi:type="uml:DataStoreNode" xmi:id="_gEMicFIOEeO2iOU1Kjl0YQ" name="Data Dictionnary" outgoing="_NQN0IFIQEeO2iOU1Kjl0YQ" incoming="_CIMW0FIQEeO2iOU1Kjl0YQ _M34zsFIQEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
@@ -41,6 +45,8 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_yn4gEFIOEeO2iOU1Kjl0YQ" name="Add Item" outgoing="_M34zsFIQEeO2iOU1Kjl0YQ" incoming="_MXte0FIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_7OQgAFIOEeO2iOU1Kjl0YQ" name="Use Items" outgoing="_NsfgcFIQEeO2iOU1Kjl0YQ" incoming="_NQN0IFIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_ByVRAFIPEeO2iOU1Kjl0YQ" name="Scade Papyrus Integration" outgoing="_Om1BwFIQEeO2iOU1Kjl0YQ" incoming="_OIYLMFIQEeO2iOU1Kjl0YQ"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_MfpSQFj0EeOu38sUqSEbjQ" name="Import BitWalker" outgoing="_DQRjMFj1EeOu38sUqSEbjQ" incoming="_ChACYFj1EeOu38sUqSEbjQ"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_p9ok0Fj1EeOu38sUqSEbjQ" name="Import Requirements" outgoing="_6S9NcFj1EeOu38sUqSEbjQ" incoming="_5rhaAFj1EeOu38sUqSEbjQ"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_brHUQFIMEeO2iOU1Kjl0YQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_brPQEFIMEeO2iOU1Kjl0YQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -110,7 +116,7 @@
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_kKuk4FIMEeO2iOU1Kjl0YQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kLKpwFIMEeO2iOU1Kjl0YQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../OpenETCSProfile/model.profile.uml#_v3TGMFK7EeOpBuHOgD0AnA"/>
+        <references xmi:type="ecore:EPackage" href="../OpenETCSProfile/model.profile.uml#_FJMCEFj0EeOu38sUqSEbjQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../OpenETCSProfile/model.profile.uml#_bBRigFILEeO2iOU1Kjl0YQ"/>
     </profileApplication>
@@ -125,7 +131,9 @@
   <OpenETCSProfile:OpenETCSActivity xmi:id="_m072cFIOEeO2iOU1Kjl0YQ" Implemented="true" base_Action="_j6GdAFIOEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_rKStIFIOEeO2iOU1Kjl0YQ" Issue="193" base_Action="_pQ0qEFIOEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_1sQ3EFIOEeO2iOU1Kjl0YQ" Issue="204" base_Action="_yn4gEFIOEeO2iOU1Kjl0YQ"/>
-  <OpenETCSProfile:OpenETCSActivity xmi:id="_9h6ksFIOEeO2iOU1Kjl0YQ" Issue="204" base_Action="_7OQgAFIOEeO2iOU1Kjl0YQ"/>
+  <OpenETCSProfile:OpenETCSActivity xmi:id="_9h6ksFIOEeO2iOU1Kjl0YQ" Issue="204" base_Action="_7OQgAFIOEeO2iOU1Kjl0YQ" Priority="High" SpecificationURL="https://github.com/openETCS/dataDictionary-Tool-Development/wiki"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_D7jnUFIPEeO2iOU1Kjl0YQ" base_Action="_ByVRAFIPEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSArtifacts xmi:id="_LgG94FIPEeO2iOU1Kjl0YQ" base_DataStoreNode="_gEMicFIOEeO2iOU1Kjl0YQ" Issue="193"/>
+  <OpenETCSProfile:OpenETCSActivity xmi:id="_QhySAFj0EeOu38sUqSEbjQ" Issue="213" base_Action="_MfpSQFj0EeOu38sUqSEbjQ" Priority="High" SpecificationURL="https://github.com/astante/toolchain/wiki/Integration-of-Data-Dictionary-into-Papyrus"/>
+  <OpenETCSProfile:OpenETCSActivity xmi:id="_sh5RUFj1EeOu38sUqSEbjQ" Issue="207" base_Action="_p9ok0Fj1EeOu38sUqSEbjQ" Priority="High"/>
 </xmi:XMI>

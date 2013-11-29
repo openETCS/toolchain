@@ -20,6 +20,14 @@
         <element xmi:type="uml:Property" href="model.profile.uml#_zi0lsFILEeO2iOU1Kjl0YQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_zjBaAVILEeO2iOU1Kjl0YQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_e_GsoFjzEeOu38sUqSEbjQ" type="3002" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="model.profile.uml#_e-WesFjzEeOu38sUqSEbjQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_e_GsoVjzEeOu38sUqSEbjQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_8mUpIFjzEeOu38sUqSEbjQ" type="3002" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="model.profile.uml#_8mSM4FjzEeOu38sUqSEbjQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8mUpIVjzEeOu38sUqSEbjQ"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_o5SbNFILEeO2iOU1Kjl0YQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_o5SbNVILEeO2iOU1Kjl0YQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_o5SbNlILEeO2iOU1Kjl0YQ"/>
@@ -117,6 +125,38 @@
     <children xmi:type="notation:DecorationNode" xmi:id="_zKWJZlINEeO2iOU1Kjl0YQ" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataStoreNode"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zKWwcFINEeO2iOU1Kjl0YQ" x="696" y="108"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_hno1IFjzEeOu38sUqSEbjQ" type="2006" fontName="Ubuntu" fontHeight="11" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hnqDQFjzEeOu38sUqSEbjQ" source="ShadowFigure">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hnqqUFjzEeOu38sUqSEbjQ" key="ShadowFigure_Value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hnqqUVjzEeOu38sUqSEbjQ" source="displayNameLabelIcon">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hnqqUljzEeOu38sUqSEbjQ" key="displayNameLabelIcon_value" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hnqqU1jzEeOu38sUqSEbjQ" source="QualifiedName">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hnrRYFjzEeOu38sUqSEbjQ" key="QualifiedNameDepth" value="1000"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_hnrRYVjzEeOu38sUqSEbjQ" type="5023"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_hnrRYljzEeOu38sUqSEbjQ" type="1063">
+      <children xmi:type="notation:Shape" xmi:id="_k0JNYFjzEeOu38sUqSEbjQ" type="1037" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:EnumerationLiteral" href="model.profile.uml#_k0E78FjzEeOu38sUqSEbjQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_k0JNYVjzEeOu38sUqSEbjQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_mpnhQFjzEeOu38sUqSEbjQ" type="1037" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:EnumerationLiteral" href="model.profile.uml#_mpj24FjzEeOu38sUqSEbjQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mpnhQVjzEeOu38sUqSEbjQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_mzZIUFjzEeOu38sUqSEbjQ" type="1037" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:EnumerationLiteral" href="model.profile.uml#_mzXTIFjzEeOu38sUqSEbjQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mzZIUVjzEeOu38sUqSEbjQ"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_hnrRY1jzEeOu38sUqSEbjQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hnrRZFjzEeOu38sUqSEbjQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hnrRZVjzEeOu38sUqSEbjQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hnrRZljzEeOu38sUqSEbjQ"/>
+    </children>
+    <element xmi:type="uml:Enumeration" href="model.profile.uml#_hniugFjzEeOu38sUqSEbjQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hno1IVjzEeOu38sUqSEbjQ" x="132" y="170"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_bBryMVILEeO2iOU1Kjl0YQ"/>
   <element xmi:type="uml:Profile" href="model.profile.uml#_bBRigFILEeO2iOU1Kjl0YQ"/>
