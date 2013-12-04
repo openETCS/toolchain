@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.releng.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.0" useFeatures="true" includeLaunchers="true">
+<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.0" useFeatures="true" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
@@ -10,8 +11,10 @@
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
+   <windowImages/>
+
    <splash
-      location="org.openetcs.releng.product"
+      location="org.openetcs.product"
       startupProgressRect="5,275,445,15"
       startupMessageRect="7,252,445,20"
       startupForegroundColor="2C548E" />
@@ -22,8 +25,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
