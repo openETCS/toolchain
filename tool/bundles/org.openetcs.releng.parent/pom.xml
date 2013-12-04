@@ -17,6 +17,7 @@
 	<module>../org.openetcs.product</module>
     <module>../org.openetcs.releng.products</module>
 	<module>../org.openetcs.releng.target</module>
+	<module>../org.openetcs.target.feature</module>
   </modules>
   
   <build>
