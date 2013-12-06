@@ -18,6 +18,7 @@
 <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.0.v20130807-1835"/>
 <unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
 <unit id="org.eclipse.core.runtime.feature.feature.group" version="1.1.0.v20130814-1242"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130610-0406"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 </locations>
