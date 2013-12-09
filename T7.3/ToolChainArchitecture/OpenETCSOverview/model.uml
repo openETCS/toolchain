@@ -50,7 +50,7 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_7OQgAFIOEeO2iOU1Kjl0YQ" name="Use Items" outgoing="_NsfgcFIQEeO2iOU1Kjl0YQ" incoming="_NQN0IFIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_ByVRAFIPEeO2iOU1Kjl0YQ" name="Scade Papyrus Integration" outgoing="_Om1BwFIQEeO2iOU1Kjl0YQ" incoming="_OIYLMFIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_MfpSQFj0EeOu38sUqSEbjQ" name="Import BitWalker" outgoing="_DQRjMFj1EeOu38sUqSEbjQ" incoming="_ChACYFj1EeOu38sUqSEbjQ"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="_p9ok0Fj1EeOu38sUqSEbjQ" name="Import Requirements" outgoing="_6S9NcFj1EeOu38sUqSEbjQ" incoming="_5rhaAFj1EeOu38sUqSEbjQ"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_p9ok0Fj1EeOu38sUqSEbjQ" name="Import Requirements 2 Papyrus" outgoing="_6S9NcFj1EeOu38sUqSEbjQ" incoming="_5rhaAFj1EeOu38sUqSEbjQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_uDV74F5ZEeO6V4b4pI1W-Q" name="Tracebility" outgoing="_Bf_sYF5bEeO6V4b4pI1W-Q" incoming="_CNaMAF5bEeO6V4b4pI1W-Q _EVXXAF5bEeO6V4b4pI1W-Q _Fyv7AF5bEeO6V4b4pI1W-Q"/>
       <node xmi:type="uml:DataStoreNode" xmi:id="_df7-gF5aEeO6V4b4pI1W-Q" name="Link DataBase" incoming="_Bf_sYF5bEeO6V4b4pI1W-Q" isControlType="true">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_df_B0F5aEeO6V4b4pI1W-Q" value="1"/>
@@ -143,7 +143,7 @@
   <OpenETCSProfile:OpenETCSActivity xmi:id="_D7jnUFIPEeO2iOU1Kjl0YQ" base_Action="_ByVRAFIPEeO2iOU1Kjl0YQ"/>
   <OpenETCSProfile:OpenETCSArtifacts xmi:id="_LgG94FIPEeO2iOU1Kjl0YQ" base_DataStoreNode="_gEMicFIOEeO2iOU1Kjl0YQ" Issue="193"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_QhySAFj0EeOu38sUqSEbjQ" Issue="213" base_Action="_MfpSQFj0EeOu38sUqSEbjQ" Priority="High" SpecificationURL="https://github.com/astante/toolchain/wiki/Integration-of-Data-Dictionary-into-Papyrus"/>
-  <OpenETCSProfile:OpenETCSActivity xmi:id="_sh5RUFj1EeOu38sUqSEbjQ" Issue="207" base_Action="_p9ok0Fj1EeOu38sUqSEbjQ" Priority="High"/>
+  <OpenETCSProfile:OpenETCSActivity xmi:id="_sh5RUFj1EeOu38sUqSEbjQ" Issue="204" base_Action="_p9ok0Fj1EeOu38sUqSEbjQ" Priority="High"/>
   <OpenETCSProfile:OpenETCSActivity xmi:id="_6njDUF5ZEeO6V4b4pI1W-Q" Issue="216" base_Action="_uDV74F5ZEeO6V4b4pI1W-Q"/>
   <OpenETCSProfile:OpenETCSArtifacts xmi:id="_exQccF5aEeO6V4b4pI1W-Q" base_DataStoreNode="_df7-gF5aEeO6V4b4pI1W-Q" Issue="191"/>
 </xmi:XMI>

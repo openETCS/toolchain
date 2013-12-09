@@ -376,7 +376,7 @@
         <element xmi:type="uml:OpaqueAction" href="model.uml#_MfpSQFj0EeOu38sUqSEbjQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mfv_8lj0EeOu38sUqSEbjQ" x="331" y="467" width="224" height="109"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_p9qaAFj1EeOu38sUqSEbjQ" type="3007" fontName="Ubuntu" fontHeight="14" lineColor="255" lineWidth="2">
+      <children xmi:type="notation:Shape" xmi:id="_p9qaAFj1EeOu38sUqSEbjQ" type="3007" fontName="Ubuntu" fontHeight="14" lineColor="31487" lineWidth="3">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_p9rBEFj1EeOu38sUqSEbjQ" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_p9rBEVj1EeOu38sUqSEbjQ" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -396,7 +396,7 @@
         <children xmi:type="notation:DecorationNode" xmi:id="_p9rBFlj1EeOu38sUqSEbjQ" type="5003"/>
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_p9qaAVj1EeOu38sUqSEbjQ"/>
         <element xmi:type="uml:OpaqueAction" href="model.uml#_p9ok0Fj1EeOu38sUqSEbjQ"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p9qaAlj1EeOu38sUqSEbjQ" x="331" y="323" width="217" height="126"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p9qaAlj1EeOu38sUqSEbjQ" x="307" y="323" width="265" height="126"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_uELCUF5ZEeO6V4b4pI1W-Q" type="3007" fontName="Ubuntu" fontHeight="14" lineColor="255" lineWidth="2">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uEM3gF5ZEeO6V4b4pI1W-Q" source="ShadowFigure">
