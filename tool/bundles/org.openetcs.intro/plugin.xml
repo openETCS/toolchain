@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension  
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.openetcs.intro">
+      </intro>
+      <introProductBinding
+            introId="org.openetcs.intro"
+            productId="org.openetcs.product.openetcs">
+      </introProductBinding>
+   </extension>
+<extension
+      point="org.eclipse.ui.intro.config">
+   <config
+         content="intro/content.xml"
+         id="org.openetcs.intro.config"
+         introId="org.openetcs.intro">
+      <presentation
+            home-page-id="homePageId">
+         <implementation
+               kind="html">
+         </implementation>
+      </presentation>
+   </config>
+</extension>
+</plugin>
