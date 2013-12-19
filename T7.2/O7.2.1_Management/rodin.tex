@@ -1,53 +1,51 @@
 \chapter{Rodin}
 \label{sec:rodin}
 
-\section{Instructions}
+
+Partial evaluation.
+Slides available on gothub \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/Systerel_Event-B.pdf}.
+
+\section{Author and Assessors}
 
 \begin{description}
-\item[\textcolor{green}{Author}] Author of the approaches description  \todo{Name -  Company}
+\item[\textcolor{green}{Author}] Matthias Güdemann --- Systerel
 \item[\textcolor{blue}{Assessor 1}] First assessor of the approaches \todo{Name - Company}
 \item[\textcolor{magenta}{Assessor 2}] Second assessor of the approaches \todo{Name - Company}
 \end{description}
 
-In the sequel, main text is under the responsibilities of the author.
-
-\begin{author_comment}
-Author can add comments using this format at any place.
-\end{author_comment}
-
-\begin{assessor1}
-First assessor can add comments using this format at any place.
-\end{assessor1}
-
-\begin{assessor2}
-Second assessor can add comments using this format at any place.
-\end{assessor2}
-
-When a note is required, please follow this list :
-\begin{description}
-\item[0] not recommended, not adapted, rejected
-\item[1] weakly recommended, adapted after major improvements, weakly rejected
-\item[2] recommended, adapted (with light improvements if necessary)  weakly accepted
-\item[3] highly recommended, well adapted,strongly accepted
-\item[*] difficult to evaluate with a note (please add a comment under the table)
-\end{description}
-
-All the notes can be commented under each table.
-
 \section{Presentation}
 
-This section gives a quick presentation of the approach and the tool.
-
 \begin{description}
-\item[Name] \todo{Name of the approach and the tool}
-\item[Web site] \todo{if available, how to  find information}
-\item[Licence] \todo{Kind of licence}
+\item[Name] Event-B and the Rodin platform
+\item[Web site] \url{http://www.event-b.org}
+\item[Licence] Common Public License Version 1.0 (CPL)
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract}
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
+Rodin is an open source tool for formal modeling and verification on the system
+level using the Event-B formalism. Event-B is based on set-theoretic notation of
+first-order logic (FOL) and has its roots in the B method which has a long
+history of successful application in industry on software level development.
 
+Rodin is fully integrated into the Eclipse platform and is therefore fully
+extensible through plug-ins. Existing plug-ins include graphical modeling using
+state-machines, model simulators, modern state-of-the art SMT solvers and
+Rational DOORS interoperable requirements tracing using ReqIf documents and
+ProR.
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item The leaflet~\cite{RodinLeaflet} contains a short overview of the Rodin
+  tool
+\item The book~\cite{RodinHandbook} explains the usage of Rodin and serves as a
+  gentle introduction into Event-B modeling in Rodin
+\item The book~\cite{Abrial:2010:MES:1855020} contains an extensive presentation
+  of Event-B an several modeling examples for different system
+\item The scientific journal article~\cite{AbrialBHHMV10} contains an in-depth
+  look at the integration of Event-B into the Rodin platform
+\end{itemize}
 
 For which activities are dedicaded the means or tools (give a note from 0 to  3) :
 
@@ -55,19 +53,43 @@ For which activities are dedicaded the means or tools (give a note from 0 to  3)
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Data Management & & & &  \\
+Data Management & 0  & & &  \\
 \hline
-Function Management & & & & \\
+Function Management & 2 & & & \\
 \hline
-Requirement Management & & & & \\
+Requirement Management & 2 & & & \\
 \hline
-Version Management & & & & \\
+Version Management & 2 & & & \\
 \hline
-Other (give details below) & & & & \\
+Other (give details below) & 3 & & & \\
 \hline
 \end{tabular}
 
-According the results of this table, some of the following sections can be skipped.
+\begin{author_comment}
+  Rodin is a specialized tool to formally model and verify abstract functional
+  behavior. Therefore data management is not in its scope, as this is clearly a
+  lower level detail aspect, more on the implementation level.
+
+  \textbf{Function Management:} A Rodin model contains high level function
+  descriptions, i.e.,\ an abstract view of the observable system behavior and
+  its effect on the system state. It is therefore well suited to be included in
+  function management, by formalizing the abstract behavior of the functions,
+  tracing any changes and observing their effect on the intended functioning of
+  the system.
+
+  \textbf{Version Management:} Rodin does not contain a version management
+  itself. Its files are based on XML, therefore any modern version control
+  system can be used, in particular those (like svn/mercurial/git) for which an
+  Eclipse plug-in exists. There also exists a pug-in that is compatible to
+  model-compare in Eclipse, i.e.,\ allows for comparison on the model level
+  instead of text level.
+
+  \textbf{Other:} Rodin can provide an important support for
+  \textbf{traceability}, which is missing here. It allows for linking formal
+  model aspects to a requirements document, e.g.,\ a ReqIf document in ProR. Any
+  changes in the specification can therefore be traced in the formal Event-B
+  model and system-level aspects can be formally verified.
+\end{author_comment}
 
 \section{Common criteria on secondary means and tools}
 \label{common}
@@ -83,47 +105,51 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-02-074) & & & &  \\
+Open Source (D2.6-02-074) & 3 & & &  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & & & &  \\
+Portability to operating systems (D2.6-02-075) & 3 & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & & & &  \\
+Cooperation of tools (D2.6-02-076) & 3 & & &  \\
 \hline
-Robustness (D2.6-02-078) & & & & \\
+Robustness (D2.6-02-078) & 3 & & & \\
 \hline
-Modularity (D2.6-02-078.1) & & & & \\
+Modularity (D2.6-02-078.1) & 3 & & & \\
 \hline
-Documentation management (D2.6-02-078.02) & & & & \\
+Documentation management (D2.6-02-078.02) & 2 & & & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & & & & \\
+Distributed software development (D2.6-02-078.03)  & 3 & & & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   & 2 & & & \\
 \hline
-Issue tracking (D2.6-02-078.05) & & & & \\
+Issue tracking (D2.6-02-078.05) & 2 & & & \\
 \hline
-Differences between models (D2.6-02-078.06) & & & & \\
+Differences between models (D2.6-02-078.06) & 2 & & & \\
 \hline
-Version management (D2.6-02-078.07) & & & & \\
+Version management (D2.6-02-078.07) & 3 & & & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & & & & \\
+Concurrent version development (D2.6-02-078.08) & 3 & & & \\
 \hline
-Model-based version control (D2.6-02-078.09) & & & & \\
+Model-based version control (D2.6-02-078.09) & 2 & & & \\
 \hline
-Role traceability (D2.6-02-078.10) & & & & \\
+Role traceability (D2.6-02-078.10) & 1 & & & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & & & & \\
+Safety version traceability (D2.6-02-078.11) & 3 & & & \\
 \hline
-Model traceability (D2.6-02-079) & & & & \\
+Model traceability (D2.6-02-079) & 3 & & & \\
 \hline
-Tool chain integration & & & & \\
+Tool chain integration & 3 & & & \\
 \hline
-Scalability & & & & \\
+Scalability & 2 & & & \\
 \hline
-User Friendliness & & & & \\
+User Friendliness & 2 & & & \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+  Rodin is based on Eclipse, therefore existing plug-ins can be used for many of
+  the above aspects. Many of those are applicable without any changes, for
+  others, some Rodin / Event-B specific modifications might be necessary.
+\end{author_comment}
 
 \subsection{Qualification}
 
@@ -134,19 +160,19 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) & 3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   & 2 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  & 3 & & & \\
 \hline
-Model verification & & & & \\
+Model verification & 3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation & 0 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & 3 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & 3 & & & \\
 \hline
 \end{tabular}
 
@@ -165,13 +191,20 @@ Score :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-class T1 & & & &  \\
+class T1 & 2 & & &  \\
 \hline
-class T2   & & & & \\
+class T2  & 2 & & & \\
 \hline
-class T3  & & & & \\
+class T3  & 0 & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+  The Rodin tool aims at system-level analysis, therefore it will not be
+  necessary to qualify it as T3 tool, as no output is generated that can
+  directly contribute to the executable code.
+\end{author_comment}
+
 
 \paragraph{Other elements for tool certification}
 
@@ -189,27 +222,61 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-SysML  & & & & \\
+SysML  & 2 & & & \\
 \hline
-Scade method & & & & \\
+Scade method & 1 & & & \\
 \hline
-EFS language & & & & \\
+EFS language & 0 & & & \\
 \hline
-B Method & & & & \\
+B Method & 3 & & & \\
 \hline
-C language & & & & \\
+C language & 2 & & & \\
 \hline
 \end{tabular}
 
+
 \paragraph{SysML}
 How the means or tools can complete SysML ?
+
+\begin{author_comment}
+  Rodin allows graphical modeling of (UML) state machines, which are encoded
+  into Event-B models. SysML state machines are very similar to this and with a
+  bit of effort could be supported directly.
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling language ?
 
+\begin{author_comment}
+  A light-weight interoperability with SCADE is possible, either via SCADE
+  Systems which uses SysML or via SCADE state machines. This would allow a
+  larger effort for integration. The data-flow part of SCADE does not seem to be
+  applicable in an Event-B model.
+
+  As Event-B has its roots in the B language, several aspects of these languages
+  are definitively compatible. For example the invariant predicates of Event-B
+  can directly be used in a lower level B model. If the abstraction levels for
+  data are not the same, an additional refinement step could be added to solve
+  this problem.
+
+  There does not seem to be a good interoperation possibility with the EFS
+  language.
+\end{author_comment}
+
+
 \paragraph{C language}
 How the means or tools can complete or be adapted to SIL4 software in C language ?
+
+\begin{author_comment}
+  A possible combination of an Event-B model and a C implementation is to use
+  the predicate logic invariants as C asserts and the guards as preconditions of
+  functions. As the abstraction level of the C implementation is much lower than
+  the Event-B models, this would require some work to identify the right
+  functions and data formats or to introduce higher level wrapper functions
+  similar to Event-B events. Such asserts and pre-conditions could be verified
+  by tools like SPARK, why3 etc.
+\end{author_comment}
 
 \subsection{Tools and platforms}
 
@@ -219,15 +286,15 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Eclipse & & & &  \\
+Eclipse & 3 & & &  \\
 \hline
-Papyrus  & & & & \\
+Papyrus  & 2 & & & \\
 \hline
-Scade & & & & \\
+Scade & 1 & & & \\
 \hline
-EFS tools & & & & \\
+EFS tools & 1 & & & \\
 \hline
-B tools & & & & \\
+B tools & 2 & & & \\
 \hline
 \end{tabular}
 
@@ -235,12 +302,37 @@ B tools & & & & \\
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
 
+\begin{author_comment}
+  The Rodin platform is fully based on Eclipse.
+\end{author_comment}
+
 \paragraph{Papyrus}
 How the means or tools can complete  Papyrus ?
+
+\begin{author_comment}
+  The existing graphical modeling plug-ins for Rodin could be connected to
+  Papyrus. This would require the development of a transformation of the
+  different formats.
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
 How the means or tools can complete the current proposals for formal modeling tools ?
+
+\begin{author_comment}
+  With SCADE there could be the possibility of interoperation via the SCADE
+  System SysML framework.
+
+  With Classical B tools, there is the possibility to generate predicates for
+  guards and invariants directly from the Event-B model. As classical B is based
+  on text files and Event-B on XML file, there would be some development work to
+  do.
+
+  For the EFS tools there are some interoperation possibilities on the EMF
+  level, as both Rodin and EFS have an EMF model of the artifacts. However, as
+  seen in the section above, how the two languages could interoperate is not
+  clear.
+\end{author_comment}
 
 
 \section{Means and tools for data, function and requirement management}
@@ -260,29 +352,46 @@ Which activites, linked to help the management of SSRS definition and whole proc
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Requirement capturing & & & &  \\
+Requirement capturing & 3 & & &  \\
 \hline
-Requirement management  & & & & \\
+Requirement management  & 2 & & & \\
 \hline
-Data management & & & & \\
+Data management & 0 & & & \\
 \hline
-Function management & & & & \\
+Function management & 2 & & & \\
 \hline
-Requirement traceability  & & & & \\
+Requirement traceability  & 3 & & & \\
 \hline
-Model traceability & & & & \\
+Model traceability & 3 & & & \\
 \hline
-Function architecture & & & & \\
+Function architecture & 2 & & & \\
 \hline
-Version management & & & & \\
+Version management & 2 & & & \\
 \hline
-Model comparison & & & & \\
+Model comparison & 2 & & & \\
 \hline
-Documentation production & & & & \\
+Documentation production & 1 & & & \\
 \hline
 Others (give details) & & & & \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+  The requirements managing in Rodin is always done in close interoperation with
+  ProR and one or more ReqIf documents. Via this plug-in, requirements can be
+  linked directly to Event-B model artifacts, changes in either the model or the
+  requirement document are marked for review.
+
+  The formalization of the requirements in Rodin allows for a much more accurate
+  analysis of consistency and correctness. This can be particular helpful at
+  times of changes to the requirements, which can be very difficult to assess
+  without tool support.
+
+  Up to now, the document production integrated into Rodin is limited to the
+  generation of a Latex representation of the model. This could be extended to
+  also generate the information of elements linked to requirements in the
+  requirements document.
+\end{author_comment}
 
 
 \subsection{Input Artifacts}
@@ -294,23 +403,26 @@ Which artifacts are used as input of the mean or tool  ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal description & & & &  \\
+Informal description & 1 & & &  \\
 \hline
-Structured description & & & & \\
+Structured description & 1 & & & \\
 \hline
-Spread sheet & & & & \\
+Spread sheet & 1 & & & \\
 \hline
-XML files & & & & \\
+XML files & 3 & & & \\
 \hline
-EFS model & & & & \\
+EFS model & 1 & & & \\
 \hline
-DSL & & & & \\
+DSL & 1 & & & \\
 \hline
 Others (give details) & & & & \\
 \hline
 \end{tabular}
 
-
+\begin{author_comment}
+  Rodin uses XML files as input means. All other formats would require the
+  development of input filters.
+\end{author_comment}
 
 \subsection{Output Artifacts}
 
@@ -321,22 +433,28 @@ Which artifacts are used as output of the mean or tool  ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Informal description & & & &  \\
+Informal description & 0 & & &  \\
 \hline
-Structured description & & & & \\
+Structured description & 2 & & & \\
 \hline
-Spread sheet & & & & \\
+Spread sheet & 0 & & & \\
 \hline
-XML files & & & & \\
+XML files & 2 & & & \\
 \hline
-EFS model & & & & \\
+EFS model & 0 & & & \\
 \hline
-DSL & & & & \\
+DSL & 0 & & & \\
 \hline
-Others (give details) & & & & \\
+Others (give details) & 3 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+  Rodin produces documentation output of its models in Latex format and formal
+  proof trees are saved in XML files. In general, its main output is a
+  \textbf{formal description} of the predicates and proofs of the formal
+  invariants for the system level functional model.
+\end{author_comment}
 
 \subsection{Requirement Management}
 
@@ -349,35 +467,50 @@ Are these criteria coverd by the tool or mean ?
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Editing of Textual Requirements & & & &  \\
+Editing of Textual Requirements & 3 & & &  \\
 \hline
-Represent Relations between Req (Textual-Based) & & & & \\
+Represent Relations between Req (Textual-Based) & 3 & & & \\
 \hline
-Represent Relations between Req (Modelling-Based) & & & & \\
+Represent Relations between Req (Modelling-Based) & 3 & & & \\
 \hline
-Glossary and Abbreviation handling (Linked to Req)) & & & & \\
+Glossary and Abbreviation handling (Linked to Req)) & 2& & & \\
 \hline
-Traceability of Textual Requirements to Modelling & & & & \\
+Traceability of Textual Requirements to Modelling & 3 & & & \\
 \hline
-Import/Export of Industrial Standard Data (e.g., REQIF) & & & & \\
+Import/Export of Industrial Standard Data (e.g., REQIF) & 2 & & & \\
 \hline
-Documentation generation & & & &  \\
+Documentation generation & 1 & & &  \\
 \hline
-Search and Filtering functions & & & & \\
+Search and Filtering functions & 1 & & & \\
 \hline
 Others (give details) & & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+  Rodin supports requirements managing with the ProR plug-in. Via its EMF model,
+  its artifacts can be linked to elements of a ReqIf file via drag and
+  drop. This allows for good traceability, as every change can be marked for
+  later validation.
 
+  Textual requirements tracing is also possible by using comments in the Event-B
+  model. Search and filtering is partially supported by the Event-B editor, a
+  better integration, more focused on requirements traceability could be
+  developed with some effort.
+\end{author_comment}
 
 \section{Other comments}
 
 
 
-\begin{comment}
-This section is available for the author or the assessors to  complete the description and criteria.
-\end{comment}
+\begin{author_comment}
+  In general, the Rodin platform can give more confidence in the completeness
+  and correctness of the requirements on the system level. The formalization
+  allows to identify contradictions and missing elements in the specification.
+\end{author_comment}
 
 
-
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "O7-2-1_Management"
+%%% End: 
