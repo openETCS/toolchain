@@ -81,6 +81,14 @@
          id="org.eclipse.papyrus.sdk.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.egit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.jgit"
+         version="0.0.0"/>
+
    <plugin
          id="javax.xml"
          download-size="0"
