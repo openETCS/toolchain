@@ -14,6 +14,7 @@
   
   <modules>
     <module>../org.openetcs.core.feature</module>
+    <module>../org.openetcs.intro</module>
 	<module>../org.openetcs.product</module>
     <module>../org.openetcs.releng.products</module>
 	<module>../org.openetcs.releng.target</module>
