@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Kepler" sequenceNumber="7">
+<?pde version="3.8"?><target name="openETCS-Kepler" sequenceNumber="9">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.9.0.201310111533"/>
@@ -19,11 +19,8 @@
 <unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
 <unit id="org.eclipse.core.runtime.feature.feature.group" version="1.1.0.v20130814-1242"/>
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130610-0406"/>
+<unit id="org.eclipse.egit.feature.group" version="3.0.3.201309161630-r"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.egit.feature.group" version="3.1.0.201310021548-r"/>
-<repository location="http://download.eclipse.org/egit/updates/"/>
 </location>
 </locations>
 </target>
