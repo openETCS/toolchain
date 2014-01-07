@@ -1,0 +1,72 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	color: #34332F;
+	font-family: 'Maven Pro', sans-serif;
+	line-height: 1.5 !important;
+	font-size: 14px;
+	background-color: #F2F7FF
+}
+
+h1 {
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 15px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+a:link {
+	color: #2c548e
+}
+
+a:visited {
+	color: #2c548e
+}
+
+#top {
+	border-top: 2px solid #2c548e;
+}
+
+#header {
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #303030;
+}
+
+#logo {
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px
+}
+
+#content {
+	clear: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#option1 {
+	float: left
+}
+
+#option2 {
+	margin-left: 10px;
+	float: left;
+}
+
+#end {
+	clear: left;
+}
