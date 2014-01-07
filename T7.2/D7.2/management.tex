@@ -21,13 +21,109 @@ The list of initial candidates is:
 \item[Eclipse EMF Client Platform.]
 \end{description}
 
-\section{ProR Evaluation}
+
+During the evaluation phase, a number of challenges were identified that were not clearly defined before.
+The list of challengers discussed during the evaluation is:
+
+\begin{itemize}
+\item Ecore model + XML  files
+\item UML library
+\item ReqCity
+\end{itemize}
+
+
+\subsection{ProR Evaluation}
 
 TODO the details of the ProR evaluation, corresponding to the primary toolchain evaluations.
 
-\section{Challenges}
 
-During the evaluation phase, a number of challenges were identified that were not clearly defined before.
+\subsection{EventB, Rodin and pluggins}
+
+\begin{description}
+\item[Name] Event-B and the Rodin platform
+\item[Web site] \url{http://www.event-b.org}
+\item[Licence] Common Public License Version 1.0 (CPL)
+\end{description}
+
+\paragraph{Abstract}
+
+Rodin is an open source tool for formal modeling and verification on the system
+level using the Event-B formalism. Event-B is based on set-theoretic notation of
+first-order logic (FOL) and has its roots in the B method which has a long
+history of successful application in industry on software level development.
+
+Rodin is fully integrated into the Eclipse platform and is therefore fully
+extensible through plug-ins. Existing plug-ins include graphical modeling using
+state-machines, model simulators, modern state-of-the art SMT solvers and
+Rational DOORS interoperable requirements tracing using ReqIf documents and
+ProR.
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item The leaflet~\cite{RodinLeaflet} contains a short overview of the Rodin
+  tool
+\item The book~\cite{RodinHandbook} explains the usage of Rodin and serves as a
+  gentle introduction into Event-B modeling in Rodin
+\item The book~\cite{Abrial:2010:MES:1855020} contains an extensive presentation
+  of Event-B an several modeling examples for different system
+\item The scientific journal article~\cite{AbrialBHHMV10} contains an in-depth
+  look at the integration of Event-B into the Rodin platform
+\end{itemize}
+
+
+
+A quantitative evaluation is available in \url{https://github.com/openETCS/toolchain/blob/master/T7.2/O7.2.1_Safety/O7-2-1_Safety.pdf}
+
+\paragraph{Added value for OpenETCS project}
+
+
+ Rodin is a specialized tool to formally model and verify abstract functional
+  behavior. Therefore data management is not in its scope, as this is clearly a
+  lower level detail aspect, more on the implementation level.
+
+  \textbf{Function Management:} A Rodin model contains high level function
+  descriptions, i.e.,\ an abstract view of the observable system behavior and
+  its effect on the system state. It is therefore well suited to be included in
+  function management, by formalizing the abstract behavior of the functions,
+  tracing any changes and observing their effect on the intended functioning of
+  the system.
+
+  \textbf{Version Management:} Rodin does not contain a version management
+  itself. Its files are based on XML, therefore any modern version control
+  system can be used, in particular those (like svn/mercurial/git) for which an
+  Eclipse plug-in exists. There also exists a pug-in that is compatible to
+  model-compare in Eclipse, i.e.,\ allows for comparison on the model level
+  instead of text level.
+
+  \textbf{Other:} Rodin can provide an important support for
+  \textbf{traceability}, which is missing here. It allows for linking formal
+  model aspects to a requirements document, e.g.,\ a ReqIf document in ProR. Any
+  changes in the specification can therefore be traced in the formal Event-B
+  model and system-level aspects can be formally verified.
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+  The Rodin platform is fully based on Eclipse.
+
+  The existing graphical modeling plug-ins for Rodin could be connected to
+  Papyrus. This would require the development of a transformation of the
+  different formats.
+
+  With SCADE there could be the possibility of interoperation via the SCADE
+  System SysML framework.
+
+  With Classical B tools, there is the possibility to generate predicates for
+  guards and invariants directly from the Event-B model. As classical B is based
+  on text files and Event-B on XML file, there would be some development work to
+  do.
+
+
+%\section{Challenges}
+%
+%During the evaluation phase, a number of challenges were identified that were not clearly defined before.
+
+\section{Open issues}
 
 \subsection{Traceability}
 
@@ -37,15 +133,15 @@ TODO
 
 TODO
 
-\subsection{Other Challenges}
-
-The list of challengers discussed during the evaluation is:
-
-\begin{itemize}
-\item Ecore model + XML  files
-\item UML library
-\item ReqCity
-\end{itemize}
+%\subsection{Other Challenges}
+%
+%The list of challengers discussed during the evaluation is:
+%
+%\begin{itemize}
+%\item Ecore model + XML  files
+%\item UML library
+%\item ReqCity
+%\end{itemize}
 
 \section{Selected means and tools}
 

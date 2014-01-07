@@ -6,6 +6,9 @@
 This section is dedicated to tools and means to support safety analyses.
 
 
+\section{Candidates}
+
+
 
 The list of initial candidates is:
 
@@ -15,6 +18,100 @@ The list of initial candidates is:
 \item Goal Structuring Notation (GSN)
 \item Safety Architect
 \end{itemize}
+
+\subsection{EventB, Rodin and pluggins}
+
+\begin{description}
+\item[Name] Event-B and the Rodin platform
+\item[Web site] \url{http://www.event-b.org}
+\item[Licence] Common Public License Version 1.0 (CPL)
+\end{description}
+
+\paragraph{Abstract}
+
+Rodin is an open source tool for formal modeling and verification on the system
+level using the Event-B formalism. Event-B is based on set-theoretic notation of
+first-order logic (FOL) and has its roots in the B method which has a long
+history of successful application in industry on software level development.
+
+Rodin is fully integrated into the Eclipse platform and is therefore fully
+extensible through plug-ins. Existing plug-ins include graphical modeling using
+state-machines, model simulators, modern state-of-the art SMT solvers and
+Rational DOORS interoperable requirements tracing using ReqIf documents and
+ProR.
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item The leaflet~\cite{RodinLeaflet} contains a short overview of the Rodin
+  tool
+\item The book~\cite{RodinHandbook} explains the usage of Rodin and serves as a
+  gentle introduction into Event-B modeling in Rodin
+\item The book~\cite{Abrial:2010:MES:1855020} contains an extensive presentation
+  of Event-B an several modeling examples for different system
+\item The scientific journal article~\cite{AbrialBHHMV10} contains an in-depth
+  look at the integration of Event-B into the Rodin platform
+\end{itemize}
+
+
+
+A quantitative evaluation is available in \url{https://github.com/openETCS/toolchain/blob/master/T7.2/O7.2.1_Safety/O7-2-1_Safety.pdf}
+
+\paragraph{Added value for OpenETCS project}
+
+  Rodin and Event-B do not directly support a hazard or risk analysis. Their
+  goal is to strengthen the confidence in the correctness of an external safety
+  analysis, by providing means to represent safety requirements (in particular
+  functional requirements) in a formal model and to verify them there or to
+  validate the intended behavior wrt.\ safety by simulating and observing the
+  model.
+
+  Sub-system requirements can be specified and verified, if the formal model
+  contains a representation of the sub-systems. While this can be achieved by
+  refinement, it should be kept in mind that Event-B aims at system-level
+  modeling and analysis, and therefore there could be better alternatives to
+  analyze a very detailed model on implementation level.
+
+  The main application of Rodin is to formalize and verify the safety
+  requirements where applicable. This supports the verification of the
+  correctness of the arguments in the safety case, therefore strengthening the
+  confidence in these arguments, but also to provide insight into probably
+  lacking aspects of the safety case.
+
+ The Event-B approach is based on iterative refinements form the most abstract
+  model to the desired level of detail. It is therefore a to-down approach, a
+  bottom-up approach does not make sense using Event-B.
+
+  And database connection would require the development of additional plug-ins,
+  but would be possible.
+
+  VnV of safety requirements is achieved by formal proof and simulation to
+  validate correct functionality.
+
+  Traceability is achieved by the connection to ProR.
+
+  Generation of some documentation is already supported, as Latex documents can
+  be generated from models. For more extensive documentation, e.g.,\ links with
+  safety requirements, some additional functionality would have to be developed.
+\
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+  The Rodin platform is fully based on Eclipse.
+
+  The existing graphical modeling plug-ins for Rodin could be connected to
+  Papyrus. This would require the development of a transformation of the
+  different formats.
+
+  With SCADE there could be the possibility of interoperation via the SCADE
+  System SysML framework.
+
+  With Classical B tools, there is the possibility to generate predicates for
+  guards and invariants directly from the Event-B model. As classical B is based
+  on text files and Event-B on XML file, there would be some development work to
+  do.
+
+
 
 \section{Selected means and tools}
 
