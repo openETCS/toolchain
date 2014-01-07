@@ -2,5 +2,5 @@
 <introContent>
       <page
             id="homePageId"
-            url="https://github.com/openETCS/toolchain/wiki/openETCS-Welcome-screen"/>
+            url="intro.html"/>
 </introContent> 

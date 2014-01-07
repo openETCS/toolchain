@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>openETCS Welcome screen</title>
+<link rel="stylesheet" href="intro.css"></link>
+<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700'
+	rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div id="top">
+		<div id="logo">
+			<img src="openetcs.png" />
+		</div>
+
+		<div id="header">
+			<h1 class="instapaper_title">Welcome</h1>
+		</div>
+	</div>
+
+
+	<div id="content">
+		<p>
+			<strong>Note:</strong> you can reopen this page any time via Help |
+			Welcome.
+		</p>
+
+		<h2>Open Extended Tool Construction Set (openETCS)</h2>
+
+		<p>
+			This tool-chain targets the modelling and development of on-board
+			unit for ETCS (<a
+				href="https://en.wikipedia.org/wiki/European_Train_Control_System">European
+				Train Control System</a>).
+		</p>
+
+		<p>Thank you for using openETCS. Here are a few pointers to get
+			you started:</p>
+
+		<ul>
+			<li><a href="http://openetcs.org">Project Homepage</a></li>
+			<li><a href="https://github.com/openETCS/toolchain/issues">Issue
+					Tracker</a> for reporting bugs and feature requests.</li>
+			<li>Support Forum: Currently, we have neither a forum nor a
+				support mailing list (only developer mailing list). Please use the
+				issue tracker for the time being for getting help.</li>
+		</ul>
+
+		<h2>First Steps</h2>
+
+		<ul>
+			<li>Connect to the modeling repository</li>
+			<li>A first tutorial on the tool-chain is available at: FIXME</li>
+			<li>Complete User documentation is available at: FIXME</li>
+		</ul>
+
+		<h2>Connecting the Model Repository</h2>
+
+		<p>This assumes that you installed openETCS and opened it.</p>
+
+		<p>You have two options here: You can (1) use an existing clone of
+			the model repository, if you cloned it before. Or you can (2) tell
+			Eclipse to clone the repository for you.</p>
+
+		<div id="option1">
+			<h3>(1) use an existing clone of the model repository</h3>
+
+			<ul>
+				<li>File | Import ...</li>
+				<li>Git | Projects from Git</li>
+				<li>Existing local repository</li>
+				<li>Add...</li>
+				<li>Browse to the local copy of the modeling repository and hit
+					Finish</li>
+				<li>Click Next (Import existing projects)</li>
+				<li>Click Next again: Deselect all except "model"</li>
+				<li>Click finish: You are done.</li>
+			</ul>
+		</div>
+
+		<div id="option1">
+			<h3>(2) tell Eclipse to clone the repository for you</h3>
+
+			<ul>
+				<li>File | Import ...</li>
+				<li>Git | Projects from Git</li>
+				<li>Clone URI</li>
+				<li>Provide this URI: <a href="mailto:git@github.com">git@github.com</a>:openETCS/modeling.git
+				</li>
+				<li>Click Next: You can clone all branches (recommended) or
+					just "master"</li>
+				<li>Click Next</li>
+				<li>Click Next again (Import existing projects)</li>
+				<li>Click Next again: Deselect all except "model"</li>
+				<li>Click finish: You are done.</li>
+			</ul>
+		</div>
+
+		<div id="end">
+			<h3>Next step</h3>
+
+			<p>No matter whether you followed (1) or (2), there should be one
+				Project in the workspace (called "model") with the subfolders sysml
+				and subset26.</p>
+
+			<h2>Read-only or writable?</h2>
+
+			<p>If you configured SSH and are a committer to the project, then
+				you will be able to push data back to the server. Files will always
+				be writable, no matter whether you have push privileges or not.</p>
+		</div>
+	</div>
+</body>
+</html>
