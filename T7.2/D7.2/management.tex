@@ -34,7 +34,96 @@ The list of challengers discussed during the evaluation is:
 
 \subsection{ProR Evaluation}
 
-TODO the details of the ProR evaluation, corresponding to the primary toolchain evaluations.
+\begin{description}
+\item[Name] Eclipse ProR (part of the Eclipse Requirements Modeling Framework (RMF))
+\item[Web site] http://eclipse.org/rmf/pror
+\item[Licence] Eclipse Public License
+\end{description} 
+
+\paragraph{Abstract}
+
+ProR is a tool for requirements engineering that supports the ReqIF 1.0.1 Standard natively. It is part of the Eclipse RMF project and is built for extensibility. ProR is the result of the European Union FP7 Research Project Deploy, where it is used to provide traceability between requirements and formal models.
+
+Vision: Our vision is to provide a tool that supports interoperability by operating directly of the ReqIF data standard, and that supports integration by taking advantage of the extendability of the Eclipse platform. ProR is targeted to academic and industrial users alike. 
+
+\paragraph{Publications}
+
+\begin{description}
+
+\item[Wikipedia: Requirements Modeling Framework.]  The Requirements Modeling Framework (RMF) is an Open-Source-Framework for working with requirements based on the ReqIF standard. RMF consists of a core allowing reading, writing and manipulating ReqIF data, and a user interface allowing to inspect and edit request data.
+
+RMF is the first and, currently, the only open source reference implementation of the ReqIF standards. Noteworthy is the fact that RMF has already been deployed in the ProStep ReqIF Implementor Forum in order to ensure the interoperability of the commercial implementation. Since 2011 there have been reports in the German and in the international press about RMF. (more)
+
+\item[The Eclipse Requirements Modeling Framework.] In Managing Requirements Knowledge, Springer, 2013. Michael Jastram.
+
+ This chapter presents the the Requirements Modeling Framework (RMF), an Eclipse-based open source platform for requirements engineering. The core of RMF is based on the emerging Requirements Interchange Format (ReqIF), which is an OMG standard. The project uses ReqIF as the central data model. At the time of this writing, RMF was the only open source implementation of the ReqIF data model.
+
+By being based on an open standard that is currently gaining industry support, RMF can act as an interface to existing requirements management tools. Further, by based on the Eclipse platform, integration with existing Eclipse-based offerings is possible.
+
+In this chapter, we will describe the architecture of the RMF project, as well as the underlying ReqIF standard. Further, we give an overview of the GUI, which is called ProR. A key strength of RMF and ProR is the extensibility, and we present the integration ProR with Rodin, which allows traceability between natural language requirements and Event-B formal models. 
+
+\item[Openness in Systems Engineering with Eclipse] ProStep Symposium, 2013. Michael Jastram.
+
+Eclipse is an open source framework for building platform-independent GUI applications. It is managed by the Eclipse Foundation (a non-profit organization), which ensures that official Eclipse projects are interoperable and follow certain intellectual property guidelines. Open Source in general allows organizations to remedy the risk of being dependent on one single vendor. This includes the risk of the feature set provided: users can add missing features themselves or commission their inclusion to any competent party, rather than having to rely on the vendor to implement it. It further includes the risk of maintenance and long-term support. Eclipse in particular provides a solid, mature and open platform for desktop applications with a rich ecosystem. Many Eclipse offerings are ready to be used “as is”, thereby offering great cost savings.
+
+In this talk, we demonstrate how Eclipse can be used as an integration platform for systems engineering. We focus on RMF (Requirements Modeling Framework) as a case study on how the Eclipse ecosystem can be leveraged in a business environment. RMF is a clean-room implementation of the open ReqIF standard, which is currently being adopted by various tool vendors: The currently ongoing ReqIF Implementor Forum , which is organized by ProSTEP iViP, will ensure that the various ReqIF implementations will properly function together. We will look at both the technical and business implications.
+
+From a business point of view, this approach promises cost savings and prevents vendor lock-in. To understand the value, we will look at the openETCS project , which is an ITEA2 EU-funded project. The purpose of this project is the development of an integrated modeling, development, validation and testing framework for leveraging the cost-efficient and reliable implementation of the European Train Control System (ETCS), based on open source technologies. While the technology choice has not yet been fi¬nalized, Eclipse is a strong candidate for realizing this project, and it being open source is a core requirement. We will present the implications of such an open platform from a business point of view for the parties involved, which are customers (e.g. Deutsche Bahn), equipment manufacturers (e.g. Siemens) service providers (e.g. Formal Mind) and, of course, the EU and its citizens.
+
+\item[ReqIF-OLUTION: Mit Eclipse und ReqIF zur Open-Source ALM-Werkzeugkette] ObjektSpektrum, 3, 2013. Michael Jastram.
+
+Der Austausch von Anforderungen war bisher entweder mit Datenverlust oder verlustfrei nur über proprietäre Wege zu realisieren. Aber letztes Jahr wurde mit ReqIF ein internationaler Standard von der OMG verabschiedet, der dieses Problem löst. Dies hat eine Lawine von Aktivitäten ausgelöst, einschließlich der Entwicklung einer OpenSource Referenzimplementierung (Eclipse RMF). In diesem Artikel zeigen wir, wie mit ReqIF, Eclipse und RMF mit wenig Aufwand eine ALM-Werkzeugkette realisiert werden kann, und wo die Reise hingeht.
+
+\item[The ProR Approach: Traceability of Requirements and System Descriptions.] CreateSpace, 2012. Michael Jastram.
+
+Creating a system description of high quality is still a challenging problem in the field of requirements engineering. Creating a formal system description addresses some issues. However, the relationship of the formal model to the user requirements is rarely clear, or documented satisfactorily.
+
+This work presents the ProR approach, an approach for the creation of a consistent system description from an initial set of requirements. The resulting system description is a mixture of formal and informal artefacts. Formal and informal reasoning is employed to aid in the process. To achieve this, the artefacts must be connected by traces to support formal and informal reasoning, so that conclusions about the system description can be drawn.
+
+The ProR approach enables the incremental creation of the system description, alternating between modelling (both formal and informal) and validation. During this process, the necessary traceability for reasoning about the system description is established. The formal model employs refinement for further structuring of large and complex system descriptions. The development of the ProR approach is the first contribution of this work.
+
+This work also presents ProR, a tool platform for requirements engineering, that supports the ProR approach. ProR has been integrated with Rodin, a tool for Event-B modelling, to provide a number of features that allow the ProR approach to scale.
+
+The core features of ProR are independent from the ProR approach. The data model of ProR builds on the international ReqIF standard, which provides interoperability with industrial tools for requirements engineering. The development of ProR created enough interest to justify the creation of the Requirements Modeling Framework (RMF), a new Eclipse Foundation project, which is the open source host for ProR. RMF attracted an active community, and ProR development continues. The development of ProR is the second contribution of this work.
+
+This work is accompanied by a case study of a traffic light system, which demonstrates the application of both the ProR approach and ProR.
+
+\item[A Systems Engineering Tool Chain Based on Eclipse and Rodin] In Forms/Format, 2012. Michael Jastram.
+
+Formal methods are experiencing a renaissance, especially in the development of safety-critical systems. An indicator for this is the fact that more and more standards either recommend or prescribe the use of formal methods.
+
+Using formal methods on an industrial scale requires their integration into the system engineering process. This paper is exploring how an integrated tool chain that supports formal methods may look like. It thereby focusses on our experience with tool chains that are based on the open source Eclipse platform in general, and the Rodin formal modeling environment in particular.
+
+Open Source allows organisations to remedy the risk of being dependent on one single vendor. This includes the risk of the feature set provided: users can add missing features themselves or commission their inclusion to any competent party, rather than having to rely on the vendor to implement it. It further includes the risk of maintenance and long-term support.
+
+We see industrial interest in open source for systems engineering in general, and Eclipse in particular. Eclipse is attractive, because its license is business-friendly. Further, its modular architecture makes it easy to seamlessly integrate the various Eclipse-based tools for systems engineering.
+
+This paper focuses on an ecosystem that is accumulated around two Eclipse-based platforms, First, the Rodin platform is an open source modeling environment for the Event-B formalism. Second, the Requirements Modeling Framework (RMF) is a platform for working with natural language requirements, supporting the international ReqIF standard.
+
+\item[Requirements Modeling Framework] Eclipse Magazin, 6.11, 2011. Michael Jastram, Andreas Graf.
+
+Im August 2011 hat das Requirements Modeling Framework (RMF) als ein neues Eclipse-Projekt das Licht der Welt erblickt. RMF besteht aus einem Kern, der Daten im Requirements Exchange Format (RIF/ReqIf) verarbeiten kann, und einem GUI namens ProR, mit dem sich diese Daten komfortabel bearbeiten lassen. ProR stellt einen Extension Point zur Verfügung, der die Integration mit anderen Werkzeugen ermöglicht. 
+
+\item[Requirement Traceability in Topcased with the Requirements Interchange Format (RIF/ReqIF)] First Topcased Days Toulouse, 2011. Michael Jastram, Andreas Graf.
+
+One important step of the systems engineering process is requirements engineering. Parallel to the development of Topcased, which includes tooling for requirements engineering, a new standard for requirements exchange is emerging at the OMG under the name “ReqIF” (formally called RIF). In our talk we introduce the activities of two research projects and their tool developments, VERDE (Yakindu Requirements) and Deploy (ProR) and discuss possible synergies with Topcased.
+
+\item[Requirements, Traceability and DSLs in Eclipse with the Requirements Interchange Format (RIF/ReqIF)] Technical Report, Dagstuhl-Workshop MBEES 2011: Modellbasierte Entwicklung eingebetteter Systeme, 2011.
+
+Requirements engineering (RE) is a crucial aspect in systems development and is the area of ongoing research and process improvement. However, unlike in modelling, there has been no established standard that activities could converge on.
+In recent years, the emerging Requirements Interchange Format (RIF/ReqIF) gained more and more visibility in industry, and research projects start to investigate these standards. To avoid redundant efforts in implementing the standard, the VERDE and Deploy projects cooperate to provide a stable common basis for RIF/ReqIF that could be leveraged by other research projects too. In this paper, we present an Eclipse-based extensible implementation of a RIF/ReqIF-based requirements editing platform.
+In addition, we are concerned with two related aspects of RE that take advantage of the common platform. First, how can the quality of requirements be improved by replacing or complementing natural language requirements with formal approaches such as domain specific languages or models. Second, how can we establish robust traceability that links requirements and model constructs and other artefacts of the development process. We present two approaches to traceability and two approaches to modelling.
+We believe that our research represents a significant contribution to the existing tooling landscape, as it is the first clean-room implementation of the RIF/ReqIF standard. We believe that it will help reduce gaps in often heterogeneous tool chains and inspire new conceptual work and new tools.
+
+\end{description}
+
+\paragraph{Added value for OpenETCS project}
+
+ProR fulfills the formal requirements to be part of the openETCS toolchain: It is based on Eclipse and EMF, and it is licensed under an appropriate open source license.  It is mature enough to be used for managing natural language requirements.
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+As of this writing, ProR is already integrated into the openETCS tool.  As it is based on EMF, data integration should be reasonably straight forward.
 
 
 \subsection{EventB, Rodin and pluggins}
