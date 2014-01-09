@@ -129,6 +129,89 @@ To complete: Stefan Rieger , Jan Welte ?
 To complete: Stefan Rieger , Jan Welte ?
 \end{comment}
 
+%------------------------------- RT-Tester
+\subsection{RT-Tester}
+
+\begin{description}
+\item[Name] RT-Tester
+\item[Web site] http://www.verified.de/en/products/rt-tester
+\item[Licence] 
+  \begin{itemize}
+    \item Generator:  closed
+    \item SMT Solver: open
+    \item GUI (eclipse plug-in): open
+  \end{itemize}
+\end{description}
+
+\paragraph{Abstract}
+The RT-Tester test automation tool, made by Verified, performs
+automatic test generation, test execution and real-time test
+evaluation.  It supports different testing approach such as unit
+testing, software integration testing for component, hardware/software
+integration testing and system integration testing.  
+The tool generates automatically behavioral tests that covers the
+classical criteria such as  reachable state, branch and MC/DC.
+The RT-Tester also implements the so-called  model-based testing approach: 
+starting from a test model design with UML/SysML, the RT-tester fully
+automatically generates test cases. Moreover the test model may be
+directly linked to the requirements, thus the requirement coverage may
+also be ensured.
+
+The RT-tester provides the following features :
+\begin{itemize}
+\item Automated Test Case Generation 
+\item Automated Test Data and Test Oracles Generation 
+\item Automated Test Procedure Generation 
+\item Automated Requirement Tracing 
+\item Test Management system 
+\item Test Report Generation
+\end{itemize}
+
+
+Note that the RT-tester model based testing has be qualified according
+to ISO 26262.
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item Jan Peleska, Elena Vorobev, and Florian Lapschies. Automated test case generation with smt-solving
+and abstract interpretation. In Mihaela Bobaru, Klaus Havelund, GerardJ. Holzmann, and Rajeev
+Joshi, editors, NASA Formal Methods, volume 6617 of Lecture Notes in Computer Science, pages
+298–312. Springer Berlin Heidelberg, 2011.
+\item Jan Peleska, Elena Vorobev, Florian Lapschies, and Cornelia Zahlten. Automated model-based
+testing with RT-Tester. Technical report, Universität Bremen, 2011.
+\item Jörg Brauer, Jan Peleska, and Uwe Schulze. Efficient and trustworthy tool qualification for model-
+based testing tools. In Brian Nielsen and Carsten Weise, editors, Testing Software and Systems,
+volume 7641 of Lecture Notes in Computer Science, pages 8–23. Springer Berlin Heidelberg, 2012.
+\item Verified Systems International GmbH. Verified :: Products. http://www.verified.de/en/products.
+
+
+\end{itemize} 
+
+\paragraph{Added value for OpenETCS project}
+
+RT-Tester will add  an automated test case and test data generator
+that interprets test models directly describes in SysML. 
+The test models may specify concurrent sub-components of
+SUT (System Under Test) and TE (Test Environment), and timing
+conditions using dense time (i. e., continuous physical time) and 
+an arbitrary number of timers. 
+
+Another added value is that the tool also provides a simulation
+environment that can directly generate C code from the SysML model and
+run the tests.
+The code generator may also be adapted to other purposes.
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+\begin{itemize}
+  \item GUI via an eclipse plug-in already exist,
+  \item read SysML model
+  \item Can run SCADE generated code
+\end{itemize}
+
+%---------------------------------------------------------------------
+
 \section{Selected means and tools}
 
 \begin{comment}
