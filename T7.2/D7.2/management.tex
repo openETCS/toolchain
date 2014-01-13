@@ -15,7 +15,7 @@ The list of initial candidates is:
 \item[Scade Suite.]  Scade includes Reqtify as the requirements traceability solution.  It allows to create traceability directly to Word, thereby making traceability to Subset-26 easy.  However, there is no clear solution for authoring additional requirements (except using Word).  Further, it is not clear how traceability to model artifacts should be realized.  Last, this is a closed source solution and therefore only a last resort.
 \item[Rodin and Pluggin.]
 \item[Matelo.]
-\item[Goal Structuring Notation (GSN).]
+\item[Assurance Case Argument Editor (ACedit) using Goal Structuring Notation (GSN).] The Editor for Assurance Cases is an Eclipse based tool to use the Goal Structuring Notation (GSN) and the OMG Argumentation Metamodel (ARM) to build argument structure models and check their overall completeness and consistency. Such model help to develop, manage and document the reasons and fulfillment for every requirement.
 \item[Eclipse ProR.]
 \item[Eclipse EMF Store.]
 \item[Eclipse EMF Client Platform.]
@@ -28,7 +28,8 @@ The list of challengers discussed during the evaluation is:
 \begin{itemize}
 \item Ecore model + XML  files
 \item UML library
-\item ReqCity
+\item ReqCycle
+ReqCycle can create requirements, import/update or reference textual requirements existing in different data sources or formats. Thereby, it can define data models to classify requirements in scopes (team organization) and in types (list of attributes). Furthermore, ReqCycle can define traceability link types from requirements to a model element or code and display all traceability links as treeviews or tables.
 \end{itemize}
 
 
@@ -207,6 +208,51 @@ A quantitative evaluation is available in \url{https://github.com/openETCS/toolc
   on text files and Event-B on XML file, there would be some development work to
   do.
 
+\subsection{Assurance Case Argument Editor}
+
+\begin{description}
+\item[Name] Assurance Case Argument Editor (ACedit) as an editor for the Goal Structuring Notation (GSN)
+\item[Web site] https://code.google.com/p/acedit/
+\item[Licence] Eclipse Public License 1.0
+\end{description}
+
+\paragraph{Abstract}
+
+A safety case is a collection of documents, which shall demonstrate that the system fulfills conditions to guaranty a safe behavior. Therefore, an argumentation chain has to be constructed to demonstrate that from the evidence available it can be reasonably concluded that a system is acceptably safe.  The Goal Structuring Notation (GSN) is a known  approach  for  constructing such argumentation chains, which refer to the explicit documentation of claims about a system,  and  explanation  of  how  these  claims  are  convincingly  supported  by evidence generated during different activities in design, verification and validation of that system.
+The ACedit is a tool implementation of this approach realized as eclipse plug-ins under the Eclipse project. The tool supports the graphical construction of argument chains in GSN and a number of model management techniques that apply to them.
+
+The key features are the following
+\begin{enumerate}
+\item Graphical editor for the GSN, based on the GSN standard
+\item Graphical editor for the ARM, based on the ARM metamodel available by sysa.omg.org
+\item Model management tasks for the GSN editor like Model validation and In-place model transformation 
+\item Model transformation between GSN and ARM models 
+\end{enumerate}
+    
+The graphical editors of ACedit are based on the definition of GSN and ARM metamodels, which are defined in the EMFatic language.        
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item George Despotou, Aris Apostolakis, Dimitris Kolovos: Assuring Dependable and Critical Systems: Implementing the Standards for Assurance Cases with ACedit
+\item Tim Kelly and Rob Weaver: The Goal Structuring Notation – A Safety Argument Notation 
+\end{itemize}
+
+Slides are available on github in 
+\url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/psn_20130311_Tool-Presentation-GSN_1-0_jw.pdf}
+
+A quantitative evaluation is available in 
+\url{https://github.com/openETCS/toolchain/blob/master/T7.2/O7.2.1_Safety/O7-2-1_Safety.pdf}
+
+\paragraph{Added value for OpenETCS project}
+
+To structure the safety case with GSN allows us to present a clear outline of the argumentation chain and the specific relations between the numerous documents. In this way a consistent generic safety case for the overall development of an on-board system based on the openETCS development process can be presented as a GSN model. All documents already created in the openETCS work can be linked to the GSN argumentation structure to present an easy overview about the safety case and the status the documents and their relation. This creates a common understanding of the openETCS safety argumentation and helps to show the specific context for their work to all different working groups. 
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+The safety case task will establish based on the ongoing work of design and verification and validation activities the underlying argumentation chain, which shall demonstrate that the openETCS development process fulfills required quality and safety aspects. This will first be done by modeling the theoretical argumentation chain given by the development methodology. 
+As the work goes on the general steps in the argumentation chain are enhanced through the actual artifacts which are created during the design and corresponding verification steps. the same will be done with all validations results for the design artifacts. 
+As the ACedit editor is already based on Eclipse the existing to can be integrated in the basic tool chain environment to link the argumentation chain elements to specific design elements. All purely document based argumentation and conclusion parts will be linked to the GSN model via their presentation in the git repository. Therefore, a connection between the ACedit tool and the GIT repository has to be established. To do this the already existing options in the eclipse framework shall be used.
 
 %\section{Challenges}
 %
