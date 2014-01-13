@@ -10,22 +10,24 @@ This section is dedicated to tools and means for verification and validation.
 
 The list of initial candidates is:
 
-\begin{itemize}
-\item Scade Suite
-\item System C
-\item UPPAAL
-\item Rodin and Pluggins
-\item Tools around Classical B (ProB, SMT solver,...)
-\item CPN tools
-\item Matelo
-\item RT-Tester
-\item Fiacre and Tina
-\item Frama-C
-\item Diversity
-\item SPIN
-\end{itemize}
+\begin{description}
+
+\item [System C] see \ref{sec:systemC}.
+\item [UPPAAL] see \ref{sec: UPPAALL}.
+\item [CPN tools] see \ref{sec:CPN-Tools}
+\item [RT-Tester] see \ref{sec:RT-Tester}
+\item [Tools around Classical B (ProB, SMT solver,...)] see \ref{sec:ClassicalB}
+\item [Rodin and Pluggins] see \ref{sec:eventb_safe}
+\item [Frama-C], slides \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/c-frama-c-secondary-tools-presentation.pdf}.
+\item [Matelo]
+\item [Scade Suite]
+\item [Fiacre and Tina]
+\item [Diversity]
+\item [SPIN]
+\end{description}
 
 \subsection{SystemC}
+\label{sec:systemC}
 
 \begin{description}
 \item[Name] SystemC
@@ -64,6 +66,7 @@ To complete: Stefan Rieger  ?
 
 
 \subsection{UPPAAL}
+\label{sec: UPPAALL}
 
 \begin{description}
 \item[Name] UPPAAL
@@ -96,6 +99,7 @@ To complete: Stefan Rieger  ?
 
 
 \subsection{CPN Tools}
+\label{sec:CPN-Tools}
 
 \begin{description}
 \item[Name] CPN Tools
@@ -128,6 +132,7 @@ CPN Tools is a mainly open source and for free tool suite which provides a numbe
 
 %------------------------------- RT-Tester
 \subsection{RT-Tester}
+\label{sec:RT-Tester}
 
 \begin{description}
 \item[Name] RT-Tester
@@ -206,6 +211,69 @@ The code generator may also be adapted to other purposes.
   \item read SysML model
   \item Can run SCADE generated code
 \end{itemize}
+
+\subsection{ClassicalB Tools}
+\label{sec:ClassicalB}
+
+\begin{description}
+\item[Name] AtelierB, ProB, SMT solver
+\item[Web site] 
+\item[Licence] 
+  \begin{itemize}
+    \item Proof Generator:  closed
+    \item AtelierB checkers and translators open
+    \item ProB, SMT solvers: open
+  \end{itemize}
+\end{description}
+
+\paragraph{Abstract}
+
+A B model is a textual and formal specification covering the functional be-
+haviour of a safety critical software. It is usually written based on a high-level
+specification (informal or formal specification, for example SysML or a natural
+language). It is gradually refined, starting at the top with an abstract notation
+and ending at the bottom with sequential instructions — which are then auo-
+matically translated in a target language such as C or Ada.
+Thus, we define three objects of verification and validation: the specification,
+the B model and the generated source code.
+Validation consists of:
+\begin{itemize}
+
+\item guaranteeing the functional adequacy between the specification and the
+model (this can be achieved, for example, through review and proofread-
+ing),
+\item building a test environment around the generated source code and test it.
+
+\end{itemize}
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item AtelierB \url{http://www.atelierb.eu/en}
+\item ProB \url{http://www.formalmind.com}
+
+\end{itemize} 
+
+Slides are available on github \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/ClassicalB_VnV.pdf}.
+
+Detailled use of the tool and results on an example are available on github \url{https://github.com/openETCS/validation/blob/master/VnVUserStories/VnVUserStorySysterel/04-Results/b-ClassicalB-VnV/BmodelVnV.pdf}.
+
+\paragraph{Added value for OpenETCS project}
+
+A set of tools are available to proceed on formal design and verification and validation of critical systems.
+Some of these tools are :
+\begin{itemize}
+\item open-source
+\item mature, with large use in railway domain
+\item qualified for SIL4 design 
+\item allow to cover all the process from software design to executable code generation
+\end{itemize}
+
+
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+Such kind of approach is a mature open-source alternative to the Scade toolchain.
 
 %---------------------------------------------------------------------
 
