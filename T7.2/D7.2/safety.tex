@@ -110,7 +110,34 @@ A quantitative evaluation is available in \url{https://github.com/openETCS/toolc
   guards and invariants directly from the Event-B model. As classical B is based
   on text files and Event-B on XML file, there would be some development work to
   do.
-
+  
+ \subsection{CPN Tools}
+ 
+ \begin{description}
+ \item[Name] CPN Tools
+ \item[Website] http://cpntools.org/
+ \item[Licence] Open Source (GPL/LGPL)
+ \end{description}
+ 
+ \paragraph{Abstract} CPN Tools is a tool for editing, simulating, and analyzing Colored Petri nets.
+ 
+ The tool features incremental syntax checking and code generation, which take place while a net is being constructed. A fast simulator efficiently handles untimed and timed nets. Full and partial state spaces can be generated and analyzed, and a standard state space report contains information, such as boundedness properties and liveness properties.
+ 
+ \paragraph{Publications} Please refer to http://cpntools.org/publications
+ 
+ Slides available on github \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/b-Introduction_CPNTools.pdf}.
+ 
+ A quantitative evaluation is available in \url{https://github.com/openETCS/toolchain/blob/master/T7.2/O7.2.1_VnV/O7-2-1_VnV.pdf}
+ 
+ \paragraph{Added value for OpenETCS project}
+ 
+ Petri Nets as a means of description are used in research an in industrial applications used for Process Modeling, Data analysis, Software design and Reliability engineering. Coloured Petri Nets are  High-level Petri Nets which are mainly used to describe, simulate and validated communication between humans and/or computers. As a means of description Coloured and  Hierarchic Petri nets allow to use one uniform means of description for the entire development cycle, starting with  the specification through to  implementation. 
+ Coloured petri nets are standardised as part of the high level petri nets in ISO/IEC 15909 Systems and software engineering - High-level Petri nets. The use of petri nets for the system dependability analysis is standardised in IEC 62551 Analysis techniques for dependability - Petri net modeling. In addition Coloured petri nets and the CPN Tools are introduced and documented in the book \textit{Coloured Petri Nets -- Modeling and Validation of Concurrent Systems} by K. Jensen and L.M. Kristensen. CPN Tools is a mature tool suite for coloured petri nets which provides support to edit, check, simulate and analyse nets on all relevant abstraction levels. CPN Tools has a graphical editor to model nets and provides various methods to analyse the nets, most importantly a reachability analysis. 
+ 
+ Petri nets are a strictly formal means of description suited for formal proof of behavioural and structural properties. The nets are mainly verified by generation and analysis of the state space. The tool supports the calculation and drawing of the state space, which is used to verify certain logical and temporal properties of the system. Additional model checker can be combined with the tool to provide additional functionalities. In context of the openETCS work coloured petri nets and CPN Tools provide a variable and efficient option for test models to validate the behaviour of the openETCS model. Especially, CPN Tools models can be used to specify and test timing properties.
+ 
+ The simulation engine of CPN tools provides a powerful simulation of petri nets and has a number of debugging functions. It does not support test generation, but provides interfaces for other tools to do so. Correspondingly, tools like SPENAT can be used to generate and manage all kinds of tests for the nets created with CPN Tools. 
+ 
 \subsection{Assurance Case Argument Editor}
 
 \begin{description}
