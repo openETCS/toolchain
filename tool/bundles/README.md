@@ -7,3 +7,10 @@ To set up a development environment for the openETCS tool, perform the following
 * Set the target platform.  It's located in org.openetcs.releng.target/openETCS-Kepler.target
 * To run openETCS as configured, use org.openetcs.releng.products/openETCS.product
 
+
+To Export the OpenETCS product
+
+* Install Maven 3
+* Run Maven in the org.openetcs.releng.parent
+  >  mvn clean verify
+
