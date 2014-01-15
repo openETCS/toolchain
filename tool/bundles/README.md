@@ -12,5 +12,6 @@ To Export the OpenETCS product
 
 * Install Maven 3
 * Run Maven in the org.openetcs.releng.parent
-  >  mvn clean verify
-
+```  
+  mvn clean verify
+```
