@@ -1,0 +1,449 @@
+ \documentclass{openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{appendix}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+%\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage[section,                 % add the glossary to the table of content 
+            description,             % acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist             % no page number
+]{glossaries}
+\hypersetup{
+linkbordercolor 	={1 1 1}}
+
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+% \renewcommand*{\glossaryname}{List of Terms}
+% \makeglossaries
+% \loadglsentries{wp7_glossary} 
+%===========================
+%===========================
+% Todo note margin
+%===========================
+\setlength{\marginparwidth}{7em}
+%===========================
+
+\begin{document}
+
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/D7.3}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Tool chain''}
+
+%set a title here
+\title{Tool chain Qualification Process Description}
+
+%set a subtitle here
+%\subtitle{}
+
+%set the date of the report here
+\date{January 2014}
+
+%define a list of authors and their affiliation here
+
+\author{Cecile Braunstein \and Jan Peleska}
+
+\affiliation{University Bremen}
+
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{Qualification process description}
+
+
+\begin{abstract}
+%define an abstract here
+This document presents  different ideas of a tool chain
+qualification. It describes a process  for the openETCS tool chain
+qualification.  
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+%\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\chapter{Document Information}
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & D7.3\\
+\hline
+Document title & Tool chain Qualification Process Description \\
+Document version & 01.00 \\
+Document authors (org.)  & Cécile Braunstein and Jan Peleska (Uni.Bremen) \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Cécile Braunstein & WP7-T7.3 Sub-Task  & 12.01.2014 \\
+&  & Leader&\\
+\hline
+Approved by &  &   &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.00 & 12.01.2014 & C. Braunstein  &  Document creation  \\
+01.00 & 19.01.2014 & C. Braunstein  &  Jan Peleska suggestions \\
+
+
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+%\printglossary
+%==========================================
+\mainmatter
+%----------------------
+
+
+
+
+
+
+
+\chapter{introduction to tool chain qualification}
+\label{chap-1}
+\section{Tool Qualification}
+\label{sec-1-1}
+
+
+The CENELEC EN 50128 standard \cite{standard_railway_2011} defines the tool
+qualification as follows :\\
+{\it ``The objective is to provide evidence that potential
+failures of tools do not adversely affect the integrated tool-set output in a
+safety related manner that is undetected by technical and/or organizational
+measures outside the tool. To this end, software tools are categorized into
+three classes namely, T1, T2 \& T3 respectively.''}
+
+We recall here the different class definitions:
+\begin{itemize}
+\item Tool class T1: No generated output can be used directly or indirectly to the
+  executable code;
+\item Tool class T2: Verification tools, the tool may fail to detect errors or
+  defects;
+\item Tool class T3: Generated output directly or indirectly  as part of the
+  executable code.
+\end{itemize}
+The deliverable D2.2 \cite{pokam_report_2013} summarizes the requirements for the
+tool needed by the different tool classes. The report highlights that the
+effort differs depending on the tool class. Furthermore, for
+the most critical class T3,  the evidence should be provided that the output is
+conform to the specification or that \emph{any failure in the output
+  are detected}. 
+
+The standard defined how to classify each tool individually (see
+\cite{nielsen_efficient_2012,huang_test_2013} as an example).  But dealing with a tool
+chain, integrated within a tool platform, implies extra effort to
+ensure that the tool integration does not introduce new errors. For
+example mechanism such as artifacts versioning, time-stamping
+operations, etc ... should also be considered when qualifying the tool
+chain.
+
+In summary, the effort of qualification depends on the tool class and the tool
+error detection capabilities. To reduce the cost of the tool chain qualification
+and regarding the fact that our development imply regular releases, a systematic
+tool chain analysis approach has to be defined.
+ 
+\section{Tool  chain qualification state of the art}
+\label{sec-1-2}
+Some recent works have been done in the field of tool chain
+qualification from a variety of projects. The next section summarizes
+the most significant ones.
+
+\subsection{Slotosh and al. (project RECOMP)}
+\label{sec-1-2.1}
+
+ \cite{slotosch_model-based_2012} describes a model-based approach to tool
+ qualification to comply with DO-330 and integration into the Eclipse
+ development environment. The authors claim that the benefits of their
+ method  are the following :
+
+\begin{itemize}
+\item Clarity : remove ambiguities;
+\item Re-usability and Transparency : check for reuse in different tool chain;
+\item Completeness: the model covers all parts of the  development
+  process and tis traceable;
+\item Automation: Some part of the process may be automated.
+\end{itemize}
+Their method is explained in detail in \cite{slotosch_iso_2012}: the
+tool chain analysis is based on a domain specific tool chain model
+they have defined. This model is used to represent the tool chain
+structure as well as the tool confidence.  Their Goal is to deduce the
+tool confidence level and to expose specific qualification
+requirements, furthermore, their idea is not only to check tool by
+tool but to have a more holistic approach and makes use of
+rearrangement and/or the extension of the tool chain to avoid the
+certification of all tools. This allows them to reduce the
+qualification effort by focusing only on the critical tools and make
+use of already available information.  Moreover, some inconsistencies
+check such as, missing description, unused artifacts ..., may be
+automatically done by using the tool chain model. Finally, they
+provide support to automatize the document production.
+
+\cite{wildmoser_determining_2012} apply their tool and methods an
+industrial use case to determine the potential errors in the tool-chain.
+
+\subsection{Asplund and al. (projects iFEST, MBAT)}
+\label{sec-1-2.2}
+
+The authors investigate the question if there exists part of the environment related to tool
+integration that may fall outside the tool qualification defined by the a norm
+(ISO 26262 here \cite{asplund_qualifying_2012}). And if so, how tool integration
+is affected by ensuring functional safety. One conclusion is that the tool
+integration may lead to increase the qualification effort.
+
+They also state that the standards (EN 50128, DO-178C and ISO26262)
+are not sufficient to check safety of a tool chain, but some part of a
+tool chain may be taken into account to mitigate the qualification
+effort. 
+They highlight 9 safety issues caused by tool integration that also
+allow to be more exact when identifying software that have to be
+qualified for certification purpose. 
+
+They advocate that to deal with the qualification of tool integration
+within a tool chain a system approach should be taken, we should not
+thing about individual tools anymore.  Their proposed method is a ``System
+Approach'' for tool chain qualification following these steps ;
+\begin{enumerate}
+\item Pre-Qualification of development tool (requirements tools,design
+  tools ...): provided by the vendors.
+\item Pre-qualification at the tool-chain level: based on step 1 and
+  reference work-flows, defined where are the safety critical part.
+\item Qualification of the tool-chain: check differences of step 2 and
+  the actual deployed tool chain.
+\item Qualification at the tool level: based on the actual environment
+  when deploying the tool chain.
+\end{enumerate}
+This approach leads them to separate the parts required to software tool
+qualification and to identify safety issues related to tool integration.
+
+In \cite{asplund_towards_2012}, they explore the step 2): identifying
+the required safety goals due to tool integration and obtain a
+description of a reference work-flow and tool-chain with annotation
+about the mitigating effort.  They proposes to use the TIL language, a
+domain specific language for tool chain model.  The model of the tool
+chain is used to perform a risk analysis and to annotate parts
+that need mitigating effort for the safety issues due to tool
+integration. 
+
+\subsection{Biehl and al. (projects CESAR, iFEST, MBAT)}
+\label{sec-1-2.3}
+
+Biehl proposed a Domain Specific Language named TIL for Generating Tool Integration
+Solutions \cite{biehl_matthias_domain_2011}.  A tool chain is described in terms
+of a number of ``Tool Adapters'' and the relation between them.
+\begin{itemize}
+\item ToolAdapters : exposes data and functionality of a tool
+\item Channels
+  \begin{itemize}
+  \item ControlChannels describe service calls
+  \item DataChannel describe data exchanges
+  \item TraceChannel  describe creation of a trace links
+  \end{itemize}
+
+\item Sequencer : describe sequential control flow (sequence of services)
+\item User :  describe and limit the possible interaction
+\item Repository:  provide storage and version Management of tool data
+\end{itemize}
+This DSL allows early analysis of the tool chain.
+It may generate part of tool adapter code based on the source and target
+meta-model.
+
+More recently, Biehl and al.  define a standard language for modeling
+development process defines by OMG 2008. The language has been used in
+\cite{biehl_constructing_2012,biehl_early_2012} together with the TIL
+language to tailor a tool chain following a process model. The goal is
+to be able to model both the development process and the set of tools
+used.  A process is defined as follows:
+\begin{itemize}
+\item Process : several Activities
+\item Activity : set of linked Tasks, WorkProducts, Roles
+\item A Role can perform a Task
+\item A WorkProduct can be anaged by a Tool
+\item A Task can use a Tool
+\end{itemize}
+Using together the process development language  and the tool chain
+language, in \cite{biehl_early_2012}, the authors  measure the alignment of a tool chain
+with a product development process. The method proceeds as follows:
+\begin{enumerate}
+\item Inputs :
+  \begin{itemize}
+  \item formalized description of the tool chain design
+  \item description of the process including the set of tools and their capabilities
+  \end{itemize}
+\item Initial verification graph
+\item Automatic mapping links to the verification graph (acc. to mapping rules)
+\item Apply alignment rule on the verification graph
+\item Apply metrics to determine the degree of alignment btw the tool-chain and the
+   process
+\end{enumerate}
+The metrics and the misalignment list provide feedback to refine the tool-chain
+design.
+
+
+
+\chapter{OpenETCS tool chain qualification process}
+\label{chap-2}
+
+\section{Tool chain Analysis}
+\label{sec-2-1}
+
+All the methods mentioned above start with a complete definition of the tool
+chain. In OpenETCS, the development of the tool chain follow an AGILE method,
+hence for each (major) release we have to deal with an incomplete tool
+chain. In addition to the methods of the previous section,  we need a qualification
+process that can adapt to the development speed, deal with incomplete tool chain
+and can re-use qualification information.
+
+Moreover, as stated by Asplund and al., the tool chain provides some mechanism
+that has to be also ensured, reducing thereby the effort for each tool. These
+safety goals are related to the tool integration. In our context, most of  the tool
+integration is made by integrated tools into a tool platform.
+From the previous cited paper, the tool platform should ensure the following
+safety-goals
+\begin{itemize}
+\item Coherent Time Stamp Information: common time stamps on development artifacts.
+\item Notification: the user should be notified when artifacts changed.
+\item Data integrity:  avoid use of obsolete artifacts, the data used reflects the
+  current state.
+\item Data Mining : all data used by safety analysis should be available and be
+  verifiable.
+\end{itemize}
+
+\section{OpenETCS tool chain qualification process}
+\label{sec-2-2}
+
+The OpenETCS tool chain is described as a SysML activity diagram. This
+activity diagram grows according to the new feature request and the
+need of openETCS participants.  Each feature of the tool chain is
+represented as an activity node, each artifacts by a data store.  Each
+feature realizes at least one use case and is implemented by at least
+one tool. Note that in the tool platform environment tool may also be
+implemented as plug-ins.  The diagram also represents the order
+between the different features, it also shows which tasks maybe done
+in parallel and which ones are dependent of other tasks.
+
+To mitigate the qualification process, we will consider each feature and not
+each tool since the combination of tool may, for example ensure the error
+detection capability of a feature.  Furthermore, the tool chain is a collection
+of feature and not tools, this differs from Asplund and al. in the sense that
+some of the tool integration mechanism Automated Transformation of Data are part
+of the feature and are not falling out of the scope of the qualification.
+
+
+Due to our development process, a ``pre-qualification'' of tools should be made
+when integrating a tool.
+
+\paragraph{Tool integration process for qualification}
+
+\begin{itemize}
+\item Define name and version
+\item Describe use cases
+\item Provide input/output artifacts format (associated with the
+  version)
+\item Integrate the tool in the SysML model
+\item Provide tool manual and other available documentation (associated with the version)
+\item Link with an issue tracker
+\end{itemize}
+
+One possible implementation is to represent all these in formations
+directly in the SysML model.
+
+\paragraph{The qualification process}
+
+
+\begin{enumerate}
+\item Feature Analysis
+  \begin{itemize}
+  \item This step should assign a class to each feature based on the use cases.
+  \item Define the potential errors
+  \item Identify counter measure and/or error detection
+  \item For T3 tools 2 alternatives:  certified compiler/generator or
+    object code checker and/or exhaustive tester
+  \end{itemize}
+\item Tool platform  analysis 
+  \begin{itemize}
+  \item Provide evidence of the safety-goals mentioned in the
+    previous sub-section
+  \end{itemize}
+\item Tool chain Analysis
+  \begin{itemize}
+  \item Defines the work-flow
+  \item Identify the ``hot spots'' of the tool chain
+  \item Rearrange the tool chain if possible
+  \item Find new measures when needed with combining tools (redundancy with orthogonal
+    codes \ldots{})
+  \end{itemize}
+\item Tool chain qualification verification 
+  \begin{itemize}
+  \item check consistency of tool version with  manuals \ldots{}
+  \item Generate table to  check if all possible errors has a
+    detection or a correction mechanism
+\item Generate the qualification report
+  \end{itemize}
+
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{D7.4}
+\end{document}
