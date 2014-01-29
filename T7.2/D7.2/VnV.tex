@@ -18,7 +18,7 @@ The list of initial candidates is:
 \item [RT-Tester] see \ref{sec:RT-Tester}
 \item [Tools around Classical B (ProB, SMT solver,...)] see \ref{sec:ClassicalB}
 \item [Rodin and Pluggins] see \ref{sec:eventb_safe}
-\item [Frama-C], slides \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/c-frama-c-secondary-tools-presentation.pdf}.
+\item [Frama-C] see \ref{sec:frama-c}
 \item [Matelo]
 \item [Scade Suite]
 \item [Fiacre and Tina]
@@ -276,6 +276,79 @@ Some of these tools are :
 Such kind of approach is a mature open-source alternative to the Scade toolchain.
 
 %---------------------------------------------------------------------
+\subsection{Frama-C}\label{sec:frama-c}
+\begin{description}
+\item[Name] Frama-C
+\item[Web site] \url{http://frama-c.com/}
+\item[Licence] LGPL 2.1
+  \begin{itemize}
+    \item Some plug-ins outside of the main distribution are closed-source.
+  \end{itemize}
+\end{description}
+
+\paragraph{Abstract}
+Frama-C is a framework dedicated to the analysis of C programs. It comes
+with a formal specification language, ACSL, that allows to describe the
+contracts that each function is supposed to fulfill It features a
+number of plug-ins that perform various verification tasks. In particular,
+Value analysis is an abstract interpretation-based plugin that can verify the
+absence of run-time error for any execution of the program, and WP is an 
+Hoare-logic based plug-in that can modularly check that an implementation
+is conforming to its ACSL specification with the help of automated theorem
+provers. Frama-C is also meant to be extensible, and it is easy to tailor
+the generic plugins toward specific VnV tasks.
+
+\paragraph{Publications}
+
+\begin{itemize}
+\item Pascal Cuoq, Florent Kirchner, Nikolai Kosmatov, Virgile Prevosto,
+  Julien Signoles and Boris Yakobowski. Frama-C: a Software Analysis
+  Perspective. Proceedings of SEFM 2012.
+\item Loïc Correnson and Julien Signoles. Combining Analysises for
+  C Program Verification. Proceedings of FMICS 2012
+\item Jochen Burghardt, Jens Gerlach, Kerstin Hartig, Hans Pohl and Juan Soto.
+  ACSL by Example, a fairly complete tour of ACSL features through
+  various functions inspired from C++ STL.
+\item Patrick Baudin, Loïc Correnson and Zaynah Dargaye, WP plugin manual.
+\url{http://frama-c.com/download/wp-manual-Fluorine-20130601.pdf}
+\item Pascal Cuoq, Boris Yakobowski and Virgile Prevosto.
+  Frama-C's value analysis plugin manual. 
+  \url{http://frama-c.com/download/frama-c-value-analysis.pdf}
+\end{itemize}
+
+Slides of Frama-C presentation are available on github
+\url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/c-frama-c-secondary-tools-presentation.pdf}.
+
+Specification and verification activities over the \texttt{bitwalker} code from
+Siemens have been conducted by Fraunhofer FOKUS with support from CEA LIST.
+The development is available on github: \url{https://github.com/openETCS/validation/tree/master/VnVUserStories/VnVUserStoryFraunhoferFOKUS}
+
+\paragraph{Added value for OpenETCS project}
+
+Frama-C can be used mainly for C code verification (either for manually written
+code or code generated from a non-qualified tool). Abstract interpretation
+and deductive verification plug-ins allow checking for absence of run-time
+error (arithmetic overflows, division by zero, invalid pointer
+dereference,...), as well as verifying functional properties expressed as
+ACSL contracts.
+
+Although Frama-C has not been formally qualified, there has been some reflection
+on how a qualification process in the context of DO-178 verification activities
+would be conducted.
+
+A quantitative evaluation is available in \url{https://github.com/openETCS/toolchain/blob/master/T7.2/O7.2.1_VnV/O7-2-1_VnV.pdf}
+
+\paragraph{Integration in OpenETCS process and toolchain}
+
+An Eclipse plug-in is available 
+(FCDT: \url{http://gforge.enseeiht.fr/projects/fcdt/}) for launching some
+analyses from the Eclipse framework.
+
+An interesting subject for the integration of Frama-C in the OpenETCS process
+concerns the translation from SysML, Scade and/or B models into ACSL
+specifications against which code could be verified. Such translation from
+high-level models would also encompass traceability information, in order to
+relate Frama-C proofs (or alarms) to the appropriate high-level property.
 
 \section{Selected means and tools}
 
