@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_bBRigFILEeO2iOU1Kjl0YQ" name="OpenETCSProfile" metaclassReference="_P27fEFINEeO2iOU1Kjl0YQ _zKQCwFINEeO2iOU1Kjl0YQ _gFSiMGGyEeOVD5CpKP8W1g" metamodelReference="_bBRigVILEeO2iOU1Kjl0YQ">
   <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GDMwoFIMEeO2iOU1Kjl0YQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_IZT-sIp7EeOlofD2lkVdKQ" name="OpenETCSProfile" nsURI="http:///schemas/OpenETCSProfile/_IZF8QIp7EeOlofD2lkVdKQ/12" nsPrefix="OpenETCSProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZY3MIp7EeOlofD2lkVdKQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IZY3MYp7EeOlofD2lkVdKQ" key="Version" value="0.0.13"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IZY3Mop7EeOlofD2lkVdKQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IZY3M4p7EeOlofD2lkVdKQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IZY3NIp7EeOlofD2lkVdKQ" key="Date" value="2014-01-31"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IZY3NYp7EeOlofD2lkVdKQ" key="Author" value="Cecile"/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_IZT-sYp7EeOlofD2lkVdKQ" name="OpenETCSFeature">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZT-sop7EeOlofD2lkVdKQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_o46nwFILEeO2iOU1Kjl0YQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-s4p7EeOlofD2lkVdKQ" name="Implemented" ordered="false" lowerBound="1" defaultValueLiteral="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-tYp7EeOlofD2lkVdKQ" name="Issue" ordered="false" lowerBound="1" defaultValueLiteral="0">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IZT-t4p7EeOlofD2lkVdKQ" name="base_Action" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Action"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-uYp7EeOlofD2lkVdKQ" name="Priority" ordered="false" lowerBound="1" eType="_IZT-v4p7EeOlofD2lkVdKQ" defaultValueLiteral="Normal"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-u4p7EeOlofD2lkVdKQ" name="SpecificationURL" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-vYp7EeOlofD2lkVdKQ" name="Tool" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_IZT-v4p7EeOlofD2lkVdKQ" name="Priority_Type">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZT-wIp7EeOlofD2lkVdKQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_hniugFjzEeOu38sUqSEbjQ"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_IZT-wYp7EeOlofD2lkVdKQ" name="High"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_IZT-wop7EeOlofD2lkVdKQ" name="Normal" value="1"/>
+        <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_IZT-w4p7EeOlofD2lkVdKQ" name="Low" value="2"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_IZT-xIp7EeOlofD2lkVdKQ" name="OpenETCSArtifacts">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZT-xYp7EeOlofD2lkVdKQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_-xVskFILEeO2iOU1Kjl0YQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-xop7EeOlofD2lkVdKQ" name="Implemented" ordered="false" lowerBound="1" defaultValueLiteral="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IZT-yIp7EeOlofD2lkVdKQ" name="base_Artifact" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IZT-yop7EeOlofD2lkVdKQ" name="base_DataStoreNode" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//DataStoreNode"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-zIp7EeOlofD2lkVdKQ" name="Format" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-zop7EeOlofD2lkVdKQ" name="isEcoreDataModel" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Boolean"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IZT-0Ip7EeOlofD2lkVdKQ" name="Issue" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IZT-0op7EeOlofD2lkVdKQ" name="base_ActivityParameterNode" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//ActivityParameterNode"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_zPR2IGJHEeOtRLinGyaEAA" name="OpenETCSProfile" nsURI="http:///schemas/OpenETCSProfile/_zPNksGJHEeOtRLinGyaEAA/11" nsPrefix="OpenETCSProfile">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zPbnIWJHEeOtRLinGyaEAA" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zPbnImJHEeOtRLinGyaEAA" key="Version" value="0.0.12"/>
@@ -545,7 +603,7 @@
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_rk6ygGJHEeOtRLinGyaEAA" name="ToolName" visibility="public">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rk6ygGJHEeOtRLinGyaEAA" name="Tool" visibility="public">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r-MOIGJHEeOtRLinGyaEAA" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r-NcQGJHEeOtRLinGyaEAA" value="1"/>
