@@ -1,0 +1,260 @@
+ \documentclass{openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{appendix}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+%\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage[section,                 % add the glossary to the table of content 
+            description,             % acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist             % no page number
+]{glossaries}
+\hypersetup{
+linkbordercolor 	={1 1 1}}
+
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+% \renewcommand*{\glossaryname}{List of Terms}
+% \makeglossaries
+% \loadglsentries{wp7_glossary} 
+%===========================
+%===========================
+% Todo note margin
+%===========================
+\setlength{\marginparwidth}{7em}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+{\raggedright\footnotesize #1}}
+%===========================
+
+\begin{document}
+
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/07.3.2}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Toolchain''}
+
+%set a title here
+\title{Toolchain Qualification Process Description}
+
+%set a subtitle here
+%\subtitle{}
+
+%set the date of the report here
+\date{February 2014}
+
+%define a list of authors and their affiliation here
+
+\author{Cecile Braunstein \and Stefan Rieger}
+
+\affiliation{University Bremen \and TWT}
+
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{OpenETCS Roadmap}
+
+
+\begin{abstract}
+%define an abstract here
+This document presents the OpenETCS tool chain Roadmap.
+\end{abstract}
+
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+%\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\chapter{Document Information}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & O7.3.2\\
+\hline
+Document title & Toolchain Roadmap \\
+Document version & 01.00 \\
+Document authors (org.)  & Cécile Braunstein and Jan Peleska (Uni.Bremen) \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  Cécile Braunstein & WP7-T7.3 Sub-Task  & 06.02.2014 \\
+&  & Leader&\\
+\hline
+Approved by &  &   &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.00 & 06.02.2014 & C. Braunstein  &  Document creation  \\
+
+
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+%\printglossary
+%==========================================
+\mainmatter
+%----------------------
+
+
+
+
+
+
+
+\chapter{OpenETCS Objectives}
+\label{chap-1}
+\section{Goals}
+\label{sec-1-1}
+One of the goals of the openETCS project is to {\em "Provide a tool chain and process/methodologies for developing an on-board software that can fulfill the CENELEC requirements for SIL4 software"}
+
+The openETCS tool chain is the implementation of the design process of the on board unit (OBU)
+according to the CENELEC EN 50128. 
+The tool chain is the activities support for producing certifiable
+software such as:
+\begin{itemize}
+\item  Software planning
+\item  Requirements tracing
+\item  Tool confidences
+\item  Documentation/report production
+\item  Testing
+\item Verification and validation
+\end{itemize}
+The tool chain also takes care of providing the following functioning infrastructure to allow
+robust distributed development within the defined life cycle.
+\begin{itemize}
+\item  a continuous automated build system,
+\item  mechanisms to upgrade tools in the platform,
+\item  mechanisms to add tools to the chain at a later stage (without breaking compatibility),
+\item  modification and change control manager,
+\item  tool chain documentation system.
+\end{itemize}
+
+\section{About this document}
+\label{sec-1-2}
+
+This Roadmap is written from the requirements of the WP2, the tools
+decision of WP7, and the needs of WP3 for the modeling part and WP4 for
+the safety, validation and verification part.
+
+\chapter{OpenETCS Feature Roadmap}
+\label{chap-2}
+
+%-----------------------------------
+\section{Requirements and Traceability Activities}
+\begin{itemize}
+\item Integrate requirement engineering tool {\bf DONE}
+\item Import requirements from the Subset-026 {\bf PARTIAL}
+\item Integrate requirement traceability tool
+\end{itemize}
+
+%-----------------------------------
+\section{Modeling Activities}
+\label{sec-2-Model}
+
+\subsection{Handling data}
+\begin{itemize}
+\item Import Data direct from subset-026 {\bf PARTIAL}
+\item Mechanism to avoid variable, function artifacts name redundancy
+\end{itemize}
+
+\subsection{Papyrus}
+\begin{itemize}
+\item Integrate Papyrus {\bf DONE}
+\item Restrict Papyrus use to openETCS requirements from D2.4
+\item Link Papyrus artifacts with imported data
+\end{itemize}
+
+%-----------------------------------
+\section{Safety Activities}
+\begin{itemize}
+\item Safety Rules import
+\item Safety checkers
+\end{itemize}
+
+%-----------------------------------
+\section{Verification and Validation}
+\begin{itemize}
+\item Model tester
+\item Model checker
+\item Model transformer
+\item Model simulator
+\item Code Simulator
+\item Code tester
+\end{itemize}
+
+%-----------------------------------
+\section{Infrastructure Activities}
+\label{sec-2-infrastructure}
+\begin{itemize}
+\item Build System {\bf DONE}
+\item Versioning system  for the tool chain {\bf DONE}
+\item Versioning system for the artifacts
+\end{itemize}
+
+
+
+
+
+\end{document}
