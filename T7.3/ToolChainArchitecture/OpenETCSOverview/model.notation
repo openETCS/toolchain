@@ -2180,7 +2180,7 @@
           </children>
           <styles xmi:type="notation:BooleanValueStyle" xmi:id="_Hyh7AI16EeOMqbI_LkMcYA" name="shape_visibility"/>
           <element xmi:type="uml:Class" href="model.uml#_ag4jcI1tEeO4yNdlNb1RPA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ag8N0Y1tEeO4yNdlNb1RPA" x="7" y="221" width="145" height="150"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ag8N0Y1tEeO4yNdlNb1RPA" x="7" y="221" width="157" height="185"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_dRMH4I1tEeO4yNdlNb1RPA" type="shape_sysml_block_as_classifier" fontName="Sans" fillColor="9498256" lineColor="0">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dROkIo1tEeO4yNdlNb1RPA" source="displayNameLabelIcon">
@@ -3075,7 +3075,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1QIR0Y2wEeOMqbI_LkMcYA" x="864" y="972" width="192" height="84"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_pUp3AYzvEeO4yNdlNb1RPA"/>
-    <element xmi:type="uml:Model" href="model.uml#_bqN8YFIMEeO2iOU1Kjl0YQ"/>
+    <element xmi:type="uml:Package" href="model.uml#_i5XDwJJvEeOW2_vqY9_o8g"/>
     <edges xmi:type="notation:Connector" xmi:id="_hAdHkI1wEeOMqbI_LkMcYA" type="link_sysml_association" source="_t61igIzwEeO4yNdlNb1RPA" target="_GoeA0I1oEeO4yNdlNb1RPA" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_j_mZQI1wEeOMqbI_LkMcYA" source="Stereotype_Annotation">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qNEBEI1wEeOMqbI_LkMcYA" key="StereotypeWithQualifiedNameList" value=""/>
