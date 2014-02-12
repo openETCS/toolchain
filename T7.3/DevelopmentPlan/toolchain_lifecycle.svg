@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="815.59833"
+   height="965.10126"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="toolchain_lifecycle.pdf">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path5051"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path5063"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5051-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-6-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5051-5-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-6-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5051-5-4"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.97606338"
+     inkscape:cx="407.79916"
+     inkscape:cy="523.53157"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1144"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1.5371129,-8.8010846)">
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="75.966698"
+       y="86.021111"
+       id="text3765"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3767"
+         x="75.966698"
+         y="86.021111" /></text>
+    <g
+       id="g4546"
+       transform="translate(55.239218,-1.2203901)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755"
+         y="110.59858"
+         x="119.95183"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           y="110.59858"
+           x="119.95183"
+           id="tspan3757"
+           sodipodi:role="line">WP2 Requirements</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3759"
+         y="136.2932"
+         x="160.13588"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           y="136.2932"
+           x="160.13588"
+           id="tspan3761"
+           sodipodi:role="line">D2.6-9</tspan></text>
+      <g
+         transform="matrix(1.3154679,0,0,0.97023039,-2.7079096,-17.04236)"
+         id="g3797">
+        <g
+           id="g3773">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3769"
+         y="69.263748"
+         x="78.165657"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="69.263748"
+           x="78.165657"
+           id="tspan3771"
+           sodipodi:role="line">OpenETCS System requirements</tspan></text>
+    </g>
+    <g
+       id="g4558"
+       transform="translate(-49.023377,202.99453)">
+      <g
+         id="g3797-1"
+         transform="matrix(1.2972678,0,0,1,309.87803,-23.460307)">
+        <g
+           id="g3773-5">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-4"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763-0"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3829"
+         y="68.146568"
+         x="380.83218"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="68.146568"
+           x="380.83218"
+           id="tspan3831"
+           sodipodi:role="line">OpenETCs Software Requirements </tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3852"
+         y="131.82455"
+         x="443.83591"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           id="tspan3860"
+           y="131.82455"
+           x="443.83591"
+           sodipodi:role="line">D2.3 D2.4 D2.5</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755-5"
+         y="106.63546"
+         x="429.99591"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           y="106.63546"
+           x="429.99591"
+           id="tspan3757-7"
+           sodipodi:role="line">WP2 Requirements</tspan></text>
+    </g>
+    <g
+       id="g5008"
+       transform="translate(-0.78994951,-7.1095456)">
+      <g
+         id="g3797-2"
+         transform="matrix(1.4609366,0,0,0.97071464,-26.328077,189.565)">
+        <g
+           id="g3773-9">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-2"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763-7"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3980"
+         y="274.375"
+         x="56.066788"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="274.375"
+           x="56.066788"
+           id="tspan3982"
+           sodipodi:role="line">OpenETCS Tool chain Design Selection</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3984"
+         y="317.94415"
+         x="163.00458"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="317.94415"
+           x="163.00458"
+           id="tspan3986"
+           sodipodi:role="line">D7.1</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="154.16771"
+       y="311.68689"
+       id="text4193"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="154.16771"
+         y="311.68689"
+         id="tspan4197" /></text>
+    <g
+       id="g4776"
+       transform="translate(48.033785,171.49349)">
+      <g
+         id="g3797-2-8"
+         transform="matrix(1.3215346,0,0,1.0198464,214.88323,136.1108)">
+        <g
+           id="g3773-9-7">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-2-2"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763-7-6"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4015"
+         y="227.90013"
+         x="292.93045"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="227.90013"
+           x="292.93045"
+           id="tspan4017"
+           sodipodi:role="line">OpenETCS Components Selection</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4019"
+         y="307.2182"
+         x="366.74194"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="307.2182"
+           x="366.74194"
+           id="tspan4021"
+           sodipodi:role="line">D7.1, D7.2</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4219"
+         y="255.82903"
+         x="322.12515"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="255.82903"
+           x="322.12515"
+           id="tspan4221"
+           sodipodi:role="line">- Design &amp; Model Tools, </tspan><tspan
+           id="tspan4223"
+           y="273.32904"
+           x="322.12515"
+           sodipodi:role="line">- Tool platform selection</tspan><tspan
+           id="tspan4227"
+           y="290.82904"
+           x="322.12515"
+           sodipodi:role="line">- Secondary Tools</tspan></text>
+    </g>
+    <g
+       id="g4303"
+       transform="translate(-62.210346,22.165093)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4243"
+         y="584.71405"
+         x="454.46359"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="584.71405"
+           x="454.46359"
+           id="tspan4245"
+           sodipodi:role="line">Features request or Bug report</tspan><tspan
+           id="tspan4291"
+           y="602.21405"
+           x="454.46359"
+           sodipodi:role="line">from WP3/WP4 and users</tspan></text>
+      <rect
+         ry="7.5"
+         rx="7.5"
+         y="561.93011"
+         x="427.87125"
+         height="55.857864"
+         width="251.3604"
+         id="rect4259"
+         style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4309"
+       transform="translate(-331.20142,-58.163597)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4255"
+         y="966.34106"
+         x="484.84628"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="966.34106"
+           x="484.84628"
+           id="tspan4257"
+           sodipodi:role="line">New release</tspan></text>
+      <rect
+         ry="7.5"
+         rx="7.5"
+         y="941.76361"
+         x="463.62027"
+         height="39.100506"
+         width="118.41868"
+         id="rect4267"
+         style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4870"
+       transform="translate(-141.45311,75.058822)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4251"
+         y="710.33746"
+         x="274.00653"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="710.33746"
+           x="274.00653"
+           id="tspan4253"
+           sodipodi:role="line">Milestone release</tspan><tspan
+           id="tspan4868"
+           y="727.83746"
+           x="274.00653"
+           sodipodi:role="line">Release candidate</tspan></text>
+      <rect
+         ry="10.729204"
+         rx="7.5"
+         y="688.16888"
+         x="245.77458"
+         height="51.141159"
+         width="172.04222"
+         id="rect4269"
+         style="fill:none;stroke:#000000;stroke-width:1.03407431;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4298"
+       transform="translate(-53.197716,-59.836518)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4231"
+         y="676.08612"
+         x="188.86078"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="676.08612"
+           x="188.86078"
+           id="tspan4233"
+           sodipodi:role="line">Backlog task lists</tspan></text>
+      <rect
+         ry="6.8682642"
+         rx="0"
+         y="647.92828"
+         x="166.43347"
+         height="48.083702"
+         width="154.21365"
+         id="rect4271"
+         style="fill:none;stroke:#000000;stroke-width:0.81862718;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4293"
+       transform="translate(-350.36155,-156.21598)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4247"
+         y="857.64514"
+         x="474.29294"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="857.64514"
+           x="474.29294"
+           id="tspan4249"
+           sodipodi:role="line">Select task for Sprint</tspan></text>
+      <rect
+         inkscape:transform-center-y="-43.913848"
+         inkscape:transform-center-x="-27.543783"
+         ry="6.5514255"
+         rx="0"
+         y="830.57538"
+         x="463.03064"
+         height="45.865562"
+         width="155.34698"
+         id="rect4271-8"
+         style="fill:none;stroke:#000000;stroke-width:0.80245477;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="46.920609"
+       y="712.74634"
+       id="text4366"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4368"
+         x="46.920609"
+         y="712.74634" /></text>
+    <g
+       id="g4800"
+       transform="translate(-105.97514,10.507529)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4319"
+         y="423.40262"
+         x="218.50525"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="423.40262"
+           x="218.50525"
+           id="tspan4321"
+           sodipodi:role="line">- Development Plan</tspan><tspan
+           id="tspan4370"
+           y="440.90262"
+           x="218.50525"
+           sodipodi:role="line">- Roadmap Defintion</tspan><tspan
+           id="tspan4372"
+           y="458.40262"
+           x="218.50525"
+           sodipodi:role="line">- Overview diagram</tspan></text>
+      <g
+         id="g3797-2-8-2"
+         transform="matrix(1.3640014,0,0,0.96030718,93.328615,301.99725)">
+        <g
+           id="g3773-9-7-4">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-2-2-0"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763-7-6-6"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4374"
+         y="389.88797"
+         x="176.5687"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="389.88797"
+           x="176.5687"
+           id="tspan4376"
+           sodipodi:role="line">OpenETCS Development planning</tspan></text>
+    </g>
+    <g
+       id="g4790"
+       transform="translate(64.046046,103.81623)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4235"
+         y="313.92123"
+         x="554.96362"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           id="tspan4239"
+           y="313.92123"
+           x="554.96362"
+           sodipodi:role="line">Definition of the test lab</tspan></text>
+      <g
+         id="g3797-2-8-2-3"
+         transform="matrix(1.2669344,0,0,0.9900768,456.55047,174.9263)">
+        <g
+           id="g3773-9-7-4-9">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-2-2-0-8"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 48.037764,101.66131 182.096646,0"
+           id="path3763-7-6-6-0"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4474"
+         y="267.00058"
+         x="535.09552"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="267.00058"
+           x="535.09552"
+           id="tspan4476"
+           sodipodi:role="line">OpenETCs Tool chain  Test Plan</tspan></text>
+    </g>
+    <g
+       id="g4903"
+       transform="translate(38.948552,67.935658)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4231-9"
+         y="662.41681"
+         x="398.89932"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="662.41681"
+           x="398.89932"
+           id="tspan4233-1"
+           sodipodi:role="line">Basic Tests and </tspan><tspan
+           id="tspan4901"
+           y="679.91681"
+           x="398.89932"
+           sodipodi:role="line">Toolchain use</tspan></text>
+      <rect
+         ry="6.8682642"
+         rx="0"
+         y="641.78394"
+         x="369.75607"
+         height="48.083702"
+         width="154.21365"
+         id="rect4271-3"
+         style="fill:none;stroke:#000000;stroke-width:0.81862718;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4909"
+       transform="translate(-27.019878,67.935661)">
+      <rect
+         ry="6.8682642"
+         rx="0"
+         y="736.74231"
+         x="441.25415"
+         height="48.083702"
+         width="154.21365"
+         id="rect4271-3-2"
+         style="fill:none;stroke:#000000;stroke-width:0.81862718;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4897"
+         y="765.55115"
+         x="501.98785"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="765.55115"
+           x="501.98785"
+           id="tspan4899"
+           sodipodi:role="line">Tests</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:1.67100978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.67100973, 3.34201945;stroke-dashoffset:0"
+       d="m 0.32720779,209.22599 811.53368221,0 -2.8265,1.05002"
+       id="path4914"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:1.66818404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.66818399, 3.33636797;stroke-dashoffset:0;marker-end:none"
+       d="m -0.73710919,530.4705 808.79132919,0 -2.81695,1.05002"
+       id="path4914-0"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="20.558006"
+       y="12.85075"
+       id="text4934"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4936"
+         x="8.752655"
+         y="24.656101"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:#0000ff;stroke-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">SYSTEM PHASE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="20.446115"
+       y="262.13611"
+       id="text4934-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4959"
+         style="fill:none;stroke:#0000ff;stroke-opacity:1"
+         x="258.03799"
+         y="24.54421">SOFTWARE PHASE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:#0000ff;stroke-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="20.558006"
+       y="622.12207"
+       id="text4934-0-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4982"
+         x="618.02393"
+         y="24.656101">DEVELOPMENT PHASE</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.62292379px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 242.49907,151.6312 -72.05851,96.75092"
+       id="path4990"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 180.10848,355.62672 0.78995,21.32864"
+       id="path4996"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.82061851px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 440.00188,358.78652 0,15.95891"
+       id="path4998"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.16211867px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 322.22001,155.31754 84.86233,91.50627"
+       id="path5018"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:1.67146146;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.67146142, 3.34292284;stroke-dashoffset:0;marker-end:none"
+       d="m -0.73711289,972.05222 811.97247289,0 -2.82803,1.0501"
+       id="path4914-0-9"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m 185.63813,636.05879 c 0,37.91758 0,38.70753 0,38.70753"
+       id="path5902"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m 186.42808,722.18326 c 0,37.91758 0,38.70753 0,38.70753"
+       id="path5902-8"
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-x="2.25"
+       inkscape:transform-center-y="13.429142" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
+       d="m 186.42808,814.60736 c 0,37.91758 0,70.30551 0,70.30551"
+       id="path5902-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 185.63813,485.17844 c 0,103.48338 0,103.48338 0,103.48338"
+       id="path6127"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 444.74157,488.33823 C 267.00293,591.03167 267.00293,591.03167 267.00293,591.03167"
+       id="path6129"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
+       d="m 364.95667,614.73016 c -97.16379,0 -97.16379,0 -97.16379,0"
+       id="path6131"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
+       d="m 278.06223,797.99844 c 134.38001,-36.00702 148.5105,-40.28742 148.5105,-40.28742"
+       id="path6133"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
+       d="m 247.25419,905.43158 c 188.79006,-50.58615 195.89961,-52.956 195.89961,-52.956"
+       id="path6135"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
+       d="m 485.029,807.47784 c 0,-45.81707 -0.78995,-48.18692 -0.78995,-48.18692"
+       id="path6137"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
+       d="m 485.81895,713.47384 c 0,-74.25525 0,-74.25525 0,-74.25525"
+       id="path6139"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+       x="537.03674"
+       y="120.72948"
+       id="text3759-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3761-5"
+         x="537.03674"
+         y="120.72948"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">D1.3.1</tspan></text>
+    <g
+       id="g3797-17"
+       transform="matrix(1.3154679,0,0,0.97023039,379.31558,-18.26275)">
+      <g
+         id="g3773-53">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect2985-5"
+           width="182.09663"
+           height="111.71573"
+           x="49.154922"
+           y="65.912285"
+           rx="7.5"
+           ry="7.5" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-4"
+         d="m 48.037764,101.66131 182.096646,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="460.18915"
+       y="68.043358"
+       id="text3769-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3771-7"
+         x="460.18915"
+         y="68.043358">OpenETCS Quality Assurance Plan</tspan></text>
+  </g>
+</svg>
