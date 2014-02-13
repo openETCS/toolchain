@@ -1,39 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.openetcs</groupId>
-    <artifactId>org.openetcs.releng.parent</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../org.openetcs.releng.parent/</relativePath>
-  </parent>
-  <groupId>org.openetcs</groupId>
-  <artifactId>org.openetcs.releng.products</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
-  <packaging>eclipse-repository</packaging>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-p2-director-plugin</artifactId>
-        <version>${tycho-version}</version>
-        <executions>
-          <execution>
-            <id>materialize-products</id>
-            <goals>
-              <goal>materialize-products</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>archive-products</id>
-            <goals>
-              <goal>archive-products</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.openetcs</groupId>
+		<artifactId>org.openetcs.releng.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../org.openetcs.releng.parent/</relativePath>
+	</parent>
+	<groupId>org.openetcs</groupId>
+	<artifactId>org.openetcs.releng.products</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+
+	<properties>
+		<filename>openETCS-</filename>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>maven-replacer-plugin</artifactId>
+				<version>${replacer-version}</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<filesToInclude>target/products/org.openetcs.releng.product/*/*/x86_64/openETCS.ini</filesToInclude>
+					<replacements>
+						<replacement>
+							<tokenFile>token.txt</tokenFile>
+							<valueFile>value.txt</valueFile>
+						</replacement>
+					</replacements>
+					<regexFlags>
+						<regexFlag>CASE_INSENSITIVE</regexFlag>
+						<regexFlag>UNIX_LINES</regexFlag>
+					</regexFlags>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${assembly-version}</version>
+				<executions>
+
+					<execution>
+						<id>1</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/win32_32.xml</descriptor>
+							<finalName>${filename}win32_32</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>2</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/win32_64.xml</descriptor>
+							<finalName>${filename}win32_64</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>3</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/linux_32.xml</descriptor>
+							<finalName>${filename}linux_32</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>4</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/linux_64.xml</descriptor>
+							<finalName>${filename}linux_64</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>5</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/macosx_32.xml</descriptor>
+							<finalName>${filename}macosx_32</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>6</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptor>assemblies/macosx_64.xml</descriptor>
+							<finalName>${filename}macosx_64</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</execution>
+
+
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
