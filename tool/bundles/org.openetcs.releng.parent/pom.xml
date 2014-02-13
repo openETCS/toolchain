@@ -10,6 +10,8 @@
   <properties>
     <openetcs-version>0.1.0-SNAPSHOT</openetcs-version>
     <tycho-version>0.19.0</tycho-version>
+	<replacer-version>1.4.1</replacer-version>
+	<assembly-version>2.4</assembly-version>
   </properties>
   
   <modules>
