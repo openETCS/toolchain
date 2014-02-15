@@ -51,7 +51,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "org.openetcs.pror.tracing";
+	String eNAME = "tracing";
 
 	/**
 	 * The package namespace URI.
@@ -59,7 +59,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/rmf/pror/presentation/org.openetcs.pror.tracing";
+	String eNS_URI = "http://eclipse.org/rmf/pror/presentation/tracing";
 
 	/**
 	 * The package namespace name.
@@ -67,7 +67,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.openetcs.pror.tracing";
+	String eNS_PREFIX = "tracing";
 
 	/**
 	 * The singleton instance of the package.
