@@ -13,29 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.impl;
+package org.openetcs.pror.tracing.impl;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.SpecObjectType;
 import org.eclipse.rmf.reqif10.SpecRelationType;
-
 import org.eclipse.rmf.reqif10.pror.configuration.impl.ProrPresentationConfigurationImpl;
-
-import tracing.TracingConfiguration;
-import tracing.TracingPackage;
+import org.openetcs.pror.tracing.TracingConfiguration;
+import org.openetcs.pror.tracing.TracingPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,11 +37,11 @@ import tracing.TracingPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link tracing.impl.TracingConfigurationImpl#getProxyType <em>Proxy Type</em>}</li>
- *   <li>{@link tracing.impl.TracingConfigurationImpl#getProxyAttribute <em>Proxy Attribute</em>}</li>
- *   <li>{@link tracing.impl.TracingConfigurationImpl#getAttributeNames <em>Attribute Names</em>}</li>
- *   <li>{@link tracing.impl.TracingConfigurationImpl#isLinkFromTarget <em>Link From Target</em>}</li>
- *   <li>{@link tracing.impl.TracingConfigurationImpl#getLinkType <em>Link Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getProxyType <em>Proxy Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getProxyAttribute <em>Proxy Attribute</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getAttributeNames <em>Attribute Names</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#isLinkFromTarget <em>Link From Target</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getLinkType <em>Link Type</em>}</li>
  * </ul>
  * </p>
  *

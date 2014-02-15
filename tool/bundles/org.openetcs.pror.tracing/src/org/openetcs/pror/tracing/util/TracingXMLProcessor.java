@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.provider;
+package org.openetcs.pror.tracing.util;
 
-import org.eclipse.emf.common.EMFPlugin;
+import java.util.Map;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+import org.openetcs.pror.tracing.TracingPackage;
 
 /**
- * This is the central singleton for the Tracing edit plugin.
+ * This class contains helper methods to serialize and deserialize XML documents
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class TracingEditPlugin extends EMFPlugin {
+public class TracingXMLProcessor extends XMLProcessor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,78 +36,32 @@ public final class TracingEditPlugin extends EMFPlugin {
 	 */
 	public static final String copyright = "Copyright 2014 Formal Mind GmbH.\n\nLicensed under the European Union Public Licence (EUPL), Version 1.1 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n      http://joinup.ec.europa.eu/software/page/eupl/licence-eupl\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.";
 
-	/**
-	 * Keep track of the singleton.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final TracingEditPlugin INSTANCE = new TracingEditPlugin();
 
 	/**
-	 * Keep track of the singleton.
+	 * Public constructor to instantiate the helper.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static Implementation plugin;
-
-	/**
-	 * Create the instance.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TracingEditPlugin() {
-		super
-		  (new ResourceLocator [] {
-		     Reqif10EditPlugin.INSTANCE,
-		   });
+	public TracingXMLProcessor() {
+		super((EPackage.Registry.INSTANCE));
+		TracingPackage.eINSTANCE.eClass();
 	}
-
+	
 	/**
-	 * Returns the singleton instance of the Eclipse plugin.
+	 * Register for "*" and "xml" file extensions the TracingResourceFactoryImpl factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the singleton instance.
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getPluginResourceLocator() {
-		return plugin;
-	}
-
-	/**
-	 * Returns the singleton instance of the Eclipse plugin.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the singleton instance.
-	 * @generated
-	 */
-	public static Implementation getPlugin() {
-		return plugin;
-	}
-
-	/**
-	 * The actual implementation of the Eclipse <b>Plugin</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static class Implementation extends EclipsePlugin {
-		/**
-		 * Creates an instance.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public Implementation() {
-			super();
-
-			// Remember the static instance.
-			//
-			plugin = this;
+	protected Map<String, Resource.Factory> getRegistrations() {
+		if (registrations == null) {
+			super.getRegistrations();
+			registrations.put(XML_EXTENSION, new TracingResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new TracingResourceFactoryImpl());
 		}
+		return registrations;
 	}
 
-}
+} //TracingXMLProcessor

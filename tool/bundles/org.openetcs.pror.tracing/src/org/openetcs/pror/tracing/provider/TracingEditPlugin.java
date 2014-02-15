@@ -13,24 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.util;
+package org.openetcs.pror.tracing.provider;
 
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.EMFPlugin;
 
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
-
-import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.rmf.reqif10.pror.provider.Reqif10EditPlugin;
 
 /**
+ * This is the central singleton for the Tracing edit plugin.
  * <!-- begin-user-doc -->
- * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see tracing.util.TracingResourceImpl
  * @generated
  */
-public class TracingResourceFactoryImpl extends ResourceFactoryImpl {
+public final class TracingEditPlugin extends EMFPlugin {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,34 +36,77 @@ public class TracingResourceFactoryImpl extends ResourceFactoryImpl {
 	public static final String copyright = "Copyright 2014 Formal Mind GmbH.\n\nLicensed under the European Union Public Licence (EUPL), Version 1.1 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n      http://joinup.ec.europa.eu/software/page/eupl/licence-eupl\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.";
 
 	/**
-	 * Creates an instance of the resource factory.
+	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TracingResourceFactoryImpl() {
-		super();
+	public static final TracingEditPlugin INSTANCE = new TracingEditPlugin();
+
+	/**
+	 * Keep track of the singleton.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static Implementation plugin;
+
+	/**
+	 * Create the instance.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TracingEditPlugin() {
+		super
+		  (new ResourceLocator [] {
+		     Reqif10EditPlugin.INSTANCE,
+		   });
 	}
 
 	/**
-	 * Creates an instance of the resource.
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the singleton instance.
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getPluginResourceLocator() {
+		return plugin;
+	}
+
+	/**
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the singleton instance.
+	 * @generated
+	 */
+	public static Implementation getPlugin() {
+		return plugin;
+	}
+
+	/**
+	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Resource createResource(URI uri) {
-		XMLResource result = new TracingResourceImpl(uri);
-		result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
-		result.getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
+	public static class Implementation extends EclipsePlugin {
+		/**
+		 * Creates an instance.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public Implementation() {
+			super();
 
-		result.getDefaultSaveOptions().put(XMLResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
-
-		result.getDefaultLoadOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
-		result.getDefaultSaveOptions().put(XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE);
-
-		result.getDefaultLoadOptions().put(XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE);
-		return result;
+			// Remember the static instance.
+			//
+			plugin = this;
+		}
 	}
 
-} //TracingResourceFactoryImpl
+}

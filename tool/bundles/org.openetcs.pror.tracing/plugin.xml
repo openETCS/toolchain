@@ -10,7 +10,7 @@
       <!-- @generated tracing -->
       <package
             uri="http://eclipse.org/rmf/pror/presentation/tracing"
-            class="tracing.TracingPackage"
+            class="org.openetcs.pror.tracing.TracingPackage"
             genModel="model/tracing.genmodel"/>
    </extension>
 
@@ -18,20 +18,26 @@
       <!-- @generated tracing -->
       <parser
             type="tracing"
-            class="tracing.util.TracingResourceFactoryImpl"/>
+            class="org.openetcs.pror.tracing.util.TracingResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated tracing -->
       <factory
             uri="http://eclipse.org/rmf/pror/presentation/tracing"
-            class="tracing.provider.TracingItemProviderAdapterFactory"
+            class="org.openetcs.pror.tracing.provider.TracingItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   <extension
+         point="org.eclipse.rmf.reqif10.pror.editor.presentation">
+      <presentation
+            service="org.openetcs.pror.tracing.TracingPresentationService">
+      </presentation>
    </extension>
 
 </plugin>

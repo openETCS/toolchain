@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing;
+package org.openetcs.pror.tracing;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -33,7 +33,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see tracing.TracingFactory
+ * @see org.openetcs.pror.tracing.TracingFactory
  * @model kind="package"
  * @generated
  */
@@ -51,7 +51,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "tracing";
+	String eNAME = "org.openetcs.pror.tracing";
 
 	/**
 	 * The package namespace URI.
@@ -59,7 +59,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/rmf/pror/presentation/tracing";
+	String eNS_URI = "http://eclipse.org/rmf/pror/presentation/org.openetcs.pror.tracing";
 
 	/**
 	 * The package namespace name.
@@ -67,7 +67,7 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "tracing";
+	String eNS_PREFIX = "org.openetcs.pror.tracing";
 
 	/**
 	 * The singleton instance of the package.
@@ -75,14 +75,14 @@ public interface TracingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	TracingPackage eINSTANCE = tracing.impl.TracingPackageImpl.init();
+	TracingPackage eINSTANCE = org.openetcs.pror.tracing.impl.TracingPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link tracing.impl.TracingConfigurationImpl <em>Configuration</em>}' class.
+	 * The meta object id for the '{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl <em>Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see tracing.impl.TracingConfigurationImpl
-	 * @see tracing.impl.TracingPackageImpl#getTracingConfiguration()
+	 * @see org.openetcs.pror.tracing.impl.TracingConfigurationImpl
+	 * @see org.openetcs.pror.tracing.impl.TracingPackageImpl#getTracingConfiguration()
 	 * @generated
 	 */
 	int TRACING_CONFIGURATION = 0;
@@ -152,65 +152,65 @@ public interface TracingPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link tracing.TracingConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for class '{@link org.openetcs.pror.tracing.TracingConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Configuration</em>'.
-	 * @see tracing.TracingConfiguration
+	 * @see org.openetcs.pror.tracing.TracingConfiguration
 	 * @generated
 	 */
 	EClass getTracingConfiguration();
 
 	/**
-	 * Returns the meta object for the reference '{@link tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Proxy Type</em>'.
-	 * @see tracing.TracingConfiguration#getProxyType()
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#getProxyType()
 	 * @see #getTracingConfiguration()
 	 * @generated
 	 */
 	EReference getTracingConfiguration_ProxyType();
 
 	/**
-	 * Returns the meta object for the reference '{@link tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}'.
+	 * Returns the meta object for the reference '{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Proxy Attribute</em>'.
-	 * @see tracing.TracingConfiguration#getProxyAttribute()
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#getProxyAttribute()
 	 * @see #getTracingConfiguration()
 	 * @generated
 	 */
 	EReference getTracingConfiguration_ProxyAttribute();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link tracing.TracingConfiguration#getAttributeNames <em>Attribute Names</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.openetcs.pror.tracing.TracingConfiguration#getAttributeNames <em>Attribute Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Attribute Names</em>'.
-	 * @see tracing.TracingConfiguration#getAttributeNames()
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#getAttributeNames()
 	 * @see #getTracingConfiguration()
 	 * @generated
 	 */
 	EAttribute getTracingConfiguration_AttributeNames();
 
 	/**
-	 * Returns the meta object for the attribute '{@link tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}'.
+	 * Returns the meta object for the attribute '{@link org.openetcs.pror.tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Link From Target</em>'.
-	 * @see tracing.TracingConfiguration#isLinkFromTarget()
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#isLinkFromTarget()
 	 * @see #getTracingConfiguration()
 	 * @generated
 	 */
 	EAttribute getTracingConfiguration_LinkFromTarget();
 
 	/**
-	 * Returns the meta object for the reference '{@link tracing.TracingConfiguration#getLinkType <em>Link Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.openetcs.pror.tracing.TracingConfiguration#getLinkType <em>Link Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Link Type</em>'.
-	 * @see tracing.TracingConfiguration#getLinkType()
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#getLinkType()
 	 * @see #getTracingConfiguration()
 	 * @generated
 	 */
@@ -239,11 +239,11 @@ public interface TracingPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link tracing.impl.TracingConfigurationImpl <em>Configuration</em>}' class.
+		 * The meta object literal for the '{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl <em>Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see tracing.impl.TracingConfigurationImpl
-		 * @see tracing.impl.TracingPackageImpl#getTracingConfiguration()
+		 * @see org.openetcs.pror.tracing.impl.TracingConfigurationImpl
+		 * @see org.openetcs.pror.tracing.impl.TracingPackageImpl#getTracingConfiguration()
 		 * @generated
 		 */
 		EClass TRACING_CONFIGURATION = eINSTANCE.getTracingConfiguration();

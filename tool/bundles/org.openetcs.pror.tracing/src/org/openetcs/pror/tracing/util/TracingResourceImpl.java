@@ -13,25 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.util;
+package org.openetcs.pror.tracing.util;
 
-import java.util.Map;
+import org.eclipse.emf.common.util.URI;
 
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.resource.Resource;
-
-import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
-
-import tracing.TracingPackage;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
- * This class contains helper methods to serialize and deserialize XML documents
  * <!-- begin-user-doc -->
+ * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
+ * @see org.openetcs.pror.tracing.util.TracingResourceFactoryImpl
  * @generated
  */
-public class TracingXMLProcessor extends XMLProcessor {
+public class TracingResourceImpl extends XMLResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,32 +34,15 @@ public class TracingXMLProcessor extends XMLProcessor {
 	 */
 	public static final String copyright = "Copyright 2014 Formal Mind GmbH.\n\nLicensed under the European Union Public Licence (EUPL), Version 1.1 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n      http://joinup.ec.europa.eu/software/page/eupl/licence-eupl\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.";
 
-
 	/**
-	 * Public constructor to instantiate the helper.
+	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param uri the URI of the new resource.
 	 * @generated
 	 */
-	public TracingXMLProcessor() {
-		super((EPackage.Registry.INSTANCE));
-		TracingPackage.eINSTANCE.eClass();
-	}
-	
-	/**
-	 * Register for "*" and "xml" file extensions the TracingResourceFactoryImpl factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected Map<String, Resource.Factory> getRegistrations() {
-		if (registrations == null) {
-			super.getRegistrations();
-			registrations.put(XML_EXTENSION, new TracingResourceFactoryImpl());
-			registrations.put(STAR_EXTENSION, new TracingResourceFactoryImpl());
-		}
-		return registrations;
+	public TracingResourceImpl(URI uri) {
+		super(uri);
 	}
 
-} //TracingXMLProcessor
+} //TracingResourceImpl

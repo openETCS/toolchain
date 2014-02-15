@@ -13,24 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.impl;
+package org.openetcs.pror.tracing.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
 import org.eclipse.rmf.reqif10.ReqIF10Package;
-
 import org.eclipse.rmf.reqif10.pror.configuration.ConfigurationPackage;
-
-import tracing.TracingConfiguration;
-import tracing.TracingFactory;
-import tracing.TracingPackage;
+import org.openetcs.pror.tracing.TracingConfiguration;
+import org.openetcs.pror.tracing.TracingFactory;
+import org.openetcs.pror.tracing.TracingPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +59,7 @@ public class TracingPackageImpl extends EPackageImpl implements TracingPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see tracing.TracingPackage#eNS_URI
+	 * @see org.openetcs.pror.tracing.TracingPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

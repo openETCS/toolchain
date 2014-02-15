@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.provider;
+package org.openetcs.pror.tracing.provider;
 
 
 import java.util.Collection;
@@ -36,12 +36,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
-
-import tracing.TracingConfiguration;
-import tracing.TracingPackage;
+import org.openetcs.pror.tracing.TracingConfiguration;
+import org.openetcs.pror.tracing.TracingPackage;
 
 /**
- * This is the item provider adapter for a {@link tracing.TracingConfiguration} object.
+ * This is the item provider adapter for a {@link org.openetcs.pror.tracing.TracingConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

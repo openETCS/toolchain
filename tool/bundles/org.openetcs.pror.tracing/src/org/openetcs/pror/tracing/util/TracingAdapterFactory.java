@@ -13,25 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.util;
+package org.openetcs.pror.tracing.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
-
-import tracing.*;
+import org.openetcs.pror.tracing.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see tracing.TracingPackage
+ * @see org.openetcs.pror.tracing.TracingPackage
  * @generated
  */
 public class TracingAdapterFactory extends AdapterFactoryImpl {
@@ -118,13 +114,13 @@ public class TracingAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link tracing.TracingConfiguration <em>Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.openetcs.pror.tracing.TracingConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see tracing.TracingConfiguration
+	 * @see org.openetcs.pror.tracing.TracingConfiguration
 	 * @generated
 	 */
 	public Adapter createTracingConfigurationAdapter() {

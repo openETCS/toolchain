@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing.util;
+package org.openetcs.pror.tracing.util;
 
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
-
-import tracing.*;
+import org.openetcs.pror.tracing.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +32,7 @@ import tracing.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see tracing.TracingPackage
+ * @see org.openetcs.pror.tracing.TracingPackage
  * @generated
  */
 public class TracingSwitch<T> {

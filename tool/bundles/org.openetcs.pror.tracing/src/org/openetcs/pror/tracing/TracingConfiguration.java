@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package tracing;
+package org.openetcs.pror.tracing;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -31,15 +31,15 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}</li>
- *   <li>{@link tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}</li>
- *   <li>{@link tracing.TracingConfiguration#getAttributeNames <em>Attribute Names</em>}</li>
- *   <li>{@link tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}</li>
- *   <li>{@link tracing.TracingConfiguration#getLinkType <em>Link Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getAttributeNames <em>Attribute Names</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getLinkType <em>Link Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see tracing.TracingPackage#getTracingConfiguration()
+ * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration()
  * @model
  * @generated
  */
@@ -61,14 +61,14 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Proxy Type</em>' reference.
 	 * @see #setProxyType(SpecObjectType)
-	 * @see tracing.TracingPackage#getTracingConfiguration_ProxyType()
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_ProxyType()
 	 * @model
 	 * @generated
 	 */
 	SpecObjectType getProxyType();
 
 	/**
-	 * Sets the value of the '{@link tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}' reference.
+	 * Sets the value of the '{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyType <em>Proxy Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Proxy Type</em>' reference.
@@ -87,14 +87,14 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Proxy Attribute</em>' reference.
 	 * @see #setProxyAttribute(AttributeDefinitionString)
-	 * @see tracing.TracingPackage#getTracingConfiguration_ProxyAttribute()
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_ProxyAttribute()
 	 * @model
 	 * @generated
 	 */
 	AttributeDefinitionString getProxyAttribute();
 
 	/**
-	 * Sets the value of the '{@link tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}' reference.
+	 * Sets the value of the '{@link org.openetcs.pror.tracing.TracingConfiguration#getProxyAttribute <em>Proxy Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Proxy Attribute</em>' reference.
@@ -113,7 +113,7 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Names</em>' attribute list.
-	 * @see tracing.TracingPackage#getTracingConfiguration_AttributeNames()
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_AttributeNames()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
@@ -129,14 +129,14 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link From Target</em>' attribute.
 	 * @see #setLinkFromTarget(boolean)
-	 * @see tracing.TracingPackage#getTracingConfiguration_LinkFromTarget()
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_LinkFromTarget()
 	 * @model
 	 * @generated
 	 */
 	boolean isLinkFromTarget();
 
 	/**
-	 * Sets the value of the '{@link tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}' attribute.
+	 * Sets the value of the '{@link org.openetcs.pror.tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Link From Target</em>' attribute.
@@ -155,14 +155,14 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link Type</em>' reference.
 	 * @see #setLinkType(SpecRelationType)
-	 * @see tracing.TracingPackage#getTracingConfiguration_LinkType()
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_LinkType()
 	 * @model
 	 * @generated
 	 */
 	SpecRelationType getLinkType();
 
 	/**
-	 * Sets the value of the '{@link tracing.TracingConfiguration#getLinkType <em>Link Type</em>}' reference.
+	 * Sets the value of the '{@link org.openetcs.pror.tracing.TracingConfiguration#getLinkType <em>Link Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Link Type</em>' reference.
