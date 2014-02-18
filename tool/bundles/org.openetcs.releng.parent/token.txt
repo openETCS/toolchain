@@ -1,7 +1,3 @@
---launcher.XXMaxPermSize
-256m
---launcher.appendVmargs
 -vmargs
--Dosgi.requiredJavaVersion=1.6
--Xms128M
--Xmx1024M
+-Xmx1536M
+-XX:MaxPermSize=768M
