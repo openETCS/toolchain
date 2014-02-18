@@ -1,0 +1,98 @@
+** ToolSprint 5 (ends 14-Feb-14) v1.0.5
+*** resolved issues
+- #268 Temporarily use older xtext version
+- #267 Add Papyurus components to openETCS
+- #266 Milestone Release ToolSprint 5
+- #251 Shall we try to decrease the memory consumption in Papyrus?
+- #246 openETCS does not load (windows 32 bit)
+- #225 Decide on the fate of Bitwalker-SysML-Integration
+- #218 Subset-26 conversion to ProR
+- #216 Evaluate the open solutions to traceability
+
+*** Important commit 
+- d01c478b658b7a6a34fd34b46590516a01185723
+ Merge pull request #284 from jfaltermeier/master
+
+ #246 Changed launch configuration for 32bit; #268 Xtext 2.4.2
+- 28f46f3998c969f8833cb175f3669de60f1a1bcf
+ Add Papyrus (View Stylesheets) and Papyrus Tabular Editor #267
+- 1a925a9a41d7d6c1a066e25bd1e803b3cd3bb43e 
+ #246 Lowered memory settings
+- 68562d0fb5bea2e89c34afebcc4b3d8611348582
+
+ #246 Included JRE in Tycho-Build
+
+There is a feature for every platform including the JRE. The JRE is set in the openETCS.ini via touchpoint instructions. This appraoch allows to update users JRE by updating the feature. Since the JRE is not placed as a root file this mechanism also works in windows machines.
+- 65f60f65ce8c6c27c4eac0854f81a1efffd891c8
+ #246 Using different launch configuration for 32bit products
+
+** ToolSprint 4 (ends 28-Jan-14) v1.0.4
+*** resolved issues
+- #238 Add Subset-26 .reqif files to model project
+
+*** Important commit 
+** Toolsprint 3 (ends 17-Jan-14) 
+*** resolved issues
+- #239 Issue #232 Move Welcome Screen into repository and make prettier
+- #235 Document the release process
+- #232 Move Welcome Screen into repository and make prettier
+- #226 Set up an Eclipse Project Structure on modeling repository for openETCS tool
+- #224 DataDictionary prototype integration into Papyrus (openETCS toolchain version): Plugin install failed
+- #207 Import Rectify requirements into eclipse platform 
+- #205 Extend the development plan with eclipse process
+- #198 Decide on how to create User Documentation, and set up Infrastructure
+- #193 toolchain/wiki/Data-Dictionary-Design-Specification  Schema
+- #192 Decide on Versioning of EMF artefacts in openETCS
+- #191 Decide on unambiguous requirement identifiers
+
+*** Important commit 
+- 0a1969d0ca3e4c3689035403f506e2d8fb9c31f0
+ Merge pull request #239 from jfaltermeier/master
+Issue #232 Move Welcome Screen into repository and make prettier
+
+
+** Toolsprint 2 (ends 20-Dec-13)
+*** resolved issues
+- #230 Ensure that toolchain update mechanism works
+- #228 Include git (eGit) in openETCS Product
+- #227 Preconfigure Kepler Update Site in openETCS
+- #223 Decide on where to store modeling artefacts
+- #221 Create an openETCS Welcome Screen
+- #220 Increase Memory in product definition
+- #199 Decide on approach to Toolchain traceability to subset 26, chapter 1-6
+
+*** Important commit 
+- 82b67c452ce9072ac6d2138f2360bf2c32c750b5
+ Issue #230 Update mechanism
+- f94775fb2082691a88c026cadf8864fbb716331f
+ Merge pull request #234 from jfaltermeier/master
+
+Fixed Tycho Build and Issue #230
+- f282f8375be8a0680f7a8c3a60d4860c40214162
+ Issue #228 Included egit in product
+- 70ef9ba906ef23df11efaa35e28f9fe16e342e6b
+ Merge pull request #231 from jfaltermeier/master
+
+Resolved issues #227 and #228
+- 75eefd34ac2fd2816b77045f236d2fa0f1ee56de
+ Issue #227 Included kepler update site in available update sites drop down list
+
+- b94f4e1955dc0c628f9c01add01ab644bcfb9e7e
+ Intro page - for now it linkes to the online welcome page
+https://github.com/openETCS/toolchain/issues/221
+- da741f0235bcc860c73e089aea157d5840d5fea1
+ Increasing Memory
+https://github.com/openETCS/toolchain/issues/220
+
+** Toolsprint 1 (ends 6-Dec-13)
+*** resolved issues
+- #219 Put a "Built on CloudBees" logo on project page 
+- #213 Decide on an approach for handling Bitwalker Data
+- #204 Integrate Bitwalker Data and Papyrus/SysML
+- #197 Set up a continuous build environment for the tool
+- #196 Extend the openETCS Product definition to include Papyrus
+
+*** Important commit 
+
+** Toolchain 1st release 
+https://github.com/openETCS/toolchain/blob/master/Deliverables/D7.4.pdf
