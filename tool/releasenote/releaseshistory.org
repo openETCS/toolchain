@@ -1,3 +1,10 @@
+#+BEGIN_HTML
+#+END_HTML
+---
+layout: default
+title: openETCS Extended Tool Construction Set
+---
+
 ** ToolSprint 5 (ends 14-Feb-14) v1.0.5
 *** resolved issues
 - #268 Temporarily use older xtext version
@@ -96,3 +103,6 @@ https://github.com/openETCS/toolchain/issues/220
 
 ** Toolchain 1st release 
 https://github.com/openETCS/toolchain/blob/master/Deliverables/D7.4.pdf
+#+TITLE: openETCS releases history
+#+OPTIONS: toc:nil num:nil
+
