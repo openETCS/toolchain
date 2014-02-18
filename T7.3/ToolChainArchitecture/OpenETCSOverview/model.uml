@@ -129,7 +129,6 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_qMDWoI1_EeOMqbI_LkMcYA" name="subset26 requirements" type="_3mZL8I1rEeO4yNdlNb1RPA" association="_qMBhcI1_EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_0WcuEI1_EeOMqbI_LkMcYA" name="papyrus model" type="_jw9AoI1tEeO4yNdlNb1RPA" association="_0WaR0I1_EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_3irZgI1_EeOMqbI_LkMcYA" name="safety properties" type="_Ilbf8I1sEeO4yNdlNb1RPA" association="_3iqLYI1_EeOMqbI_LkMcYA"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6ppxgY1_EeOMqbI_LkMcYA" name="scade model" type="_mTcykI1tEeO4yNdlNb1RPA" association="_6pkR8I1_EeOMqbI_LkMcYA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Usage" xmi:id="_2IPRQI1-EeOMqbI_LkMcYA" name="Usage1" client="_okRbII1sEeO4yNdlNb1RPA" supplier="_lnF4UI1sEeO4yNdlNb1RPA"/>
       </packagedElement>
@@ -164,7 +163,6 @@
             <body>SCADE: Does Scade provide a means for establishing traceability from model to code? If so, can this be integrated in our toolchain?</body>
           </ownedComment>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_pYIYoI16EeOMqbI_LkMcYA" name="scade-papyrus integration" type="_fpFgcI16EeOMqbI_LkMcYA" association="_pYDgII16EeOMqbI_LkMcYA"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6ppxgo1_EeOMqbI_LkMcYA" name="trace management" type="_okRbII1sEeO4yNdlNb1RPA" association="_6pkR8I1_EeOMqbI_LkMcYA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_HKr8EI1zEeOMqbI_LkMcYA" name="Import Datatypes">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2JBVYo1zEeOMqbI_LkMcYA" name="bitwalker db" type="_dRH2cI1tEeO4yNdlNb1RPA" association="_2JAuUI1zEeOMqbI_LkMcYA"/>
@@ -320,11 +318,6 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_3iqLYI1_EeOMqbI_LkMcYA" name="Association22" memberEnd="_3iqyco1_EeOMqbI_LkMcYA _3irZgI1_EeOMqbI_LkMcYA">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3iqycI1_EeOMqbI_LkMcYA" source="org.eclipse.papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3iqycY1_EeOMqbI_LkMcYA" key="nature" value="SysML_Nature"/>
-        </eAnnotations>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_6pkR8I1_EeOMqbI_LkMcYA" name="Association23" memberEnd="_6ppxgY1_EeOMqbI_LkMcYA _6ppxgo1_EeOMqbI_LkMcYA">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6ppKcI1_EeOMqbI_LkMcYA" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6ppxgI1_EeOMqbI_LkMcYA" key="nature" value="SysML_Nature"/>
         </eAnnotations>
       </packagedElement>
     </packagedElement>
@@ -486,7 +479,7 @@
   <OpenETCSProfile:Input xmi:id="_tRVM4I18EeOMqbI_LkMcYA" base_Association="_kv_d8I18EeOMqbI_LkMcYA"/>
   <OpenETCSProfile:Output xmi:id="_uQ2wMI18EeOMqbI_LkMcYA" base_Association="_lw1P4I18EeOMqbI_LkMcYA"/>
   <OpenETCSProfile:OpenETCSArtifacts xmi:id="_VfAf0I1_EeOMqbI_LkMcYA" base_Class="_lnF4UI1sEeO4yNdlNb1RPA"/>
-  <OpenETCSProfile:OpenETCSFeature xmi:id="_WvsroI1_EeOMqbI_LkMcYA" Priority="High" Tool="?" base_Class="_okRbII1sEeO4yNdlNb1RPA"/>
+  <OpenETCSProfile:OpenETCSFeature xmi:id="_WvsroI1_EeOMqbI_LkMcYA" Issue="274" Priority="High" Tool="tracing" base_Class="_okRbII1sEeO4yNdlNb1RPA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_M42F0I2AEeOMqbI_LkMcYA" Tool="?" base_Class="_32HNgI1sEeO4yNdlNb1RPA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_N_YQEI2AEeOMqbI_LkMcYA" Implemented="true" Tool="Git" base_Class="_zYbhQI1sEeO4yNdlNb1RPA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_0dlXYI2sEeOMqbI_LkMcYA" Issue="213" Tool="ask Alexander Stante" base_Class="_SzjtkI18EeOMqbI_LkMcYA"/>
