@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.datadictionary.feature"
       label="Data Dictionary based on System Requirements Specification (SRS)"
-      version="1.0.0.qualifier">
+      version="0.1.0.qualifier">
 
    <description>
       This feature contains the DataDictionary. The DataDictionary registers a UML model which contains data structure, variables and messages based on the ETCS System Requirements Specification (SRS).

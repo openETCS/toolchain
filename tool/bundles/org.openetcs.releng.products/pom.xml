@@ -46,7 +46,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<filesToInclude>target/products/org.openetcs.releng.product/*/*/x86_64/openETCS.ini</filesToInclude>
+					<filesToInclude>target/products/org.openetcs.releng.product/*/*/x86/openETCS.ini</filesToInclude>
 					<replacements>
 						<replacement>
 							<tokenFile>token.txt</tokenFile>
