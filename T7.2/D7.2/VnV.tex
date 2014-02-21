@@ -53,17 +53,17 @@ A quantitative evaluation is available in \url{https://github.com/openETCS/toolc
 
 \paragraph{Added value for OpenETCS project}
 
-\begin{comment}
-To complete: Stefan Rieger  ?
-\end{comment}
-
+SystemC can be used for a quantitative evaluation of the specification and a system model. Although it could be used for a model of the ETCS system, it has been decided to use SCADE instead. However, the usage of SystemC models as test models will provide a significant benefit to the project. Especially for aspects where timing is important, such as braking curves computation, SystemC can be used for a quantitiative analysis. In addition, performance on different hardware platforms can be evaluated.
 
 \paragraph{Integration in OpenETCS process and toolchain}
 
-\begin{comment}
-To complete: Stefan Rieger  ?
-\end{comment}
+SystemC can be integrated with SysML:
 
+\begin{itemize}
+\item Transformation from SysML, e.g., by using Acceleo
+\item SystemC provides executable models
+\item Allows performance evaluation with target hardware
+\end{itemize}
 
 \subsection{UPPAAL}
 \label{sec: UPPAALL}
@@ -86,17 +86,16 @@ A quantitative evaluation is available in \url{https://github.com/openETCS/toolc
 
 \paragraph{Added value for OpenETCS project}
 
-\begin{comment}
-To complete: Stefan Rieger  ?
-\end{comment}
+\begin{itemize}
+  \item Dedicated tool for modeling with timed automata
+  \item Verification of real-time properties (model checking)
+  \item Graphical simulation and modelling tool
+\end{itemize}
 
 
 \paragraph{Integration in OpenETCS process and toolchain}
 
-\begin{comment}
-To complete: Stefan Rieger  ?
-\end{comment}
-
+Integration would be possible based on model transformation from, e.g., SysML statecharts with timing annotations. This could be achieved with tools such as Acceleo or Xtend.
 
 \subsection{CPN Tools}
 \label{sec:CPN-Tools}
