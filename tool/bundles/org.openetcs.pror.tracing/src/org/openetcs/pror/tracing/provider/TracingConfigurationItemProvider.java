@@ -17,12 +17,16 @@ package org.openetcs.pror.tracing.provider;
 
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -34,6 +38,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.openetcs.pror.tracing.TracingConfiguration;
@@ -266,11 +271,83 @@ public class TracingConfigurationItemProvider
 		return TracingEditPlugin.INSTANCE;
 	}
 
-	@Override
+
+	/**
+	 * Attempts to process the drop operation by fetching or creating proxy elements.
+	 * This implementation supports EMF Facets, as some tools (e.g. Papyrus) use them.
+	 */
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {
-		// TODO Auto-generated method stub
-		return null;
+
+		// Only support SpecHierarchies as targets.
+		// TODO Also support SpecObjects
+		if (!(target instanceof SpecHierarchy))
+			return null;
+
+		// Check whether at least one SysML Model Element is here.
+		Set<EObject> elements = new HashSet<EObject>();
+		for (Object object : source) {
+			
+			if (object instanceof IAdaptable) {
+				EObject element = (EObject) ((IAdaptable)object).getAdapter(EObject.class);
+				if (element == null) {
+					System.out.println("Ignoring dropped object: " + object);
+					continue;
+				}
+				
+				// Hack to decide which elements we process.
+				if (element.getClass().getName()
+						.startsWith("org.eclipse.uml2")) {
+					elements.add(element);
+				}
+			}
+		}
+		
+		// No appropriate element in source
+		if (elements.size() == 0) 
+			return null;
+		
+		// We found elements: Return a command
+		return new CreateTraceCommand(elements, target, editingDomain,
+				adapterFactory, operation, (TracingConfiguration) getTarget());
+
+//		// Build up an array of proxy SpecObjects.
+//		Collection<SpecObject> proxySpecObjects = new ArrayList<SpecObject>();
+//
+//		for (Object object : source) {
+//			System.out.println(object);
+//			if (object instanceof IAdaptable) {
+//				EObject element = (EObject) ((IAdaptable)object).getAdapter(EObject.class);
+//				if (element == null) {
+//					System.out.println("Ignoring dropped object: " + object);
+//					continue;
+//				}
+//				
+//				SpecObject specObject = TracingUtil
+//						.getEMFProxyElementSpecObject(element,
+//								(TracingConfiguration) getTarget(),
+//								editingDomain, adapterFactory);
+//				System.out.println("Proxy created: " + specObject);
+//				if (specObject != null) {
+//					proxySpecObjects.add(specObject);
+//				}
+//			}
+//		}
+//
+//		if (proxySpecObjects.isEmpty())
+//			return null;
+//
+//		// operation 4 = link, 2 = sibling, 1 = child
+//		ReqIF reqif = ReqIF10Util.getReqIF(specHierarchy);
+//		if (operation == 1) {
+//			return TracingUtil.createProxyChildCommand(editingDomain, reqif, 
+//					specHierarchy,
+//					proxySpecObjects);
+//		} else {
+//			return TracingUtil.createLinkCommand(editingDomain, (TracingConfiguration)getTarget(), specHierarchy,
+//					proxySpecObjects);
+//		}
+//
 	}
 
 	@Override
