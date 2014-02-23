@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.openetcs.pror.tracing.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Formal Mind GmbH
+Fragment-Host: org.openetcs.pror.tracing
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit,
+ org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.10.0"
