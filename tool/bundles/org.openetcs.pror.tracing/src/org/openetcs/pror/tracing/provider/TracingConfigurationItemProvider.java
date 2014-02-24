@@ -15,7 +15,6 @@
  */
 package org.openetcs.pror.tracing.provider;
 
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -48,10 +47,12 @@ import org.openetcs.pror.tracing.TracingConfiguration;
 import org.openetcs.pror.tracing.TracingPackage;
 
 /**
- * This is the item provider adapter for a {@link org.openetcs.pror.tracing.TracingConfiguration} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.openetcs.pror.tracing.TracingConfiguration} object. <!--
+ * begin-user-doc -->
  * <p>
- * The Proxy Element Value is a String consisting of multiple lines, separated by \\n:
+ * The Proxy Element Value is a String consisting of multiple lines, separated
+ * by \\n:
  * </p>
  * <ul>
  * <li>First Line: URL
@@ -59,27 +60,24 @@ import org.openetcs.pror.tracing.TracingPackage;
  * <li>Remaining lines: properties in alphabetical order.
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
-public class TracingConfigurationItemProvider
-	extends ProrPresentationConfigurationItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class TracingConfigurationItemProvider extends
+		ProrPresentationConfigurationItemProvider implements
+		IEditingDomainItemProvider, IStructuredItemContentProvider,
+		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2014 Formal Mind GmbH.\n\nLicensed under the European Union Public Licence (EUPL), Version 1.1 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n      http://joinup.ec.europa.eu/software/page/eupl/licence-eupl\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.";
 
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public TracingConfigurationItemProvider(AdapterFactory adapterFactory) {
@@ -87,9 +85,9 @@ public class TracingConfigurationItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -107,143 +105,136 @@ public class TracingConfigurationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Proxy Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Proxy Type feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addProxyTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TracingConfiguration_proxyType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TracingConfiguration_proxyType_feature", "_UI_TracingConfiguration_type"),
-				 TracingPackage.Literals.TRACING_CONFIGURATION__PROXY_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_TracingConfiguration_proxyType_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TracingConfiguration_proxyType_feature",
+						"_UI_TracingConfiguration_type"),
+				TracingPackage.Literals.TRACING_CONFIGURATION__PROXY_TYPE,
+				true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Proxy Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Proxy Attribute feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addProxyAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TracingConfiguration_proxyAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TracingConfiguration_proxyAttribute_feature", "_UI_TracingConfiguration_type"),
-				 TracingPackage.Literals.TRACING_CONFIGURATION__PROXY_ATTRIBUTE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_TracingConfiguration_proxyAttribute_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TracingConfiguration_proxyAttribute_feature",
+						"_UI_TracingConfiguration_type"),
+				TracingPackage.Literals.TRACING_CONFIGURATION__PROXY_ATTRIBUTE,
+				true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Attribute Names feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Attribute Names feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addAttributeNamesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TracingConfiguration_attributeNames_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TracingConfiguration_attributeNames_feature", "_UI_TracingConfiguration_type"),
-				 TracingPackage.Literals.TRACING_CONFIGURATION__ATTRIBUTE_NAMES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_TracingConfiguration_attributeNames_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TracingConfiguration_attributeNames_feature",
+						"_UI_TracingConfiguration_type"),
+				TracingPackage.Literals.TRACING_CONFIGURATION__ATTRIBUTE_NAMES,
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Link From Target feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Link From Target feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLinkFromTargetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TracingConfiguration_linkFromTarget_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TracingConfiguration_linkFromTarget_feature", "_UI_TracingConfiguration_type"),
-				 TracingPackage.Literals.TRACING_CONFIGURATION__LINK_FROM_TARGET,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_TracingConfiguration_linkFromTarget_feature"),
+						getString(
+								"_UI_PropertyDescriptor_description",
+								"_UI_TracingConfiguration_linkFromTarget_feature",
+								"_UI_TracingConfiguration_type"),
+						TracingPackage.Literals.TRACING_CONFIGURATION__LINK_FROM_TARGET,
+						true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Link Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds a property descriptor for the Link Type feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLinkTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TracingConfiguration_linkType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TracingConfiguration_linkType_feature", "_UI_TracingConfiguration_type"),
-				 TracingPackage.Literals.TRACING_CONFIGURATION__LINK_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_TracingConfiguration_linkType_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_TracingConfiguration_linkType_feature",
+						"_UI_TracingConfiguration_type"),
+				TracingPackage.Literals.TRACING_CONFIGURATION__LINK_TYPE, true,
+				false, true, null, null, null));
 	}
 
 	/**
-	 * This returns TracingConfiguration.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This returns TracingConfiguration.gif. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TracingConfiguration"));
+		return overlayImage(object,
+				getResourceLocator()
+						.getImage("full/obj16/TracingConfiguration"));
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * This returns the label text for the adapted class. <!-- begin-user-doc
+	 * --> Uses the Link Type in the label. <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		TracingConfiguration tracingConfiguration = (TracingConfiguration)object;
-		return getString("_UI_TracingConfiguration_type") + " " + tracingConfiguration.isLinkFromTarget();
+		TracingConfiguration tracingConfiguration = (TracingConfiguration) object;
+		return getString("_UI_TracingConfiguration_type") + " "
+				+ tracingConfiguration.getLinkType();
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -251,30 +242,32 @@ public class TracingConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TracingConfiguration.class)) {
-			case TracingPackage.TRACING_CONFIGURATION__ATTRIBUTE_NAMES:
-			case TracingPackage.TRACING_CONFIGURATION__LINK_FROM_TARGET:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case TracingPackage.TRACING_CONFIGURATION__ATTRIBUTE_NAMES:
+		case TracingPackage.TRACING_CONFIGURATION__LINK_FROM_TARGET:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+	 * describing the children that can be created under this object. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -282,56 +275,51 @@ public class TracingConfigurationItemProvider
 		return TracingEditPlugin.INSTANCE;
 	}
 
-
 	/**
-	 * Attempts to process the drop operation by fetching or creating proxy elements.
-	 * This implementation supports EMF Facets, as some tools (e.g. Papyrus) use them.
+	 * Attempts to process the drop operation by fetching or creating proxy
+	 * elements. This implementation supports EMF Facets, as some tools (e.g.
+	 * Papyrus) use them.
 	 */
 	public Command handleDragAndDrop(Collection<?> source, Object target,
 			EditingDomain editingDomain, int operation) {
 
-		// Only support SpecHierarchies as targets.
-		// TODO Also support SpecObjects
-		if (!(target instanceof SpecHierarchy))
-			return null;
-
-		// Check whether at least one SysML Model Element is here.
-		Set<EObject> elements = new HashSet<EObject>();
-		for (Object object : source) {
-			
-			if (object instanceof IAdaptable) {
-				EObject element = (EObject) ((IAdaptable)object).getAdapter(EObject.class);
-				if (element == null) {
-					System.out.println("Ignoring dropped object: " + object);
-					continue;
-				}
-				
-				// Hack to decide which elements we process.
-				if (element.getClass().getName()
-						.startsWith("org.eclipse.uml2")) {
-					elements.add(element);
-				}
-			}
-		}
-		
-		// No appropriate element in source
-		if (elements.size() == 0) 
-			return null;
-		
-		// We found elements: Return a command
-		// operation 4 = link, 2 = sibling, 1 = child
+		// Only support SpecHierarchies and SpecObjects as targets.
 		SpecObject targetSpecObject = null;
 		if (target instanceof SpecObject) {
 			targetSpecObject = (SpecObject) target;
 		} else if (target instanceof SpecHierarchy) {
 			targetSpecObject = ((SpecHierarchy) target).getObject();
 		}
-		if (targetSpecObject != null) {
-			return new CreateTraceCommand(elements, targetSpecObject,
-					editingDomain, adapterFactory, operation,
-					(TracingConfiguration) getTarget());
+		if (targetSpecObject == null)
+			return null;
+
+		// Check whether at least one SysML Model Element is here.
+		Set<EObject> elements = new HashSet<EObject>();
+		for (Object object : source) {
+
+			if (object instanceof IAdaptable) {
+				EObject element = (EObject) ((IAdaptable) object)
+						.getAdapter(EObject.class);
+				if (element == null) {
+					continue;
+				}
+
+				// Hack to decide which elements we process.
+				if (element.getClass().getName().startsWith("org.eclipse.uml2")) {
+					elements.add(element);
+				}
+			}
 		}
-		return null;
+
+		// No appropriate element in source
+		if (elements.size() == 0)
+			return null;
+
+		// We found elements: Return a command
+		// operation 4 = link, 2 = sibling, 1 = child
+		return new CreateTraceCommand(elements, targetSpecObject,
+				editingDomain, adapterFactory, operation,
+				(TracingConfiguration) getTarget());
 	}
 
 	/**
@@ -340,11 +328,11 @@ public class TracingConfigurationItemProvider
 	@Override
 	public String getLabel(AttributeValue av) {
 		if (av instanceof AttributeValueString) {
-			String value = ((AttributeValueString)av).getTheValue();
+			String value = ((AttributeValueString) av).getTheValue();
 			StringTokenizer st = new StringTokenizer(value, "\n");
 			st.nextToken();
 			if (st.hasMoreTokens())
-			return st.nextToken();
+				return st.nextToken();
 		}
 		return null;
 	}
@@ -359,14 +347,14 @@ public class TracingConfigurationItemProvider
 	public void registerPresentationConfiguration(
 			ProrPresentationConfiguration config, EditingDomain editingDomain) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void unregisterPresentationConfiguration(
 			ProrPresentationConfiguration config) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
