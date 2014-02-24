@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
@@ -38,7 +39,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
+import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
+import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
 import org.eclipse.rmf.reqif10.pror.configuration.provider.ProrPresentationConfigurationItemProvider;
 import org.openetcs.pror.tracing.TracingConfiguration;
@@ -47,6 +50,14 @@ import org.openetcs.pror.tracing.TracingPackage;
 /**
  * This is the item provider adapter for a {@link org.openetcs.pror.tracing.TracingConfiguration} object.
  * <!-- begin-user-doc -->
+ * <p>
+ * The Proxy Element Value is a String consisting of multiple lines, separated by \\n:
+ * </p>
+ * <ul>
+ * <li>First Line: URL
+ * <li>Second Line: Path to element
+ * <li>Remaining lines: properties in alphabetical order.
+ * </ul>
  * <!-- end-user-doc -->
  * @generated
  */
@@ -308,51 +319,33 @@ public class TracingConfigurationItemProvider
 			return null;
 		
 		// We found elements: Return a command
-		return new CreateTraceCommand(elements, target, editingDomain,
-				adapterFactory, operation, (TracingConfiguration) getTarget());
-
-//		// Build up an array of proxy SpecObjects.
-//		Collection<SpecObject> proxySpecObjects = new ArrayList<SpecObject>();
-//
-//		for (Object object : source) {
-//			System.out.println(object);
-//			if (object instanceof IAdaptable) {
-//				EObject element = (EObject) ((IAdaptable)object).getAdapter(EObject.class);
-//				if (element == null) {
-//					System.out.println("Ignoring dropped object: " + object);
-//					continue;
-//				}
-//				
-//				SpecObject specObject = TracingUtil
-//						.getEMFProxyElementSpecObject(element,
-//								(TracingConfiguration) getTarget(),
-//								editingDomain, adapterFactory);
-//				System.out.println("Proxy created: " + specObject);
-//				if (specObject != null) {
-//					proxySpecObjects.add(specObject);
-//				}
-//			}
-//		}
-//
-//		if (proxySpecObjects.isEmpty())
-//			return null;
-//
-//		// operation 4 = link, 2 = sibling, 1 = child
-//		ReqIF reqif = ReqIF10Util.getReqIF(specHierarchy);
-//		if (operation == 1) {
-//			return TracingUtil.createProxyChildCommand(editingDomain, reqif, 
-//					specHierarchy,
-//					proxySpecObjects);
-//		} else {
-//			return TracingUtil.createLinkCommand(editingDomain, (TracingConfiguration)getTarget(), specHierarchy,
-//					proxySpecObjects);
-//		}
-//
+		// operation 4 = link, 2 = sibling, 1 = child
+		SpecObject targetSpecObject = null;
+		if (target instanceof SpecObject) {
+			targetSpecObject = (SpecObject) target;
+		} else if (target instanceof SpecHierarchy) {
+			targetSpecObject = ((SpecHierarchy) target).getObject();
+		}
+		if (targetSpecObject != null) {
+			return new CreateTraceCommand(elements, targetSpecObject,
+					editingDomain, adapterFactory, operation,
+					(TracingConfiguration) getTarget());
+		}
+		return null;
 	}
 
+	/**
+	 * Returns the second line of the content, or null if it does not exist.
+	 */
 	@Override
 	public String getLabel(AttributeValue av) {
-		// TODO Auto-generated method stub
+		if (av instanceof AttributeValueString) {
+			String value = ((AttributeValueString)av).getTheValue();
+			StringTokenizer st = new StringTokenizer(value, "\n");
+			st.nextToken();
+			if (st.hasMoreTokens())
+			return st.nextToken();
+		}
 		return null;
 	}
 

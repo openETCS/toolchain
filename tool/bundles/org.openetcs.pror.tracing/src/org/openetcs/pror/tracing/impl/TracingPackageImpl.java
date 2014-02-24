@@ -244,7 +244,7 @@ public class TracingPackageImpl extends EPackageImpl implements TracingPackage {
 		initEReference(getTracingConfiguration_ProxyType(), theReqIF10Package.getSpecObjectType(), null, "proxyType", null, 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracingConfiguration_ProxyAttribute(), theReqIF10Package.getAttributeDefinitionString(), null, "proxyAttribute", null, 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTracingConfiguration_AttributeNames(), theXMLTypePackage.getString(), "attributeNames", null, 0, -1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTracingConfiguration_LinkFromTarget(), ecorePackage.getEBoolean(), "linkFromTarget", null, 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracingConfiguration_LinkFromTarget(), ecorePackage.getEBoolean(), "linkFromTarget", "true", 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracingConfiguration_LinkType(), theReqIF10Package.getSpecRelationType(), null, "linkType", null, 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

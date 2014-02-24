@@ -121,6 +121,7 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 
 	/**
 	 * Returns the value of the '<em><b>Link From Target</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Link From Target</em>' attribute isn't clear,
@@ -130,7 +131,7 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * @return the value of the '<em>Link From Target</em>' attribute.
 	 * @see #setLinkFromTarget(boolean)
 	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_LinkFromTarget()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isLinkFromTarget();

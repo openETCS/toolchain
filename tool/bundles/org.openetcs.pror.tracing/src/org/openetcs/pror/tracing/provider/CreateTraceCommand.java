@@ -20,12 +20,14 @@ package org.openetcs.pror.tracing.provider;
 
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -38,16 +40,24 @@ import org.eclipse.rmf.reqif10.ReqIF10Factory;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.openetcs.pror.tracing.TracingConfiguration;
 
 /**
+ * <p>
  * This command is used for creating traces from Papyrus via drag and drop.
  * During the drag operation (and before drop), many instances of the command
  * are created. To keep performance high, {@link #prepare()} does nothing, while
  * all the "work" is done in {@link #doExecute()}, which is only called after
  * the drop.
+ * </p>
+ * 
+ * <p>
+ * The format of the value of the Proxy Element is described in
+ * {@link TracingConfigurationItemProvider}.
+ * </p>
  * 
  * @author jastram
  * 
@@ -55,18 +65,16 @@ import org.openetcs.pror.tracing.TracingConfiguration;
 public class CreateTraceCommand extends AbstractOverrideableCommand {
 
 	private Set<EObject> elements;
-	private Object target;
-	private int operation;
+	private SpecObject target;
 	private TracingConfiguration config;
 	private AdapterFactory adapterFactory;
 
-	public CreateTraceCommand(Set<EObject> elements, Object target,
+	public CreateTraceCommand(Set<EObject> elements, SpecObject target,
 			EditingDomain editingDomain, AdapterFactory adapterFactory, int operation, TracingConfiguration config) {
 		super(editingDomain, "Dropped " + elements.size() + " Papyrus element(s)");
 		this.adapterFactory = adapterFactory;
 		this.elements = elements;
 		this.target = target;
-		this.operation = operation;
 		this.config = config;
 	}
 
@@ -103,7 +111,7 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 */
 	void createCreateLinkCommand(CompoundCommand cmd, EObject element) {
 		SpecObject proxy = getProxy(element, cmd);
-		SpecRelation link = getLink(proxy, cmd);
+		getLink(proxy, cmd);
 	}
 
 
@@ -118,6 +126,11 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 		return proxy;
 	}
 
+	/**
+	 * Returns the link for the given link.  If the link does not exist yet,
+	 * it is created, thereby appending to cmd.
+	 * @param element 
+	 */
 	private SpecRelation getLink(SpecObject proxy, CompoundCommand cmd) {
 		SpecRelation link = findLinkFor(proxy);
 		if (link == null)
@@ -125,13 +138,39 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 		return link;
 	}
 
+	/**
+	 * Creates a properly configured SpecRelation object between proxy and target.
+	 */
 	private SpecRelation createLink(CompoundCommand cmd, SpecObject proxy) {
-		// TODO Auto-generated method stub
-		return null;
+		SpecRelation link;
+		link= ReqIF10Factory.eINSTANCE.createSpecRelation();
+		link.setSource(config.isLinkFromTarget() ? target : proxy);
+		link.setTarget(config.isLinkFromTarget() ? proxy : target);
+		cmd.append(ProrUtil.createAddTypedElementCommand(
+				ReqIF10Util.getReqIF(config).getCoreContent(),
+				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
+				link, ReqIF10Package.Literals.SPEC_RELATION__TYPE,
+				config.getLinkType(), 0, 0, domain, adapterFactory));
+		return link;
 	}
 
+	/**
+	 * Attempts to find a SpecRelation that: (1) connects proxy and
+	 * target in the right direction; and (2) has the correct type.
+	 */
 	private SpecRelation findLinkFor(SpecObject proxy) {
-		// TODO Auto-generated method stub
+		SpecObject linkSource = config.isLinkFromTarget() ? target : proxy;
+		SpecObject linkTarget = config.isLinkFromTarget() ? proxy : target;
+		SpecRelationType type = config.getLinkType();
+		
+		for (SpecRelation relation : ReqIF10Util.getReqIF(config)
+				.getCoreContent().getSpecRelations()) {
+			//  It's okay to compare null and references.
+			if (relation.getType() == type && linkSource == relation.getSource()
+					&& linkTarget == relation.getTarget()) {
+				return relation;
+			}
+		}
 		return null;
 	}
 
@@ -151,12 +190,10 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	}
 
 	/**
-	 * Builds the content for a proxy element.  Format Lines separated by \\n:
-	 * Line 1: The URI
-	 * Line 2: Path to Element
-	 * Rest: name-value pairs of content.
+	 * Builds the content for a proxy element.  The format is described in
+	 * the class comments of {@link TracingConfigurationItemProvider}.
 	 */
-	private String buildProxyContent(EObject element) {
+	String buildProxyContent(EObject element) {
 		StringBuilder sb = new StringBuilder();
 		
 		// Line 1
@@ -175,11 +212,18 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 		sb.append("\n");
 
 		// Line 3-end
-		EList<EObject> contents = element.eContents();
-		for (EObject content : contents) {
-			sb.append(content.toString());
+		// We built a map for alphabetical sorting.
+		Set<String> set = new TreeSet<String>();
+		for (EAttribute attribute : element.eClass().getEAllAttributes()) {
+			EStructuralFeature feature = element.eClass()
+					.getEStructuralFeature(attribute.getFeatureID());
+			set.add(attribute.getName() + "=" + element.eGet(feature));
+		}
+		for (String value : set) {
+			sb.append(value);
 			sb.append("\n");
 		}
+		sb.deleteCharAt(sb.length() - 1); // Return the last \n
 		return sb.toString();
 	}
 
@@ -226,16 +270,16 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 * Updates the proxy if it has changed.  Note that this is NOT added to the command
 	 * that we're currently building - the proxy needs to be updated no matter what.
 	 */
-	private void updateProxyIfNecessary(AttributeValueString proxyValue, EObject element) {
+	void updateProxyIfNecessary(AttributeValueString proxyValue, EObject element) {
 		String proxyContent = proxyValue
 				.getTheValue();
 		String currentContent = buildProxyContent(element);
 		if (proxyContent.equals(currentContent))
 			return;
-		System.out.println("Old: " + proxyContent);
-		System.out.println("New: " + currentContent);
 		// Content differs: Update the Value.
-		Command cmd = SetCommand.create(domain, proxyValue.eContainer(), ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE, currentContent);
+		Command cmd = SetCommand.create(domain, proxyValue,
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+				currentContent);
 		domain.getCommandStack().execute(cmd);
 		System.out.println("Updated content!");
 	}

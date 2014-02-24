@@ -18,10 +18,7 @@
  */
 package org.openetcs.pror.tracing.provider;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -188,6 +185,50 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		StringTokenizer st = new StringTokenizer(value, "\n");
 		String actualUri = st.nextToken();
 		assertEquals(expectedUri, actualUri);
+	}
+	
+	@Test
+	public void testUpdateProxyIfNecessaryNoUpdate() throws Exception {
+		CreateTraceCommand cmd = createCommand();
+		editingDomain.getCommandStack().execute(cmd);
+		SpecObject proxy = cmd.findProxyFor(external);
+		
+		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
+		cmd.updateProxyIfNecessary(value, external);
+		// No Cmd should be triggered from this
+		assertEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
+	}
+	
+	@Test
+	public void testUpdateProxyIfNecessaryValueChanged() throws Exception {
+		CreateTraceCommand cmd = createCommand();
+		editingDomain.getCommandStack().execute(cmd);
+		SpecObject proxy = cmd.findProxyFor(external);
+		
+		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
+		value.setTheValue(value.getTheValue() + "x");
+		cmd.updateProxyIfNecessary(value, external);
+		// No Cmd should be triggered from this
+		assertNotEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
+		
+		// Ensure the values match
+		assertEquals(value.getTheValue(), cmd.buildProxyContent(external));
+	}
+
+	@Test
+	public void testUpdateProxyIfNecessaryExternalChanged() throws Exception {
+		CreateTraceCommand cmd = createCommand();
+		editingDomain.getCommandStack().execute(cmd);
+		SpecObject proxy = cmd.findProxyFor(external);
+		
+		((ReqIFHeader)external).setComment("A comment");
+		AttributeValueString value = (AttributeValueString) proxy.getValues().get(0);
+		cmd.updateProxyIfNecessary(value, external);
+		// No Cmd should be triggered from this
+		assertNotEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
+		
+		// Ensure the values match
+		assertEquals(value.getTheValue(), cmd.buildProxyContent(external));
 	}
 }
 

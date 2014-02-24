@@ -93,7 +93,7 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean LINK_FROM_TARGET_EDEFAULT = false;
+	protected static final boolean LINK_FROM_TARGET_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isLinkFromTarget() <em>Link From Target</em>}' attribute.

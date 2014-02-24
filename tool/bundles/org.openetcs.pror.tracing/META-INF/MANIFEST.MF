@@ -7,6 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.openetcs.pror.tracing.provider.TracingEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.openetcs.pror.tracing,
  org.openetcs.pror.tracing.impl,
  org.openetcs.pror.tracing.provider,
