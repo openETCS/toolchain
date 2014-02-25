@@ -19,7 +19,6 @@
 package org.openetcs.pror.tracing.provider;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -32,6 +31,7 @@ import java.util.StringTokenizer;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.DatatypeDefinitionString;
@@ -161,9 +161,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 	 */
 	@Test
 	public void testGetTraceURI() throws Exception {
-		TracingConfigurationItemProvider ip = (TracingConfigurationItemProvider) ProrUtil
-				.getItemProvider(adapterFactory, config);
-		String uri = ip.getTraceURI(external);
+		String uri = EcoreUtil.getURI(external).toString();
 		assertTrue(uri.indexOf("#") > 0);
 		StringTokenizer st = new StringTokenizer(uri, "#");
 		assertTrue(new File(st.nextToken()).exists());
@@ -190,10 +188,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		assertNotNull(proxy);
 		
 		// Ensure that the URLs match
-		TracingConfigurationItemProvider ip = (TracingConfigurationItemProvider) ProrUtil
-				.getItemProvider(adapterFactory, config);
-
-		String expectedUri = ip.getTraceURI(external);
+		String expectedUri = EcoreUtil.getURI(external).toString();
 		String value = ((AttributeValueString)proxy.getValues().get(0)).getTheValue();
 		StringTokenizer st = new StringTokenizer(value, "\n");
 		String actualUri = st.nextToken();
@@ -210,7 +205,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 
 		
 		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
-		ip.updateProxyIfNecessary(value, external, editingDomain);
+		ip.updateProxyIfNecessary(value, external);
 		// No Cmd should be triggered from this
 		assertEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
 	}
@@ -225,9 +220,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 				.getItemProvider(adapterFactory, config);
 		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
 		value.setTheValue(value.getTheValue() + "x");
-		ip.updateProxyIfNecessary(value, external, editingDomain);
-		// No Cmd should be triggered from this
-		assertNotEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
+		ip.updateProxyIfNecessary(value, external);
 		
 		// Ensure the values match
 		assertEquals(value.getTheValue(), ip.buildProxyContent(external));
@@ -243,9 +236,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 				.getItemProvider(adapterFactory, config);
 		((ReqIFHeader)external).setComment("A comment");
 		AttributeValueString value = (AttributeValueString) proxy.getValues().get(0);
-		ip.updateProxyIfNecessary(value, external, editingDomain);
-		// No Cmd should be triggered from this
-		assertNotEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
+		ip.updateProxyIfNecessary(value, external);
 		
 		// Ensure the values match
 		assertEquals(value.getTheValue(), ip.buildProxyContent(external));

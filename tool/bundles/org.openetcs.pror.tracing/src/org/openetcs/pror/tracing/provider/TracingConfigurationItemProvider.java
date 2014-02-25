@@ -16,29 +16,27 @@
 package org.openetcs.pror.tracing.provider;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -52,7 +50,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
-import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -71,8 +68,8 @@ import org.openetcs.pror.tracing.TracingPackage;
  * by \\n:
  * </p>
  * <ul>
- * <li>First Line: URL
- * <li>Second Line: Path to element
+ * <li>First Line: URL, as delivered by {@link EcoreUtil#getURI(EObject)}
+ * <li>Second Line: Path to element, to be presented to the user
  * <li>Remaining lines: properties in alphabetical order.
  * </ul>
  * <!-- end-user-doc -->
@@ -392,7 +389,7 @@ public class TracingConfigurationItemProvider extends
 	/**
 	 * Tracks the changes of external traces.
 	 */
-	private Map<Resource, Adapter> changeListeners = new HashMap<>();
+	private IResourceChangeListener resourceListener; 
 
 	/**
 	 * Upon opening, scans all proxies to find the files to be monitored.
@@ -401,30 +398,35 @@ public class TracingConfigurationItemProvider extends
 	public void registerPresentationConfiguration(
 			ProrPresentationConfiguration config, final EditingDomain editingDomain) {
 		super.registerPresentationConfiguration(config, editingDomain);
-		System.out.println("Registering - scanning all Proxies");
 
-		TracingConfiguration tracingConfig = (TracingConfiguration) config;
-		Set<String> urls = new HashSet<String>();
-		for (SpecObject obj : ReqIF10Util.getReqIF(config).getCoreContent().getSpecObjects()) {
-			if (obj.getType() == tracingConfig.getProxyType()) {
-				urls.add(getUrlFromProxy(obj));
-				// TODO: Check for changes
-			}
-		}
-		
-		for (String url : urls) {
-			Resource resource = getResourceFromUrl(url, editingDomain);
-			Adapter adapter = new AdapterImpl() {
-				@Override
-				public void notifyChanged(Notification msg) {
-					super.notifyChanged(msg);
+		// Run an initial scan
+		scanForChanges(editingDomain);
+
+		// We observe the Workspace.  Note that this implementation is fairly inefficient.
+		resourceListener = new IResourceChangeListener() {
+			@Override
+			public void resourceChanged(IResourceChangeEvent event) {
+				if (event.getType() == IResourceChangeEvent.POST_CHANGE) {
 					scanForChanges(editingDomain);
 				}
-			};
-			resource.eAdapters().add(adapter);
-			changeListeners.put(resource, adapter);
-			System.out.println("Registering listener for: " + resource);
-		}
+			}
+		};
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceListener);
+		
+	}
+
+	private ResourceSet trackedResources = new ResourceSetImpl();
+	/**
+	 * <p>Retrieves the Element from the given url.</p>
+	 * 
+	 * TODO: This is extremely inefficient: We unload and reload the resource to find changes.
+	 * There is definitively a better way!
+	 */
+	private EObject getElementFromUri(String url, EditingDomain domain) {
+		EObject element = trackedResources.getEObject(URI.createURI(url), true);
+		if (element == null) return null;
+		element.eResource().unload();
+		return trackedResources.getEObject(URI.createURI(url), true);
 	}
 
 	/**
@@ -433,9 +435,11 @@ public class TracingConfigurationItemProvider extends
 	@Override
 	public void unregisterPresentationConfiguration(
 			ProrPresentationConfiguration config) {
-		for (Map.Entry<Resource, Adapter> entry : changeListeners.entrySet()) {
-			entry.getKey().eAdapters().remove(entry.getValue());
-			System.out.println("Removing listener for: " + entry.getKey());
+
+		// Stop listening for changes.
+		if (resourceListener != null) {
+			ResourcesPlugin.getWorkspace().removeResourceChangeListener(
+					resourceListener);
 		}
 	}
 
@@ -443,38 +447,21 @@ public class TracingConfigurationItemProvider extends
 	 * Triggered, when an observed resource is saved.
 	 */
 	private void scanForChanges(EditingDomain domain) {
-		System.out.println("Scanning for changes.");
 		TracingConfiguration config = (TracingConfiguration) getTarget();
+		if (config == null) {
+			return;
+		}
+
 		for (SpecObject obj : ReqIF10Util.getReqIF(config).getCoreContent().getSpecObjects()) {
 			if (obj.getType() == config.getProxyType()) {
 				AttributeValue av = ReqIF10Util.getAttributeValue(obj,
 						config.getProxyAttribute());
 				if (! (av instanceof AttributeValueString)) continue;
-				AttributeValueString avs = (AttributeValueString)av;
-				String url = getProxyUrlFromValue(avs.getTheValue());
-				EObject element = resolveProxyURL(url , domain);
-				updateProxyIfNecessary(avs, element, domain);
+				
+				EObject element = getElementFromUri(getUrlFromProxy(obj), domain);
+				updateProxyIfNecessary((AttributeValueString)av, element);
 			}
 		}
-
-	}
-
-	/** 
-	 * Returns an EMF Resource for the given URL
-	 **/
-	Resource getResourceFromUrl(String url, EditingDomain domain) {
-		if (url.indexOf("#") < 0)
-			return null;
-	
-		StringTokenizer st = new StringTokenizer(url, "#");
-		String path = st.nextToken();
-		URI uri = URI.createPlatformResourceURI(path, true);
-		if (uri != null)
-			return
-	
-			domain.getResourceSet().createResource(uri);
-		return null;
-	
 	}
 
 	String getUrlFromProxy(SpecObject proxy) {
@@ -494,21 +481,57 @@ public class TracingConfigurationItemProvider extends
 	}
 	
 	/**
-	 * Updates the proxy if it has changed.  Note that this is NOT added to the command
-	 * that we're currently building - the proxy needs to be updated no matter what.
+	 * <p>Updates the proxy if it has changed by appending a command, if necessary.
+	 * Note that we are NOT using commands for this change.  There are pros and
+	 * cons either way.</p>
+	 * 
+	 * element may be null (if it cannot be found).  In that case, the text "DELETED"
+	 * is prepended to the second (user visible) line.
 	 */
-	void updateProxyIfNecessary(AttributeValueString proxyValue, EObject element, EditingDomain domain) {
+	void updateProxyIfNecessary(AttributeValueString proxyValue,
+			EObject element) {
+		if (element == null) {
+			markAsDeleted(proxyValue);
+			return;
+		}
 		String proxyContent = proxyValue
 				.getTheValue();
 		String currentContent = buildProxyContent(element);
 		if (proxyContent.equals(currentContent))
 			return;
 		// Content differs: Update the Value.
-		Command cmd = SetCommand.create(domain, proxyValue,
-				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-				currentContent);
-		domain.getCommandStack().execute(cmd);
-		System.out.println("Value updated.");
+		proxyValue.setTheValue(currentContent);
+		
+		// This is how it's done with commands.
+//		cmd.append(SetCommand.create(domain, proxyValue,
+//				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+//				currentContent));
+	}
+
+	/**
+	 * Marks the value as deleted, by prepending the text "DELETED" to the
+	 * second line.
+	 * 
+	 * @param proxyValue
+	 */
+	private void markAsDeleted(AttributeValueString proxyValue) {
+		StringTokenizer tokenizer = new StringTokenizer(
+				proxyValue.getTheValue(), "\n");
+		StringBuilder sb = new StringBuilder();
+		int linenumber = 0;
+		while (tokenizer.hasMoreTokens()) {
+			String line = tokenizer.nextToken();
+			if (linenumber == 1) {
+				if (line.startsWith("DELETED:"))
+					return;
+				line = "DELETED: " + line;
+			}
+			sb.append(line);
+			if (tokenizer.hasMoreTokens())
+				sb.append("\n");
+			linenumber++;
+		}
+		proxyValue.setTheValue(sb.toString());
 	}
 
 	/**
@@ -519,7 +542,7 @@ public class TracingConfigurationItemProvider extends
 		StringBuilder sb = new StringBuilder();
 		
 		// Line 1
-		sb.append(getTraceURI(element));
+		sb.append(EcoreUtil.getURI(element));
 		sb.append("\n");
 		EObject e = element;
 
@@ -547,29 +570,6 @@ public class TracingConfigurationItemProvider extends
 		}
 		sb.deleteCharAt(sb.length() - 1); // Return the last \n
 		return sb.toString();
-	}
-
-	/**
-	 * Returns the Trace URI.
-	 */
-	String getTraceURI(EObject element) {
-		String base = element.eResource().getURI().path();
-		if ((base == null)) base = element.eResource().getURI().toFileString();
-
-		String fragment = element.eResource().getURIFragment(element);
-		return base + "#" + fragment;
-	}
-
-	/**
-	 * Tries to find the EObject that the proxy URL points to.  Returns null if
-	 * this canot be resolved.
-	 */
-	private EObject resolveProxyURL(String url, EditingDomain domain) {
-		Resource resource = getResourceFromUrl(url, domain);
-		StringTokenizer st = new StringTokenizer(url, "#");
-		st.nextToken();
-		String fragment = st.nextToken();
-		return resource.getEObject(fragment);
 	}
 
 }

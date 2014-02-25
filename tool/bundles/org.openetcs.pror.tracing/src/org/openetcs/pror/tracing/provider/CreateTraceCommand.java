@@ -22,6 +22,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
@@ -191,7 +192,7 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 */
 	SpecObject findProxyFor(EObject element) {
 		TracingConfiguration config = getTracingConfig();
-		String uri = itemProvider.getTraceURI(element);
+		String uri = EcoreUtil.getURI(element).toString();
 		ReqIF reqif = ReqIF10Util.getReqIF(config);
 		AttributeDefinitionString ad = config.getProxyAttribute();
 
@@ -200,10 +201,12 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 			AttributeValue value = ReqIF10Util
 					.getAttributeValue(specObject, ad);
 			if (value instanceof AttributeValueString) {
-				String tmpUrl = TracingConfigurationItemProvider.getProxyUrlFromValue(((AttributeValueString) value)
-						.getTheValue());
+				String tmpUrl = TracingConfigurationItemProvider
+						.getProxyUrlFromValue(((AttributeValueString) value)
+								.getTheValue());
 				if (uri.equals(tmpUrl)) {
-					itemProvider.updateProxyIfNecessary((AttributeValueString) value, element, domain);
+					itemProvider.updateProxyIfNecessary(
+							(AttributeValueString) value, element);
 					return specObject;
 				}
 			}
