@@ -36,6 +36,7 @@ import org.eclipse.rmf.reqif10.pror.configuration.ProrPresentationConfiguration;
  *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#isLinkFromTarget <em>Link From Target</em>}</li>
  *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getLinkType <em>Link Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.TracingConfiguration#getPackagePrefix <em>Package Prefix</em>}</li>
  * </ul>
  * </p>
  *
@@ -171,5 +172,32 @@ public interface TracingConfiguration extends ProrPresentationConfiguration {
 	 * @generated
 	 */
 	void setLinkType(SpecRelationType value);
+
+	/**
+	 * Returns the value of the '<em><b>Package Prefix</b></em>' attribute.
+	 * The default value is <code>"org.eclipse.uml"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Package Prefix</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Package Prefix</em>' attribute.
+	 * @see #setPackagePrefix(String)
+	 * @see org.openetcs.pror.tracing.TracingPackage#getTracingConfiguration_PackagePrefix()
+	 * @model default="org.eclipse.uml" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getPackagePrefix();
+
+	/**
+	 * Sets the value of the '{@link org.openetcs.pror.tracing.TracingConfiguration#getPackagePrefix <em>Package Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Package Prefix</em>' attribute.
+	 * @see #getPackagePrefix()
+	 * @generated
+	 */
+	void setPackagePrefix(String value);
 
 } // TracingConfiguration

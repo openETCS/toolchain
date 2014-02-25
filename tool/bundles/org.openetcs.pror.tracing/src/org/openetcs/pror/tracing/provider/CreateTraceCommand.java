@@ -19,19 +19,11 @@
 package org.openetcs.pror.tracing.provider;
 
 import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AbstractOverrideableCommand;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.rmf.reqif10.AttributeDefinitionString;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
@@ -66,18 +58,20 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 
 	private Set<EObject> elements;
 	private SpecObject target;
-	private TracingConfiguration config;
-	private AdapterFactory adapterFactory;
+	private TracingConfigurationItemProvider itemProvider;
 
-	public CreateTraceCommand(Set<EObject> elements, SpecObject target,
-			EditingDomain editingDomain, AdapterFactory adapterFactory, int operation, TracingConfiguration config) {
-		super(editingDomain, "Dropped " + elements.size() + " Papyrus element(s)");
-		this.adapterFactory = adapterFactory;
+	public CreateTraceCommand(Set<EObject> elements, SpecObject target, int operation, EditingDomain domain, TracingConfigurationItemProvider itemProvider) {
+		super(domain, "Dropped " + elements.size() + " Papyrus element(s)");
+		if (itemProvider == null) throw new NullPointerException();
+		this.itemProvider = itemProvider;
 		this.elements = elements;
 		this.target = target;
-		this.config = config;
 	}
 
+	private TracingConfiguration getTracingConfig() {
+		return (TracingConfiguration) itemProvider.getTarget();
+	}
+	
 	/**
 	 * We always return true.  The default implementation would call the prepare method, which creates
 	 * proxy elements as a side effect.
@@ -95,7 +89,6 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	@Override
 	public void doExecute() {
 		CompoundCommand cmd = new CompoundCommand(getLabel());
-		System.out.println("prepare called");
 		for (EObject element : elements) {
 			createCreateLinkCommand(cmd, element);
 		}
@@ -144,13 +137,14 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	private SpecRelation createLink(CompoundCommand cmd, SpecObject proxy) {
 		SpecRelation link;
 		link= ReqIF10Factory.eINSTANCE.createSpecRelation();
+		TracingConfiguration config = getTracingConfig();
 		link.setSource(config.isLinkFromTarget() ? target : proxy);
 		link.setTarget(config.isLinkFromTarget() ? proxy : target);
 		cmd.append(ProrUtil.createAddTypedElementCommand(
 				ReqIF10Util.getReqIF(config).getCoreContent(),
 				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_RELATIONS,
 				link, ReqIF10Package.Literals.SPEC_RELATION__TYPE,
-				config.getLinkType(), 0, 0, domain, adapterFactory));
+				config.getLinkType(), 0, 0, domain, itemProvider.getAdapterFactory()));
 		return link;
 	}
 
@@ -159,6 +153,7 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 * target in the right direction; and (2) has the correct type.
 	 */
 	private SpecRelation findLinkFor(SpecObject proxy) {
+		TracingConfiguration config = getTracingConfig();
 		SpecObject linkSource = config.isLinkFromTarget() ? target : proxy;
 		SpecObject linkTarget = config.isLinkFromTarget() ? proxy : target;
 		SpecRelationType type = config.getLinkType();
@@ -177,65 +172,17 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	private SpecObject createProxy(CompoundCommand cmd, EObject element) {
 		SpecObject proxy;
 		proxy = ReqIF10Factory.eINSTANCE.createSpecObject();
+		TracingConfiguration config = getTracingConfig();
 		AttributeValueString value = ReqIF10Factory.eINSTANCE.createAttributeValueString();
 		value.setDefinition(config.getProxyAttribute());
-		value.setTheValue(buildProxyContent(element));
+		value.setTheValue(itemProvider.buildProxyContent(element));
 		proxy.getValues().add(value);
 		cmd.append(ProrUtil.createAddTypedElementCommand(
 				ReqIF10Util.getReqIF(config).getCoreContent(),
 				ReqIF10Package.Literals.REQ_IF_CONTENT__SPEC_OBJECTS,
 				proxy, ReqIF10Package.Literals.SPEC_OBJECT__TYPE,
-				config.getProxyType(), 0, 0, domain, adapterFactory));
+				config.getProxyType(), 0, 0, domain, itemProvider.getAdapterFactory()));
 		return proxy;
-	}
-
-	/**
-	 * Builds the content for a proxy element.  The format is described in
-	 * the class comments of {@link TracingConfigurationItemProvider}.
-	 */
-	String buildProxyContent(EObject element) {
-		StringBuilder sb = new StringBuilder();
-		
-		// Line 1
-		sb.append(getTraceURI(element));
-		sb.append("\n");
-		EObject e = element;
-
-		// Line 2
-		while (e.eContainer() instanceof EObject) {
-			ItemProviderAdapter ip = ProrUtil.getItemProvider(adapterFactory, e);
-			if (ip != null) sb.append(ip.getText(e));
-			else sb.append(e.toString());
-			e = e.eContainer();
-			if (e.eContainer() instanceof EObject) sb.append(" / ");
-		}
-		sb.append("\n");
-
-		// Line 3-end
-		// We built a map for alphabetical sorting.
-		Set<String> set = new TreeSet<String>();
-		for (EAttribute attribute : element.eClass().getEAllAttributes()) {
-			EStructuralFeature feature = element.eClass()
-					.getEStructuralFeature(attribute.getFeatureID());
-			set.add(attribute.getName() + "=" + element.eGet(feature));
-		}
-		for (String value : set) {
-			sb.append(value);
-			sb.append("\n");
-		}
-		sb.deleteCharAt(sb.length() - 1); // Return the last \n
-		return sb.toString();
-	}
-
-	/**
-	 * Returns the Trace URI.
-	 */
-	String getTraceURI(EObject element) {
-		String base = element.eResource().getURI().path();
-		if ((base == null)) base = element.eResource().getURI().toFileString();
-
-		String fragment = element.eResource().getURIFragment(element);
-		return base + "#" + fragment;
 	}
 
 	/**
@@ -243,8 +190,8 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 * If it is found, the content will be updated, if it has changed.
 	 */
 	SpecObject findProxyFor(EObject element) {
-		String uri = getTraceURI(element);
-		System.out.println("Finding URL: " + uri);
+		TracingConfiguration config = getTracingConfig();
+		String uri = itemProvider.getTraceURI(element);
 		ReqIF reqif = ReqIF10Util.getReqIF(config);
 		AttributeDefinitionString ad = config.getProxyAttribute();
 
@@ -253,43 +200,15 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 			AttributeValue value = ReqIF10Util
 					.getAttributeValue(specObject, ad);
 			if (value instanceof AttributeValueString) {
-				String tmpUrl = getProxyUrlFromValue(((AttributeValueString) value)
+				String tmpUrl = TracingConfigurationItemProvider.getProxyUrlFromValue(((AttributeValueString) value)
 						.getTheValue());
 				if (uri.equals(tmpUrl)) {
-					System.out.println("Found proxy!");
-					updateProxyIfNecessary((AttributeValueString) value, element);
+					itemProvider.updateProxyIfNecessary((AttributeValueString) value, element, domain);
 					return specObject;
 				}
 			}
 		}
-		System.out.println("Did not find proxy");
 		return null;
-	}
-
-	/**
-	 * Updates the proxy if it has changed.  Note that this is NOT added to the command
-	 * that we're currently building - the proxy needs to be updated no matter what.
-	 */
-	void updateProxyIfNecessary(AttributeValueString proxyValue, EObject element) {
-		String proxyContent = proxyValue
-				.getTheValue();
-		String currentContent = buildProxyContent(element);
-		if (proxyContent.equals(currentContent))
-			return;
-		// Content differs: Update the Value.
-		Command cmd = SetCommand.create(domain, proxyValue,
-				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-				currentContent);
-		domain.getCommandStack().execute(cmd);
-		System.out.println("Updated content!");
-	}
-
-
-	/**
-	 * Retrieves the Proxy URL from the given String, essentially just using the first text line.
-	 */
-	private static String getProxyUrlFromValue(String value) {
-		return new StringTokenizer(value).nextToken();
 	}
 
 	@Override

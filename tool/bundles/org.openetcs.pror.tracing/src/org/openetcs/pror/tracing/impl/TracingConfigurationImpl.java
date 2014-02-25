@@ -42,6 +42,7 @@ import org.openetcs.pror.tracing.TracingPackage;
  *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#isLinkFromTarget <em>Link From Target</em>}</li>
  *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getLinkType <em>Link Type</em>}</li>
+ *   <li>{@link org.openetcs.pror.tracing.impl.TracingConfigurationImpl#getPackagePrefix <em>Package Prefix</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,6 +115,26 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 	 * @ordered
 	 */
 	protected SpecRelationType linkType;
+
+	/**
+	 * The default value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackagePrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PACKAGE_PREFIX_EDEFAULT = "org.eclipse.uml";
+
+	/**
+	 * The cached value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackagePrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected String packagePrefix = PACKAGE_PREFIX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -286,6 +307,27 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPackagePrefix() {
+		return packagePrefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackagePrefix(String newPackagePrefix) {
+		String oldPackagePrefix = packagePrefix;
+		packagePrefix = newPackagePrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TracingPackage.TRACING_CONFIGURATION__PACKAGE_PREFIX, oldPackagePrefix, packagePrefix));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -302,6 +344,8 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 			case TracingPackage.TRACING_CONFIGURATION__LINK_TYPE:
 				if (resolve) return getLinkType();
 				return basicGetLinkType();
+			case TracingPackage.TRACING_CONFIGURATION__PACKAGE_PREFIX:
+				return getPackagePrefix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,6 +375,9 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 			case TracingPackage.TRACING_CONFIGURATION__LINK_TYPE:
 				setLinkType((SpecRelationType)newValue);
 				return;
+			case TracingPackage.TRACING_CONFIGURATION__PACKAGE_PREFIX:
+				setPackagePrefix((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -358,6 +405,9 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 			case TracingPackage.TRACING_CONFIGURATION__LINK_TYPE:
 				setLinkType((SpecRelationType)null);
 				return;
+			case TracingPackage.TRACING_CONFIGURATION__PACKAGE_PREFIX:
+				setPackagePrefix(PACKAGE_PREFIX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -380,6 +430,8 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 				return linkFromTarget != LINK_FROM_TARGET_EDEFAULT;
 			case TracingPackage.TRACING_CONFIGURATION__LINK_TYPE:
 				return linkType != null;
+			case TracingPackage.TRACING_CONFIGURATION__PACKAGE_PREFIX:
+				return PACKAGE_PREFIX_EDEFAULT == null ? packagePrefix != null : !PACKAGE_PREFIX_EDEFAULT.equals(packagePrefix);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,6 +450,8 @@ public class TracingConfigurationImpl extends ProrPresentationConfigurationImpl 
 		result.append(attributeNames);
 		result.append(", linkFromTarget: ");
 		result.append(linkFromTarget);
+		result.append(", packagePrefix: ");
+		result.append(packagePrefix);
 		result.append(')');
 		return result.toString();
 	}

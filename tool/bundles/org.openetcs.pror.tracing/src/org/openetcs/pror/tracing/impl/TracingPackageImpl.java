@@ -173,6 +173,15 @@ public class TracingPackageImpl extends EPackageImpl implements TracingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTracingConfiguration_PackagePrefix() {
+		return (EAttribute)tracingConfigurationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TracingFactory getTracingFactory() {
 		return (TracingFactory)getEFactoryInstance();
 	}
@@ -202,6 +211,7 @@ public class TracingPackageImpl extends EPackageImpl implements TracingPackage {
 		createEAttribute(tracingConfigurationEClass, TRACING_CONFIGURATION__ATTRIBUTE_NAMES);
 		createEAttribute(tracingConfigurationEClass, TRACING_CONFIGURATION__LINK_FROM_TARGET);
 		createEReference(tracingConfigurationEClass, TRACING_CONFIGURATION__LINK_TYPE);
+		createEAttribute(tracingConfigurationEClass, TRACING_CONFIGURATION__PACKAGE_PREFIX);
 	}
 
 	/**
@@ -246,6 +256,7 @@ public class TracingPackageImpl extends EPackageImpl implements TracingPackage {
 		initEAttribute(getTracingConfiguration_AttributeNames(), theXMLTypePackage.getString(), "attributeNames", null, 0, -1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTracingConfiguration_LinkFromTarget(), ecorePackage.getEBoolean(), "linkFromTarget", "true", 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracingConfiguration_LinkType(), theReqIF10Package.getSpecRelationType(), null, "linkType", null, 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracingConfiguration_PackagePrefix(), theXMLTypePackage.getString(), "packagePrefix", "org.eclipse.uml", 0, 1, TracingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

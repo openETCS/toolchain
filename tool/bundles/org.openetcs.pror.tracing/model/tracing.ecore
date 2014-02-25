@@ -10,5 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkFromTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkType" eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecRelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="org.eclipse.uml"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -142,13 +142,22 @@ public interface TracingPackage extends EPackage {
 	int TRACING_CONFIGURATION__LINK_TYPE = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Package Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACING_CONFIGURATION__PACKAGE_PREFIX = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACING_CONFIGURATION_FEATURE_COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 5;
+	int TRACING_CONFIGURATION_FEATURE_COUNT = ConfigurationPackage.PROR_PRESENTATION_CONFIGURATION_FEATURE_COUNT + 6;
 
 
 	/**
@@ -215,6 +224,17 @@ public interface TracingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTracingConfiguration_LinkType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.openetcs.pror.tracing.TracingConfiguration#getPackagePrefix <em>Package Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Package Prefix</em>'.
+	 * @see org.openetcs.pror.tracing.TracingConfiguration#getPackagePrefix()
+	 * @see #getTracingConfiguration()
+	 * @generated
+	 */
+	EAttribute getTracingConfiguration_PackagePrefix();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -287,6 +307,14 @@ public interface TracingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACING_CONFIGURATION__LINK_TYPE = eINSTANCE.getTracingConfiguration_LinkType();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACING_CONFIGURATION__PACKAGE_PREFIX = eINSTANCE.getTracingConfiguration_PackagePrefix();
 
 	}
 
