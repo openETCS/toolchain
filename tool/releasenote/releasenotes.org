@@ -1,0 +1,28 @@
+** ToolSprint 5 (ends 14-Feb-14) v1.0.5
+*** resolved issues
+- #268 Temporarily use older xtext version
+- #267 Add Papyurus components to openETCS
+- #266 Milestone Release ToolSprint 5
+- #251 Shall we try to decrease the memory consumption in Papyrus?
+- #246 openETCS does not load (windows 32 bit)
+- #225 Decide on the fate of Bitwalker-SysML-Integration
+- #218 Subset-26 conversion to ProR
+- #216 Evaluate the open solutions to traceability
+
+*** Important commit 
+- d01c478b658b7a6a34fd34b46590516a01185723
+ Merge pull request #284 from jfaltermeier/master
+
+ #246 Changed launch configuration for 32bit; #268 Xtext 2.4.2
+- 28f46f3998c969f8833cb175f3669de60f1a1bcf
+ Add Papyrus (View Stylesheets) and Papyrus Tabular Editor #267
+- 1a925a9a41d7d6c1a066e25bd1e803b3cd3bb43e 
+ #246 Lowered memory settings
+- 68562d0fb5bea2e89c34afebcc4b3d8611348582
+
+ #246 Included JRE in Tycho-Build
+
+There is a feature for every platform including the JRE. The JRE is set in the openETCS.ini via touchpoint instructions. This appraoch allows to update users JRE by updating the feature. Since the JRE is not placed as a root file this mechanism also works in windows machines.
+- 65f60f65ce8c6c27c4eac0854f81a1efffd891c8
+ #246 Using different launch configuration for 32bit products
+

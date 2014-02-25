@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://DATADICTIONARY_LIBRARIES/"
+            target="platform:/plugin/org.openetcs.datadictionary/libraries/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+      <library
+            description="DataDictionary based on SRS Subset-026-7 and Subset-026-8"
+            name="openETCSDataDictionary"
+            path="pathmap://DATADICTIONARY_LIBRARIES/DataDictionary.library.uml"
+            provider="Fraunhofer ESK">
+      </library>
+   </extension>
+
+</plugin>

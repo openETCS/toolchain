@@ -11,12 +11,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1052.3622"
-   height="744.09448"
+   width="1035.3302"
+   height="791.86877"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="WholeProcess_Activities.pdf">
+   sodipodi:docname="WholeProcess_Activities.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.2659683"
-     inkscape:cx="432.1819"
-     inkscape:cy="372.04724"
+     inkscape:cx="524.10117"
+     inkscape:cy="457.49353"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,7 +37,11 @@
      inkscape:window-height="1144"
      inkscape:window-x="0"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     fit-margin-top="0.2"
+     fit-margin-left="0.2"
+     fit-margin-right="0.2"
+     fit-margin-bottom="0.2" />
   <defs
      id="defs4">
     <pattern
@@ -1267,7 +1271,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1275,22 +1279,22 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-308.2677)">
+     transform="translate(-10.895573,-318.08125)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.97709823px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 466.8301,1009.7146 860.21735,382.51163"
+       style="fill:none;stroke:#000000;stroke-width:1.02431035px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 473.17298,1083.1525 860.19374,382.53524"
        id="path6520-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.97709823px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 73.285859,383.6939 393.387251,627.203"
+       style="fill:none;stroke:#000000;stroke-width:1.02635789px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 71.73067,405.83599 472.96775,1084.3337"
        id="path6520"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <g
        id="g6563"
-       transform="translate(-358.61879,-3.0574893)">
+       transform="translate(-368.09771,65.664611)">
       <path
          transform="matrix(0.63306223,0,0,0.61477613,296.97158,508.28042)"
          sodipodi:open="true"
@@ -1328,10 +1332,10 @@
            sodipodi:role="line">Code</tspan></text>
     </g>
     <rect
-       style="fill:none;stroke:#3e79ca;stroke-width:3.72071004;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:none;stroke:#3e79ca;stroke-width:3.77402592;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect10832"
        width="996.46716"
-       height="445.85544"
+       height="458.72476"
        x="47.418262"
        y="320.16043" />
     <text
@@ -1355,23 +1359,23 @@
        inkscape:original-d="M 411.01836,527.17206 z"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:none;stroke:#3e79ca;stroke-width:2.90571523;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:none;stroke:#3e79ca;stroke-width:3.13867259;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect10832-0"
-       width="998.15521"
-       height="271.46475"
-       x="48.404549"
-       y="771.98322" />
+       width="997.29578"
+       height="317.01038"
+       x="46.06958"
+       y="791.17542" />
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-       x="-885.16516"
-       y="28.056252"
+       x="-943.61847"
+       y="26.476433"
        id="text10834-3"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"><tspan
          sodipodi:role="line"
-         x="-885.16516"
-         y="28.056252"
+         x="-943.61847"
+         y="26.476433"
          id="tspan3139"
          style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Serif;-inkscape-font-specification:Serif Bold">Software  phase</tspan></text>
     <g
@@ -1462,7 +1466,7 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot4545"
-       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:16px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
          id="flowRegion4547"><rect
            id="rect4549"
            width="193.79163"
@@ -1473,7 +1477,7 @@
          id="flowPara4551" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4621"
-       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:16px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
          id="flowRegion4623"><rect
            id="rect4625"
            width="165.08176"
@@ -1581,7 +1585,7 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:#0000ff;stroke:#0000ff;stroke-width:1.46976459;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.4697646, 2.93952921;stroke-dashoffset:0"
-       d="M 56.576665,926.54129 1041.5587,922.07428"
+       d="M 52.627119,993.68357 1037.6092,989.21656"
        id="path5189-4"
        inkscape:connector-curvature="0" />
     <text
@@ -1638,29 +1642,29 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-       x="-984.43579"
-       y="980.29822"
+       x="-1046.8386"
+       y="977.92847"
        id="text5228-3"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"><tspan
          sodipodi:role="line"
-         x="-984.43579"
-         y="980.29822"
+         x="-1046.8386"
+         y="977.92847"
          style="font-size:14px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif Italic"
          id="tspan5292">Step 4</tspan><tspan
          sodipodi:role="line"
-         x="-982.61743"
-         y="997.79822"
+         x="-1045.0203"
+         y="995.42847"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan4515">Software code </tspan><tspan
          sodipodi:role="line"
-         x="-984.43579"
-         y="1015.2982"
+         x="-1046.8386"
+         y="1012.9285"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan5318">generation -</tspan><tspan
          sodipodi:role="line"
-         x="-984.43579"
-         y="1032.7982"
+         x="-1046.8386"
+         y="1030.4285"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan4340">implementation</tspan></text>
     <text
@@ -1689,24 +1693,24 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-       x="-848.32196"
-       y="989.04822"
+       x="-898.87616"
+       y="986.67847"
        id="text5228-3-8"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"><tspan
          sodipodi:role="line"
-         x="-848.32196"
-         y="989.04822"
+         x="-898.87616"
+         y="986.67847"
          style="font-size:14px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif Italic"
          id="tspan5232-5-9">Step 3</tspan><tspan
          sodipodi:role="line"
-         x="-848.32196"
-         y="1006.5482"
+         x="-898.87616"
+         y="1004.1785"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan4507">Software</tspan><tspan
          sodipodi:role="line"
-         x="-848.32196"
-         y="1024.0482"
+         x="-898.87616"
+         y="1021.6785"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;font-family:Serif;-inkscape-font-specification:Serif"
          id="tspan5292-9">design</tspan></text>
     <text
@@ -1803,27 +1807,26 @@
            sodipodi:role="line">Hazard Analysis</tspan></text>
     </g>
     <g
-       id="g5465"
-       transform="translate(45.842119,25.132355)">
+       id="g5499">
       <rect
          style="fill:#d5f6ff;fill-opacity:1;stroke:#0000cb;stroke-width:1.27443898;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          id="rect3763-1-3-1-8-50-5"
          width="268.88287"
          height="48.693283"
-         x="84.120964"
-         y="608.89966"
+         x="129.96309"
+         y="634.03204"
          ry="6.1599202" />
       <text
          sodipodi:linespacing="125%"
          id="text4550-7"
-         y="636.883"
-         x="146.81583"
+         y="662.01538"
+         x="162.07396"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
          xml:space="preserve"><tspan
-           y="636.883"
-           x="146.81583"
+           y="662.01538"
+           x="162.07396"
            sodipodi:role="line"
-           id="tspan5458">Sub-System Modeling</tspan></text>
+           id="tspan5458">Sub-System (Formal) Modeling</tspan></text>
     </g>
     <g
        transform="translate(-43.304752,179.66281)"
@@ -1853,7 +1856,8 @@
       </g>
     </g>
     <g
-       id="g4937">
+       id="g4937"
+       transform="matrix(1.0034678,0,0,1.369754,-2.099202,-267.36403)">
       <rect
          ry="5.4892364"
          y="723.5401"
@@ -1873,7 +1877,11 @@
          sodipodi:role="line"
          x="609.61334"
          y="745.67145"
-         id="tspan5409-2">Model Checking, static analysis ...  </tspan></text>
+         id="tspan5409-2">Model Checking, static analysis ...  </tspan><tspan
+         sodipodi:role="line"
+         x="609.61334"
+         y="763.17145"
+         id="tspan5514">Formal proof checking</tspan></text>
     <g
        id="g5557"
        transform="translate(159.0641,36.419283)">
@@ -1921,7 +1929,7 @@
            sodipodi:role="line">Peer Reviewing</tspan></text>
     </g>
     <g
-       transform="translate(88.671839,230.82549)"
+       transform="translate(86.302111,281.37968)"
        id="g6334">
       <rect
          style="fill:#d5f6ff;fill-opacity:1;stroke:#0000cb;stroke-width:1.27443898;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -1944,7 +1952,7 @@
            id="tspan5458-9">Code Generator</tspan></text>
     </g>
     <g
-       transform="translate(117.50093,292.70694)"
+       transform="translate(108.02202,356.68958)"
        id="g6355">
       <rect
          ry="6.1599202"
@@ -1967,12 +1975,12 @@
            y="638.52014">Compilers</tspan></text>
     </g>
     <g
-       transform="translate(77.851672,165.66975)"
-       id="g6355-4">
+       id="g5508"
+       transform="translate(-2.3697276,50.554188)">
       <rect
          ry="6.1599202"
-         y="610.5368"
-         x="75.116524"
+         y="776.20654"
+         x="153.11859"
          height="48.693283"
          width="268.88287"
          id="rect3763-1-3-1-8-50-5-6-9"
@@ -1980,22 +1988,22 @@
       <text
          xml:space="preserve"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-         x="209.46567"
-         y="638.52014"
+         x="287.31735"
+         y="804.18988"
          id="text4550-7-2-4"
          sodipodi:linespacing="125%"><tspan
            id="tspan5458-3-6"
            sodipodi:role="line"
-           x="209.46567"
-           y="638.52014">Software Modeling</tspan><tspan
+           x="287.31735"
+           y="804.18988">Software (formal) Modeling</tspan><tspan
            id="tspan6387"
            sodipodi:role="line"
-           x="209.46567"
-           y="656.02014" /></text>
+           x="287.31735"
+           y="821.68988" /></text>
     </g>
     <g
        id="g5557-0"
-       transform="translate(49.41337,228.26164)">
+       transform="translate(58.892277,302.51309)">
       <rect
          ry="5.4892364"
          y="638.05261"
@@ -2017,7 +2025,7 @@
            id="tspan5550-4">Model Based Testing</tspan></text>
     </g>
     <g
-       transform="translate(-157.59891,305.45888)"
+       transform="translate(-136.27136,327.57634)"
        id="g5413-4-5">
       <rect
          ry="5.4892364"
@@ -2040,7 +2048,7 @@
            sodipodi:role="line">Peer Reviewing</tspan></text>
     </g>
     <g
-       transform="translate(-152.95548,379.4994)"
+       transform="translate(-137.1573,401.61687)"
        id="g5426-4-6">
       <g
          id="g5501-6"
@@ -2068,7 +2076,7 @@
     </g>
     <g
        id="g6558"
-       transform="translate(28.351222,106.72184)">
+       transform="translate(46.51913,181.76322)">
       <rect
          ry="5.4892364"
          y="804.66351"
@@ -2092,7 +2100,7 @@
     </g>
     <g
        id="g6608"
-       transform="translate(20.537646,-1.7321293)">
+       transform="translate(7.8990989,66.989971)">
       <path
          transform="matrix(0.63306223,0,0,0.61477613,28.60815,506.95506)"
          sodipodi:open="true"
@@ -2131,7 +2139,7 @@
     </g>
     <g
        id="g6558-7"
-       transform="translate(0.93854572,151.79293)">
+       transform="translate(23.056005,229.20405)">
       <rect
          ry="5.4892364"
          y="804.66351"
@@ -2152,6 +2160,33 @@
            x="581.48126"
            sodipodi:role="line"
            id="tspan6642">Testing</tspan></text>
+    </g>
+    <g
+       id="g5575"
+       transform="translate(11.058729,2.3697276)">
+      <g
+         transform="matrix(1.1940707,0,0,1.06415,-185.45982,118.22321)"
+         id="g4937-1">
+        <rect
+           style="fill:#ffd5d5;fill-opacity:1;stroke:#ff0000;stroke-width:0.9078145;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3763-5-18-9"
+           width="226.87402"
+           height="35.409454"
+           x="605.78943"
+           y="723.5401"
+           ry="5.4892364" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5405-5-0"
+         y="908.68091"
+         x="543.19666"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+         xml:space="preserve"><tspan
+           id="tspan5514-5"
+           y="908.68091"
+           x="543.19666"
+           sodipodi:role="line">Static analysis, Formal proof checking</tspan></text>
     </g>
   </g>
 </svg>
