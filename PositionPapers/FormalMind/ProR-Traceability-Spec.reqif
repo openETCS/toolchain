@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REQ-IF xmlns="http://www.omg.org/spec/ReqIF/20110401/reqif.xsd" xmlns:configuration="http://eclipse.org/rmf/pror/toolextensions/1.0" xmlns:headline="http://pror.org/presentation/headline" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <THE-HEADER>
+    <REQ-IF-HEADER IDENTIFIER="rmf-4f5175f0-2521-4365-a088-309b55c74c48">
+      <COMMENT>Created by: jastram</COMMENT>
+      <CREATION-TIME>2014-02-27T20:23:08.700+01:00</CREATION-TIME>
+      <REQ-IF-TOOL-ID>ProR (http://pror.org)</REQ-IF-TOOL-ID>
+      <REQ-IF-VERSION>1.0.1</REQ-IF-VERSION>
+      <SOURCE-TOOL-ID>ProR (http://pror.org)</SOURCE-TOOL-ID>
+    </REQ-IF-HEADER>
+  </THE-HEADER>
+  <CORE-CONTENT>
+    <REQ-IF-CONTENT>
+      <DATATYPES>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_lxRZoZ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:08.700+01:00" LONG-NAME="T_String32k" MAX-LENGTH="32000"/>
+        <DATATYPE-DEFINITION-XHTML IDENTIFIER="_uhXWQJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:24:05.180+01:00" LONG-NAME="T_XHTML"/>
+        <DATATYPE-DEFINITION-STRING IDENTIFIER="_5lJMwJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:25:18.032+01:00" LONG-NAME="T_Headline"/>
+        <DATATYPE-DEFINITION-ENUMERATION IDENTIFIER="_u8WFQJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:52:44.532+01:00" LONG-NAME="T_Status">
+          <SPECIFIED-VALUES>
+            <ENUM-VALUE IDENTIFIER="_weKdUJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:52:49.994+01:00" LONG-NAME="Implemented in Full"/>
+            <ENUM-VALUE IDENTIFIER="_0N8hwJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:53:00.898+01:00" LONG-NAME="Implemented in Part"/>
+            <ENUM-VALUE IDENTIFIER="_2YHTQJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:53:25.394+01:00" LONG-NAME="Not Implemented"/>
+          </SPECIFIED-VALUES>
+        </DATATYPE-DEFINITION-ENUMERATION>
+      </DATATYPES>
+      <SPEC-TYPES>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_lxRZop_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:08.700+01:00" LONG-NAME="Requirement Type Plain">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_lxRZo5_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:08.700+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_lxRZoZ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_Z5AgQJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:36:04.456+01:00" LONG-NAME="Label">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_lxRZoZ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-ENUMERATION IDENTIFIER="_Jr7GQJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:45.180+01:00" LONG-NAME="Status">
+              <TYPE>
+                <DATATYPE-DEFINITION-ENUMERATION-REF>_u8WFQJ_oEeOcqMtUMjZPXw</DATATYPE-DEFINITION-ENUMERATION-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-ENUMERATION>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPECIFICATION-TYPE IDENTIFIER="_lxRZpJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:08.700+01:00" LONG-NAME="Specification Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_lxRZpZ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:08.700+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_lxRZoZ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPECIFICATION-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_si3pQJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:23:51.570+01:00" LONG-NAME="Requirement Type XHTML">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-XHTML IDENTIFIER="_v-h30J_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:24:14.539+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-XHTML-REF>_uhXWQJ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-XHTML-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-XHTML>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_gr_3AJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:36:49.558+01:00" LONG-NAME="Label">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_lxRZoZ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+        <SPEC-OBJECT-TYPE IDENTIFIER="_1uBxQJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:24:53.065+01:00" LONG-NAME="Headline Type">
+          <SPEC-ATTRIBUTES>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_3J5SUJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:24:57.325+01:00" LONG-NAME="Description">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_5lJMwJ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-STRING IDENTIFIER="_eQqdAJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:36:31.308+01:00" LONG-NAME="Label">
+              <TYPE>
+                <DATATYPE-DEFINITION-STRING-REF>_5lJMwJ_kEeOcqMtUMjZPXw</DATATYPE-DEFINITION-STRING-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-STRING>
+            <ATTRIBUTE-DEFINITION-ENUMERATION IDENTIFIER="_Y2sAQJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:57:24.920+01:00" LONG-NAME="Status">
+              <TYPE>
+                <DATATYPE-DEFINITION-ENUMERATION-REF>_u8WFQJ_oEeOcqMtUMjZPXw</DATATYPE-DEFINITION-ENUMERATION-REF>
+              </TYPE>
+            </ATTRIBUTE-DEFINITION-ENUMERATION>
+          </SPEC-ATTRIBUTES>
+        </SPEC-OBJECT-TYPE>
+      </SPEC-TYPES>
+      <SPEC-OBJECTS>
+        <SPEC-OBJECT IDENTIFIER="_lxRZpp_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:26:40.096+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Specification for openETCS">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="__hyKUJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:37:44.650+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="ProR-based Traceability">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_eQqdAJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_IoDLQJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:37:58.792+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Problem Description">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="1">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_eQqdAJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_K3feUJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:37.585+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="One high-priority need for WP3 and WP4 in openETCS is the traceability between ProR requirements and Papyrus SysML models.  Several options have been evaluated, in particular at the Paris traceability workshop on February 7th.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_N1F34J_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:45.705+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="As the most promising approach, ProR-based traceability has been identified.  In particular, this kind of traceability has already been realized for Event-B models (link).  This implementation convinced the stakeholders that such a solution would provide all the required features, in particular support for change management.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_PCdC4J_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:45.677+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Alternative solutions have been discussed (Reqtify, ReqCycle), but none has all the required features, and none could be provided as quickly as a ProR-based solution.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_RTsswJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:38:00.277+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Architecture">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="2">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_eQqdAJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_qztjUJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:28:06.882+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-XHTML>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-XHTML-REF>_v-h30J_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-XHTML-REF>
+              </DEFINITION>
+              <THE-VALUE>
+                <xhtml:div><xhtml:div style="text-align: left;"><xhtml:br/></xhtml:div><xhtml:object data="ProR-Traceability-Spec/datamodel.png" type="image/png">This is what will show if the image can't be displayed.</xhtml:object></xhtml:div>
+              </THE-VALUE>
+            </ATTRIBUTE-VALUE-XHTML>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_si3pQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_xbAAYJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:31:52.617+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="For this solution, SysML Proxy elements are created that hold (1) a reference to the traced Element and (2) a textual representation of that element (cache).  The actual trace is realized as a Link to the Requirement.  Now the traceability exists in ProR.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_weKdUJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Jr7GQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_z1NZAJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:01.747+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Upon rendering The SysML Proxy, the textual representation of the element will be retrieved in real time from Element , showing only current content to the user and updating the cache at the same time, if necessary.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_weKdUJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Jr7GQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_1MRSkJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:01.721+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Optional: So far, the solution would not allow traceability from SysML to the requirements (no need to even touch the Papyrus model).  To allow this, in addition to the above, the tool could, upon linking, do the following: Create a Reverse Proxy, in the form of a SysML Requirement, which would be linked (using SysML mechanisms) to Element.  The ID would hold the corresponding ReqIF ID, the Name field would hold the ReqIF human-readable ID and the Description would hold the requirements text.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_2YHTQJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Jr7GQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_7p_j8J_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:42:36.920+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Use Cases">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="3">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_eQqdAJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9vQnUJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:03.072+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The use cases assume that the Reverse Proxy is not created.  This could be implemented at a later time.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="__7LsUJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:33:05.152+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Actors">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_eQqdAJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_CeJ_YJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:20.856+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The following Actors exist:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Sg1Y0J_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:30.103+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="User: The person who creates and uses the traceability through the user interface.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_UPTFwJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:30.076+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="System: The system sometimes needs to perform actions on its own, although these are typically indirectly triggered by the user.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_3qAq4J_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:35.896+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Create_Link">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_weKdUJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_9qFW8J_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:40:32.926+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The SysML Model Explorer is open, the specification editor is open">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_BXVEwJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:44:38.641+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user drags one or more Elements from the Model Explorer onto a Requirement.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_D8GuoJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:40:50.186+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A SysML Proxy for the dragged model is retrieved (if it already exists) or created (if not).  A Link is created, if it does not exist yet.  The Requirement is the Source, the SysML Proxy is the Target.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_l-hEEJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:09.185+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="If the Link already exists, another link shall not be created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Notes:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_qh4hkJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:09.161+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A flag allows source and target to be reversed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ugoPEJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:47:29.298+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Change_Requirement">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_2YHTQJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_vq1YYJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:46:05.298+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Link from a Requirement to an Element has been created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_y5BLoJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:46:19.240+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user edits the requirements text.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_09_UEJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:46:19.217+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Link is marked with a flag indicating that the Source (the Requirement) has changed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_8-RkYJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:40.320+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Change_Model_Element">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_0N8hwJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_A3SdUJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:47:58.673+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Link from a Requirement to an Element has been created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_DyQZoJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:11.046+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user edits the Element in Papyrus">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_FoQ5AJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:11.023+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Link is marked with a flag indicating that the Target (the Element) has changed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_J_cUoJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:11.824+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Deleting_Link">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_weKdUJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_NllU4J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:18.974+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Link from a Requirement to an Element has been created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_PwE2gJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:31.491+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user removes the Link from the model">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_Rncn0J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:59.291+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Link is gone">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_VwlAYJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T21:00:05.765+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Notes:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="It has been decided to not remove the proxy">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_XoF7oJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:51:13.492+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Deleting_Requirement">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_0N8hwJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_aDUA4J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:45.806+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Link from a Requirement to an Element has been created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_csK5gJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:58.766+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user removes the Requirement from the model">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_enxDgJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:58.744+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Requirement is gone.  In ProR, the Link and SysML Proxy would still exist.  The Link is marked with a flag indicating that the Source (the Requirement) has changed.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_g0KCkJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:11.267+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Deleting_Element">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_weKdUJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_jkNvYJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:51:53.455+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Precondition:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="A Link from a Requirement to an Element has been created.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_mxTWcJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:52:06.531+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Steps:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The user removes the Element from the model (in Papyrus)">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_ouBh0J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:52:06.509+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Result:">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_Z5AgQJ_mEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="The Element is gone.  In ProR, the Link and SysML Proxy would still exist.  The Link would be marked as “Target (Element) changed.  The link target (the SysML Proxy) would show a warning message in red, indicating that the target cannot be found any more.  The id and cached information about the target will be intact (and could be shown as well).">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_EPt8QJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:11.236+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="UC_Verify">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_3J5SUJ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_2YHTQJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Y2sAQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_1uBxQJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_F8Y5cJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:17.226+01:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="This Use Case still needs to be defined.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_2YHTQJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Jr7GQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
+      </SPEC-OBJECTS>
+      <SPECIFICATIONS>
+        <SPECIFICATION IDENTIFIER="_lxRZp5_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:34:14.657+01:00" LONG-NAME="Specification Document">
+          <VALUES>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Requirements">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZpZ_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPECIFICATION-TYPE-REF>_lxRZpJ_kEeOcqMtUMjZPXw</SPECIFICATION-TYPE-REF>
+          </TYPE>
+          <CHILDREN>
+            <SPEC-HIERARCHY IDENTIFIER="__h9wgJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:25:58.305+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>__hyKUJ_kEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN/>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_lxRZqJ_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:26:53.856+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_lxRZpp_kEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+              </OBJECT>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_IoOxcJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:26:58.221+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_IoDLQJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_K3pPUJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:07.725+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_K3feUJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_N1ReEJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:37.566+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_N1F34J_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_PCthkJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:27:45.678+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_PCdC4J_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_RT7WQJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:28:00.907+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_RTsswJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_qz5wkJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:28:06.882+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_qztjUJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_xbMNoJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:31:32.379+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_xbAAYJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_z1cpkJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:31:52.592+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_z1NZAJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_1MhKMJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:01.721+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_1MRSkJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+            <SPEC-HIERARCHY IDENTIFIER="_7qPbkJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:45.103+01:00">
+              <OBJECT>
+                <SPEC-OBJECT-REF>_7p_j8J_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+              </OBJECT>
+              <CHILDREN>
+                <SPEC-HIERARCHY IDENTIFIER="_9vdboJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:49.965+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_9vQnUJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="__7aV0J_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:33:05.152+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>__7LsUJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_CeTJUJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:33:17.710+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_CeJ_YJ_mEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_ShC0MJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:04.703+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_Sg1Y0J_mEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_UPjkcJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:35:30.076+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_UPTFwJ_mEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_3qNfMJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:43:47.009+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_3qAq4J_mEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_9qRkMJ_mEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:43:11.881+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_9qFW8J_mEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_D8ZpkJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:43:11.881+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_D8GuoJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_BXfc0J_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:43:11.881+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_BXVEwJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_l-z_AJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:44:38.609+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_l-hEEJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_qiGkAJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:09.161+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_qh4hkJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_ug2RgJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:35.872+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_ugoPEJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_vrDa0J_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:45:39.276+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_vq1YYJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_y5P1IJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:46:05.274+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_y5BLoJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_0-NWgJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:46:19.217+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_09_UEJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_8-e_wJ_nEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:47:12.934+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_8-RkYJ_nEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_A3bnQJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:47:30.582+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_A3SdUJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_DyecEJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:47:58.650+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_DyQZoJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_FodtUJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:11.023+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_FoQ5AJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_J_pI8J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:40.298+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_J_cUoJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_Nlw7EJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:48:51.850+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_NllU4J_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_PwSR4J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:18.952+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_PwE2gJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_RnpcIJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:31.469+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_Rncn0J_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_Vwx0sJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:49:59.270+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_VwlAYJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_XoSv8J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:11.802+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_XoF7oJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_aDhcQJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:25.452+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_aDUA4J_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_csYU4J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:45.784+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_csK5gJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_en-e4J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:50:58.744+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_enxDgJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_g0ZTIJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:51:13.465+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_g0KCkJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_jkYHcJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:51:19.525+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_jkNvYJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_mxh_8J_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:51:53.431+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_mxTWcJ_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                    <SPEC-HIERARCHY IDENTIFIER="_ouOWIJ_oEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:52:06.509+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_ouBh0J_oEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_EQAQIJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:11.236+01:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_EPt8QJ_pEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                  <CHILDREN>
+                    <SPEC-HIERARCHY IDENTIFIER="_F8g1QJ_pEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:55:17.227+01:00">
+                      <OBJECT>
+                        <SPEC-OBJECT-REF>_F8Y5cJ_pEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                      </OBJECT>
+                    </SPEC-HIERARCHY>
+                  </CHILDREN>
+                </SPEC-HIERARCHY>
+              </CHILDREN>
+            </SPEC-HIERARCHY>
+          </CHILDREN>
+        </SPECIFICATION>
+      </SPECIFICATIONS>
+    </REQ-IF-CONTENT>
+  </CORE-CONTENT>
+  <TOOL-EXTENSIONS>
+    <REQ-IF-TOOL-EXTENSION>
+      <configuration:ProrToolExtension>
+        <configuration:specViewConfigurations>
+          <configuration:ProrSpecViewConfiguration specification="_lxRZp5_kEeOcqMtUMjZPXw">
+            <configuration:columns>
+              <configuration:Column label="Label" width="147"/>
+              <configuration:Column label="Description" width="511"/>
+              <configuration:Column label="Status" width="131"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+          <configuration:ProrSpecViewConfiguration>
+            <configuration:columns>
+              <configuration:Column label="Label" width="210"/>
+              <configuration:Column label="Description" width="545"/>
+            </configuration:columns>
+            <configuration:leftHeaderColumn>
+              <configuration:Column label="Lead Header Column" width="30"/>
+            </configuration:leftHeaderColumn>
+          </configuration:ProrSpecViewConfiguration>
+        </configuration:specViewConfigurations>
+        <configuration:generalConfiguration>
+          <configuration:ProrGeneralConfiguration>
+            <configuration:labelConfiguration>
+              <configuration:LabelConfiguration>
+                <defaultLabel>Label</defaultLabel>
+                <defaultLabel>Description</defaultLabel>
+              </configuration:LabelConfiguration>
+            </configuration:labelConfiguration>
+          </configuration:ProrGeneralConfiguration>
+        </configuration:generalConfiguration>
+        <configuration:presentationConfigurations>
+          <configuration:ProrPresentationConfigurations>
+            <configuration:presentationConfigurations>
+              <headline:HeadlineConfiguration datatype="_5lJMwJ_kEeOcqMtUMjZPXw" size="16"/>
+            </configuration:presentationConfigurations>
+          </configuration:ProrPresentationConfigurations>
+        </configuration:presentationConfigurations>
+      </configuration:ProrToolExtension>
+    </REQ-IF-TOOL-EXTENSION>
+  </TOOL-EXTENSIONS>
+</REQ-IF>
