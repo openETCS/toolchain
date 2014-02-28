@@ -12,7 +12,6 @@ This section is dedicated to tools and means for model transformation and code g
 
 The list of initial candidates is:
 
-
 \begin{description}
 \item [Scade Suite]
 \item [Rodin and Pluggins]
@@ -33,25 +32,33 @@ The list of initial candidates is:
 \item[Licence] Eclipse
 \end{description}
 
-\paragraph{Abstract} Short abstract on the approach and tool (10 lines max)
+\paragraph{Abstract} %Short abstract on the approach and tool (10 lines max)
 Acceleo is an implementation of the Object Management Group (OMG) MOF Model to Text Language (MTL) standard. Based on a special template language model to text transformations can be defined. It is fully integrated with Eclipse and also part of Polarsys.
 
-\paragraph{Publications} Short list of publications on the approach (5 max)
-Most imformation is available on the homepage http://www.eclipse.org/acceleo/
-
-
+\paragraph{Publications} %Short list of publications on the approach (5 max)
+\begin{itemize}
+\item Most information is available on the homepage http://www.eclipse.org/acceleo/
+\item [Paper: Multi-Paradigm Semantics]
+\end{itemize}
 
 \paragraph{Added value for OpenETCS project}
 
 \begin{comment}
-To complete: Stefan Rieger  ?
+%To complete: Stefan Rieger  ?
+
+Acceleo as a model-to-text (M2T) transformation language supports generating textual artifacts from templates. Therefore, M2T transformation is ideally suited for code generation purposes e.g. form abstract SysML models to make them executable and testable. Providing executable specification will provide a momentous benefit to the project. In the openETCS project, Acceleo will be used to have a transformation from SysML models to IEEE standardized language SystemC. 
+
 \end{comment}
 
 
 \paragraph{Integration in OpenETCS process and toolchain}
 
 \begin{comment}
-To complete: Stefan Rieger  ?
+%To complete: Stefan Rieger  ?
+\begin{itemize}
+\item Acceleo is based on the Eclipse Modeling Framework (EMF)
+\item This brings compatibility with any tool that produces EMF compatible models.
+\end{itemize}
 \end{comment}
 
 \section{Selected means and tools}
