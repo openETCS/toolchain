@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.esk.openetcs.datadictionary.transform/src"
+    modelPluginID="de.fraunhofer.esk.openetcs.datadictionary.transform" modelName="Subset_026_8"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>Subset_026_8.xsd</foreignModel>
+  <genPackages prefix="Subset0268" resource="XML" disposableProviderFactory="true"
+      ecorePackage="Subset_026_8.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_8.ecore#//TLength">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_3"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_5"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_6"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_7"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_8"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_9"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_10"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_1014"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_12"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_13"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_14"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_15"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_20"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_24"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_32"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TLength/_64"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_8.ecore#//TTransmissionMedia">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/Any"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/Balise"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/Loop"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/RBC"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/RIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/RBCRIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/BaliseLoop"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/BaliseRBC"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/BaliseRBCRIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TTransmissionMedia/BaliseLoopRIU"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_8.ecore#//TVarLen">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_1Bit"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_2Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_3Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_4Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_5Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_6Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_7Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_8Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_9Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_10Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_1014Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_12Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_13Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_14Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_15Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_16Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_20Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_24Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_32Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_8.ecore#//TVarLen/_64Bits"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Subset_026_8.ecore#//TLengthObject"/>
+    <genDataTypes ecoreDataType="Subset_026_8.ecore#//TTransmissionMediaObject"/>
+    <genDataTypes ecoreDataType="Subset_026_8.ecore#//TVarLenObject"/>
+    <genClasses ecoreClass="Subset_026_8.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/definitions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/detailedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/iDNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/length"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/packet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/packetNumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/packets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/parcel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/tlgVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/trackToTrain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//DocumentRoot/trainToTrack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/transmissionMedia"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//DocumentRoot/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//ListType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//ListType/media"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//ListType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//ListType/number"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//OptionalPacketsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//OptionalPacketsType/parcel"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//ParcelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//ParcelType/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//ParcelType/number"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TContent/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TContent/tlgVar"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TContent/parcel"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TContent/optionalPackets"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TDefinitions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TDefinitions/packets"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TPacket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TPacket/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TPacket/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TPacket/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TPacket/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TPacket/transmissionMedia"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TPackets">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TPackets/trainToTrack"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TPackets/trackToTrain"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TTlgVar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TTlgVar/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TTlgVar/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TTlgVar/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TTlgVar/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TTrackToTrain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TTrackToTrain/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TTrackToTrain/packet"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_8.ecore#//TTrainToTrack">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_8.ecore#//TTrainToTrack/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TTrainToTrack/list"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_8.ecore#//TTrainToTrack/packet"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

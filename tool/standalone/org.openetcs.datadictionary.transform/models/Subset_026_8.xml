@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?altova_samplexml ../Subset8FromWord/subset8.xml?>
+<Definitions xsi:noNamespaceSchemaLocation="Subset_026_8.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- 
+=============================================================================
+ Formalization of Subset-026-8 (Chapter 8: ERTMS/ETCS language)
+
+- Name: Subset-026-8 / subset026_8.xml
+- Description: UNISIG SUBSET-026-8, ISSUE : 3.3.0, 3.5 ERTMS/ETCS language) 
+- Copyright (c) Siemens AG 2013 All rights reserved
+     
+- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )
+- Gist URL: none
+- Cryptography: No
+- Author(s): SiemensRailAutomation
+
+Disclaimer:
+
+The use of this software is limited to NON-vital applications. 
+It has NOT been developed for vital operation purposes and MUST NOT be used for applications 
+which may cause harm to people, physical accidents or financial loss. 
+
+THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE.
+=============================================================================
+-->
+<Packets>
+     
+<TrainToTrack>
+<List Number="129"  Name="Validated Train Data" Media="RBC" />
+<List Number="130"  Name="Request for Shunting" Media="RBC" />
+<List Number="132"  Name="MA Request" Media="RBC" />
+<List Number="136"  Name="Train Position Report" Media="RBC, RIU" />
+<List Number="137"  Name="Request to shorten MA is granted" Media="RBC" />
+<List Number="138"  Name="Request to shorten MA is rejected" Media="RBC" />
+<List Number="146"  Name="Acknowledgement" Media="RBC, RIU" />
+<List Number="147"  Name="Acknowledgement of Emergency Stop" Media="RBC" />
+<List Number="149"  Name="Track Ahead Free Granted" Media="RBC" />
+<List Number="150"  Name="End of Mission" Media="RBC" />
+<List Number="153"  Name="Radio infill request" Media="RIU" />
+<List Number="154"  Name="No compatible version supported" Media="RBC, RIU" />
+<List Number="155"  Name="Initiation of a communication session" Media="RBC, RIU" />
+<List Number="156"  Name="Termination of a communication session" Media="RBC, RIU" />
+<List Number="157"  Name="SoM Position Report" Media="RBC" />
+<List Number="158"  Name="Text message acknowledged by driver" Media="RBC" />
+<List Number="159"  Name="Session Established" Media="RBC, RIU" />
+
+<Packet Number="129" Name="Validated Train Data" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING0" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+<Parcel Number = "11" Comment="Train data" />
+</Content>
+</Packet>
+
+<Packet Number="130" Name="Request for Shunting" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING1" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="132" Name="MA Request" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="Q_MARQSTREASON" Length="5" Type="enum" />
+<TlgVar Name="PADDING2" Length="1" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+<OptionalPackets>
+<Parcel Number = "9" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="136" Name="Train Position Report" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING3" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+<OptionalPackets>
+<Parcel Number = "4" />
+<Parcel Number = "5" />
+<Parcel Number = "44" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="137" Name="Request to shorten MA is granted" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING4" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="138" Name="Request to shorten MA is rejected" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING5" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="146" Name="Acknowledgement" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="147" Name="Acknowledgement of Emergency Stop" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="NID_EM" Length="4" Type="int" Comment="Identification Number of the acknowledged Emergency Message." />
+<TlgVar Name="Q_EMERGENCYSTOP" Length="2" Type="enum" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="149" Name="Track Ahead Free Granted" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING6" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="150" Name="End of Mission" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING7" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="153" Name="Radio infill request" TransmissionMedia="RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="NID_C" Length="10" Type="int" Comment="identity of the country of the 'target' main balise group" />
+<TlgVar Name="NID_BG" Length="14" Type="int" Comment="identity of the 'target' main balise group" />
+<TlgVar Name="Q_INFILL" Length="1" Type="enum" Comment="start; end of infill" />
+<TlgVar Name="PADDING8" Length="5" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="154" Name="No compatible version supported" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="155" Name="Initiation of a communication session" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="156" Name="Termination of a communication session" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="157" Name="SoM Position Report" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="Q_STATUS" Length="2" Type="enum" />
+<TlgVar Name="PADDING9" Length="4" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+<OptionalPackets>
+<Parcel Number = "4" />
+<Parcel Number = "5" />
+<Parcel Number = "44" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="158" Name="Text message acknowledged by driver" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="NID_TEXTMESSAGE" Length="8" Type="int" Comment="Identity of the text message that the driver has acknowledged." />
+<TlgVar Name="PADDING10" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "0" />
+<Parcel Number = "1" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="159" Name="Session Established" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="NID_ENGINE" Length="24" Type="int" />
+<TlgVar Name="PADDING11" Length="6" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "3" />
+</OptionalPackets>
+</Content>
+</Packet>
+</TrainToTrack>
+<TrackToTrain>
+<List Number="2"  Name="SR Authorisation" Media="RBC" />
+<List Number="3"  Name="Movement Authority" Media="RBC" />
+<List Number="6"  Name="Recognition of exit from TRIP mode" Media="RBC" />
+<List Number="8"  Name="Acknowledgement of Train Data" Media="RBC" />
+<List Number="9"  Name="Request to Shorten MA" Media="RBC" />
+<List Number="15"  Name="Conditional Emergency Stop" Media="RBC" />
+<List Number="16"  Name="Unconditional Emergency Stop" Media="RBC" />
+<List Number="18"  Name="Revocation of Emergency Stop" Media="RBC" />
+<List Number="24"  Name="General message" Media="RBC, RIU" />
+<List Number="27"  Name="SH Refused" Media="RBC" />
+<List Number="28"  Name="SH Authorised" Media="RBC" />
+<List Number="32"  Name="RBC or RIU System Version" Media="RBC, RIU" />
+<List Number="33"  Name="MA with Shifted Location Reference" Media="RBC" />
+<List Number="34"  Name="Track Ahead Free Request" Media="RBC" />
+<List Number="37"  Name="Infill MA" Media="RIU" />
+<List Number="38"  Name="Initiation of a communication session" Media="RBC" />
+<List Number="39"  Name="Acknowledgement of termination of a communication session" Media="RBC, RIU" />
+<List Number="40"  Name="Train Rejected" Media="RBC" />
+<List Number="41"  Name="Train Accepted" Media="RBC" />
+<List Number="43"  Name="SoM position report confirmed by RBC" Media="RBC" />
+<List Number="45"  Name="Assignment of coordinate system" Media="RBC" />
+
+<Packet Number="2" Name="SR Authorisation" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="Q_SCALE" Length="2" Type="enum" />
+<TlgVar Name="D_SR" Length="15" Type="int" />
+<TlgVar Name="PADDING12" Length="4" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "63" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="3" Name="Movement Authority" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="PADDING13" Length="5" Type="int" Comment="address byte boundary" />
+<Parcel Number = "15" Comment="Level 2/3 Movement Authority" />
+<OptionalPackets>
+<Parcel Number = "21" />
+<Parcel Number = "27" />
+<Parcel Number = "49" />
+<Parcel Number = "80" />
+<Parcel Number = "3" />
+<Parcel Number = "5" />
+<Parcel Number = "39" />
+<Parcel Number = "40" />
+<Parcel Number = "51" />
+<Parcel Number = "41" />
+<Parcel Number = "42" />
+<Parcel Number = "44" />
+<Parcel Number = "45" />
+<Parcel Number = "52" />
+<Parcel Number = "57" />
+<Parcel Number = "58" />
+<Parcel Number = "64" />
+<Parcel Number = "65" />
+<Parcel Number = "66" />
+<Parcel Number = "68" />
+<Parcel Number = "69" />
+<Parcel Number = "70" />
+<Parcel Number = "71" />
+<Parcel Number = "72" />
+<Parcel Number = "76" />
+<Parcel Number = "79" />
+<Parcel Number = "88" />
+<Parcel Number = "131" />
+<Parcel Number = "138" />
+<Parcel Number = "139" />
+<Parcel Number = "140" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="6" Name="Recognition of exit from TRIP mode" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="8" Name="Acknowledgement of Train Data" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN(0)" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="T_TRAIN(1)" Length="32" Type="real" Comment="Reference to received train data message" />
+</Content>
+</Packet>
+
+<Packet Number="9" Name="Request to Shorten MA" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="PADDING14" Length="5" Type="int" Comment="address byte boundary" />
+<Parcel Number = "15" Comment="Level 2/3 Movement Authority" />
+<Parcel Number = "80" Comment="Optional packet" />
+</Content>
+</Packet>
+
+<Packet Number="15" Name="Conditional Emergency Stop" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="NID_EM" Length="4" Type="int" Comment="Identification Number of the Emergency Stop Message." />
+<TlgVar Name="Q_SCALE" Length="2" Type="enum" />
+<TlgVar Name="D_REF" Length="16" Type="int" />
+<TlgVar Name="Q_DIR" Length="2" Type="enum" />
+<TlgVar Name="D_EMERGENCYSTOP" Length="15" Type="int" Comment="Distance between LRBG and the position reference to the emergency stop." />
+</Content>
+</Packet>
+
+<Packet Number="16" Name="Unconditional Emergency Stop" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="NID_EM" Length="4" Type="int" Comment="Identification Number of the Emergency Stop Message." />
+</Content>
+</Packet>
+
+<Packet Number="18" Name="Revocation of Emergency Stop" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="NID_EM" Length="4" Type="int" Comment="Identification Number of the Emergency Stop Message." />
+</Content>
+</Packet>
+
+<Packet Number="24" Name="General message" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="PADDING15" Length="5" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "21" />
+<Parcel Number = "27" />
+<Parcel Number = "45" />
+<Parcel Number = "143" />
+<Parcel Number = "254" />
+<Parcel Number = "3" />
+<Parcel Number = "5" />
+<Parcel Number = "39" />
+<Parcel Number = "40" />
+<Parcel Number = "51" />
+<Parcel Number = "41" />
+<Parcel Number = "42" />
+<Parcel Number = "44" />
+<Parcel Number = "52" />
+<Parcel Number = "57" />
+<Parcel Number = "58" />
+<Parcel Number = "64" />
+<Parcel Number = "65" />
+<Parcel Number = "66" />
+<Parcel Number = "68" />
+<Parcel Number = "69" />
+<Parcel Number = "70" />
+<Parcel Number = "71" />
+<Parcel Number = "72" />
+<Parcel Number = "76" />
+<Parcel Number = "79" />
+<Parcel Number = "88" />
+<Parcel Number = "131" />
+<Parcel Number = "138" />
+<Parcel Number = "139" />
+<Parcel Number = "140" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="27" Name="SH Refused" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN(0)" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="T_TRAIN(1)" Length="32" Type="real" Comment="Time stamp of the shunting request." />
+</Content>
+</Packet>
+
+<Packet Number="28" Name="SH Authorised" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN(0)" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="T_TRAIN(1)" Length="32" Type="real" Comment="Time stamp of the shunting request." />
+<TlgVar Name="PADDING16" Length="5" Type="int" Comment="address byte boundary" />
+<OptionalPackets>
+<Parcel Number = "3" />
+<Parcel Number = "44" />
+<Parcel Number = "49" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="32" Name="RBC or RIU System Version" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="M_VERSION" Length="7" Type="enum" Comment="Version of the ERTMS/ETCS system." />
+</Content>
+</Packet>
+
+<Packet Number="33" Name="MA with Shifted Location Reference" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="Q_SCALE" Length="2" Type="enum" />
+<TlgVar Name="D_REF" Length="16" Type="int" Comment="Reference Distance" />
+<TlgVar Name="PADDING17" Length="3" Type="int" Comment="address byte boundary" />
+<Parcel Number = "15" Comment="Level 2/3 Movement Authority" />
+<OptionalPackets>
+<Parcel Number = "21" />
+<Parcel Number = "27" />
+<Parcel Number = "49" />
+<Parcel Number = "80" />
+<Parcel Number = "3" />
+<Parcel Number = "5" />
+<Parcel Number = "39" />
+<Parcel Number = "40" />
+<Parcel Number = "51" />
+<Parcel Number = "41" />
+<Parcel Number = "42" />
+<Parcel Number = "44" />
+<Parcel Number = "45" />
+<Parcel Number = "52" />
+<Parcel Number = "57" />
+<Parcel Number = "58" />
+<Parcel Number = "64" />
+<Parcel Number = "65" />
+<Parcel Number = "66" />
+<Parcel Number = "68" />
+<Parcel Number = "69" />
+<Parcel Number = "70" />
+<Parcel Number = "71" />
+<Parcel Number = "72" />
+<Parcel Number = "76" />
+<Parcel Number = "79" />
+<Parcel Number = "88" />
+<Parcel Number = "131" />
+<Parcel Number = "138" />
+<Parcel Number = "139" />
+<Parcel Number = "140" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="34" Name="Track Ahead Free Request" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="Q_SCALE" Length="2" Type="enum" />
+<TlgVar Name="D_REF" Length="16" Type="int" />
+<TlgVar Name="Q_DIR" Length="2" Type="enum" />
+<TlgVar Name="D_TAFDISPLAY" Length="15" Type="int" />
+<TlgVar Name="L_TAFDISPLAY" Length="15" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="37" Name="Infill MA" TransmissionMedia="RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="PADDING18" Length="5" Type="int" Comment="address byte boundary" />
+<Parcel Number = "136" Comment="Infill Location Reference" />
+<Parcel Number = "12" Comment="Level 1 Movement Authority" />
+<OptionalPackets>
+<Parcel Number = "5" />
+<Parcel Number = "21" />
+<Parcel Number = "27" />
+<Parcel Number = "39" />
+<Parcel Number = "40" />
+<Parcel Number = "41" />
+<Parcel Number = "44" />
+<Parcel Number = "49" />
+<Parcel Number = "51" />
+<Parcel Number = "65" />
+<Parcel Number = "66" />
+<Parcel Number = "68" />
+<Parcel Number = "69" />
+<Parcel Number = "70" />
+<Parcel Number = "71" />
+<Parcel Number = "80" />
+<Parcel Number = "88" />
+<Parcel Number = "138" />
+<Parcel Number = "139" />
+</OptionalPackets>
+</Content>
+</Packet>
+
+<Packet Number="38" Name="Initiation of a communication session" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" Comment="always set to unknown" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" Comment="always set to unknown" />
+</Content>
+</Packet>
+
+<Packet Number="39" Name="Acknowledgement of termination of a communication session" TransmissionMedia="RBC, RIU" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" Comment="always set to 0" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="40" Name="Train Rejected" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="41" Name="Train Accepted" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="43" Name="SoM position report confirmed by RBC" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+</Content>
+</Packet>
+
+<Packet Number="45" Name="Assignment of coordinate system" TransmissionMedia="RBC" >
+<Content>
+<TlgVar Name="NID_MESSAGE" Length="8" Type="int" />
+<TlgVar Name="L_MESSAGE" Length="10" Type="int" />
+<TlgVar Name="T_TRAIN" Length="32" Type="real" />
+<TlgVar Name="M_ACK" Length="1" Type="enum" />
+<TlgVar Name="NID_LRBG" Length="24" Type="int" />
+<TlgVar Name="Q_ORIENTATION" Length="1" Type="enum" />
+</Content>
+</Packet>
+</TrackToTrain>
+</Packets>
+</Definitions>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Subset_026_8 -->
+      <package
+            uri="platform:/resource/org.openetcs.datadictionary.transform/models/Subset_026_8.xsd"
+            class="Subset0268.Subset0268Package"
+            genModel="models/Subset_026_8.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated Subset_026_8 -->
+      <parser
+            type="subset0268"
+            class="Subset0268.util.Subset0268ResourceFactoryImpl"/>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Subset_026_7 -->
+      <package
+            uri="platform:/resource/org.datadictionary.transform/models/Subset_026_7.xsd"
+            class="Subset0267.Subset0267Package"
+            genModel="models/Subset_026_7.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated Subset_026_7 -->
+      <parser
+            type="subset0267"
+            class="Subset0267.util.Subset0267ResourceFactoryImpl"/>
+   </extension>
+</plugin>
