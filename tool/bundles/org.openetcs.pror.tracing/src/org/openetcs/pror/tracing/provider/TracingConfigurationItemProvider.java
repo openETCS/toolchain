@@ -341,18 +341,26 @@ public class TracingConfigurationItemProvider extends
 		// Check whether at least one SysML Model Element is here.
 		Set<EObject> elements = new HashSet<EObject>();
 		for (Object object : source) {
+			EObject element = null;
+			if (object instanceof EObject) {
+				element = (EObject) object;
+			}
 
-			if (object instanceof IAdaptable) {
-				EObject element = (EObject) ((IAdaptable) object)
-						.getAdapter(EObject.class);
-				if (element == null) {
-					continue;
+			if (element == null) {
+				if (object instanceof IAdaptable) {
+					element = (EObject) ((IAdaptable) object)
+							.getAdapter(EObject.class);
 				}
+			}
 
-				// Look at the package to decide which elements we process.
-				if (element.getClass().getName().startsWith(config.getPackagePrefix())) {
-					elements.add(element);
-				}
+			if (element == null) {
+				continue;
+			}
+
+			// Look at the package to decide which elements we process.
+			if (element.getClass().getName()
+					.startsWith(config.getPackagePrefix())) {
+				elements.add(element);
 			}
 		}
 
