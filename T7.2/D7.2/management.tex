@@ -8,27 +8,32 @@ This section is dedicated to tools and means to support management of data, func
 
 In total, seven tools have been proposed.  Out of these, only one has been evaluated in detail (ProR).  What follows is a qualitative description of the seven tools.  A quantitative evaluation of ProR is included as well.
 
+As a consequence, ProR has been adapted as the tool for requirements management.  Being an open source Eclipse Project, based on EMF and an open standard for requirements exchange (ReqIF), it is a good fit.
+
+Further, traceability has been identified as a crucial element of data and requirements management.  Currently, the strongest candidate is Polarsys ReqCycle, which fulfills many required criteria.  The biggest concern with respect to ReqCycle is its relatively low level of maturity.
+
 \section{Candidates}
 The list of initial candidates is:
 
 \begin{description}
-\item[Scade Suite]  Scade includes Reqtify as the requirements traceability solution.  It allows to create traceability directly to Word, thereby making traceability to Subset-26 easy.  However, there is no clear solution for authoring additional requirements (except using Word).  Further, it is not clear how traceability to model artifacts should be realized.  Last, this is a closed source solution and therefore only a last resort.
-\item[Eclipse ProR], see \ref{sec:ProR}. ProR is an Eclipse based open-source tools for requirement engineering that supports the ReqIF 1.0.1 Standard .
-\item[Rodin and Pluggin], see \ref{sec:EventB_m}. Rodin is an open source tool based on Eclipse dedicaded to formal  design. It includes ProR as plugin to  manage direct traceability between requirements and formal models.
-\item[Assurance Case Argument Editor (ACedit) using Goal Structuring Notation (GSN)], see \ref{sec:ACAE}. The Editor for Assurance Cases is an Eclipse based tool to use the Goal Structuring Notation (GSN) and the OMG Argumentation Metamodel (ARM) to build argument structure models and check their overall completeness and consistency. Such model help to develop, manage and document the reasons and fulfillment for every requirement.
-\item[Matelo]
-\item[Eclipse EMF Store] slides \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/EMFStore.pdf}.
-\item[Eclipse EMF Client Platform] slides \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/EMF%20Client%20Platform.pdf}
+\item[Scade Suite.] Scade includes Reqtify as the requirements traceability solution.  It allows to create traceability directly to Word, thereby making traceability to Subset-26 easy.  However, there is no clear solution for authoring additional requirements (except using Word).  Further, it is not clear how traceability to model artifacts should be realized.  Last, this is a closed source solution and therefore only a last resort.
+\item[Eclipse ProR.] See \ref{sec:ProR}. ProR is an Eclipse based open-source tools for requirement engineering that supports the ReqIF 1.0.1 Standard .
+\item[Rodin and Pluggin.] See \ref{sec:EventB_m}. Rodin is an open source tool based on Eclipse dedicaded to formal  design. It includes ProR as plugin to  manage direct traceability between requirements and formal models.
+\item[Assurance Case Argument Editor (ACedit) using Goal Structuring Notation (GSN).] See \ref{sec:ACAE}. The Editor for Assurance Cases is an Eclipse based tool to use the Goal Structuring Notation (GSN) and the OMG Argumentation Metamodel (ARM) to build argument structure models and check their overall completeness and consistency. Such model help to develop, manage and document the reasons and fulfillment for every requirement.
+\item[Eclipse EMF Store.] Slides  at \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/EMFStore.pdf}.
+\item[Eclipse EMF Client Platform.] Slides at \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/EMF\%20Client\%20Platform.pdf}
+\item[Matelo.] Dropped due to lack of further engagement.
 \end{description}
 
+\subsection{Tools Identified During Evaluation}
 
-During the evaluation phase, a number of challenges were identified that were not clearly defined before.
+During the evaluation phase, a number of additional tools were identified that were not clearly defined before.
 The list of challengers discussed during the evaluation is:
 
 \begin{description}
 
-\item [Ecore model + XML  files]
-\item [UML library]
+\item [Ecore model + XML  files.]  The (already chosen) Eclipse Modeling Framework supports the definition of datamodels and inter-model-traceability.
+\item [UML library.]  The creation of UML libraries is an attractive approach for integrating various data models on SysML-Level.  This has been already realized in a prototype for the Data Dictionary.
 \item [ReqCycle]
 ReqCycle can create requirements, import/update or reference textual requirements existing in different data sources or formats. Thereby, it can define data models to classify requirements in scopes (team organization) and in types (list of attributes). Furthermore, ReqCycle can define traceability link types from requirements to a model element or code and display all traceability links as treeviews or tables. Slides are available on github \url{https://github.com/openETCS/model-evaluation/blob/master/Telco_Secondary_slides/WP7%20-%20ReqCycle%20overview.pdf}
 \end{description}
@@ -49,6 +54,8 @@ ProR is a tool for requirements engineering that supports the ReqIF 1.0.1 Standa
 Vision: Our vision is to provide a tool that supports interoperability by operating directly of the ReqIF data standard, and that supports integration by taking advantage of the extendability of the Eclipse platform. ProR is targeted to academic and industrial users alike. 
 
 \paragraph{Publications}
+
+A number of publications about RMF and ProR are available.  The following is a selection.
 
 \begin{description}
 
@@ -264,13 +271,17 @@ As the ACedit editor is already based on Eclipse the existing to can be integrat
 
 \section{Open issues}
 
+During the evaluation, a number of issues arose that had not been clearly identified by the WP2 requirements.  We briefly outline the issues and the course of action.
+
 \subsection{Traceability}
 
-TODO
+Traceability between the various models is crucial for many activities, including V\&V and change management.  Many tools already support traceabillity to a degree, but only within their models (e.g. traceability between SysML model elements).  However, it is clear that the model elements from the various distinct tools need to be traced as well, e.g. between requirements, SysML elements, tests, code, etc.
+
+A number of technologies have been idenitfied and are currently discussed in toolchain issue \#216 (\url{https://github.com/openETCS/toolchain/issues/216}).
 
 \subsection{How to Deal with Subset-26}
 
-TODO
+Subset-26 is available as a set of Microsoft Word documents, which are unsuitable for using directly, for various reasons.  The team is currently looking at ways for establishing traceablity.  The most promising approach is to convert the documents into the public ReqIF-format, which would allow reading them with the ProR component that has been chosen for requirements management.
 
 %\subsection{Other Challenges}
 %
@@ -284,12 +295,12 @@ TODO
 
 \section{Selected means and tools}
 
-\begin{comment}
-To complete after decision meeting with a section for each tool with the following contents:
+As described in the beginning, the secondary tools have tactical, not strategic value.  Further, areas in secondary tooling have been identified that are not yet required by other workpackages, e.g. code generation.  Thus, selection falls into three categories:
 
-\begin{itemize}
-\item description of the means or tools, references and links
-\item added value for openETCS
-\item for which tasks and how (input/output/actions) is the mean or tools used.
-\end{itemize}
-\end{comment}
+(1) Definite secondary tool choices for areas where a solution is required right away, and where a suitable tool has been identified.  This includes ProR for requirements engineering.
+
+(2) Tentative secondary tool choices for areas where a solution is required right away, but where it is not clear whether the tool choice is suitable.  This includes the use of a UML profile for making the data dictionary accessible in SysML.
+
+(3) Tool candidates that are strong candidates, but that are not in use yet.  This includes tools like ReqCycle for traceability.
+
+In addition, there is the library of evaluated tools that will be available if a specific tooling need is to be addressed.
