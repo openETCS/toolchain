@@ -24,8 +24,8 @@
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.10.0.201402250402"/>
-<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.10.0.201402250402"/>
+<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.10.0.201403040403"/>
+<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.10.0.201403040403"/>
 <repository location="http://cobra.cs.uni-duesseldorf.de/~jastram/0.10.0/"/>
 </location>
 </locations>
