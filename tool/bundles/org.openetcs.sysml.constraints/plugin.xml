@@ -54,12 +54,12 @@
                </target>
             </constraint>
             <constraint
-                  class="org.openetcs.sysml.constraints.NameIsValid"
-                  id="org.openetcs.sysml.constraints.NameIsValid"
+                  class="org.openetcs.sysml.constraints.NameIsValidClassicalBIdentifier"
+                  id="org.openetcs.sysml.constraints.NameIsValidClassicalBIdentifier"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Names must be valid Classical B identifier"
+                  name="Name is a valid Classical B identifier"
                   severity="ERROR"
                   statusCode="103">
                <message>
