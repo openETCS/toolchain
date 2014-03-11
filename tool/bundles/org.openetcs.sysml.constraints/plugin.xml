@@ -24,7 +24,7 @@
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="Name is not a reserverd Classical B keyword"
+                  name="Name is not a reserved Classical B keyword"
                   severity="ERROR"
                   statusCode="101">
                <message>
