@@ -5,7 +5,7 @@ import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.uml2.uml.NamedElement;
 
-public class NameIsNoKeyword extends AbstractModelConstraint {
+public class NameIsNoClassicalBKeyword extends AbstractModelConstraint {
 	private static String[] keywords = {
 		"ABSTRACT_VARIABLES", 
 		"ANY",

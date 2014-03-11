@@ -19,12 +19,12 @@
          <constraints
                categories="org.openetcs.sysml.constraints.category">
             <constraint
-                  class="org.openetcs.sysml.constraints.NameIsNoKeyword"
-                  id="org.sysml.constraints.NameIsNoKeyword"
+                  class="org.openetcs.sysml.constraints.NameIsNoClassicalBKeyword"
+                  id="org.openetcs.sysml.constraints.NameIsNoClassicalBKeyword"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="UML NamedElements do not use reserved Classical B keywords."
+                  name="Name is not a reserverd Classical B keyword"
                   severity="ERROR"
                   statusCode="101">
                <message>
