@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="org.openetcs.sysml.constraints.category"
+            mandatory="false"
+            name="OpenETCS SysML Constraints">
+      </category>
+      <constraintProvider
+            cache="true"
+            mode="Batch">
+         <description>
+            Constraint Provider description.
+         </description>
+         <package
+               namespaceUri="http://www.eclipse.org/uml2/4.0.0/UML">
+         </package>
+         <constraints
+               categories="org.openetcs.sysml.constraints.category">
+            <constraint
+                  class="org.openetcs.sysml.constraints.NameIsNoKeyword"
+                  id="org.sysml.constraints.NameIsNoKeyword"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="UML NamedElements do not use reserved Classical B keywords."
+                  severity="ERROR"
+                  statusCode="101">
+               <message>
+                  {0}
+               </message>
+               <description>
+                  description body text
+               </description>
+               <target
+                     class="uml.NamedElement">
+               </target>
+            </constraint>
+            <constraint
+                  class="org.openetcs.sysml.constraints.NameIsUnique"
+                  id="org.openetcs.sysml.constraints.NameIsUnique"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="SysML Block names have to be unique"
+                  severity="WARNING"
+                  statusCode="102">
+               <message>
+                  {0}
+               </message>
+               <target
+                     class="uml.Class">
+               </target>
+            </constraint>
+            <constraint
+                  class="org.openetcs.sysml.constraints.NameIsValid"
+                  id="org.openetcs.sysml.constraints.NameIsValid"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Names must be valid Classical B identifier"
+                  severity="ERROR"
+                  statusCode="103">
+               <message>
+                  {0}
+               </message>
+               <target
+                     class="uml.NamedElement">
+               </target>
+            </constraint>
+            <constraint
+                  class="org.openetcs.sysml.constraints.ParameterHasType"
+                  id="org.openetcs.sysml.constraints.ParameterHasType"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="All UML Operation parameters have associated types."
+                  severity="ERROR"
+                  statusCode="104">
+               <message>
+                  {0}
+               </message>
+               <description>
+                  All parameter of operation needs a type.
+               </description>
+               <target
+                     class="uml.Parameter">
+               </target>
+            </constraint></constraints>
+      </constraintProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <binding
+            category="org.openetcs.sysml.constraints.category"
+            context="org.eclipse.papyrus.uml.diagram.activityDefaultCtx">
+      </binding>
+      <binding
+            category="org.openetcs.sysml.constraints.category"
+            context="org.openetcs.sysml.constraints.context">
+      </binding>
+      <clientContext
+            default="false"
+            id="org.openetcs.sysml.constraints.context">
+         <selector
+               class="org.openetcs.sysml.constraints.ClassicalBClientSelector">
+         </selector>
+      </clientContext>
+   </extension>
+
+</plugin>
