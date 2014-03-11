@@ -87,6 +87,25 @@
                <target
                      class="uml.Parameter">
                </target>
+            </constraint>
+            <constraint
+                  class="org.openetcs.sysml.constraints.NameIsNoC99Keyword"
+                  id="org.openetcs.sysml.constraints.NameIsNoC99Keyword"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Name is not a reserved C99 keyword"
+                  severity="ERROR"
+                  statusCode="105">
+               <message>
+                  {0}
+               </message>
+               <description>
+                  description body text
+               </description>
+               <target
+                     class="uml.NamedElement">
+               </target>
             </constraint></constraints>
       </constraintProvider>
    </extension>
