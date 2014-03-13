@@ -188,7 +188,6 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 
 	/**
 	 * Tries to find the proxy with the given URI.  Returns null if not found.
-	 * If it is found, the content will be updated, if it has changed.
 	 */
 	SpecObject findProxyFor(EObject element) {
 		TracingConfiguration config = getTracingConfig();
@@ -205,8 +204,6 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 						.getProxyUrlFromValue(((AttributeValueString) value)
 								.getTheValue());
 				if (uri.equals(tmpUrl)) {
-					itemProvider.updateProxyIfNecessary(
-							(AttributeValueString) value, element);
 					return specObject;
 				}
 			}

@@ -27,6 +27,7 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -50,6 +52,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
+import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecHierarchy;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
@@ -467,7 +470,7 @@ public class TracingConfigurationItemProvider extends
 				if (! (av instanceof AttributeValueString)) continue;
 				
 				EObject element = getElementFromUri(getUrlFromProxy(obj), domain);
-				updateProxyIfNecessary((AttributeValueString)av, element);
+				updateProxyIfNecessary((AttributeValueString)av, element, domain);
 			}
 		}
 	}
@@ -487,17 +490,23 @@ public class TracingConfigurationItemProvider extends
 	static String getProxyUrlFromValue(String value) {
 		return new StringTokenizer(value, "\n").nextToken();
 	}
-	
+
+	void updateProxyIfNecessary(AttributeValueString proxyValue,
+			EObject element, EditingDomain domain) {
+		CompoundCommand cmd = new CompoundCommand("Update Proxy");
+		updateProxyIfNecessary(proxyValue, element, domain, cmd);
+		domain.getCommandStack().execute(cmd);
+	}
+
 	/**
 	 * <p>Updates the proxy if it has changed by appending a command, if necessary.
-	 * Note that we are NOT using commands for this change.  There are pros and
-	 * cons either way.</p>
+	 * This is done via a command.</p>
 	 * 
 	 * element may be null (if it cannot be found).  In that case, the text "DELETED"
 	 * is prepended to the second (user visible) line.
 	 */
 	void updateProxyIfNecessary(AttributeValueString proxyValue,
-			EObject element) {
+			EObject element, EditingDomain domain, CompoundCommand cmd) {
 		if (element == null) {
 			markAsDeleted(proxyValue);
 			return;
@@ -508,12 +517,9 @@ public class TracingConfigurationItemProvider extends
 		if (proxyContent.equals(currentContent))
 			return;
 		// Content differs: Update the Value.
-		proxyValue.setTheValue(currentContent);
-		
-		// This is how it's done with commands.
-//		cmd.append(SetCommand.create(domain, proxyValue,
-//				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-//				currentContent));
+		cmd.append(SetCommand.create(domain, proxyValue,
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+				currentContent));
 	}
 
 	/**
