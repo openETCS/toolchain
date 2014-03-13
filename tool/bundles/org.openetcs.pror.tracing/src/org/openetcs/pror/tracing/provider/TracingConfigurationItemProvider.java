@@ -27,7 +27,6 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -491,13 +490,6 @@ public class TracingConfigurationItemProvider extends
 		return new StringTokenizer(value, "\n").nextToken();
 	}
 
-	void updateProxyIfNecessary(AttributeValueString proxyValue,
-			EObject element, EditingDomain domain) {
-		CompoundCommand cmd = new CompoundCommand("Update Proxy");
-		updateProxyIfNecessary(proxyValue, element, domain, cmd);
-		domain.getCommandStack().execute(cmd);
-	}
-
 	/**
 	 * <p>Updates the proxy if it has changed by appending a command, if necessary.
 	 * This is done via a command.</p>
@@ -506,9 +498,9 @@ public class TracingConfigurationItemProvider extends
 	 * is prepended to the second (user visible) line.
 	 */
 	void updateProxyIfNecessary(AttributeValueString proxyValue,
-			EObject element, EditingDomain domain, CompoundCommand cmd) {
+			EObject element, EditingDomain domain) {
 		if (element == null) {
-			markAsDeleted(proxyValue);
+			markAsDeleted(proxyValue, domain);
 			return;
 		}
 		String proxyContent = proxyValue
@@ -517,9 +509,10 @@ public class TracingConfigurationItemProvider extends
 		if (proxyContent.equals(currentContent))
 			return;
 		// Content differs: Update the Value.
-		cmd.append(SetCommand.create(domain, proxyValue,
+		Command cmd = SetCommand.create(domain, proxyValue,
 				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
-				currentContent));
+				currentContent);
+		domain.getCommandStack().execute(cmd);
 	}
 
 	/**
@@ -528,7 +521,7 @@ public class TracingConfigurationItemProvider extends
 	 * 
 	 * @param proxyValue
 	 */
-	private void markAsDeleted(AttributeValueString proxyValue) {
+	private void markAsDeleted(AttributeValueString proxyValue, EditingDomain domain) {
 		StringTokenizer tokenizer = new StringTokenizer(
 				proxyValue.getTheValue(), "\n");
 		StringBuilder sb = new StringBuilder();
@@ -545,7 +538,11 @@ public class TracingConfigurationItemProvider extends
 				sb.append("\n");
 			linenumber++;
 		}
-		proxyValue.setTheValue(sb.toString());
+		// Content differs: Update the Value.
+		Command cmd = SetCommand.create(domain, proxyValue,
+				ReqIF10Package.Literals.ATTRIBUTE_VALUE_STRING__THE_VALUE,
+				sb.toString());
+		domain.getCommandStack().execute(cmd);
 	}
 
 	/**
