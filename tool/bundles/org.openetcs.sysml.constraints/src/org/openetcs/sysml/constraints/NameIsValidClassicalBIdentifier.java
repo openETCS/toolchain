@@ -11,10 +11,10 @@ public class NameIsValidClassicalBIdentifier extends AbstractModelConstraint {
 		NamedElement element = (NamedElement) ctx.getTarget();
 		String name = element.getName();
 		
-		if (name != null && name.matches("[a-zA-Z][a-zA-Z0-9_]*")) {
-			return ctx.createSuccessStatus();
-		} else {
+		if (name != null && !name.matches("[a-zA-Z][a-zA-Z0-9_]*")) {
 			return ctx.createFailureStatus("The name '" + name + "' is not a valid Classical B identifier");
 		}
+
+		return ctx.createSuccessStatus();
 	}
 }

@@ -3,6 +3,15 @@
 
 <product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.4" useFeatures="true" includeLaunchers="true">
 
+   <aboutInfo>
+      <image path="/org.openetcs.product/openETCS-logo.png"/>
+      <text>
+         The openETCS tool is the primary platform for ETCS modeling in the openETCS project. 
+
+http://openetcs.org/
+      </text>
+   </aboutInfo>
+
    <configIni use="default">
    </configIni>
 
@@ -12,22 +21,47 @@
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i16="logo/openETCS-logo16x16.png" i32="logo/openETCS-logo32x32.png" i48="logo/openETCS-logo48x48.png" i64="logo/openETCS-logo64x64.png" i128="logo/openETCS-logo128x128.png"/>
 
    <splash
       location="org.openetcs.product"
       startupProgressRect="5,275,445,15"
       startupMessageRect="7,252,445,20"
-      startupForegroundColor="2C548E" />
+      startupForegroundColor="0000FF" />
    <launcher name="openETCS">
+      <linux icon="logo/openETCS-logo.xpm"/>
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+   <intro introId="org.openetcs.intro"/>
+
    <vm>
    </vm>
+
+   <license>
+        <url>https://joinup.ec.europa.eu/system/files/EN/EUPL%20v.1.1%20-%20Licence.pdf</url>
+        <text>
+   European Union Public Licence
+                                     V.1.1
+                      EUPL © the European Community 2007
+
+This European Union Public Licence (the “EUPL”) applies to the Work or Software
+(as defined below) which is provided under the terms of this Licence. Any use of the
+Work, other than as authorised under this Licence is prohibited (to the extent such use
+is covered by a right of the copyright holder of the Work).
+
+The Original Work is provided under the terms of this Licence when the Licensor (as
+defined below) has placed the following notice immediately following the copyright
+notice for the Original Work:
+
+                         Licensed under the EUPL V.1.1
+
+or has expressed by any other mean his willingness to license under the EUPL.
+         </text>
+   </license>
 
    <plugins>
    </plugins>

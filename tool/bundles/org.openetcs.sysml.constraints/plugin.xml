@@ -43,7 +43,7 @@
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="SysML Block names have to be unique"
+                  name="SysML Block names are unique"
                   severity="WARNING"
                   statusCode="102">
                <message>
@@ -70,12 +70,12 @@
                </target>
             </constraint>
             <constraint
-                  class="org.openetcs.sysml.constraints.ParameterHasType"
-                  id="org.openetcs.sysml.constraints.ParameterHasType"
+                  class="org.openetcs.sysml.constraints.PortHasType"
+                  id="org.openetcs.sysml.constraints.PortHasType"
                   isEnabledByDefault="true"
                   lang="Java"
                   mode="Batch"
-                  name="All UML Operation parameters have associated types."
+                  name="Port has associated type"
                   severity="ERROR"
                   statusCode="104">
                <message>
@@ -85,7 +85,7 @@
                   All parameter of operation needs a type.
                </description>
                <target
-                     class="uml.Parameter">
+                     class="uml.Port">
                </target>
             </constraint>
             <constraint

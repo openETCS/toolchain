@@ -14,7 +14,7 @@
          </property>
          <property
                name="startupForegroundColor"
-               value="2C548E">
+               value="0000FF">
          </property>
          <property
                name="startupMessageRect"
@@ -27,6 +27,18 @@
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutImage"
+               value="openETCS-logo.png">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText">
+         </property>
+         <property
+               name="windowImages"
+               value="logo/openETCS-logo16x16.png,logo/openETCS-logo32x32.png,logo/openETCS-logo48x48.png,logo/openETCS-logo64x64.png,logo/openETCS-logo128x128.png">
          </property>
       </product>
    </extension>
