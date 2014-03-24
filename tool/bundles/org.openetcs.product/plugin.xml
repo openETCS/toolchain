@@ -34,9 +34,7 @@
          </property>
          <property
                name="aboutText"
-               value="The openETCS tool is the primary platform for ETCS modeling in the openETCS project. 
-
-http://openetcs.org/">
+               value="%aboutText">
          </property>
          <property
                name="windowImages"
