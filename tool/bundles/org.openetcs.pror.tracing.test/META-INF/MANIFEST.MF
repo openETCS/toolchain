@@ -7,4 +7,6 @@ Bundle-Vendor: Formal Mind GmbH
 Fragment-Host: org.openetcs.pror.tracing
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit,
- org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.10.0"
+ org.eclipse.rmf.reqif10.pror.tests;bundle-version="0.10.0",
+ org.eclipse.rmf.reqif10.serialization;bundle-version="0.10.0",
+ org.eclipse.rmf.serialization;bundle-version="0.10.0"

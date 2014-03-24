@@ -205,7 +205,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 
 		
 		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
-		ip.updateProxyIfNecessary(value, external);
+		ip.updateProxyIfNecessary(value, external, editingDomain);
 		// No Cmd should be triggered from this
 		assertEquals(cmd, editingDomain.getCommandStack().getMostRecentCommand());
 	}
@@ -220,7 +220,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 				.getItemProvider(adapterFactory, config);
 		AttributeValueString value = ((AttributeValueString)proxy.getValues().get(0));
 		value.setTheValue(value.getTheValue() + "x");
-		ip.updateProxyIfNecessary(value, external);
+		ip.updateProxyIfNecessary(value, external, editingDomain);
 		
 		// Ensure the values match
 		assertEquals(value.getTheValue(), ip.buildProxyContent(external));
@@ -236,7 +236,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 				.getItemProvider(adapterFactory, config);
 		((ReqIFHeader)external).setComment("A comment");
 		AttributeValueString value = (AttributeValueString) proxy.getValues().get(0);
-		ip.updateProxyIfNecessary(value, external);
+		ip.updateProxyIfNecessary(value, external, editingDomain);
 		
 		// Ensure the values match
 		assertEquals(value.getTheValue(), ip.buildProxyContent(external));
