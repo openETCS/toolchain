@@ -21,7 +21,7 @@ http://openetcs.org/
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/org.openetcs.releng.products/logo/openETCS-logo16x16.png" i32="/org.openetcs.releng.products/logo/openETCS-logo32x32.png" i48="/org.openetcs.releng.products/logo/openETCS-logo48x48.png" i64="/org.openetcs.releng.products/logo/openETCS-logo64x64.png" i128="/org.openetcs.releng.products/logo/openETCS-logo128x128.png"/>
+   <windowImages i16="logo/openETCS-logo16x16.png" i32="logo/openETCS-logo32x32.png" i48="logo/openETCS-logo48x48.png" i64="logo/openETCS-logo64x64.png" i128="logo/openETCS-logo128x128.png"/>
 
    <splash
       location="org.openetcs.product"
@@ -29,7 +29,7 @@ http://openetcs.org/
       startupMessageRect="7,252,445,20"
       startupForegroundColor="0000FF" />
    <launcher name="openETCS">
-      <linux icon="/org.openetcs.releng.products/logo/openETCS-logo.xpm"/>
+      <linux icon="logo/openETCS-logo.xpm"/>
       <solaris/>
       <win useIco="false">
          <bmp/>
