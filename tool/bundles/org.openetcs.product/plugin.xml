@@ -34,11 +34,13 @@
          </property>
          <property
                name="aboutText"
-               value="%aboutText">
+               value="The openETCS tool is the primary platform for ETCS modeling in the openETCS project. 
+
+http://openetcs.org/">
          </property>
          <property
                name="windowImages"
-               value="/org.openetcs.releng.products/logo/openETCS-logo16x16.png,/org.openetcs.releng.products/logo/openETCS-logo32x32.png,/org.openetcs.releng.products/logo/openETCS-logo48x48.png,/org.openetcs.releng.products/logo/openETCS-logo64x64.png,/org.openetcs.releng.products/logo/openETCS-logo128x128.png">
+               value="logo/openETCS-logo16x16.png,logo/openETCS-logo32x32.png,logo/openETCS-logo48x48.png,logo/openETCS-logo64x64.png,logo/openETCS-logo128x128.png">
          </property>
       </product>
    </extension>
