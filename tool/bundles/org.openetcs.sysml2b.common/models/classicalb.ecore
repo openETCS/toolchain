@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ClassicalB" nsURI="http://classicalb/1.0" nsPrefix="classicalb">
+  <eClassifiers xsi:type="ecore:EClass" name="BAbstractMachine" eSuperTypes="#//BModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinement" upperBound="-1"
+        eType="#//BRefinement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//BConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sees" upperBound="-1" eType="#//BModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        eType="#//BModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="promotes" upperBound="-1"
+        eType="#//BOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
+        eType="#//BModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1" eType="#//BModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sets" upperBound="-1" eType="#//BSet"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concreteConstants" upperBound="-1"
+        eType="#//BConcreteConstant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractConstants" upperBound="-1"
+        eType="#//BAbstractConstant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//BProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concreteVariables" upperBound="-1"
+        eType="#//BConcreteVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractVariables" upperBound="-1"
+        eType="#//BAbstractVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariants" upperBound="-1"
+        eType="#//BInvariant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assertions" upperBound="-1"
+        eType="#//BAssertion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialization" upperBound="-1"
+        eType="#//BInitialization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//BOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BRefinement" eSuperTypes="#//BModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" eType="#//BImplementation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BImplementation" eSuperTypes="#//BModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//BModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="machines" upperBound="-1"
+        eType="#//BAbstractMachine" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
+        eType="#//BRefinement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementations" upperBound="-1"
+        eType="#//BImplementation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inParameters" upperBound="-1"
+        eType="#//BParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outParameters" upperBound="-1"
+        eType="#//BParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAbstractVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BInvariant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcreteConstant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAbstractConstant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcreteVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAssertion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BInitialization"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//BType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

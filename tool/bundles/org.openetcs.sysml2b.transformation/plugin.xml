@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <menu
+               label="openETCS">
+            <command
+                  commandId="de.fraunhofer.esk.openetcs.sysml2b.transformation.executeTransformation"
+                  label="Generate Classical B Model"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.fraunhofer.esk.openetcs.sysml2b.transformation.PerformTransformationHandler"
+            commandId="de.fraunhofer.esk.openetcs.sysml2b.transformation.executeTransformation">
+         <activeWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="or">
+                  <or>
+                     <instanceof
+                           value="org.eclipse.core.resources.IFile">
+                     </instanceof>
+                     <instanceof
+                           value="org.eclipse.papyrus.infra.onefile.model.IPapyrusFile">
+                     </instanceof>
+                  </or>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
+   </extension>
+
+</plugin>
