@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.esk.openetcs.sysml2b.common/src"
+    modelPluginID="de.fraunhofer.esk.openetcs.sysml2b.common" modelName="Classicalb"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>classicalb.ecore</foreignModel>
+  <genPackages prefix="ClassicalB" disposableProviderFactory="true" ecorePackage="classicalb.ecore#/">
+    <genClasses ecoreClass="classicalb.ecore#//BAbstractMachine">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/refinement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/constraints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/sees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/includes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/promotes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/extends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/uses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/sets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/concreteConstants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/abstractConstants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/concreteVariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/abstractVariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/invariants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/assertions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/initialization"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//BAbstractMachine/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BRefinement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BRefinement/implementation"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BImplementation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BImplementation/imports"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//Project/machines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//Project/refinements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference classicalb.ecore#//Project/implementations"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BModule/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BOperation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BOperation/inParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BOperation/outParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BAbstractVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BAbstractVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BInvariant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BInvariant/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BInvariant/type"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BConstraint"/>
+    <genClasses ecoreClass="classicalb.ecore#//BSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BSet/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BConcreteConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BConcreteConstant/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BAbstractConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BAbstractConstant/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BProperty/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BConcreteVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BConcreteVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BAssertion"/>
+    <genClasses ecoreClass="classicalb.ecore#//BInitialization"/>
+    <genClasses ecoreClass="classicalb.ecore#//BParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BParameter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference classicalb.ecore#//BParameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="classicalb.ecore#//BType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute classicalb.ecore#//BType/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
