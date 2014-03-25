@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.4" useFeatures="true" includeLaunchers="true">
+<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.7" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.openetcs.product/openETCS-logo.png"/>
