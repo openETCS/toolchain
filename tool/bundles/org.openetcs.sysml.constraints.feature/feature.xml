@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.openetcs.sysml.constraints.feature"
+      label="OpenETCS SysML Constraint Checker"
+      version="0.0.1.qualifier"
+      provider-name="Fraunhofer ESK">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.esk.fraunhofer.de/en.html">
+      Copyright (c) Fraunhofer Institute for Embedded Systems and Communication Technologies  ESK
+   </copyright>
+
+   <license url="https://joinup.ec.europa.eu/system/files/EN/EUPL%20v.1.1%20-%20Licence.pdf">
+      European Union Public Licence
+                                     V.1.1
+                      EUPL © the European Community 2007
+
+This European Union Public Licence (the “EUPL”) applies to the Work or Software
+(as defined below) which is provided under the terms of this Licence. Any use of the
+Work, other than as authorised under this Licence is prohibited (to the extent such use
+is covered by a right of the copyright holder of the Work).
+
+The Original Work is provided under the terms of this Licence when the Licensor (as
+defined below) has placed the following notice immediately following the copyright
+notice for the Original Work:
+
+                         Licensed under the EUPL V.1.1
+
+or has expressed by any other mean his willingness to license under the EUPL.
+   </license>
+
+   <url>
+      <discovery label="OpenETCS Project Site" url="http://www.openetcs.org"/>
+      <discovery label="SysML Constraint Checker Project Site" url="https://github.com/openETCS/toolchain/wiki/SysML-Constraint-Checker-Plugin"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.validation" version="1.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.uml"/>
+   </requires>
+
+   <plugin
+         id="org.openetcs.sysml.constraints"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
