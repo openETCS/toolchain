@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test
 Bundle-SymbolicName: org.openetcs.pror.tracing.test
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Formal Mind GmbH
 Fragment-Host: org.openetcs.pror.tracing
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
