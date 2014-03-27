@@ -2,15 +2,16 @@
 <feature
       id="org.openetcs.datadictionary.feature"
       label="Data Dictionary based on System Requirements Specification (SRS)"
-      version="0.1.0.qualifier">
+      version="0.1.0.qualifier"
+      provider-name="Fraunhofer ESK">
 
    <description>
       This feature contains the DataDictionary. The DataDictionary registers a UML model which contains data structure, variables and messages based on the ETCS System Requirements Specification (SRS).
    </description>
 
-   <copyright>
-      Copyright (c) 2014 Fraunhofer Institute for Communication Systems
-ESK, Hansastr. 32, 80686 Munich, Germany.
+   <copyright url="http://www.esk.fraunhofer.de/en.html">
+      Copyright (c) Fraunhofer Institute for Embedded Systems and Communication
+Technologies ESK
    </copyright>
 
    <license url="https://joinup.ec.europa.eu/system/files/EN/EUPL%20v.1.1%20-%20Licence.pdf">
@@ -34,7 +35,7 @@ or has expressed by any other mean his willingness to license under the EUPL.
 
    <url>
       <discovery label="OpenETCS Project Site" url="http://www.openetcs.org"/>
-      <discovery label="DataDictionary Project Site" url="https://github.com/openETCS/toolchain/wiki/DataDictionary"/>
+      <discovery label="Data Dictionary Project Site" url="https://github.com/openETCS/toolchain/wiki/Data-Dictionary-Plugin"/>
    </url>
 
    <plugin
