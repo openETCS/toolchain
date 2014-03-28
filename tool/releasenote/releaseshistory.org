@@ -1,9 +1,24 @@
-#+BEGIN_HTML
-#+END_HTML
----
-layout: default
-title: openETCS Extended Tool Construction Set
----
+
+** ToolSprint 7 (ends 28-March-14)
+*** resolved issues
+- #329 Prevent automatic merge of .reqif and uml files in git
+- #323 org.openetcs.pror.tracing.test has unresolvable dependency
+- #319 Java version incorrect on some plug-in
+- #312 Add sysml constraint checker to product specification
+- #308 Include Version Number in "about" Dialog
+- #305 Upon creating a Tracing Configuration, an error message appears
+- #304 Update Welcome page with Documentation information
+- #300 Create Manual for Traceability Process and corresponding tool use
+- #285 Guideline for licence & credit information
+- #241 Structure the documentation wiki
+- #222 Provide Icons for openETCS and update Splashscreen
+
+*** Important commit 
+- a98b3d30399ddcd8311201568405eb77b024feb0
+ #308 #309 Added version of current build in about dialog
+
+- e3bdf435a2ff3001e47fae525d7c42cfc9ff1841
+ Splashscreen image changes #222
 
 ** ToolSprint 5 (ends 14-Feb-14) v1.0.5
 *** resolved issues
