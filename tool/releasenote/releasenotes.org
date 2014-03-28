@@ -1,28 +1,36 @@
-** ToolSprint 5 (ends 14-Feb-14) v1.0.5
+
+** ToolSprint 7 (ends 28-March-14)
 *** resolved issues
-- #268 Temporarily use older xtext version
-- #267 Add Papyurus components to openETCS
-- #266 Milestone Release ToolSprint 5
-- #251 Shall we try to decrease the memory consumption in Papyrus?
-- #246 openETCS does not load (windows 32 bit)
-- #225 Decide on the fate of Bitwalker-SysML-Integration
-- #218 Subset-26 conversion to ProR
-- #216 Evaluate the open solutions to traceability
+- #329 Prevent automatic merge of .reqif and uml files in git
+- #323 org.openetcs.pror.tracing.test has unresolvable dependency
+- #319 Java version incorrect on some plug-in
+- #318 Request to trigger Jenkins builds
+- #312 Add sysml constraint checker to product specification
+- #309 Clarify version number handling upon building
+- #308 Include Version Number in "about" Dialog
+- #305 Upon creating a Tracing Configuration, an error message appears
+- #304 Update Welcome page with Documentation information
+- #300 Create Manual for Traceability Process and corresponding tool use
+- #285 Guideline for licence & credit information
+- #241 Structure the documentation wiki
+- #222 Provide Icons for openETCS and update Splashscreen
 
 *** Important commit 
-- d01c478b658b7a6a34fd34b46590516a01185723
- Merge pull request #284 from jfaltermeier/master
+- a98b3d30399ddcd8311201568405eb77b024feb0
+ #308 #309 Added version of current build in about dialog
+- 1939dcc77a54ef68a12a332a077b0da30b017874
+ #308 #309 Added version of current build in about dialog
+- 5ff2cc6e702a1318acba666d97405c2c18b7cb64
+ Merge pull request #331 from jfaltermeier/master
 
- #246 Changed launch configuration for 32bit; #268 Xtext 2.4.2
-- 28f46f3998c969f8833cb175f3669de60f1a1bcf
- Add Papyrus (View Stylesheets) and Papyrus Tabular Editor #267
-- 1a925a9a41d7d6c1a066e25bd1e803b3cd3bb43e 
- #246 Lowered memory settings
-- 68562d0fb5bea2e89c34afebcc4b3d8611348582
+#308 #309 Version in about dialog
+- a98b3d30399ddcd8311201568405eb77b024feb0
+ #308 #309 Added version of current build in about dialog
+- 1939dcc77a54ef68a12a332a077b0da30b017874
+ #308 #309 Added version of current build in about dialog
+- 5ff2cc6e702a1318acba666d97405c2c18b7cb64
+ Merge pull request #331 from jfaltermeier/master
 
- #246 Included JRE in Tycho-Build
-
-There is a feature for every platform including the JRE. The JRE is set in the openETCS.ini via touchpoint instructions. This appraoch allows to update users JRE by updating the feature. Since the JRE is not placed as a root file this mechanism also works in windows machines.
-- 65f60f65ce8c6c27c4eac0854f81a1efffd891c8
- #246 Using different launch configuration for 32bit products
-
+#308 #309 Version in about dialog
+- e3bdf435a2ff3001e47fae525d7c42cfc9ff1841
+ Splashscreen image changes #222
