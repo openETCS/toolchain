@@ -25,6 +25,8 @@
 	<module>../org.openetcs.target.feature</module>
 	<module>../org.openetcs.pror.tracing</module>
 	<module>../org.openetcs.pror.tracing.test</module>
+	<module>../org.openetcs.sysml.constraints</module>
+	<module>../org.openetcs.sysml.constraints.feature</module>
   </modules>
   
   <build>
