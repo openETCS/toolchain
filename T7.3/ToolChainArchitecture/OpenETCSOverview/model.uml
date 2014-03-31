@@ -9,6 +9,9 @@
         <body>1- Does SCADE provide traceability mechanism from requement to source code
 2- Is it integrable into the tool chain</body>
       </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_fEAXgIqHEeO2xsSja7i1DA" annotatedElement="_uDV74F5ZEeO6V4b4pI1W-Q">
+        <body>ReCycle is a tool candidate</body>
+      </ownedComment>
       <edge xmi:type="uml:ControlFlow" xmi:id="_y9u-0FIPEeO2iOU1Kjl0YQ" name="ControlFlow1" source="_esiocFINEeO2iOU1Kjl0YQ" target="_DBHqQFINEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_zhRJsFIPEeO2iOU1Kjl0YQ" name="ControlFlow2" source="_uDfW0GKAEeO2I5EKGozZ2A" target="_G8yOkFINEeO2iOU1Kjl0YQ"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_6MiH0FIPEeO2iOU1Kjl0YQ" name="ControlFlow3" target="_j6GdAFIOEeO2iOU1Kjl0YQ"/>
@@ -41,7 +44,7 @@
       <edge xmi:type="uml:ControlFlow" xmi:id="_dYtIwIqGEeO2xsSja7i1DA" name="ControlFlow31" source="_G8yOkFINEeO2iOU1Kjl0YQ" target="_boKDEIqEEeO2xsSja7i1DA"/>
       <edge xmi:type="uml:ControlFlow" xmi:id="_uJm6IIqGEeO2xsSja7i1DA" name="ControlFlow32" source="_fnt-AIqGEeO2xsSja7i1DA" target="_boKDEIqEEeO2xsSja7i1DA"/>
       <group xmi:type="uml:ActivityPartition" xmi:id="_O5IzoGKAEeO2I5EKGozZ2A" name="Requirement" node="_DBHqQFINEeO2iOU1Kjl0YQ _uDfW0GKAEeO2I5EKGozZ2A _V8Fo4GJHEeOtRLinGyaEAA _G8yOkFINEeO2iOU1Kjl0YQ"/>
-      <group xmi:type="uml:ActivityPartition" xmi:id="_Bmte0GKBEeO2I5EKGozZ2A" name="Modeling System" node="_j6GdAFIOEeO2iOU1Kjl0YQ _p9ok0Fj1EeOu38sUqSEbjQ _MfpSQFj0EeOu38sUqSEbjQ _pQ0qEFIOEeO2iOU1Kjl0YQ _yn4gEFIOEeO2iOU1Kjl0YQ _7OQgAFIOEeO2iOU1Kjl0YQ _ByVRAFIPEeO2iOU1Kjl0YQ _b4McEFIOEeO2iOU1Kjl0YQ _uDV74F5ZEeO6V4b4pI1W-Q">
+      <group xmi:type="uml:ActivityPartition" xmi:id="_Bmte0GKBEeO2I5EKGozZ2A" name="Modeling System" node="_j6GdAFIOEeO2iOU1Kjl0YQ _p9ok0Fj1EeOu38sUqSEbjQ _MfpSQFj0EeOu38sUqSEbjQ _pQ0qEFIOEeO2iOU1Kjl0YQ _yn4gEFIOEeO2iOU1Kjl0YQ _7OQgAFIOEeO2iOU1Kjl0YQ _ByVRAFIPEeO2iOU1Kjl0YQ _b4McEFIOEeO2iOU1Kjl0YQ">
         <ownedComment xmi:type="uml:Comment" xmi:id="_xCjdMIqGEeO2xsSja7i1DA" annotatedElement="_b4McEFIOEeO2iOU1Kjl0YQ">
           <body>Should the BitWalker delivery be merged with the Data dictionnary ?</body>
         </ownedComment>
@@ -49,11 +52,7 @@
           <body>What are the restrictions ?</body>
         </ownedComment>
       </group>
-      <group xmi:type="uml:ActivityPartition" xmi:id="_HH3k0GKCEeO2I5EKGozZ2A" name="Traceability" node="_uDV74F5ZEeO6V4b4pI1W-Q _df7-gF5aEeO6V4b4pI1W-Q">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_fEAXgIqHEeO2xsSja7i1DA" annotatedElement="_uDV74F5ZEeO6V4b4pI1W-Q">
-          <body>ReCycle is a tool candidate</body>
-        </ownedComment>
-      </group>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_HH3k0GKCEeO2I5EKGozZ2A" name="Traceability" node="_uDV74F5ZEeO6V4b4pI1W-Q"/>
       <group xmi:type="uml:ActivityPartition" xmi:id="_gYFE0GKCEeO2I5EKGozZ2A" name="Configuration Management" node="_2XRDcGDWEeO0E4DBzB4wCw"/>
       <group xmi:type="uml:ActivityPartition" xmi:id="_pBdxEIqFEeO2xsSja7i1DA" name="Safety" node="_J5RUkIqGEeO2xsSja7i1DA"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_DBHqQFINEeO2iOU1Kjl0YQ" name="Import Requirement" inPartition="_O5IzoGKAEeO2I5EKGozZ2A" outgoing="_-Gs7wGKAEeO2I5EKGozZ2A" incoming="_y9u-0FIPEeO2iOU1Kjl0YQ"/>
@@ -84,8 +83,8 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_ByVRAFIPEeO2iOU1Kjl0YQ" name="Scade Papyrus Integration" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_Om1BwFIQEeO2iOU1Kjl0YQ" incoming="_OIYLMFIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_MfpSQFj0EeOu38sUqSEbjQ" name="Import BitWalker" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_DQRjMFj1EeOu38sUqSEbjQ" incoming="_ChACYFj1EeOu38sUqSEbjQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_p9ok0Fj1EeOu38sUqSEbjQ" name="Import Requirements 2 Papyrus" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_6S9NcFj1EeOu38sUqSEbjQ" incoming="_5rhaAFj1EeOu38sUqSEbjQ"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="_uDV74F5ZEeO6V4b4pI1W-Q" name="Manage Trace" inPartition="_HH3k0GKCEeO2I5EKGozZ2A _Bmte0GKBEeO2I5EKGozZ2A" outgoing="_skGgUGKDEeO2I5EKGozZ2A" incoming="_CNaMAF5bEeO6V4b4pI1W-Q _EVXXAF5bEeO6V4b4pI1W-Q _Fyv7AF5bEeO6V4b4pI1W-Q"/>
-      <node xmi:type="uml:DataStoreNode" xmi:id="_df7-gF5aEeO6V4b4pI1W-Q" name="Link DataBase" inPartition="_HH3k0GKCEeO2I5EKGozZ2A" incoming="_skGgUGKDEeO2I5EKGozZ2A" isControlType="true">
+      <node xmi:type="uml:OpaqueAction" xmi:id="_uDV74F5ZEeO6V4b4pI1W-Q" name="Manage Trace" inPartition="_HH3k0GKCEeO2I5EKGozZ2A" outgoing="_skGgUGKDEeO2I5EKGozZ2A" incoming="_CNaMAF5bEeO6V4b4pI1W-Q _EVXXAF5bEeO6V4b4pI1W-Q _Fyv7AF5bEeO6V4b4pI1W-Q"/>
+      <node xmi:type="uml:DataStoreNode" xmi:id="_df7-gF5aEeO6V4b4pI1W-Q" name="Link DataBase" incoming="_skGgUGKDEeO2I5EKGozZ2A" isControlType="true">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_df_B0F5aEeO6V4b4pI1W-Q" value="1"/>
       </node>
       <node xmi:type="uml:OpaqueAction" xmi:id="_2XRDcGDWEeO0E4DBzB4wCw" name="Store Data Bases" inPartition="_gYFE0GKCEeO2I5EKGozZ2A" incoming="_g3zb0GKEEeO2I5EKGozZ2A _hiNDsGKEEeO2I5EKGozZ2A _iC25sGKEEeO2I5EKGozZ2A"/>
@@ -157,6 +156,7 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_vOJjEI11EeOMqbI_LkMcYA" name="write definitions" type="_KUiXAI11EeOMqbI_LkMcYA" association="_vOHt4I11EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_mBoW4I16EeOMqbI_LkMcYA" name="scade-papyrus integration" type="_fpFgcI16EeOMqbI_LkMcYA" association="_mBnIwI16EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_0Wbf8I1_EeOMqbI_LkMcYA" name="trace management" type="_okRbII1sEeO4yNdlNb1RPA" association="_0WaR0I1_EeOMqbI_LkMcYA"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_8T6N8LjvEeOwJt8ZlTV5NA" name="" type="_QW4pgLjvEeOwJt8ZlTV5NA" association="_8T4YwLjvEeOwJt8ZlTV5NA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_mTcykI1tEeO4yNdlNb1RPA" name="SCADE Model">
           <ownedComment xmi:type="uml:Comment" xmi:id="_r0jvQI2wEeOMqbI_LkMcYA" annotatedElement="_mTcykI1tEeO4yNdlNb1RPA">
@@ -319,6 +319,15 @@
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3iqycI1_EeOMqbI_LkMcYA" source="org.eclipse.papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3iqycY1_EeOMqbI_LkMcYA" key="nature" value="SysML_Nature"/>
         </eAnnotations>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_Gz4CMLjvEeOwJt8ZlTV5NA" name="Verification&amp;Validation">
+        <packagedElement xmi:type="uml:Class" xmi:id="_QW4pgLjvEeOwJt8ZlTV5NA" name="SysML Constraint checker"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_8T4YwLjvEeOwJt8ZlTV5NA" name="" memberEnd="_8T6N8LjvEeOwJt8ZlTV5NA _8T6N8bjvEeOwJt8ZlTV5NA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8T5m4LjvEeOwJt8ZlTV5NA" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8T5m4bjvEeOwJt8ZlTV5NA" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_8T6N8bjvEeOwJt8ZlTV5NA" name="papyrus model" type="_jw9AoI1tEeO4yNdlNb1RPA" association="_8T4YwLjvEeOwJt8ZlTV5NA"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_WJwvMJJwEeOW2_vqY9_o8g" name="Requirements">
@@ -484,4 +493,6 @@
   <OpenETCSProfile:OpenETCSFeature xmi:id="_N_YQEI2AEeOMqbI_LkMcYA" Implemented="true" Tool="Git" base_Class="_zYbhQI1sEeO4yNdlNb1RPA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_0dlXYI2sEeOMqbI_LkMcYA" Issue="213" Tool="ask Alexander Stante" base_Class="_SzjtkI18EeOMqbI_LkMcYA"/>
   <Blocks:Block xmi:id="_WJykYJJwEeOW2_vqY9_o8g" base_Class="_WJwvMJJwEeOW2_vqY9_o8g"/>
+  <Blocks:Block xmi:id="_QW6esLjvEeOwJt8ZlTV5NA" base_Class="_QW4pgLjvEeOwJt8ZlTV5NA"/>
+  <OpenETCSProfile:OpenETCSFeature xmi:id="_aLTw8LjvEeOwJt8ZlTV5NA" base_Class="_QW4pgLjvEeOwJt8ZlTV5NA"/>
 </xmi:XMI>
