@@ -1,0 +1,8 @@
+<plugin><extension point="org.eclipse.help.toc">
+		<toc primary="true" category="Doc" file="toc.xml" ></toc>
+		<toc primary="false" category="Doc" file="OpenETCS_toolchain/Documentation-Anex1-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/Documentation-page-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/Documentation-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/Documentation_test-toc.xml"></toc>
+		  		</extension></plugin>
+		
