@@ -2080,6 +2080,12 @@
       <ownedAttribute xmi:id="_5J3tqF6VEeO_eY4-Wn4h6g" name="NID_XUSER" type="_5J1RR16VEeO_eY4-Wn4h6g"/>
       <ownedAttribute xmi:id="_5J3tqV6VEeO_eY4-Wn4h6g" name="Other data depending on  NID_XUSER"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_CtFTMLp0EeOyXe0yzugm5Q" name="End of Information">
+      <ownedComment xmi:id="_WaZLULp0EeOyXe0yzugm5Q" annotatedElement="_CtFTMLp0EeOyXe0yzugm5Q">
+        <body>This packet consists only of NID_PACKET containing 8 bit 1s. It acts as a finish flag ; the receiver will stop reading the remaining part of the message/telegram when receiving eight bits set to one in the NID_Packet field.</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_YUXIMLp1EeOyXe0yzugm5Q" name="NID_PACKET" type="_5J1RMl6VEeO_eY4-Wn4h6g"/>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_5J3tql6VEeO_eY4-Wn4h6g" name="Subset-026-8">
     <packagedElement xmi:type="uml:DataType" xmi:id="_5J3tq16VEeO_eY4-Wn4h6g" name="SR Authorisation">
