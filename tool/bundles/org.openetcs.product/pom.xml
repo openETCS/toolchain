@@ -1,15 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.openetcs</groupId>
-    <artifactId>org.openetcs.releng.parent</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../org.openetcs.releng.parent/</relativePath>
-  </parent>
-  <groupId>org.openetcs</groupId>
-  <artifactId>org.openetcs.product</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
-  <packaging>eclipse-plugin</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.openetcs</groupId>
+		<artifactId>org.openetcs.releng.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../org.openetcs.releng.parent/</relativePath>
+	</parent>
+	<groupId>org.openetcs</groupId>
+	<artifactId>org.openetcs.product</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+
+	<build>
+		<plugins>
+			<!-- Update the product Build ID and version in the about text -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+
+					<!-- Change the plugin.properties to have version in about text -->
+					<execution>
+						<id>update-plugin-properties</id>
+						<phase>validate</phase>
+						<configuration>
+							<target>
+								<copy file="${basedir}/plugin.properties" tofile="${basedir}/plugin.properties.backup" />
+								<replace file="${basedir}/plugin.properties">
+									<replacefilter token="@version@" value="${unqualifiedVersion}.${buildQualifier}" />
+								</replace>
+
+							</target>
+						</configuration>	
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<!-- Undo Change for local build -->
+					<execution>
+						<id>restore-plugin-properties</id>
+						<phase>verify</phase>
+						<configuration>
+							<target>
+								<delete file="${basedir}/plugin.properties" />
+								<move file="${basedir}/plugin.properties.backup" tofile="${basedir}/plugin.properties" />
+							</target>
+						</configuration>	
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

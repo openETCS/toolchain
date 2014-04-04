@@ -10,15 +10,23 @@
   <properties>
     <openetcs-version>0.1.0-SNAPSHOT</openetcs-version>
     <tycho-version>0.19.0</tycho-version>
+	<replacer-version>1.4.1</replacer-version>
+	<assembly-version>2.4</assembly-version>
   </properties>
   
   <modules>
     <module>../org.openetcs.core.feature</module>
+	<module>../org.openetcs.datadictionary</module>
+	<module>../org.openetcs.datadictionary.feature</module>
     <module>../org.openetcs.intro</module>
 	<module>../org.openetcs.product</module>
     <module>../org.openetcs.releng.products</module>
 	<module>../org.openetcs.releng.target</module>
 	<module>../org.openetcs.target.feature</module>
+	<module>../org.openetcs.pror.tracing</module>
+	<module>../org.openetcs.pror.tracing.test</module>
+	<module>../org.openetcs.sysml.constraints</module>
+	<module>../org.openetcs.sysml.constraints.feature</module>
   </modules>
   
   <build>

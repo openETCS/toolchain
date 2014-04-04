@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+    Copyright (c) 2014 SQS S.A.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+
+    -->
+
+<project name="toolchain" default="all" xmlns:ac="antlib:net.sf.antcontrib">
+	
+    <description>Generate Eclipse help content from cloned mediawiki files</description>
+	
+	<target name="all" depends="reset_folders,generate-help, generate-fo, generate-pdf, generate-toc"/>
+	
+	<!-- =========================== Reset folders =========================== -->
+	<!-- ===================================================================== -->
+	<target name="reset_folders">
+		
+		<!-- Reset documentation folders -->
+		<delete dir="${basedir}/OpenETCS_toolchain"/>
+		<mkdir dir="${basedir}/OpenETCS_toolchain"/>
+		
+		
+		<!-- Create mediawiki_files.txt file  -->
+		<touch file="${basedir}/OpenETCS_toolchain\mediawiki_files.txt"/> 
+
+		<!-- Copy cloned mediawikis to OpenETCS_toolchain folder -->
+		<copy todir="${basedir}/OpenETCS_toolchain">
+			<fileset dir="${basedir}/cloned_repository"> 
+					<include name="*.mediawiki"/> 
+			</fileset> 
+		</copy>
+						
+		
+		<!-- Ant-contrib includes -->
+		<path id="ant-contrib.tasks.classpath">
+					<fileset dir="lib">
+						<include name="ant-contrib-1.0b3.jar"/>
+					</fileset>
+		</path>
+		<taskdef classpathref="ant-contrib.tasks.classpath" resource="net/sf/antcontrib/antcontrib.properties"/>
+		<taskdef classpathref="ant-contrib.tasks.classpath" resource="net/sf/antcontrib/antlib.xml"/>
+			
+		<!-- Mediawiki file names to mediawiki_files.txt -->
+		<for param="file">
+		  	<path>
+		   		<fileset dir="${basedir}/OpenETCS_toolchain" includes="*.mediawiki"/>
+		  	</path>
+		  	<sequential>
+		   		<var name="FileName" unset="true"/>
+		   		<basename property="FileName" file="@{file}" suffix=".mediawiki"/>
+		   	    <concat destfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt" append="yes">${FileName}${line.separator}</concat>
+			</sequential>
+		</for>
+		
+		<!-- Internal mediawiki link parsing -->
+		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[#">
+					<include name="@{line}.mediawiki"/>
+				</replace>
+			</sequential>
+		</for>	
+		
+		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
+					<include name="@{line}.mediawiki"/>
+				</replace>
+			</sequential>
+		</for>	
+		
+		<!-- External mediawiki link parsing -->
+		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
+				</replace>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line} " value="[[@{line}.html ">
+				</replace>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}|" value="[[@{line}.html|">
+				</replace>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[@{line}.html#">
+				</replace>
+			</sequential>
+		</for>
+				
+		<!-- Image parsing: Replace from Github style to Mylyn mediawiki style -->
+		<replace dir="${basedir}/OpenETCS_toolchain" token="[[http" value="[[Image:http">
+			<include name="*.mediawiki"/>
+		</replace>	
+					
+					
+	</target>
+	
+	<!-- ====================== Original Build.xml file ====================== -->
+	<!-- ===================================================================== -->
+	<property name="imageFolder" value="images"/>
+
+	<path id="wikitext.tasks.classpath">
+		<fileset dir="lib">
+			<include name="org.eclipse.mylyn.wikitext.*core*.jar"/>
+			<include name="org.eclipse.mylyn.wikitext.textile.*core*.jar"/>
+		</fileset>
+	</path>
+
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/internal/wikitext/mediawiki/core/tasks/tasks.properties"/>
+	<taskdef classpathref="wikitext.tasks.classpath" resource="org/eclipse/mylyn/wikitext/core/util/anttask/tasks.properties"/>
+	
+
+	<target name="init">
+		<mkdir dir="tmp"/>
+	</target>
+
+	<target name="clean" depends="init">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="tmp"/>
+		</delete>
+	</target>
+
+	<target name="generate-help" depends="reset_folders" description="Generate Eclipse help">
+
+		
+		<!-- Eclipse Help generation -->
+		<wikitext-to-eclipse-help markupLanguage="MediaWiki" 
+			multipleOutputFiles="false" 
+			formatOutput="true"
+			navigationImages="false" 
+			helpPrefix="OpenETCS_toolchain"
+			xhtmlStrict="true"> 
+			<markupLanguageConfiguration escapingHtmlAndXml="false"/> 
+			<fileset dir="${basedir}/OpenETCS_toolchain"> 
+				<include name="*.mediawiki"/> 
+			</fileset> 
+			<stylesheet url="../styles/main.css"/> 
+		</wikitext-to-eclipse-help>
+	
+	
+		<!-- Subpage link tag parsing: Replace "/wiki", not needed-->		
+		<replace dir="${basedir}/OpenETCS_toolchain" token="a href=&quot;/wiki/" value="a href=&quot;">
+			<include name="*.html"/>
+		</replace>
+		
+		
+	</target>
+	
+
+	<target name="generate-fo" depends="generate-help" description="Generate FO">
+		
+		<!-- Reset mediawikis files -->
+		<copy todir="${basedir}/OpenETCS_toolchain" overwrite="true">
+			<fileset dir="${basedir}/cloned_repository"> 
+				<include name="*.mediawiki"/> 
+			</fileset> 
+		</copy>
+		
+				
+		<!-- Internal mediawiki link parsing -->
+		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[#">
+					<include name="@{line}.mediawiki"/>
+				</replace>
+			</sequential>
+		</for>	
+				
+		<!-- Build master mediawiki file -->		
+		<concat destfile="${basedir}/OpenETCS_toolchain/OpenETCS Toolchain.mediawiki" append="true">
+			<fileset dir="${basedir}/OpenETCS_toolchain"> 
+				<include name="*.mediawiki"/> 
+			</fileset> 
+		</concat>
+		
+				
+		<!-- External mediawiki link parsing -->
+		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}" value="[[">
+					<include name="OpenETCS Toolchain.mediawiki"/>
+				</replace>
+			</sequential>
+		</for>
+						
+		<!-- Image parsing: Replace from Github style to Mylyn mediawiki style -->
+		<replace dir="${basedir}/OpenETCS_toolchain" token="[[http" value="[[Image:http">
+			<include name="OpenETCS Toolchain.mediawiki"/>
+		</replace>
+		
+					
+		<!-- FO file generation -->
+		<wikitext-to-xslfo  markupLanguage="MediaWiki" 
+			subtitle=" - Documentation -"
+			fontSize="12"
+			pageNumbering="true"
+			showExternalLinks="false"
+			underlineLinks="true"
+			pageBreakOnHeading1="true">
+			<markupLanguageConfiguration escapingHtmlAndXml="false"/>
+      	<fileset dir="${basedir}/OpenETCS_toolchain">
+       	<include name="OpenETCS Toolchain.mediawiki"/>
+      	</fileset>
+  		</wikitext-to-xslfo >
+	
+		<!-- HyperLink color: Blue -->		
+		<replace dir="${basedir}/OpenETCS_toolchain" 
+			token="basic-link text-decoration=" 
+			value="basic-link color='blue' text-decoration=">
+			<include name="*.fo"/>
+		</replace>	
+	
+		<!-- Subpage link tag parsing: Replace /wiki , not needed-->
+		<replace dir="${basedir}/OpenETCS_toolchain" token="//wiki/" value="/">
+			<include name="*.fo"/>
+		</replace>
+	
+	</target>	
+
+	<property name="imageFolder" value="images"/>
+	<property name="fop.home" value="${basedir}/fop-1.1"/>
+
+	<taskdef name="fop"
+	         classname="org.apache.fop.tools.anttasks.Fop">
+	<classpath>
+		<fileset dir="${fop.home}/lib">
+      		<include name="*.jar"/>
+    	</fileset>
+    <fileset dir="${fop.home}/build">
+      <include name="fop.jar"/>
+      <include name="fop-hyph.jar" />
+    </fileset>
+  	</classpath>
+	</taskdef>
+
+	<target name="generate-pdf" depends="generate-fo" description="Generates a single PDF file"> 
+    	<!-- PDF file generation -->
+		<fop format="application/pdf" outdir="${basedir}/OpenETCS_toolchain">
+			<fileset dir="${basedir}/OpenETCS_toolchain">
+				<include name="*.fo" />
+			</fileset>
+		</fop>
+	</target> 
+
+	<target name="test" depends="init" description="verify that all of the HTML files are well-formed XML">
+		<echo level="info">
+		Validating help content XML and HTML files: The Eclipse help system expects well-formed XML
+
+		If validation fails it is because either:
+
+		* the userguide source code is poorly formed, or
+		* the WikiText MediaWiki parser has a bug
+
+	Problems with userguide source are usually caused by improper use of HTML markup in the MediaWiki source,
+	or inadvertently starting a line with a space character (in MediaWiki this starts a preformatted block)
+		</echo>
+
+		<!--
+		Don't bother with DTD validation: we only care if the files are well-formed.
+		We therefore provide an empty DTD 
+		-->
+		<echo file="tmp/__empty.dtd" message=""/>
+		<xmlvalidate lenient="true">
+			<fileset dir="${basedir}">
+				<include name="**/*.xml"/>
+				<include name="**/*.html"/>
+			</fileset>
+			<dtd publicid="-//W3C//DTD XHTML 1.0 Transitional//EN" location="${basedir}/tmp/__empty.dtd"/>
+		</xmlvalidate>
+	</target>
+
+	<!-- ====================== Generate toc dynamically ===================== -->
+	<!-- ===================================================================== -->
+	<target name="generate-toc" depends="generate-pdf"> 	
+
+		<!-- Reset plugin.xml and toc.xml files -->
+	
+		<delete file="${basedir}/plugin.xml"/> 
+		<touch file="${basedir}/plugin.xml"/> 
+		<delete file="${basedir}/toc.xml"/> 
+		<touch file="${basedir}/toc.xml"/>
+	
+		<!-- Rewrite plugin.xml and toc.xml  -->
+				
+		<loadfile property="file" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		
+		<concat destfile="plugin.xml" append="yes">&lt;plugin&gt;&lt;extension point="org.eclipse.help.toc"&gt;
+		</concat>
+		<concat destfile="plugin.xml" append="yes">&lt;toc primary="true" category="Doc" file="toc.xml" &gt;&lt;/toc&gt;
+		</concat>
+			
+		<for param="line" list="${file}" delimiter="${line.separator}">
+		  	<sequential>
+			  	<concat destfile="plugin.xml" append="yes">&lt;toc primary="false" category="Doc" file="OpenETCS_toolchain/@{line}-toc.xml"&gt;&lt;/toc&gt;
+		  		</concat>	  		
+		  	</sequential>
+		</for>
+			
+		<concat destfile="plugin.xml" append="yes">&lt;/extension&gt;&lt;/plugin&gt;
+		</concat>
+			
+		<concat destfile="toc.xml" append="yes">&lt;toc label="Toolchain Documentation"&gt;
+		</concat>
+							
+		<for param="line" list="${file}" delimiter="${line.separator}">
+		  	<sequential>
+			  	<concat destfile="toc.xml" append="yes">&lt;topic label="@{line}"&gt;&lt;link toc="OpenETCS_toolchain/@{line}-toc.xml"/&gt;&lt;/topic&gt;
+			  	</concat>	  		
+		  	</sequential>
+		</for>
+				
+		<concat destfile="toc.xml" append="yes">&lt;/toc&gt;
+		</concat>
+	  
+	</target>	
+	
+</project>

@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Subset0267" nsURI="platform:/resource/de.fraunhofer.esk.openetcs.datadictionary.transform/models/Subset_026_7.xsd"
+    nsPrefix="Subset0267">
+  <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+    <details key="qualified" value="false"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value=""/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xmlns:prefix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xsi:schemaLocation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bothWays" upperBound="-2"
+        eType="#//TBothWays" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="BothWays"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" unique="false"
+        upperBound="-2" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Comment"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" unique="false"
+        upperBound="-2" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Condition"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" upperBound="-2"
+        eType="#//TConditional" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Conditional"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-2"
+        eType="#//TContent" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Content"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-2"
+        eType="#//TDefinitions" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Root Element"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Definitions"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false"
+        upperBound="-2" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailedName" unique="false"
+        upperBound="-2" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="DetailedName"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iDNumber" unique="false"
+        upperBound="-2" eType="#//TIDNumber" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="IDNumber"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" unique="false"
+        upperBound="-2" eType="#//TLength" volatile="true" transient="true" defaultValueLiteral="5"
+        derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Length"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" upperBound="-2" eType="#//ListType"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="List"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopDoWhile" upperBound="-2"
+        eType="#//TLoopDoWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopDoWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopWhile" upperBound="-2"
+        eType="#//TLoopWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-2"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" volatile="true"
+        transient="true" defaultValueLiteral="N_ITER" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packet" upperBound="-2"
+        eType="#//TPacket" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packet"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packets" upperBound="-2"
+        eType="#//TPackets" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packets"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="special" upperBound="-2"
+        eType="#//SpecialType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Special"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specs" upperBound="-2"
+        eType="#//SpecsType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Specs"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tlgVar" upperBound="-2"
+        eType="#//TTlgVar" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TlgVar"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trackToTrain" upperBound="-2"
+        eType="#//TTrackToTrain" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TrackToTrain"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trainToTrack" upperBound="-2"
+        eType="#//TTrainToTrack" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TrainToTrack"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionMedia" unique="false"
+        upperBound="-2" eType="#//TTransmissionMedia" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TransmissionMedia"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-2"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Value"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-2"
+        eType="#//TVariable" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Variable"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-2"
+        eType="#//TVariables" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Variables"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="List_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Number"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecialType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Special_._type"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//TValue"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Value"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecsType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Specs_._type"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="special" upperBound="-1"
+        eType="#//SpecialType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Special"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula" eType="#//TFormula"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Formula"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="#//TVarLen" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Length"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVal" eType="#//TMaxVal"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="MaxVal"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minVal" eType="#//TMinVal"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="MinVal"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TBothWays">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_BothWays"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" lowerBound="1" upperBound="-1"
+        eType="#//ListType" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="List"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packet" lowerBound="1"
+        eType="#//TPacket" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packet"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TConditional">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Conditional"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" unique="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Condition"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" lowerBound="1"
+        upperBound="-1" eType="#//TVariables" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Variables"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TContent">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Content"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tlgVar" upperBound="-1"
+        eType="#//TTlgVar" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TlgVar"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopDoWhile" upperBound="-1"
+        eType="#//TLoopDoWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopDoWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopWhile" upperBound="-1"
+        eType="#//TLoopWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" upperBound="-1"
+        eType="#//TConditional" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Conditional"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TDefinitions">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Definitions"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packets" lowerBound="1"
+        eType="#//TPackets" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packets"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varDef" lowerBound="1"
+        eType="#//TVardefVar" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="VarDef"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TFormula">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Formula"/>
+    </eAnnotations>
+    <eLiterals name="_002" literal="0.02"/>
+    <eLiterals name="_005" value="1" literal="0.05"/>
+    <eLiterals name="_05T" value="2" literal="0.5 t"/>
+    <eLiterals name="_005MS2" value="3" literal="0.05 m/s**2"/>
+    <eLiterals name="_1" value="4" literal="1"/>
+    <eLiterals name="_1Byte" value="5" literal="1 Byte"/>
+    <eLiterals name="_1TextStringElement" value="6" literal="1 Text String Element"/>
+    <eLiterals name="_1Bit" value="7" literal="1 bit"/>
+    <eLiterals name="_1M" value="8" literal="1 m"/>
+    <eLiterals name="_1Day" value="9" literal="1 day"/>
+    <eLiterals name="_1PerMil" value="10" literal="1 per mil"/>
+    <eLiterals name="_1PerCent" value="11" literal="1 per cent"/>
+    <eLiterals name="_10A" value="12" literal="10 A"/>
+    <eLiterals name="_10Cm1MOr10MDependingOnQSCALE" value="13" literal="10 cm, 1 m or 10 m depending on Q_SCALE"/>
+    <eLiterals name="_10Ms" value="14" literal="10 ms"/>
+    <eLiterals name="_1S" value="15" literal="1 s"/>
+    <eLiterals name="_5KmH" value="16" literal="5 km/h"/>
+    <eLiterals name="BinaryCodedDecimal" value="17" literal="Binary Coded Decimal"/>
+    <eLiterals name="Bitset" value="18"/>
+    <eLiterals name="Number" value="19"/>
+    <eLiterals name="Numbers" value="20"/>
+    <eLiterals name="integers" value="21"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TFormulaObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Formula:Object"/>
+      <details key="baseType" value="T_Formula"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TIDNumber">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_IDNumber"/>
+    </eAnnotations>
+    <eLiterals name="_0" literal="0"/>
+    <eLiterals name="_1" value="1" literal="1"/>
+    <eLiterals name="_2" value="2" literal="2"/>
+    <eLiterals name="_3" value="3" literal="3"/>
+    <eLiterals name="_4" value="4" literal="4"/>
+    <eLiterals name="_5" value="5" literal="5"/>
+    <eLiterals name="_6" value="6" literal="6"/>
+    <eLiterals name="_9" value="7" literal="9"/>
+    <eLiterals name="_11" value="8" literal="11"/>
+    <eLiterals name="_12" value="9" literal="12"/>
+    <eLiterals name="_13" value="10" literal="13"/>
+    <eLiterals name="_15" value="11" literal="15"/>
+    <eLiterals name="_16" value="12" literal="16"/>
+    <eLiterals name="_21" value="13" literal="21"/>
+    <eLiterals name="_27" value="14" literal="27"/>
+    <eLiterals name="_39" value="15" literal="39"/>
+    <eLiterals name="_40" value="16" literal="40"/>
+    <eLiterals name="_41" value="17" literal="41"/>
+    <eLiterals name="_42" value="18" literal="42"/>
+    <eLiterals name="_44" value="19" literal="44"/>
+    <eLiterals name="_45" value="20" literal="45"/>
+    <eLiterals name="_46" value="21" literal="46"/>
+    <eLiterals name="_49" value="22" literal="49"/>
+    <eLiterals name="_51" value="23" literal="51"/>
+    <eLiterals name="_52" value="24" literal="52"/>
+    <eLiterals name="_57" value="25" literal="57"/>
+    <eLiterals name="_58" value="26" literal="58"/>
+    <eLiterals name="_63" value="27" literal="63"/>
+    <eLiterals name="_64" value="28" literal="64"/>
+    <eLiterals name="_65" value="29" literal="65"/>
+    <eLiterals name="_66" value="30" literal="66"/>
+    <eLiterals name="_67" value="31" literal="67"/>
+    <eLiterals name="_68" value="32" literal="68"/>
+    <eLiterals name="_69" value="33" literal="69"/>
+    <eLiterals name="_70" value="34" literal="70"/>
+    <eLiterals name="_71" value="35" literal="71"/>
+    <eLiterals name="_72" value="36" literal="72"/>
+    <eLiterals name="_76" value="37" literal="76"/>
+    <eLiterals name="_79" value="38" literal="79"/>
+    <eLiterals name="_80" value="39" literal="80"/>
+    <eLiterals name="_88" value="40" literal="88"/>
+    <eLiterals name="_90" value="41" literal="90"/>
+    <eLiterals name="_131" value="42" literal="131"/>
+    <eLiterals name="_132" value="43" literal="132"/>
+    <eLiterals name="_133" value="44" literal="133"/>
+    <eLiterals name="_134" value="45" literal="134"/>
+    <eLiterals name="_135" value="46" literal="135"/>
+    <eLiterals name="_136" value="47" literal="136"/>
+    <eLiterals name="_137" value="48" literal="137"/>
+    <eLiterals name="_138" value="49" literal="138"/>
+    <eLiterals name="_139" value="50" literal="139"/>
+    <eLiterals name="_140" value="51" literal="140"/>
+    <eLiterals name="_141" value="52" literal="141"/>
+    <eLiterals name="_143" value="53" literal="143"/>
+    <eLiterals name="_145" value="54" literal="145"/>
+    <eLiterals name="_254" value="55" literal="254"/>
+    <eLiterals name="_255" value="56" literal="255"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TIDNumberObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_IDNumber:Object"/>
+      <details key="baseType" value="T_IDNumber"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TLength">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Length"/>
+    </eAnnotations>
+    <eLiterals name="_" literal=""/>
+    <eLiterals name="_1" value="1" literal="1"/>
+    <eLiterals name="_2" value="2" literal="2"/>
+    <eLiterals name="_3" value="3" literal="3"/>
+    <eLiterals name="_4" value="4" literal="4"/>
+    <eLiterals name="_5" value="5" literal="5"/>
+    <eLiterals name="_6" value="6" literal="6"/>
+    <eLiterals name="_7" value="7" literal="7"/>
+    <eLiterals name="_8" value="8" literal="8"/>
+    <eLiterals name="_9" value="9" literal="9"/>
+    <eLiterals name="_10" value="10" literal="10"/>
+    <eLiterals name="_1014" value="11" literal="10+14"/>
+    <eLiterals name="_12" value="12" literal="12"/>
+    <eLiterals name="_13" value="13" literal="13"/>
+    <eLiterals name="_14" value="14" literal="14"/>
+    <eLiterals name="_15" value="15" literal="15"/>
+    <eLiterals name="_20" value="16" literal="20"/>
+    <eLiterals name="_24" value="17" literal="24"/>
+    <eLiterals name="_32" value="18" literal="32"/>
+    <eLiterals name="_64" value="19" literal="64"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TLengthObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Length:Object"/>
+      <details key="baseType" value="T_Length"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TLoopDoWhile">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_LoopDoWhile"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tlgVar" upperBound="-1"
+        eType="#//TTlgVar" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TlgVar"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" upperBound="-1"
+        eType="#//TConditional" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Conditional"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopWhile" upperBound="-1"
+        eType="#//TLoopWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TLoopWhile">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_LoopWhile"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tlgVar" upperBound="-1"
+        eType="#//TTlgVar" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TlgVar"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" upperBound="-1"
+        eType="#//TConditional" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Conditional"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TMaxVal">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_MaxVal"/>
+    </eAnnotations>
+    <eLiterals name="_" literal=""/>
+    <eLiterals name="_1" value="1" literal="1"/>
+    <eLiterals name="_100" value="2" literal="1.00"/>
+    <eLiterals name="_155" value="3" literal="1.55"/>
+    <eLiterals name="_254" value="4" literal="2.54"/>
+    <eLiterals name="_315MS2" value="5" literal="3.15 m/s**2"/>
+    <eLiterals name="_14" value="6" literal="14"/>
+    <eLiterals name="_15" value="7" literal="15"/>
+    <eLiterals name="_31" value="8" literal="31"/>
+    <eLiterals name="_63" value="9" literal="63"/>
+    <eLiterals name="_63M" value="10" literal="63 m"/>
+    <eLiterals name="_1022" value="11" literal="1022"/>
+    <eLiterals name="_1022S" value="12" literal="1022 s"/>
+    <eLiterals name="_1023" value="13" literal="1023"/>
+    <eLiterals name="_16382" value="14" literal="16382"/>
+    <eLiterals name="_16383" value="15" literal="16383"/>
+    <eLiterals name="_1048574M" value="16" literal="1048574 m"/>
+    <eLiterals name="_253" value="17" literal="253"/>
+    <eLiterals name="_2541" value="18" literal="254"/>
+    <eLiterals name="_254S" value="19" literal="254 s"/>
+    <eLiterals name="_254PerMil" value="20" literal="254 per mil"/>
+    <eLiterals name="_254PerCent" value="21" literal="254 per cent"/>
+    <eLiterals name="_255" value="22" literal="255"/>
+    <eLiterals name="_255S" value="23" literal="255 s"/>
+    <eLiterals name="_255PerMil" value="24" literal="255 per mil"/>
+    <eLiterals name="_255PerCent" value="25" literal="255 per cent"/>
+    <eLiterals name="_255Days" value="26" literal="255 days"/>
+    <eLiterals name="_327660Km" value="27" literal="327.660 km"/>
+    <eLiterals name="_327670Km" value="28" literal="327.670 km"/>
+    <eLiterals name="_32767M" value="29" literal="32767 m"/>
+    <eLiterals name="_40T" value="30" literal="40 t"/>
+    <eLiterals name="_4095M" value="31" literal="4095 m"/>
+    <eLiterals name="_4294967294S" value="32" literal="42949672.94  s"/>
+    <eLiterals name="_511" value="33" literal="511"/>
+    <eLiterals name="_600KmH" value="34" literal="600 km/h"/>
+    <eLiterals name="_8191" value="35" literal="8191"/>
+    <eLiterals name="_10000A" value="36" literal="10000 A"/>
+    <eLiterals name="_999999" value="37" literal="999999"/>
+    <eLiterals name="_9999999M" value="38" literal="9999999 m"/>
+    <eLiterals name="_99999999" value="39" literal="99999999"/>
+    <eLiterals name="_9999999999999999" value="40" literal="9999999999999999"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TMaxValObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_MaxVal:Object"/>
+      <details key="baseType" value="T_MaxVal"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TMinVal">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_MinVal"/>
+    </eAnnotations>
+    <eLiterals name="_327680Km" literal="-327.680 km"/>
+    <eLiterals name="_0" value="1" literal="0"/>
+    <eLiterals name="_00" value="2" literal="0.0"/>
+    <eLiterals name="_0Cm" value="3" literal="0 cm"/>
+    <eLiterals name="_0KmH" value="4" literal="0 km/h"/>
+    <eLiterals name="_0M" value="5" literal="0 m"/>
+    <eLiterals name="_0S" value="6" literal="0 s"/>
+    <eLiterals name="_0MS2" value="7" literal="0 m/s**2"/>
+    <eLiterals name="_0Seconds" value="8" literal="0 seconds"/>
+    <eLiterals name="_0A" value="9" literal="0 A"/>
+    <eLiterals name="_0T" value="10" literal="0 t"/>
+    <eLiterals name="_0327680Km" value="11" literal="0-327.680 km"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TMinValObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_MinVal:Object"/>
+      <details key="baseType" value="T_MinVal"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TPacket">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Packet"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//TContent" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Content"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
+        eType="#//TIDNumber" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Number"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionMedia" lowerBound="1"
+        eType="#//TTransmissionMedia" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="TransmissionMedia"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TPackets">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Packets"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trackToTrain" lowerBound="1"
+        eType="#//TTrackToTrain" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TrackToTrain"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trainToTrack" lowerBound="1"
+        eType="#//TTrainToTrack" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TrainToTrack"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bothWays" lowerBound="1"
+        eType="#//TBothWays" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="BothWays"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TTlgVar">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_TlgVar"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Comment"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="#//TLength" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Length"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TTrackToTrain">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_TrackToTrain"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" lowerBound="1" upperBound="-1"
+        eType="#//ListType" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="List"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packet" lowerBound="1"
+        upperBound="-1" eType="#//TPacket" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packet"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TTrainToTrack">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_TrainToTrack"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" lowerBound="1" upperBound="-1"
+        eType="#//ListType" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="List"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packet" lowerBound="1"
+        upperBound="-1" eType="#//TPacket" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Packet"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TTransmissionMedia">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_TransmissionMedia"/>
+    </eAnnotations>
+    <eLiterals name="Any"/>
+    <eLiterals name="Balise" value="1"/>
+    <eLiterals name="Loop" value="2"/>
+    <eLiterals name="RBC" value="3"/>
+    <eLiterals name="RIU" value="4"/>
+    <eLiterals name="RBCRIU" value="5" literal="RBC, RIU"/>
+    <eLiterals name="BaliseLoop" value="6" literal="Balise, Loop"/>
+    <eLiterals name="BaliseRBC" value="7" literal="Balise, RBC"/>
+    <eLiterals name="BaliseRBCRIU" value="8" literal="Balise, RBC, RIU"/>
+    <eLiterals name="BaliseLoopRIU" value="9" literal="Balise, Loop, RIU"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TTransmissionMediaObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_TransmissionMedia:Object"/>
+      <details key="baseType" value="T_TransmissionMedia"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TValue">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Value"/>
+    </eAnnotations>
+    <eLiterals name="_" literal=""/>
+    <eLiterals name="_1" value="1" literal="..."/>
+    <eLiterals name="_0" value="2" literal="0"/>
+    <eLiterals name="_11" value="3" literal="1"/>
+    <eLiterals name="_2" value="4" literal="2"/>
+    <eLiterals name="_3" value="5" literal="3"/>
+    <eLiterals name="_4" value="6" literal="4"/>
+    <eLiterals name="_5" value="7" literal="5"/>
+    <eLiterals name="_5255" value="8" literal="5-255"/>
+    <eLiterals name="_6" value="9" literal="6"/>
+    <eLiterals name="_7" value="10" literal="7"/>
+    <eLiterals name="_8" value="11" literal="8"/>
+    <eLiterals name="_9" value="12" literal="9"/>
+    <eLiterals name="_10" value="13" literal="10"/>
+    <eLiterals name="_111" value="14" literal="11"/>
+    <eLiterals name="_12" value="15" literal="12"/>
+    <eLiterals name="_13" value="16" literal="13"/>
+    <eLiterals name="_13127" value="17" literal="13-127"/>
+    <eLiterals name="_14" value="18" literal="14"/>
+    <eLiterals name="_15" value="19" literal="15"/>
+    <eLiterals name="_16" value="20" literal="16"/>
+    <eLiterals name="_17" value="21" literal="17"/>
+    <eLiterals name="_18" value="22" literal="18"/>
+    <eLiterals name="_19" value="23" literal="19"/>
+    <eLiterals name="_20" value="24" literal="20"/>
+    <eLiterals name="_21" value="25" literal="21"/>
+    <eLiterals name="_22" value="26" literal="22"/>
+    <eLiterals name="_23" value="27" literal="23"/>
+    <eLiterals name="_24" value="28" literal="24"/>
+    <eLiterals name="_25" value="29" literal="25"/>
+    <eLiterals name="_26" value="30" literal="26"/>
+    <eLiterals name="_27" value="31" literal="27"/>
+    <eLiterals name="_28" value="32" literal="28"/>
+    <eLiterals name="_29" value="33" literal="29"/>
+    <eLiterals name="_30" value="34" literal="30"/>
+    <eLiterals name="_31" value="35" literal="31"/>
+    <eLiterals name="AE" value="36" literal="A-E"/>
+    <eLiterals name="F" value="37"/>
+    <eLiterals name="_126" value="38" literal="126"/>
+    <eLiterals name="_127" value="39" literal="127"/>
+    <eLiterals name="_254" value="40" literal="254"/>
+    <eLiterals name="_255" value="41" literal="255"/>
+    <eLiterals name="_1023" value="42" literal="1023"/>
+    <eLiterals name="_16383" value="43" literal="16383"/>
+    <eLiterals name="_32767" value="44" literal="32767"/>
+    <eLiterals name="_16777215" value="45" literal="16777215"/>
+    <eLiterals name="_4294967295" value="46" literal="4294967295"/>
+    <eLiterals name="_0126" value="47" literal="0-126"/>
+    <eLiterals name="_2255" value="48" literal="2-255"/>
+    <eLiterals name="_315" value="49" literal="3-15"/>
+    <eLiterals name="_57" value="50" literal="5-7"/>
+    <eLiterals name="_67" value="51" literal="6-7"/>
+    <eLiterals name="_615" value="52" literal="6-15"/>
+    <eLiterals name="_9255" value="53" literal="9-255"/>
+    <eLiterals name="_1011" value="54" literal="10-11"/>
+    <eLiterals name="_1015" value="55" literal="10-15"/>
+    <eLiterals name="_1115" value="56" literal="11-15"/>
+    <eLiterals name="_121125" value="57" literal="121-125"/>
+    <eLiterals name="_121126" value="58" literal="121-126"/>
+    <eLiterals name="_121127" value="59" literal="121-127"/>
+    <eLiterals name="_127254" value="60" literal="127-254"/>
+    <eLiterals name="_127255" value="61" literal="127-255"/>
+    <eLiterals name="_105155" value="62" literal="1.05 - 1.55"/>
+    <eLiterals name="_00" value="63" literal="00"/>
+    <eLiterals name="_01" value="64" literal="01"/>
+    <eLiterals name="_000" value="67" literal="000"/>
+    <eLiterals name="_001" value="68" literal="001"/>
+    <eLiterals name="_010" value="69" literal="010"/>
+    <eLiterals name="_011" value="70" literal="011"/>
+    <eLiterals name="_100" value="71" literal="100"/>
+    <eLiterals name="_101" value="72" literal="101"/>
+    <eLiterals name="_110" value="73" literal="110"/>
+    <eLiterals name="_1111" value="74" literal="111"/>
+    <eLiterals name="_0000" value="75" literal="0000"/>
+    <eLiterals name="_0001" value="76" literal="0001"/>
+    <eLiterals name="_0010" value="77" literal="0010"/>
+    <eLiterals name="_0011" value="78" literal="0011"/>
+    <eLiterals name="_0100" value="79" literal="0100"/>
+    <eLiterals name="_0101" value="80" literal="0101"/>
+    <eLiterals name="_0110" value="81" literal="0110"/>
+    <eLiterals name="_0111" value="82" literal="0111"/>
+    <eLiterals name="_1000" value="83" literal="1000"/>
+    <eLiterals name="_1001" value="84" literal="1001"/>
+    <eLiterals name="_1010" value="85" literal="1010"/>
+    <eLiterals name="_10111" value="86" literal="1011"/>
+    <eLiterals name="_1100" value="87" literal="1100"/>
+    <eLiterals name="_1101" value="88" literal="1101"/>
+    <eLiterals name="_1110" value="89" literal="1110"/>
+    <eLiterals name="_11111" value="90" literal="1111"/>
+    <eLiterals name="_0010000" value="91" literal="001 0000"/>
+    <eLiterals name="_0010001" value="92" literal="001 0001"/>
+    <eLiterals name="_0010010" value="93" literal="001 0010"/>
+    <eLiterals name="_0010011" value="94" literal="001 0011"/>
+    <eLiterals name="_0010100" value="95" literal="001 0100"/>
+    <eLiterals name="_0010101" value="96" literal="001 0101"/>
+    <eLiterals name="_0010110" value="97" literal="001 0110"/>
+    <eLiterals name="_0010111" value="98" literal="001 0111"/>
+    <eLiterals name="_0011000" value="99" literal="001 1000"/>
+    <eLiterals name="_0011001" value="100" literal="001 1001"/>
+    <eLiterals name="_0011010" value="101" literal="001 1010"/>
+    <eLiterals name="_0011011" value="102" literal="001 1011"/>
+    <eLiterals name="_0011100" value="103" literal="001 1100"/>
+    <eLiterals name="_0011101" value="104" literal="001 1101"/>
+    <eLiterals name="_0011110" value="105" literal="001 1110"/>
+    <eLiterals name="_0011111" value="106" literal="001 1111"/>
+    <eLiterals name="_0100000" value="107" literal="010 0000"/>
+    <eLiterals name="_0100001" value="108" literal="010 0001"/>
+    <eLiterals name="_1010001" value="109" literal="101 0001"/>
+    <eLiterals name="_1111101" value="110" literal="111 1101"/>
+    <eLiterals name="_1111110" value="111" literal="111 1110"/>
+    <eLiterals name="_1111111" value="112" literal="111 1111"/>
+    <eLiterals name="_11111111" value="113" literal="1111 ... 1111"/>
+    <eLiterals name="_111111111" value="114" literal="1111 1111"/>
+    <eLiterals name="_011111" value="115" literal="011-111"/>
+    <eLiterals name="_10011022" value="116" literal="1001-1022"/>
+    <eLiterals name="_10111111" value="117" literal="1011-1111"/>
+    <eLiterals name="_00100100011111" value="118" literal="001 0010 ... 001 1111"/>
+    <eLiterals name="_01000011111111" value="119" literal="010 0001 ... 111 1111"/>
+    <eLiterals name="_1xxXxxxXxxxXxxx" value="120" literal="1xx xxxx xxxx xxxx"/>
+    <eLiterals name="_1xxxXxxx" value="121" literal="1xxx xxxx"/>
+    <eLiterals name="_1000000016777214" value="122" literal="10000000-16777214"/>
+    <eLiterals name="ExceptionFFFFFFFF" value="123" literal="Exception: FFFF FFFF"/>
+    <eLiterals name="FFFFFFFF" value="124" literal="FFFF FFFF"/>
+    <eLiterals name="FFFFFFFFFFFFFFFF" value="125" literal="FFFF FFFF FFFF FFFF"/>
+    <eLiterals name="VMAIN0MeansTripOrder" value="126" literal="V_MAIN = 0 means 'trip order'"/>
+    <eLiterals name="_1xxxx" value="127" literal="1xxxx"/>
+    <eLiterals name="x1xxx" value="128"/>
+    <eLiterals name="xx1xx" value="129"/>
+    <eLiterals name="xxx1x" value="130"/>
+    <eLiterals name="xxxx1" value="131"/>
+    <eLiterals name="_000XXXX" value="132" literal="000 XXXX"/>
+    <eLiterals name="_00000000" value="133" literal="0000 0000"/>
+    <eLiterals name="x1xxXxxx" value="134" literal="x1xx xxxx"/>
+    <eLiterals name="xx1xXxxx" value="135" literal="xx1x xxxx"/>
+    <eLiterals name="xxx1Xxxx" value="136" literal="xxx1 xxxx"/>
+    <eLiterals name="xxxx1xxx" value="137" literal="xxxx 1xxx"/>
+    <eLiterals name="xxxxX1xx" value="138" literal="xxxx x1xx"/>
+    <eLiterals name="xxxxXx1x" value="139" literal="xxxx xx1x"/>
+    <eLiterals name="xxxxXxx1" value="140" literal="xxxx xxx1"/>
+    <eLiterals name="_000000000000000" value="141" literal="000 0000 0000 0000"/>
+    <eLiterals name="X1xXxxxXxxxXxxx" value="142" literal="X1x xxxx xxxx xxxx"/>
+    <eLiterals name="Xx1XxxxXxxxXxxx" value="143" literal="Xx1 xxxx xxxx xxxx"/>
+    <eLiterals name="Xxx1xxxXxxxXxxx" value="144" literal="Xxx 1xxx xxxx xxxx"/>
+    <eLiterals name="XxxX1xxXxxxXxxx" value="145" literal="Xxx x1xx xxxx xxxx"/>
+    <eLiterals name="XxxXx1xXxxxXxxx" value="146" literal="Xxx xx1x xxxx xxxx"/>
+    <eLiterals name="XxxXxx1XxxxXxxx" value="147" literal="Xxx xxx1 xxxx xxxx"/>
+    <eLiterals name="XxxXxxx1xxxXxxx" value="148" literal="Xxx xxxx 1xxx xxxx"/>
+    <eLiterals name="XxxXxxxX1xxXxxx" value="149" literal="Xxx xxxx x1xx xxxx"/>
+    <eLiterals name="XxxXxxxXx1xXxxx" value="150" literal="Xxx xxxx xx1x xxxx"/>
+    <eLiterals name="XxxXxxxXxx1Xxxx" value="151" literal="Xxx xxxx xxx1 xxxx"/>
+    <eLiterals name="XxxXxxxXxxx1xxx" value="152" literal="Xxx xxxx xxxx 1xxx"/>
+    <eLiterals name="XxxXxxxXxxxX1xx" value="153" literal="Xxx xxxx xxxx x1xx"/>
+    <eLiterals name="XxxXxxxXxxxXx1x" value="154" literal="Xxx xxxx xxxx xx1x"/>
+    <eLiterals name="XxxXxxxXxxxXxx1" value="155" literal="Xxx xxxx xxxx xxx1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TValueObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Value:Object"/>
+      <details key="baseType" value="T_Value"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TVardefVar">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_VardefVar"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+        upperBound="-1" eType="#//TVariable" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Variable"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TVariable">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Variable"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailedName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="DetailedName"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Description"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specs" lowerBound="1" eType="#//SpecsType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Specs"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TVariables">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_Variables"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="group"/>
+        <details key="name" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopDoWhile" upperBound="-1"
+        eType="#//TLoopDoWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopDoWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loopWhile" upperBound="-1"
+        eType="#//TLoopWhile" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="LoopWhile"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tlgVar" upperBound="-1"
+        eType="#//TTlgVar" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="TlgVar"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" upperBound="-1"
+        eType="#//TConditional" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Conditional"/>
+        <details key="namespace" value="##targetNamespace"/>
+        <details key="group" value="group:0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TVarLen">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_VarLen"/>
+    </eAnnotations>
+    <eLiterals name="_" literal=""/>
+    <eLiterals name="_1Bit" value="1" literal="1 bit"/>
+    <eLiterals name="_2Bits" value="2" literal="2 bits"/>
+    <eLiterals name="_3Bits" value="3" literal="3 bits"/>
+    <eLiterals name="_4Bits" value="4" literal="4 bits"/>
+    <eLiterals name="_5Bits" value="5" literal="5 bits"/>
+    <eLiterals name="_6Bits" value="6" literal="6 bits"/>
+    <eLiterals name="_7Bits" value="7" literal="7 bits"/>
+    <eLiterals name="_8Bits" value="8" literal="8 bits"/>
+    <eLiterals name="_9Bits" value="9" literal="9 bits"/>
+    <eLiterals name="_10Bits" value="10" literal="10 bits"/>
+    <eLiterals name="_1014Bits" value="11" literal="10+14 bits"/>
+    <eLiterals name="_12Bits" value="12" literal="12 bits"/>
+    <eLiterals name="_13Bits" value="13" literal="13 bits"/>
+    <eLiterals name="_14Bits" value="14" literal="14 bits"/>
+    <eLiterals name="_15Bits" value="15" literal="15 bits"/>
+    <eLiterals name="_16Bits" value="16" literal="16 bits"/>
+    <eLiterals name="_20Bits" value="17" literal="20 bits"/>
+    <eLiterals name="_24Bits" value="18" literal="24 bits"/>
+    <eLiterals name="_32Bits" value="19" literal="32 bits"/>
+    <eLiterals name="_64Bits" value="20" literal="64 bits"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TVarLenObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="T_VarLen:Object"/>
+      <details key="baseType" value="T_VarLen"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

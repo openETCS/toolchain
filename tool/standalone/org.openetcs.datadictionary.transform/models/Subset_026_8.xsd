@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+=============================================================================
+ Formalization of Subset-026-8 (Chapter 8: ERTMS/ETCS language)
+
+- Name: Subset-026-8 / subset026_8.xsd
+- Description: UNISIG SUBSET-026-8, ISSUE : 3.3.0, 3.5 ERTMS/ETCS language) 
+- Copyright (c) Siemens AG 2013 All rights reserved
+     
+- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )
+- Gist URL: none
+- Cryptography: No
+- Author(s): SiemensRailAutomation
+
+Disclaimer:
+
+The use of this software is limited to NON-vital applications. 
+It has NOT been developed for vital operation purposes and MUST NOT be used for applications 
+which may cause harm to people, physical accidents or financial loss. 
+
+THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE.
+============================================================================= 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="T_TransmissionMedia">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Any"/>
+			<xs:enumeration value="Balise"/>
+			<xs:enumeration value="Loop"/>
+			<xs:enumeration value="RBC"/>
+			<xs:enumeration value="RIU"/>
+			<xs:enumeration value="RBC, RIU"/>
+			<xs:enumeration value="Balise, Loop"/>
+			<xs:enumeration value="Balise, RBC"/>
+			<xs:enumeration value="Balise, RBC, RIU"/>
+			<xs:enumeration value="Balise, Loop, RIU"/>
+			<!-- Definition in V3.3.0: 
+'Any' means that the packet can be transmitted by a balise, a loop, an RBC and a RIU.
+ -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_Length">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="10+14"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="32"/>
+			<xs:enumeration value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_VarLen">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="1 bit"/>
+			<xs:enumeration value="2 bits"/>
+			<xs:enumeration value="3 bits"/>
+			<xs:enumeration value="4 bits"/>
+			<xs:enumeration value="5 bits"/>
+			<xs:enumeration value="6 bits"/>
+			<xs:enumeration value="7 bits"/>
+			<xs:enumeration value="8 bits"/>
+			<xs:enumeration value="9 bits"/>
+			<xs:enumeration value="10 bits"/>
+			<xs:enumeration value="10+14 bits"/>
+			<xs:enumeration value="12 bits"/>
+			<xs:enumeration value="13 bits"/>
+			<xs:enumeration value="14 bits"/>
+			<xs:enumeration value="15 bits"/>
+			<xs:enumeration value="16 bits"/>
+			<xs:enumeration value="20 bits"/>
+			<xs:enumeration value="24 bits"/>
+			<xs:enumeration value="32 bits"/>
+			<xs:enumeration value="64 bits"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Comment" type="xs:string"/>
+	<xs:element name="Content" type="T_Content"/>
+	<xs:element name="Definitions" type="T_Definitions">
+		<xs:annotation>
+			<xs:documentation>Root Element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Description" type="xs:string"/>
+	<xs:element name="DetailedName" type="xs:string"/>
+	<xs:element name="IDNumber" type="xs:integer"/>
+	<xs:element name="Length" type="T_Length" default="5"/>
+	<xs:element name="List">
+		<xs:complexType>
+			<xs:attribute name="Number" type="xs:int" use="required"/>
+			<xs:attribute name="Name" type="xs:string" use="required"/>
+			<xs:attribute name="Media" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="Packet" type="T_Packet"/>
+	<xs:element name="Packets" type="T_Packets"/>
+	<xs:element name="TrackToTrain" type="T_TrackToTrain"/>
+	<xs:element name="TrainToTrack" type="T_TrainToTrack"/>
+	<xs:element name="TransmissionMedia" type="T_TransmissionMedia"/>
+	<xs:element name="Value" type="xs:string"/>
+	<xs:element name="TlgVar" type="T_TlgVar"/>
+	<xs:complexType name="T_Content">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="TlgVar" maxOccurs="unbounded"/>
+			<xs:element ref="Parcel" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OptionalPackets" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Parcel" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="T_Definitions">
+		<xs:sequence>
+			<xs:element ref="Packets"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_Packet">
+		<xs:sequence>
+			<xs:element ref="Description" minOccurs="0"/>
+			<xs:element ref="Content"/>
+		</xs:sequence>
+		<xs:attribute name="Number" type="xs:integer" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="TransmissionMedia" type="T_TransmissionMedia" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_Packets">
+		<xs:sequence>
+			<xs:element ref="TrainToTrack"/>
+			<xs:element ref="TrackToTrain"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_TrackToTrain">
+		<xs:sequence>
+			<xs:element ref="List" maxOccurs="unbounded"/>
+			<xs:element ref="Packet" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_TrainToTrack">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element ref="List" maxOccurs="unbounded"/>
+			<xs:element ref="Packet" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_TlgVar">
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Length" type="xs:integer" use="required"/>
+		<xs:attribute name="Type" type="xs:string" use="required"/>
+		<xs:attribute name="Comment" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:element name="PacketNumber" type="xs:integer"/>
+	<xs:element name="Parcel">
+		<xs:complexType>
+			<xs:attribute name="Number" type="xs:integer" use="required"/>
+			<xs:attribute name="Comment" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

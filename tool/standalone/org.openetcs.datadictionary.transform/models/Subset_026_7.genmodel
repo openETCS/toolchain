@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.fraunhofer.esk.openetcs.datadictionary.transform/src"
+    modelPluginID="de.fraunhofer.esk.openetcs.datadictionary.transform" modelName="Subset_026_7"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>Subset_026_7.xsd</foreignModel>
+  <genPackages prefix="Subset0267" resource="XML" disposableProviderFactory="true"
+      ecorePackage="Subset_026_7.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TFormula">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_002"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_005"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_05T"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_005MS2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1Byte"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1TextStringElement"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1Bit"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1Day"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1PerMil"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1PerCent"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_10A"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_10Cm1MOr10MDependingOnQSCALE"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_10Ms"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_1S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/_5KmH"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/BinaryCodedDecimal"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/Bitset"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/Number"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/Numbers"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TFormula/integers"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TIDNumber">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_0"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_3"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_5"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_6"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_9"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_11"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_12"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_13"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_15"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_16"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_21"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_27"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_39"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_40"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_41"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_42"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_44"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_45"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_46"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_49"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_51"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_52"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_57"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_58"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_63"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_64"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_65"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_66"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_67"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_68"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_69"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_70"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_71"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_72"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_76"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_79"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_80"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_88"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_90"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_131"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_132"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_133"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_134"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_135"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_136"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_137"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_138"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_139"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_140"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_141"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_143"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_145"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_254"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TIDNumber/_255"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TLength">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_3"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_5"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_6"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_7"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_8"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_9"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_10"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_1014"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_12"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_13"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_14"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_15"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_20"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_24"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_32"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TLength/_64"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TMaxVal">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_155"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_254"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_315MS2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_14"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_15"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_31"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_63"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_63M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_1022"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_1022S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_1023"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_16382"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_16383"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_1048574M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_253"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_2541"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_254S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_254PerMil"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_254PerCent"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_255S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_255PerMil"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_255PerCent"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_255Days"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_327660Km"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_327670Km"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_32767M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_40T"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_4095M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_4294967294S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_511"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_600KmH"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_8191"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_10000A"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_999999"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_9999999M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_99999999"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMaxVal/_9999999999999999"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TMinVal">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_327680Km"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_00"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0Cm"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0KmH"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0M"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0S"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0MS2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0Seconds"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0A"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0T"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TMinVal/_0327680Km"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TTransmissionMedia">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/Any"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/Balise"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/Loop"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/RBC"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/RIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/RBCRIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/BaliseLoop"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/BaliseRBC"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/BaliseRBCRIU"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TTransmissionMedia/BaliseLoopRIU"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TValue">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_11"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_2"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_3"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_4"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_5"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_5255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_6"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_7"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_8"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_9"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_10"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_12"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_13"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_13127"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_14"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_15"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_16"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_17"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_18"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_19"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_20"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_21"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_22"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_23"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_24"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_25"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_26"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_27"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_28"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_29"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_30"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_31"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/AE"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/F"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_126"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_127"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_254"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1023"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_16383"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_32767"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_16777215"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_4294967295"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0126"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_2255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_315"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_57"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_67"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_615"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_9255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1011"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1015"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1115"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_121125"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_121126"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_121127"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_127254"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_127255"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_105155"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_00"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_01"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_010"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_011"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1010"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_10111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_11111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010010"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010011"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0010111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011010"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011011"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011100"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0011111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0100000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_0100001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1010001"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1111101"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1111110"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1111111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_11111111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_111111111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_011111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_10011022"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_10111111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_00100100011111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_01000011111111"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1xxXxxxXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1xxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1000000016777214"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/ExceptionFFFFFFFF"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/FFFFFFFF"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/FFFFFFFFFFFFFFFF"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/VMAIN0MeansTripOrder"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_1xxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/x1xxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xx1xx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxx1x"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxxx1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_000XXXX"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_00000000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/x1xxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xx1xXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxx1Xxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxxx1xxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxxxX1xx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxxxXx1x"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/xxxxXxx1"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/_000000000000000"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/X1xXxxxXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/Xx1XxxxXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/Xxx1xxxXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxX1xxXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXx1xXxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxx1XxxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxx1xxxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxX1xxXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXx1xXxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXxx1Xxxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXxxx1xxx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXxxxX1xx"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXxxxXx1x"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TValue/XxxXxxxXxxxXxx1"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Subset_026_7.ecore#//TVarLen">
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_1Bit"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_2Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_3Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_4Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_5Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_6Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_7Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_8Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_9Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_10Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_1014Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_12Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_13Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_14Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_15Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_16Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_20Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_24Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_32Bits"/>
+      <genEnumLiterals ecoreEnumLiteral="Subset_026_7.ecore#//TVarLen/_64Bits"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TFormulaObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TIDNumberObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TLengthObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TMaxValObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TMinValObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TTransmissionMediaObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TValueObject"/>
+    <genDataTypes ecoreDataType="Subset_026_7.ecore#//TVarLenObject"/>
+    <genClasses ecoreClass="Subset_026_7.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/bothWays"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/conditional"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/definitions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/detailedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/iDNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/length"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/loopDoWhile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/loopWhile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/packet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/packets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/special"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/specs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/tlgVar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/trackToTrain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/trainToTrack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/transmissionMedia"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//DocumentRoot/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//DocumentRoot/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//ListType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//ListType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//ListType/number"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//SpecialType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecialType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecialType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//SpecsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecsType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//SpecsType/special"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecsType/formula"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecsType/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecsType/maxVal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//SpecsType/minVal"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TBothWays">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TBothWays/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TBothWays/packet"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TConditional">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TConditional/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TConditional/condition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TConditional/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TContent/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TContent/tlgVar"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TContent/loopDoWhile"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TContent/loopWhile"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TContent/conditional"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TDefinitions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TDefinitions/packets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TDefinitions/varDef"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TLoopDoWhile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TLoopDoWhile/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TLoopDoWhile/tlgVar"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TLoopDoWhile/conditional"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TLoopDoWhile/loopWhile"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TLoopWhile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TLoopWhile/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TLoopWhile/tlgVar"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TLoopWhile/conditional"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TPacket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TPacket/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TPacket/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TPacket/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TPacket/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TPacket/transmissionMedia"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TPackets">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TPackets/trackToTrain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TPackets/trainToTrack"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TPackets/bothWays"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TTlgVar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TTlgVar/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TTlgVar/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TTlgVar/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TTrackToTrain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TTrackToTrain/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TTrackToTrain/packet"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TTrainToTrack">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TTrainToTrack/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TTrainToTrack/list"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TTrainToTrack/packet"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TVardefVar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TVardefVar/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVardefVar/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TVariable/detailedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TVariable/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVariable/specs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Subset_026_7.ecore#//TVariables">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Subset_026_7.ecore#//TVariables/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVariables/loopDoWhile"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVariables/loopWhile"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVariables/tlgVar"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Subset_026_7.ecore#//TVariables/conditional"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

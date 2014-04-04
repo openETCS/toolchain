@@ -1,0 +1,3 @@
+-vmargs
+-Xmx1536M
+-XX:MaxPermSize=768M

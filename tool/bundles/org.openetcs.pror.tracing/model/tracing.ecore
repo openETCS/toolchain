@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tracing" nsURI="http://eclipse.org/rmf/pror/presentation/tracing"
+    nsPrefix="tracing">
+  <eClassifiers xsi:type="ecore:EClass" name="TracingConfiguration" eSuperTypes="../../org.eclipse.rmf.reqif10.pror/model/configuration.ecore#//ProrPresentationConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyType" eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecObjectType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyAttribute" eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//AttributeDefinitionString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeNames" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkFromTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkType" eType="ecore:EClass ../../org.eclipse.rmf.reqif10/model/reqif10.ecore#//SpecRelationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="org.eclipse.uml"/>
+  </eClassifiers>
+</ecore:EPackage>

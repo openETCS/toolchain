@@ -1,0 +1,3432 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<Definitions xsi:noNamespaceSchemaLocation="Subset_Att_26_7.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- 
+=============================================================================
+Formalization of Subset-026-7 (Chapter 7: ERTMS/ETCS language)
+
+- Name: Subset-026-7 / subset026_7.xml
+- Description: UNISIG SUBSET-026-7, ISSUE : 3.3.0, 3.5 ERTMS/ETCS language) 
+- Copyright (c) Siemens AG, 2013, All Rights Reserved
+ 	
+- Licensed under the EUPL V.1.1 ( http://joinup.ec.europa.eu/software/page/eupl/licence-eupl )
+- Gist URL: none
+- Cryptography: No
+- Author(s): SiemensRailAutomation
+
+Disclaimer:
+
+The use of this software is limited to NON-vital applications. 
+It has NOT been developed for vital operation purposes and MUST NOT be used for applications 
+which may cause harm to people, physical accidents or financial loss. 
+
+THEREFORE, NO LIABILITY WILL BE GIVEN FOR SUCH AND ANY OTHER KIND OF USE.  	
+=============================================================================
+-->
+<Packets>
+     
+<TrackToTrain>
+<List Number="0"  Name="Virtual Balise Cover marker" />
+<List Number="2"  Name="System Version order" />
+<List Number="3"  Name="National Values" />
+<List Number="5"  Name="Linking" />
+<List Number="6"  Name="Virtual Balise Cover order" />
+<List Number="12"  Name="Level 1 Movement Authority" />
+<List Number="13"  Name="Staff Responsible distance information from loop" />
+<List Number="15"  Name="Level 2/3 Movement Authority" />
+<List Number="16"  Name="Repositioning Information" />
+<List Number="21"  Name="Gradient Profile" />
+<List Number="27"  Name="International Static Speed Profile" />
+<List Number="39"  Name="Track Condition Change of traction system" />
+<List Number="40"  Name="Track Condition Change of allowed current consumption" />
+<List Number="41"  Name="Level Transition Order" />
+<List Number="42"  Name="Session Management" />
+<List Number="44"  Name="Data used by applications outside the ERTMS/ETCS system." />
+<List Number="45"  Name="Radio Network registration" />
+<List Number="46"  Name="Conditional Level Transition Order" />
+<List Number="49"  Name="List of balises for SH Area" />
+<List Number="51"  Name="Axle load Speed Profile" />
+<List Number="52"  Name="Permitted Braking Distance Information" />
+<List Number="57"  Name="Movement Authority Request Parameters" />
+<List Number="58"  Name="Position Report Parameters" />
+<List Number="63"  Name="List of Balises in SR Authority" />
+<List Number="64"  Name="Inhibition of revocable TSRs from balises in L2/3" />
+<List Number="65"  Name="Temporary Speed Restriction" />
+<List Number="66"  Name="Temporary Speed Restriction Revocation" />
+<List Number="67"  Name="Track Condition Big Metal Masses" />
+<List Number="68"  Name="Track Condition" />
+<List Number="69"  Name="Track Condition Station Platforms" />
+<List Number="70"  Name="Route Suitability Data" />
+<List Number="71"  Name="Adhesion Factor" />
+<List Number="72"  Name="Packet for sending plain text messages" />
+<List Number="76"  Name="Packet for sending fixed text messages" />
+<List Number="79"  Name="Geographical Position Information" />
+<List Number="80"  Name="Mode profile" />
+<List Number="88"  Name="Level crossing information" />
+<List Number="90"  Name="Track Ahead Free up to level 2/3 transition location" />
+<List Number="131"  Name="RBC transition order" />
+<List Number="132"  Name="Danger for Shunting information" />
+<List Number="133"  Name="Radio infill area information" />
+<List Number="134"  Name="EOLM Packet" />
+<List Number="135"  Name="Stop Shunting on desk opening" />
+<List Number="136"  Name="Infill location reference" />
+<List Number="137"  Name="Stop if in Staff Responsible" />
+<List Number="138"  Name="Reversing area information" />
+<List Number="139"  Name="Reversing supervision information" />
+<List Number="140"  Name="Train running number from RBC" />
+<List Number="141"  Name="Default Gradient for Temporary Speed Restriction" />
+<List Number="143"  Name="Session Management with neighbouring Radio Infill Unit" />
+<List Number="145"  Name="Inhibition of balise group message consistency reaction" />
+<List Number="254"  Name="Default balise or loop or RIU information" />
+
+<Packet Number="0" Name="Virtual Balise Cover marker" TransmissionMedia="Balise" >
+<Description>Indication to on-board that the telegram can be ignored according to a VBC</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="NID_VBCMK" Length="6"  />
+</Content>
+</Packet>
+
+<Packet Number="2" Name="System Version order" TransmissionMedia="Balise" >
+<Description>This packet is used to tell the on-board which is the operated system version</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="M_VERSION" Length="7"  />
+</Content>
+</Packet>
+
+<Packet Number="3" Name="National Values" TransmissionMedia="Balise, RBC" >
+<Description>Downloads a set of National Values to the train</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_VALIDNV" Length="15"  />
+<TlgVar Name="NID_C" Length="10"  Comment="Identification of national areas to which the set applies" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="NID_C(p)" Length="10"  Comment="Identification of additional national area(s) to which the set applies" />
+</LoopDoWhile>
+<TlgVar Name="V_NVSHUNT" Length="7"  />
+<TlgVar Name="V_NVSTFF" Length="7"  />
+<TlgVar Name="V_NVONSIGHT" Length="7"  />
+<TlgVar Name="V_NVLIMSUPERV" Length="7"  />
+<TlgVar Name="V_NVUNFIT" Length="7"  />
+<TlgVar Name="V_NVREL" Length="7"  />
+<TlgVar Name="D_NVROLL" Length="15"  />
+<TlgVar Name="Q_NVSBTSMPERM" Length="1"  />
+<TlgVar Name="Q_NVEMRRLS" Length="1"  />
+<TlgVar Name="Q_NVGUIPERM" Length="1"  />
+<TlgVar Name="Q_NVSBFBPERM" Length="1"  />
+<TlgVar Name="Q_NVINHSMICPERM" Length="1"  />
+<TlgVar Name="V_NVALLOWOVTRP" Length="7"  />
+<TlgVar Name="V_NVSUPOVTRP" Length="7"  />
+<TlgVar Name="D_NVOVTRP" Length="15"  />
+<TlgVar Name="T_NVOVTRP" Length="8"  />
+<TlgVar Name="D_NVPOTRP" Length="15"  />
+<TlgVar Name="M_NVCONTACT" Length="2"  />
+<TlgVar Name="T_NVCONTACT" Length="8"  />
+<TlgVar Name="M_NVDERUN" Length="1"  />
+<TlgVar Name="D_NVSTFF" Length="15"  />
+<TlgVar Name="Q_NVDRIVER_ADHES" Length="1"  />
+<TlgVar Name="A_NVMAXREDADH1" Length="6"  />
+<TlgVar Name="A_NVMAXREDADH2" Length="6"  />
+<TlgVar Name="A_NVMAXREDADH3" Length="6"  />
+<TlgVar Name="Q_NVLOCACC" Length="6"  />
+<TlgVar Name="M_NVAVADH" Length="5"  />
+<TlgVar Name="M_NVEBCL" Length="4"  />
+<TlgVar Name="Q_NVKINT" Length="1"  />
+<Conditional>
+<Condition>if (Q_NVKINT == 1)</Condition>
+<Variables>
+<TlgVar Name="Q_NVKVINTSET" Length="2"  Comment="Only if Q_NVKINT = 1, Q_NVKVINTSET and the following variables follow" />
+<Conditional>
+<Condition>if (Q_NVKVINTSET == 1)</Condition>
+<Variables>
+<TlgVar Name="A_NVP12" Length="6"  Comment="Only if Q_NVKVINTSET = 1" />
+<TlgVar Name="A_NVP23" Length="6"  Comment="Only if Q_NVKVINTSET = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_NVKVINT" Length="7"  Comment="= 0 km/h" />
+<TlgVar Name="M_NVKVINT" Length="7"  Comment="Valid between V_NVKVINT and V_NVKVINT(1)If Q_NVKVINTSET = 1, gives the correction factor if maximum emergency brake deceleration is lower than A_NVP12" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="V_NVKVINT(n)" Length="7"  />
+<TlgVar Name="M_NVKVINT(n)" Length="7"  Comment="Valid between V_NVKVINT(n) and V_NVKVINT(n+1)If Q_NVKVINTSET = 1, gives the correction factor if maximum emergency brake deceleration is lower than A_NVP12" />
+</LoopDoWhile>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_NVKVINTSET(k)" Length="2"  />
+<Conditional>
+<Condition>if (Q_NVKVINTSET(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="A_NVP12(k)" Length="6"  Comment="Only if Q_NVKVINTSET(k) = 1" />
+<TlgVar Name="A_NVP23(k)" Length="6"  Comment="Only if Q_NVKVINTSET(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_NVKVINT(k)" Length="7"  Comment="= 0km/h" />
+<TlgVar Name="M_NVKVINT(k)" Length="7"  Comment="If Q_NVKVINTSET(k) = 1; Valid between V_NVKVINT(k) and V_NVKVINT(k,1). Gives the correction factor if maximum emergency brake deceleration is lower than A_NVP12(k)." />
+<LoopWhile>
+<TlgVar Name="N_ITER(k)" Length="5"  />
+<TlgVar Name="V_NVKVINT(k,m)" Length="7"  />
+<TlgVar Name="M_NVKVINT(k,m)" Length="7"  Comment="If Q_NVKVINTSET(k) = 1.Valid between V_NVKVINT(k,m) and V_NVKVINT(k,m+1)gives the correction factor if maximum emergency brake deceleration is lower than A_NVP12(k)" />
+</LoopWhile>
+</LoopDoWhile>
+<TlgVar Name="L_NVKRINT" Length="5"  Comment="= 0m" />
+<TlgVar Name="M_NVKRINT" Length="5"  Comment="Valid between L_NVKRINT and L_NVKRINT(1)" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="L_NVKRINT(l)" Length="5"  />
+<TlgVar Name="M_NVKRINT(l)" Length="5"  Comment="Valid between L_NVKRINT(l) and L_NVKRINT(l+1)" />
+</LoopDoWhile>
+<TlgVar Name="M_NVKTINT" Length="5"  />
+	</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="5" Name="Linking" TransmissionMedia="Any" >
+<Description>Linking Information.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_LINK" Length="15"  />
+<TlgVar Name="Q_NEWCOUNTRY" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C" Length="10"  Comment="if Q_NEWCOUNTRY = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG" Length="14"  />
+<TlgVar Name="Q_LINKORIENTATION" Length="1"  />
+<TlgVar Name="Q_LINKREACTION" Length="2"  />
+<TlgVar Name="Q_LOCACC" Length="6"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_LINK (k)" Length="15"  />
+<TlgVar Name="Q_NEWCOUNTRY(k)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C (k)" Length="10"  Comment="if Q_NEWCOUNTRY(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG (k)" Length="14"  />
+<TlgVar Name="Q_LINKORIENTATION (k)" Length="1"  />
+<TlgVar Name="Q_LINKREACTION (k)" Length="2"  />
+<TlgVar Name="Q_LOCACC (k)" Length="6"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="6" Name="Virtual Balise Cover order" TransmissionMedia="Balise" >
+<Description>The packet sets/removes a Virtual Balise Cover.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_VBCO" Length="1"  />
+<TlgVar Name="NID_VBCMK" Length="6"  />
+<TlgVar Name="NID_C" Length="10"  />
+<Conditional>
+<Condition>if (Q_VBCO == 1)</Condition>
+<Variables>
+<TlgVar Name="T_VBC" Length="8"  Comment="Only if Q_VBCO = 1" />
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="12" Name="Level 1 Movement Authority" TransmissionMedia="Balise, Loop, RIU" >
+<Description>Transmission of a movement authority for level 1.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="V_MAIN" Length="7"  />
+<TlgVar Name="V_LOA" Length="7"  />
+<TlgVar Name="T_LOA" Length="10"  Comment="Can be set to 'no time-out'" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  Comment="Set to zero if V_MAIN = 0 or if only one section in the MA" />
+<TlgVar Name="L_SECTION(k)" Length="15"  />
+<TlgVar Name="Q_SECTIONTIMER(k)" Length="1"  />
+<TlgVar Name="T_SECTIONTIMER(k)" Length="10"  />
+<TlgVar Name="D_SECTIONTIMERSTOPLOC(k)" Length="15"  />
+</LoopDoWhile>
+<TlgVar Name="L_ENDSECTION" Length="15"  />
+<TlgVar Name="Q_SECTIONTIMER" Length="1"  />
+<TlgVar Name="T_SECTIONTIMER" Length="10"  />
+<TlgVar Name="D_SECTIONTIMERSTOPLOC" Length="15"  />
+<TlgVar Name="Q_ENDTIMER" Length="1"  />
+<TlgVar Name="T_ENDTIMER" Length="10"  />
+<TlgVar Name="D_ENDTIMERSTARTLOC" Length="15"  />
+<TlgVar Name="Q_DANGERPOINT" Length="1"  />
+<TlgVar Name="D_DP" Length="15"  />
+<TlgVar Name="V_RELEASEDP" Length="7"  />
+<TlgVar Name="Q_OVERLAP" Length="1"  />
+<TlgVar Name="D_STARTOL" Length="15"  />
+<TlgVar Name="T_OL" Length="10"  />
+<TlgVar Name="D_OL" Length="15"  />
+<TlgVar Name="V_RELEASEOL" Length="7"  />
+</Content>
+</Packet>
+
+<Packet Number="13" Name="Staff Responsible distance Information from loop" TransmissionMedia="Loop" >
+<Description>Information for trains in staff responsible mode</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_NEWCOUNTRY(0)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(0) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C(0)" Length="10"  Comment="If Q_NEWCOUNTRY(0) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG(0)" Length="14"  Comment="Main signal balise group" />
+<TlgVar Name="Q_NEWCOUNTRY(1)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(1) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C(1)" Length="10"  Comment="If Q_NEWCOUNTRY(1) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG(1)" Length="14"  Comment="Reference balise" />
+<TlgVar Name="D_SR" Length="15"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_NEWCOUNTRY (k)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY (k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C (k)" Length="10"  Comment="If Q_NEWCOUNTRY (k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG (k)" Length="14"  Comment="Reference balise" />
+<TlgVar Name="D_SR (k)" Length="15"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="15" Name="Level 2/3 Movement Authority" TransmissionMedia="RBC" >
+<Description>Transmission of a movement authority for levels 2/3.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="V_LOA" Length="7"  />
+<TlgVar Name="T_LOA" Length="10"  Comment="Can be set to 'no time-out'" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  Comment="Set to zero if only one section in the MA" />
+<TlgVar Name="L_SECTION(k)" Length="15"  />
+<TlgVar Name="Q_SECTIONTIMER(k)" Length="1"  />
+<TlgVar Name="T_SECTIONTIMER(k)" Length="10"  />
+<TlgVar Name="D_SECTIONTIMERSTOPLOC(k)" Length="15"  />
+</LoopDoWhile>
+<TlgVar Name="L_ENDSECTION" Length="15"  />
+<TlgVar Name="Q_SECTIONTIMER" Length="1"  />
+<TlgVar Name="T_SECTIONTIMER" Length="10"  />
+<TlgVar Name="D_SECTIONTIMERSTOPLOC" Length="15"  />
+<TlgVar Name="Q_ENDTIMER" Length="1"  />
+<TlgVar Name="T_ENDTIMER" Length="10"  />
+<TlgVar Name="D_ENDTIMERSTARTLOC" Length="15"  />
+<TlgVar Name="Q_DANGERPOINT" Length="1"  />
+<TlgVar Name="D_DP" Length="15"  />
+<TlgVar Name="V_RELEASEDP" Length="7"  />
+<TlgVar Name="Q_OVERLAP" Length="1"  />
+<TlgVar Name="D_STARTOL" Length="15"  />
+<TlgVar Name="T_OL" Length="10"  />
+<TlgVar Name="D_OL" Length="15"  />
+<TlgVar Name="V_RELEASEOL" Length="7"  />
+</Content>
+</Packet>
+
+<Packet Number="16" Name="Repositioning Information" TransmissionMedia="Balise" >
+<Description>Transmission of the update of the current distance</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="L_SECTION" Length="15"  />
+</Content>
+</Packet>
+
+<Packet Number="21" Name="Gradient Profile" TransmissionMedia="Any" >
+<Description>Transmission of the gradient.D_GRADIENT gives the distance to the next change of the gradient value. The gradient value is the minimum gradient for the given distance.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_GRADIENT" Length="15"  />
+<TlgVar Name="Q_GDIR" Length="1"  Comment="0 = downhill 1= uphill" />
+<TlgVar Name="G_A" Length="8"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_GRADIENT(k)" Length="15"  />
+<TlgVar Name="Q_GDIR(k)" Length="1"  Comment="0 = downhill 1= uphill" />
+<TlgVar Name="G_A(k)" Length="8"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="27" Name="International Static Speed Profile" TransmissionMedia="Any" >
+<Description>Static speed profile and optionally speed limits depending on the international train category.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_STATIC" Length="15"  />
+<TlgVar Name="V_STATIC" Length="7"  Comment="Basic SSP" />
+<TlgVar Name="Q_FRONT" Length="1"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_DIFF(n)" Length="2"  />
+<Conditional>
+<Condition>if (Q_DIFF(n) == 0)</Condition>
+<Variables>
+<TlgVar Name="NC_CDDIFF(n)" Length="4"  Comment="If Q_DIFF(n) = 0" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if ((Q_DIFF(n) == 1) or (Q_DIFF(n) == 2))</Condition>
+<Variables>
+<TlgVar Name="NC_DIFF(n)" Length="4"  Comment="If Q_DIFF(n) = 1 or 2" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_DIFF(n)" Length="7"  />
+</LoopDoWhile>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_STATIC(k)" Length="15"  />
+<TlgVar Name="V_STATIC(k)" Length="7"  Comment="Basic SSP" />
+<TlgVar Name="Q_FRONT(k)" Length="1"  />
+<LoopWhile>
+<TlgVar Name="N_ITER(k)" Length="5"  />
+<TlgVar Name="Q_DIFF(k,m)" Length="2"  />
+<Conditional>
+<Condition>if (Q_DIFF(k,m) == 0)</Condition>
+<Variables>
+<TlgVar Name="NC_CDDIFF(k,m)" Length="4"  Comment="If Q_DIFF(k,m) = 0" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if ((Q_DIFF(k,m) == 1) or (Q_DIFF(k,m) == 2))</Condition>
+<Variables>
+<TlgVar Name="NC_DIFF(k,m)" Length="4"  Comment="If Q_DIFF(k,m) = 1 or 2" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_DIFF(k,m)" Length="7"  />
+</LoopWhile>
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="39" Name="Track Condition Change of traction system" TransmissionMedia="Any" >
+<Description>The packet gives information about change of the traction system.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_TRACTION" Length="15"  />
+<TlgVar Name="M_VOLTAGE" Length="4"  />
+<Conditional>
+<Condition>if (M_VOLTAGE != 0)</Condition>
+<Variables>
+<TlgVar Name="NID_CTRACTION" Length="10"  Comment="only if M_VOLTAGE != 0  Identity of the traction system NID_CTRACTION given" />
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="40" Name="Track Condition Change of allowed current consumption" TransmissionMedia="Any" >
+<Description>The packet gives information about change of the allowed current consumption.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_CURRENT" Length="15"  />
+<TlgVar Name="M_CURRENT" Length="10"  Comment="Allowed current consumption." />
+</Content>
+</Packet>
+
+<Packet Number="41" Name="Level Transition Order" TransmissionMedia="Any" >
+<Description>Packet to identify where a level transition shall take place. In case of mixed levels, the successive M_LEVELTR go from the highest priority level to the lowest one.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_LEVELTR" Length="15"  />
+<TlgVar Name="M_LEVELTR" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVELTR == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC" Length="8"  Comment="If  M_LEVELTR = 1  (NTC)" />
+</Variables>
+</Conditional>
+<TlgVar Name="L_ACKLEVELTR" Length="15"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="M_LEVELTR(k)" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVELTR(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(k)" Length="8"  Comment="If M_LEVELTR(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="L_ACKLEVELTR(k)" Length="15"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="42" Name="Session Management" TransmissionMedia="Balise, RBC" >
+<Description>Packet to give the identity and telephone number of the RBC with which a session shall be established or terminated.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_RBC" Length="1"  />
+<TlgVar Name="NID_C" Length="10"  Comment="RBC ETCS identity : NID_C not relevant if NID_RBC has value 'Contact last known RBC'" />
+<TlgVar Name="NID_RBC" Length="14"  />
+<TlgVar Name="NID_RADIO" Length="64"  Comment="not relevant if NID_RBC has value 'Contact last known RBC'" />
+<TlgVar Name="Q_SLEEPSESSION" Length="1"  />
+</Content>
+</Packet>
+
+<Packet Number="44" Name="Data used by applications outside the ERTMS/ETCS system" TransmissionMedia="Any" >
+<Description>Messages between trackside and on-board devices, which contain information used by applications outside the ERTMS/ETCS system.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_XUSER" Length="9"  />
+<Conditional>
+<Condition>if (NID_XUSER == 102)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC" Length="8"  Comment="Only if NID_XUSER = 102 (National System functions)" />
+</Variables>
+</Conditional>
+<TlgVar Name="Other data depending on  NID_XUSER" Length=""  />
+</Content>
+</Packet>
+
+<Packet Number="45" Name="Radio Network registration" TransmissionMedia="Balise, RBC, RIU" >
+<Description>Packet to give the identity of the Radio Network to which a registration shall be enforced.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_MN" Length="24"  />
+</Content>
+</Packet>
+
+<Packet Number="46" Name="Conditional Level Transition Order" TransmissionMedia="Balise" >
+<Description>Packet for a conditional level transition. The successive M_LEVELTR go from the highest priority level to the lowest one.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="M_LEVELTR" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVELTR == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC" Length="8"  Comment="If M_LEVELTR = 1" />
+</Variables>
+</Conditional>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="M_LEVELTR(k)" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVELTR(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(k)" Length="8"  Comment="If M_LEVELTR(k) = 1" />
+</Variables>
+</Conditional>
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="49" Name="List of balises for SH Area" TransmissionMedia="Any" >
+<Description>Used to list balise group(s) which the train can pass over in SH mode</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_NEWCOUNTRY(k)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C(k)" Length="10"  Comment="if Q_NEWCOUNTRY(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG(k)" Length="14"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="51" Name="Axle Load Speed Profile" TransmissionMedia="Any" >
+<Description>This packet gives the speed restrictions for trains with axle load category higher than or equal to the specified value for the speed restriction</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TRACKINIT" Length="1"  />
+<Conditional>
+<Condition>if (Q_TRACKINIT == 1)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKINIT" Length="15"  Comment="Only if Q_TRACKINIT = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TRACKINIT == 0)</Condition>
+<Variables>
+<TlgVar Name="D_AXLELOAD" Length="15"  Comment="Only if Q_TRACKINIT = 0D_AXLELOAD and the following variables follow" />
+<TlgVar Name="L_AXLELOAD" Length="15"  />
+<TlgVar Name="Q_FRONT" Length="1"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="M_AXLELOADCAT(n)" Length="7"  />
+<TlgVar Name="V_AXLELOAD(n)" Length="7"  Comment="Speed restriction to be applied if the axle load category of the train ( M_AXLELOADCAT(n)" />
+</LoopDoWhile>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_AXLELOAD(k)" Length="15"  />
+<TlgVar Name="L_AXLELOAD(k)" Length="15"  />
+<TlgVar Name="Q_FRONT(k)" Length="1"  />
+<LoopWhile>
+<TlgVar Name="N_ITER(k)" Length="5"  />
+<TlgVar Name="M_AXLELOADCAT(k,m)" Length="7"  />
+<TlgVar Name="V_AXLELOAD(k,m)" Length="7"  Comment="Speed restriction to be applied if the axle load category of the train ( M_AXLELOADCAT(k,m)" />
+</LoopWhile>
+</LoopDoWhile>
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="52" Name="Permitted Braking Distance Information" TransmissionMedia="Any" >
+<Description>This packet requests the on-board calculation of speed restrictions which ensure a given permitted brake distance in case of an EB, or SB, intervention</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TRACKINIT" Length="1"  />
+<Conditional>
+<Condition>if (Q_TRACKINIT == 1)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKINIT" Length="15"  Comment="Only if Q_TRACKINIT = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TRACKINIT == 0)</Condition>
+<Variables>
+<TlgVar Name="D_PBD" Length="15"  Comment="Only if Q_TRACKINIT = 0 D_PBD and the following variables follow" />
+<TlgVar Name="Q_GDIR" Length="1"  Comment="0 = downhill, 1 = uphill" />
+<TlgVar Name="G_PBDSR" Length="8"  Comment="Gradient value to be used for the calculation" />
+<TlgVar Name="Q_PBDSR" Length="1"  />
+<TlgVar Name="D_PBDSR" Length="15"  />
+<TlgVar Name="L_PBDSR" Length="15"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_PBD(k)" Length="15"  />
+<TlgVar Name="Q_GDIR(k)" Length="1"  Comment="0 = downhill, 1 = uphill" />
+<TlgVar Name="G_PBDSR(k)" Length="8"  Comment="Gradient value to be used for the calculation" />
+<TlgVar Name="Q_PBDSR(k)" Length="1"  />
+<TlgVar Name="D_PBDSR(k)" Length="15"  />
+<TlgVar Name="L_PBDSR(k)" Length="15"  />
+</LoopDoWhile>
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="57" Name="Movement Authority Request Parameters" TransmissionMedia="RBC" >
+<Description>This packet is intended to give parameters telling when and how often the train has to ask for a movement authority.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="T_MAR" Length="8"  />
+<TlgVar Name="T_TIMEOUTRQST" Length="10"  />
+<TlgVar Name="T_CYCRQST" Length="8"  />
+</Content>
+</Packet>
+
+<Packet Number="58" Name="Position Report Parameters" TransmissionMedia="RBC" >
+<Description>This packet is intended to give parameters telling when and how often the position has to be reported.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="T_CYCLOC" Length="8"  />
+<TlgVar Name="D_CYCLOC" Length="15"  />
+<TlgVar Name="M_LOC" Length="3"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_LOC(k)" Length="15"  />
+<TlgVar Name="Q_LGTLOC(k)" Length="1"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="63" Name="List of Balises in SR Authority" TransmissionMedia="RBC" >
+<Description>Used to list balise group(s) which the train can pass over in SR mode</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_NEWCOUNTRY(k)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C(k)" Length="10"  Comment="if Q_NEWCOUNTRY(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG(k)" Length="14"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="64" Name="Inhibition of revocable TSRs from balises in L2/3" TransmissionMedia="RBC" >
+<Description>This packet is used to inhibit revocable TSRs from balises in level 2 or 3.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+</Content>
+</Packet>
+
+<Packet Number="65" Name="Temporary Speed Restriction" TransmissionMedia="Any" >
+<Description>Transmission of temporary speed restriction.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="NID_TSR" Length="8"  />
+<TlgVar Name="D_TSR" Length="15"  />
+<TlgVar Name="L_TSR" Length="15"  />
+<TlgVar Name="Q_FRONT" Length="1"  />
+<TlgVar Name="V_TSR" Length="7"  />
+</Content>
+</Packet>
+
+<Packet Number="66" Name="Temporary Speed Restriction Revocation" TransmissionMedia="Any" >
+<Description>Transmission of temporary speed restriction revocation.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_TSR" Length="8"  Comment="Identity of TSR to be revoked" />
+</Content>
+</Packet>
+
+<Packet Number="67" Name="Track Condition Big Metal Masses" TransmissionMedia="Balise" >
+<Description>The packet gives details concerning where to ignore integrity check alarms of balise transmission due to big metal masses trackside.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_TRACKCOND" Length="15"  />
+<TlgVar Name="L_TRACKCOND" Length="15"  Comment="The distance for which integrity check alarms of balise transmission shall be ignored" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_TRACKCOND(k)" Length="15"  />
+<TlgVar Name="L_TRACKCOND(k)" Length="15"  Comment="The distance for which integrity check alarms of balise transmission shall be ignored" />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="68" Name="Track Condition" TransmissionMedia="Any" >
+<Description>The packet gives details concerning the track ahead to support the driver when e.g. lower pantograph</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TRACKINIT" Length="1"  />
+<Conditional>
+<Condition>if (Q_TRACKINIT == 1)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKINIT" Length="15"  Comment="Only if Q_TRACKINIT = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TRACKINIT == 0)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKCOND" Length="15"  Comment="Only if Q_TRACKINIT = 0D_TRACKCOND and the following variables follow" />
+<TlgVar Name="L_TRACKCOND" Length="15"  />
+<TlgVar Name="M_TRACKCOND" Length="4"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_TRACKCOND(k)" Length="15"  />
+<TlgVar Name="L_TRACKCOND(k)" Length="15"  />
+<TlgVar Name="M_TRACKCOND(k)" Length="4"  />
+</LoopDoWhile>
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="69" Name="Track Condition Station Platforms" TransmissionMedia="Any" >
+<Description>The packet gives details concerning the location and height of station platforms for use by the train door control system</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TRACKINIT" Length="1"  />
+<Conditional>
+<Condition>if (Q_TRACKINIT == 1)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKINIT" Length="15"  Comment="Only if Q_TRACKINIT = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TRACKINIT == 0)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKCOND" Length="15"  Comment="Only if Q_TRACKINIT = 0D_TRACKCOND and the following variables follow" />
+<TlgVar Name="L_TRACKCOND" Length="15"  />
+<TlgVar Name="M_PLATFORM" Length="4"  />
+<TlgVar Name="Q_PLATFORM" Length="2"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_TRACKCOND(k)" Length="15"  />
+<TlgVar Name="L_TRACKCOND(k)" Length="15"  />
+<TlgVar Name="M_PLATFORM(k)" Length="4"  />
+<TlgVar Name="Q_PLATFORM(k)" Length="2"  />
+</LoopDoWhile>
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="70" Name="Route Suitability Data" TransmissionMedia="Any" >
+<Description>The packet gives the characteristics needed to enter a route.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TRACKINIT" Length="1"  />
+<Conditional>
+<Condition>if (Q_TRACKINIT == 1)</Condition>
+<Variables>
+<TlgVar Name="D_TRACKINIT" Length="15"  Comment="Only if Q_TRACKINIT = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TRACKINIT == 0)</Condition>
+<Variables>
+<TlgVar Name="D_SUITABILITY" Length="15"  Comment="Only If Q_TRACKINIT = 0D_SUITABILITY and the following variables follows" />
+<TlgVar Name="Q_SUITABILITY" Length="2"  />
+<Conditional>
+<Condition>if (Q_SUITABILITY == 0)</Condition>
+<Variables>
+<TlgVar Name="M_LINEGAUGE" Length="8"  Comment="If Q_SUITABILITY = 0 (loading gauge)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_SUITABILITY == 1)</Condition>
+<Variables>
+<TlgVar Name="M_AXLELOADCAT" Length="7"  Comment="If Q_SUITABILITY = 1 (Max axle load)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_SUITABILITY == 2)</Condition>
+<Variables>
+<TlgVar Name="M_VOLTAGE" Length="4"  Comment="If Q_SUITABILITY = 2 (traction system)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if ((Q_SUITABILITY == 2) and (M_VOLTAGE != 0))</Condition>
+<Variables>
+<TlgVar Name="NID_CTRACTION" Length="10"  Comment="If Q_SUITABILITY = 2 and M_VOLTAGE != 0" />
+</Variables>
+</Conditional>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_SUITABILITY(k)" Length="15"  />
+<TlgVar Name="Q_SUITABILITY(k)" Length="2"  />
+<Conditional>
+<Condition>if (Q_SUITABILITY(k) == 0)</Condition>
+<Variables>
+<TlgVar Name="M_LINEGAUGE(k)" Length="8"  Comment="If Q_SUITABILITY(k) = 0 (loading gauge)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_SUITABILITY(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="M_AXLELOADCAT(k)" Length="7"  Comment="If Q_SUITABILITY(k) = 1 (Max axle load)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_SUITABILITY(k) == 2)</Condition>
+<Variables>
+<TlgVar Name="M_VOLTAGE(k)" Length="4"  Comment="If Q_SUITABILITY(k) = 2 ( traction system)" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if ((Q_SUITABILITY(k) == 2) and (M_VOLTAGE(k) != 0))</Condition>
+<Variables>
+<TlgVar Name="NID_CTRACTION(k)" Length="10"  Comment="If Q_SUITABILITY(k) = 2 and M_VOLTAGE(k) != 0" />
+</Variables>
+</Conditional>
+</LoopDoWhile>
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="71" Name="Adhesion factor" TransmissionMedia="Any" >
+<Description>This packet is used when the trackside requests a change of the adhesion factor to be used in the brake model.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_ADHESION" Length="15"  />
+<TlgVar Name="L_ADHESION" Length="15"  />
+<TlgVar Name="M_ADHESION" Length="1"  />
+</Content>
+</Packet>
+
+<Packet Number="72" Name="Packet for sending plain text messages" TransmissionMedia="Balise, RBC" >
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TEXTCLASS" Length="2"  />
+<TlgVar Name="Q_TEXTDISPLAY" Length="1"  Comment="Start/end events relation" />
+<TlgVar Name="D_TEXTDISPLAY" Length="15"  Comment="Start event" />
+<TlgVar Name="M_MODETEXTDISPLAY(0)" Length="4"  Comment="Start event" />
+<TlgVar Name="M_LEVELTEXTDISPLAY(0)" Length="3"  Comment="Start event" />
+<Conditional>
+<Condition>if (M_LEVELTEXTDISPLAY(0) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(0)" Length="8"  Comment="If M_LEVELTEXTDISPLAY(0) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="L_TEXTDISPLAY" Length="15"  Comment="End event" />
+<TlgVar Name="T_TEXTDISPLAY" Length="10"  Comment="End event" />
+<TlgVar Name="M_MODETEXTDISPLAY(1)" Length="4"  Comment="End event" />
+<TlgVar Name="M_LEVELTEXTDISPLAY(1)" Length="3"  Comment="End event" />
+<Conditional>
+<Condition>if (M_LEVELTEXTDISPLAY(1) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(1)" Length="8"  Comment="If M_LEVELTEXTDISPLAY(1) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="Q_TEXTCONFIRM" Length="2"  />
+<Conditional>
+<Condition>if (Q_TEXTCONFIRM != 0)</Condition>
+<Variables>
+<TlgVar Name="Q_CONFTEXTDISPLAY" Length="1"  Comment="If Q_TEXTCONFIRM != 0" />
+<TlgVar Name="Q_TEXTREPORT" Length="1"  Comment="If Q_TEXTCONFIRM != 0" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TEXTREPORT == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_TEXTMESSAGE" Length="8"  Comment="Only If Q_TEXTREPORT = 1" />
+<TlgVar Name="NID_C" Length="10"  Comment="Only If Q_TEXTREPORT = 1" />
+<TlgVar Name="NID_RBC" Length="14"  Comment="Only If Q_TEXTREPORT = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="L_TEXT" Length="8"  />
+<TlgVar Name="X_TEXT" Length="8"  Comment="Length is L_TEXT" />
+</Content>
+</Packet>
+
+<Packet Number="76" Name="Packet for sending fixed text messages" TransmissionMedia="Balise, RBC" >
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_TEXTCLASS" Length="2"  />
+<TlgVar Name="Q_TEXTDISPLAY" Length="1"  Comment="Start/end events relation" />
+<TlgVar Name="D_TEXTDISPLAY" Length="15"  Comment="Start eventcondition" />
+<TlgVar Name="M_MODETEXTDISPLAY(0)" Length="4"  Comment="Start event" />
+<TlgVar Name="M_LEVELTEXTDISPLAY(0)" Length="3"  Comment="Start event" />
+<Conditional>
+<Condition>if (M_LEVELTEXTDISPLAY(0) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(0)" Length="8"  Comment="If M_LEVELTEXTDISPLAY(0) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="L_TEXTDISPLAY" Length="15"  Comment="End event" />
+<TlgVar Name="T_TEXTDISPLAY" Length="10"  Comment="End event" />
+<TlgVar Name="M_MODETEXTDISPLAY(1)" Length="4"  Comment="End event" />
+<TlgVar Name="M_LEVELTEXTDISPLAY(1)" Length="3"  Comment="End event" />
+<Conditional>
+<Condition>if (M_LEVELTEXTDISPLAY(1) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC(1)" Length="8"  Comment="If M_LEVELTEXTDISPLAY(1) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="Q_TEXTCONFIRM" Length="2"  />
+<Conditional>
+<Condition>if (Q_TEXTCONFIRM != 0)</Condition>
+<Variables>
+<TlgVar Name="Q_CONFTEXTDISPLAY" Length="1"  Comment="If Q_TEXTCONFIRM != 0" />
+<TlgVar Name="Q_TEXTREPORT" Length="1"  Comment="If Q_TEXTCONFIRM != 0" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_TEXTREPORT == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_TEXTMESSAGE" Length="8"  Comment="Only If Q_TEXTREPORT = 1" />
+<TlgVar Name="NID_C" Length="10"  Comment="Only If Q_TEXTREPORT = 1" />
+<TlgVar Name="NID_RBC" Length="14"  Comment="Only If Q_TEXTREPORT = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="Q_TEXT" Length="8"  />
+</Content>
+</Packet>
+
+<Packet Number="79" Name="Geographical Position Information" TransmissionMedia="Balise, RBC" >
+<Description>This packet gives geographical location information for one or multiple references to the train.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_NEWCOUNTRY" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C" Length="10"  Comment="if Q_NEWCOUNTRY = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG" Length="14"  Comment="Geographical Position Reference Balise Group" />
+<TlgVar Name="D_POSOFF" Length="15"  />
+<TlgVar Name="Q_MPOSITION" Length="1"  Comment="Geographical Position counting direction" />
+<TlgVar Name="M_POSITION" Length="24"  Comment="Track kilometre reference value" />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="Q_NEWCOUNTRY(k)" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY(k) == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C(k)" Length="10"  Comment="if Q_NEWCOUNTRY(k) = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG(k)" Length="14"  Comment="Geographical Position Reference Balise Group" />
+<TlgVar Name="D_POSOFF(k)" Length="15"  />
+<TlgVar Name="Q_MPOSITION(k)" Length="1"  Comment="Geographical Position counting direction" />
+<TlgVar Name="M_POSITION(k)" Length="24"  Comment="Track kilometre reference value" />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="80" Name="Mode profile" TransmissionMedia="Any" >
+<Description>Mode profile associated to an MA</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_MAMODE" Length="15"  />
+<TlgVar Name="M_MAMODE" Length="2"  Comment="OS, LS, SH" />
+<TlgVar Name="V_MAMODE" Length="7"  />
+<TlgVar Name="L_MAMODE" Length="15"  />
+<TlgVar Name="L_ACKMAMODE" Length="15"  />
+<TlgVar Name="Q_MAMODE" Length="1"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="D_MAMODE(k)" Length="15"  />
+<TlgVar Name="M_MAMODE(k)" Length="2"  Comment="OS, LS, SH" />
+<TlgVar Name="V_MAMODE(k)" Length="7"  />
+<TlgVar Name="L_MAMODE(k)" Length="15"  />
+<TlgVar Name="L_ACKMAMODE(k)" Length="15"  />
+<TlgVar Name="Q_MAMODE(k)" Length="1"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="88" Name="Level Crossing information" TransmissionMedia="Any" >
+<Description>Level Crossing information</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="NID_LX" Length="8"  />
+<TlgVar Name="D_LX" Length="15"  />
+<TlgVar Name="L_LX" Length="15"  />
+<TlgVar Name="Q_LXSTATUS" Length="1"  />
+<Conditional>
+<Condition>if (Q_LXSTATUS == 1)</Condition>
+<Variables>
+<TlgVar Name="V_LX" Length="7"  Comment="Only if Q_LXSTATUS = 1" />
+<TlgVar Name="Q_STOPLX" Length="1"  Comment="Only if Q_LXSTATUS = 1" />
+</Variables>
+</Conditional>
+<Conditional>
+<Condition>if (Q_STOPLX == 1)</Condition>
+<Variables>
+<TlgVar Name="L_STOPLX" Length="15"  Comment="Only if Q_STOPLX = 1" />
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="90" Name="Track Ahead Free up to level 2/3 transition location" TransmissionMedia="Balise" >
+<Description>Notification to on-board that track ahead is free from the balise group transmitting this information up to the level 2/3 transition location</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_NEWCOUNTRY" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C" Length="10"  Comment="If Q_NEWCOUNTRY = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG" Length="14"  Comment="Level 2/3 transition location balise group" />
+</Content>
+</Packet>
+
+<Packet Number="131" Name="RBC transition order" TransmissionMedia="Balise, RBC" >
+<Description>Packet to order an RBC transition</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_RBCTR" Length="15"  />
+<TlgVar Name="NID_C" Length="10"  Comment="'Accepting' RBC identity" />
+<TlgVar Name="NID_RBC" Length="14"  />
+<TlgVar Name="NID_RADIO" Length="64"  Comment="'Accepting' RBC radio subscriber number" />
+<TlgVar Name="Q_SLEEPSESSION" Length="1"  />
+</Content>
+</Packet>
+
+<Packet Number="132" Name="Danger for Shunting information" TransmissionMedia="Balise" >
+<Description>Transmission of the aspect of a shunting signal</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_ASPECT" Length="1"  />
+</Content>
+</Packet>
+
+<Packet Number="133" Name="Radio infill area information" TransmissionMedia="Balise" >
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="Q_RIU" Length="1"  />
+<TlgVar Name="NID_C" Length="10"  Comment="RIU ETCS identity" />
+<TlgVar Name="NID_RIU" Length="14"  />
+<TlgVar Name="NID_RADIO" Length="64"  />
+<TlgVar Name="D_INFILL" Length="15"  />
+<TlgVar Name="NID_BG" Length="14"  />
+</Content>
+</Packet>
+
+<Packet Number="134" Name="EOLM Packet" TransmissionMedia="Balise" >
+<Description>This packet announces a loop.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="NID_LOOP" Length="14"  />
+<TlgVar Name="D_LOOP" Length="15"  />
+<TlgVar Name="L_LOOP" Length="15"  />
+<TlgVar Name="Q_LOOPDIR" Length="1"  />
+<TlgVar Name="Q_SSCODE" Length="4"  />
+</Content>
+</Packet>
+
+<Packet Number="135" Name="Stop Shunting on desk opening" TransmissionMedia="Balise" >
+<Description>Packet to stop Shunting on desk opening.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+</Content>
+</Packet>
+
+<Packet Number="136" Name="Infill location reference" TransmissionMedia="Balise, Loop, RIU" >
+<Description>Defines location reference for all data contained in the same radio message or balise/loop telegram respectively, following this packet.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_NEWCOUNTRY" Length="1"  />
+<Conditional>
+<Condition>if (Q_NEWCOUNTRY == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_C" Length="10"  Comment="If Q_NEWCOUNTRY = 1" />
+</Variables>
+</Conditional>
+<TlgVar Name="NID_BG" Length="14"  />
+</Content>
+</Packet>
+
+<Packet Number="137" Name="Stop if in Staff Responsible" TransmissionMedia="Balise" >
+<Description>Information to stop a train in staff responsible.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SRSTOP" Length="1"  />
+</Content>
+</Packet>
+
+<Packet Number="138" Name="Reversing area information" TransmissionMedia="Any" >
+<Description>Used to send start and length of reversing area to the on-board</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_STARTREVERSE" Length="15"  />
+<TlgVar Name="L_REVERSEAREA" Length="15"  />
+</Content>
+</Packet>
+
+<Packet Number="139" Name="Reversing supervision information" TransmissionMedia="Any" >
+<Description>Used to send supervision parameters (distance to run, speed) of reversing area to the on-board</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="D_REVERSE" Length="15"  />
+<TlgVar Name="V_REVERSE" Length="7"  />
+</Content>
+</Packet>
+
+<Packet Number="140" Name="Train running number from RBC" TransmissionMedia="RBC" >
+<Description>Train running number from RBC</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_OPERATIONAL" Length="32"  />
+</Content>
+</Packet>
+
+<Packet Number="141" Name="Default Gradient for Temporary Speed Restriction" TransmissionMedia="Balise" >
+<Description>It defines a default gradient to be used for TSR supervision when no gradient profile (packet 21) is available</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_GDIR" Length="1"  Comment="0 = downhill 1= uphill" />
+<TlgVar Name="G_TSR" Length="8"  />
+</Content>
+</Packet>
+
+<Packet Number="143" Name="Session Management with neighbouring Radio Infill Unit" TransmissionMedia="RIU" >
+<Description>Packet to give the identity and telephone number of the neighbouring Radio Infill Unit with which a session shall be established or terminated.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_RIU" Length="1"  />
+<TlgVar Name="NID_C" Length="10"  Comment="RIU ETCS identity" />
+<TlgVar Name="NID_RIU" Length="14"  />
+<TlgVar Name="NID_RADIO" Length="64"  />
+</Content>
+</Packet>
+
+<Packet Number="145" Name="Inhibition of balise group message consistency reaction" TransmissionMedia="Balise" >
+<Description>Indication to on-board that the balise group message consistency reaction (service brake command) can be inhibited for this balise group message only, in case one or more balise telegram(s) of the group is/are missed or is/are detected but not decoded.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+</Content>
+</Packet>
+
+<Packet Number="254" Name="Default balise or Loop or RIU information" TransmissionMedia="Balise, Loop, RIU" >
+<Description>Indication to on-board that balise telegram, loop message or RIU information contains default information due to a fault of the trackside equipment.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="Q_DIR" Length="2"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+</Content>
+</Packet>
+</TrackToTrain>
+<TrainToTrack>
+<List Number="0"  Name="Position Report" />
+<List Number="1"  Name="Position Report based on two balise groups" />
+<List Number="3"  Name="Onboard telephone numbers" />
+<List Number="4"  Name="Error Reporting" />
+<List Number="5"  Name="Train running number" />
+<List Number="9"  Name="Level 2 or 3 transition information" />
+<List Number="11"  Name="Validated train data" />
+<List Number="44"  Name="Data used by applications outside the ERTMS or ETCS system" />
+
+<Packet Number="0" Name="Position Report" TransmissionMedia="RBC, RIU" >
+<Description>This packet is used to report the train position and speed as well as some additional information (e.g. mode, level, etc.)</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="NID_LRBG" Length="10+14"  />
+<TlgVar Name="D_LRBG" Length="15"  />
+<TlgVar Name="Q_DIRLRBG" Length="2"  />
+<TlgVar Name="Q_DLRBG" Length="2"  />
+<TlgVar Name="L_DOUBTOVER" Length="15"  />
+<TlgVar Name="L_DOUBTUNDER" Length="15"  />
+<TlgVar Name="Q_LENGTH" Length="2"  />
+<Conditional>
+<Condition>if ((Q_LENGTH == 1) OR (Q_LENGTH == 2))</Condition>
+<Variables>
+<TlgVar Name="L_TRAININT" Length="15"  Comment="If Q_LENGTH = 1 OR 2" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_TRAIN" Length="7"  />
+<TlgVar Name="Q_DIRTRAIN" Length="2"  />
+<TlgVar Name="M_MODE" Length="4"  />
+<TlgVar Name="M_LEVEL" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVEL == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC" Length="8"  Comment="If M_LEVEL = 1" />
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="1" Name="Position Report based on two balise groups" TransmissionMedia="RBC, RIU" >
+<Description>This packet is an extension of the 'standard position report ' packet 0. It is used in case of single balise groups if the orientation of the LRBG is unknown but the on-board equipment is able to report a second balise group (the one detected before) to give a direction reference for the directional information in the position report.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="Q_SCALE" Length="2"  />
+<TlgVar Name="NID_LRBG" Length="10+14"  />
+<TlgVar Name="NID_PRVLRBG" Length="10+14"  Comment="Used as reference for all directional information in the packet: a move from PRVLRBG towards the LRBG  defines the 'nominal' direction" />
+<TlgVar Name="D_LRBG" Length="15"  />
+<TlgVar Name="Q_DIRLRBG" Length="2"  Comment="Train orientation according to reference direction" />
+<TlgVar Name="Q_DLRBG" Length="2"  Comment="Train front position according to reference direction" />
+<TlgVar Name="L_DOUBTOVER" Length="15"  />
+<TlgVar Name="L_DOUBTUNDER" Length="15"  />
+<TlgVar Name="Q_LENGTH" Length="2"  />
+<Conditional>
+<Condition>if ((Q_LENGTH == 1) OR (Q_LENGTH == 2))</Condition>
+<Variables>
+<TlgVar Name="L_TRAININT" Length="15"  Comment="If Q_LENGTH = 1 OR 2" />
+</Variables>
+</Conditional>
+<TlgVar Name="V_TRAIN" Length="7"  />
+<TlgVar Name="Q_DIRTRAIN" Length="2"  Comment="Actual running direction according to reference direction" />
+<TlgVar Name="M_MODE" Length="4"  />
+<TlgVar Name="M_LEVEL" Length="3"  />
+<Conditional>
+<Condition>if (M_LEVEL == 1)</Condition>
+<Variables>
+<TlgVar Name="NID_NTC" Length="8"  Comment="If M_LEVEL = 1" />
+</Variables>
+</Conditional>
+</Content>
+</Packet>
+
+<Packet Number="3" Name="Onboard telephone numbers" TransmissionMedia="RBC, RIU" >
+<Description>Telephone numbers associated to the onboard equipment</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="NID_RADIO (k)" Length="64"  />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="4" Name="Error reporting" TransmissionMedia="RBC" >
+<Description>Error reporting to the RBC</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="M_ERROR" Length="8"  Comment="error type identifier" />
+</Content>
+</Packet>
+
+<Packet Number="5" Name="Train running number" TransmissionMedia="RBC" >
+<Description>Train running number</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_OPERATIONAL" Length="32"  />
+</Content>
+</Packet>
+
+<Packet Number="9" Name="Level 2/3 transition information" TransmissionMedia="RBC" >
+<Description>Identity of the level 2/3 transition balise group</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_LTRBG" Length="10+14"  />
+</Content>
+</Packet>
+
+<Packet Number="11" Name="Validated train data" TransmissionMedia="RBC" >
+<Description>Validated train data.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NC_CDTRAIN" Length="4"  />
+<TlgVar Name="NC_TRAIN" Length="15"  />
+<TlgVar Name="L_TRAIN" Length="12"  />
+<TlgVar Name="V_MAXTRAIN" Length="7"  />
+<TlgVar Name="M_LOADINGGAUGE" Length="8"  />
+<TlgVar Name="M_AXLELOADCAT" Length="7"  />
+<TlgVar Name="M_AIRTIGHT" Length="2"  />
+<TlgVar Name="N_AXLE" Length="10"  />
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="M_VOLTAGE(k)" Length="4"  Comment="Identity of the traction system" />
+<Conditional>
+<Condition>if ((M_VOLTAGE(k) != 0) and (NID_CTRACTION(k) != 0))</Condition>
+<Variables>
+<TlgVar Name="NID_CTRACTION(k)" Length="10"  Comment="only if M_VOLTAGE(k) != 0 and NID_CTRACTION(k) != 0" />
+</Variables>
+</Conditional>
+</LoopDoWhile>
+<LoopDoWhile>
+<TlgVar Name="N_ITER" Length="5"  />
+<TlgVar Name="NID_NTC(n)" Length="8"  Comment="Type of National System available" />
+</LoopDoWhile>
+</Content>
+</Packet>
+
+<Packet Number="44" Name="Data used by applications outside the ERTMS or ETCS system" TransmissionMedia="RBC, RIU" >
+<Description>Messages between on-board and trackside devices, which contain information used by applications outside the ERTMS or ETCS system.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  />
+<TlgVar Name="L_PACKET" Length="13"  />
+<TlgVar Name="NID_XUSER" Length="9"  />
+<TlgVar Name="Other data depending on  NID_XUSER" Length=""  />
+</Content>
+</Packet>
+</TrainToTrack>
+<BothWays>
+<List Number="255"  Name="End of information" />
+
+<Packet Number="255" Name="End of Information" TransmissionMedia="Balise, Loop" >
+<Description>This packet consists only of NID_PACKET containing 8 bit 1sIt acts as a finish flag; the receiver will stop reading the remaining part of the message/telegram when receiving eight bits set to one in the NID_PACKET field.</Description>
+<Content>
+<TlgVar Name="NID_PACKET" Length="8"  Comment="= 255 (1111 1111)" />
+</Content>
+</Packet>
+</BothWays>
+</Packets>
+<VarDef>
+
+<Variable Name="A_NVMAXREDADH1" >
+<DetailedName>Maximum deceleration under reduced adhesion conditions (1)</DetailedName>
+<Description>Maximum deceleration under reduced adhesion conditions applicable for trains:With brake position Passenger train in P,  andwith special/additional brakes independent from wheel/rail adhesion.This variable is part of the National Values</Description>
+<Specs Length="6 bits" MinVal="0 m/s**2" MaxVal="3.15 m/s**2"  Formula="0.05 m/s**2"  >
+</Specs>
+</Variable>
+
+<Variable Name="A_NVMAXREDADH2" >
+<DetailedName>Maximum deceleration under reduced adhesion conditions (2)</DetailedName>
+<Description>Maximum deceleration under reduced adhesion conditions applicable for trains:with brake position Passenger train in P, andwithout special/additional brakes independent from wheel/rail adhesion.This variable is part of the National Values</Description>
+<Specs Length="6 bits" MinVal="0 m/s**2" MaxVal="3.15 m/s**2"  Formula="0.05 m/s**2"  >
+</Specs>
+</Variable>
+
+<Variable Name="A_NVMAXREDADH3" >
+<DetailedName>Maximum deceleration under reduced adhesion conditions (3)</DetailedName>
+<Description>Maximum deceleration under reduced adhesion conditions applicable for trains with brake position Freight train in P, orwith brake position Freight train in G. This variable is part of the National Values</Description>
+<Specs Length="6 bits" MinVal="0 m/s**2" MaxVal="3.15 m/s**2"  Formula="0.05 m/s**2"  >
+</Specs>
+</Variable>
+
+<Variable Name="A_NVP12" >
+<DetailedName>Lower deceleration limit to determine the set of Kv to be used</DetailedName>
+<Description>Lower deceleration limit to determine the set of correction factor Kv to be used for Conventional Passenger trains.This variable is part of the National Values.</Description>
+<Specs Length="6 bits" MinVal="0 m/s**2" MaxVal="3.15 m/s**2"  Formula="0.05 m/s**2"  >
+</Specs>
+</Variable>
+
+<Variable Name="A_NVP23" >
+<DetailedName>Upper deceleration limit to determine the set of Kv to be used</DetailedName>
+<Description>Upper deceleration limit to determine the set of correction factor Kv to be used for Conventional Passenger trains.This variable is part of the National Values.</Description>
+<Specs Length="6 bits" MinVal="0 m/s**2" MaxVal="3.15 m/s**2"  Formula="0.05 m/s**2"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_ADHESION" >
+<DetailedName>Distance to start of area with reduced adhesion factor</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_AXLELOAD" >
+<DetailedName>Incremental distance to the start of the next Axle load speed profile</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_CURRENT" >
+<DetailedName>Distance to change of allowed current consumption</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_CYCLOC" >
+<DetailedName>Distance between two position reports from the train</DetailedName>
+<Description>The train has to report its position every D_CYCLOC meters.</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="1111 1111"  Description="The train has not to report cyclically its position." />
+</Specs>
+</Variable>
+
+<Variable Name="D_DP" >
+<DetailedName>Distance from the End of Authority to danger point</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_EMERGENCYSTOP" >
+<DetailedName>Distance to emergency stop location</DetailedName>
+<Description>Distance between the LRBG and the emergency stop location</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_ENDTIMERSTARTLOC" >
+<DetailedName>Distance from End section timer start location to End of Authority</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_GRADIENT" >
+<DetailedName>Incremental distance to next change of gradient.</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_INFILL" >
+<DetailedName>Distance to location where to connect/disconnect to a radio infill unit</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_LEVELTR" >
+<DetailedName>Distance to level transition</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Now (The level transition is performed upon receipt of the order)" />
+</Specs>
+</Variable>
+
+<Variable Name="D_LINK" >
+<DetailedName>Incremental linking distance to next linked balise group</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_LOC" >
+<DetailedName>Incremental distance between locations where the train has to report its position.</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_LOOP" >
+<DetailedName>Distance between EOLM and start of loop</DetailedName>
+<Description>The EOLM specifies the distance to the beginning of the loop transmission</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Distance not known" />
+</Specs>
+</Variable>
+
+<Variable Name="D_LRBG" >
+<DetailedName>Distance between the last relevant balise group and the estimated front end of the train (the side of the active cab).</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="D_LX" >
+<DetailedName>Distance to LX start location</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_MAMODE" >
+<DetailedName>Incremental distance to the start of the next Mode Profile</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_NVOVTRP" >
+<DetailedName>Maximum distance for overriding the train trip</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_NVPOTRP" >
+<DetailedName>Maximum distance for reversing in Post Trip mode</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_NVROLL" >
+<DetailedName>Roll away distance limit</DetailedName>
+<Description>This variable is part of the National Values and is used for Roll Away Protection and Reverse Movement Protection. Within the (national/default) limits of D_NVROLL the train may be moved for uncoupling.</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="D_NVSTFF" >
+<DetailedName>Maximum distance for running in Staff Responsible mode</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="D_OL" >
+<DetailedName>The distance from the End of Authority to the end of overlap</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_PBD" >
+<DetailedName>Permitted Braking Distance</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_PBDSR" >
+<DetailedName>Incremental distance to the start of the next speed restriction to ensure permitted braking distance</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_POSOFF" >
+<DetailedName>Offset from the location reference of the geographical position reference balise group to the related track kilometre reference.</DetailedName>
+<Description>The geographical position reporting function uses this variables content as an offset from the location reference of the geographical position reference balise group to the related track kilometre reference.</Description>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_RBCTR" >
+<DetailedName>Distance to RBC transition</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_REF" >
+<DetailedName>Reference distance</DetailedName>
+<Description>Distance between the LRBG and the new shifted location reference.The positive values are in the nominal direction of the LRBGThe negative value are coded in 2's complement</Description>
+<Specs Length="16 bits" MinVal="-327.680 km" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_REVERSE" >
+<DetailedName>Maximum distance to run in RV mode</DetailedName>
+<Description>Distance from reference location to end location of the distance to run in RV mode</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="represents 'infinite'" />
+</Specs>
+</Variable>
+
+<Variable Name="D_SECTIONTIMERSTOPLOC" >
+<DetailedName>Distance from beginning of section to the Section Time-out stop location</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_SR" >
+<DetailedName>Distance in SR mode</DetailedName>
+<Description>Distance that can be run in SR mode</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Represents 'infinite'" />
+</Specs>
+</Variable>
+
+<Variable Name="D_STARTOL" >
+<DetailedName>Distance from overlap timer start location to End of Authority</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_STARTREVERSE" >
+<DetailedName>Distance to start of reversing permitted area</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_STATIC" >
+<DetailedName>Incremental distance to next discontinuity in a international SSP profile</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_SUITABILITY" >
+<DetailedName>Distance to change in route suitability</DetailedName>
+<Description>The incremental distance to where the route suitability data changes.</Description>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_TAFDISPLAY" >
+<DetailedName>Distance from where on a track ahead free request shall be displayed</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_TEXTDISPLAY" >
+<DetailedName>Distance from where on a text shall be displayed</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="The display of the text shall not be distance limited." />
+</Specs>
+</Variable>
+
+<Variable Name="D_TRACKINIT" >
+<DetailedName>Distance to start of empty profile</DetailedName>
+<Description>Distance to where initial states of the related track description in the packet shall be resumed</Description>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_TRACKCOND" >
+<DetailedName>Track condition distance</DetailedName>
+<Description>The incremental distance to where the track conditions change.</Description>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_TRACTION" >
+<DetailedName>Distance to change of traction</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_TSR" >
+<DetailedName>Distance to beginning of temporary speed restriction</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="D_VALIDNV" >
+<DetailedName>Distance to start of validity of national values</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Now (National Values are immediately applicable)" />
+</Specs>
+</Variable>
+
+<Variable Name="G_A" >
+<DetailedName>Safe gradient</DetailedName>
+<Description>This is the absolute value of the minimum gradient between two defined locations.</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="254 per mil"  Formula="1 per mil"  >
+<Special Value="255"  Description="Non numerical value telling that the current gradient description ends at D_GRADIENT(n)" />
+</Specs>
+</Variable>
+
+<Variable Name="G_PBDSR" >
+<DetailedName>Default gradient for PBD Speed restriction</DetailedName>
+<Description>Defines a default gradient to be used for calculation of speed restriction to ensure permitted braking distance</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255 per mil"  Formula="1 per mil"  >
+</Specs>
+</Variable>
+
+<Variable Name="G_TSR" >
+<DetailedName>Default gradient for TSR supervision</DetailedName>
+<Description>defines a default gradient to be used for TSR supervision when no gradient profile (packet 21) is available.</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255 per mil"  Formula="1 per mil"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_ACKLEVELTR" >
+<DetailedName>Length of the acknowledgement area in rear of the required level</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_ACKMAMODE" >
+<DetailedName>Length of the acknowledgement area in rear of the start of the required mode</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_ADHESION" >
+<DetailedName>Length of reduced adhesion</DetailedName>
+<Description>Length for which the reduced adhesion factor apply.</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_AXLELOAD" >
+<DetailedName>Length of speed restriction due to Axle load</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_DOUBTOVER" >
+<DetailedName>L_DOUBTOVER</DetailedName>
+<Description>L_DOUBTOVER is the over-reading amount plus the Q_LOCACC of the LRBG</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="L_DOUBTUNDER" >
+<DetailedName>L_DOUBTUNDER</DetailedName>
+<Description>L_DOUBTUNDER is the under-reading amount plus the Q_LOCACC of the LRBG</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="L_ENDSECTION" >
+<DetailedName>Length of the End section in the MA</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_LOOP" >
+<DetailedName>Length of loop</DetailedName>
+<Description>L_LOOP specifies the length of the loop starting from the distance indicated by D_LOOP</Description>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Length not known" />
+</Specs>
+</Variable>
+
+<Variable Name="L_LX" >
+<DetailedName>Length of the LX area</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_MAMODE" >
+<DetailedName>Length of the area of the required mode</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="Infinite length" />
+</Specs>
+</Variable>
+
+<Variable Name="L_MESSAGE" >
+<DetailedName>Message length</DetailedName>
+<Description>L_MESSAGE indicates the length of the message in bytes, including all packets and all variables defined in the message header (NID_MESSAGE and L_MESSAGE also).</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1023"  Formula="1 Byte"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_NVKRINT" >
+<DetailedName>Train length step used to define the integrated correction factor Kr</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="5 bits" >
+<Special Value="0"  Description="0m" />
+<Special Value="1"  Description="25m" />
+<Special Value="2"  Description="50m" />
+<Special Value="3"  Description="75m" />
+<Special Value="4"  Description="100m" />
+<Special Value="5"  Description="150m" />
+<Special Value="6"  Description="200m" />
+<Special Value="7"  Description="300m" />
+<Special Value="8"  Description="400m" />
+<Special Value="9"  Description="500m" />
+<Special Value="10"  Description="600m" />
+<Special Value="11"  Description="700m" />
+<Special Value="12"  Description="800m" />
+<Special Value="13"  Description="900m" />
+<Special Value="14"  Description="1000m" />
+<Special Value="15"  Description="1100m" />
+<Special Value="16"  Description="1200m" />
+<Special Value="17"  Description="1300m" />
+<Special Value="18"  Description="1400m" />
+<Special Value="19"  Description="1500m" />
+<Special Value="20"  Description="1600m" />
+<Special Value="21"  Description="1700m" />
+<Special Value="22"  Description="1800m" />
+<Special Value="23"  Description="1900m" />
+<Special Value="24"  Description="2000m" />
+<Special Value="25"  Description="2100m" />
+<Special Value="26"  Description="2200m" />
+<Special Value="27"  Description="2300m" />
+<Special Value="28"  Description="2400m" />
+<Special Value="29"  Description="2500m" />
+<Special Value="30"  Description="2600m" />
+<Special Value="31"  Description="2700m" />
+</Specs>
+</Variable>
+
+<Variable Name="L_PACKET" >
+<DetailedName>Packet length</DetailedName>
+<Description>L_PACKET indicates the length of the packet in bits, including all bits of the packet header</Description>
+<Specs Length="13 bits" MinVal="0" MaxVal="8191"  Formula="1 bit"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_PBDSR" >
+<DetailedName>Length of speed restriction to ensure permitted braking distance</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_REVERSEAREA" >
+<DetailedName>Length of the reversing permitted area</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_SECTION" >
+<DetailedName>Length of section in the MA</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_STOPLX" >
+<DetailedName>Length of the stopping area in rear of the start location of the LX area</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TAFDISPLAY" >
+<DetailedName>Length on which a track ahead free request shall be displayed</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TEXT" >
+<DetailedName>Length of text string</DetailedName>
+<Description>L_TEXT defines the length of a text string (L_TEXT * X_TEXT)</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="1 Text String Element"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TEXTDISPLAY" >
+<DetailedName>Length on which a text shall be displayed</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.660 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+<Special Value="32767"  Description="The display of the text shall not be distance limited." />
+</Specs>
+</Variable>
+
+<Variable Name="L_TRACKCOND" >
+<DetailedName>Length for which the defined track condition is valid</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TRAIN" >
+<DetailedName>Train length</DetailedName>
+<Description>This is the absolute real length of the train.</Description>
+<Specs Length="12 bits" MinVal="0 m" MaxVal="4095 m"  Formula="1 m"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TRAININT" >
+<DetailedName>Safe Train length</DetailedName>
+<Specs Length="15 bits" MinVal="0 m" MaxVal="32767 m"  Formula="1 m"  >
+</Specs>
+</Variable>
+
+<Variable Name="L_TSR" >
+<DetailedName>Length of the temporary speed restriction</DetailedName>
+<Specs Length="15 bits" MinVal="0 cm" MaxVal="327.670 km"  Formula="10 cm, 1 m or 10 m depending on Q_SCALE"  >
+</Specs>
+</Variable>
+
+<Variable Name="M_ACK" >
+<DetailedName>Qualifier for acknowledgement request</DetailedName>
+<Description>Indicates whether the telegram must be acknowledged or not</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No acknowledgement required" />
+<Special Value="1"  Description="Acknowledgement required" />
+</Specs>
+</Variable>
+
+<Variable Name="M_ADHESION" >
+<DetailedName>Adhesion factor</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Slippery rail" />
+<Special Value="1"  Description="Non slippery rail" />
+</Specs>
+</Variable>
+
+<Variable Name="M_AIRTIGHT" >
+<DetailedName>airtight system presence</DetailedName>
+<Description>indicates whether the train is fitted with an airtight system or not.</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Not fitted" />
+<Special Value="01"  Description="Fitted" />
+<Special Value="10"  Description="Spare" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_AXLELOADCAT" >
+<DetailedName>Axle load category</DetailedName>
+<Description>The values allocated below correspond to a list of increasing axle load categories (i.e. B1 > HS17, B2 > B1, D2 > C4 etc.) and it is used by the on-board equipment to compare its axle load category with the axle load category sent by trackside.For the underlying meaning of the axle load categories listed below (with the exception of HS17) refer to CR INF TSI.The category HS17 (axle load &lt;= 17t) corresponds to a static load per axle only, as specified in HS RST TSI clause 4.2.3.2. The introduction of this artefact is necessary to ensure backward compatibility, without any negative performance impact, in case ASPs are used on lines operated with system version X = 1.</Description>
+<Specs Length="7 bits" >
+<Special Value="0"  Description="A" />
+<Special Value="1"  Description="HS17" />
+<Special Value="2"  Description="B1" />
+<Special Value="3"  Description="B2" />
+<Special Value="4"  Description="C2" />
+<Special Value="5"  Description="C3" />
+<Special Value="6"  Description="C4" />
+<Special Value="7"  Description="D2" />
+<Special Value="8"  Description="D3" />
+<Special Value="9"  Description="D4" />
+<Special Value="10"  Description="D4XL" />
+<Special Value="11"  Description="E4" />
+<Special Value="12"  Description="E5" />
+<Special Value="13-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_CURRENT" >
+<DetailedName>Allowed current consumption</DetailedName>
+<Description>It defines the allowed current consumption to be used by the train</Description>
+<Specs Length="10 bits" MinVal="0 A" MaxVal="10000 A"  Formula="10 A"  >
+<Special Value="1001-1022"  Description="Spare" />
+<Special Value="1023"  Description="No restriction for current consumption" />
+</Specs>
+</Variable>
+
+<Variable Name="M_DUP" >
+<DetailedName>Duplicate balise</DetailedName>
+<Description>Flags to tell whether the balise is a duplicate of one of the adjacent balises.</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="No duplicates" />
+<Special Value="01"  Description="This balise is a duplicate of the next balise (seen in the nominal direction of the balise group)." />
+<Special Value="10"  Description="This balise is a duplicate of the previous balise (seen in the nominal direction of the balise group)." />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_ERROR" >
+<DetailedName>Identifier of the type of error</DetailedName>
+<Specs Length="8 bits" >
+<Special Value="0"  Description="Balise group: linking consistency error (ref. 3.16.2.3)" />
+<Special Value="1"  Description="Linked balise group: message consistency error(ref. 3.16.2.4.1/4)" />
+<Special Value="2"  Description="Unlinked balise  group:  message consistency error (ref. 3.16.2.5)" />
+<Special Value="3"  Description="Radio: message consistency error (ref. 3.16.3.1.1a,c)" />
+<Special Value="4"  Description="Radio: sequence error  (ref. 3.16.3.1.1b)" />
+<Special Value="5"  Description="Radio: safe radio connection error (ref. 3.16.3.4, to be sent when communication links re-established)" />
+<Special Value="6"  Description="Safety critical failure (ref 4.4.6.1.6 , 4.4.15.1.5)" />
+<Special Value="7"  Description="Double linking error (3.16.2.7.1)" />
+<Special Value="8"  Description="Double repositioning error (3.16.2.7.2)" />
+<Special Value="9-255"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LEVEL" >
+<DetailedName>Current Operating Level</DetailedName>
+<Specs Length="3 bits" >
+<Special Value="0"  Description="Level 0" />
+<Special Value="1"  Description="Level NTC specified by NID_NTC" />
+<Special Value="2"  Description="Level 1" />
+<Special Value="3"  Description="Level 2" />
+<Special Value="4"  Description="Level 3" />
+<Special Value="5-7"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LEVELTEXTDISPLAY" >
+<DetailedName>Onboard operating level for text display</DetailedName>
+<Description>The text is displayed when entering / as long as in the defined level</Description>
+<Specs Length="3 bits" >
+<Special Value="0"  Description="Level 0" />
+<Special Value="1"  Description="Level NTC specified by NID_NTC" />
+<Special Value="2"  Description="Level 1" />
+<Special Value="3"  Description="Level 2" />
+<Special Value="4"  Description="Level 3" />
+<Special Value="5"  Description="The display of the text shall not be limited by the level" />
+<Special Value="6-7"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LEVELTR" >
+<DetailedName>Required level</DetailedName>
+<Specs Length="3 bits" Formula="Bitset"  >
+<Special Value="0"  Description="Level 0" />
+<Special Value="1"  Description="Level NTC specified by NID_NTC" />
+<Special Value="2"  Description="Level 1" />
+<Special Value="3"  Description="Level 2" />
+<Special Value="4"  Description="Level 3" />
+<Special Value="5-7"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LINEGAUGE" >
+<DetailedName>Line gauge</DetailedName>
+<Description>Defining which loading gauge(s) are permitted on a line (refer to TSI INF)</Description>
+<Specs Length="8 bits" Formula="Bitset"  >
+<Special Value="xxxx xxx1"  Description="G1" />
+<Special Value="xxxx xx1x"  Description="GA" />
+<Special Value="xxxx x1xx"  Description="GB" />
+<Special Value="xxxx 1xxx"  Description="GC" />
+<Special Value="0000 0000"  Description="Spare" />
+<Special Value="xxx1 xxxx"  Description="Spare" />
+<Special Value="xx1x xxxx"  Description="Spare" />
+<Special Value="x1xx xxxx"  Description="Spare" />
+<Special Value="1xxx xxxx"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LOADINGGAUGE" >
+<DetailedName>Loading gauge</DetailedName>
+<Description>Defining the loading gauge profile of a train (refer to TSI RST)</Description>
+<Specs Length="8 bits" >
+<Special Value="0"  Description="The train does not fit to any of the interoperable loading gauge profiles" />
+<Special Value="1"  Description="G1" />
+<Special Value="2"  Description="GA" />
+<Special Value="3"  Description="GB" />
+<Special Value="4"  Description="GC" />
+<Special Value="5-255"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_LOC" >
+<DetailedName>Special location/moment where the train has to report its position</DetailedName>
+<Specs Length="3 bits" >
+<Special Value="000"  Description="Now (The position report is sent upon receipt of the order)" />
+<Special Value="001"  Description="Every LRBG compliant balise group." />
+<Special Value="010"  Description="Do not send position report on passage of LRBG compliant balise group." />
+<Special Value="011"  Description="Spare" />
+<Special Value="111"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_MAMODE" >
+<DetailedName>Required mode for a part of the MA</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="On Sight" />
+<Special Value="01"  Description="Shunting" />
+<Special Value="10"  Description="Limited Supervision" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_MCOUNT" >
+<DetailedName>Message counter</DetailedName>
+<Description>The purpose of this counter is to make it possible for the ERTMS/ETCS on-board to detect which balise group message the telegram belongs to.</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="253"  Formula="Numbers"  >
+<Special Value="254"  Description="The telegram never fits any message of the group" />
+<Special Value="255"  Description="The telegram fits with all telegrams of the same balise group" />
+</Specs>
+</Variable>
+
+<Variable Name="M_MODE" >
+<DetailedName>Onboard operating mode</DetailedName>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Full Supervision" />
+<Special Value="1"  Description="On Sight" />
+<Special Value="2"  Description="Staff Responsible" />
+<Special Value="3"  Description="Shunting" />
+<Special Value="4"  Description="Unfitted" />
+<Special Value="5"  Description="Sleeping" />
+<Special Value="6"  Description="Stand By" />
+<Special Value="7"  Description="Trip" />
+<Special Value="8"  Description="Post Trip" />
+<Special Value="9"  Description="System Failure" />
+<Special Value="10"  Description="Isolation" />
+<Special Value="11"  Description="Non Leading" />
+<Special Value="12"  Description="Limited Supervision" />
+<Special Value="13"  Description="National System" />
+<Special Value="14"  Description="Reversing" />
+<Special Value="15"  Description="Passive Shunting" />
+</Specs>
+</Variable>
+
+<Variable Name="M_MODETEXTDISPLAY" >
+<DetailedName>Onboard operating mode for text display</DetailedName>
+<Description>The text is displayed when entering / as long as in the defined mode</Description>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Full Supervision" />
+<Special Value="1"  Description="On Sight" />
+<Special Value="2"  Description="Staff Responsible" />
+<Special Value="3"  Description="Spare" />
+<Special Value="4"  Description="Unfitted" />
+<Special Value="5"  Description="Spare" />
+<Special Value="6"  Description="Stand By" />
+<Special Value="7"  Description="Trip" />
+<Special Value="8"  Description="Post Trip" />
+<Special Value="9"  Description="Spare" />
+<Special Value="10"  Description="Spare" />
+<Special Value="11"  Description="Non Leading" />
+<Special Value="12"  Description="Limited Supervision" />
+<Special Value="13"  Description="Spare" />
+<Special Value="14"  Description="Reversing" />
+<Special Value="15"  Description="The display of the text shall not be limited by the mode." />
+</Specs>
+</Variable>
+
+<Variable Name="M_NVAVADH" >
+<DetailedName>Weighting factor for available wheel/rail adhesion</DetailedName>
+<Description>This variable is part of the National Values.</Description>
+<Specs Length="5 bits" MinVal="0" MaxVal="1.00"  Formula="0.05"  >
+<Special Value="1.05 - 1.55"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_NVCONTACT" >
+<DetailedName>T_NVCONTACT reaction</DetailedName>
+<Description>Indicates the reaction to be performed when T_NVCONTACT timer elapsesThis variable is part of the National Values</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Train trip" />
+<Special Value="01"  Description="Apply service brake" />
+<Special Value="10"  Description="No Reaction" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_NVDERUN" >
+<DetailedName>Entry of Driver ID permitted while running</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No" />
+<Special Value="1"  Description="Yes" />
+</Specs>
+</Variable>
+
+<Variable Name="M_NVEBCL" >
+<DetailedName>Confidence level for emergency brake safe deceleration on dry rails</DetailedName>
+<Description>This variable is part of the National Values.Based on the required confidence level, the on-board equipment selects its corresponding rolling stock correction factor Kdry_rst(V).The confidence level on emergency brake safe deceleration represents the probability of the following individual event: the rolling stock emergency brake subsystem of the train does ensure a deceleration at least equal to A_brake_emergency(V) * Kdry_rst(V), when the emergency brake is commanded on dry rails.</Description>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Confidence level = 50 %" />
+<Special Value="1"  Description="Confidence level = 90 %" />
+<Special Value="2"  Description="Confidence level = 99 %" />
+<Special Value="3"  Description="Confidence level = 99.9 %" />
+<Special Value="4"  Description="Confidence level = 99.99%" />
+<Special Value="5"  Description="Confidence level = 99.999 %" />
+<Special Value="6"  Description="Confidence level = 99.9999 %" />
+<Special Value="7"  Description="Confidence level = 99.99999 %" />
+<Special Value="8"  Description="Confidence level = 99.999999 %" />
+<Special Value="9"  Description="Confidence level = 99.9999999 %" />
+<Special Value="10-15"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_NVKRINT" >
+<DetailedName>Integrated correction factor Kr</DetailedName>
+<Description>This is the train length dependent integrated correction factor.M_NVKRINT(l) is valid for a train length between L_NVKRINT(l) and L_NVKRINT(l+1).M_NVKRINT is valid between 0m and L_NVKRINT(1)This variable is part of the National Values</Description>
+<Specs Length="5 bits" MinVal="0" MaxVal="1.55"  Formula="0.05"  >
+</Specs>
+</Variable>
+
+<Variable Name="M_NVKTINT" >
+<DetailedName>Integrated correction factor Kt</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="5 bits" MinVal="0" MaxVal="1.55"  Formula="0.05"  >
+</Specs>
+</Variable>
+
+<Variable Name="M_NVKVINT" >
+<DetailedName>Integrated correction factor Kv</DetailedName>
+<Description>This is the speed dependent integrated correction factor.M_NVKVINT(n) is valid for an estimated speed between V_NVKVINT(n) and V_NVKVINT(n+1).M_NVKVINT is valid between 0 km/h and V_NVKVINT(1)This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0" MaxVal="2.54"  Formula="0.02"  >
+</Specs>
+</Variable>
+
+<Variable Name="M_PLATFORM" >
+<DetailedName>Type of platform</DetailedName>
+<Description>Nominal height of platform above rail level (refer to TSI infrastructure)</Description>
+<Specs Length="4 bits" >
+<Special Value="0000"  Description="200 mm" />
+<Special Value="0001"  Description="300-380 mm" />
+<Special Value="0010"  Description="550 mm" />
+<Special Value="0011"  Description="580 mm" />
+<Special Value="0100"  Description="680 mm" />
+<Special Value="0101"  Description="685 mm" />
+<Special Value="0110"  Description="730 mm" />
+<Special Value="0111"  Description="760 mm" />
+<Special Value="1000"  Description="840 mm" />
+<Special Value="1001"  Description="900 mm" />
+<Special Value="1010"  Description="915 mm" />
+<Special Value="1011"  Description="920 mm" />
+<Special Value="1100"  Description="960 mm" />
+<Special Value="1101"  Description="1100 mm" />
+<Special Value="1110"  Description="Spare" />
+<Special Value="1111"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_POSITION" >
+<DetailedName>Track kilometre reference value</DetailedName>
+<Description>The geographical position reporting function uses this variables content as a reference value.</Description>
+<Specs Length="24 bits" MinVal="0 m" MaxVal="9999999 m"  Formula="1 m"  >
+<Special Value="10000000-16777214"  Description="Spare" />
+<Special Value="16777215"  Description="No more geographical position calculation after this reference location" />
+</Specs>
+</Variable>
+
+<Variable Name="M_TRACKCOND" >
+<DetailedName>Type of track condition</DetailedName>
+<Specs Length="4 bits" >
+<Special Value="0000"  Description="Non stopping area Initial state is stopping permitted" />
+<Special Value="0001"  Description="Tunnel stopping area Initial state is no tunnel stopping area" />
+<Special Value="0010"  Description="Sound horn Initial state is is no request for sound horn" />
+<Special Value="0011"  Description="Powerless section Lower pantograph Initial state is not powerless section" />
+<Special Value="0100"  Description="Radio hole stop supervising T_NVCONTACT Initial state is supervise T_NVCONTACT" />
+<Special Value="0101"  Description="Air tightness Initial state is no request for air tightness" />
+<Special Value="0110"  Description="Switch off regenerative brake Initial state is regenerative brake on" />
+<Special Value="0111"  Description="Switch off eddy current brake for service brake Initial state is eddy current brake for service brake on" />
+<Special Value="1000"  Description="Switch off magnetic shoe brake Initial state is magnetic shoe brake on" />
+<Special Value="1001"  Description="Powerless section switch off the main power switch Initial state is not powerless section" />
+<Special Value="1010"  Description="Switch off eddy current brake for emergency brake Initial state is eddy current brake for emergency brake on" />
+<Special Value="1011-1111"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_VOLTAGE" >
+<DetailedName>Traction System voltage</DetailedName>
+<Description>It indicates the voltage of the traction system installed on a specific line or respectively that can be used by an engineThe identity of the traction system is given by M_VOLTAGE and, if M_VOLTAGE ? 0, by the country identifier of the traction system (NID_CTRACTION)</Description>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Line not fitted with any traction system" />
+<Special Value="1"  Description="AC 25 kV 50 Hz" />
+<Special Value="2"  Description="AC 15 kV 16_7 Hz" />
+<Special Value="3"  Description="DC 3 kV" />
+<Special Value="4"  Description="DC 1_5 kV" />
+<Special Value="5"  Description="DC 600 or 750 V" />
+<Special Value="6-15"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="M_VERSION" >
+<DetailedName>Version of ETCS system</DetailedName>
+<Description>This gives the version of the ETCS systemEach part indicates the first and second number of the version respectively.The first number distinguishes not compatible versions. (The three MSBs)The second number indicates compatibility within a version X. (The four LSBs)</Description>
+<Specs Length="7 bits" >
+<Special Value="000 XXXX"  Description="Previous versions according to e_g_ EEIG SRS and UIC A200 SRS" />
+<Special Value="001 0000"  Description="Version 1_0 introduced in SRS 1_2_0 and reused in SRSs 2_0_0 and  2_2_2 and 2_3_0" />
+<Special Value="001 0001"  Description="Version 1_1 introduced in SRS 3_3_0" />
+<Special Value="001 0010"  Description="Not valid" />
+<Special Value="001 0011"  Description="Not valid" />
+<Special Value="001 0100"  Description="Not valid" />
+<Special Value="001 0101"  Description="Not valid" />
+<Special Value="001 0110"  Description="Not valid" />
+<Special Value="001 0111"  Description="Not valid" />
+<Special Value="001 1000"  Description="Not valid" />
+<Special Value="001 1001"  Description="Not valid" />
+<Special Value="001 1010"  Description="Not valid" />
+<Special Value="001 1011"  Description="Not valid" />
+<Special Value="001 1100"  Description="Not valid" />
+<Special Value="001 1101"  Description="Not valid" />
+<Special Value="001 1110"  Description="Not valid" />
+<Special Value="001 1111"  Description="Not valid" />
+<Special Value="010 0000"  Description="Version 2_0 introduced in SRS 3_3_0" />
+<Special Value="010 0001"  Description="Reserved for future use (this is a valid value)" />
+<Special Value="111 1111"  Description="Reserved for future use (this is a valid value)" />
+</Specs>
+</Variable>
+
+<Variable Name="N_AXLE" >
+<DetailedName>Axle number of the engine</DetailedName>
+<Description>This gives the number of axles of the single unit (fixed train set or locomotive) in which the onboard equipment is fitted</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022"  Formula="integers"  >
+<Special Value="1023"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="N_ITER" >
+<DetailedName>Number of iterations of a data set following this variable in a packet</DetailedName>
+<Description>If N_ITER is 0 then no data set is following. Two nested levels of iterations can exist.</Description>
+<Specs Length="5 bits" MinVal="0" MaxVal="31"  Formula="integers"  >
+</Specs>
+</Variable>
+
+<Variable Name="N_PIG" >
+<DetailedName>Position in Group</DetailedName>
+<Description>Defines the relative position in a balise group</Description>
+<Specs Length="3 bits" >
+<Special Value="0"  Description="I am the 1st" />
+<Special Value="1"  Description="I am the 2nd" />
+<Special Value="2"  Description="I am the 3rd" />
+<Special Value="3"  Description="I am the 4th" />
+<Special Value="4"  Description="I am the 5th" />
+<Special Value="5"  Description="I am the 6th" />
+<Special Value="6"  Description="I am the 7th" />
+<Special Value="7"  Description="I am the 8th" />
+</Specs>
+</Variable>
+
+<Variable Name="N_TOTAL" >
+<DetailedName>Total number of balise(s) in the group</DetailedName>
+<Specs Length="3 bits" >
+<Special Value="0"  Description="1 balise in the group" />
+<Special Value="1"  Description="2 balises in the group" />
+<Special Value="2"  Description="3 balises in the group" />
+<Special Value="3"  Description="4 balises in the group" />
+<Special Value="4"  Description="5 balises in the group" />
+<Special Value="5"  Description="6 balises in the group" />
+<Special Value="6"  Description="7 balises in the group" />
+<Special Value="7"  Description="8 balises in the group" />
+</Specs>
+</Variable>
+
+<Variable Name="NC_CDDIFF" >
+<DetailedName>Cant Deficiency SSP category</DetailedName>
+<Description>It is the Cant Deficiency SSP category for which a different value for the static line speed exists.Used together with V_DIFF to permit certain trains to go faster or lower than the international basic static speed given by V_STATIC.</Description>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Specific SSP applicable to Cant Deficiency 80 mm" />
+<Special Value="1"  Description="Specific SSP applicable to Cant Deficiency 100 mm" />
+<Special Value="2"  Description="Specific SSP applicable to Cant Deficiency 130 mm" />
+<Special Value="3"  Description="Specific SSP applicable to Cant Deficiency 150 mm" />
+<Special Value="4"  Description="Specific SSP applicable to Cant Deficiency 165 mm" />
+<Special Value="5"  Description="Specific SSP applicable to Cant Deficiency 180 mm" />
+<Special Value="6"  Description="Specific SSP applicable to Cant Deficiency 210 mm" />
+<Special Value="7"  Description="Specific SSP applicable to Cant Deficiency 225 mm" />
+<Special Value="8"  Description="Specific SSP applicable to Cant Deficiency 245 mm" />
+<Special Value="9"  Description="Specific SSP applicable to Cant Deficiency 275 mm" />
+<Special Value="10"  Description="Specific SSP applicable to Cant Deficiency 300 mm" />
+<Special Value="11-15"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="NC_CDTRAIN" >
+<DetailedName>Cant Deficiency Train Category</DetailedName>
+<Description>Cant Deficiency Train category to which the train belongs.Thanks to NC_CDTRAIN, the train knows the Cant Deficiency SSP it must obey. By receiving a list of static speed profile, thanks to NC_CDDIFF, the train can select the Cant Deficiency SSP best suiting its NC_CDTRAIN.A train belongs to one and only one category of Cant Deficiency.</Description>
+<Specs Length="4 bits" >
+<Special Value="0"  Description="Cant Deficiency 80 mm" />
+<Special Value="1"  Description="Cant Deficiency 100 mm" />
+<Special Value="2"  Description="Cant Deficiency 130 mm" />
+<Special Value="3"  Description="Cant Deficiency 150 mm" />
+<Special Value="4"  Description="Cant Deficiency 165 mm" />
+<Special Value="5"  Description="Cant Deficiency 180 mm" />
+<Special Value="6"  Description="Cant Deficiency 210 mm" />
+<Special Value="7"  Description="Cant Deficiency 225 mm" />
+<Special Value="8"  Description="Cant Deficiency 245 mm" />
+<Special Value="9"  Description="Cant Deficiency 275 mm" />
+<Special Value="10"  Description="Cant Deficiency 300 mm" />
+<Special Value="11-15"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="NC_DIFF" >
+<DetailedName>Other specific SSP category</DetailedName>
+<Description>It is the other specific  SSP category for which a different value for the static line speed exists.Used together with V_DIFF to permit trains belonging to the corresponding other international train category to go faster or lower than the international basic static speed given by V_STATIC. Value 0 of NC_DIFF corresponds to the LSB of NC_TRAIN, value 14 of NC_DIFF to MSB (15-bit variable) of NC_TRAIN.</Description>
+<Specs Length="4 bits" MinVal="0" MaxVal="15"  Formula="Numbers"  >
+<Special Value="0"  Description="Specific SSP applicable to Freight train braked in P position" />
+<Special Value="1"  Description="Specific SSP applicable to Freight train braked in G position" />
+<Special Value="2"  Description="Specific SSP applicable to Passenger train" />
+<Special Value="3-15"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="NC_TRAIN" >
+<DetailedName>Other International Train Category</DetailedName>
+<Description>Other train category (different from Cant Deficiency) to which the train belongs.Thanks to NC_TRAIN, the train knows the Other specific SSP category it must consider.By receiving a list of static speed profile, thanks to NC_DIFF, the train can select the SSP it must obey.Each bit represents one category.A train can belong to various categories.</Description>
+<Specs Length="15 bits" Formula="Bitset"  >
+<Special Value="000 0000 0000 0000"  Description="Train does not belong to any of the Other International Train Category" />
+<Special Value="Xxx xxxx xxxx xxx1"  Description="Freight train braked in P position" />
+<Special Value="Xxx xxxx xxxx xx1x"  Description="Freight train braked in G position" />
+<Special Value="Xxx xxxx xxxx x1xx"  Description="Passenger train" />
+<Special Value="Xxx xxxx xxxx 1xxx"  Description="Spare" />
+<Special Value="Xxx xxxx xxx1 xxxx"  Description="Spare" />
+<Special Value="Xxx xxxx xx1x xxxx"  Description="Spare" />
+<Special Value="Xxx xxxx x1xx xxxx"  Description="Spare" />
+<Special Value="Xxx xxxx 1xxx xxxx"  Description="Spare" />
+<Special Value="Xxx xxx1 xxxx xxxx"  Description="Spare" />
+<Special Value="Xxx xx1x xxxx xxxx"  Description="Spare" />
+<Special Value="Xxx x1xx xxxx xxxx"  Description="Spare" />
+<Special Value="Xxx 1xxx xxxx xxxx"  Description="Spare" />
+<Special Value="Xx1 xxxx xxxx xxxx"  Description="Spare" />
+<Special Value="X1x xxxx xxxx xxxx"  Description="Spare" />
+<Special Value="1xx xxxx xxxx xxxx"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_BG" >
+<DetailedName>Identity number of the balise group</DetailedName>
+<Description>Identity number of a balise group or loop within the country or region defined by NID_C.</Description>
+<Specs Length="14 bits" MinVal="0" MaxVal="16382"  Formula="Numbers"  >
+<Special Value="16383"  Description="Identity is unknown (only to be used for Linking information)" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_C" >
+<DetailedName>Identity number of the country or region</DetailedName>
+<Description>Code used to identify the country or region in which the balise group, the RBC or the RIU is situated. These need not necessarily follow administrative or political boundaries.</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1023"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_CTRACTION" >
+<DetailedName>Country identifier of the traction system</DetailedName>
+<Description>It identifies the information, additional to M_VOLTAGE, required to fully define the traction system.</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1023"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_EM" >
+<DetailedName>Emergency message identity</DetailedName>
+<Description>Identifies the number of the emergency message</Description>
+<Specs Length="4 bits" >
+</Specs>
+</Variable>
+
+<Variable Name="NID_ENGINE" >
+<DetailedName>Onboard ETCS identity</DetailedName>
+<Description>The ETCS identity number is uniquely defined for ERTMS/ETCS purposes</Description>
+<Specs Length="24 bits" >
+</Specs>
+</Variable>
+
+<Variable Name="NID_LOOP" >
+<DetailedName>Identity number of the loop</DetailedName>
+<Description>Identity number of a loop within the country or region defined by NID_C given in the EOLM balise header.</Description>
+<Specs Length="14 bits" MinVal="0" MaxVal="16383"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_LRBG" >
+<DetailedName>Identity of  last relevant balise group</DetailedName>
+<Description>Country/region identity (NID_C) + balise identity number of last relevant balise group (NID_BG).</Description>
+<Specs Length="10+14 bits" >
+<Special Value="16777215"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_LTRBG" >
+<DetailedName>Identity of the level 2/3 transition balise group</DetailedName>
+<Description>Identity of the balise group at the level 2/3 transition location towards which the train is running.Country/region identity (NID_C) + balise identity number of the level 2/3 transition location balise group (NID_BG).</Description>
+<Specs Length="10+14 bits" >
+</Specs>
+</Variable>
+
+<Variable Name="NID_LX" >
+<DetailedName>Identity number of the Level Crossing.</DetailedName>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="Number"  >
+<Special Value="0-126"  Description="Reserved for non RBC transmission (balise, loop or radio infill)" />
+<Special Value="127-255"  Description="Reserved for RBC transmission" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_MESSAGE" >
+<DetailedName>Message identifier</DetailedName>
+<Description>Message identifier. Regards defined values of NID_MESSAGE, refer to chapters 8.5.2 and 8.5.3</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_MN" >
+<DetailedName>Identity of Radio Network</DetailedName>
+<Description>The NID_MN identifies the GSM-R network the calling mobile station has to register with. The NID_MN consists of up to 6 digits which are entered left adjusted into the data field, the leftmost digit is the digit to be dialled first. In case the NID_MN is shorter than 6 digits, the remaining space is to be filled with special character F. For further information about NID_MN refer to Subset-54.</Description>
+<Specs Length="24 bits" MinVal="0" MaxVal="999999"  Formula="Binary Coded Decimal"  >
+<Special Value="A-E"  Description="Not Used" />
+<Special Value="F"  Description="Use value F for digit to indicate no digit (if number shorter than 6 digits)" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_OPERATIONAL" >
+<DetailedName>Train Running Number</DetailedName>
+<Description>This is the operational train running number. The NID_OPERATIONAL consists of up to 8 digits which are entered left adjusted into the data field, the leftmost digit is the digit to be entered first. In case the NID_OPERATIONAL is shorter than 8 digits, the remaining space is to be filled with special character F.</Description>
+<Specs Length="32 bits" MinVal="0" MaxVal="99999999"  Formula="Binary Coded Decimal"  >
+<Special Value="A-E"  Description="Spare" />
+<Special Value="F"  Description="Use value F for digit to indicate no digit (if number shorter than 8 digits)" />
+<Special Value="FFFF FFFF"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_PACKET" >
+<DetailedName>Packet identifier</DetailedName>
+<Description>This is used in the header for each packet, allowing the receiving equipment to identify the data which follows. Regards defined values of NID_PACKET. Refer to packet numbers in the tables in chapter 7.4.1.</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_PRVLRBG" >
+<DetailedName>Identity of previous LRBG</DetailedName>
+<Description>Previous LRBG detected when running towards the balise group identified as LRBG with no change of direction in-between.Country/region identity (NID_C) + balise identity number of the previous LRBG (NID_BG).</Description>
+<Specs Length="10+14 bits" >
+<Special Value="16777215"  Description="unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_RADIO" >
+<DetailedName>Radio subscriber number.</DetailedName>
+<Description>Quoted as a 16 digit decimal number. The number is to be entered left adjusted starting with the first digit to be dialled. Padding by the special value F shall be added after the least significant digit of the number.  For further information about NID_RADIO  refer to SUBSET-054.</Description>
+<Specs Length="64 bits" MinVal="0" MaxVal="9999999999999999"  Formula="Binary Coded Decimal"  >
+<Special Value="A-E"  Description="Not Used" />
+<Special Value="F"  Description="Use value F for digit to indicate no digit (if number shorter than 16 digits)" />
+<Special Value="FFFF FFFF FFFF FFFF"  Description="Use the short number stored onboard" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_RBC" >
+<DetailedName>RBC ETCS identity number</DetailedName>
+<Description>This variable provides the identity of the RBC belonging to NID_C.The RBC ETCS identity is given by NID_C + NID_RBC.</Description>
+<Specs Length="14 bits" MinVal="0" MaxVal="16382"  Formula="Number"  >
+<Special Value="16383"  Description="Contact last known RBC" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_RIU" >
+<DetailedName>Identity of radio infill unit</DetailedName>
+<Description>This variable provides the identity of the RIU belonging to NID_C.The RIU ETCS identity is given by NID_C + NID_RIU.</Description>
+<Specs Length="14 bits" MinVal="0" MaxVal="16383"  Formula="Number"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_NTC" >
+<DetailedName>National System identity</DetailedName>
+<Description>Each value of this variable represents the identity of a National System.</Description>
+<Specs Length="8 bits" >
+</Specs>
+</Variable>
+
+<Variable Name="NID_TEXTMESSAGE" >
+<DetailedName>Text message identifier</DetailedName>
+<Description>Identity of a text message from trackside to be used in a report of driver acknowledgement to the RBC</Description>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="Number"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_TSR" >
+<DetailedName>Identity number of Temporary Speed Restriction.</DetailedName>
+<Specs Length="8 bits" MinVal="0" MaxVal="255"  Formula="Number"  >
+<Special Value="0-126"  Description="Reserved for non RBC transmission (balise, loop or radio infill)" />
+<Special Value="127-254"  Description="Reserved for RBC transmission" />
+<Special Value="255"  Description="Non-revocable speed restriction (applicable for all transmission media)" />
+</Specs>
+</Variable>
+
+<Variable Name="NID_VBCMK" >
+<DetailedName>Marker for Virtual Balise Cover</DetailedName>
+<Specs Length="6 bits" MinVal="0" MaxVal="63"  Formula="Number"  >
+</Specs>
+</Variable>
+
+<Variable Name="NID_XUSER" >
+<DetailedName>Identity of user system</DetailedName>
+<Description>Identity of user system for which remainder of packet is intended.</Description>
+<Specs Length="9 bits" MinVal="0" MaxVal="511"  Formula="Numbers"  >
+</Specs>
+</Variable>
+
+<Variable Name="Q_ASPECT" >
+<DetailedName>Aspect of 'danger for shunting' signal</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Stop if in SH mode" />
+<Special Value="1"  Description="Go if in SH mode" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_CONFTEXTDISPLAY" >
+<DetailedName>Qualifier for text confirmation versus end of text display</DetailedName>
+<Description>Gives the relationship between the event driver acknowledgement and the list of events location, time, mode, level defining the end condition for text display</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Driver acknowledgement always ends the text display, regardless of the end condition" />
+<Special Value="1"  Description="Driver acknowledgement is an additional condition to end the display" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DANGERPOINT" >
+<DetailedName>Qualifier for danger point description.</DetailedName>
+<Description>This variable is set to 1 if either a danger point exists or a release speed has to be specified</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No danger point information" />
+<Special Value="1"  Description="Danger point information to follow" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DIFF" >
+<DetailedName>Qualifier for specific SSP categories.</DetailedName>
+<Description>Indicates the type of specific SSP categoryIn case of other specific SSP, it tells ERTMS/ETCS on-board equipment whether it replaces or not the Cant Deficiency SSP as selected by on-board (ref. 3.11.3.2.3), when the train belongs to an other international train category to which the other specific SSP applies</Description>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="Cant Deficiency specific category" />
+<Special Value="1"  Description="Other specific category, replaces the Cant Deficiency SSP" />
+<Special Value="2"  Description="Other specific category, does not replace the Cant Deficiency SSP" />
+<Special Value="3"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DIR" >
+<DetailedName>Validity direction of transmitted data</DetailedName>
+<Description>Qualifier to indicate the relevant validity direction of transmitted data, with reference to directionality of the balise group sending the information or to directionality of the LRBG, in case of information sent via radio.</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Reverse" />
+<Special Value="01"  Description="Nominal" />
+<Special Value="10"  Description="Both directions" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DIRLRBG" >
+<DetailedName>Orientation of the train in relation to the direction of the LRBG</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="Reverse" />
+<Special Value="1"  Description="Nominal" />
+<Special Value="2"  Description="Unknown" />
+<Special Value="3"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DIRTRAIN" >
+<DetailedName>Direction of train movement in relation to the LRBG orientation</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="Reverse" />
+<Special Value="1"  Description="Nominal" />
+<Special Value="2"  Description="Unknown" />
+<Special Value="3"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_DLRBG" >
+<DetailedName>Qualifier telling on which side of the LRBG the estimated front end is</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="Reverse" />
+<Special Value="1"  Description="Nominal" />
+<Special Value="2"  Description="Unknown" />
+<Special Value="3"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_EMERGENCYSTOP" >
+<DetailedName>Qualifier for emergency stop acknowledgement</DetailedName>
+<Description>Qualifier to inform the RBC about the use of emergency stop by on-board equipment.</Description>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="Conditional Emergency Stop accepted, with update of EOA" />
+<Special Value="1"  Description="Conditional Emergency Stop accepted, with no update of EOA" />
+<Special Value="2"  Description="Unconditional Emergency Stop accepted" />
+<Special Value="3"  Description="Emergency stop (Conditional or Unconditional) rejected, whatever the reason" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_ENDTIMER" >
+<DetailedName>Qualifier to indicate whether end section timer information exists for the End section in the MA</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No End section timer information" />
+<Special Value="1"  Description="End section timer information to follow" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_FRONT" >
+<DetailedName>Qualifier for validity end point of profile element</DetailedName>
+<Description>Qualifier to indicate if a speed limit given for a profile element is to be applied until the front of the train (no train length delay) or the end of the train (train length delay) has left the element</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Train length delay on validity end point of profile element." />
+<Special Value="1"  Description="No train length delay on validity end point of profile element" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_GDIR" >
+<DetailedName>Qualifier for gradient slope.</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="downhill" />
+<Special Value="1"  Description="uphill" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_INFILL" >
+<DetailedName>Qualifier to indicate whether a train is entering or exiting the radio infill area.</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Enter" />
+<Special Value="1"  Description="Exit" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LENGTH" >
+<DetailedName>Qualifier for train integrity status</DetailedName>
+<Description>Qualifier, identifying the train integrity information available. The  related safe train length information is given by  L_TRAININT</Description>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="No train integrity information available" />
+<Special Value="1"  Description="Train integrity  confirmed by integrity monitoring device" />
+<Special Value="2"  Description="Train integrity confirmed by driver" />
+<Special Value="3"  Description="Train integrity lost" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LGTLOC" >
+<DetailedName>Qualifier for the specified report location</DetailedName>
+<Description>This qualifier tells whether the train has to report its position when the max safe front end or  when the min safe rear end has over passed the location defined by D_LOC</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Min safe rear end" />
+<Special Value="1"  Description="Max safe front end" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LINK" >
+<DetailedName>Link Qualifier</DetailedName>
+<Description>This qualifier is used to mark a balise group as linked or unlinked.</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Unlinked" />
+<Special Value="1"  Description="Linked" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LOCACC" >
+<DetailedName>Accuracy of the balise location</DetailedName>
+<Description>This Qualifier defines the absolute value of the accuracy of the Balise location (i.e., the value 63m  identifies a location accuracy of +/- 63m)</Description>
+<Specs Length="6 bits" MinVal="0 m" MaxVal="63 m"  Formula="1 m"  >
+</Specs>
+</Variable>
+
+<Variable Name="Q_LINKORIENTATION" >
+<DetailedName>Qualifier for the direction of the linked balise group</DetailedName>
+<Description>Indicates whether the linked balise group will be overpassed by the train in nominal or reverse direction.</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="The balise group is seen by the train in reverse direction" />
+<Special Value="1"  Description="The balise group is seen by the train in nominal direction" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LINKREACTION" >
+<DetailedName>linking reaction</DetailedName>
+<Description>Qualifier for the reaction to be performed if a linking or a balise group message consistency problem occurs with the balise group linked to.</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Train trip" />
+<Special Value="01"  Description="Apply service brake" />
+<Special Value="10"  Description="No Reaction" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LOOPDIR" >
+<DetailedName>Qualifier to indicate the direction of the loop</DetailedName>
+<Description>Indicates LOOP-reference direction in relation to EOLM direction</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Opposite" />
+<Special Value="1"  Description="Same" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_LXSTATUS" >
+<DetailedName>LX Protection Status</DetailedName>
+<Description>Indicates whether the LX is protected  or not</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="LX is protected" />
+<Special Value="1"  Description="LX is not protected" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_MAMODE" >
+<DetailedName>Qualifier to indicate the supervision of the beginning of the  mode profile</DetailedName>
+<Description>This qualifier defines whether the beginning of the mode profile shall be considered either as the EOA (keeping the SvL given by the MA) or as both the EOA and SvL (instead of the EOA and SvL given by the MA).</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="as the EOA (keeping the SvL given by the MA)" />
+<Special Value="1"  Description="as both the EOA and SvL (instead of the EOA and SvL given by the MA)" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_MARQSTREASON" >
+<DetailedName>Reason for MA request sending</DetailedName>
+<Description>Qualifier to indicate the reason why the MA request is sent to the RBC</Description>
+<Specs Length="5 bits" Formula="Bitset"  >
+<Special Value="xxxx1"  Description="Start selected by driver" />
+<Special Value="xxx1x"  Description="Time before reaching pre-indication location for the EOA/LOA reached" />
+<Special Value="xx1xx"  Description="Time before a section timer/LOA speed timer expires reached" />
+<Special Value="x1xxx"  Description="Track description deleted" />
+<Special Value="1xxxx"  Description="TAF up to level 2/3 transition location" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_MEDIA" >
+<DetailedName>Qualifier to indicate the type of media</DetailedName>
+<Description>Indicates whether it is a balise telegram or a loop message</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Balise" />
+<Special Value="1"  Description="Loop" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_MPOSITION" >
+<DetailedName>Qualifier for track kilometre direction.</DetailedName>
+<Description>Qualifier to indicate the direction of counting of the geographical position track kilometre in relation to the geographical position reference balise group directionality.</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Opposite  (counting downwards if passed in nominal direction or counting upwards if passed in reverse direction)" />
+<Special Value="1"  Description="Same (counting upwards if passed in nominal direction or counting downwards if passed in reverse direction)" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NEWCOUNTRY" >
+<DetailedName>New Country Qualifier</DetailedName>
+<Description>Qualifier to indicate whether the next balise group is in the same country / railway administration as the one before inside the packet or not.For the first balise group in the packet, if Q_NEWCOUNTRY = 0, it is the same country / railway administration as the one of the LRBG within the radio message, the one of balise group within the balise telegram giving the packet, or the one of the loop within the loop message giving the packet.</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Same country / railway administration, no NID_C follows" />
+<Special Value="1"  Description="Not the same country / railway administration, NID_C follows" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVDRIVER_ADHES" >
+<DetailedName>Qualifier for the modification of trackside adhesion factor by driver</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Not allowed" />
+<Special Value="1"  Description="Allowed" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVEMRRLS" >
+<DetailedName>Qualifier Emergency Brake Release</DetailedName>
+<Description>Permission to revoke the emergency brake command when the Permitted Speed limit is no longer exceeded or at standstill (for ceiling speed and target speed monitoring).This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Revoke emergency brake command at standstill" />
+<Special Value="1"  Description="Revoke emergency brake command when permitted speed supervision limit is no longer exceeded" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVGUIPERM" >
+<DetailedName>Permission to use the guidance curve</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No" />
+<Special Value="1"  Description="Yes" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVINHSMICPERM" >
+<DetailedName>Permission to inhibit the compensation of the speed measurement inaccuracy</DetailedName>
+<Description>Qualifier to inhibit the compensation of the speed measurement inaccuracy for the calculation of the EBI related supervision limits.This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No" />
+<Special Value="1"  Description="Yes" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVKINT" >
+<DetailedName>Qualifier for integrated correction factors</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No integrated correction factors follow" />
+<Special Value="1"  Description="Integrated correction factors follow" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVKVINTSET" >
+<DetailedName>Type of Kv_int set</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Freight trains" />
+<Special Value="01"  Description="Conventional passenger trains" />
+<Special Value="10"  Description="Spare" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVLOCACC" >
+<DetailedName>Default accuracy of the balise location (absolute value)</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="6 bits" MinVal="0 m" MaxVal="63 m"  Formula="1 m"  >
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVSBFBPERM" >
+<DetailedName>Permission to use the service brake feedback</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No" />
+<Special Value="1"  Description="Yes" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_NVSBTSMPERM" >
+<DetailedName>Permission to use service brake in target speed monitoring</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No" />
+<Special Value="1"  Description="Yes" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_ORIENTATION" >
+<DetailedName>Co-ordinate system  assigned to a single balise group</DetailedName>
+<Description>The co-ordinate system is assigned by the RBC to a balise group reported by the on-board equipment as LRBG.  The information reverse/nominal (i.e., the assigned co-ordinate system) is given in relation to the direction in which the balise has been passed when reading it.</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="The balise group has been passed by the train in reverse direction" />
+<Special Value="1"  Description="The balise group has been passed by the train in nominal direction" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_OVERLAP" >
+<DetailedName>Qualifier to tell whether there is an overlap</DetailedName>
+<Description>This variable is set to 1 if either an overlap exists or a release speed has to be specified</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No overlap information" />
+<Special Value="1"  Description="Overlap information to follow" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_PBDSR" >
+<DetailedName>Qualifier for Permitted Braking Distance</DetailedName>
+<Description>Qualifier defining whether the permitted braking distance is to be achieved with the Service Brake or Emergency Brake</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="EB intervention requested" />
+<Special Value="1"  Description="SB intervention requested" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_PLATFORM" >
+<DetailedName>Platform position (relative to direction of authorised movement)</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Platform on left side" />
+<Special Value="01"  Description="Platform on right side" />
+<Special Value="10"  Description="Platform on both sides" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_RBC" >
+<DetailedName>Qualifier for communication session order</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Terminate communication session" />
+<Special Value="1"  Description="Establish communication session" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_RIU" >
+<DetailedName>Qualifier for communication session order</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Terminate communication session" />
+<Special Value="1"  Description="Establish communication session" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SCALE" >
+<DetailedName>Qualifier for the distance scale.</DetailedName>
+<Description>Qualifier to indicate the same scale used for describing all distances inside the packet that contains Q_SCALE.</Description>
+<Specs Length="2 bits" >
+<Special Value="0"  Description="10 cm scale" />
+<Special Value="1"  Description="1 m scale" />
+<Special Value="2"  Description="10 m scale" />
+<Special Value="3"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SECTIONTIMER" >
+<DetailedName>Qualifier to indicate whether there is a Section Time-Out related to the section</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No Section Timer information" />
+<Special Value="1"  Description="Section Timer information to follow" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SLEEPSESSION" >
+<DetailedName>Session management for sleeping equipment</DetailedName>
+<Description>Qualifier for a Sleeping onboard equipment to execute or not the session establishment order</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Ignore session establishment order" />
+<Special Value="1"  Description="Execute session establishment order" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SRSTOP" >
+<DetailedName>Stop if in Staff Responsible information</DetailedName>
+<Description>Specifies whether an onboard equipment in staff responsible has to stop or not</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Stop if in SR mode" />
+<Special Value="1"  Description="Go if in SR mode" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SSCODE" >
+<DetailedName>Spread Spectrum Code for Euroloop</DetailedName>
+<Description>Specifies the code required to receive telegrams from a specific Euroloop installation.</Description>
+<Specs Length="4 bits" >
+<Special Value="15"  Description="Code reserved for test purposes" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_STATUS" >
+<DetailedName>status of SoM position report</DetailedName>
+<Description>It provides the status of the position report</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Invalid" />
+<Special Value="01"  Description="Valid" />
+<Special Value="10"  Description="Unknown" />
+<Special Value="11"  Description="spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_STOPLX" >
+<DetailedName>Qualifier for stopping in rear of the LX</DetailedName>
+<Description>Indicates whether stopping the train in rear of a non protected LX is required</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No stop required" />
+<Special Value="1"  Description="Stop required" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_SUITABILITY" >
+<DetailedName>Type of route suitability data</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Loading gauge" />
+<Special Value="01"  Description="Max axle load" />
+<Special Value="10"  Description="Traction system" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TEXT" >
+<DetailedName>Fixed message to be displayed.</DetailedName>
+<Description>Q_TEXT is a pointer to select a fixed text message from the defined table. The language selected by the driver for the DMI shall be used additionally as a qualifier to choose the appropriate language table.</Description>
+<Specs Length="8 bits" >
+<Special Value="0"  Description="Level crossing not protected" />
+<Special Value="1"  Description="Acknowledgement" />
+<Special Value="2-255"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TEXTCLASS" >
+<DetailedName>Class of message to be displayed.</DetailedName>
+<Description>Q_TEXTCLASS specifies the class of the text message included in the same packet (either plain or fixed message)</Description>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="Auxiliary Information" />
+<Special Value="01"  Description="Important Information" />
+<Special Value="10"  Description="Spare" />
+<Special Value="11"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TEXTCONFIRM" >
+<DetailedName>Qualifier for text confirmation</DetailedName>
+<Specs Length="2 bits" >
+<Special Value="00"  Description="No confirmation required" />
+<Special Value="01"  Description="Confirmation required" />
+<Special Value="10"  Description="Confirmation required: command application of the service brake when display end condition is fulfilled, unless the text has already been acknowledged by the driver" />
+<Special Value="11"  Description="Confirmation required: command application of the emergency brake when display end condition is fulfilled, unless the text has already been acknowledged by the driver" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TEXTDISPLAY" >
+<DetailedName>Qualifier for the combination of text message eventss</DetailedName>
+<Description>Q_TEXTDISPLAY defines whether the start/end events for text message are to be combined or not</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No, display as soon as / until one of the events is fulfilled" />
+<Special Value="1"  Description="Yes, display as soon as / until all events are fulfilled" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TEXTREPORT" >
+<DetailedName>Qualifier for reporting acknowledgement of text by driver</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No driver acknowledgement report required" />
+<Special Value="1"  Description="Driver acknowledgement report required" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_TRACKINIT" >
+<DetailedName>Qualifier for resuming the initial states of the related track description of the packet.</DetailedName>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="No initial states to be resumed,  profile to follow" />
+<Special Value="1"  Description="Empty profile, initial states to be resumed" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_UPDOWN" >
+<DetailedName>Balise telegram transmission direction</DetailedName>
+<Description>It defines the direction of the information in the balise telegram</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Down link telegram" />
+<Special Value="1"  Description="Up link telegram" />
+</Specs>
+</Variable>
+
+<Variable Name="Q_VBCO" >
+<DetailedName>Qualifier for Virtual Balise Cover order</DetailedName>
+<Description>Qualifier to set or remove a VBC</Description>
+<Specs Length="1 bit" >
+<Special Value="0"  Description="Remove the Virtual Balise Cover" />
+<Special Value="1"  Description="Set the Virtual Balise Cover" />
+</Specs>
+</Variable>
+
+<Variable Name="T_CYCLOC" >
+<DetailedName>Time Interval between two position reports sent by the train</DetailedName>
+<Description>The train must send its position every T_CYCLOC</Description>
+<Specs Length="8 bits" MinVal="0 seconds" MaxVal="254 s"  Formula="1 s"  >
+<Special Value="255"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_CYCRQST" >
+<DetailedName>Time between two cyclic requests for a movement authority</DetailedName>
+<Description>When the train asks for a movement authority request, it will repeat its request every T_CYCRQST seconds until it receives a new MA</Description>
+<Specs Length="8 bits" MinVal="0 seconds" MaxVal="254 s"  Formula="1 s"  >
+<Special Value="255"  Description="No repetition" />
+</Specs>
+</Variable>
+
+<Variable Name="T_ENDTIMER" >
+<DetailedName>Validity time for the End section in the MA</DetailedName>
+<Description>Time for which the End section is valid measured from the moment the train reaches the location defined by D_ENDTIMERSTARTLOC.</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022"  Formula="1 s"  >
+<Special Value="1023"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_LOA" >
+<DetailedName>Validity time for the target speed at the LOA</DetailedName>
+<Description>Time for which the target speed is valid measured from the moment information is received</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022"  Formula="1 s"  >
+<Special Value="1023"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_MAR" >
+<DetailedName>Time before reaching pre-indication location for the EOA/LOA</DetailedName>
+<Specs Length="8 bits" MinVal="0" MaxVal="254"  Formula="1 s"  >
+<Special Value="255"  Description=" No MA request triggering with regards to this function" />
+</Specs>
+</Variable>
+
+<Variable Name="T_NVCONTACT" >
+<DetailedName>Maximal time without new safe message.</DetailedName>
+<Description>If no safe message has been received from the track for more than T_NVCONTACT seconds, an appropriate action according to M_NVCONTACT must be triggered.This variable is part of the National Values</Description>
+<Specs Length="8 bits" MinVal="0 s" MaxVal="254 s"  Formula="1 s"  >
+<Special Value="1111 1111"  Description="T_NVCONTACT = infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_NVOVTRP" >
+<DetailedName>Maximum time for overriding the train trip</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="8 bits" MinVal="0 s" MaxVal="255 s"  Formula="1 s"  >
+</Specs>
+</Variable>
+
+<Variable Name="T_OL" >
+<DetailedName>Overlap validity time</DetailedName>
+<Description>The time span the train can expect the overlap to be available, measured from the moment the train reaches the location defined by D_STARTOL.</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022 s"  Formula="1 s"  >
+<Special Value="1023"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_SECTIONTIMER" >
+<DetailedName>Validity time of a section in the MA</DetailedName>
+<Description>Time for which the section is valid.</Description>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022"  Formula="1 s"  >
+<Special Value="1023"  Description="infinite" />
+</Specs>
+</Variable>
+
+<Variable Name="T_TEXTDISPLAY" >
+<DetailedName>Duration for which a text shall be displayed</DetailedName>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022 s"  Formula="1 s"  >
+<Special Value="1023"  Description="Display of text not limited by time." />
+</Specs>
+</Variable>
+
+<Variable Name="T_TIMEOUTRQST" >
+<DetailedName>Time before any section timer expires or the LOA speed timer expires</DetailedName>
+<Specs Length="10 bits" MinVal="0" MaxVal="1022"  Formula="1 s"  >
+<Special Value="1023"  Description=" No MA request triggering with regards to this function" />
+</Specs>
+</Variable>
+
+<Variable Name="T_TRAIN" >
+<DetailedName>Trainborne clock</DetailedName>
+<Description>Time, according to trainborne clock, at which message is sent</Description>
+<Specs Length="32 bits" MinVal="0" MaxVal="42949672.94  s"  Formula="10 ms"  >
+<Special Value="4294967295"  Description="Unknown" />
+</Specs>
+</Variable>
+
+<Variable Name="T_VBC" >
+<DetailedName>VBC validity period</DetailedName>
+<Specs Length="8 bits" MinVal="0" MaxVal="255 days"  Formula="1 day"  >
+</Specs>
+</Variable>
+
+<Variable Name="V_AXLELOAD" >
+<DetailedName>Speed restriction related to axleload</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_DIFF" >
+<DetailedName>Absolute Positive Speed associated to a train category.</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_LOA" >
+<DetailedName>Permitted speed at the limit of authority</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_LX" >
+<DetailedName>Permitted speed for the LX speed restriction</DetailedName>
+<Description>Speed at which the LX can be passed when it is not protected</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_MAIN" >
+<DetailedName>Signalling related speed restriction</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+<Special Value="0"  Description="Means trip order" />
+</Specs>
+</Variable>
+
+<Variable Name="V_MAMODE" >
+<DetailedName>Required mode related speed</DetailedName>
+<Specs Length="7 bits" MinVal="0" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-126"  Description="Spare" />
+<Special Value="127"  Description="Use the national speed value of the required mode" />
+</Specs>
+</Variable>
+
+<Variable Name="V_MAXTRAIN" >
+<DetailedName>Maximum train speed.</DetailedName>
+<Specs Length="7 bits" MinVal="0" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVALLOWOVTRP" >
+<DetailedName>Speed limit allowing the driver to select the override function</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVKVINT" >
+<DetailedName>Speed step used to define the integrated correction factor Kv</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVLIMSUPERV" >
+<DetailedName>Limited Supervision mode speed limit</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVONSIGHT" >
+<DetailedName>On Sight mode speed limit</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVSUPOVTRP" >
+<DetailedName>Override speed limit to be supervised when the override function is active</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVREL" >
+<DetailedName>Release Speed</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVSHUNT" >
+<DetailedName>Shunting mode speed limit</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVSTFF" >
+<DetailedName>Staff Responsible mode speed limit</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_NVUNFIT" >
+<DetailedName>Unfitted mode speed limit</DetailedName>
+<Description>This variable is part of the National Values</Description>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_RELEASEDP" >
+<DetailedName>Release speed associated with the danger point</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-125"  Description="Spare" />
+<Special Value="126"  Description="Use onboard calculated release speed" />
+<Special Value="127"  Description="Use national value" />
+</Specs>
+</Variable>
+
+<Variable Name="V_RELEASEOL" >
+<DetailedName>Release speed associated with the overlap</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-125"  Description="Spare" />
+<Special Value="126"  Description="Use onboard calculated release speed" />
+<Special Value="127"  Description="Use national value" />
+</Specs>
+</Variable>
+
+<Variable Name="V_REVERSE" >
+<DetailedName>Reversing mode speed limit</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_STATIC" >
+<DetailedName>Basic static speed profile</DetailedName>
+<Description>Basic static speed profile speed after discontinuity (k).</Description>
+<Specs Length="7 bits" MinVal="0" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-126"  Description="Spare" />
+<Special Value="127"  Description="Non numerical value telling that the static speed profile description ends at D_STATIC(n)" />
+</Specs>
+</Variable>
+
+<Variable Name="V_TRAIN" >
+<DetailedName>Train speed</DetailedName>
+<Specs Length="7 bits" MinVal="0" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="V_TSR" >
+<DetailedName>Permitted speed for the temporary speed restriction</DetailedName>
+<Specs Length="7 bits" MinVal="0 km/h" MaxVal="600 km/h"  Formula="5 km/h"  >
+<Special Value="121-127"  Description="Spare" />
+</Specs>
+</Variable>
+
+<Variable Name="X_TEXT" >
+<DetailedName>Text String Element</DetailedName>
+<Description>Text strings are used to transmit plain text messages. Each element of a text string contains a single character encoded as ISO 8859-1, also known as Latin Alphabet #1.</Description>
+<Specs Length="8 bits" >
+</Specs>
+</Variable>
+</VarDef>
+</Definitions>
