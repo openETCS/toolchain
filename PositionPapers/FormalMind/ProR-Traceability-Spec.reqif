@@ -860,6 +860,26 @@
             <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
           </TYPE>
         </SPEC-OBJECT>
+        <SPEC-OBJECT IDENTIFIER="_mrO7cLwHEeO_7OxRbjEPYg" LAST-CHANGE="2014-04-04T16:45:04.372+02:00">
+          <VALUES>
+            <ATTRIBUTE-VALUE-ENUMERATION>
+              <VALUES>
+                <ENUM-VALUE-REF>_2YHTQJ_oEeOcqMtUMjZPXw</ENUM-VALUE-REF>
+              </VALUES>
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-ENUMERATION-REF>_Jr7GQJ_pEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-ENUMERATION-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-ENUMERATION>
+            <ATTRIBUTE-VALUE-STRING THE-VALUE="Furthermore, to make the links to the requirements usable in SCADE System and SCADE Suite (with Reqtify)  an entry in the way &quot;covers: #REQ#Req_ID#REAL#&quot; shall be added to the comment field of the SysML element, which is linked to the requirement. At doing so &quot;covers:&quot; it the indicator für Reqtify, &quot;#REQ#&quot; and &quot;#REAL#&quot; are delimiters and Req_ID holds the ReqIF human-readable ID of the repective requirement.">
+              <DEFINITION>
+                <ATTRIBUTE-DEFINITION-STRING-REF>_lxRZo5_kEeOcqMtUMjZPXw</ATTRIBUTE-DEFINITION-STRING-REF>
+              </DEFINITION>
+            </ATTRIBUTE-VALUE-STRING>
+          </VALUES>
+          <TYPE>
+            <SPEC-OBJECT-TYPE-REF>_lxRZop_kEeOcqMtUMjZPXw</SPEC-OBJECT-TYPE-REF>
+          </TYPE>
+        </SPEC-OBJECT>
       </SPEC-OBJECTS>
       <SPECIFICATIONS>
         <SPECIFICATION IDENTIFIER="_lxRZp5_kEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:34:14.657+01:00" LONG-NAME="Specification Document">
@@ -930,6 +950,11 @@
                 <SPEC-HIERARCHY IDENTIFIER="_1MhKMJ_lEeOcqMtUMjZPXw" LAST-CHANGE="2014-02-27T20:32:01.721+01:00">
                   <OBJECT>
                     <SPEC-OBJECT-REF>_1MRSkJ_lEeOcqMtUMjZPXw</SPEC-OBJECT-REF>
+                  </OBJECT>
+                </SPEC-HIERARCHY>
+                <SPEC-HIERARCHY IDENTIFIER="_mskYMLwHEeO_7OxRbjEPYg" LAST-CHANGE="2014-04-04T16:44:12.363+02:00">
+                  <OBJECT>
+                    <SPEC-OBJECT-REF>_mrO7cLwHEeO_7OxRbjEPYg</SPEC-OBJECT-REF>
                   </OBJECT>
                 </SPEC-HIERARCHY>
               </CHILDREN>

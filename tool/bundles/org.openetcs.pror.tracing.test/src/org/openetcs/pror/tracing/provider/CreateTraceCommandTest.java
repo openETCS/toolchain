@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -119,7 +120,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		requirement = rf.createSpecObject();
 		requirement.setType(requirementType);
 		content.getSpecObjects().add(requirement);
-		return reqif ;
+		return reqif;
 	}
 
 	/**
@@ -135,7 +136,8 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		
 		File file = File.createTempFile("tracing-test-", ".reqif");
 		file.deleteOnExit();
-		Resource resource = editingDomain.createResource(file.getAbsolutePath());
+		URI uri = URI.createFileURI(file.getAbsolutePath());
+		Resource resource = editingDomain.createResource(uri.toString());
 		System.out.println(resource);
 		resource.getContents().add(external);
 		resource.save(null);
@@ -164,7 +166,8 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		String uri = EcoreUtil.getURI(external).toString();
 		assertTrue(uri.indexOf("#") > 0);
 		StringTokenizer st = new StringTokenizer(uri, "#");
-		assertTrue(new File(st.nextToken()).exists());
+		String filename = URI.createURI(st.nextToken()).toFileString();
+		assertTrue(new File(filename).exists());
 		assertEquals(external.eResource().getURIFragment(external), st.nextToken());
 	}
 
