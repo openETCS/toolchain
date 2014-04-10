@@ -1,0 +1,10 @@
+<plugin><extension point="org.eclipse.help.toc">
+		<toc primary="true" category="Doc" file="toc.xml" ></toc>
+		<toc primary="false" category="Doc" file="OpenETCS_toolchain/001-Overview-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/002-Installation-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/003-Getting-Started-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/004-User-Documentation-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/005-Developer-Documentation-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="OpenETCS_toolchain/006-FAQ-toc.xml"></toc>
+		  		</extension></plugin>
+		
