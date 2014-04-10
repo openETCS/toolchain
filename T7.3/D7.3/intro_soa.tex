@@ -38,6 +38,25 @@ In summary, the effort of qualification depends on the tool class and the tool
 error detection capabilities. To reduce the cost of the toolchain qualification
 and regarding the fact that our development imply regular releases, a systematic
 toolchain analysis approach has to be defined.
+
+Table~\ref{tab:oetcs_tool_classification} exemplarily lists the tool classes for some of the tools employed in the openETCS project. The tools Papyrus, SCADE and Bitwalker have a direct effect on the generated code whereas ProR and Git do not. The classification for ProR would be different if it would be used for formal requirements that then could be automatically translated to a model (this would yield a T3-classification). The verification tools RTTester and CPN Tools are not in the ``direct'' chain from requirements to code but they may fail to detect errors in the software or model.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lll}
+Tool&Purpose&Tool Class\\\hline
+Papyrus&Definition of the model architecture&T3\\
+SCADE&Low-level modelling and code generation&T3\\
+ProR&Requirements management&T1\\
+Bitwalker&Generation of data structures for modelling&T3\\
+Git&Versioning \& Traceability&T1\\
+RTTester&Model-based testing&T2\\
+CPN Tools&Model checking and test case generation&T2\\
+\end{tabular}
+\end{center}
+\caption{Classification of some tools in the openETCS tool chain}
+\label{tab:oetcs_tool_classification}
+\end{table}
  
 \section{Toolchain Qualification State of the Art}
 \label{sec-1-2}
@@ -66,18 +85,17 @@ toolchain analysis is based on a domain specific toolchain model
 they have defined. This model is used to represent the toolchain
 structure as well as the tool confidence.  Their goal is to deduce the
 tool confidence level and to expose specific qualification
-requirements, furthermore, their idea is not only to check tool by
-tool but to have a more holistic approach and makes use of
+requirements. Furthermore, their idea is not only to check tool by
+tool but they follow a more holistic approach that makes use of
 rearrangement and/or the extension of the toolchain to avoid the
 certification of all tools. This allows them to reduce the
-qualification effort by focusing only on the critical tools and make
-use of already available information.  Moreover, some inconsistencies
-check such as, missing description, unused artifacts ..., may be
-automatically done by using the toolchain model. Finally, they
-provide support to automatize the document production.
+qualification effort by focusing only on the critical tools and making
+use of already available information.  Moreover, checks with respect to inconsistencies,
+such as missing descriptions, unused artifacts, etc., may be
+automatically executed on the toolchain model. Finally, automated document generation is addressed.
 
-\cite{wildmoser_determining_2012} apply their tool and methods an
-industrial use case to determine the potential errors in the tool-chain.
+In \cite{wildmoser_determining_2012} the application of tools and methods to an
+industrial use case to determine the potential errors in the tool-chain is described.
 
 \subsection{Asplund and al. (projects iFEST, MBAT)}
 \label{sec-1-2.2}
