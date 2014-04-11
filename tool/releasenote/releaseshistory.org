@@ -1,3 +1,18 @@
+** Toolsprint 8 (ends 11-Apr-2014)
+*** resolved issues
+- #346 Ensure that Updates work
+- #345 Ensure that we use the latest Kepler
+- #335 Optimize documentation plugin to work with subpages
+- #333 Please integrate Tracing tests on Jenkins
+- #310 Revise the Data Dictionary Implementation
+- #269 Use the latest XText, once bug with 2.4.3 is resolved
+- #229 Decide on openETCS minimal system requirements
+
+*** Important commit 
+- 064297b54d42b511ffc5cd2566d6cd79cea5eadf
+ #333 Integrate tracing tests in build
+- eee0f3e1c98b02d8f76352f6c7060c893664b06b
+ #269 Updated target to use latest versions from Kepler SR2. Using Xtext 2.4.3 from Kepler repository instead of 2.4.2
 ** ToolSprint 7 (ends 28-March-14)
 *** resolved issues
 - #329 Prevent automatic merge of .reqif and uml files in git
@@ -79,7 +94,6 @@ There is a feature for every platform including the JRE. The JRE is set in the o
 - 0a1969d0ca3e4c3689035403f506e2d8fb9c31f0
  Merge pull request #239 from jfaltermeier/master
 Issue #232 Move Welcome Screen into repository and make prettier
-
 
 ** Toolsprint 2 (ends 20-Dec-13)
 *** resolved issues

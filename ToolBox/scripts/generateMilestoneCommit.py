@@ -35,7 +35,7 @@ if ns.milestone == None:
 # Github repo and milestone
 g = Github(ns.username,ns.password)
 repo = g.get_repo("openETCS/toolchain")
-milestone = repo.get_milestone(int(ns.milestone))      
+milestone = repo.get_milestone(int(ns.milestone)+ 4)      
 issues = repo.get_issues(milestone,"closed")
 
 # Generate the release note
