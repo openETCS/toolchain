@@ -1,9 +1,10 @@
 <toc label="Toolchain Documentation">
-		<topic label="001-Overview"><link toc="OpenETCS_toolchain/001-Overview-toc.xml"/></topic>
-			  	<topic label="002-Installation"><link toc="OpenETCS_toolchain/002-Installation-toc.xml"/></topic>
-			  	<topic label="003-Getting-Started"><link toc="OpenETCS_toolchain/003-Getting-Started-toc.xml"/></topic>
-			  	<topic label="004-User-Documentation"><link toc="OpenETCS_toolchain/004-User-Documentation-toc.xml"/></topic>
-			  	<topic label="005-Developer-Documentation"><link toc="OpenETCS_toolchain/005-Developer-Documentation-toc.xml"/></topic>
-			  	<topic label="006-FAQ"><link toc="OpenETCS_toolchain/006-FAQ-toc.xml"/></topic>
+		<topic label="Overview"><link toc="bin/documentation/Overview-toc.xml"/></topic>
+			  	<topic label="Installation"><link toc="bin/documentation/Installation-toc.xml"/></topic>
+			  	<topic label="Getting-Started"><link toc="bin/documentation/Getting-Started-toc.xml"/></topic>
+			  	<topic label="User-Documentation"><link toc="bin/documentation/User-Documentation-toc.xml"/></topic>
+			  	<topic label="Developer-Documentation"><link toc="bin/documentation/Developer-Documentation-toc.xml"/></topic>
+			  	<topic label="FAQ"><link toc="bin/documentation/FAQ-toc.xml"/></topic>
+			  	<topic label="Further-Reading"><link toc="bin/documentation/Further-Reading-toc.xml"/></topic>
 			  	</toc>
 		

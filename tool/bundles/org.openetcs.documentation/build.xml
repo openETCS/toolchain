@@ -18,15 +18,15 @@
 	<target name="reset_folders">
 		
 		<!-- Reset documentation folders -->
-		<delete dir="${basedir}/OpenETCS_toolchain"/>
-		<mkdir dir="${basedir}/OpenETCS_toolchain"/>
+		<delete dir="${basedir}/bin/documentation"/>
+		<mkdir dir="${basedir}/bin/documentation"/>
 		
 		
 		<!-- Create mediawiki_files.txt file  -->
-		<touch file="${basedir}/OpenETCS_toolchain\mediawiki_files.txt"/> 
+		<touch file="${basedir}/bin/documentation\mediawiki_files.txt"/>
 
 		<!-- Copy cloned mediawikis to OpenETCS_toolchain folder -->
-		<copy todir="${basedir}/OpenETCS_toolchain">
+		<copy todir="${basedir}/bin/documentation">
 			<fileset dir="${basedir}/cloned_repository"> 
 					<include name="*.mediawiki"/> 
 			</fileset> 
@@ -43,7 +43,7 @@
 		<taskdef classpathref="ant-contrib.tasks.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 			
 		<!-- Mediawiki file names to mediawiki_files.txt -->
-		<for param="file">
+		<!--<for param="file">
 		  	<path>
 		   		<fileset dir="${basedir}/OpenETCS_toolchain" includes="*.mediawiki"/>
 		  	</path>
@@ -52,44 +52,60 @@
 		   		<basename property="FileName" file="@{file}" suffix=".mediawiki"/>
 		   	    <concat destfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt" append="yes">${FileName}${line.separator}</concat>
 			</sequential>
-		</for>
+		</for>-->
+		
+		<!-- Mediawiki file names to mediawiki_files.txt -->
+		<loadfile property="mediawikifile_names" srcfile="${basedir}/bin/documentation/Documentation-Index.mediawiki"/>
+		<for param="line" list="${mediawikifile_names}" delimiter="${line.separator}">
+			<sequential>
+				<concat destfile="${basedir}/bin/documentation/mediawiki_files.txt" append="true">@{line}</concat>
+			</sequential>
+		</for>	
+		<replace dir="${basedir}/bin/documentation" token="[[" value="">
+			<include name="mediawiki_files.txt"/>
+		</replace>
+		<replace dir="${basedir}/bin/documentation" token="]]" value="${line.separator}">
+		<include name="mediawiki_files.txt"/>
+		</replace>
+		
+		
 		
 		<!-- Internal mediawiki link parsing -->
-		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		<for param="line" list="${file_names}" delimiter="${line.separator}">
 			<sequential>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[#">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}#" value="[[#">
 					<include name="@{line}.mediawiki"/>
 				</replace>
 			</sequential>
 		</for>	
 		
-		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		<for param="line" list="${file_names}" delimiter="${line.separator}">
 			<sequential>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
 					<include name="@{line}.mediawiki"/>
 				</replace>
 			</sequential>
 		</for>	
 		
 		<!-- External mediawiki link parsing -->
-		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		<for param="line" list="${file_names}" delimiter="${line.separator}">
 			<sequential>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}]]" value="[[@{line}.html |@{line}]]">
 				</replace>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line} " value="[[@{line}.html ">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line} " value="[[@{line}.html ">
 				</replace>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}|" value="[[@{line}.html|">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}|" value="[[@{line}.html|">
 				</replace>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[@{line}.html#">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}#" value="[[@{line}.html#">
 				</replace>
 			</sequential>
 		</for>
 				
 		<!-- Image parsing: Replace from Github style to Mylyn mediawiki style -->
-		<replace dir="${basedir}/OpenETCS_toolchain" token="[[http" value="[[Image:http">
+		<replace dir="${basedir}/bin/documentation" token="[[http" value="[[Image:http">
 			<include name="*.mediawiki"/>
 		</replace>	
 					
@@ -123,24 +139,29 @@
 
 	<target name="generate-help" depends="reset_folders" description="Generate Eclipse help">
 
-		
+	<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
+	<for param="line" list="${file_names}" delimiter="${line.separator}">
+		<sequential>
+				
 		<!-- Eclipse Help generation -->
 		<wikitext-to-eclipse-help markupLanguage="MediaWiki" 
 			multipleOutputFiles="false" 
 			formatOutput="true"
 			navigationImages="false" 
-			helpPrefix="OpenETCS_toolchain"
+			helpPrefix="bin/documentation"
 			xhtmlStrict="true"> 
 			<markupLanguageConfiguration escapingHtmlAndXml="false"/> 
-			<fileset dir="${basedir}/OpenETCS_toolchain"> 
-				<include name="*.mediawiki"/> 
+			<fileset dir="${basedir}/bin/documentation"> 
+				<include name="@{line}.mediawiki"/> 
 			</fileset> 
 			<stylesheet url="../styles/main.css"/> 
 		</wikitext-to-eclipse-help>
 	
+		</sequential>
+	</for>			
 	
 		<!-- Subpage link tag parsing: Replace "/wiki", not needed-->		
-		<replace dir="${basedir}/OpenETCS_toolchain" token="a href=&quot;/wiki/" value="a href=&quot;">
+		<replace dir="${basedir}/bin/documentation" token="a href=&quot;/wiki/" value="a href=&quot;">
 			<include name="*.html"/>
 		</replace>
 		
@@ -151,7 +172,7 @@
 	<target name="generate-fo" depends="generate-help" description="Generate FO">
 		
 		<!-- Reset mediawikis files -->
-		<copy todir="${basedir}/OpenETCS_toolchain" overwrite="true">
+		<copy todir="${basedir}/bin/documentation" overwrite="true">
 			<fileset dir="${basedir}/cloned_repository"> 
 				<include name="*.mediawiki"/> 
 			</fileset> 
@@ -159,35 +180,58 @@
 		
 				
 		<!-- Internal mediawiki link parsing -->
-		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		<for param="line" list="${file_names}" delimiter="${line.separator}">
 			<sequential>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}#" value="[[#">
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}#" value="[[#">
 					<include name="@{line}.mediawiki"/>
 				</replace>
 			</sequential>
 		</for>	
 				
 		<!-- Build master mediawiki file -->		
-		<concat destfile="${basedir}/OpenETCS_toolchain/OpenETCS Toolchain.mediawiki" append="true">
+		<!--<concat destfile="${basedir}/OpenETCS_toolchain/OpenETCS Toolchain.mediawiki" append="true">
 			<fileset dir="${basedir}/OpenETCS_toolchain"> 
 				<include name="*.mediawiki"/> 
 			</fileset> 
-		</concat>
+		</concat>-->
 		
-				
-		<!-- External mediawiki link parsing -->
-		<loadfile property="file_names" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<!-- Build master mediawiki file -->
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		<for param="line" list="${file_names}" delimiter="${line.separator}">
 			<sequential>
-				<replace dir="${basedir}/OpenETCS_toolchain" token="[[@{line}" value="[[">
+				<concat destfile="${basedir}/bin/documentation/OpenETCS Toolchain.mediawiki" append="true">${line.separator}=@{line}=${line.separator}</concat>
+				<concat destfile="${basedir}/bin/documentation/OpenETCS Toolchain.mediawiki" append="true">
+					<fileset dir="${basedir}/bin/documentation"> 
+						<include name="@{line}.mediawiki"/> 
+					</fileset> 
+				</concat>
+			</sequential>
+		</for>
+		
+		<!-- Index sections-->		
+		<replace dir="${basedir}/bin/documentation" token="= " value="== ">
+				<include name="OpenETCS Toolchain.mediawiki"/>
+		</replace>
+		<replace dir="${basedir}/bin/documentation" token=" =" value=" ==">
+				<include name="OpenETCS Toolchain.mediawiki"/>
+		</replace>
+				
+		<!-- External mediawiki link parsing -->
+		<loadfile property="file_names" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
+		<for param="line" list="${file_names}" delimiter="${line.separator}">
+			<sequential>
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}]]" value="[[#@{line}]]">
+					<include name="OpenETCS Toolchain.mediawiki"/>
+				</replace>
+				<replace dir="${basedir}/bin/documentation" token="[[@{line}#" value="[[#">
 					<include name="OpenETCS Toolchain.mediawiki"/>
 				</replace>
 			</sequential>
 		</for>
 						
 		<!-- Image parsing: Replace from Github style to Mylyn mediawiki style -->
-		<replace dir="${basedir}/OpenETCS_toolchain" token="[[http" value="[[Image:http">
+		<replace dir="${basedir}/bin/documentation" token="[[http" value="[[Image:http">
 			<include name="OpenETCS Toolchain.mediawiki"/>
 		</replace>
 		
@@ -201,20 +245,20 @@
 			underlineLinks="true"
 			pageBreakOnHeading1="true">
 			<markupLanguageConfiguration escapingHtmlAndXml="false"/>
-      	<fileset dir="${basedir}/OpenETCS_toolchain">
+      	<fileset dir="${basedir}/bin/documentation">
        	<include name="OpenETCS Toolchain.mediawiki"/>
       	</fileset>
   		</wikitext-to-xslfo >
 	
 		<!-- HyperLink color: Blue -->		
-		<replace dir="${basedir}/OpenETCS_toolchain" 
+		<replace dir="${basedir}/bin/documentation" 
 			token="basic-link text-decoration=" 
 			value="basic-link color='blue' text-decoration=">
 			<include name="*.fo"/>
 		</replace>	
 	
 		<!-- Subpage link tag parsing: Replace /wiki , not needed-->
-		<replace dir="${basedir}/OpenETCS_toolchain" token="//wiki/" value="/">
+		<replace dir="${basedir}/bin/documentation" token="//wiki/" value="/">
 			<include name="*.fo"/>
 		</replace>
 	
@@ -238,8 +282,8 @@
 
 	<target name="generate-pdf" depends="generate-fo" description="Generates a single PDF file"> 
     	<!-- PDF file generation -->
-		<fop format="application/pdf" outdir="${basedir}/OpenETCS_toolchain">
-			<fileset dir="${basedir}/OpenETCS_toolchain">
+		<fop format="application/pdf" outdir="${basedir}/bin/documentation">
+			<fileset dir="${basedir}/bin/documentation">
 				<include name="*.fo" />
 			</fileset>
 		</fop>
@@ -285,7 +329,7 @@
 	
 		<!-- Rewrite plugin.xml and toc.xml  -->
 				
-		<loadfile property="file" srcfile="${basedir}/OpenETCS_toolchain/mediawiki_files.txt"/>
+		<loadfile property="file" srcfile="${basedir}/bin/documentation/mediawiki_files.txt"/>
 		
 		<concat destfile="plugin.xml" append="yes">&lt;plugin&gt;&lt;extension point="org.eclipse.help.toc"&gt;
 		</concat>
@@ -294,7 +338,7 @@
 			
 		<for param="line" list="${file}" delimiter="${line.separator}">
 		  	<sequential>
-			  	<concat destfile="plugin.xml" append="yes">&lt;toc primary="false" category="Doc" file="OpenETCS_toolchain/@{line}-toc.xml"&gt;&lt;/toc&gt;
+			  	<concat destfile="plugin.xml" append="yes">&lt;toc primary="false" category="Doc" file="bin/documentation/@{line}-toc.xml"&gt;&lt;/toc&gt;
 		  		</concat>	  		
 		  	</sequential>
 		</for>
@@ -307,7 +351,7 @@
 							
 		<for param="line" list="${file}" delimiter="${line.separator}">
 		  	<sequential>
-			  	<concat destfile="toc.xml" append="yes">&lt;topic label="@{line}"&gt;&lt;link toc="OpenETCS_toolchain/@{line}-toc.xml"/&gt;&lt;/topic&gt;
+			  	<concat destfile="toc.xml" append="yes">&lt;topic label="@{line}"&gt;&lt;link toc="bin/documentation/@{line}-toc.xml"/&gt;&lt;/topic&gt;
 			  	</concat>	  		
 		  	</sequential>
 		</for>

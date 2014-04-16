@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Developer-Documentation</title>
+		<link type="text/css" rel="stylesheet" href="../styles/main.css"/>
+	</head>
+	<body>
+		<h1 id="TODO_Guidelines_for_plugin_integration">TODO Guidelines for plugin integration</h1>
+		<ul>
+			<li>Feature and Use cases description</li>
+			<li>documentation</li>
+			<li>basic tests description</li>
+		</ul>
+		<h2 id="Guidelines_for_licence_and_credit_information">Guidelines for licence and credit information</h2>
+		<h2 id="Licence_Template">Licence Template</h2>
+		<p>The licence should be stored as an html or a text file  in the root folder of each project, in a file named LICENSE.txt or .html.</p>
+		<pre>/*
+ * Copyright (c) 2014 [NAME OF THE OTIGINAL AUTHOR OR AUTHORS]
+ *
+ * The contents of this [TYPE OF ARTEFACT, e.g. file] are under the European 
+ * Union Public Licence (EUPL), Version 1.1.
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at:
+ *      https://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ *
+ * Contributor(s):
+ *   [Name of Contributor(s)]
+ */
+
+</pre>
+		<h2 id="Licence_template_for_Eclipse_new_feature">Licence template for Eclipse new feature</h2>
+		<p>For a new feature or plug-in in eclipse platform the following information should be provided in the feature.xml file:</p>
+		<ul>
+			<li>  Feature Description (optional url and text)</li>
+			<li>  Copyright Notice (optional url and text)</li>
+			<li>  License Agreement (shared license, local license, optional url and text)</li>
+			<li>  Sites to visit</li>
+		</ul>
+		<pre class="source-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;feature
+      id="org.openetcs.[featureName].feature"
+      label="[Short feature title]"
+      version="0.1.0.qualifier"&gt;
+
+   &lt;description&gt;
+      [
+          Feature description
+      ]
+   &lt;/description&gt;
+
+   &lt;copyright&gt;
+      Copyright (c) [NAME OF THE OTIGINAL AUTHOR OR AUTHORS]
+   &lt;/copyright&gt;
+
+   &lt;license url="https://joinup.ec.europa.eu/system/files/EN/EUPL%20v.1.1%20-%20Licence.pdf"&gt;
+      European Union Public Licence
+                                     V.1.1
+                      EUPL © the European Community 2007
+
+This European Union Public Licence (the “EUPL”) applies to the Work or Software
+(as defined below) which is provided under the terms of this Licence. Any use of the
+Work, other than as authorised under this Licence is prohibited (to the extent such use
+is covered by a right of the copyright holder of the Work).
+
+The Original Work is provided under the terms of this Licence when the Licensor (as
+defined below) has placed the following notice immediately following the copyright
+notice for the Original Work:
+
+                         Licensed under the EUPL V.1.1
+
+or has expressed by any other mean his willingness to license under the EUPL.
+   &lt;/license&gt;
+
+   &lt;url&gt;
+      &lt;discovery label="OpenETCS Project Site" url="http://www.openetcs.org"/&gt;
+      &lt;discovery label="[Feature Name] Project Site" url="[Site to visit]
+   &lt;/url&gt;
+
+ ...
+
+
+</pre>
+	</body>
+</html>
