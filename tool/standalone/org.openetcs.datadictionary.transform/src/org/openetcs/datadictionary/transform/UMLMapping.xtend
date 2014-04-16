@@ -131,7 +131,7 @@ class UMLMapping {
 			
 			// If special is empty or less than 1 we have a primitive type
 			if (v.specs.special.empty || v.specs.special.length <= 1) {
-				var primitiveType = pkg.createOwnedPrimitiveType(identifier(v.name))
+				var primitiveType = pkg.createOwnedPrimitiveType(type_identifier(v.name))
 				if (isValid(v.detailedName)) {
 					primitiveType.addComment("DetailedName = " + v.detailedName)					
 				}		
@@ -155,7 +155,7 @@ class UMLMapping {
 				generatedTypes.put(primitiveType.name, primitiveType)				
 				
 			} else {
-				var enumeratedType = pkg.createOwnedEnumeration(identifier(v.name))
+				var enumeratedType = pkg.createOwnedEnumeration(type_identifier(v.name))
 				if (isValid(v.detailedName)) {
 					enumeratedType.addComment("DetailedName = " + v.detailedName)					
 				}		
@@ -176,7 +176,8 @@ class UMLMapping {
 		
 		// Transform all packets to UML Types
 		for (v : dictionary.definitions.packets.trackToTrain.packet + dictionary.definitions.packets.trainToTrack.packet) {
-			var typeName = identifier(v.name)
+			var typeName   = type_identifier(v.name)
+			var typePrefix = identifier(v.name)
 			var dataType = pkg.createDataType(typeName)
 			if (isValid(v.description)) {
 				dataType.addComment(v.description)
@@ -184,7 +185,7 @@ class UMLMapping {
 			dataType.addComment("Number = " + v.number.toString())
 			dataType.addComment("TransmissionMedia = " + v.transmissionMedia.toString())
 			
-			pkg.createContent(dataType, v.content.group, typeName, null)
+			pkg.createContent(dataType, v.content.group, typePrefix, null)
 					
 			
 		}
@@ -200,15 +201,16 @@ class UMLMapping {
 			switch elt {
 			TTlgVar : {
 				if (elt.name != skip) {
-					var attr = type.createAttribute(elt.name, generatedTypes.get(elt.name), elt.comment)
+					var attr = type.createAttribute(identifier(elt.name), generatedTypes.get(type_identifier(elt.name)), elt.comment)
 					attr.addComment("Length = " + elt.length.toString())
 				}					
 			}
 			TLoopDoWhile : {
 				dyn_cpt = dyn_cpt + 1
 				var loop_name = "DStruct" + dyn_cpt.toString()
-				var loop_type_name = prefix + '_' + loop_name
-				var loop_type = pkg.createLoop(loop_type_name, elt.group)
+				var loop_type_prefix = type_extend(prefix, loop_name)
+				var loop_type_name   = type_identifier(loop_type_prefix)
+				var loop_type = pkg.createLoop(loop_type_prefix, elt.group)
 				generatedTypes.put(loop_type_name, loop_type)
 				var attr = type.createOwnedAttribute(loop_name, loop_type)
 				attr.addComment("Dynamic field header")				
@@ -216,8 +218,9 @@ class UMLMapping {
 			TLoopWhile : {
 				dyn_cpt = dyn_cpt + 1				
 				var loop_name = "DStruct" + dyn_cpt.toString()
-				var loop_type_name = prefix + '_' + loop_name
-				var loop_type = pkg.createLoop(loop_type_name, elt.group)
+				var loop_type_prefix = type_extend(prefix, loop_name)
+				var loop_type_name   = type_identifier(loop_type_prefix)
+				var loop_type = pkg.createLoop(loop_type_prefix, elt.group)
 				generatedTypes.put(loop_type_name, loop_type)
 				var attr = type.createOwnedAttribute(loop_name, loop_type)
 				attr.addComment("Dynamic field header")
@@ -225,7 +228,8 @@ class UMLMapping {
 			TConditional : {
 				con_cpt = con_cpt + 1
 				var con_name = "CStruct" + con_cpt.toString()
-				var con_type_name = prefix + '_' + con_name
+				var con_type_prefix = type_extend(prefix, con_name)
+				var con_type_name   = type_identifier(con_type_prefix)
 				var con_type = pkg.createDataType(con_type_name)
 				con_type.addComment("Conditional field")
 				generatedTypes.put(con_type_name, type)
@@ -233,17 +237,18 @@ class UMLMapping {
 				attr.addComment("Conditional field")
 				attr.addComment("Condition = " + elt.condition.toString())
 				for (evar : elt.variables) {
-					pkg.createContent(con_type, evar.group, con_type_name, null)					
+					pkg.createContent(con_type, evar.group, con_type_prefix, null)					
 				}
 			}
 			}			
 		}		
 	}
 	
-	def static createLoop(Package pkg, String loop_type_name, FeatureMap fmap) {
-		var type = pkg.createDataType(loop_type_name)
+	def static createLoop(Package pkg, String loop_type_prefix, FeatureMap fmap) {
+		var type_id = type_identifier(loop_type_prefix)
+		var type    = pkg.createDataType(type_id)
 		type.addComment("Dynamic block header")
-		generatedTypes.put(loop_type_name, type)		
+		generatedTypes.put(type_id, type)		
 		// find N_ITER
 		var iter = fmap.valueListIterator
 		var break = false
@@ -253,19 +258,20 @@ class UMLMapping {
 				TTlgVar : {
 					if (elt.name.startsWith("N_ITER")) {
 						break = true
-						var attr = type.createOwnedAttribute(elt.name, generatedTypes.get("N_ITER"))
+						var attr = type.createOwnedAttribute(elt.name, generatedTypes.get(type_identifier("N_ITER")))
 						if (isValid(elt.comment)) {
 							attr.addComment(elt.comment)
 						}
 						attr.addComment("Length = " + elt.length.toString())
 						// body
-						var body_name = loop_type_name + "_Body"
-						var body_type = pkg.createDataType(body_name)
+						var body_prefix = type_extend(loop_type_prefix, "Body")
+						var body_type_name = type_identifier(body_prefix)
+						var body_type = pkg.createDataType(body_type_name)
 						body_type.addComment("Dynamic field body")
 						var body_attr = type.createOwnedAttribute("body", body_type, 33, 33)
 						body_attr.addComment("Dynamic field body")
-						generatedTypes.put(body_name, body_type)
-						pkg.createContent(body_type, fmap, body_name, elt.name)
+						generatedTypes.put(body_type_name, body_type)
+						pkg.createContent(body_type, fmap, body_prefix, elt.name)
 					}
 				}
 			}
@@ -273,13 +279,21 @@ class UMLMapping {
 		return type		
 	}
 	
-	def static createConditional(Package pkg, String con_type_name, FeatureMap fmap) {
-		
+	def static identifier(String str) {
+		var tmp = str
+		var opar = str.indexOf("(")	
+		if ( opar != -1 ) {
+			tmp = str.substring(0, opar)
+		}
+		return tmp.replaceAll("\\W", '_')
 	}
 	
+	def static type_extend(String str1, String str2) {
+		return str1 + '_' + str2
+	}
 	
-	def static identifier(String str) {
-		return str.replaceAll("\\W", '_')
+	def static type_identifier(String str) {
+		return identifier(str).replaceAll("\\W", '_') + '_t'
 	}
 	
 	def static boolean isValidName(String name) {
