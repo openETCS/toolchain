@@ -1,6 +1,5 @@
 = System Requirements =
-
-It is recommended to use Java 6 (aka Java 1.6) to execute openETCS tool chain.
+The minimal requirement for java is  Java 6 (aka Java 1.6).
 
 Some functionalities (e.g. ProR "Rich Text" extension) won't work with Java 6 and require Java 7. However, core tools of openETCS tool chain (e.g. Papyrus SysML editor) have not been qualified for Java 7.
 

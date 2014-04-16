@@ -6,6 +6,46 @@
 		<link type="text/css" rel="stylesheet" href="../styles/main.css"/>
 	</head>
 	<body>
+		<h1 id="Setting_up_the_development_environment">Setting up the development environment</h1>
+		<p>To set up a development environment for the openETCS tool, perform the following steps:</p>
+		<ol>
+			<li>Download the Eclipse Modeling Tools (Kepler SR2)</li>
+			<li>Import the Eclipse projects from this git 
+				<a href="https://github.com/openETCS/toolchain/tree/master/tool/bundles">repository</a>. &lt;br /&gt; A tutorial on how to configure Egit may be found 
+				<a href="http://eclipsesource.com/blogs/tutorials/egit-tutorial/">here</a>.
+				<ol>
+					<li>From Menu File&gt;Import... select Git&gt;Project from Git</li>
+					<li>Choose "Clone URI"</li>
+					<li>Get the URL of your repository</li>
+					<li>Choose a protocol (e.g. https or ssh)</li>
+					<li>Choose the branch you want to clone and where the local copy will be set on your computer.</li>
+					<li>Click Import existing project and select a project.</li>
+				</ol>
+			</li>
+			<li>Set the target platform. It's located in org.openetcs.releng.target/openETCS-Kepler.target &lt;br /&gt; </li>
+		</ol>
+		<p>The target platform defines what need to be build to create the openETCS product.</p>
+		<ol>
+			<li>To run openETCS as configured, use org.openetcs.releng.products/openETCS.product</li>
+		</ol>
+		<p>To Build the  OpenETCS product</p>
+		<ol>
+			<li>Install latest Maven </li>
+			<li>Run Maven in the org.openetcs.releng.parent</li>
+		</ol>
+		<pre>    mvn clean verify
+</pre>
+		<h2 id="OpenETCS_Project_description">OpenETCS Project description</h2>
+		<p>The openETCS core product definition is made of the following project </p>
+		<ul>
+			<li>org.openetcs.releng.parent: use for the maven build</li>
+			<li>org.openetcs.releng.products: List of included features, branding, licencing ...</li>
+			<li>org.openetcs.releng.target: Definition of the target platform</li>
+			<li>org.openetcs.target.feature: Collection of features that should be included in the target platform</li>
+			<li>org.openetcs.core.feature : ??</li>
+			<li>org.openetcs.product: OpentETCS start up definition, splash screen ..</li>
+			<li>org.openetcs.intro: Welcome page definition</li>
+		</ul>
 		<h1 id="TODO_Guidelines_for_plugin_integration">TODO Guidelines for plugin integration</h1>
 		<ul>
 			<li>Feature and Use cases description</li>

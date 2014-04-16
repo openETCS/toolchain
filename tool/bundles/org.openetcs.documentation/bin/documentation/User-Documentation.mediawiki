@@ -91,7 +91,7 @@ Traces are established with Drag&Drop from the Papyrus '''Model Explorer''' to t
 
 == Suspect Links ==
 
-This features allows traces to be flagged, if source or target of that link has changed.  Currently, this works for all links within requirements, as well as for links between requirements and SysML model elements (created with the [[#Tracing_Requirements_and_SysML_Models|tracing feature]].
+This features allows traces to be flagged, if source or target of that link has changed.  Currently, this works for all links within requirements, as well as for links between requirements and SysML model elements (created with the [[User Documentation#Tracing_Requirements_and_SysML_Models|tracing feature]].
 
 [[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/flag.png]] For now, you need to explicitly install this feature, as described [[Installation#Installing_ProR_Essentials|above]].
 
@@ -145,7 +145,6 @@ The following image shows generated Toolchain Documentation openETCS Guide avail
 
 [[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png]] Tip: Subpage links should include real section name. Moreover, the spaces between words should be replaced with underscore. E.g. [ [ Documentation#Tracing_Requirements_and_SysML_Models|tracing feature ] ]
 
-[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png]] Tip: It should be included the header content of a page to access it. E.g. [ [Documentation] ] link works on Github but it does not in the documentation. It should be used [ [Documentation#Overview |Documentation] ] subpage link.
 
 === Before Getting Started ===
 We assume that you have openETCS Toolchain and Jenkins installed.
