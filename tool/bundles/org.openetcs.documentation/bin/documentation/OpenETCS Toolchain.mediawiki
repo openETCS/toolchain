@@ -91,9 +91,9 @@ Including their internal data structure in case they are foreseen for use by the
 === Bug report ===
 Bug should be reported at this address: https://github.com/openETCS/toolchain/issues.
 * Create a new issue: Just click on the new issue button
-[[Image:https://raw.githubusercontent.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/new_issue.png]]
+[[Image:https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/new_issue.png]]
 * Select the Bug report label
-[[Image:https://raw.githubusercontent.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/add_label.png]]
+[[Image:https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/add_label.png]]
 * Fill the title with a precise naming
 * Fill the comment that describes more precisely your bug
 
