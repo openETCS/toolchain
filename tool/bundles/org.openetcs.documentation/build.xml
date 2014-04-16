@@ -7,7 +7,7 @@
 
     -->
 
-<project name="toolchain" default="all" xmlns:ac="antlib:net.sf.antcontrib">
+<project name="org.openetcs.documentation" default="all" xmlns:ac="antlib:net.sf.antcontrib">
 	
     <description>Generate Eclipse help content from cloned mediawiki files</description>
 	
@@ -55,7 +55,7 @@
 		</for>-->
 		
 		<!-- Mediawiki file names to mediawiki_files.txt -->
-		<loadfile property="mediawikifile_names" srcfile="${basedir}/bin/documentation/Documentation-Index.mediawiki"/>
+		<loadfile property="mediawikifile_names" srcfile="${basedir}/bin/documentation/Documentation.mediawiki"/>
 		<for param="line" list="${mediawikifile_names}" delimiter="${line.separator}">
 			<sequential>
 				<concat destfile="${basedir}/bin/documentation/mediawiki_files.txt" append="true">@{line}</concat>
