@@ -114,29 +114,25 @@ They highlight 9 safety issues caused by tool integration that also
 allow to be more exact when identifying software that have to be
 qualified for certification purpose. 
 
-They advocate that to deal with the qualification of tool integration
-within a toolchain a system approach should be taken, we should not
-thing about individual tools anymore.  Their proposed method is a ``System
-Approach'' for toolchain qualification following these steps:
+They advocate to use take a ``system approach''  to deal with the qualification of tool integration within a toolchain. We should not
+think about individual tools anymore.  Their system approach follows these steps:
 
 \begin{enumerate}
-\item Pre-Qualification of development tool (requirements tools,design
+\item Pre-qualification of development tools (requirements tools, design
   tools ...): provided by the vendors.
 \item Pre-qualification at the tool-chain level: based on step 1 and
-  reference work-flows, defined where are the safety critical part.
-\item Qualification of the tool-chain: check differences of step 2 and
-  the actual deployed toolchain.
+  reference work-flows; decomposition of higher level (project-wide) safety goals on tool level
+\item Qualification at the toolchain level: check whether assumptions in step are fulfilled (use cases, environment, process) by the actual toolchain to be deployed.
 \item Qualification at the tool level: based on the actual environment
   when deploying the toolchain.
 \end{enumerate}
-This approach leads them to separate the parts required to software tool
+This approach leads them to separate the parts required for software tool
 qualification and to identify safety issues related to tool integration.
 
 In \cite{asplund_towards_2012}, they explore the step 2): identifying
-the required safety goals due to tool integration and obtain a
-description of a reference work-flow and tool-chain with annotation
-about the mitigating effort.  They proposes to use the TIL language, a
-domain specific language for toolchain model.  The model of the tool
+the required safety goals due to tool integration and obtaining a
+description of a reference work-flow and tool-chain with annotations regarding the mitigating effort.  They propos to use the TIL language, a
+domain specific language for toolchain models.  The model of the tool
 chain is used to perform a risk analysis and to annotate parts
 that need mitigating effort for the safety issues due to tool
 integration. 
@@ -148,25 +144,24 @@ Biehl proposed a Domain Specific Language named TIL for Generating Tool Integrat
 Solutions \cite{biehl_matthias_domain_2011}.  A toolchain is described in terms
 of a number of ``Tool Adapters'' and the relation between them.
 \begin{itemize}
-\item ToolAdapters: exposes data and functionality of a tool
+\item Tool Adapters: expose data and functionality of a tool
 \item Channels
   \begin{itemize}
-  \item ControlChannels describe service calls
-  \item DataChannel describe data exchanges
-  \item TraceChannel  describe creation of a trace links
+  \item ControlChannel describes service calls
+  \item DataChannel describes data exchanges
+  \item TraceChannel  describes creation of a trace links
   \end{itemize}
 
-\item Sequencer: describe sequential control flow (sequence of services)
-\item User:  describe and limit the possible interaction
-\item Repository:  provide storage and version Management of tool data
+\item Sequencer: describes sequential control flow (sequence of services)
+\item User:  describes and limit the possible interaction
+\item Repository:  provides storage and version management of tool data
 \end{itemize}
 This DSL allows early analysis of the toolchain.
 It may generate part of tool adapter code based on the source and target
 meta-model.
 
 More recently, Biehl and al.  define a standard language for modeling
-development process defines by OMG 2008. The language has been used in
-\cite{biehl_constructing_2012,biehl_early_2012} together with the TIL
+development processes as defined by OMG 2008. The language has been used in \cite{biehl_constructing_2012,biehl_early_2012} together with the TIL
 language to tailor a toolchain following a process model. The goal is
 to be able to model both the development process and the set of tools
 used.  A process is defined as follows:
@@ -174,7 +169,7 @@ used.  A process is defined as follows:
 \item Process: several Activities
 \item Activity: set of linked Tasks, WorkProducts, Roles
 \item A Role can perform a Task
-\item A WorkProduct can be anaged by a Tool
+\item A WorkProduct can be managed by a Tool
 \item A Task can use a Tool
 \end{itemize}
 Using together the process development language  and the toolchain
@@ -189,7 +184,7 @@ with a product development process. The method proceeds as follows:
 \item Initial verification graph
 \item Automatic mapping links to the verification graph (acc. to mapping rules)
 \item Apply alignment rule on the verification graph
-\item Apply metrics to determine the degree of alignment btw the tool-chain and the
+\item Apply metrics to determine the degree of alignment between the tool-chain and the
    process
 \end{enumerate}
 The metrics and the misalignment list provide feedback to refine the tool-chain
