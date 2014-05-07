@@ -68,6 +68,13 @@ linkbordercolor 	={1 1 1}}
 
 \affiliation{University Bremen}
 
+\author{Stefan Rieger}
+
+\affiliation{TWT GmbH Science \& Innovation\\
+Ernsthaldenstraße 17\\
+70565 Stuttgart\\
+Germany
+}
 
 
 % define the coverart
@@ -176,34 +183,6 @@ Version &  Date & Author(s) & Justification  \\
 
 \chapter{OpenETCS Toolchain Qualification Process}
 \label{chap-2}
-
-\section{Toolchain Analysis}
-\label{sec-2-1}
-
-All the methods mentioned above start with a complete definition of the tool
-chain. In OpenETCS, the development of the toolchain follow an \emph{agile} method,
-hence for each (major) release we have to deal with an incomplete tool
-chain. In addition to the methods of the previous section,  we need a qualification
-process that can adapt to the development speed, deal with incomplete toolchain
-and can re-use qualification information.
-
-Moreover, as stated by Asplund and al., the toolchain provides some mechanism
-that has to be also ensured, reducing thereby the effort for each tool. These
-safety goals are related to the tool integration. In our context, most of  the tool
-integration is made by integrated tools into a tool platform.
-From the previous cited paper, the tool platform should ensure the following
-safety-goals
-\begin{itemize}
-\item Coherent Time Stamp Information: common time stamps on development artifacts.
-\item Notification: the user should be notified when artifacts changed.
-\item Data integrity:  avoid use of obsolete artifacts, the data used reflects the
-  current state.
-\item Data Mining: all data used by safety analysis should be available and be
-  verifiable.
-\end{itemize}
-
-\section{OpenETCS Toolchain Qualification Process}
-\label{sec-2-2}
 \input{qualif_process.tex}
 
 

@@ -1,7 +1,34 @@
-The OpenETCS tool chain  will be defined by the set of its feature and
-a guidelines describing how to correctly use it.
-A SysML block diagram describes the tool chain architecture as shown
-figure \ref{fig:overview}. 
+\section{Toolchain Analysis}
+\label{sec-2-1}
+
+All the methods mentioned above start with a complete definition of the toolchain. In OpenETCS, the development of the toolchain follows an \emph{agile} approach.
+Hence, for each (major) release we have to deal with an incomplete tool
+chain. In addition to the methods of the previous section,  we need a qualification
+process that can adapt to the development speed, deal with an incomplete toolchain
+and can re-use qualification information.
+
+Moreover, as stated by Asplund et al., the toolchain provides some mechanism \textcolor{red}{[something is missing here]}
+that has to be also ensured, reducing thereby the effort for each tool \cite{,asplund_towards_2012,asplund_qualifying_2012}. These
+safety goals are related to the tool integration. In our context, most of  the tool
+integration effort is made by integrating tools into a tool platform.
+According to Asplund et al., the tool platform should ensure the following
+safety-goals:
+\begin{itemize}
+\item Coherent time stamp information: common time stamps on development artifacts.
+\item Notification: the user should be notified when artifacts changed.
+\item Data integrity:  avoid use of obsolete artifacts, the data used reflects the
+  current state.
+\item Data mining: all data used by safety analysis should be available and be
+  verifiable.
+\end{itemize}
+
+\section{OpenETCS Toolchain Qualification Process}
+\label{sec-2-2}
+
+The OpenETCS tool chain  will be defined by the set of its features and
+a guideline describing how to correctly use it.
+A SysML block diagram describes the tool chain architecture at a certain point in time as shown in
+Figure \ref{fig:overview}. 
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{ToolChainmodel}
 \caption{\label{fig:overview} Tool Chain overview (20.02.14) -- \\
@@ -11,30 +38,29 @@ figure \ref{fig:overview}.
   White Block: External Artifacts} 
 \end{figure}
 
-This block diagram is intended to grow according to the new feature request and the
-needs of openETCS participants.  This diagram should be kept updated
-as a reference of our tool chain, in any case the complete information
-regarding the features availabilities  may be found in the eclipse product
+This block diagram is intended to grow according to new feature requests and the
+needs of openETCS participants.  This diagram will be kept updated
+as a reference of our tool chain. In any case, the complete information
+regarding the feature availabilities  may be found in the Eclipse product
 definition.
 
-Each feature of the toolchain is a block with the profile openETCsFeature"
-and  each artifact is block with the profile openETCsArtifact''.  Each
-feature realizes at least one use case and is implemented by at least
-one tool. Note that in the tool platform feature  may also be
-implemented as plug-ins.  The diagram also represents the order
-also shows which tasks maybe done
-in parallel and which ones are dependent of other tasks, but it does
-not highlight neither the use of the tools, nor the order of actions
-to be performed. This diagram should be completed by a guidelines on
+Each feature of the toolchain is a block with the profile ``openETCSFeature''
+and  each artifact is block with the profile ``openETCSArtifact''.  Each
+feature realizes at least one use case and may be implemented by one or more tools.
+Note that in the tool platform features  may also be
+implemented as plug-ins. The diagram also imposes a (partial) order
+on the tasks. While some may be done in parallel, many tasks are dependent on others.
+Currently, the diagram neither highlights the use of the tools, nor the order of actions
+to be performed. This diagram should be completed by guidelines on
 how to use the tool chain and/or an activity diagram.
 
 To mitigate the qualification process, we will first consider more
-that one feature at a time considering that errors from a tool A may
+than one feature at a time considering that errors from a tool A may
 be detected by a Tool B in the next step of the tool chain process.
 Furthermore, the toolchain is a collection
-of feature and not tools, this differs from Asplund and al. in the sense that
-some of the tool integration mechanism that automates transformation of data, are part
-of the feature and are not falling out of the scope of the qualification.
+of features and not only tools. This differs from Asplund and al. in the sense that
+some of the tool integration mechanisms that automate transformation of data, represent features
+ and are thus not out of the scope of the qualification.
 
 Due to our development process, a ``pre-qualification'' of tools should be made
 when integrating a tool.
@@ -45,7 +71,7 @@ when integrating a tool.
 \begin{itemize}
 \item Define name and version
 \item Describe use cases
-\item Provides justification of the tool within the tool chain
+\item Provide justification of the tool within the tool chain
 \item Provide input/output artifacts format (associated with the
   version)
 \item Integrate the tool in the SysML model
