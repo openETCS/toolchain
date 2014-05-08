@@ -1,0 +1,32 @@
+ \section{Bitwalker}
+\begin{longtable}{lp{0.7\textwidth}}
+&\textbf{Bitwalker - Import of Data Types and Variables}\\
+Input&Subset-026-7, Subset-026-8, MS Word Format\\
+Output&Database (XML) representing data types, variables and messages\\
+Tool Class&T3\\
+          &The resulting definitions are direct input to the model and thus any fault may be propagated down to the code level\\
+Safety Integrity Level&? \textcolor{red}{[Currently I do not have the EN 50128 standard available]}\\
+Potential errors&The following list is not exhaustive and shall just give some ideas. The feature implementor has to provide more detail.
+                                \begin{itemize}
+                                  \item Variable / message / type not detected or missing in output\newline
+                                       Mitigation: This error can possibly be detected avoided as the modelling process is manual. Required in- or output described in the
+                                                   SRS can be added manually if missing.
+                                  \item Variable or message have wrong type (*)\newline
+                                       This is a very dangerous error, especially in the case of different precision integers or floats. The error may
+                                       remain unnoticed and be propagated to the code leading to potentially fatal malfunctions. A mitigation is only possible by
+                                       manual recheck (which would make an automatic conversion obsolete) of extensive/exhaustive testing or verification of the tool 
+                                       implementing the feature. However the inconsistent nature of the input document (Word) could prevent this.
+                                  \item Missing fields in record / message\newline
+                                       Mitigation: Can be detected if the functionality of the field is described in the functional description.
+                                  \item Wrong naming of variable / message / type (**)\newline
+                                       Mitigation: Potentially dangerous if names of variables (of compatible type) are mixed up. The risk is the same as for wrong typing.
+                                  \item ...
+                                \end{itemize}
+                               \\
+Providing evidence&It will be necessary to provide evidence that critical errors such as (*) and (**) can be detected or are not present in the tool. 
+                   Exhaustive verification will be difficult due to the unreliable structure of the input document. The result must be correct
+                   also for ill-formed documents. A solution would be to let ERA acknowledge the converted XML database as a formal document. In this case the tool can be classified T1.
+
+\end{longtable}
+
+\input{rt-tester.tex}
