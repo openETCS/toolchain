@@ -7,12 +7,14 @@ chain. In addition to the methods of the previous section,  we need a qualificat
 process that can adapt to the development speed, deal with an incomplete toolchain
 and can re-use qualification information.
 
-Moreover, as stated by Asplund et al., the toolchain provides some mechanism \textcolor{red}{[something is missing here]}
-that has to be also ensured, reducing thereby the effort for each tool \cite{,asplund_towards_2012,asplund_qualifying_2012}. These
-safety goals are related to the tool integration. In our context, most of  the tool
-integration effort is made by integrating tools into a tool platform.
-According to Asplund et al., the tool platform should ensure the following
-safety-goals:
+Moreover, as stated by Asplund et al., the toolchain itself may
+provide some mechanism that may reduce the tool qualification effort
+\cite{asplund_towards_2012,asplund_qualifying_2012}. They are
+descibred as a set of safety goals that the tool chain should ensure.
+ In our context, most of the
+tool integration effort is made by integrating tools into a tool
+platform.  According to Asplund et al., the tool platform should
+ensure the following safety-goals that will avoid some extra tool qualification:
 \begin{itemize}
 \item Coherent time stamp information: common time stamps on development artifacts.
 \item Notification: the user should be notified when artifacts changed.
@@ -65,7 +67,7 @@ some of the tool integration mechanisms that automate transformation of data, re
 Due to our development process, a ``pre-qualification'' of tools should be made
 when integrating a tool.
 
-\marginpar{This high-level list should be detailed.}
+\todo[inline]{This high-level list should be detailed.}
 \paragraph{Tool Integration Process for Qualification}
 
 \begin{itemize}
@@ -82,7 +84,7 @@ when integrating a tool.
 One possible implementation is to represent all these in formations
 directly in the SysML model.
 
-\marginpar{This high-level list should be detailed.  What I would expect: Which artefacts exist; How they are connected; When artefacts have to be re-validated (e.g. due to changes); What roles exist; who is responsible for what; etc.}
+\todo[inline]{This high-level list should be detailed.  What I would expect: Which artefacts exist; How they are connected; When artefacts have to be re-validated (e.g. due to changes); What roles exist; who is responsible for what; etc.}
 \paragraph{The Qualification Process}
 
 \begin{enumerate}
@@ -96,8 +98,8 @@ directly in the SysML model.
   \end{itemize}
 \item Tool platform  analysis 
   \begin{itemize}
-  \item Provide evidence of the safety-goals mentioned in the
-    previous sub-section
+  \item Provide evidence that the safety-goals mentioned in the
+    previous sub-section are fulfilled\textcolor{red}{[The identification of safety goals is missing in step 1]}
   \end{itemize}
 \item Toolchain Analysis
   \begin{itemize}
@@ -118,7 +120,7 @@ directly in the SysML model.
 
 \end{enumerate}
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "oetcs_qualification_process"
-%%% End: 
+
+
+
+

@@ -1,0 +1,39 @@
+\section{RT-tester qualification example}
+\subsection{Tool identification}
+\begin{description}
+\item[Name:]  RTT-MBT - Model-Based Test Generator
+\item[Version :]  8.9-4.1.2
+\end{description}
+\subsection{Tool Justification}
+The use of RT-tester allow to tests the C code produced by SCADE,
+B. It automatically generates tests for the following coverage
+criteria:  basic control state coverage, transition coverage, MC/DC
+coverage and requirement coverage.
+
+\subsection{Use cases}
+\paragraph{Tool classification}
+\begin{description}
+\item[Intended prurpose] Automated generation of test procedures for embedded HW/SW con-
+trol systems
+\item[Output] Test procedures to be executed in a test execution environment (both software
+testing or hardware-in-the-loop testing environment) 
+\item[Input] SysML test model (XMI format), test cases specification.
+\item[Tool Class] T2: The tool may fail to detect errors or defects.
+\end{description}
+\paragraph{Use case description}
+\begin{enumerate} 
+\item {\bf Generation} Generate test cases, test data and test procedures from model.
+\item {\bf Replay.} Replay test execution logs against the model.
+\end{enumerate}
+
+\paragraph{Potential Errors}
+\begin{itemize}
+\item Hazard 1: undetected SUT failures. The test oracles produced are
+  incorrect and fail to observe a incorect behavior during test
+  execution.
+\item Hazard 2: undetected coverage failures. The test execution does
+  not cover what it should. The test will pass but the result will not
+  covered what it supposed to.
+\end{itemize}
+
+
