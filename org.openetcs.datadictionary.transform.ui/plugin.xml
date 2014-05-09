@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Data Dictionary"
+            id="org.openetcs.datadictionary.transform.ui.commands.category">
+      </category>
+      <command
+            name="Bitwalker transform."
+            categoryId="org.openetcs.datadictionary.transform.ui.commands.category"
+            id="org.openetcs.datadictionary.transform.ui.commands.transformBitwalker">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.openetcs.datadictionary.transform.ui.commands.transformBitwalker"
+            class="org.openetcs.datadictionary.transform.ui.handlers.TransformHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.openetcs.datadictionary.transform.ui.commands.transformBitwalker"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Data Dictionary"
+               mnemonic="D"
+               id="org.openetcs.datadictionary.transform.ui.menus.dataDictionaryMenu">
+            <command
+                  commandId="org.openetcs.datadictionary.transform.ui.commands.transformBitwalker"
+                  mnemonic="S"
+                  id="org.openetcs.datadictionary.transform.ui.menus.transformBitwarker">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.openetcs.datadictionary.transform.ui.toolbars.dataDictionaryToolbar">
+            <command
+                  commandId="org.openetcs.datadictionary.transform.ui.commands.transformBitwalker"
+                  icon="icons/sample.gif"
+                  tooltip="Transform bitwalker XML to SysML"
+                  id="org.openetcs.datadictionary.transform.ui.toolbars.transformBitwalker">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

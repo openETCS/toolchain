@@ -4,23 +4,23 @@ Bundle-Name: Bitwalker to Data Dictionary UML Transformer
 Bundle-SymbolicName: org.openetcs.datadictionary.transform;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: Fraunhofer ESK
+Bundle-Vendor: Fraunhofer ESK, LAAS-CNRS
 Bundle-Localization: plugin
 Bundle-Activator: org.openetcs.datadictionary.transform.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.xtend.lib,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.uml2.uml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: Subset0268,
+Export-Package: Subset0267,
+ Subset0267.impl,
+ Subset0267.util,
+ Subset0268,
  Subset0268.impl,
  Subset0268.util,
- Subset0267,
- Subset0267.impl,
- Subset0267.util
+ org.openetcs.datadictionary.transform
 Bundle-ActivationPolicy: lazy
 

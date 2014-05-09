@@ -3,7 +3,7 @@
       id="org.openetcs.datadictionary.feature"
       label="Data Dictionary based on System Requirements Specification (SRS)"
       version="0.1.0.qualifier"
-      provider-name="Fraunhofer ESK">
+      provider-name="Fraunhofer ESK, LAAS-CNRS">
 
    <description>
       This feature contains the DataDictionary. The DataDictionary registers a UML model which contains data structure, variables and messages based on the ETCS System Requirements Specification (SRS).
@@ -38,8 +38,33 @@ or has expressed by any other mean his willingness to license under the EUPL.
       <discovery label="Data Dictionary Project Site" url="https://github.com/openETCS/toolchain/wiki/Data-Dictionary-Plugin"/>
    </url>
 
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.papyrus.uml.extensionpoints"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.uml2.uml"/>
+   </requires>
+
    <plugin
          id="org.openetcs.datadictionary"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openetcs.datadictionary.transform"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openetcs.datadictionary.transform.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

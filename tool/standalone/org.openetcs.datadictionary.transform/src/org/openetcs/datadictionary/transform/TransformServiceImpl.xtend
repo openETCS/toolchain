@@ -25,7 +25,36 @@ import Subset0267.TConditional
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.common.util.WrappedException
 
-class UMLMapping {
+class TransformServiceImpl implements ITransformService {
+	
+	new () {}
+	
+	override String transform(String file) {
+		val input =  "file:///" + file;
+		val output_path = file.substring(0, file.lastIndexOf('.')) + ".uml";
+		val output = "file:///" + output_path;
+		
+		System.out.println("input " + input)
+		System.out.println("output " + output)
+			
+		val umlModel = createUMLModel
+			
+		umlModel.setName("DataDictionary")
+		var package267 = umlModel.createNestedPackage("Subset-026-7")
+		//var package268 = umlModel.createNestedPackage("Subset-026-8")
+		
+		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)		
+		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0267ResourceFactoryImpl)
+		transformSubset267(package267, input); // "models/Subset_026_7.xml")
+		
+		//Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0268ResourceFactoryImpl);
+		//transformSubset268(package268, input); // "models/Subset_026_8.xml")
+				
+		save(umlModel, output)
+		
+		return output_path;
+	}
+	
 	private static var SysMLProfile = null
 	private static var generatedTypes = new BasicEMap<String, Type>
 	private static var invalidNames = #[ 
@@ -99,7 +128,7 @@ class UMLMapping {
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0268ResourceFactoryImpl);
 		transformSubset268(package268, "models/Subset_026_8.xml")
 		
-		save(umlModel)
+		//save(umlModel)
 	}
 	
 	def static transformSubset268(Package pkg, String file) {
@@ -352,9 +381,10 @@ class UMLMapping {
 		return UMLFactory.eINSTANCE.createModel
 	}
 	
-	def static save(Model model) {
+	def static save(Model model, String output) {
 		val resourceSet = new ResourceSetImpl()
-		val res = resourceSet.createResource(URI.createURI("generated/models/DataDictionary.library.uml"))
+		//val res = resourceSet.createResource(URI.createURI("generated/models/DataDictionary.library.uml"))
+		val res = resourceSet.createResource(URI.createURI(output))
 		res.getContents().add(model)
 
 		try {
