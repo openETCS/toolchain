@@ -21,14 +21,15 @@ import org.openetcs.datadictionary.transform.TransformServiceFactory;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
+ * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
 public class TransformHandler extends AbstractHandler {
-	
-	static String[] FILE_EXTENSIONS = {"*.xml"};
-	static String[] FILE_NAMES      = {"Bitwalker xml"};
-	
+
+	static String[] FILE_EXTENSIONS = { "*.xml" };
+	static String[] FILE_NAMES = { "Bitwalker xml" };
+
 	/**
 	 * The constructor.
 	 */
@@ -39,41 +40,46 @@ public class TransformHandler extends AbstractHandler {
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
 	 */
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
+
 		ITransformService transformer = TransformServiceFactory.getInstance();
-		
-		// open file dialog		
-		Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event).getShell();
-		
+
+		// open file dialog
+		Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event)
+				.getShell();
+
 		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
 		dialog.setFilterExtensions(FILE_EXTENSIONS);
 		dialog.setFilterNames(FILE_NAMES);
 		String file = dialog.open();
-		
-		if (file != null) {			
+
+		if (file != null) {
 			String output = transformer.transform(file);
-			
+
 			if (output == null) {
 				MessageDialog error_dialog = new MessageDialog(shell,
-						                                       "Transformation Error", null,
-						                                       "Unable to perform transformation", 
-						                                       MessageDialog.ERROR, 
-						                                       new String[] { "Continue" }, 0);
+						"Transformation Error", null,
+						"Unable to perform transformation",
+						MessageDialog.ERROR, new String[] { "Continue" }, 0);
 				error_dialog.open();
 				return null;
 			}
-								
+
 			File f = new File(output);
 			IFileStore store = EFS.getLocalFileSystem().getStore(f.toURI());
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
 			try {
 				IDE.openEditorOnFileStore(page, store);
-			} catch ( PartInitException e ) {
-				// TODO
+			} catch (PartInitException e) {
+				MessageDialog error_dialog = new MessageDialog(shell,
+						"Transformation Error", null, "Could not open editor",
+						MessageDialog.ERROR, new String[] { "Continue" }, 0);
+				error_dialog.open();
 			}
-		}		
-		
+		}
+
 		return null;
 	}
 }
