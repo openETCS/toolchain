@@ -93,9 +93,9 @@ public class TransformServiceImpl implements ITransformService {
       Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
       Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
       _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
-      org.eclipse.uml2.uml.Package subset_package = umlModel.createNestedPackage("Subset-026-7");
-      TransformServiceImpl.transformSubset267(subset_package, input);
+      TransformServiceImpl.transformSubset267(umlModel, "Subset-026-7", input);
       System.out.println("transformation 026-7 success.");
+      TransformServiceImpl.save(umlModel, output);
       return output_path;
     } catch (final Throwable _t) {
       if (_t instanceof WrappedException) {
@@ -109,9 +109,9 @@ public class TransformServiceImpl implements ITransformService {
       Map<String,Object> _extensionToFactoryMap_2 = Registry.INSTANCE.getExtensionToFactoryMap();
       Subset0268ResourceFactoryImpl _subset0268ResourceFactoryImpl = new Subset0268ResourceFactoryImpl();
       _extensionToFactoryMap_2.put("xml", _subset0268ResourceFactoryImpl);
-      org.eclipse.uml2.uml.Package subset_package_1 = umlModel.createNestedPackage("Subset-026-8");
-      TransformServiceImpl.transformSubset268(subset_package_1, input);
+      TransformServiceImpl.transformSubset268(umlModel, "Subset-026-8", input);
       System.out.println("transformation 026-8 success.");
+      TransformServiceImpl.save(umlModel, output);
       return output_path;
     } catch (final Throwable _t_1) {
       if (_t_1 instanceof WrappedException) {
@@ -200,21 +200,19 @@ public class TransformServiceImpl implements ITransformService {
   public static void main(final String[] args) {
     final Model umlModel = TransformServiceImpl.createUMLModel();
     umlModel.setName("DataDictionary");
-    org.eclipse.uml2.uml.Package package267 = umlModel.createNestedPackage("Subset-026-7");
-    org.eclipse.uml2.uml.Package package268 = umlModel.createNestedPackage("Subset-026-8");
     Map<String,Object> _extensionToFactoryMap = Registry.INSTANCE.getExtensionToFactoryMap();
     _extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, Factory.INSTANCE);
     Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
     Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
     _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
-    TransformServiceImpl.transformSubset267(package267, "models/Subset_026_7.xml");
+    TransformServiceImpl.transformSubset267(umlModel, "Subset-026-7", "models/Subset_026_7.xml");
     Map<String,Object> _extensionToFactoryMap_2 = Registry.INSTANCE.getExtensionToFactoryMap();
     Subset0268ResourceFactoryImpl _subset0268ResourceFactoryImpl = new Subset0268ResourceFactoryImpl();
     _extensionToFactoryMap_2.put("xml", _subset0268ResourceFactoryImpl);
-    TransformServiceImpl.transformSubset268(package268, "models/Subset_026_8.xml");
+    TransformServiceImpl.transformSubset268(umlModel, "Subset-026-8", "models/Subset_026_8.xml");
   }
   
-  public static Object transformSubset268(final org.eclipse.uml2.uml.Package pkg, final String file) {
+  public static Object transformSubset268(final Model umlModel, final String subset_name, final String file) {
     return null;
   }
   
@@ -228,8 +226,9 @@ public class TransformServiceImpl implements ITransformService {
     return ((DocumentRoot) model);
   }
   
-  public static void transformSubset267(final org.eclipse.uml2.uml.Package pkg, final String file) {
+  public static void transformSubset267(final Model umlModel, final String subset_name, final String file) {
     final Subset0267.DocumentRoot dictionary = TransformServiceImpl.getDatadictionary267(file);
+    org.eclipse.uml2.uml.Package pkg = umlModel.createNestedPackage(subset_name);
     TDefinitions _definitions = dictionary.getDefinitions();
     TVardefVar _varDef = _definitions.getVarDef();
     EList<TVariable> _variable = _varDef.getVariable();

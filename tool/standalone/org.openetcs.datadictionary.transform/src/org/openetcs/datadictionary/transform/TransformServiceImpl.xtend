@@ -44,10 +44,10 @@ class TransformServiceImpl implements ITransformService {
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
 						
 		try {
-			Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml", new Subset0267ResourceFactoryImpl)
-			var subset_package = umlModel.createNestedPackage("Subset-026-7")
-			transformSubset267(subset_package, input)			
+			Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml", new Subset0267ResourceFactoryImpl)			
+			transformSubset267(umlModel, "Subset-026-7", input)			
 			System.out.println("transformation 026-7 success.")
+			save(umlModel, output);	
 			return output_path
 		} catch (WrappedException e) {
 			System.out.println("transformation 026-7 failed.")
@@ -55,14 +55,14 @@ class TransformServiceImpl implements ITransformService {
 		
 		try {
 			Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml", new Subset0268ResourceFactoryImpl)
-			var subset_package = umlModel.createNestedPackage("Subset-026-8")
-			transformSubset268(subset_package, input)
+			transformSubset268(umlModel, "Subset-026-8", input)
 			System.out.println("transformation 026-8 success.")
+			save(umlModel, output);	
 			return output_path 
 		} catch (WrappedException e) {
 			System.out.println("transformation 026-8 failed.")
-		}	
-				
+		}
+			
 		return null;
 	}
 	
@@ -127,23 +127,21 @@ class TransformServiceImpl implements ITransformService {
 		// val SysMLProfile = loadPackage(SysMLProfileUri) as Profile;		
 		// umlModel.applyProfile(SysMLProfile)
 				
-		umlModel.setName("DataDictionary")
-		var package267 = umlModel.createNestedPackage("Subset-026-7")
-		var package268 = umlModel.createNestedPackage("Subset-026-8")
-		
+		umlModel.setName("DataDictionary")		
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
 		
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0267ResourceFactoryImpl);
-		transformSubset267(package267, "models/Subset_026_7.xml")
+		transformSubset267(umlModel, "Subset-026-7", "models/Subset_026_7.xml")
 		
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0268ResourceFactoryImpl);
-		transformSubset268(package268, "models/Subset_026_8.xml")
+		transformSubset268(umlModel, "Subset-026-8", "models/Subset_026_8.xml")
 		
 		//save(umlModel)
 	}
 	
-	def static transformSubset268(Package pkg, String file) {
-		//val dictionary = getDatadictionary268(file)
+	def static transformSubset268(Model umlModel, String subset_name, String file) {
+		// val dictionary = getDatadictionary268(file)
+		// var pkg = umlModel.createNestedPackage(subset_name)
 		
 		/*for (v : dictionary.definitions.packets.trackToTrain.packet + dictionary.definitions.packets.trainToTrack.packet) {
 			var dataType = pkg.createDataType(v.name, v.description)
@@ -162,8 +160,9 @@ class TransformServiceImpl implements ITransformService {
 		return model as DocumentRoot;
 	}
 	
-	def static transformSubset267(Package pkg, String file) {
-		val dictionary = getDatadictionary267(file)
+	def static transformSubset267(Model umlModel, String subset_name, String file) {
+		val dictionary = getDatadictionary267(file)		
+		var pkg = umlModel.createNestedPackage(subset_name)
 		
 		// Transform variables to primitive type or enumerated type
 		// The decision depends on the "Special" field in "Specs
