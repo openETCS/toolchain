@@ -1,13 +1,22 @@
 package org.openetcs.datadictionary.transform
 
+import Subset0267.TConditional
+import Subset0267.TLoopDoWhile
+import Subset0267.TLoopWhile
+import Subset0267.TTlgVar
 import Subset0267.util.Subset0267ResourceFactoryImpl
+import Subset0268.DocumentRoot
 import Subset0268.util.Subset0268ResourceFactoryImpl
 import java.io.IOException
 import org.eclipse.emf.common.util.BasicEMap
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.common.util.WrappedException
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.emf.ecore.util.FeatureMap
 import org.eclipse.uml2.uml.DataType
+import org.eclipse.uml2.uml.Model
 import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Profile
@@ -16,17 +25,9 @@ import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLFactory
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.resource.UMLResource
-import org.eclipse.uml2.uml.Model
-import org.eclipse.emf.ecore.util.FeatureMap
-import Subset0267.TTlgVar
-import Subset0267.TLoopDoWhile
-import Subset0267.TLoopWhile
-import Subset0267.TConditional
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.common.util.WrappedException
 
 class TransformServiceImpl implements ITransformService {
-	
+		
 	new () {}
 	
 	override String transform(String file) {
@@ -39,23 +40,33 @@ class TransformServiceImpl implements ITransformService {
 			
 		val umlModel = createUMLModel
 			
-		umlModel.setName("DataDictionary")
-		var package267 = umlModel.createNestedPackage("Subset-026-7")
-		//var package268 = umlModel.createNestedPackage("Subset-026-8")
+		umlModel.setName("DataDictionary")		
+		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
+						
+		try {
+			Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml", new Subset0267ResourceFactoryImpl)
+			var subset_package = umlModel.createNestedPackage("Subset-026-7")
+			transformSubset267(subset_package, input)			
+			System.out.println("transformation 026-7 success.")
+			return output_path
+		} catch (WrappedException e) {
+			System.out.println("transformation 026-7 failed.")
+		}
 		
-		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)		
-		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0267ResourceFactoryImpl)
-		transformSubset267(package267, input); // "models/Subset_026_7.xml")
-		
-		//Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml",new Subset0268ResourceFactoryImpl);
-		//transformSubset268(package268, input); // "models/Subset_026_8.xml")
+		try {
+			Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put("xml", new Subset0268ResourceFactoryImpl)
+			var subset_package = umlModel.createNestedPackage("Subset-026-8")
+			transformSubset268(subset_package, input)
+			System.out.println("transformation 026-8 success.")
+			return output_path 
+		} catch (WrappedException e) {
+			System.out.println("transformation 026-8 failed.")
+		}	
 				
-		save(umlModel, output)
-		
-		return output_path;
+		return null;
 	}
 	
-	private static var SysMLProfile = null
+	//private static var SysMLProfile = null
 	private static var generatedTypes = new BasicEMap<String, Type>
 	private static var invalidNames = #[ 
 		"spare",
@@ -132,7 +143,7 @@ class TransformServiceImpl implements ITransformService {
 	}
 	
 	def static transformSubset268(Package pkg, String file) {
-		val dictionary = getDatadictionary268(file)
+		//val dictionary = getDatadictionary268(file)
 		
 		/*for (v : dictionary.definitions.packets.trackToTrain.packet + dictionary.definitions.packets.trainToTrack.packet) {
 			var dataType = pkg.createDataType(v.name, v.description)
@@ -148,7 +159,7 @@ class TransformServiceImpl implements ITransformService {
 		var uri = URI.createURI(file);
 		var resource = resourceSet.getResource(uri, true);
 		var model = resource.contents.get(0)
-		return model as Subset0268.DocumentRoot;
+		return model as DocumentRoot;
 	}
 	
 	def static transformSubset267(Package pkg, String file) {
@@ -220,7 +231,7 @@ class TransformServiceImpl implements ITransformService {
 		}
 	}
 	
-	def static createContent(Package pkg, DataType type, FeatureMap fmap, String prefix, String skip) {
+	def static void createContent(Package pkg, DataType type, FeatureMap fmap, String prefix, String skip) {
 		var dyn_cpt = 0
 		var con_cpt = 0
 		

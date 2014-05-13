@@ -7,6 +7,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.filesystem.EFS;
 import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -52,6 +53,16 @@ public class TransformHandler extends AbstractHandler {
 		
 		if (file != null) {			
 			String output = transformer.transform(file);
+			
+			if (output == null) {
+				MessageDialog error_dialog = new MessageDialog(shell,
+						                                       "Transformation Error", null,
+						                                       "Unable to perform transformation", 
+						                                       MessageDialog.ERROR, 
+						                                       new String[] { "Continue" }, 0);
+				error_dialog.open();
+				return null;
+			}
 								
 			File f = new File(output);
 			IFileStore store = EFS.getLocalFileSystem().getStore(f.toURI());

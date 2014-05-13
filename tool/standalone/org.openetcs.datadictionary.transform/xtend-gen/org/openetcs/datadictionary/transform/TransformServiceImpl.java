@@ -87,18 +87,42 @@ public class TransformServiceImpl implements ITransformService {
     System.out.println(_plus_1);
     final Model umlModel = TransformServiceImpl.createUMLModel();
     umlModel.setName("DataDictionary");
-    org.eclipse.uml2.uml.Package package267 = umlModel.createNestedPackage("Subset-026-7");
     Map<String,Object> _extensionToFactoryMap = Registry.INSTANCE.getExtensionToFactoryMap();
     _extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, Factory.INSTANCE);
-    Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
-    Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
-    _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
-    TransformServiceImpl.transformSubset267(package267, input);
-    TransformServiceImpl.save(umlModel, output);
-    return output_path;
+    try {
+      Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
+      Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
+      _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
+      org.eclipse.uml2.uml.Package subset_package = umlModel.createNestedPackage("Subset-026-7");
+      TransformServiceImpl.transformSubset267(subset_package, input);
+      System.out.println("transformation 026-7 success.");
+      return output_path;
+    } catch (final Throwable _t) {
+      if (_t instanceof WrappedException) {
+        final WrappedException e = (WrappedException)_t;
+        System.out.println("transformation 026-7 failed.");
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    try {
+      Map<String,Object> _extensionToFactoryMap_2 = Registry.INSTANCE.getExtensionToFactoryMap();
+      Subset0268ResourceFactoryImpl _subset0268ResourceFactoryImpl = new Subset0268ResourceFactoryImpl();
+      _extensionToFactoryMap_2.put("xml", _subset0268ResourceFactoryImpl);
+      org.eclipse.uml2.uml.Package subset_package_1 = umlModel.createNestedPackage("Subset-026-8");
+      TransformServiceImpl.transformSubset268(subset_package_1, input);
+      System.out.println("transformation 026-8 success.");
+      return output_path;
+    } catch (final Throwable _t_1) {
+      if (_t_1 instanceof WrappedException) {
+        final WrappedException e_1 = (WrappedException)_t_1;
+        System.out.println("transformation 026-8 failed.");
+      } else {
+        throw Exceptions.sneakyThrow(_t_1);
+      }
+    }
+    return null;
   }
-  
-  private static Object SysMLProfile = null;
   
   private static BasicEMap<String,Type> generatedTypes = new Function0<BasicEMap<String,Type>>() {
     public BasicEMap<String,Type> apply() {
@@ -190,8 +214,8 @@ public class TransformServiceImpl implements ITransformService {
     TransformServiceImpl.transformSubset268(package268, "models/Subset_026_8.xml");
   }
   
-  public static void transformSubset268(final org.eclipse.uml2.uml.Package pkg, final String file) {
-    final DocumentRoot dictionary = TransformServiceImpl.getDatadictionary268(file);
+  public static Object transformSubset268(final org.eclipse.uml2.uml.Package pkg, final String file) {
+    return null;
   }
   
   public static DocumentRoot getDatadictionary268(final String file) {
