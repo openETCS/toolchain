@@ -68,10 +68,61 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.openetcs.datadictionary.transform.ITransformService;
 
 @SuppressWarnings("all")
-public class UMLMapping {
-  private static Object SysMLProfile = null;
+public class TransformServiceImpl implements ITransformService {
+  public TransformServiceImpl() {
+  }
+  
+  public String transform(final String file) {
+    final String input = ("file:///" + file);
+    int _lastIndexOf = file.lastIndexOf(".");
+    String _substring = file.substring(0, _lastIndexOf);
+    final String output_path = (_substring + ".uml");
+    final String output = ("file:///" + output_path);
+    String _plus = ("input " + input);
+    System.out.println(_plus);
+    String _plus_1 = ("output " + output);
+    System.out.println(_plus_1);
+    final Model umlModel = TransformServiceImpl.createUMLModel();
+    umlModel.setName("DataDictionary");
+    Map<String,Object> _extensionToFactoryMap = Registry.INSTANCE.getExtensionToFactoryMap();
+    _extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, Factory.INSTANCE);
+    try {
+      Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
+      Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
+      _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
+      TransformServiceImpl.transformSubset267(umlModel, "Subset-026-7", input);
+      System.out.println("transformation 026-7 success.");
+      TransformServiceImpl.save(umlModel, output);
+      return output_path;
+    } catch (final Throwable _t) {
+      if (_t instanceof WrappedException) {
+        final WrappedException e = (WrappedException)_t;
+        System.out.println("transformation 026-7 failed.");
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    try {
+      Map<String,Object> _extensionToFactoryMap_2 = Registry.INSTANCE.getExtensionToFactoryMap();
+      Subset0268ResourceFactoryImpl _subset0268ResourceFactoryImpl = new Subset0268ResourceFactoryImpl();
+      _extensionToFactoryMap_2.put("xml", _subset0268ResourceFactoryImpl);
+      TransformServiceImpl.transformSubset268(umlModel, "Subset-026-8", input);
+      System.out.println("transformation 026-8 success.");
+      TransformServiceImpl.save(umlModel, output);
+      return output_path;
+    } catch (final Throwable _t_1) {
+      if (_t_1 instanceof WrappedException) {
+        final WrappedException e_1 = (WrappedException)_t_1;
+        System.out.println("transformation 026-8 failed.");
+      } else {
+        throw Exceptions.sneakyThrow(_t_1);
+      }
+    }
+    return null;
+  }
   
   private static BasicEMap<String,Type> generatedTypes = new Function0<BasicEMap<String,Type>>() {
     public BasicEMap<String,Type> apply() {
@@ -91,7 +142,7 @@ public class UMLMapping {
   
   public static org.eclipse.uml2.uml.Package loadPackage(final URI uri) throws Exception {
     try {
-      Resource resource = UMLMapping.resourceSet.getResource(uri, true);
+      Resource resource = TransformServiceImpl.resourceSet.getResource(uri, true);
       EList<EObject> _contents = resource.getContents();
       Object _objectByType = EcoreUtil.getObjectByType(_contents, Literals.PACKAGE);
       return ((org.eclipse.uml2.uml.Package) _objectByType);
@@ -147,25 +198,22 @@ public class UMLMapping {
   }
   
   public static void main(final String[] args) {
-    final Model umlModel = UMLMapping.createUMLModel();
+    final Model umlModel = TransformServiceImpl.createUMLModel();
     umlModel.setName("DataDictionary");
-    org.eclipse.uml2.uml.Package package267 = umlModel.createNestedPackage("Subset-026-7");
-    org.eclipse.uml2.uml.Package package268 = umlModel.createNestedPackage("Subset-026-8");
     Map<String,Object> _extensionToFactoryMap = Registry.INSTANCE.getExtensionToFactoryMap();
     _extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, Factory.INSTANCE);
     Map<String,Object> _extensionToFactoryMap_1 = Registry.INSTANCE.getExtensionToFactoryMap();
     Subset0267ResourceFactoryImpl _subset0267ResourceFactoryImpl = new Subset0267ResourceFactoryImpl();
     _extensionToFactoryMap_1.put("xml", _subset0267ResourceFactoryImpl);
-    UMLMapping.transformSubset267(package267, "models/Subset_026_7.xml");
+    TransformServiceImpl.transformSubset267(umlModel, "Subset-026-7", "models/Subset_026_7.xml");
     Map<String,Object> _extensionToFactoryMap_2 = Registry.INSTANCE.getExtensionToFactoryMap();
     Subset0268ResourceFactoryImpl _subset0268ResourceFactoryImpl = new Subset0268ResourceFactoryImpl();
     _extensionToFactoryMap_2.put("xml", _subset0268ResourceFactoryImpl);
-    UMLMapping.transformSubset268(package268, "models/Subset_026_8.xml");
-    UMLMapping.save(umlModel);
+    TransformServiceImpl.transformSubset268(umlModel, "Subset-026-8", "models/Subset_026_8.xml");
   }
   
-  public static void transformSubset268(final org.eclipse.uml2.uml.Package pkg, final String file) {
-    final DocumentRoot dictionary = UMLMapping.getDatadictionary268(file);
+  public static Object transformSubset268(final Model umlModel, final String subset_name, final String file) {
+    return null;
   }
   
   public static DocumentRoot getDatadictionary268(final String file) {
@@ -178,8 +226,9 @@ public class UMLMapping {
     return ((DocumentRoot) model);
   }
   
-  public static void transformSubset267(final org.eclipse.uml2.uml.Package pkg, final String file) {
-    final Subset0267.DocumentRoot dictionary = UMLMapping.getDatadictionary267(file);
+  public static void transformSubset267(final Model umlModel, final String subset_name, final String file) {
+    final Subset0267.DocumentRoot dictionary = TransformServiceImpl.getDatadictionary267(file);
+    org.eclipse.uml2.uml.Package pkg = umlModel.createNestedPackage(subset_name);
     TDefinitions _definitions = dictionary.getDefinitions();
     TVardefVar _varDef = _definitions.getVarDef();
     EList<TVariable> _variable = _varDef.getVariable();
@@ -199,86 +248,86 @@ public class UMLMapping {
       }
       if (_or) {
         String _name = v.getName();
-        String _identifier = UMLMapping.identifier(_name);
-        PrimitiveType primitiveType = pkg.createOwnedPrimitiveType(_identifier);
+        String _type_identifier = TransformServiceImpl.type_identifier(_name);
+        PrimitiveType primitiveType = pkg.createOwnedPrimitiveType(_type_identifier);
         String _detailedName = v.getDetailedName();
-        boolean _isValid = UMLMapping.isValid(_detailedName);
+        boolean _isValid = TransformServiceImpl.isValid(_detailedName);
         if (_isValid) {
           String _detailedName_1 = v.getDetailedName();
           String _plus = ("DetailedName = " + _detailedName_1);
-          UMLMapping.addComment(primitiveType, _plus);
+          TransformServiceImpl.addComment(primitiveType, _plus);
         }
         String _description = v.getDescription();
-        boolean _isValid_1 = UMLMapping.isValid(_description);
+        boolean _isValid_1 = TransformServiceImpl.isValid(_description);
         if (_isValid_1) {
           String _description_1 = v.getDescription();
           String _plus_1 = ("Description = " + _description_1);
-          UMLMapping.addComment(primitiveType, _plus_1);
+          TransformServiceImpl.addComment(primitiveType, _plus_1);
         }
         SpecsType specs = v.getSpecs();
         TVarLen _length_1 = specs.getLength();
         String _string = _length_1.toString();
         String _plus_2 = ("Length = " + _string);
-        UMLMapping.addComment(primitiveType, _plus_2);
+        TransformServiceImpl.addComment(primitiveType, _plus_2);
         boolean _isSetMinVal = specs.isSetMinVal();
         if (_isSetMinVal) {
           TMinVal _minVal = specs.getMinVal();
           String _string_1 = _minVal.toString();
           String _plus_3 = ("MinVal = " + _string_1);
-          UMLMapping.addComment(primitiveType, _plus_3);
+          TransformServiceImpl.addComment(primitiveType, _plus_3);
         }
         boolean _isSetMaxVal = specs.isSetMaxVal();
         if (_isSetMaxVal) {
           TMaxVal _maxVal = specs.getMaxVal();
           String _string_2 = _maxVal.toString();
           String _plus_4 = ("MaxVal = " + _string_2);
-          UMLMapping.addComment(primitiveType, _plus_4);
+          TransformServiceImpl.addComment(primitiveType, _plus_4);
         }
         boolean _isSetFormula = specs.isSetFormula();
         if (_isSetFormula) {
           TFormula _formula = specs.getFormula();
           String _string_3 = _formula.toString();
           String _plus_5 = ("Formula = " + _string_3);
-          UMLMapping.addComment(primitiveType, _plus_5);
+          TransformServiceImpl.addComment(primitiveType, _plus_5);
         }
         String _name_1 = primitiveType.getName();
-        UMLMapping.generatedTypes.put(_name_1, primitiveType);
+        TransformServiceImpl.generatedTypes.put(_name_1, primitiveType);
       } else {
         String _name_2 = v.getName();
-        String _identifier_1 = UMLMapping.identifier(_name_2);
-        Enumeration enumeratedType = pkg.createOwnedEnumeration(_identifier_1);
+        String _type_identifier_1 = TransformServiceImpl.type_identifier(_name_2);
+        Enumeration enumeratedType = pkg.createOwnedEnumeration(_type_identifier_1);
         String _detailedName_2 = v.getDetailedName();
-        boolean _isValid_2 = UMLMapping.isValid(_detailedName_2);
+        boolean _isValid_2 = TransformServiceImpl.isValid(_detailedName_2);
         if (_isValid_2) {
           String _detailedName_3 = v.getDetailedName();
           String _plus_6 = ("DetailedName = " + _detailedName_3);
-          UMLMapping.addComment(enumeratedType, _plus_6);
+          TransformServiceImpl.addComment(enumeratedType, _plus_6);
         }
         String _description_2 = v.getDescription();
-        boolean _isValid_3 = UMLMapping.isValid(_description_2);
+        boolean _isValid_3 = TransformServiceImpl.isValid(_description_2);
         if (_isValid_3) {
           String _description_3 = v.getDescription();
           String _plus_7 = ("Description = " + _description_3);
-          UMLMapping.addComment(enumeratedType, _plus_7);
+          TransformServiceImpl.addComment(enumeratedType, _plus_7);
         }
         String _name_3 = enumeratedType.getName();
-        UMLMapping.generatedTypes.put(_name_3, enumeratedType);
+        TransformServiceImpl.generatedTypes.put(_name_3, enumeratedType);
         SpecsType _specs_2 = v.getSpecs();
         EList<SpecialType> _special_2 = _specs_2.getSpecial();
         for (final SpecialType s : _special_2) {
           String _description_4 = s.getDescription();
-          boolean _isValidName = UMLMapping.isValidName(_description_4);
+          boolean _isValidName = TransformServiceImpl.isValidName(_description_4);
           if (_isValidName) {
             String _description_5 = s.getDescription();
-            String _identifier_2 = UMLMapping.identifier(_description_5);
-            EnumerationLiteral literal = enumeratedType.createOwnedLiteral(_identifier_2);
+            String _identifier = TransformServiceImpl.identifier(_description_5);
+            EnumerationLiteral literal = enumeratedType.createOwnedLiteral(_identifier);
             String _description_6 = s.getDescription();
             String _plus_8 = ("Description = " + _description_6);
-            UMLMapping.addComment(literal, _plus_8);
+            TransformServiceImpl.addComment(literal, _plus_8);
             TValue _value = s.getValue();
             String _string_4 = _value.toString();
             String _plus_9 = ("Value = " + _string_4);
-            UMLMapping.addComment(literal, _plus_9);
+            TransformServiceImpl.addComment(literal, _plus_9);
           }
         }
       }
@@ -295,25 +344,27 @@ public class UMLMapping {
     for (final TPacket v_1 : _plus_10) {
       {
         String _name_4 = v_1.getName();
-        String typeName = UMLMapping.identifier(_name_4);
-        DataType dataType = UMLMapping.createDataType(pkg, typeName);
+        String typeName = TransformServiceImpl.type_identifier(_name_4);
+        String _name_5 = v_1.getName();
+        String typePrefix = TransformServiceImpl.identifier(_name_5);
+        DataType dataType = TransformServiceImpl.createDataType(pkg, typeName);
         String _description_7 = v_1.getDescription();
-        boolean _isValid_4 = UMLMapping.isValid(_description_7);
+        boolean _isValid_4 = TransformServiceImpl.isValid(_description_7);
         if (_isValid_4) {
           String _description_8 = v_1.getDescription();
-          UMLMapping.addComment(dataType, _description_8);
+          TransformServiceImpl.addComment(dataType, _description_8);
         }
         TIDNumber _number = v_1.getNumber();
         String _string_5 = _number.toString();
         String _plus_11 = ("Number = " + _string_5);
-        UMLMapping.addComment(dataType, _plus_11);
+        TransformServiceImpl.addComment(dataType, _plus_11);
         TTransmissionMedia _transmissionMedia = v_1.getTransmissionMedia();
         String _string_6 = _transmissionMedia.toString();
         String _plus_12 = ("TransmissionMedia = " + _string_6);
-        UMLMapping.addComment(dataType, _plus_12);
+        TransformServiceImpl.addComment(dataType, _plus_12);
         TContent _content = v_1.getContent();
         FeatureMap _group = _content.getGroup();
-        UMLMapping.createContent(pkg, dataType, _group, typeName, null);
+        TransformServiceImpl.createContent(pkg, dataType, _group, typePrefix, null);
       }
     }
   }
@@ -336,14 +387,16 @@ public class UMLMapping {
             boolean _notEquals = (!Objects.equal(_name, skip));
             if (_notEquals) {
               String _name_1 = _tTlgVar.getName();
+              String _identifier = TransformServiceImpl.identifier(_name_1);
               String _name_2 = _tTlgVar.getName();
-              Type _get = UMLMapping.generatedTypes.get(_name_2);
+              String _type_identifier = TransformServiceImpl.type_identifier(_name_2);
+              Type _get = TransformServiceImpl.generatedTypes.get(_type_identifier);
               String _comment = _tTlgVar.getComment();
-              Property attr = UMLMapping.createAttribute(type, _name_1, _get, _comment);
+              Property attr = TransformServiceImpl.createAttribute(type, _identifier, _get, _comment);
               TLength _length = _tTlgVar.getLength();
               String _string = _length.toString();
               String _plus = ("Length = " + _string);
-              UMLMapping.addComment(attr, _plus);
+              TransformServiceImpl.addComment(attr, _plus);
             }
           }
         }
@@ -355,13 +408,13 @@ public class UMLMapping {
             dyn_cpt = _plus;
             String _string = Integer.valueOf(dyn_cpt).toString();
             String loop_name = ("DStruct" + _string);
-            String _plus_1 = (prefix + "_");
-            String loop_type_name = (_plus_1 + loop_name);
+            String loop_type_prefix = TransformServiceImpl.type_extend(prefix, loop_name);
+            String loop_type_name = TransformServiceImpl.type_identifier(loop_type_prefix);
             FeatureMap _group = _tLoopDoWhile.getGroup();
-            DataType loop_type = UMLMapping.createLoop(pkg, loop_type_name, _group);
-            UMLMapping.generatedTypes.put(loop_type_name, loop_type);
+            DataType loop_type = TransformServiceImpl.createLoop(pkg, loop_type_prefix, _group);
+            TransformServiceImpl.generatedTypes.put(loop_type_name, loop_type);
             Property attr = type.createOwnedAttribute(loop_name, loop_type);
-            UMLMapping.addComment(attr, "Dynamic field header");
+            TransformServiceImpl.addComment(attr, "Dynamic field header");
           }
         }
         if (!_matched) {
@@ -372,13 +425,13 @@ public class UMLMapping {
             dyn_cpt = _plus;
             String _string = Integer.valueOf(dyn_cpt).toString();
             String loop_name = ("DStruct" + _string);
-            String _plus_1 = (prefix + "_");
-            String loop_type_name = (_plus_1 + loop_name);
+            String loop_type_prefix = TransformServiceImpl.type_extend(prefix, loop_name);
+            String loop_type_name = TransformServiceImpl.type_identifier(loop_type_prefix);
             FeatureMap _group = _tLoopWhile.getGroup();
-            DataType loop_type = UMLMapping.createLoop(pkg, loop_type_name, _group);
-            UMLMapping.generatedTypes.put(loop_type_name, loop_type);
+            DataType loop_type = TransformServiceImpl.createLoop(pkg, loop_type_prefix, _group);
+            TransformServiceImpl.generatedTypes.put(loop_type_name, loop_type);
             Property attr = type.createOwnedAttribute(loop_name, loop_type);
-            UMLMapping.addComment(attr, "Dynamic field header");
+            TransformServiceImpl.addComment(attr, "Dynamic field header");
           }
         }
         if (!_matched) {
@@ -389,21 +442,21 @@ public class UMLMapping {
             con_cpt = _plus;
             String _string = Integer.valueOf(con_cpt).toString();
             String con_name = ("CStruct" + _string);
-            String _plus_1 = (prefix + "_");
-            String con_type_name = (_plus_1 + con_name);
-            DataType con_type = UMLMapping.createDataType(pkg, con_type_name);
-            UMLMapping.addComment(con_type, "Conditional field");
-            UMLMapping.generatedTypes.put(con_type_name, type);
+            String con_type_prefix = TransformServiceImpl.type_extend(prefix, con_name);
+            String con_type_name = TransformServiceImpl.type_identifier(con_type_prefix);
+            DataType con_type = TransformServiceImpl.createDataType(pkg, con_type_name);
+            TransformServiceImpl.addComment(con_type, "Conditional field");
+            TransformServiceImpl.generatedTypes.put(con_type_name, type);
             Property attr = type.createOwnedAttribute(con_name, con_type);
-            UMLMapping.addComment(attr, "Conditional field");
+            TransformServiceImpl.addComment(attr, "Conditional field");
             EList<String> _condition = _tConditional.getCondition();
             String _string_1 = _condition.toString();
-            String _plus_2 = ("Condition = " + _string_1);
-            UMLMapping.addComment(attr, _plus_2);
+            String _plus_1 = ("Condition = " + _string_1);
+            TransformServiceImpl.addComment(attr, _plus_1);
             EList<TVariables> _variables = _tConditional.getVariables();
             for (final TVariables evar : _variables) {
               FeatureMap _group = evar.getGroup();
-              UMLMapping.createContent(pkg, con_type, _group, con_type_name, null);
+              TransformServiceImpl.createContent(pkg, con_type, _group, con_type_prefix, null);
             }
           }
         }
@@ -413,10 +466,11 @@ public class UMLMapping {
     }
   }
   
-  public static DataType createLoop(final org.eclipse.uml2.uml.Package pkg, final String loop_type_name, final FeatureMap fmap) {
-    DataType type = UMLMapping.createDataType(pkg, loop_type_name);
-    UMLMapping.addComment(type, "Dynamic block header");
-    UMLMapping.generatedTypes.put(loop_type_name, type);
+  public static DataType createLoop(final org.eclipse.uml2.uml.Package pkg, final String loop_type_prefix, final FeatureMap fmap) {
+    String type_id = TransformServiceImpl.type_identifier(loop_type_prefix);
+    DataType type = TransformServiceImpl.createDataType(pkg, type_id);
+    TransformServiceImpl.addComment(type, "Dynamic block header");
+    TransformServiceImpl.generatedTypes.put(type_id, type);
     ValueListIterator<Object> iter = fmap.valueListIterator();
     boolean break_ = false;
     boolean _and = false;
@@ -441,26 +495,28 @@ public class UMLMapping {
             if (_startsWith) {
               break_ = true;
               String _name_1 = _tTlgVar.getName();
-              Type _get = UMLMapping.generatedTypes.get("N_ITER");
+              String _type_identifier = TransformServiceImpl.type_identifier("N_ITER");
+              Type _get = TransformServiceImpl.generatedTypes.get(_type_identifier);
               Property attr = type.createOwnedAttribute(_name_1, _get);
               String _comment = _tTlgVar.getComment();
-              boolean _isValid = UMLMapping.isValid(_comment);
+              boolean _isValid = TransformServiceImpl.isValid(_comment);
               if (_isValid) {
                 String _comment_1 = _tTlgVar.getComment();
-                UMLMapping.addComment(attr, _comment_1);
+                TransformServiceImpl.addComment(attr, _comment_1);
               }
               TLength _length = _tTlgVar.getLength();
               String _string = _length.toString();
               String _plus = ("Length = " + _string);
-              UMLMapping.addComment(attr, _plus);
-              String body_name = (loop_type_name + "_Body");
-              DataType body_type = UMLMapping.createDataType(pkg, body_name);
-              UMLMapping.addComment(body_type, "Dynamic field body");
+              TransformServiceImpl.addComment(attr, _plus);
+              String body_prefix = TransformServiceImpl.type_extend(loop_type_prefix, "Body");
+              String body_type_name = TransformServiceImpl.type_identifier(body_prefix);
+              DataType body_type = TransformServiceImpl.createDataType(pkg, body_type_name);
+              TransformServiceImpl.addComment(body_type, "Dynamic field body");
               Property body_attr = type.createOwnedAttribute("body", body_type, 33, 33);
-              UMLMapping.addComment(body_attr, "Dynamic field body");
-              UMLMapping.generatedTypes.put(body_name, body_type);
+              TransformServiceImpl.addComment(body_attr, "Dynamic field body");
+              TransformServiceImpl.generatedTypes.put(body_type_name, body_type);
               String _name_2 = _tTlgVar.getName();
-              UMLMapping.createContent(pkg, body_type, fmap, body_name, _name_2);
+              TransformServiceImpl.createContent(pkg, body_type, fmap, body_prefix, _name_2);
             }
           }
         }
@@ -478,16 +534,31 @@ public class UMLMapping {
     return type;
   }
   
-  public static Object createConditional(final org.eclipse.uml2.uml.Package pkg, final String con_type_name, final FeatureMap fmap) {
-    return null;
+  public static String identifier(final String str) {
+    String tmp = str;
+    int opar = str.indexOf("(");
+    int _minus = (-1);
+    boolean _notEquals = (opar != _minus);
+    if (_notEquals) {
+      String _substring = str.substring(0, opar);
+      tmp = _substring;
+    }
+    return tmp.replaceAll("\\W", "_");
   }
   
-  public static String identifier(final String str) {
-    return str.replaceAll("\\W", "_");
+  public static String type_extend(final String str1, final String str2) {
+    String _plus = (str1 + "_");
+    return (_plus + str2);
+  }
+  
+  public static String type_identifier(final String str) {
+    String _identifier = TransformServiceImpl.identifier(str);
+    String _replaceAll = _identifier.replaceAll("\\W", "_");
+    return (_replaceAll + "_t");
   }
   
   public static boolean isValidName(final String name) {
-    for (final String i : UMLMapping.invalidNames) {
+    for (final String i : TransformServiceImpl.invalidNames) {
       boolean _equalsIgnoreCase = name.equalsIgnoreCase(i);
       if (_equalsIgnoreCase) {
         return false;
@@ -510,19 +581,19 @@ public class UMLMapping {
   
   public static Property createAttribute(final DataType dataType, final String name, final Type type, final String comment) {
     Property attribute = dataType.createOwnedAttribute(name, type);
-    UMLMapping.addComment(attribute, comment);
+    TransformServiceImpl.addComment(attribute, comment);
     return attribute;
   }
   
   public static Enumeration createEnumeratedType(final org.eclipse.uml2.uml.Package pkg, final String name, final String comment) {
     Enumeration enumeratedType = pkg.createOwnedEnumeration(name);
-    UMLMapping.addComment(enumeratedType, comment);
+    TransformServiceImpl.addComment(enumeratedType, comment);
     return enumeratedType;
   }
   
   public static PrimitiveType createPrimitiveType(final org.eclipse.uml2.uml.Package pkg, final String name, final String comment) {
     PrimitiveType primitiveType = pkg.createOwnedPrimitiveType(name);
-    UMLMapping.addComment(primitiveType, comment);
+    TransformServiceImpl.addComment(primitiveType, comment);
     return primitiveType;
   }
   
@@ -563,10 +634,10 @@ public class UMLMapping {
     return UMLFactory.eINSTANCE.createModel();
   }
   
-  public static void save(final Model model) {
+  public static void save(final Model model, final String output) {
     ResourceSetImpl _resourceSetImpl = new ResourceSetImpl();
     final ResourceSetImpl resourceSet = _resourceSetImpl;
-    URI _createURI = URI.createURI("generated/models/DataDictionary.library.uml");
+    URI _createURI = URI.createURI(output);
     final Resource res = resourceSet.createResource(_createURI);
     EList<EObject> _contents = res.getContents();
     _contents.add(model);

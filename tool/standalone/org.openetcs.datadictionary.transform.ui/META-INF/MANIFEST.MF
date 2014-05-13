@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Data Dictionary UI Contributions.
+Bundle-SymbolicName: org.openetcs.datadictionary.transform.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.openetcs.datadictionary.transform.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.filesystem
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.openetcs.datadictionary.transform
+Bundle-Vendor: LAAS-CNRS
