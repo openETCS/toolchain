@@ -9,14 +9,42 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1039.6456"
-   height="1186.3374"
+   width="1132.8519"
+   height="1214.6367"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="toolchain_lifecycle.pdf">
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="toolchain_lifecycle.svg">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lstart"
+       style="overflow:visible">
+      <path
+         id="path4955"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(1.1,0,0,1.1,1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4940"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
     <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
@@ -95,14 +123,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98302629"
-     inkscape:cx="467.52101"
-     inkscape:cy="462.96065"
+     inkscape:zoom="1.6054183"
+     inkscape:cx="530.97129"
+     inkscape:cy="803.06958"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1144"
+     inkscape:window-height="1145"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -120,8 +148,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="0.050789238px"
-       originy="0.050776956px" />
+       originx="1.0414111px"
+       originy="0.050746782px" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -139,7 +167,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(7.8807151,-15.77275)">
+     transform="translate(8.8713315,12.526637)">
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
@@ -152,170 +180,61 @@
          x="75.966698"
          y="86.021111" /></text>
     <g
-       id="g4546"
-       transform="translate(277.00338,5.9004775)">
+       id="g11083"
+       transform="translate(55.214879,-34.439711)">
       <text
          sodipodi:linespacing="125%"
          id="text3755"
-         y="110.59858"
-         x="119.95183"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         y="116.49905"
+         x="396.9552"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           y="110.59858"
-           x="119.95183"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="116.49905"
+           x="396.9552"
            id="tspan3757"
            sodipodi:role="line">WP2 Requirements</tspan></text>
       <text
          sodipodi:linespacing="125%"
          id="text3759"
-         y="136.2932"
-         x="160.13588"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         y="142.19368"
+         x="437.13925"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           y="136.2932"
-           x="160.13588"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="142.19368"
+           x="437.13925"
            id="tspan3761"
            sodipodi:role="line">D2.6-9</tspan></text>
       <g
-         transform="matrix(1.3154679,0,0,0.97023039,-2.7079096,-17.04236)"
-         id="g3797">
-        <g
-           id="g3773">
-          <rect
-             ry="7.5"
-             rx="7.5"
-             y="65.912285"
-             x="49.154922"
-             height="111.71573"
-             width="182.09663"
-             id="rect2985"
-             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-        </g>
-        <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 48.037764,101.66131 182.096646,0"
-           id="path3763"
-           inkscape:connector-curvature="0" />
+         transform="matrix(1.3154679,0,0,0.97023039,274.29547,-11.141882)"
+         id="g3773">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect2985"
+           width="182.09663"
+           height="111.71573"
+           x="49.154922"
+           y="65.912285"
+           rx="7.5"
+           ry="7.5" />
       </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763"
+         d="m 338.92624,87.49301 239.54229,0"
+         style="fill:none;stroke:#000000;stroke-width:1.1297375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          sodipodi:linespacing="125%"
          id="text3769"
-         y="69.263748"
-         x="78.165657"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         y="75.164223"
+         x="355.16904"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
-           y="69.263748"
-           x="78.165657"
+           y="75.164223"
+           x="355.16904"
            id="tspan3771"
-           sodipodi:role="line">OpenETCS System requirements</tspan></text>
-    </g>
-    <g
-       id="g4558"
-       transform="translate(-49.023377,202.99453)">
-      <g
-         id="g3797-1"
-         transform="matrix(1.2972678,0,0,1,309.87803,-23.460307)">
-        <g
-           id="g3773-5">
-          <rect
-             ry="7.5"
-             rx="7.5"
-             y="65.912285"
-             x="49.154922"
-             height="111.71573"
-             width="182.09663"
-             id="rect2985-4"
-             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-        </g>
-        <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 48.037764,101.66131 182.096646,0"
-           id="path3763-0"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3829"
-         y="68.146568"
-         x="380.83218"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="68.146568"
-           x="380.83218"
-           id="tspan3831"
-           sodipodi:role="line">OpenETCs Software Requirements </tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3852"
-         y="131.82455"
-         x="443.83591"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           id="tspan3860"
-           y="131.82455"
-           x="443.83591"
-           sodipodi:role="line">D2.3 D2.4 D2.5</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3755-5"
-         y="106.63546"
-         x="429.99591"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           y="106.63546"
-           x="429.99591"
-           id="tspan3757-7"
-           sodipodi:role="line">WP2 Requirements</tspan></text>
-    </g>
-    <g
-       id="g5008"
-       transform="translate(-0.78994951,-7.1095456)">
-      <g
-         id="g3797-2"
-         transform="matrix(1.4609366,0,0,0.97071464,-26.328077,189.565)">
-        <g
-           id="g3773-9">
-          <rect
-             ry="7.5"
-             rx="7.5"
-             y="65.912285"
-             x="49.154922"
-             height="111.71573"
-             width="182.09663"
-             id="rect2985-2"
-             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-        </g>
-        <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 48.037764,101.66131 182.096646,0"
-           id="path3763-7"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3980"
-         y="274.375"
-         x="56.066788"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="274.375"
-           x="56.066788"
-           id="tspan3982"
-           sodipodi:role="line">OpenETCS Tool chain Design Selection</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3984"
-         y="317.94415"
-         x="163.00458"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="317.94415"
-           x="163.00458"
-           id="tspan3986"
-           sodipodi:role="line">D7.1</tspan></text>
+           sodipodi:role="line">OpenETCS System Requirements</tspan></text>
     </g>
     <text
        xml:space="preserve"
@@ -329,104 +248,106 @@
          y="311.68689"
          id="tspan4197" /></text>
     <g
-       id="g4776"
-       transform="translate(48.033785,171.49349)">
+       id="g11233"
+       transform="translate(-10,1.8071887e-7)">
       <g
-         id="g3797-2-8"
-         transform="matrix(1.3215346,0,0,1.0198464,214.88323,136.1108)">
-        <g
-           id="g3773-9-7">
-          <rect
-             ry="7.5"
-             rx="7.5"
-             y="65.912285"
-             x="49.154922"
-             height="111.71573"
-             width="182.09663"
-             id="rect2985-2-2"
-             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-        </g>
+         transform="translate(250,39.999988)"
+         id="g7376">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:1.03511083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect2985-2-2"
+           width="248.17729"
+           height="117.49805"
+           x="320.33093"
+           y="374.84039"
+           rx="10.22166"
+           ry="7.8881946" />
         <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 48.037764,101.66131 182.096646,0"
+           style="fill:none;stroke:#000000;stroke-width:1.19725943px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 320.24701,411.00114 248.17731,0"
            id="path3763-7-6"
            inkscape:connector-curvature="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           x="340.96423"
+           y="399.39362"
+           id="text4015"
+           sodipodi:linespacing="125%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+             sodipodi:role="line"
+             id="tspan4017"
+             x="340.96423"
+             y="399.39362">OpenETCS Components Selection</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           x="402.17007"
+           y="482.05939"
+           id="text4019"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4021"
+             x="402.17007"
+             y="482.05939">D7.1, D7.2</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           x="372.17007"
+           y="432.05939"
+           id="text4219"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4221"
+             x="372.17007"
+             y="432.05939">Design &amp; Model Tools, </tspan><tspan
+             sodipodi:role="line"
+             x="372.17007"
+             y="449.55939"
+             id="tspan4223">Tool platform selection</tspan><tspan
+             sodipodi:role="line"
+             x="372.17007"
+             y="467.05939"
+             id="tspan4227">Secondary Tools</tspan></text>
       </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text4015"
-         y="227.90013"
-         x="292.93045"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="227.90013"
-           x="292.93045"
-           id="tspan4017"
-           sodipodi:role="line">OpenETCS Components Selection</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text4019"
-         y="307.2182"
-         x="366.74194"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="307.2182"
-           x="366.74194"
-           id="tspan4021"
-           sodipodi:role="line">D7.1, D7.2</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text4219"
-         y="255.82903"
-         x="322.12515"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="255.82903"
-           x="322.12515"
-           id="tspan4221"
-           sodipodi:role="line">- Design &amp; Model Tools, </tspan><tspan
-           id="tspan4223"
-           y="273.32904"
-           x="322.12515"
-           sodipodi:role="line">- Tool platform selection</tspan><tspan
-           id="tspan4227"
-           y="290.82904"
-           x="322.12515"
-           sodipodi:role="line">- Secondary Tools</tspan></text>
     </g>
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="378.01929"
-       y="858.15857"
-       id="text4243"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4245"
-         x="378.01929"
-         y="858.15857">Features request or Bug report</tspan><tspan
-         sodipodi:role="line"
-         x="378.01929"
-         y="875.65857"
-         id="tspan4291">from WP3/WP4 and users</tspan></text>
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:0.88985389;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect4259"
-       width="251.3604"
-       height="59.173122"
-       x="351.42694"
-       y="832.05939"
-       rx="7.5"
-       ry="7.9451375" />
+    <g
+       id="g12750"
+       transform="translate(-77.105408,33.305957)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4243"
+         y="848.75342"
+         x="509.27548"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="848.75342"
+           x="509.27548"
+           id="tspan4245"
+           sodipodi:role="line">Features request or Bug report</tspan><tspan
+           id="tspan4291"
+           y="866.25342"
+           x="509.27548"
+           sodipodi:role="line">from WP3/WP4 and users</tspan></text>
+      <rect
+         ry="7.9451375"
+         rx="7.5"
+         y="822.65424"
+         x="482.68314"
+         height="59.173122"
+         width="251.3604"
+         id="rect4259"
+         style="fill:none;stroke:#000000;stroke-width:0.88985389;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
     <g
        id="g4309"
-       transform="translate(-317.22803,164.61783)">
+       transform="translate(-235.98002,147.64618)">
       <text
          sodipodi:linespacing="125%"
          id="text4255"
          y="966.34106"
          x="484.84628"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="966.34106"
            x="484.84628"
@@ -444,13 +365,13 @@
     </g>
     <g
        id="g4870"
-       transform="translate(-126.19411,297.84024)">
+       transform="translate(-44.9461,280.86859)">
       <text
          sodipodi:linespacing="125%"
          id="text4251"
          y="710.33746"
          x="274.00653"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="710.33746"
            x="274.00653"
@@ -472,13 +393,13 @@
     </g>
     <g
        id="g4298"
-       transform="translate(-37.938714,162.9449)">
+       transform="translate(43.309295,145.97325)">
       <text
          sodipodi:linespacing="125%"
          id="text4231"
          y="676.08612"
          x="188.86078"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="676.08612"
            x="188.86078"
@@ -494,32 +415,39 @@
          id="rect4271"
          style="fill:none;stroke:#000000;stroke-width:0.81862718;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
     </g>
-    <g
-       id="g4293"
-       transform="translate(-335.10255,66.565445)">
-      <text
-         sodipodi:linespacing="125%"
-         id="text4247"
-         y="857.64514"
-         x="474.29294"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-         xml:space="preserve"><tspan
-           y="857.64514"
-           x="474.29294"
-           id="tspan4249"
-           sodipodi:role="line">Select task for Sprint</tspan></text>
-      <rect
-         inkscape:transform-center-y="-43.913848"
-         inkscape:transform-center-x="-27.543783"
-         ry="6.5514255"
-         rx="0"
-         y="830.57538"
-         x="463.03064"
-         height="45.865562"
-         width="155.34698"
-         id="rect4271-8"
-         style="fill:none;stroke:#000000;stroke-width:0.80245477;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="222.17007"
+       y="912.05939"
+       id="text4247"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4249"
+         x="222.17007"
+         y="912.05939">Select tasks for Sprint</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.80245477;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4271-8"
+       width="155.34698"
+       height="45.865562"
+       x="210.90778"
+       y="884.98962"
+       rx="0"
+       ry="6.5514255"
+       inkscape:transform-center-x="-27.543783"
+       inkscape:transform-center-y="-43.913848" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path12345"
+       d="m 285.42611,522.35545 0,20.29543 -141.88223,0 0,50.7386"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path12347"
+       d="m 362.20817,522.09748 0,18.37716 74.35431,0 0,55.13146"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       sodipodi:nodetypes="cccc" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
@@ -533,26 +461,26 @@
          y="712.74634" /></text>
     <g
        id="g4800"
-       transform="translate(-105.97514,10.507529)">
+       transform="translate(-86.335175,-101.34324)">
       <text
          sodipodi:linespacing="125%"
          id="text4319"
          y="423.40262"
          x="218.50525"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="423.40262"
            x="218.50525"
            id="tspan4321"
-           sodipodi:role="line">- Development Plan</tspan><tspan
+           sodipodi:role="line"> Development Plan</tspan><tspan
            id="tspan4370"
            y="440.90262"
            x="218.50525"
-           sodipodi:role="line">- Roadmap Defintion</tspan><tspan
+           sodipodi:role="line"> Roadmap Defintion</tspan><tspan
            id="tspan4372"
            y="458.40262"
            x="218.50525"
-           sodipodi:role="line">- Overview diagram</tspan></text>
+           sodipodi:role="line"> Overview diagram</tspan></text>
       <g
          id="g3797-2-8-2"
          transform="matrix(1.3640014,0,0,0.96030718,93.328615,301.99725)">
@@ -579,7 +507,7 @@
          id="text4374"
          y="389.88797"
          x="176.5687"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="389.88797"
            x="176.5687"
@@ -587,61 +515,75 @@
            sodipodi:role="line">OpenETCS Development planning</tspan></text>
     </g>
     <g
-       id="g4790"
-       transform="translate(64.046046,103.81623)">
+       id="g11106"
+       transform="translate(140.00003,-95.000012)">
       <text
          sodipodi:linespacing="125%"
          id="text4235"
-         y="313.92123"
-         x="554.96362"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         y="397.05939"
+         x="622.17004"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
          xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
            id="tspan4239"
-           y="313.92123"
-           x="554.96362"
-           sodipodi:role="line">Definition of the test lab</tspan></text>
+           y="397.05939"
+           x="622.17004"
+           sodipodi:role="line">Definition of the test lab</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="414.55939"
+           x="622.17004"
+           sodipodi:role="line"
+           id="tspan7119">Definition of Tests </tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="432.05939"
+           x="622.17004"
+           sodipodi:role="line"
+           id="tspan7121">   - for each Tools</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="449.55939"
+           x="622.17004"
+           sodipodi:role="line"
+           id="tspan7123">   - for tool integration</tspan></text>
       <g
-         id="g3797-2-8-2-3"
-         transform="matrix(1.2669344,0,0,0.9900768,456.55047,174.9263)">
-        <g
-           id="g3773-9-7-4-9">
-          <rect
-             ry="7.5"
-             rx="7.5"
-             y="65.912285"
-             x="49.154922"
-             height="111.71573"
-             width="182.09663"
-             id="rect2985-2-2-0-8"
-             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-        </g>
-        <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 48.037764,101.66131 182.096646,0"
-           id="path3763-7-6-6-0"
-           inkscape:connector-curvature="0" />
+         transform="matrix(1.2669344,0,0,1.1432679,520.59652,268.25787)"
+         id="g3773-9-7-4-9">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect2985-2-2-0-8"
+           width="182.09663"
+           height="111.71573"
+           x="49.154922"
+           y="65.912285"
+           rx="7.5"
+           ry="7.5" />
       </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-7-6-6-0"
+         d="m 584.33449,372.53774 230.7045,0"
+         style="fill:none;stroke:#000000;stroke-width:1.18659627px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          sodipodi:linespacing="125%"
          id="text4474"
-         y="267.00058"
-         x="535.09552"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         y="362.05939"
+         x="602.17004"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
          xml:space="preserve"><tspan
-           y="267.00058"
-           x="535.09552"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="362.05939"
+           x="602.17004"
            id="tspan4476"
            sodipodi:role="line">OpenETCs Tool chain  Test Plan</tspan></text>
     </g>
     <g
        id="g4903"
-       transform="translate(-9.4291541,345.01684)">
+       transform="translate(73.270752,329.64257)">
       <text
          sodipodi:linespacing="125%"
          id="text4231-9"
          y="662.41681"
          x="398.89932"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="662.41681"
            x="398.89932"
@@ -663,7 +605,7 @@
     </g>
     <g
        id="g4909"
-       transform="translate(-27.012091,363.42924)">
+       transform="matrix(1.0361302,0,0,1.0361302,42.045299,328.84871)">
       <rect
          ry="6.8682642"
          rx="0"
@@ -678,7 +620,7 @@
          id="text4897"
          y="765.55115"
          x="501.98785"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="765.55115"
            x="501.98785"
@@ -692,120 +634,54 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#0000ff;stroke-width:1.88026929;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.88026921, 3.76053842;stroke-dashoffset:0;marker-end:none"
-       d="m -0.73710919,530.4705 1027.51620919,0 -3.5788,1.05002"
+       d="m -4.7371092,559.59324 1027.5162092,0 -3.5788,1.05002"
        id="path4914-0"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="22.170074"
-       y="22.059376"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
+       x="12.17008"
+       y="-17.940638"
        id="text4934"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4936"
-         x="14.462818"
-         y="29.766632"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:#0000ff;stroke-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">SYSTEM PHASE</tspan></text>
+         x="-17.940638"
+         y="12.17008"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:tb-rl;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#0000ff;stroke-opacity:1;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">SYSTEM PHASE</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="22.170074"
-       y="272.05939"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
+       x="12.170074"
+       y="252.05937"
        id="text4934-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4959"
-         style="fill:none;stroke:#0000ff;stroke-opacity:1"
-         x="262.24799"
-         y="31.981451">SOFTWARE PHASE</tspan></text>
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:tb-rl;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#0000ff;stroke-opacity:1;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         x="252.05937"
+         y="12.170074">SOFTWARE PHASE</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:none;stroke:#0000ff;stroke-opacity:1;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="22.170074"
-       y="742.05927"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#0000ff;stroke-opacity:1;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
+       x="12.170074"
+       y="702.05939"
        id="text4934-0-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4982"
-         x="752.05927"
-         y="12.170074">DEVELOPMENT PHASE</tspan></text>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.62292379px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 409.33082,161.80387 170.44056,248.38212"
-       id="path4990"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 180.10848,355.62672 0.78995,21.32864"
-       id="path4996"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.82061851px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 440.00188,358.78652 0,15.95891"
-       id="path4998"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.76205534px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 468.00639,159.70384 -0.20527,85.78547"
-       id="path5018"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#0000ff;stroke-width:1.88000274;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.8800027, 3.76000541;stroke-dashoffset:0;marker-end:none"
-       d="m -6.8407137,1199.92 1027.2249137,0 -3.5777,1.0501"
-       id="path4914-0-9"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
-       d="m 205.60158,858.84021 c 0,37.91758 0,38.70753 0,38.70753"
-       id="path5902"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
-       d="m 205.60158,944.96465 c 0,37.9176 0,38.7076 0,38.7076"
-       id="path5902-8"
-       inkscape:connector-curvature="0"
-       inkscape:transform-center-x="2.25"
-       inkscape:transform-center-y="13.429142" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)"
-       d="m 205.60158,1037.3888 c 0,37.9176 0,70.3055 0,70.3055"
-       id="path5902-0"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 185.63813,485.17844 c 0,103.48338 0,103.48338 0,103.48338"
-       id="path6127"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 444.74157,488.33823 C 267.00293,591.03167 267.00293,591.03167 267.00293,591.03167"
-       id="path6129"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
-       x="748.62823"
-       y="122.76401"
-       id="text3759-0"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3761-5"
-         x="748.62823"
-         y="122.76401"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">D1.3.1</tspan></text>
+         x="702.05939"
+         y="12.170074"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">DEVELOPMENT PHASE</tspan></text>
     <g
-       id="g3797-17"
-       transform="matrix(1.3154679,0,0,0.97023039,590.90707,-16.228216)">
+       id="g11059"
+       transform="translate(72.361831,2.4293705)">
       <g
-         id="g3773-53">
+         transform="matrix(1.3659403,0,0,0.97666295,253.98002,178.41975)"
+         id="g3773-5">
         <rect
            style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-           id="rect2985-5"
+           id="rect2985-4"
            width="182.09663"
            height="111.71573"
            x="49.154922"
@@ -815,66 +691,120 @@
       </g>
       <path
          inkscape:connector-curvature="0"
-         id="path3763-4"
-         d="m 48.037764,101.66131 182.096646,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         id="path3763-0"
+         d="m 323.19919,277.70858 247.30036,0"
+         style="fill:none;stroke:#000000;stroke-width:1.15168512px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3829"
+         y="262.05939"
+         x="337.17007"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="262.05939"
+           x="337.17007"
+           id="tspan3831"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">OpenETCs Software Requirements </tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3852"
+         y="334.81909"
+         x="394.81253"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           id="tspan3860"
+           y="334.81909"
+           x="394.81253"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">D2.3 D2.4 D2.5</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3755-5"
+         y="309.63"
+         x="380.97253"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgMono;-inkscape-font-specification:TlwgMono Medium"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           y="309.63"
+           x="380.97253"
+           id="tspan3757-7"
+           sodipodi:role="line">WP2 Requirements</tspan></text>
     </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 515.4024,127.36492 -0.29233,116.07071"
+       id="path5018"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:1.88000274;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.8800027, 3.76000541;stroke-dashoffset:0;marker-end:none"
+       d="m -6.8407137,1199.92 1027.2249137,0 -3.5777,1.0501"
+       id="path4914-0-9"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 283.54359,842.39489 c 0,40.73117 0,41.57974 0,41.57974"
+       id="path5902"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 284.05198,930.68991 c 0,35.8347 0,36.58131 0,36.58131"
+       id="path5902-8"
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-x="2.2482461"
+       inkscape:transform-center-y="12.703785" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 283.79779,1020.4076 c 0,36.2992 0,67.3047 0,67.3047"
+       id="path5902-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="671.78064"
-       y="70.077888"
-       id="text3769-3"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3771-7"
-         x="671.78064"
-         y="70.077888">OpenETCS Quality Assurance Plan</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="153.68379"
-       y="1182.3405"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="232.17007"
+       y="1182.0593"
        id="text3124"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3126"
-         x="153.68379"
-         y="1182.3405"
-         style="fill:#6600cc;stroke:none">Release procees</tspan></text>
+         x="232.17007"
+         y="1182.0593"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">Release procees</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="454.15094"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="572.1701"
        y="1181.7594"
        id="text3128"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3130"
-         x="454.15094"
+         x="572.1701"
          y="1181.7594"
-         style="fill:#6600cc">Test process</tspan></text>
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">Test process</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="772.17004"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="892.1701"
        y="1182.0604"
        id="text3132"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3134"
-         x="772.17004"
+         x="892.1701"
          y="1182.0604"
-         style="fill:#6600cc">Documentation process</tspan></text>
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#6600cc;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">Documentation process</tspan></text>
     <g
        id="g3166"
-       transform="translate(101.94438,206.19972)">
+       transform="translate(233.20059,196.79456)">
       <text
          sodipodi:linespacing="125%"
          id="text4255-2"
          y="873.71741"
          x="587.12244"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="873.71741"
            x="587.12244"
@@ -892,13 +822,13 @@
     </g>
     <g
        id="g3201"
-       transform="translate(230.82901,352.81355)">
+       transform="translate(362.08522,343.40839)">
       <text
          sodipodi:linespacing="125%"
          id="text4255-2-7"
          y="722.91199"
          x="621.57391"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="722.91199"
            x="621.57391"
@@ -916,23 +846,23 @@
     </g>
     <g
        id="g3166-1"
-       transform="translate(106.54331,107.86589)">
+       transform="translate(237.79952,98.460829)">
       <g
          id="g3235"
          transform="translate(-4.3433286,-12.294287)">
         <text
            xml:space="preserve"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
            x="628.35681"
            y="866.48767"
            id="text4255-2-8"
            sodipodi:linespacing="125%"><tspan
-             style="text-align:center;text-anchor:middle"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
              sodipodi:role="line"
              id="tspan4257-8-8"
-             x="629.97009"
+             x="630.29822"
              y="866.48767">Milestone </tspan><tspan
-             style="text-align:center;text-anchor:middle"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
              id="tspan3233"
              sodipodi:role="line"
              x="628.35681"
@@ -950,13 +880,13 @@
     </g>
     <g
        id="g4790-9"
-       transform="translate(193.27007,549.24188)">
+       transform="translate(324.52628,424.83672)">
       <text
          sodipodi:linespacing="125%"
          id="text4235-9"
          y="302.22266"
          x="547.6438"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            id="tspan4239-5"
            y="302.22266"
@@ -989,7 +919,7 @@
          id="text4474-5"
          y="264.96603"
          x="524.37"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="264.96603"
            x="524.37"
@@ -998,13 +928,13 @@
     </g>
     <g
        id="g4094"
-       transform="translate(80.872711,184.1253)">
+       transform="translate(209.84461,168.0634)">
       <text
          sodipodi:linespacing="125%"
          id="text3288"
          y="794.59082"
          x="753.58167"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
          xml:space="preserve"><tspan
            y="794.59082"
            x="753.58167"
@@ -1021,151 +951,456 @@
          id="rect3292"
          style="fill:none;stroke:#000000" />
     </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 346.05378,1112.3936 c 146.48642,0 150.55549,0 150.55549,0"
+       id="path4209"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.01130271px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 372.53135,994.6967 c 68.6659,0 69.89493,0 69.89493,0"
+       id="path4211"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.79665506px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 522.32163,971.84748 c 0,-57.87207 0,-57.87207 0,-57.87207"
+       id="path4213"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 921.40422,1065.9602 c 51.24665,0 51.24665,0 51.24665,0"
+       id="path4223"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 922.11748,958.24908 c 37.02264,0 37.02264,0 37.02264,0"
+       id="path4225"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 1028.5927,938.77091 0,-159.11637"
+       id="path4227"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 1092.2932,1062.7627 30.9874,0 0,-339.02197 -30.9874,0"
+       id="path4229"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 456.43947,128.12647 0,28.43993 -252.25383,1.34175 0,106.12655"
+       id="path4359"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 582.85676,126.67424 c 0,13.15073 0,30.19161 0,30.19161 l 275.90641,0 0,90.33469"
+       id="path4741"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
     <g
-       id="g4171"
-       transform="translate(-454.71826,-16.276269)">
+       id="g11149"
+       transform="translate(40,27.93589)">
       <g
-         transform="translate(40.095917,366.34906)"
-         id="g4790-9-3">
-        <text
-           xml:space="preserve"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           x="547.6438"
-           y="302.22266"
-           id="text4235-9-4"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="547.6438"
-             y="302.22266"
-             id="tspan4239-5-4">- Feature integration</tspan><tspan
-             id="tspan4163"
-             sodipodi:role="line"
-             x="547.6438"
-             y="319.72266">- Tool Integration</tspan><tspan
-             id="tspan3286-3"
-             sodipodi:role="line"
-             x="547.6438"
-             y="337.22266">- Tools User manual</tspan><tspan
-             id="tspan4165"
-             sodipodi:role="line"
-             x="547.6438"
-             y="354.72266">- Tool/Feature improvement</tspan><tspan
-             id="tspan4167"
-             sodipodi:role="line"
-             x="547.6438"
-             y="372.22266">- Data transformation</tspan><tspan
-             id="tspan4169"
-             sodipodi:role="line"
-             x="547.6438"
-             y="389.72266">- Documentation</tspan></text>
+         transform="matrix(1.4319072,0,0,0.86472715,98.96581,340.35556)"
+         id="g3773-9">
         <rect
-           style="fill:none;stroke:#000000;stroke-width:1.13485181;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-           id="rect2985-2-2-0-8-1-2"
-           width="213.23184"
-           height="164.37856"
-           x="523.05261"
-           y="240.25639"
-           rx="8.7823639"
-           ry="11.035503" />
+           style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect2985-2"
+           width="182.09663"
+           height="111.71573"
+           x="49.154922"
+           y="65.912285"
+           rx="7.5"
+           ry="7.5" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-7"
+         d="m 169.78435,428.26485 259.98577,0"
+         style="fill:none;stroke:#000000;stroke-width:1.11112607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3980"
+         y="418.49023"
+         x="180.23233"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="418.49023"
+           x="180.23233"
+           id="tspan3982"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">OpenETCS Tool chain Design Selection</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3984"
+         y="472.05939"
+         x="282.17007"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="472.05939"
+           x="282.17007"
+           id="tspan3986"
+           sodipodi:role="line">D7.1</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11138"
+         y="452.05939"
+         x="242.17007"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="452.05939"
+           x="242.17007"
+           id="tspan11140"
+           sodipodi:role="line">Primary tool chain</tspan></text>
+    </g>
+    <g
+       id="g11166"
+       transform="translate(250,-1.1819281e-5)">
+      <g
+         id="g12737">
+        <g
+           id="g3773-9-7"
+           transform="matrix(1.4609366,0,0,0.97071464,-27.16258,533.68022)">
+          <rect
+             ry="7.5"
+             rx="7.5"
+             y="65.912285"
+             x="49.154922"
+             height="111.71573"
+             width="182.09663"
+             id="rect2985-2-7"
+             style="fill:none;stroke:#000000;stroke-width:0.86456692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        </g>
         <path
-           style="fill:none;stroke:#000000;stroke-width:1.07344031px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 522.98037,275.5788 211.92823,0"
-           id="path3763-7-6-6-0-3-2"
+           style="fill:none;stroke:#000000;stroke-width:1.19086206px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 43.052082,631.53701 266.031648,0"
+           id="path3763-7-1"
            inkscape:connector-curvature="0" />
         <text
            xml:space="preserve"
-           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           x="542.68079"
-           y="265.98331"
-           id="text4474-5-0"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Termes;-inkscape-font-specification:TeX Gyre Termes"
+           x="182.17007"
+           y="622.05939"
+           id="text3980-8"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
-             id="tspan4476-2-7"
-             x="542.68079"
-             y="265.98331">OpenETCS Tool chain  Tasks</tspan></text>
+             id="tspan3982-6"
+             x="182.17007"
+             y="622.05939"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">Tool chain Component Implementation</tspan><tspan
+             sodipodi:role="line"
+             x="182.17007"
+             y="639.55939"
+             id="tspan11047"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros" /></text>
+        <text
+           xml:space="preserve"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+           x="112.17007"
+           y="662.05939"
+           id="text11160"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan11162"
+             x="112.17007"
+             y="662.05939">Tools selection</tspan><tspan
+             sodipodi:role="line"
+             x="112.17007"
+             y="679.55939"
+             id="tspan11164">Tool development</tspan></text>
       </g>
     </g>
+    <g
+       id="g7376-8"
+       transform="translate(-290,219.99999)">
+      <rect
+         ry="7.8881946"
+         rx="10.22166"
+         y="374.84039"
+         x="320.33093"
+         height="117.49805"
+         width="248.17729"
+         id="rect2985-2-2-2"
+         style="fill:none;stroke:#000000;stroke-width:1.03511083;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-7-6-8"
+         d="m 320.24701,411.00114 248.17731,0"
+         style="fill:none;stroke:#000000;stroke-width:1.19725943px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4015-5"
+         y="399.39362"
+         x="340.96423"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="399.39362"
+           x="340.96423"
+           id="tspan4017-3"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">OpenETCS Components Integration</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4019-2"
+         y="482.05939"
+         x="402.17007"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="482.05939"
+           x="402.17007"
+           id="tspan4021-5"
+           sodipodi:role="line" /></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4219-0"
+         y="422.05939"
+         x="392.17007"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="422.05939"
+           x="392.17007"
+           id="tspan4221-4"
+           sodipodi:role="line"></tspan><tspan
+           y="439.55939"
+           x="392.17007"
+           sodipodi:role="line"
+           id="tspan11227">Glue development</tspan><tspan
+           y="457.05939"
+           x="392.17007"
+           sodipodi:role="line"
+           id="tspan12748">Tools integration</tspan><tspan
+           y="474.55939"
+           x="392.17007"
+           sodipodi:role="line"
+           id="tspan11225" /><tspan
+           id="tspan4223-2"
+           y="492.05939"
+           x="392.17007"
+           sodipodi:role="line" /><tspan
+           id="tspan4227-9"
+           y="509.55939"
+           x="392.17007"
+           sodipodi:role="line" /></text>
+    </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 546.27227,144.50533 C 729.38029,327.61335 729.38029,327.61335 729.38029,327.61335"
-       id="path4205"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1.08722973px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 472.17007,832.05938 C 323.35799,709.30124 320.74724,704.61581 320.74724,704.61581"
-       id="path4207"
+       style="fill:none;stroke:#000000;stroke-width:0.98370695px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 462.17822,354.52611 c 0,38.70307 0,38.70307 0,38.70307 l -150.01588,0 0,33.86519"
+       id="path11246"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 272.6275,1111.926 c 146.48642,0 150.55549,0 150.55549,0"
-       id="path4209"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 301.11097,997.99217 c 67.13961,0 66.12234,0 66.12234,0"
-       id="path4211"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 438.44199,970.52596 c 0,-93.58854 0,-93.58854 0,-93.58854"
-       id="path4213"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 555.42767,1082.4253 c 0,-207.52242 0,-206.50515 0,-206.50515"
-       id="path4215"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 250.24763,1090.5634 c 0,-34.587 0,-34.587 0,-34.587 l 429.28659,0"
-       id="path4217"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1.01183474px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 242.17007,982.05927 c 0,-20 0,-20 0,-20 l 430,0"
-       id="path4221"
+       style="fill:none;stroke:#000000;stroke-width:1.01708472px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 577.17862,354.9466 0,36.21076 129.98341,0 0,25.86483"
+       id="path11442"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 800,1056.1865 c 50,0 50,0 50,0"
-       id="path4223"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 400.05079,306.28663 -70,0"
+       id="path11638"
        inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       transform="translate(-7.8807151,15.77275)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 800,946.18652 c 40,0 40,0 40,0"
-       id="path4225"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 650.05079,296.28663 80,0"
+       id="path11834"
        inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       transform="translate(-7.8807151,15.77275)" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="642.17004"
+       y="702.05939"
+       id="text4019-2-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4021-5-5"
+         x="642.17004"
+         y="702.05939" /></text>
+    <g
+       id="g14417"
+       transform="translate(4.9999746,10.000009)">
+      <rect
+         ry="6.9132652"
+         rx="9.1967611"
+         y="574.78241"
+         x="580.27295"
+         height="102.97605"
+         width="223.29323"
+         id="rect2985-2-2-2-8"
+         style="fill:none;stroke:#000000;stroke-width:0.91917121;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-7-6-8-9"
+         d="m 580.18463,611.00112 222.30213,0"
+         style="fill:none;stroke:#000000;stroke-width:1.13312817px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4015-5-0"
+         y="599.39362"
+         x="600.96423"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="599.39362"
+           x="600.96423"
+           id="tspan4017-3-9"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">OpenETCS Components Test</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4219-0-5"
+         y="612.05933"
+         x="652.1701"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="612.05933"
+           x="652.1701"
+           id="tspan4221-4-8"
+           sodipodi:role="line" /><tspan
+           y="629.55933"
+           x="652.1701"
+           sodipodi:role="line"
+           id="tspan11227-6"></tspan><tspan
+           id="tspan14364"
+           y="647.05933"
+           x="652.1701"
+           sodipodi:role="line">Tool Test</tspan><tspan
+           y="664.55933"
+           x="652.1701"
+           sodipodi:role="line"
+           id="tspan11225-7" /><tspan
+           id="tspan4223-2-8"
+           y="682.05933"
+           x="652.1701"
+           sodipodi:role="line" /><tspan
+           id="tspan4227-9-8"
+           y="699.55933"
+           x="652.1701"
+           sodipodi:role="line" /></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+       x="662.17004"
+       y="822.05939"
+       id="text4019-2-53"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4021-5-9"
+         x="662.17004"
+         y="822.05939" /></text>
+    <g
+       id="g12782">
+      <rect
+         ry="7.8920588"
+         rx="9.1119833"
+         y="714.81158"
+         x="580.30212"
+         height="117.55561"
+         width="221.23485"
+         id="rect2985-2-2-2-87"
+         style="fill:none;stroke:#000000;stroke-width:0.97754997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3763-7-6-8-3"
+         d="m 580.1822,751.00113 221.30693,0"
+         style="fill:none;stroke:#000000;stroke-width:1.13058901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4015-5-4"
+         y="739.39362"
+         x="600.96423"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           y="739.39362"
+           x="600.96423"
+           id="tspan4017-3-90"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros">OpenETCS Tool chain Test</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4219-0-2"
+         y="772.05939"
+         x="632.17004"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TeX Gyre Heros;-inkscape-font-specification:TeX Gyre Heros"
+         xml:space="preserve"><tspan
+           y="772.05939"
+           x="632.17004"
+           id="tspan4221-4-6"
+           sodipodi:role="line" /><tspan
+           y="789.55939"
+           x="632.17004"
+           sodipodi:role="line"
+           id="tspan11225-9">Integration tests</tspan><tspan
+           y="807.05939"
+           x="632.17004"
+           sodipodi:role="line"
+           id="tspan12141">Non-regression tests</tspan><tspan
+           y="824.55939"
+           x="632.17004"
+           sodipodi:role="line"
+           id="tspan12143"> </tspan><tspan
+           id="tspan4223-2-9"
+           y="842.05939"
+           x="632.17004"
+           sodipodi:role="line" /><tspan
+           id="tspan4227-9-7"
+           y="859.55939"
+           x="632.17004"
+           sodipodi:role="line" /></text>
+    </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 910,936.18652 0,-50"
-       id="path4227"
-       inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+       d="m 142.15823,711.04754 0,47.25381 140.02305,0 0,37.80305"
+       id="path12145"
+       inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 970,1056.1865 30,0 0,-209.99998 -30,0"
-       id="path4229"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 422.19519,705.03427 0,53.55022 -140.0072,-0.0459"
+       id="path12343"
        inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 210,736.18652 0,60"
-       id="path4231"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 380.05079,996.28663 40,0 0,24.99997 350,0 0,-79.99997 40,0"
+       id="path12994"
        inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       transform="translate(-7.8807151,15.77275)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 580,1116.1865 60,0 0,-679.99998"
-       id="path4235"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 530.05079,841.28663 0,-150"
+       id="path13190"
        inkscape:connector-curvature="0"
-       transform="translate(-7.8299258,15.87275)" />
+       transform="translate(-7.8807151,15.77275)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 570.05079,636.28663 20,0"
+       id="path13386"
+       inkscape:connector-curvature="0"
+       transform="translate(-7.8807151,15.77275)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 235.05079,696.28663 0,30 355,0"
+       id="path13582"
+       inkscape:connector-curvature="0"
+       transform="translate(-7.8807151,15.77275)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 700.05079,816.28663 0,160 -95,0"
+       id="path13778"
+       inkscape:connector-curvature="0"
+       transform="translate(-7.8807151,15.77275)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow2Lend)"
+       d="m 700.05079,976.28663 0,129.99997 -30,0"
+       id="path13974"
+       inkscape:connector-curvature="0"
+       transform="translate(-7.8807151,15.77275)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 356.04141,1114.586 90,0 0,-40 365,0"
+       id="path15208"
+       inkscape:connector-curvature="0"
+       transform="translate(-8.8713315,-12.526637)" />
   </g>
 </svg>
