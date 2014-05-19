@@ -1,4 +1,4 @@
-\chapter{Intermediate Language}
+\chapter{IF toolset}
 \label{sec:if}
 
 \section{Instructions}
@@ -45,12 +45,16 @@ Criteria of this section are defined according \citep{D4.1}.
 This section gives a quick presentation of the approach and the tool.
 
 \begin{description}
-\item[Name]  Intermediate Language (IF)
+\item[Name]  IF toolset (IF)
 \item[Web site]  \url{http://www-if.imag.fr}
 \item[Licence]  This software may be freely used, copied and redistributed without fee for non-commerical purpose
 \end{description}
 
-\paragraph{Abstract}  The IF toolset provides an environment for verification of IF specifications. IF is an intermediate representation dedicated for timed asynchronous communicating systems. It represent a system by a set of parallel processes communicating asynchronously through a set of buffers. An IF process is described as a timed automaton extended with data. It has an unique identifier, a set of control states, a private queue of pending messages (received and not yet consumed), and local data such as discrete variables and clocks. A transition between two states can be triggered either by (timed) guards or by an input message. The effect actions of a transition may include sending output messages, setting/resetting clocks, assignment of variable values, and creation/destruction of processes.
+\paragraph{Abstract}  
+%The IF toolset provides an environment for verification of Intermediate Language  (IF) specifications. IF is an intermediate representation dedicated for timed asynchronous communicating systems. It represent a system by a set of parallel processes communicating asynchronously through a set of buffers. An IF process is described as a timed automaton extended with data. It has an unique identifier, a set of control states, a private queue of pending messages (received and not yet consumed), and local data such as discrete variables and clocks. A transition between two states can be triggered either by (timed) guards or by an input message. The effect actions of a transition may include sending output messages, setting/resetting clocks, assignment of variable values, and creation/destruction of processes.
+
+
+The IF toolset which is an environment for modelling and validation of heterogeneous real-time systems. The toolset is built upon a rich formalism, the Intermediate Language  (IF) notation, allowing structured automata-based system representations. Moreover, the IF notation is expressive enough to support real-time primitives and extensions of high-level modelling languages such as SDL and UML/SysML by means of structure preserving mappings. The core part of the IF toolset consists of a syntactic transformation component and an open exploration platform. The syntactic transformation component provides language level access to IF descriptions and has been used to implement static analysis and optimisation techniques. The exploration platform gives access to the graph of possible executions. It has been connected to different state-of-the-art model-checking and test-case generation tools.
 
 \paragraph{Publications} Please refer to \url{http://www-if.imag.fr/papers.html}
 
@@ -69,47 +73,57 @@ According WP2 requirements, give a note for characteristics of the use of the to
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Open Source (D2.6-02-074) & 1 & & &  \\
+Open Source (D2.6-02-074) & 2* & & &  \\
 \hline 
-Portability to operating systems (D2.6-02-075) & 2 & & &  \\
+Portability to operating systems (D2.6-02-075) & 3** & & &  \\
 \hline
-Cooperation of tools (D2.6-02-076) & 1 & & &  \\
+Cooperation of tools (D2.6-02-076) & 2 & & &  \\
 \hline
 Robustness (D2.6-02-078) & 2 & & & \\
 \hline
 Modularity (D2.6-02-078.1) & 2 & & & \\
 \hline
-Documentation management (D2.6-02-078.02) & 2 & & & \\
+Documentation management (D2.6-02-078.02) & 0 & & & \\
 \hline
-Distributed software development (D2.6-02-078.03)  & & & & \\
+Distributed software development (D2.6-02-078.03)  & 0 & & & \\
 \hline
-Simultaneous multi-users (D2.6-02-078.04)   & & & & \\
+Simultaneous multi-users (D2.6-02-078.04)   & 1*** & & & \\
 \hline
-Issue tracking (D2.6-02-078.05) & & & & \\
+Issue tracking (D2.6-02-078.05) & 0 & & & \\
 \hline
-Differences between models (D2.6-02-078.06) & & & & \\
+Differences between models (D2.6-02-078.06) & 0 & & & \\
 \hline
-Version management (D2.6-02-078.07) & & & & \\
+Version management (D2.6-02-078.07) & 0 & & & \\
 \hline
-Concurrent version development (D2.6-02-078.08) & & & & \\
+Concurrent version development (D2.6-02-078.08) & 0 & & & \\
 \hline
-Model-based version control (D2.6-02-078.09) & & & & \\
+Model-based version control (D2.6-02-078.09) & 0 & & & \\
 \hline
-Role traceability (D2.6-02-078.10) & & & & \\
+Role traceability (D2.6-02-078.10) & 0 & & & \\
 \hline
-Safety version traceability (D2.6-02-078.11) & & & & \\
+Safety version traceability (D2.6-02-078.11) & 0 & & & \\
 \hline
-Model traceability (D2.6-02-079) & & & & \\
+Model traceability (D2.6-02-079) & 0 & & & \\
 \hline
 Tool chain integration & 2 & & & \\
 \hline
-Scalability & & & & \\
+Scalability & 2 & & & \\
 \hline
-User Friendliness & 1 & & & \\
+User Friendliness & 2 & & & \\
 \hline
 \end{tabular}
 
 
+\begin{author_comment}
+
+	* The source code can be retrieved from its API document \url{http://www-if.imag.fr/apis.html}
+	
+	** Currently, it can run on Mac OSX 10.6 and above, Linux, Windows (thanks to Cygwin), and Solaris 2.8
+	
+	
+	*** Multi simulators can connect simultaneously to the tool
+	
+\end{author_comment}
 
 \subsection{Qualification}
 
@@ -120,22 +134,27 @@ This section discusses how the tool can be classified according EN50128 requirem
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Tool manual (D.2.6-01-42.02) & & & &  \\
+Tool manual (D.2.6-01-42.02) & 3 & & &  \\
 \hline
-Proof of correctness (D.2.6-01-42.03)   & & & & \\
+Proof of correctness (D.2.6-01-42.03)   & 2 & & & \\
 \hline
-Existing industrial  usage  & & & & \\
+Existing industrial  usage  & 1 & & & \\
 \hline
-Model verification & & & & \\
+Model verification & 3 & & & \\
 \hline
-Test generation & & & & \\
+Test generation & 3 & & & \\
 \hline
-Simulation, execution, debugging & & & & \\
+Simulation, execution, debugging & 2 & & & \\
 \hline
-Formal proof & & & & \\
+Formal proof & 1 & & & \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+	
+%	* e.g., Ariane 5 Flight program (\url{http://www-verimag.imag.fr/PEOPLE/mounier/Papers/Bozga-Lesens-Mounier-01.pdf})
+	
+\end{author_comment}
 
 Which level of tool qualification has been reached or will be reached within the next year ?
 
@@ -151,13 +170,18 @@ Score :
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-class T1 & & & &  \\
+class T1 & 3 & & &  \\
 \hline
-class T2   & & & & \\
+class T2   & 3 & & & \\
 \hline
-class T3  & & & & \\
+class T3  & 0 & & & \\
 \hline
 \end{tabular}
+
+%\begin{author_comment}
+	
+%	* Generation of test cases
+%\end{author_comment}
 
 \paragraph{Other elements for tool certification}
 
@@ -177,11 +201,11 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline 
 SysML  & 2 & & & \\
 \hline
-Scade method & & & & \\
+Scade method & 0 & & & \\
 \hline
-EFS language & & & & \\
+EFS language & 0 & & & \\
 \hline
-B Method & & & & \\
+B Method & 0 & & & \\
 \hline
 C language & 3 & & & \\
 \hline
@@ -204,7 +228,7 @@ How the means or tools can complete or be adapted to SIL4 software in C language
 
 \begin{author_comment}
 	\begin{itemize}
-		\item An IF model is translated into a program C
+		\item An IF description is translated into a C program which is then compiled and executed to get outputs
 	\end{itemize}
 \end{author_comment}
 
@@ -216,15 +240,15 @@ According to the decisions and the propositions of T7.1, how the mean and approa
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Eclipse & & & &  \\
+Eclipse & 1 & & &  \\
 \hline
-Papyrus  & & & & \\
+Papyrus  & 3 & & & \\
 \hline
-Scade & & & & \\
+Scade & 0 & & & \\
 \hline
-EFS tools & & & & \\
+EFS tools & 0 & & & \\
 \hline
-B tools & & & & \\
+B tools & 0 & & & \\
 \hline
 \end{tabular}
 
@@ -232,8 +256,16 @@ B tools & & & & \\
 \paragraph{Eclipse}
 How the means or tools can be integrated to the Eclipse platform ?
 
+\begin{author_comment}
+		We can use any text editor in Eclipse to create/modify IF description. Eclipse can compile and run this description by "External Tools" command that will call IF toolset.
+\end{author_comment}
+
 \paragraph{Papyrus}
 How the means or tools can complete  Papyrus ?
+
+\begin{author_comment}
+	The  output of Papyrus is an input of the tool. 
+\end{author_comment}
 
 
 \paragraph{Scade, EFS, Classical B}
@@ -313,7 +345,7 @@ External and internal interfaces of sub-system & 1 & & &  \\
 \hline
 Software components & 3 & & &  \\
 \hline
-Performance constraints & 2 & & &  \\
+Performance constraints & 2* & & &  \\
 \hline
 Safety objectives & 3 & & &  \\
 \hline
@@ -323,6 +355,9 @@ Safety properties & 3 & & &  \\
 \hline
 \end{tabular}
 
+\begin{author_comment}
+	* e.g., execution time
+\end{author_comment}
 
 
 \section{Verification methods and tools}
@@ -353,47 +388,52 @@ Deductive Verification & 0 & & &  \\
 \hline
 Model Checking & 3 & & &  \\
 \hline
-Correct by Construction Formal Methods & & & &  \\
+Correct by Construction Formal Methods & 0 & & &  \\
 \hline
 Verification with Formal Methods & 3 & & &  \\
 \hline
-Simulation-based & 2 & & &  \\
+Simulation-based & 3 & & &  \\
 \hline
 \end{tabular}
 
 \section{Validation means and tools}
 
-The following list of criteria focuss on means and tools to support validation activities, according WP2  requirements :
+The following list of criteria focuses on means and tools to support validation activities, according WP2  requirements :
 
 \begin{tabular}{|l | c | c | c | c|}
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Simulation-based & & & &  \\
+Simulation-based & 3 & & &  \\
 \hline
-Step-by-step simulation (D2.6-01-036) & & & &  \\
+Step-by-step simulation (D2.6-01-036) & 3 & & &  \\
 \hline
-Environment emulation (D2.6-01-037 and D2.6-02-080) & & & &  \\
+Environment emulation (D2.6-01-037 and D2.6-02-080) & 2 & & &  \\
 \hline
-Time-based test case (D2.6-02-081) & & & &  \\
+Time-based test case (D2.6-02-081) & 2 & & &  \\
 \hline
-Test cases writing (D2.6-01-038) & & & &  \\
+Test cases writing (D2.6-01-038) & 1* & & &  \\
 \hline
-Test cases execution (D2.6-01-038) & & & &  \\
+Test cases execution (D2.6-01-038) & 1* & & &  \\
 \hline
-Test cases storage (D2.6-01-038) & & & &  \\
+Test cases storage (D2.6-01-038) & 1* & & &  \\
 \hline
-Version management of test cases (D2.6-02-082) & & & &  \\
+Version management of test cases (D2.6-02-082) & 0 & & &  \\
 \hline
-Test generation from independant test model (D2.6-02-083) & & & &  \\
+Test generation from independant test model (D2.6-02-083) & 2 & & &  \\
 \hline
-Test sequences writing (D2.6-02-084) & & & &  \\
+Test sequences writing (D2.6-02-084) & 1* & & &  \\
 \hline
-Test sequences execution (D2.6-02-084) & & & &  \\
+Test sequences execution (D2.6-02-084) & 1* & & &  \\
 \hline
-Test sequences storage (D2.6-02-084) & & & &  \\
+Test sequences storage (D2.6-02-084) & 1* & & &  \\
 \hline
 \end{tabular}
+
+\begin{author_comment}
+ * By encoding them into IF observers
+
+\end{author_comment}
 
 \section{VnV artifacts}
 
@@ -401,48 +441,62 @@ Test sequences storage (D2.6-02-084) & & & &  \\
 Concerning the artifacts used or produced by the mean or tool, please to detail:
 
 \paragraph{Input}
-%    Which is the list of the input artifacts for the mean or tools ?
+    Which is the list of the input artifacts for the mean or tools ?
     
-%\begin{author_comment}
+\begin{author_comment}
+
 	A text file, in IF syntax, containing:
 \begin{itemize}
 	\item models of components of systems in timed automaton extended with data
-	\item observers representing properties to be verified
+	\item optionally, observers representing properties to be verified
 \end{itemize}
-%\end{author_comment}
+
+The other input can be in format of  SDL, UML or SysML which will be translated automatically into IF thanks to existing modules in IF toolset.
+
+\end{author_comment}
     
     
 \paragraph{Output}
-%    Which is the list of the output artifacts for the mean or tools ?
-    
+    Which is the list of the output artifacts for the mean or tools ?
 
+\begin{author_comment}
+	Depending on usage, the outputs may be:
+	\begin{itemize}
+		\item Results from model verification with error traces / states
+		\item Test cases
+		\item Visualisation of system execution
+	\end{itemize}
+\end{author_comment}
     
 \paragraph{Syntax}
-%    Which are the reference documents which give a description of the artifacts syntax  ?
+    Which are the reference documents which give a description of the artifacts syntax  ?
     
-%\begin{author_comment}
+\begin{author_comment}
 	\begin{itemize}
 		\item \url{http://www-if.imag.fr/tutorials/syntax.ps.gz}
 		\item \url{http://www-if.imag.fr/tutorials.html}
 	\end{itemize}
-%\end{author_commment}
+\end{author_comment}
     
     
 \paragraph{Semantic}
-%    Which are the reference documents which give a description of the artifacts semantic  ?
+    Which are the reference documents which give a description of the artifacts semantic  ?
 
-%\begin{author_comment}
+\begin{author_comment}
 	\begin{itemize}
 		\item \url{http://www-if.imag.fr/tutorials/semantics.ps.gz}
 		\item \url{http://www-if.imag.fr/tutorials.html}
 	\end{itemize}
-%\end{author_commment}
+\end{author_comment}
 
 
 
 \paragraph{Integration}
     How these artifacts can be integrated with the elements of the toolchain (language, mangement,...) ?
 
+\begin{author_comment}
+	See above.
+\end{author_comment}
 
 \section{Detailled Criterias for VnV}
 
@@ -458,9 +512,9 @@ Please  fill only the section concerning the proposed mean or tool, other sectio
 \hline 
 User Scenario Modelling & 3 & & &  \\
 \hline
-Test Case Modelling & & & &  \\
+Test Case Modelling & 2 & & &  \\
 \hline
-Test Sequence Modelling & & & &  \\
+Test Sequence Modelling & 2 & & &  \\
 \hline
 \end{tabular}
 	
@@ -471,11 +525,11 @@ Test Sequence Modelling & & & &  \\
 \hline
 & \textcolor{green}{Author} & \textcolor{blue}{Assessor 1} & \textcolor{magenta}{Assessor 2} & Total \\
 \hline 
-Input/ Output checking & & & &  \\
+Input/ Output checking & 3 & & &  \\
 \hline
 System Behavior Simulation (Mathematical) & 3 & & &  \\
 \hline
-System Behavior Simulation (Animated) & 1 & & &  \\
+System Behavior Simulation (Animated) & 2 & & &  \\
 \hline
 \end{tabular}
 
@@ -489,23 +543,27 @@ System Behavior Simulation (Animated) & 1 & & &  \\
 \hline 
 Static Model Verification & 3 & & &  \\
 \hline
-Property Proofing & & & &  \\
+Property Proofing & 2* & & &  \\
 \hline
-Dynamic Testing & & & &  \\
+Dynamic Testing & 0 & & &  \\
 \hline
-Automatic Test Generation & 2* & & &  \\
+Automatic Test Generation & 3** & & &  \\
 \hline
-Input/ Output checking & 0 & & &  \\
+Input/ Output checking & 3 & & &  \\
 \hline
-Software Behaviour Simulation (Mathematical) & 2 & & &  \\
+Software Behaviour Simulation (Mathematical) & 3 & & &  \\
 \hline
-Software Behaviour Simulation (Animated) & 1 & & &  \\
+Software Behaviour Simulation (Animated) & 2 & & &  \\
 \hline
 \end{tabular}
 
 
 \begin{author_comment}
-	* with the supports of TestGen-IF or TGV test generator
+
+	* by mean of model-checking, i.e., give a counter example or exhaustive verification
+
+	** with the supports of TestGen-IF or TGV test generator
+	
 \end{author_comment}
 
 \subsection{Source Code}
