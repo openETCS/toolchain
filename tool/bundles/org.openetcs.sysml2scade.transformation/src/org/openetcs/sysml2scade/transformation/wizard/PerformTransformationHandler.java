@@ -33,7 +33,11 @@ public class PerformTransformationHandler extends AbstractHandler {
 			return null;
 		}
 		
-		Generator.start(file);
+		try {
+			Generator.start(file);
+		} catch (Exception e) {
+			MessageDialog.openError(shell,  "Error creating project", e.toString());
+		}
 		
 		return null;
 	}
