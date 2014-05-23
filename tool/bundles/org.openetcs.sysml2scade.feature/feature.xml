@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.openetcs.sysml2scade.feature"
+      label="OpenETCS SysML to Scade Project Converter"
+      version="0.1.0.qualifier"
+      provider-name="Fraunhofer ESK">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.papyrus.infra.onefile"/>
+      <import plugin="org.openetcs.common"/>
+   </requires>
+
+   <plugin
+         id="org.openetcs.sysml2scade.transformation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
