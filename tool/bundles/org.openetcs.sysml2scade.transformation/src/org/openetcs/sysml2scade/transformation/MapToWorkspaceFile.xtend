@@ -1,7 +1,7 @@
 package org.openetcs.sysml2scade.transformation
 
 class MapToWorkspaceFile {
-	def static createWorkspace()'''
+	def static createWorkspace(String name)'''
 	Entities_Definitions DEFINITIONS ::= BEGIN
 	project_ref ::= SEQUENCE OF {
 		SEQUENCE {
@@ -29,7 +29,7 @@ class MapToWorkspaceFile {
 	{"1", "2"}
 	}
 	project_ref ::= {
-	{"2", "WP3-Initial-Architecture.etp", "1"}
+	{"2", "«name».etp", "1"}
 	}
 	END
 	'''

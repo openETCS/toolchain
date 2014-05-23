@@ -9,8 +9,9 @@ class Generator {
 		var path = getFolderOfFile(file)
 		var name = getFilenameWithoutExtension(file)
 		
-		Util.writeProjectFile(file.project, path, name + ".etp", MapToProjectFile.createProject().toString);
-		Util.writeProjectFile(file.project, path, name + ".vsw", MapToWorkspaceFile.createWorkspace().toString);
+		Util.writeProjectFile(file.project, path, name + ".etp", MapToProjectFile.createProject(name).toString)
+		Util.writeProjectFile(file.project, path, name + ".vsw", MapToWorkspaceFile.createWorkspace(name).toString)
+		Util.writeProjectFile(file.project, path, name + ".css", MapToWorkspaceFile.createWorkspace(name).toString)
 	}
 	
 	def static String getFilenameWithoutExtension(IFile file) {

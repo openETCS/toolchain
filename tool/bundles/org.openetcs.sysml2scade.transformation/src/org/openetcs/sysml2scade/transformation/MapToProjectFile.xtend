@@ -1,7 +1,7 @@
 package org.openetcs.sysml2scade.transformation
 
 class MapToProjectFile {
-	def static createProject()'''
+	def static createProject(String name)'''
 	<?xml version="1.0" encoding="UTF-8"?>
 	<Project id="1" oid_count="30" defaultConfiguration="2">
 		<props>
@@ -71,16 +71,16 @@ class MapToProjectFile {
 			<Folder id="5" extensions="di;uml;notation" name="SCADE System Model Files">
 				<elements>
 					<Folder id="6" extensions="di;uml;notation" name="Separate Files"/>
-					<FileRef id="26" persistAs="ManageLocationRelatedInformation.di">
+					<FileRef id="26" persistAs="«name».di">
 						<props>
 							<Prop id="27" name="@SYSTEM:ROOTDIFILE"/>
 						</props>
 					</FileRef>
-					<FileRef id="28" persistAs="ManageLocationRelatedInformation.uml"/>
-					<FileRef id="29" persistAs="ManageLocationRelatedInformation.notation"/>
+					<FileRef id="28" persistAs="«name».uml"/>
+					<FileRef id="29" persistAs="«name».notation"/>
 				</elements>
 			</Folder>
-			<FileRef id="30" persistAs="ManageLocationRelatedInformation.css"/>
+			<FileRef id="30" persistAs="«name».css"/>
 		</roots>
 		<configurations>
 			<Configuration id="2" name="Default"/>
