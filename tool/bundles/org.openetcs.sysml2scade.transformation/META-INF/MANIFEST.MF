@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Transformation from SysML to SCADE System
+Bundle-SymbolicName: org.openetcs.sysml2scade.transformation;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.openetcs.sysml2scade.transformation.Activator
+Bundle-Vendor: Fraunhofer ESK
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.papyrus.infra.onefile.model,
+ org.openetcs.common
+
