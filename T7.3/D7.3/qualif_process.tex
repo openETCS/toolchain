@@ -1,5 +1,5 @@
 \section{Toolchain Analysis}
-\label{sec-2-1}
+\label{sec:toolchain-analysis}
 
 All the methods mentioned above start with a complete definition of the toolchain. In OpenETCS, the development of the toolchain follows an \emph{agile} approach.
 Hence, for each (major) release we have to deal with an incomplete tool
@@ -24,8 +24,53 @@ ensure the following safety-goals that will avoid some extra tool qualification:
   verifiable.
 \end{itemize}
 
+\section{Scenario-based Qualification of Individual Tools}
+\label{sec:scenario-based-tool-quali}
+
+Qualifying a toolchain always requires the qualification of the individual tools it is comprised of. The effort required depends on the type and license of the tool to be qualified. To this end in the following we have identified a number of different scenarios that are of relevance in the context of the openETCS project as depicted in Figure~\ref{fig:tool-qualification-scenarios}.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[parent anchor=east,child anchor=west,grow=east, edge from parent, level distance=5cm]
+	\tikzstyle{every node}=[fill=black!20,rounded corners]
+	\node {type of tool}
+		child { node {self-developed} }		
+		child { node {by tool provider}
+			child { node {closed source} }
+			child { node {open source} }
+		}
+		child { node {open source by ``community''} };
+\end{tikzpicture}
+\end{center}
+\caption{Scenarios to consider when qualifying individual tools}
+\label{fig:tool-qualification-scenarios}
+\end{figure}
+
+In the following considerations for the individual scenarios are described.
+
+\subsection{Self-developed Tool}
+
+For a self-developed tool the project needs to provide the means for qualification and quality assurance. As the tool has not been employed in productive use by others the ``proven in use'' argument \textcolor{red}{[Remark: It needs to be checked whether this argument actually applies to EN 50128]} does not apply.
+
+\subsection{Tool Provided by a Tool Provider}
+
+For tools provided by a third party we must distinguish again two cases:
+
+\paragraph{The tool is provided as closed source tool}
+
+If the tool is not pre-qualified by the tool provider the options are limited. If the tool provider is not willing or unable to provide the means for qualification, the qualification of the tool will be almost impossible. One exception might be if the tool is already in use on a broad scale in industry and is generally regarded as reliable for the intended purpose. Also the tool class must be considered here.
+
+\paragraph{The tool is provided as open source}
+
+In this case it would be possible to adapt the tool and analyse it to enable qualification. However, this involves a huge amount of effort which is best done by the tool provider who as a better insight into the tool's internal workings. Also a third party who has already experience with the tool or is a specialist with regards to qualifying safety-critical tools could be entrusted with the qualification task.
+
+\subsection{Open Source Tool Provided by the ``Community''}
+
+If no tool provider can be identified but the tool is developed by the community and distributed under an open source license, the tool qualification has to be conducted by the project. However, many open source tools have a large development and expert community which can certainly be of help. In addition, the ``proven in use'' argument could possibly be applied (e.g., for tools like GCC).
+
+
 \section{OpenETCS Toolchain Qualification Process}
-\label{sec-2-2}
+\label{sec:toolchain-qualification-process}
 
 The OpenETCS tool chain  will be defined by the set of its features and
 a guideline describing how to correctly use it.
@@ -119,6 +164,8 @@ directly in the SysML model.
   \end{itemize}
 
 \end{enumerate}
+
+
 
 
 

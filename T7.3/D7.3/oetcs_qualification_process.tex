@@ -8,7 +8,8 @@
 %\usepackage{bibtopic} % Multibib
 \usepackage{booktabs}
 \usepackage{hyperref}
-
+\usepackage{tikz}
+\usetikzlibrary{trees}
 \usepackage[section,                 % add the glossary to the table of content 
             description,             % acronyms have a user-supplied description,
             style=superheaderborder, % table style
@@ -155,9 +156,9 @@ Version &  Date & Author(s) & Justification  \\
 01.00 & 19.01.2014 & C. Braunstein  &  Jan Peleska suggestions \\
 01.01 & 28.01.2014 & M. Jastram  &  Review \\
 01.02 & 28.01.2014 &  C. Braunstein &  Change from MPD, MJ JP suggestions \\
-01.03 & 08.05.2014 &  S. Rieger &  Provide first draft of a tool qualification example \\
-01.04 & 08.05.2014 &  S. Rieger &  Provide  another  tool qualification example \\
-
+01.03 & 08.05.2014 &  S. Rieger &  Provided first draft of a tool qualification example \\
+01.04 & 08.05.2014 &  C. Braunstein  &  Provided  another  tool qualification example \\
+01.05 & 27.05.2014 &  S. Rieger &  Provided initial list of tool qualification scenarios\\
 
 \hline  
 \end{tabular}
@@ -178,17 +179,17 @@ Version &  Date & Author(s) & Justification  \\
 
 
 \chapter{Introduction to Toolchain Qualification}
-\label{chap-1}
+\label{chap:introduction-and-sota}
 \input{intro_soa.tex}
 
 
 
 \chapter{OpenETCS Toolchain Qualification Process}
-\label{chap-2}
+\label{chap:qualification-process}
 \input{qualif_process.tex}
 
 \chapter{Example - Considerations for two openETCS Features}
-\label{chap-example}
+\label{chap:examples}
 \input{example.tex}
 \bibliographystyle{plain}
 \bibliography{D7.4}
