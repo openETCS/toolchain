@@ -9,9 +9,25 @@
 
 <project name="org.openetcs.documentation" default="all" xmlns:ac="antlib:net.sf.antcontrib">
 	
+	<target name="all" depends="clone,reset_folders,generate-help, generate-fo, generate-pdf, generate-toc"/>
+	
+	<taskdef resource="org/eclipse/jgit/ant/ant-tasks.properties" >
+		 <classpath>
+		  <pathelement location="lib/org.eclipse.jgit.ant-3.0.0.201306101825-r.jar"/>
+		  <pathelement location="lib/org.eclipse.jgit-3.0.0.201306101825-r.jar"/>
+		  <pathelement location="lib/jsch-0.1.50.jar"/>
+		  <pathelement location="lib/ant-git-tasks-0.0.1-SNAPSHOT.jar"/>
+		 </classpath>
+		</taskdef>
+	   	
+		<target name="clone">
+			<delete dir="${basedir}/cloned_repository"/>     
+		     <git-clone 
+		         uri="https://github.com/openETCS/toolchain.wiki.git" dest="${basedir}/cloned_repository"/>
+		</target>
+	
     <description>Generate Eclipse help content from cloned mediawiki files</description>
 	
-	<target name="all" depends="reset_folders,generate-help, generate-fo, generate-pdf, generate-toc"/>
 	
 	<!-- =========================== Reset folders =========================== -->
 	<!-- ===================================================================== -->
