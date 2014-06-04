@@ -16,8 +16,11 @@
   
   <modules>
     <module>../org.openetcs.core.feature</module>
+    
+    <!-- (mj) currently broken - reactivate after resolving #378
 	<module>../org.openetcs.datadictionary</module>
 	<module>../org.openetcs.datadictionary.feature</module>
+	  -->
     <module>../org.openetcs.intro</module>
 	<module>../org.openetcs.product</module>
     <module>../org.openetcs.releng.products</module>
