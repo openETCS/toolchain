@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+    <groupId>org.openetcs</groupId>
+    <artifactId>org.openetcs.releng.parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../org.openetcs.releng.parent/</relativePath>
+  </parent>
+  
+  <groupId>org.openetcs</groupId>  
+  <artifactId>org.openetcs.documentation</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                   <execution>
+                        <id>id.verify</id>
+                        <phase>verify</phase>
+                        <configuration>
+                            <tasks>
+                            	<ant target="all" inheritRefs="true">
+                                    <property name="artifactId" value="${project.artifactId}" />
+                                    <property name="version" value="${project.version}" />
+                                    <property name="classifier" value="" />
+                                </ant>
+                                <echo>verification done!!</echo>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+						<version>1.6.1</version>
+						<type>jar</type>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-simple</artifactId>
+						<version>1.6.1</version>
+						<type>jar</type>
+					</dependency>
+				</dependencies>
+            </plugin>
+           </plugins> 
+    </build>
+  <packaging>eclipse-plugin</packaging>
+</project>
