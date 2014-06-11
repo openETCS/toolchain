@@ -139,9 +139,6 @@
         <ownedComment xmi:type="uml:Comment" xmi:id="_7BYcYI18EeOMqbI_LkMcYA" annotatedElement="_SzjtkI18EeOMqbI_LkMcYA">
           <body>Bitwalker Import: Temporary solution, should become obsolete after the integration of the data dictionary</body>
         </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_PYhzgI2wEeOMqbI_LkMcYA" annotatedElement="_fpFgcI16EeOMqbI_LkMcYA">
-          <body>SCADE-Papyrus Integration: Is this currently working? What are the restrictions?</body>
-        </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_F3Em0I1tEeO4yNdlNb1RPA" name="Papyrus Req. Import">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_eqFJQI10EeOMqbI_LkMcYA" name="papyrus model" type="_jw9AoI1tEeO4yNdlNb1RPA" association="_eqD7II10EeOMqbI_LkMcYA"/>
         </packagedElement>
@@ -329,6 +326,35 @@
         </eAnnotations>
         <ownedEnd xmi:type="uml:Property" xmi:id="_8T6N8bjvEeOwJt8ZlTV5NA" name="papyrus model" type="_jw9AoI1tEeO4yNdlNb1RPA" association="_8T4YwLjvEeOwJt8ZlTV5NA"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_T8b-oPE8EeOZaPlYwlozBw" name="Documentation">
+        <packagedElement xmi:type="uml:Class" xmi:id="_biIksPE8EeOZaPlYwlozBw" name="Documentation Generation">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_shuc4PE9EeOZaPlYwlozBw" name="user documentation" type="_gEsJ4PE8EeOZaPlYwlozBw" association="_shsnsPE9EeOZaPlYwlozBw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_y2RkIPE9EeOZaPlYwlozBw" name="develloper documentation" type="_iRJaYPE8EeOZaPlYwlozBw" association="_y2Q9EPE9EeOZaPlYwlozBw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_gEsJ4PE8EeOZaPlYwlozBw" name="User Documentation"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_iRJaYPE8EeOZaPlYwlozBw" name="Develloper Documentation"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_shsnsPE9EeOZaPlYwlozBw" name="" memberEnd="_shuc4PE9EeOZaPlYwlozBw _shvD8PE9EeOZaPlYwlozBw">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sht10PE9EeOZaPlYwlozBw" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sht10fE9EeOZaPlYwlozBw" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_shvD8PE9EeOZaPlYwlozBw" name="documentation generation" type="_biIksPE8EeOZaPlYwlozBw" association="_shsnsPE9EeOZaPlYwlozBw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_y2Q9EPE9EeOZaPlYwlozBw" name="" memberEnd="_y2RkIPE9EeOZaPlYwlozBw _y2RkIfE9EeOZaPlYwlozBw">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y2Q9EfE9EeOZaPlYwlozBw" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y2Q9EvE9EeOZaPlYwlozBw" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_y2RkIfE9EeOZaPlYwlozBw" name="documentation generation" type="_biIksPE8EeOZaPlYwlozBw" association="_y2Q9EPE9EeOZaPlYwlozBw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_EL-EoPE-EeO2fv87lT06ow" name="Wiki Documentation">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TKAKMPE-EeO2fv87lT06ow" name="documentation generation" type="_biIksPE8EeOZaPlYwlozBw" association="_TJ-8EPE-EeO2fv87lT06ow"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_TJ-8EPE-EeO2fv87lT06ow" name="" memberEnd="_TKAKMPE-EeO2fv87lT06ow _TKBYUPE-EeO2fv87lT06ow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TJ_jIPE-EeO2fv87lT06ow" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TJ_jIfE-EeO2fv87lT06ow" key="nature" value="SysML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_TKBYUPE-EeO2fv87lT06ow" name="wiki documentation" type="_EL-EoPE-EeO2fv87lT06ow" association="_TJ-8EPE-EeO2fv87lT06ow"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_WJwvMJJwEeOW2_vqY9_o8g" name="Requirements">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_tALtUJJwEeOW2_vqY9_o8g" name="Integrate requirement engineering tool"/>
@@ -482,7 +508,7 @@
   <Blocks:Block xmi:id="_fpIjwI16EeOMqbI_LkMcYA" base_Class="_fpFgcI16EeOMqbI_LkMcYA"/>
   <Blocks:Block xmi:id="_FFXUsI17EeOMqbI_LkMcYA" base_Class="_S_VSAI13EeOMqbI_LkMcYA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_DKh_sI17EeOMqbI_LkMcYA" Issue="193" Tool="?" base_Class="_S_VSAI13EeOMqbI_LkMcYA"/>
-  <OpenETCSProfile:OpenETCSFeature xmi:id="_HZrgsI17EeOMqbI_LkMcYA" Tool="Scade System" base_Class="_fpFgcI16EeOMqbI_LkMcYA"/>
+  <OpenETCSProfile:OpenETCSFeature xmi:id="_HZrgsI17EeOMqbI_LkMcYA" Issue="376373" Tool="Scade System" base_Class="_fpFgcI16EeOMqbI_LkMcYA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_JSPk0I17EeOMqbI_LkMcYA" Issue="204" base_Class="_KUiXAI11EeOMqbI_LkMcYA"/>
   <Blocks:Block xmi:id="_Szn_AI18EeOMqbI_LkMcYA" base_Class="_SzjtkI18EeOMqbI_LkMcYA"/>
   <OpenETCSProfile:Input xmi:id="_tRVM4I18EeOMqbI_LkMcYA" base_Association="_kv_d8I18EeOMqbI_LkMcYA"/>
@@ -495,4 +521,10 @@
   <Blocks:Block xmi:id="_WJykYJJwEeOW2_vqY9_o8g" base_Class="_WJwvMJJwEeOW2_vqY9_o8g"/>
   <Blocks:Block xmi:id="_QW6esLjvEeOwJt8ZlTV5NA" base_Class="_QW4pgLjvEeOwJt8ZlTV5NA"/>
   <OpenETCSProfile:OpenETCSFeature xmi:id="_aLTw8LjvEeOwJt8ZlTV5NA" base_Class="_QW4pgLjvEeOwJt8ZlTV5NA"/>
+  <Blocks:Block xmi:id="_biM2IPE8EeOZaPlYwlozBw" base_Class="_biIksPE8EeOZaPlYwlozBw"/>
+  <Blocks:Block xmi:id="_gEsw8PE8EeOZaPlYwlozBw" base_Class="_gEsJ4PE8EeOZaPlYwlozBw"/>
+  <Blocks:Block xmi:id="_iRKBcPE8EeOZaPlYwlozBw" base_Class="_iRJaYPE8EeOZaPlYwlozBw"/>
+  <OpenETCSProfile:OpenETCSFeature xmi:id="_ntd5IPE8EeOZaPlYwlozBw" Implemented="true" Issue="377" Tool="Documentation Plugin" base_Class="_biIksPE8EeOZaPlYwlozBw"/>
+  <Blocks:Block xmi:id="_EL_50PE-EeO2fv87lT06ow" base_Class="_EL-EoPE-EeO2fv87lT06ow"/>
+  <OpenETCSProfile:OpenETCSArtifacts xmi:id="_SGVGsPE-EeO2fv87lT06ow" base_Class="_EL-EoPE-EeO2fv87lT06ow"/>
 </xmi:XMI>
