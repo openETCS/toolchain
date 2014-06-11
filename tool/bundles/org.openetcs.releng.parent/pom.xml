@@ -15,6 +15,7 @@
   </properties>
   
   <modules>
+    <module>../org.openetcs.common</module>
     <module>../org.openetcs.core.feature</module>
 	<module>../org.openetcs.datadictionary</module>
 	<module>../org.openetcs.datadictionary.feature</module>
