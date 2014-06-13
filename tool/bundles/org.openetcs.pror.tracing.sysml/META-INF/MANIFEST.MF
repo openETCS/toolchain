@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SysML Tracing
+Bundle-SymbolicName: org.openetcs.pror.tracing.sysml;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Formal Mind GmbH
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.openetcs.pror.tracing;bundle-version="0.1.0"

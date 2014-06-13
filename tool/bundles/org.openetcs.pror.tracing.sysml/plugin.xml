@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.openetcs.pror.tracing.notification">
+      <listener
+            listener="org.openetcs.pror.traing.sysml.PapyrusHandler">
+      </listener>
+   </extension>
+
+</plugin>
