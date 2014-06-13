@@ -20,6 +20,12 @@ package org.openetcs.pror.tracing.util;
 
 import java.util.StringTokenizer;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -170,5 +176,30 @@ public final class TracingUtil {
 			}
 		});
 
+	}
+
+	/**
+	 * Notifies proxy listeners, when something interesting happens.<p>
+	 * 
+	 * NOTE: Currently the only event processed is the creation of a proxy element.
+	 */
+	public static void notifyProxyListeners(EObject element) {
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		IExtensionPoint extensionPoint = registry
+				.getExtensionPoint("org.openetcs.pror.tracing.notification");
+		IExtension[] extensions = extensionPoint.getExtensions();
+		for (IExtension extension : extensions) {
+			IConfigurationElement[] configElements = extension
+					.getConfigurationElements();
+			for (IConfigurationElement configElement : configElements) {
+				try {
+					ProxyListener listener = (ProxyListener) configElement
+							.createExecutableExtension("listener");
+					listener.proxyCreatedFor(element);
+				} catch (CoreException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

@@ -37,6 +37,7 @@ import org.eclipse.rmf.reqif10.SpecRelationType;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.rmf.reqif10.pror.util.ProrUtil;
 import org.openetcs.pror.tracing.TracingConfiguration;
+import org.openetcs.pror.tracing.util.TracingUtil;
 
 /**
  * <p>
@@ -108,7 +109,6 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 		getLink(proxy, cmd);
 	}
 
-
 	/**
 	 * Returns the proxy for the given element.  If the proxy does not exist yet,
 	 * it is created, thereby appending to cmd.
@@ -171,6 +171,7 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	}
 
 	private SpecObject createProxy(CompoundCommand cmd, EObject element) {
+		TracingUtil.notifyProxyListeners(element);
 		SpecObject proxy;
 		proxy = ReqIF10Factory.eINSTANCE.createSpecObject();
 		TracingConfiguration config = getTracingConfig();
