@@ -106,7 +106,8 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	 */
 	void createCreateLinkCommand(CompoundCommand cmd, EObject element) {
 		SpecObject proxy = getProxy(element, cmd);
-		getLink(proxy, cmd);
+		SpecRelation specRelation = getLink(proxy, cmd);
+		TracingUtil.notifyProxyListeners(target, specRelation, element);
 	}
 
 	/**
@@ -171,7 +172,6 @@ public class CreateTraceCommand extends AbstractOverrideableCommand {
 	}
 
 	private SpecObject createProxy(CompoundCommand cmd, EObject element) {
-		TracingUtil.notifyProxyListeners(element);
 		SpecObject proxy;
 		proxy = ReqIF10Factory.eINSTANCE.createSpecObject();
 		TracingConfiguration config = getTracingConfig();

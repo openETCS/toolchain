@@ -19,13 +19,29 @@
 package org.openetcs.pror.traing.sysml;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
+import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
+import org.eclipse.uml2.uml.Element;
 import org.openetcs.pror.tracing.util.ProxyListener;
 
 public class PapyrusHandler implements ProxyListener {
 
 	@Override
-	public void proxyCreatedFor(EObject element) {
-		System.out.println("Proxy Created for: " + element);
+	public void proxyCreatedFor(SpecObject requirement, SpecRelation trace,
+			EObject element) {
+		if (element instanceof Element) {
+			System.out.println("Link between");
+			System.out.println("  Requirement: " + requirement);
+			System.out.println("          via: " + trace);
+			System.out.println("  UML Element: " + element);
+			// TODO: Here we need code to create a proxy element in Papyrus
+			// You can use RMF-Methods to extract all kind of useful information.
+			// For instance:
+			System.out.println("Internal ID: " + requirement.getIdentifier());
+			System.out.println("Attribute named 'Description': " + ReqIF10Util.getAttributeValueForLabel(requirement, "Description"));
+		}
 	}
+	
 
 }

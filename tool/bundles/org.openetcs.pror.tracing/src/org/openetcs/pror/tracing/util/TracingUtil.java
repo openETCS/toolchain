@@ -43,6 +43,7 @@ import org.eclipse.rmf.reqif10.AttributeValue;
 import org.eclipse.rmf.reqif10.AttributeValueString;
 import org.eclipse.rmf.reqif10.ReqIF10Package;
 import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
 import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 
 /**
@@ -179,11 +180,18 @@ public final class TracingUtil {
 	}
 
 	/**
+	 * 
 	 * Notifies proxy listeners, when something interesting happens.<p>
 	 * 
 	 * NOTE: Currently the only event processed is the creation of a proxy element.
+	 *
+	 * @param requirement the {@link SpecObject} the element is connected to. 
+	 * @param trace the {@link SpecRelation} between requirement and the proxy for element.  Note
+	 * that the user can configure the link direction (i.e. which one is source and which is the target).-ä
+	 * @param element the {@link EObject} that the proxy refers to.
 	 */
-	public static void notifyProxyListeners(EObject element) {
+	public static void notifyProxyListeners(SpecObject requirement,
+			SpecRelation trace, EObject element) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IExtensionPoint extensionPoint = registry
 				.getExtensionPoint("org.openetcs.pror.tracing.notification");
@@ -195,7 +203,7 @@ public final class TracingUtil {
 				try {
 					ProxyListener listener = (ProxyListener) configElement
 							.createExecutableExtension("listener");
-					listener.proxyCreatedFor(element);
+					listener.proxyCreatedFor(requirement, trace, element);
 				} catch (CoreException e) {
 					e.printStackTrace();
 				}

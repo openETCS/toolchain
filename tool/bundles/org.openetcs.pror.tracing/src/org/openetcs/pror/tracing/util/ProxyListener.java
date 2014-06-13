@@ -19,6 +19,8 @@
 package org.openetcs.pror.tracing.util;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.rmf.reqif10.SpecObject;
+import org.eclipse.rmf.reqif10.SpecRelation;
 
 /**
  * This interface is used for the Proxy Notification Extension Point. Registered
@@ -32,6 +34,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ProxyListener {
 	
-	public void proxyCreatedFor(EObject element);
+	/**
+	 * This method will be called when the user attempts to create a link in ProR between an EMF
+	 * element and a SpecObject.
+	 * 
+	 * @param requirement the {@link SpecObject} the element is connected to. 
+	 * @param trace the {@link SpecRelation} between requirement and the proxy for element.  Note
+	 * that the user can configure the link direction (i.e. which one is source and which is the target).-ä
+	 * @param element the {@link EObject} that the proxy refers to.
+	 */
+	public void proxyCreatedFor(SpecObject requirement, SpecRelation trace, EObject element);
 
 }
