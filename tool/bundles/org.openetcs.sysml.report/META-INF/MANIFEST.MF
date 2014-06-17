@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataDictionary report generator
+Bundle-SymbolicName: org.openetcs.sysml.report;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.openetcs.sysml.report.Activator
+Bundle-Vendor: Fraunhofer ESK, Deutsche Bahn
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.uml2.uml;bundle-version="4.1.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: de.fraunhofer.esk.openetcs.sysml2b.common,
+ org.eclipse.core.resources,
+ org.eclipse.papyrus.infra.onefile.model,
+ org.eclipse.uml2.uml,
+ org.openetcs.common
+
