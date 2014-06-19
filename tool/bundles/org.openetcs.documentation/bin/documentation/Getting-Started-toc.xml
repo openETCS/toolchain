@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="bin/documentation/Getting-Started.html" label="Getting-Started">
+	<topic href="bin/documentation/Getting-Started.html" label="TODO Toolchain basics">
+		<topic href="bin/documentation/Getting-Started.html#TODO_Elements" label="TODO Elements"></topic>
+		<topic href="bin/documentation/Getting-Started.html#Bug_report" label="Bug report"></topic>
+	</topic>
+	<topic href="bin/documentation/Getting-Started.html#TODO_Eclipse_Basics" label="TODO Eclipse Basics">
+		<topic href="bin/documentation/Getting-Started.html#TODO_Projects_in_Eclipse" label="TODO Projects in Eclipse"></topic>
+		<topic href="bin/documentation/Getting-Started.html#Workspaces_in_Eclipse" label="Workspaces in Eclipse"></topic>
+	</topic>
+	<topic href="bin/documentation/Getting-Started.html#Tutorial" label="Tutorial"></topic>
+</toc>

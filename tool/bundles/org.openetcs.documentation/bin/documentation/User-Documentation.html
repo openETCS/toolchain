@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>User-Documentation</title>
+		<link type="text/css" rel="stylesheet" href="../styles/main.css"/>
+	</head>
+	<body>
+		<h1 id="TODO_Overview">TODO Overview</h1>
+		<h1 id="Basic_Tasks">Basic Tasks</h1>
+		<h2 id="Git_Version_Control">Git Version Control</h2>
+		<p>
+			<a href="https://github.com/openETCS/toolchain/wiki/Introduction-to-Git">https://github.com/openETCS/toolchain/wiki/Introduction-to-Git</a>
+		</p>
+		<h2 id="TODO_Modeling_Blocks_.28SysML.29">TODO Modeling Blocks (SysML)</h2>
+		<h2 id="Data_Dictionary">Data Dictionary</h2>
+		<p>This plugin contains the data dictionary plugin which contains data structures, variables, messages, etc. from the ETCS System Requirements Specification (SRS). The plugin registers a UML model, which contains the information from the SRS. After registration, the UML model is available as a UML library.</p>
+		<h3 id="Plugins">Plugins</h3>
+		<p>The plugin consists of the following parts:</p>
+		<pre>
+org.openetcs.datadictionary
+org.openetcs.datadictionary.feature
+</pre>
+		<h3 id="Usage">Usage</h3>
+		<p>To use the plugin, right click on the SysML model from the Papyrus model explorer and select <tt>Import | Import Registered Package</tt>. The select <tt>openETCSDataDictionary</tt>.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/wiki/openetcs/toolchain/images/data-dictionary.png"/>
+		</p>
+		<h3 id="Transformation">Transformation</h3>
+		<p>There is a standalone application that generates the <tt>.uml</tt> file from the Bitwalker XML files. The tool <tt>org.openetcs.datadictionary.transform</tt> can be found in the standalone folder of this repository. To generate the <tt>.uml</tt> file just execute it as a standalone Java application. The generated <tt>.uml</tt> file is saved into the <tt>/generated</tt> folder.</p>
+		<h3 id="Further_Links">Further Links</h3>
+		<ul>
+			<li>
+				<a href="Data_Dictionary_Plugin_Development" title="Data Dictionary Plugin Development">Data Dictionary Plugin Development</a>
+			</li>
+			<li>
+				<a href="Data_Dictionary_Design_Specification" title="Data Dictionary Design Specification">Data Dictionary Design Specification</a>
+			</li>
+			<li>
+				<a href="Integration-of-Data-Dictionary-into-Papyrus" title="Integration-of-Data-Dictionary-into-Papyrus">Integration-of-Data-Dictionary-into-Papyrus</a> (Original Proposal)
+			</li>
+			<li>
+				<a href="https://github.com/openETCS/requirements/blob/master/D2.4/D2_4.pdf">D2.4 OpenETCS Methods: Definition of the methods used to perform the formal description</a>
+			</li>
+			<li>
+				<a href="https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.datadictionary">https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.datadictionary</a>
+			</li>
+			<li>
+				<a href="https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.datadictionary.feature">https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.datadictionary.feature</a>
+			</li>
+			<li>
+				<a href="https://github.com/openETCS/toolchain/tree/master/tool/standalone/org.openetcs.datadictionary.transform">https://github.com/openETCS/toolchain/tree/master/tool/standalone/org.openetcs.datadictionary.transform</a>
+			</li>
+		</ul>
+		<h2 id="Authoring_Requirements_.28ProR.29">Authoring Requirements (ProR)</h2>
+		<p>Requirements are managed with 
+			<a href="http://eclipse.org/rmf/">Eclipse RMF</a>.  Please check out the RMF documentation for now:
+		</p>
+		<ul>
+			<li>
+				<a href="https://wiki.eclipse.org/RMF/User_Guide/Tutorial#Create_the_Model">Tutorial</a>
+			</li>
+			<li>Note that the RMF documentation is included in the built-in Help of openETCS.</li>
+		</ul>
+		<h2 id="Tracing_Requirements_and_SysML_Models">Tracing Requirements and SysML Models</h2>
+		<p>The Tracing Features allow the linking of *ProR Requirements* and *SysML Model Elements*.  This is realized within the requirements model by using the internal links (SpecRelations) and requirements that act as proxies to the SysML Model element.  Note that both, links and proxies, can be extended with additional attributes.</p>
+		<p>Change Tracking is done by using the Change Management Plug-in described below.</p>
+		<p>This section describes how the tracing feature is configured and used.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/text.png"/> Resources:
+		</p>
+		<ul>
+			<li>Code available at 
+				<a href="https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.pror.tracing">https://github.com/openETCS/toolchain/tree/master/tool/bundles/org.openetcs.pror.tracing</a>
+			</li>
+			<li>Specification available at 
+				<a href="https://github.com/openETCS/toolchain/tree/master/PositionPapers/FormalMind">https://github.com/openETCS/toolchain/tree/master/PositionPapers/FormalMind</a>
+			</li>
+		</ul>
+		<h3 id="Before_Getting_Started">Before Getting Started</h3>
+		<p>We assume that you have openETCS installed, and open with a ProR requirements model and a SysML model.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png"/> We suggest switching to the Papyrus Perspective, to have all relevant Views on the screen. (<tt>Window | Show View | Other...</tt>)
+		</p>
+		<h3 id="Creating_the_required_data_types">Creating the required data types</h3>
+		<p>A number of datatypes must be created that are being used in the tracing configuration.    Please create the following elements, or make sure that they exist.  The names are just recommendations that are used throughout this chapter:</p>
+		<ul>
+			<li>You need the requirements model open and focused.</li>
+			<li>The datatype configuration dialog is opened via <tt>ProR | Datatype Configuration...</tt>.</li>
+			<li>Datatypes for the Proxy Element:
+				<ul>
+					<li>
+						<b>Proxy Type:</b> This is a <tt>Spec Object Type</tt> for the proxy elements.
+					</li>
+					<li>
+						<b>Description:</b> This is an <tt>Attribute Definition String</tt> that is a child of 
+						<b>Proxy Type:</b>.  This is where the URL to the linked element is stored.
+					</li>
+					<li>
+						<b>T_Proxy:</b> This is the <tt>Datatype Definition String</tt> that is associated with 
+						<b>Proxy Attribute:</b>.
+					</li>
+				</ul>
+			</li>
+			<li>Datatypes for the Link Element:
+				<ul>
+					<li>
+						<b>Link Type:</b> This is a <tt>Spec Relation Type</tt> that connects the 
+						<b>Proxy Type:</b> with the requirement.
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<p>You are free to add additional attributes to 
+			<b>Proxy Type:</b> and 
+			<b>Link Type:</b>, which will simply be ignored by the Plugin.
+		</p>
+		<h3 id="Configuring_Tracing_Plug-In">Configuring Tracing Plug-In</h3>
+		<ul>
+			<li>You need the requirements model open and focused.</li>
+			<li>Select <tt>ProR | Presentation Configuration</tt></li>
+			<li>From the dropdown <tt>Select Action...</tt> pick <tt>Tracing</tt></li>
+			<li>Upon selecting the newly created configuration element, the property view shows 7 entries:
+				<ul>
+					<li>
+						<b>Attribute Names:</b> Enter the attribute name you picked earlier (
+						<b>Description</b>).  Note: That you need to type the name exactly as you created it earlier.
+					</li>
+					<li> 
+						<b>Datatype:</b>  The datatype you created earlier (
+						<b>T_Proxy</b>).
+					</li>
+					<li> '
+						<i>Link From Target: '</i>  Whether the source of the link is the SysML Proxy, and the target the requirement, or the other way around.
+					</li>
+					<li> 
+						<b>Link Type: ''' The SpecRelationType you created earlier (</b>Link Type''').
+					</li>
+					<li> '
+						<i>Package Prefix: '</i> (Advanced users) This is the package namespace of the Java object that is being dragged on the requirement.  If the namespace fits the beginning of the dragged object, then the drop operation is enabled.  The default (org.eclipse.uml) fits all Papyrus model elements.  Changing this allows to configure multiple tracing integrations without interfering with each other.
+					</li>
+					<li> 
+						<b>Proxy Attribute:</b> The attribute from the Proxy attribute, from the drop down (
+						<b>Description (String) Proxy Type</b>)
+					</li>
+					<li> 
+						<b>Proxy Type: ''' The SpecObjectType you created earlier (</b>Proxy Type:''')
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="Using_the_Tracing_Plug-In">Using the Tracing Plug-In</h3>
+		<p>Traces are established with Drag&amp;Drop from the Papyrus 
+			<b>Model Explorer</b> to the ProR 
+			<b>Specification Editor</b>.  Thus, both must be visible.
+		</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png"/>  The model explorer will be empty if the Papyrus editor is not visible.  Therefore, you must rearrange the editors so that both the ProR Requirements Editor and Papyurus Model Editor are visible at the same time.  Here is an example on how this can look like:
+		</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-pror-tracing/window.png"/>
+		</p>
+		<h3 id="Tipps.2C_Tricks.2C_Notes.2C_etc.">Tipps, Tricks, Notes, etc.</h3>
+		<ul>
+			<li>Model Changes from the Papyrus Model will propagate upon saving.</li>
+			<li>The current implementation is not very efficient.  Should you encounter performance problems, things can be improved.  Note, however, that many performance issues are caused by Papyrus (e.g. opening a model can take several seconds).  This has nothing to do with this plugin.</li>
+			<li>The original spec was asking for a change tracking mechanism.  This, too, will be available as part of Toolsprint 7.  In fact, this will be realized with the existing 
+				<a href="http://formalmind.com/en/blog/integrating-requirements-and-models">suspect link plugin</a>.  Due to a pending ProR release, this is not available yet.
+			</li>
+			<li>Help improving the documentation by adding more information here.</li>
+		</ul>
+		<h2 id="Suspect_Links">Suspect Links</h2>
+		<p>This features allows traces to be flagged, if source or target of that link has changed.  Currently, this works for all links within requirements, as well as for links between requirements and SysML model elements (created with the 
+			<a href="User_Documentation#Tracing_Requirements_and_SysML_Models" title="User Documentation#Tracing_Requirements_and_SysML_Models">tracing feature</a>.
+		</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/flag.png"/> For now, you need to explicitly install this feature, as described 
+			<a href="Installation.html#Installing_ProR_Essentials" title="Installation.html#Installing_ProR_Essentials">above</a>.
+		</p>
+		<h3 id="Configuration">Configuration</h3>
+		<p>The feature needs to be configured only once as follows:</p>
+		<ul>
+			<li>You need a 
+				<b>SpecRelationType</b> for this feature.
+			</li>
+			<li>The 
+				<b>SpecRelationType</b> must have two boolean attributes.  We recommend calling them 
+				<b>SourceChanged</b> and 
+				<b>TargetChanged</b>.
+			</li>
+			<li>Don't forget to create a Boolean Datatype for the boolean flags (e.g. '
+				<i>T_Changed</i>).
+			</li>
+			<li>The 
+				<b>SpecRelationType</b> should now look like this (here it's called 
+				<b>Proxy Link Type</b>):
+			</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-pror-linkmanagement/suspect-link-configuration.png"/>
+		</p>
+		<ul>
+			<li>You also need to configure the 
+				<b>Link Management Pesentation</b>.
+			</li>
+			<li>Go to <tt>ProR | Presentation Configuration...</tt></li>
+			<li>From the <tt>Select Action...</tt> drop-down, select <tt>Linkmanagement</tt>.  This should be configured as shown below:</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-pror-linkmanagement/suspect-presentation.png"/>
+		</p>
+		<ul>
+			<li>The fields have the following values:
+				<ul>
+					<li>
+						<b>Datatype</b> - the datatype of the boolean flags (earlier called 
+						<b>T_Changed</b>).
+					</li>
+					<li>
+						<b>Link Relation Type</b> - the type we created earlier.
+					</li>
+					<li>
+						<b>Source Status</b> - the attribute of the flag that indicates that the source changed.
+					</li>
+					<li>
+						<b>Target Status</b> - the attribute of the flag that indicates that the target changed.
+					</li>
+				</ul>
+			</li>
+			<li>This completes the configuration.</li>
+		</ul>
+		<h3 id="Use">Use</h3>
+		<p>The use is simple: </p>
+		<ul>
+			<li>If the source or the target of a link changed, the corresponding flag will be set, indicated by a yellow triangle with an exclamation mark.</li>
+			<li>The flag can also be set manually be double-clicking on the cell.</li>
+			<li>The flag can be reset by double-clicking as well (this should happen after verifying that the trace in its current form is still valid.</li>
+			<li>If you link to a an element that is not a requirement (e.g. a SysML model element), you need to save the model for the flag to be set.</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png"/>  Tip: Typically, you see the flag only in the properties view.  But of course you can add the corresponding flags (
+			<b>SourceChanged</b> and 
+			<b>TargetChanged</b>) to your Specification View as well, giving you a quick overview of changes, if you expand the links.
+		</p>
+		<h2 id="Generating_Documentation">Generating Documentation</h2>
+		<p>Eclipse toolchain plug-in generates Eclipse Help documentation (a hierarchy of HTML files) and PDF documentation from toolchain repository.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/description.png"/>
+		</p>
+		<p>It is necessary to create a Jenkins job to generate automatically toolchain documentation. This job launches mediawiki file cloning process from Github repository to the userâ€™s local machine. In this way, toolchain documentation is cloned. Also, Jenkins job activates documentation generation running build.xml file using Ant to generate Eclipse help, PDF documentation and a table of contents dynamically.</p>
+		<p>Eclipse help HTML files and a PDF file are generated in "org.openetcs.toolchain\OpenETCS_toolchain" folder.</p>
+		<p>The following image shows generated Toolchain Documentation openETCS Guide available selecting <tt>Help | Help Contents</tt>in the tool.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/eclipse_help.png"/>
+		</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png"/> Tip: Subpage links should include real section name. Moreover, the spaces between words should be replaced with underscore. E.g. [ [ Documentation#Tracing_Requirements_and_SysML_Models|tracing feature ] ]
+		</p>
+		<h3 id="Before_Getting_Started_2">Before Getting Started</h3>
+		<p>We assume that you have openETCS Toolchain and Jenkins installed.</p>
+		<h3 id="Jenkins_job_configuration">Jenkins job configuration</h3>
+		<ul>
+			<li>Jenkins job creation</li>
+		</ul>
+		<p>The first step is to create a new free-style Jenkins job named "openETCS_toolchain_job". This job will launch cloning process and documentation generation daily. </p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/job_creation.png"/>
+		</p>
+		<ul>
+			<li>Jenkins job configuration</li>
+		</ul>
+		<p>In Source Code Management section, select Git and introduce de OpenETCS toolchain wiki URL as is shown in the following image. Also, it is necessary to select Check out to a subdirectory as Additional Behaviours option to specify the local destination folder within the plug-in folder (org.openetcs.toolchain\cloned_repository). Finally, select Clean after checkout as Additional Behaviours option.</p>
+		<p>The following image shows Source Code Management section configuration. In this case, it has to be taken into account that openETCS Eclipse tool is placed in C:\ and the toolchain plug-in is located in â€œpluginsâ€? folder.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/source_code_management.png"/>
+		</p>
+		<p>In order to automate the job execution, introduce @daily in the Build Triggers section to specify that the job will be executed daily. Anyway, the user could launch the job execution whenever he/she wants.</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/job_schedule.png"/>
+		</p>
+		<p>In the Build section, select Invoke Ant as Add build step option to allow Jenkins to locate and execute build.xml file using Ant. The path to the file should be specified using Build File textbox. From the previous example, the following path is needed:</p>
+		<p>C:\openETCS-win32_32\plugins\org.openetcs.toolchain</p>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/plugin-documentation/path.png"/>
+		</p>
+		<p>Finally, push Save button to save the job and its settings.</p>
+	</body>
+</html>

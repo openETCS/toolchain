@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="bin/documentation/Developer-Documentation.html" label="Developer-Documentation">
+	<topic href="bin/documentation/Developer-Documentation.html" label="Setting up the development environment">
+		<topic href="bin/documentation/Developer-Documentation.html#OpenETCS_Project_description" label="OpenETCS Project description"></topic>
+	</topic>
+	<topic href="bin/documentation/Developer-Documentation.html#TODO_Guidelines_for_plugin_integration" label="TODO Guidelines for plugin integration">
+		<topic href="bin/documentation/Developer-Documentation.html#Guidelines_for_licence_and_credit_information" label="Guidelines for licence and credit information"></topic>
+		<topic href="bin/documentation/Developer-Documentation.html#Licence_Template" label="Licence Template"></topic>
+		<topic href="bin/documentation/Developer-Documentation.html#Licence_template_for_Eclipse_new_feature" label="Licence template for Eclipse new feature"></topic>
+	</topic>
+</toc>

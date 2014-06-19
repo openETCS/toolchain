@@ -1,0 +1,34 @@
+= How to Contribute =
+
+Writing documentation is everybody's task.  Don't ask for permission to contribute, just do it.
+
+As of this writing (4-Mar-2014), the documentation is stored in a single Wiki page.  To prevent editing conflicts, please follow these rules:
+
+* Note that this page uses MediaWiki Markup (not gitHub wiki Markup)
+* If you are missing documentation, please create a stub for it: Find the place where you think it would be appropriate, and insert a section name, preceded by TODO.  That way we know that something is missing.
+* If you want to contribute content to a section, then:
+** First edit the section name, by removing the TODO and replace it with your name, e.g. "Michael: How to Contribute".  Then safe the page.  That way, someone looking at the page (hopefully) knows not to edit in the same section.
+** Work on the section as you see fit.
+** When you're done, remove your name.  However, if the content is not complete, put the word TODO back into the section name.
+** If you get a conflict upon safe, hopefully the conflict is in a different section.  In that case, copy your contribution (which is hopefully limited to one section), reload the page, and insert your content.
+
+== Artwork ==
+
+* Please make sure that artwork is correspondingly licensed.  Here is a CC-licensed icon set that is used for tips, hints, warnings, etc.: http://omercetin.deviantart.com/art/PixeloPhilia-32PX-Icon-Set-157612627
+* You need to upload artwork via git to /tool/documentation-artwork.  Please use folders to organize the pictures.
+* To use an image, find the raw URL and put it in double square brackets.
+
+You can use the following icons:
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png]]  Pointing out potential problems, please use sparingly.
+
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/lamp.png]]  Tips and Tricks
+
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/text.png]] Further resources, especially for developers (link to code, link to specs, etc.
+
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/flag.png]]  Things that are flagged for later, e.g. marking things that will be implemented shortly
+
+= TODO License =

@@ -1,0 +1,38 @@
+= TODO Toolchain basics =
+== TODO Elements ==
+the idea behind this requirements is to find a first reference to enter the tool chain. Like in short reference sheets or FAQs within this reference the elements which are of current interest (meaning which are to be touched in future use/ development) could have a short description to enable the partners to collaborate effectively within the tool chain.
+
+One example could be listing for a plugin:
+* Path it resides in
+* Short description of usage/ functionality
+* Definition of data for input
+* Definition of data for output
+* Elements of current interest:
+** here a list of parameters could reside
+** definition of API for other modules
+** naming other elements/ functionality which are expected to be touched
+Including their internal data structure in case they are foreseen for use by the following tool chain
+
+== Bug report ==
+Bug should be reported at this address: https://github.com/openETCS/toolchain/issues.
+* Create a new issue: Just click on the new issue button
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/new_issue.png]]
+* Select the Bug report label
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/bug-report/add_label.png]]
+* Fill the title with a precise naming
+* Fill the comment that describes more precisely your bug
+
+If the bug is related to a tool that is developed outside openETCS project:
+* A toolchain contributor/openETCs tool chain manager will assign this issue
+* The assignee should forward the issue to the corresponding project 
+* The assignee should put a link in the bug report issue.
+
+= TODO Eclipse Basics =
+
+== TODO Projects in Eclipse ==
+
+-> TODO Address #12 from modeling repository here
+
+== Workspaces in Eclipse ==
+
+= Tutorial =

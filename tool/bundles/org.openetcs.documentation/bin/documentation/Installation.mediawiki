@@ -1,0 +1,35 @@
+= System Requirements =
+The minimal requirement for java is  Java 6 (aka Java 1.6).
+
+Some functionalities (e.g. ProR "Rich Text" extension) won't work with Java 6 and require Java 7. However, core tools of openETCS tool chain (e.g. Papyrus SysML editor) have not been qualified for Java 7.
+
+= Installation procedure =
+*	The openETCS Toolchain is available in the following URL for downloading: https://openetcs.ci.cloudbees.com/job/openETCS-tycho/28/artifact/tool/bundles/org.openetcs.releng.products/target/
+*	Unzip main folder to extract the content in the desired location.
+*	Launch openETCS executable file to run Eclipse.
+*	Select your workspace.
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/installation/workspace.png]]
+
+== Installing ProR Essentials ==
+
+There are a number of free (but currently not open) extensions that are useful for working with openETCS. As they are not open, they have to be installed manually.  Currently this includes:
+
+* '''Suspect Links''' - indicates if source or target of a link have changed.
+* '''Rich Text''' - shows formatted text properly formatted, and allows editing with a rich text editor.
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png]]  The '''Rich Text''' extension requires Java 7 from Oracle, as it relies on the JavaFX component.
+
+Here are the steps:
+
+* Select <tt>Help | Install new Software...</tt>
+* You need to enter a new update site in the <tt>Works with</tt> box (if you entered it before, you can select it from the drop down): <tt>http://update.formalmind.com/essentials</tt>
+* From the Category <tt>ProR Essentials for Eclipse RMF</tt> select:
+** <tt>ProR Linkmanagement Presentation Feature</tt>
+** <tt>ProR Xhtml Rtf Presentation Feature</tt>
+
+[[https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png]]  Make sure you select version 0.10 or better.  The update site structure will probably change in the future.
+
+* Follow the installation wizard.
+* The use of the feature is explained further down.
+
+= TODO Upgrade procedure =

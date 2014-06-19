@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Installation</title>
+		<link type="text/css" rel="stylesheet" href="../styles/main.css"/>
+	</head>
+	<body>
+		<h1 id="System_Requirements">System Requirements</h1>
+		<p>The minimal requirement for java is  Java 6 (aka Java 1.6).</p>
+		<p>Some functionalities (e.g. ProR "Rich Text" extension) won't work with Java 6 and require Java 7. However, core tools of openETCS tool chain (e.g. Papyrus SysML editor) have not been qualified for Java 7.</p>
+		<h1 id="Installation_procedure">Installation procedure</h1>
+		<ul>
+			<li>The openETCS Toolchain is available in the following URL for downloading: 
+				<a href="https://openetcs.ci.cloudbees.com/job/openETCS-tycho/28/artifact/tool/bundles/org.openetcs.releng.products/target/">https://openetcs.ci.cloudbees.com/job/openETCS-tycho/28/artifact/tool/bundles/org.openetcs.releng.products/target/</a>
+			</li>
+			<li>Unzip main folder to extract the content in the desired location.</li>
+			<li>Launch openETCS executable file to run Eclipse.</li>
+			<li>Select your workspace.</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/installation/workspace.png"/>
+		</p>
+		<h2 id="Installing_ProR_Essentials">Installing ProR Essentials</h2>
+		<p>There are a number of free (but currently not open) extensions that are useful for working with openETCS. As they are not open, they have to be installed manually.  Currently this includes:</p>
+		<ul>
+			<li>
+				<b>Suspect Links</b> - indicates if source or target of a link have changed.
+			</li>
+			<li>
+				<b>Rich Text</b> - shows formatted text properly formatted, and allows editing with a rich text editor.
+			</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png"/>  The 
+			<b>Rich Text</b> extension requires Java 7 from Oracle, as it relies on the JavaFX component.
+		</p>
+		<p>Here are the steps:</p>
+		<ul>
+			<li>Select <tt>Help | Install new Software...</tt></li>
+			<li>You need to enter a new update site in the <tt>Works with</tt> box (if you entered it before, you can select it from the drop down): <tt>
+				<a href="http://update.formalmind.com/essentials">http://update.formalmind.com/essentials</a></tt>
+			</li>
+			<li>From the Category <tt>ProR Essentials for Eclipse RMF</tt> select:
+				<ul>
+					<li><tt>ProR Linkmanagement Presentation Feature</tt></li>
+					<li><tt>ProR Xhtml Rtf Presentation Feature</tt></li>
+				</ul>
+			</li>
+		</ul>
+		<p>
+			<img style="border-width: 0px;" alt="" src="https://raw.github.com/openETCS/toolchain/master/tool/documentation-artwork/icons/alert.png"/>  Make sure you select version 0.10 or better.  The update site structure will probably change in the future.
+		</p>
+		<ul>
+			<li>Follow the installation wizard.</li>
+			<li>The use of the feature is explained further down.</li>
+		</ul>
+		<h1 id="TODO_Upgrade_procedure">TODO Upgrade procedure</h1>
+	</body>
+</html>
