@@ -6,7 +6,9 @@ import Subset0267.TLoopWhile
 import Subset0267.TTlgVar
 import Subset0267.util.Subset0267ResourceFactoryImpl
 import Subset0268.DocumentRoot
+import Subset0268.OptionalPacketsType
 import Subset0268.ParcelType
+import Subset0268.TPacket
 import Subset0268.util.Subset0268ResourceFactoryImpl
 import java.io.IOException
 import org.eclipse.emf.common.util.BasicEMap
@@ -16,15 +18,22 @@ import org.eclipse.emf.common.util.WrappedException
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.FeatureMap
+import org.eclipse.papyrus.sysml.SysmlPackage
+import org.eclipse.papyrus.sysml.blocks.BlocksPackage
+import org.eclipse.papyrus.sysml.util.SysmlResource
 import org.eclipse.uml2.uml.DataType
 import org.eclipse.uml2.uml.Model
 import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.Profile
+import org.eclipse.uml2.uml.Stereotype
 import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLFactory
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.resource.UMLResource
+import org.eclipse.uml2.uml.util.UMLUtil
 
+//import org.eclipse.papyrus.sysml.SysmlFactory
 class TransformServiceImpl implements ITransformService {
 
 	//	private static var SysMLProfile = null
@@ -66,7 +75,7 @@ class TransformServiceImpl implements ITransformService {
 	private static var SUBSET_NAME_0267 = "Subset-026-7"
 	private static var SUBSET_NAME_0268 = "Subset-026-8"
 
-	private static var invalidNames = #["spare", "unknown", "not known", "not valid", "reserved", "not used"]
+	private static var invalidNames = #[""] //"spare", "unknown", "not known", "not valid", "reserved", "not used"]
 
 	private static val FILE_PREFIX = "file:///"
 
@@ -82,6 +91,11 @@ class TransformServiceImpl implements ITransformService {
 		return outFile
 	}
 
+	static var Stereotype gstereotype = null
+	static var Stereotype gdatatype = null
+	static var Profile SysMLProfile
+	static var Profile BlocksProfile
+
 	def String transformImpl(String file) {
 		val input = FILE_PREFIX + file;
 		val output_path = file.substring(0, file.lastIndexOf('.')) + ".uml";
@@ -90,21 +104,26 @@ class TransformServiceImpl implements ITransformService {
 		System.out.println("input " + input)
 		System.out.println("output " + output)
 
-		//		
-		//		resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);		
-		//		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
-		//		val SysMLProfileUri = URI.createURI("models/SysML.profile.uml")	
-		//		var uriMap = resourceSet.getURIConverter().getURIMap();		
-		//		uriMap.put(URI.createURI(UMLResource.LIBRARIES_PATHMAP),  SysMLProfileUri.appendSegment("libraries").appendSegment(""));
-		//		uriMap.put(URI.createURI(UMLResource.METAMODELS_PATHMAP), SysMLProfileUri.appendSegment("metamodels").appendSegment(""));
-		//		uriMap.put(URI.createURI(UMLResource.PROFILES_PATHMAP),   SysMLProfileUri.appendSegment("profiles").appendSegment(""));
-		//		
-		val umlModel = createUMLModel
+		var resourceSet = new ResourceSetImpl
+		var uriMap = resourceSet.getURIConverter().getURIMap();
+		var SysmlProfileUri = URI.createURI(SysmlResource.SYSML_PROFILE_URI)
 
-		//		
-		//		val SysMLProfile = loadPackage(SysMLProfileUri) as Profile;		
-		//		umlModel.applyProfile(SysMLProfile)
-		//		
+		resourceSet.getPackageRegistry().put(SysmlPackage.eNS_URI, SysmlPackage.eINSTANCE);
+		resourceSet.getPackageRegistry().put(BlocksPackage.eNS_URI, BlocksPackage.eINSTANCE);
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION,
+			UMLResource.Factory.INSTANCE);
+		uriMap.put(URI.createURI(UMLResource.LIBRARIES_PATHMAP), URI.createURI(SysmlResource.LIBRARIES_PATHMAP))
+		uriMap.put(URI.createURI(UMLResource.PROFILES_PATHMAP),  URI.createURI(SysmlResource.PROFILES_PATHMAP))
+
+		SysMLProfile = UMLUtil.load(resourceSet, SysmlProfileUri, UMLPackage.Literals.PROFILE);
+		//BlocksProfile = SysMLProfile.getProfile("Blocks")
+		gstereotype = SysMLProfile.getStereotype("ValueType")
+		System.out.println("ValueType Stereotype" + gstereotype)
+		
+		val umlModel = createUMLModel
+		umlModel.applyProfile(SysMLProfile)
+		//umlModel.applyProfile(BlocksProfile)
+
 		umlModel.setName(MODEL_NAME)
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION,
 			UMLResource.Factory.INSTANCE)
@@ -158,7 +177,7 @@ class TransformServiceImpl implements ITransformService {
 		pkg.createPackets0268(dictionary.definitions.packets.trackToTrain.packet)
 	}
 
-	def createPackets0268(Package pkg, EList<Subset0268.TPacket> packets) {
+	def createPackets0268(Package pkg, EList<TPacket> packets) {
 		for (v : packets) {
 			var optional = 1
 			var parcel_num = 1
@@ -180,7 +199,7 @@ class TransformServiceImpl implements ITransformService {
 						val type = elt.type;
 						dataType.createAttribute(elt.name, generatedTypes.get(type), elt.comment)
 					}
-					Subset0268.OptionalPacketsType: {
+					OptionalPacketsType: {
 						var type_id = type_identifier(typePrefix + optional.toString())
 						val optional_datatype = pkg.createDataType(type_id)
 						optional_datatype.addComment(OPTIONAL_PACKET_COMMENT)
@@ -190,7 +209,7 @@ class TransformServiceImpl implements ITransformService {
 							createParcel(optional_datatype, sub_elt, num + 1)
 						]
 					}
-					Subset0268.ParcelType: {
+					ParcelType: {
 						createParcel(dataType, elt, parcel_num)
 						parcel_num = parcel_num + 1
 					}
@@ -216,7 +235,12 @@ class TransformServiceImpl implements ITransformService {
 
 			// If special is empty or less than 1 we have a primitive type
 			if (v.specs.special.empty || v.specs.special.length <= 1) {
-				var primitiveType = variablesPkg.createOwnedPrimitiveType(type_identifier(v.name))
+
+				var primitiveType = variablesPkg.createDataType(type_identifier(v.name))
+				//primitiveType.applyStereotype(gstereotype)
+				UMLUtil.safeApplyStereotype(primitiveType, gstereotype)
+				//System.out.println(v.name + " applied : " + primitiveType.appliedStereotypes);
+
 				if (isValid(v.detailedName)) {
 					primitiveType.addComment(DETAILED_NAME_PREFIX + v.detailedName)
 				}
@@ -437,7 +461,13 @@ class TransformServiceImpl implements ITransformService {
 	}
 
 	def static createDataType(Package pkg, String name) {
-		return pkg.createPackagedElement(name, UMLPackage.eINSTANCE.dataType) as DataType
+
+		//var datatype = DataTypeUtil.newInstance()
+		//return datatype						
+		//return pkg.createPackagedElement(name, UMLPackage.eINSTANCE.dataType) as DataType
+		return pkg.createPackagedElement(name, UMLPackage.eINSTANCE.getDataType()) as DataType
+
+	//eclass.getEAnnotation(UMLUtil.UML2_UML_PACKAGE_2_0_NS_URI)
 	}
 
 	def static addComment(NamedElement element, String comment) {
@@ -452,39 +482,37 @@ class TransformServiceImpl implements ITransformService {
 		return UMLFactory.eINSTANCE.createModel
 	}
 
-//	def static Profile getProfile(Package pack, String name) {
-// 		for (e : pack.allOwnedElements()) {
-//			switch e {
-//				Profile : {
-//					if (e.getName() == name)
-//						return e;
-//				}
-//			}			
-//		}
-//        return null;
-//    }
-//    
-//    def Package loadPackage(URI uri) throws Exception {
-//		try {
-//			var resource = resourceSet.getResource(uri, true);
-//			return EcoreUtil.getObjectByType(resource.getContents(), UMLPackage.Literals.PACKAGE) as Package;
-//        } catch (WrappedException we) {
-//            println(we.getMessage())
-//            System.exit(1)
-//        }
-//        return null
-//    }
-// 
-//	def static Stereotype getStereotype(Package pack, String name) 
-//	{
-// 		for (e : pack.allOwnedElements()) {
-// 			switch e {
-// 				Stereotype :
-//					if (e.getName() == name) {
-//						return e
-//					}
-// 			}
-//		}
-//        return null;
-//	}
+	def static Profile getProfile(Package pack, String name) {
+		for (e : pack.allOwnedElements()) {
+			switch e {
+				Profile: {
+					if (e.getName() == name)
+						return e;
+				}
+			}
+		}
+		return null;
+	}
+
+	//    def Package loadPackage(URI uri) throws Exception {
+	//		try {
+	//			var resource = resourceSet.getResource(uri, true);
+	//			return EcoreUtil.getObjectByType(resource.getContents(), UMLPackage.Literals.PACKAGE) as Package;
+	//        } catch (WrappedException we) {
+	//            println(we.getMessage())
+	//            System.exit(1)
+	//        }
+	//        return null
+	//    }
+	def static Stereotype getStereotype(Package pack, String name) {
+		for (e : pack.allOwnedElements()) {
+			switch e {
+				Stereotype:
+					if (e.getName() == name) {
+						return e
+					}
+			}
+		}
+		return null;
+	}
 }

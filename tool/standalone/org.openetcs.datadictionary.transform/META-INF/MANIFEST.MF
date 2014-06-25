@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
- org.eclipse.uml2.uml
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.sysml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: Subset0267,
  Subset0267.impl,
