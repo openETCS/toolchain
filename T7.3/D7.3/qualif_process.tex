@@ -24,6 +24,110 @@ ensure the following safety-goals that will avoid some extra tool qualification:
   verifiable.
 \end{itemize}
 
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
+	\node [block] (n1) {Features Analysis};
+	\node [block, below of=n1] (n2) {Toolchain Platform Analysis};
+	\node [block, below of=n2] (n3) {Design Qualification Plan};
+	\node [below of=n3] (sub3) {};
+	\node [left of=sub3, node distance=4cm] (label1) {Toolchain \& Platform Development};
+	\node [block, below of=label1, node distance=1cm] (n4) {Functional Specification};
+	\node [block, below of=n4] (n5) {Code Development};
+	\node [block, below of=n5] (n6) {Code Review};
+	\node [block, below of=n6] (n7) {Testing};
+	\node [block, right of=sub3, node distance=4cm] (n8) {Tools Evaluation};
+
+	\node [below of=n8,align=center, node distance=2cm] (tq1) {Individual Tool Qualification\\(to be followed for each tool)};
+
+	\node [block, below of=tq1, node distance=1.5cm] (tq2) {Operational\\Qualification};
+	\node [block, left of=tq2, node distance=2.5cm] (tq3) {Installation\\Qualification};
+	\node [block, right of=tq2, node distance=2.5cm] (tq4) {Performance\\Qualification};
+	\begin{scope}[on background layer]
+		\node [block, fit=(tq1) (tq2) (tq3) (tq4)] (n9) {};
+		\node [block, fit=(label1) (n4) (n5) (n6) (n7)] (n10) {};
+	\end{scope}
+	\node [block, below of=n3, node distance=9cm] (n11) {Tool \& Platform Integration};
+	\node [block, below of=n11] (n12) {Toolchain Installation Qualification};
+	\node [block, below of=n12] (n13) {Toolchain Operational Qualification};
+	\node [block, below of=n13] (n14) {Toolchain Performance Qualification};
+	\node [block, below of=n14] (n15) {Maintenance};
+
+	\draw[->] (n1) -- (n2);
+	\draw[->] (n2) -- (n3);
+	\draw[->] (n3) -- (n10);
+	\draw[->] (n3) -- (n8);
+	\draw[->] (n8) -- (n9);
+	\draw[->] (n4) -- (n5);
+	\draw[->] (n5) -- (n6);
+	\draw[->] (n6) -- (n7);
+	\draw[->] (n9) -- (n11);
+	\draw[->] (n10) -- (n11);
+	\draw[->] (n11) -- (n12);
+	\draw[->] (n12) -- (n13);
+	\draw[->] (n13) -- (n14);
+	\draw[->] (n14) -- (n15);
+\end{tikzpicture}
+\end{center}
+\caption{Qualification process as proposed by Izaskun de la Torre}
+\label{fig:qualification_process_idelatorre}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\scalebox{0.9}{
+\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center, font=\footnotesize]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
+	\node [block] (n1) {Features Analysis};
+	\node [block, below of=n1] (n2) {Toolchain Platform Analysis};
+	\node [below of=n2,align=center] (l1) {Individual Tool Qualification (to be followed for each tool)};
+	\node [block, below of=l1, node distance=1cm] (n3) {Define Process \& Usage Context};
+	\node [block, below of=n3] (n4) {Tool Classification};
+	\node [decision, below of=n4, anchor=north] (d1) {Tool is\\prequalified};
+	\node [below of=d1, node distance = 3cm] (subd1) {};
+	\node [block, left of=subd1, node distance=4.5cm] (n5) {Check conformance\\with defined process\\and usage context};
+	\node [decision, right of=subd1, node distance=4.5cm] (d2) {Qualification\\by third party\\possible};
+	\node [block, below of=d2, node distance=3cm] (n6) {Provide process and usage context\\for third party qualification};
+	\node [decision, below of=d1, node distance= 3cm] (d4) {Conformance?};
+	\node [decision, below of=d4, node distance=3cm] (d3) {Tool is\\open source};
+	\node [below of=d3, node distance = 2.53cm] (subd3) {};
+	\node [block, fill=red!20, right of=subd3, node distance=2.5cm] (n7) {Qualification impossible\\(except ``proven in use'')};
+	\node [block, left of=subd3, node distance=2.5cm] (n8) {Operational Qualification\\by Tool Chain Integrator};
+	\node [block, below of=d4, node distance=8cm] (n9) {Tool-to-Platform Integration Qualification};
+	\begin{scope}[on background layer]
+		\node [block, fill=black!10, fit=(l1) (n3) (n4) (d1) (n5) (d2) (n6) (n9)] (individual_quali) {};
+	\end{scope}
+	\node [block, below of=n9] (n10) {Toolchain Installation Qualification};
+	\node [block, below of=n10] (n11) {Toolchain Operational Qualification};
+	\node [block, below of=n11] (n12) {Toolchain Performance Qualification};
+
+	\draw[->] (n1) -- (n2);
+	\draw[->] (n2) -- (individual_quali);
+	\draw[->] (n3) -- (n4);
+	\draw[->] (n4) -- (d1);
+	\draw[->] (d1) -- node [near start] {yes} (n5);
+	\draw[->] (d1) -- node [near start] {no} (d2);
+	\draw[->] (d2) -- node [near start] {yes} (n6);
+	\draw[->] (d2) -- node [near start] {no} (d3);
+	\draw[->] (d3) -- node [near start] {no} (n7);
+	\draw[->] (d3) -- node [near start] {yes} (n8);
+	\draw[->] (n5) -- (d4);
+	\draw[->] (d4) -- node [near start] {no} (d2);
+	\draw[->] (n8) -- (n9);
+	\draw[->, out=190, in=180] (d4) to node [near start] {yes} (n9);
+	\draw[->, out=-50, in=0] (n6) to (n9);
+	\draw[->] (individual_quali) -- (n10);
+	\draw[->] (n10) -- (n11);
+	\draw[->] (n11) -- (n12);
+\end{tikzpicture}}
+\end{center}
+\caption{Proposed adaptation by Stefan Rieger (among other changes, the TC development branch was removed as this work is not part of qualification itself)}
+\label{fig:qualification_process_idelatorre}
+\end{figure}
+
 \section{Scenario-based Qualification of Individual Tools}
 \label{sec:scenario-based-tool-quali}
 
