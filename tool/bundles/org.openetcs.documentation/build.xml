@@ -362,7 +362,7 @@
 		<concat destfile="plugin.xml" append="yes">&lt;/extension&gt;&lt;/plugin&gt;
 		</concat>
 			
-		<concat destfile="toc.xml" append="yes">&lt;toc label="Toolchain Documentation"&gt;
+		<concat destfile="toc.xml" append="yes">&lt;toc label="OpenETCS User Guide"&gt;
 		</concat>
 							
 		<for param="line" list="${file}" delimiter="${line.separator}">
