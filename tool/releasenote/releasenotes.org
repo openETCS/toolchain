@@ -1,15 +1,11 @@
-** Toolsprint 8 (ends 11-Apr-2014)
+** Toolspint 14 (Ends 05-July-2014)
 *** resolved issues
-- #346 Ensure that Updates work
-- #345 Ensure that we use the latest Kepler
-- #335 Optimize documentation plugin to work with subpages
-- #333 Please integrate Tracing tests on Jenkins
-- #310 Revise the Data Dictionary Implementation
-- #269 Use the latest XText, once bug with 2.4.3 is resolved
-- #229 Decide on openETCS minimal system requirements
+- #298 Reset Target Platform and POMs for RMF after 0.10.0 release
+- #377 Include Documentation plug-in in product build
+- #315 Automate the generation of the documentation wiki
 
 *** Important commit 
-- 064297b54d42b511ffc5cd2566d6cd79cea5eadf
- #333 Integrate tracing tests in build
-- eee0f3e1c98b02d8f76352f6c7060c893664b06b
- #269 Updated target to use latest versions from Kepler SR2. Using Xtext 2.4.3 from Kepler repository instead of 2.4.2
+- b196d49d138b6b4139dceee865c4da3a355d1489 
+updated plugin with git tasks included into the build file 
+- ab6d5b37aa59a29950e817a315e1b7a20326b1d
+modifications to include documentation plugin inthe openetcs toolchain 
