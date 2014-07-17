@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Requirements="http://www.eclipse.org/papyrus/0.7.0/SysML/Requirements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/0.7.0/SysML/Requirements http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements">
+  <uml:Model xmi:id="_hgzWUAN2EeS8X_CXLTKWUw" name="SysML_tracing_ProR_model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_tMI8EAN2EeS8X_CXLTKWUw" name="CaseStudy">
+      <packagedElement xmi:type="uml:Actor" xmi:id="_1WThIAN2EeS8X_CXLTKWUw" name="ProRuser"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_4DzpMAN2EeS8X_CXLTKWUw" name="PapyrusSysMLuser"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_pkW9EAN2EeS8X_CXLTKWUw" name="Requirement">
+      <packagedElement xmi:type="uml:Class" xmi:id="_89BH8AODEeSs-7GC8DU2lg" name="R1.0"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UDCoUAOEEeSs-7GC8DU2lg" name="R1.1">
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_g6zUYA2JEeSf75Fm-UHFMA" name="R2.1"/>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_pbu-MA2KEeSf75Fm-UHFMA" name="R2.2"/>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_sese4AOEEeSs-7GC8DU2lg" name="R2.3"/>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_d9CtUA2KEeSf75Fm-UHFMA" name="R2.4"/>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_5jUs0A2KEeSf75Fm-UHFMA" name="R2.5"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qhOgcA2nEeSf75Fm-UHFMA" clientDependency="_xa5G8A2nEeSf75Fm-UHFMA _ILqIAA2zEeSf75Fm-UHFMA" name="R3.1"/>
+      <packagedElement xmi:type="uml:Abstraction" xmi:id="_xa5G8A2nEeSf75Fm-UHFMA" name="DeriveReqt1" client="_qhOgcA2nEeSf75Fm-UHFMA" supplier="_5jUs0A2KEeSf75Fm-UHFMA"/>
+      <packagedElement xmi:type="uml:Abstraction" xmi:id="_ILqIAA2zEeSf75Fm-UHFMA" name="Satisfy1" client="_qhOgcA2nEeSf75Fm-UHFMA" supplier="_d9CtUA2KEeSf75Fm-UHFMA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vzmtkAN2EeS8X_CXLTKWUw" name="FonctionnalModel">
+      <packagedElement xmi:type="uml:Class" xmi:id="_8HmOwAN2EeS8X_CXLTKWUw" name="Eclipse" useCase="_JXeJYAN3EeS8X_CXLTKWUw">
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_JXeJYAN3EeS8X_CXLTKWUw" name="TraceProRElementInSysML" subject="_8HmOwAN2EeS8X_CXLTKWUw">
+          <ownedBehavior xmi:type="uml:Interaction" xmi:id="_WFQqoAN3EeS8X_CXLTKWUw" name="DragAndDropScenario">
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_7lgR4A2IEeSf75Fm-UHFMA" name="MessageSend2" covered="_FGaGYAODEeSs-7GC8DU2lg" message="_7lbZYA2IEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_7lg48A2IEeSf75Fm-UHFMA" name="MessageRecv2" covered="_FGaGYAODEeSs-7GC8DU2lg" message="_7lbZYA2IEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__SdEwA2IEeSf75Fm-UHFMA" name="Message0Send" covered="_FGaGYAODEeSs-7GC8DU2lg" message="__SaogA2IEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__SeS4A2IEeSf75Fm-UHFMA" name="Message0Recv" covered="_LUYrkAODEeSs-7GC8DU2lg" message="__SaogA2IEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_NDnukA2JEeSf75Fm-UHFMA" name="MessageSend3" covered="_LUYrkAODEeSs-7GC8DU2lg" message="_NDnHgA2JEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_NDoVoA2JEeSf75Fm-UHFMA" name="MessageRecv3" covered="_KxidMAODEeSs-7GC8DU2lg" message="_NDnHgA2JEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_QQEccA2JEeSf75Fm-UHFMA" name="MessageSend4" covered="_KxidMAODEeSs-7GC8DU2lg" message="_QQDOUA2JEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_QQFDgA2JEeSf75Fm-UHFMA" name="MessageRecv4" covered="_LUYrkAODEeSs-7GC8DU2lg" message="_QQDOUA2JEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_m9_E0AODEeSs-7GC8DU2lg" name="MessageSend1" covered="_KxidMAODEeSs-7GC8DU2lg" message="_m99PoAODEeSs-7GC8DU2lg"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_m-BhEAODEeSs-7GC8DU2lg" name="MessageRecv1" covered="_FGaGYAODEeSs-7GC8DU2lg" message="_m99PoAODEeSs-7GC8DU2lg"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WAMFUA2nEeSf75Fm-UHFMA" name="MessageSend5" covered="_KxidMAODEeSs-7GC8DU2lg" message="_WAJCAA2nEeSf75Fm-UHFMA"/>
+            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_WAN6gA2nEeSf75Fm-UHFMA" name="MessageRecv5" covered="_FGaGYAODEeSs-7GC8DU2lg" message="_WAJCAA2nEeSf75Fm-UHFMA"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_FGaGYAODEeSs-7GC8DU2lg" name="Lifeline" represents="_zXTAUAOCEeSs-7GC8DU2lg" coveredBy="_m-BhEAODEeSs-7GC8DU2lg _7lgR4A2IEeSf75Fm-UHFMA _7lg48A2IEeSf75Fm-UHFMA __SdEwA2IEeSf75Fm-UHFMA _WAN6gA2nEeSf75Fm-UHFMA"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_FJHcIAODEeSs-7GC8DU2lg" name="Lifeline0" represents="_82wkYAOCEeSs-7GC8DU2lg"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_FJTCUAODEeSs-7GC8DU2lg" name="Lifeline1" represents="_9SSCwAOCEeSs-7GC8DU2lg"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_KxidMAODEeSs-7GC8DU2lg" name="Lifeline2" represents="_82wkYAOCEeSs-7GC8DU2lg" coveredBy="_m9_E0AODEeSs-7GC8DU2lg _NDoVoA2JEeSf75Fm-UHFMA _QQEccA2JEeSf75Fm-UHFMA _WAMFUA2nEeSf75Fm-UHFMA"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_LUYrkAODEeSs-7GC8DU2lg" name="Lifeline3" represents="_9SSCwAOCEeSs-7GC8DU2lg" coveredBy="__SeS4A2IEeSf75Fm-UHFMA _NDnukA2JEeSf75Fm-UHFMA _QQFDgA2JEeSf75Fm-UHFMA"/>
+            <message xmi:type="uml:Message" xmi:id="_m99PoAODEeSs-7GC8DU2lg" name="CreateProxyReq in Papyrus" messageSort="asynchCall" receiveEvent="_m-BhEAODEeSs-7GC8DU2lg" sendEvent="_m9_E0AODEeSs-7GC8DU2lg"/>
+            <message xmi:type="uml:Message" xmi:id="_7lbZYA2IEeSf75Fm-UHFMA" name="Select a Papyrus Element" messageSort="asynchCall" receiveEvent="_7lg48A2IEeSf75Fm-UHFMA" sendEvent="_7lgR4A2IEeSf75Fm-UHFMA"/>
+            <message xmi:type="uml:Message" xmi:id="__SaogA2IEeSf75Fm-UHFMA" name="Drop Papyrus Element to ProR" messageSort="asynchCall" receiveEvent="__SeS4A2IEeSf75Fm-UHFMA" sendEvent="__SdEwA2IEeSf75Fm-UHFMA"/>
+            <message xmi:type="uml:Message" xmi:id="_NDnHgA2JEeSf75Fm-UHFMA" name="Call for the Proxy" messageSort="asynchCall" receiveEvent="_NDoVoA2JEeSf75Fm-UHFMA" sendEvent="_NDnukA2JEeSf75Fm-UHFMA"/>
+            <message xmi:type="uml:Message" xmi:id="_QQDOUA2JEeSf75Fm-UHFMA" name="Create a Link in ProR" messageSort="asynchCall" receiveEvent="_QQFDgA2JEeSf75Fm-UHFMA" sendEvent="_QQEccA2JEeSf75Fm-UHFMA"/>
+            <message xmi:type="uml:Message" xmi:id="_WAJCAA2nEeSf75Fm-UHFMA" name="Creat Link between ProxyReq and SysML element" messageSort="asynchCall" receiveEvent="_WAN6gA2nEeSf75Fm-UHFMA" sendEvent="_WAMFUA2nEeSf75Fm-UHFMA"/>
+          </ownedBehavior>
+        </ownedUseCase>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zXTAUAOCEeSs-7GC8DU2lg" name="papyrus"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_82wkYAOCEeSs-7GC8DU2lg" name="proxy"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9SSCwAOCEeSs-7GC8DU2lg" name="ProR"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-dAm8AN2EeS8X_CXLTKWUw" name="Papyrus"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_BT-NAAN3EeS8X_CXLTKWUw" name="ProxyPlugin"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QWTjwAN3EeS8X_CXLTKWUw" name="ProR"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5K120AODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5L1VUAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_TZ_nULU5EduiKqCzJMWbGw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5L4YoAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5Mk8MAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//modelelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_Gx8MgLX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5MsQ8AODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5NF5kAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//blocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_fSw28LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5NGgoAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5Ne7IAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//portandflows"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_rpx28LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5NfiMAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5N2ukAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//constraints"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_5WYJ0LX7EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5N38sAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5OPJEAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//activities"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_C2zXMLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5OPwIAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5OrN8AODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//allocations"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_NxdG4LX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5Or1AAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5PBzQAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//requirements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_OOJC4LX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5PCaUAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5PXKcAODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//interactions"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_meOioLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5PXxgAODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5PuW0AODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//statemachines"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_nAF5kLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5Pvk8AODEeSs-7GC8DU2lg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5Qfy4AODEeSs-7GC8DU2lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/0.7.0/SysML#//usecases"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML_PROFILES/SysML.profile.uml#_neZmMLX8EduFmqQsrNB9lw"/>
+    </profileApplication>
+  </uml:Model>
+  <Requirements:Requirement xmi:id="_8-DpwAODEeSs-7GC8DU2lg" text="No code should modify the ProR Proxy" id="R1.0" base_Class="_89BH8AODEeSs-7GC8DU2lg"/>
+  <Requirements:Requirement xmi:id="_UDq6cAOEEeSs-7GC8DU2lg" text="When Drag and Drop from Papyrus to ProR, a proxy element is created in papyrus with information relatives to ProR." id="R1.1" base_Class="_UDCoUAOEEeSs-7GC8DU2lg"/>
+  <Requirements:Requirement xmi:id="_sfRtsAOEEeSs-7GC8DU2lg" text="the link between SysML element and ProR element is static" id="R2.3" base_Class="_sese4AOEEeSs-7GC8DU2lg"/>
+  <Requirements:Requirement xmi:id="_g7kwcA2JEeSf75Fm-UHFMA" text="An SysML element must be given to the proxy code" id="R2.1" base_Class="_g6zUYA2JEeSf75Fm-UHFMA"/>
+  <Requirements:Requirement xmi:id="_d9dkEA2KEeSf75Fm-UHFMA" text="the ProxyReq is to be created inside a specific Package" id="R2.4" base_Class="_d9CtUA2KEeSf75Fm-UHFMA"/>
+  <Requirements:Requirement xmi:id="_pcQioA2KEeSf75Fm-UHFMA" text="A proR reference must be given to the proxy code to fill the info on ProxyReq" id="R2.2" base_Class="_pbu-MA2KEeSf75Fm-UHFMA"/>
+  <Requirements:Requirement xmi:id="_5jqEAA2KEeSf75Fm-UHFMA" text="A link between the ProxyReq and the SysML Element must be created" id="R2.5" base_Class="_5jUs0A2KEeSf75Fm-UHFMA"/>
+  <Requirements:Requirement xmi:id="_qhuPsA2nEeSf75Fm-UHFMA" text="the created link should be a satisfy link" id="R3.1" base_Class="_qhOgcA2nEeSf75Fm-UHFMA"/>
+  <Requirements:DeriveReqt xmi:id="_xbgK8A2nEeSf75Fm-UHFMA" base_Abstraction="_xa5G8A2nEeSf75Fm-UHFMA"/>
+  <Requirements:Satisfy xmi:id="_IMLFYA2zEeSf75Fm-UHFMA" base_Abstraction="_ILqIAA2zEeSf75Fm-UHFMA"/>
+</xmi:XMI>

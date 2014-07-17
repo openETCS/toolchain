@@ -4,7 +4,7 @@
    <extension
          point="org.openetcs.pror.tracing.notification">
       <listener
-            listener="org.openetcs.pror.traing.sysml.PapyrusHandler">
+            listener="org.openetcs.pror.tracing.sysml.PapyrusHandler">
       </listener>
    </extension>
 
