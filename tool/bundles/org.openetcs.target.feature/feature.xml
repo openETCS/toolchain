@@ -17,9 +17,6 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="org.eclipse.core.runtime.feature"
-         version="0.0.0"/>
 
    <includes
          id="org.eclipse.platform"
@@ -45,9 +42,6 @@
          id="org.eclipse.emf.common"
          version="0.0.0"/>
 
-   <includes
-         id="org.eclipse.equinox.core.feature"
-         version="0.0.0"/>
 
    <includes
          id="org.eclipse.equinox.p2.rcp.feature"
