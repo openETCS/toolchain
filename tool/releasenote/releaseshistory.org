@@ -1,3 +1,14 @@
+** Toolspint 14 (Ends 05-July-2014)
+*** resolved issues
+- #298 Reset Target Platform and POMs for RMF after 0.10.0 release
+- #377 Include Documentation plug-in in product build
+- #315 Automate the generation of the documentation wiki
+
+*** Important commit 
+- b196d49d138b6b4139dceee865c4da3a355d1489 
+updated plugin with git tasks included into the build file 
+- ab6d5b37aa59a29950e817a315e1b7a20326b1d
+modifications to include documentation plugin inthe openetcs toolchain
 ** Toolsprint 8 (ends 11-Apr-2014)
 *** resolved issues
 - #346 Ensure that Updates work
