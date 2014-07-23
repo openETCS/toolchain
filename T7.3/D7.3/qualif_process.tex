@@ -207,24 +207,41 @@ We propose setting up the operational tool qualification based on the approach b
 \label{fig:qualification-models-linkage}
 \end{figure}
 
+The two SysML block diagrams depicted in Figures~\ref{fig:requirements_model} and \ref{fig:tool_analysis_model} depict qualification metamodels for openETCS derived from \cite{slotosch_model-based_2012}. They need to be instantiated for each individual tool.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{RequirementsModel.pdf}
+\caption{Requirements meta model for qualification}
+\label{fig:requirements_model}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{ToolAnalysisModel.pdf}
+\caption{Tool analysis meta model for qualification}
+\label{fig:tool_analysis_model}
+\end{figure}
+
 \subsection{Requirements Model}
 
 The requirements are represented on three different levels of abstraction interlinked with each other.
 
-\paragraph{Tool Operational Requirements}
-The tool operational requirements (TORs) are derived from both, the safety standard applicable for openETCS, CENELEC EN 50128, and the operating environment of the tool based on the use cases. They determine the tool confidence level and the tool classification. Each tool operational requirement can be refined by any number of tool requirements. 
+\paragraph{Tool Operational Requirements (TORs)}
+The tool operational requirements are derived from both, the safety standard applicable for openETCS, CENELEC EN 50128, and the operating environment of the tool based on the use cases. They determine the tool confidence level and the tool classification. Each tool operational requirement can be refined by any number of tool requirements. 
 
-\paragraph{Tool Requirements}
-Tool requirements break down the high level TORs down to architectural / design level. Thus, they are interlinked with the design model. Each tool requirement may be linked with any number of low level requirements. 
+\paragraph{Tool Requirements (TRs)}
+Tool requirements break down the high level TORs to architectural / design level. Thus, they are interlinked with the design model. Each tool requirement may be linked with any number of low level requirements. 
 
-\paragraph{Low Level Requirements}
+\paragraph{Low Level Requirements (LLRs)}
 Requirements at code level that are linked directly with the code.
 
 \subsection{Tool Analysis Model}
+The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations. According to \cite{slotosch_model-based_2012} it can be used to automatically derive tool qualification levels (at least for the automotive and aerospace safety standards). In the context of openETCS it should be used as a means to document the tool functions, their assignment to requirements (TORs and TRs) and the artifacts that are used/processed by them (inputs and outputs).
 
 \subsection{Tool Design Model}
+The tool design model shall represent the architecture of the tool to be qualified. Tool requirements shall be allocated to design elements which in turn shall be traceable to the implementation (e.g., references to specific functions, classes or model elements in the context of SCADE modelling). In the context of openETCS the tool design model is built using SysML with the Papyrus tool.
 
 \subsection{Implementation}
+In openETCS the implementation is mainly consisting of a SCADE model that should be structured in a clear way, e.g., to allow referencing of implemented functions.
 
 \subsection{Test and Verification}
 
