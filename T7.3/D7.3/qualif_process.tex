@@ -172,6 +172,23 @@ In this case it would be possible to adapt the tool and analyse it to enable qua
 
 If no tool provider can be identified but the tool is developed by the community and distributed under an open source license, the tool qualification has to be conducted by the project. However, many open source tools have a large development and expert community which can certainly be of help. In addition, the ``proven in use'' argument could possibly be applied (e.g., for tools like GCC).
 
+\section{Incremental Tasks for toolchain qualification}
+The qualification of the toolchain shall follow an incremental process adding the next tool to the previously qualified tool chain. The process will continue until the last qualified tool is integrated and the complete toolchain is qualified. The botton-up approach will be applied. As a result, the errors related to intertool interface should be easier to pinpoint.
+
+After the individual tools are qualified, their integrations into the toolchain are planned. As part of the integration planning, the team will analize the dependencies of the different tools to minimize the effects of unavoidable dependencies. 
+
+When each iteration is released, a new qualification process should be conducted following the previously commented phases:
+\begin{itemize}
+\item Installation qualification: Installation should verify that the toolchain is properly installed. It does not verify that the toochain conforms to the functional and performance specification. This is done later in the OQ phase..  to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
+\item Operational qualification: should demonstrate that the toolchain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
+\item Performance qualification: should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance are regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
+
+The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
+\end{itemize}
+
+During the toolchain qualification it will be iterative tasks where users repeat a set of actions over and over again so it would be necessary to evaluate these type of tasks and try to automate a subset of them to minimize the execution time.
+
+
 \section{Model-based Tool Qualification}
 \label{sec:model-based-tool-quali}
 
