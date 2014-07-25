@@ -172,6 +172,23 @@ In this case it would be possible to adapt the tool and analyse it to enable qua
 
 If no tool provider can be identified but the tool is developed by the community and distributed under an open source license, the tool qualification has to be conducted by the project. However, many open source tools have a large development and expert community which can certainly be of help. In addition, the ``proven in use'' argument could possibly be applied (e.g., for tools like GCC).
 
+\section{Incremental Tasks for toolchain qualification}
+The qualification of the toolchain shall follow an incremental process adding the next tool to the previously qualified tool chain. The process will continue until the last qualified tool is integrated and the complete toolchain is qualified. The botton-up approach will be applied. As a result, the errors related to intertool interface should be easier to pinpoint.
+
+After the individual tools are qualified, their integrations into the toolchain are planned. As part of the integration planning, the team will analize the dependencies of the different tools to minimize the effects of unavoidable dependencies. 
+
+When each iteration is released, a new qualification process should be conducted following the previously commented phases:
+\begin{itemize}
+\item Installation qualification: Installation should verify that the toolchain is properly installed. It does not verify that the toochain conforms to the functional and performance specification. This is done later in the OQ phase..  to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
+\item Operational qualification: should demonstrate that the toolchain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
+\item Performance qualification: should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance are regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
+
+The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
+\end{itemize}
+
+During the toolchain qualification it will be iterative tasks where users repeat a set of actions over and over again so it would be necessary to evaluate these type of tasks and try to automate a subset of them to minimize the execution time.
+
+
 \section{Model-based Tool Qualification}
 \label{sec:model-based-tool-quali}
 
@@ -207,24 +224,41 @@ We propose setting up the operational tool qualification based on the approach b
 \label{fig:qualification-models-linkage}
 \end{figure}
 
+The two SysML block diagrams depicted in Figures~\ref{fig:requirements_model} and \ref{fig:tool_analysis_model} depict qualification metamodels for openETCS derived from \cite{slotosch_model-based_2012}. They need to be instantiated for each individual tool.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{RequirementsModel.pdf}
+\caption{Requirements meta model for qualification}
+\label{fig:requirements_model}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{ToolAnalysisModel.pdf}
+\caption{Tool analysis meta model for qualification}
+\label{fig:tool_analysis_model}
+\end{figure}
+
 \subsection{Requirements Model}
 
 The requirements are represented on three different levels of abstraction interlinked with each other.
 
-\paragraph{Tool Operational Requirements}
-The tool operational requirements (TORs) are derived from both, the safety standard applicable for openETCS, CENELEC EN 50128, and the operating environment of the tool based on the use cases. They determine the tool confidence level and the tool classification. Each tool operational requirement can be refined by any number of tool requirements. 
+\paragraph{Tool Operational Requirements (TORs)}
+The tool operational requirements are derived from both, the safety standard applicable for openETCS, CENELEC EN 50128, and the operating environment of the tool based on the use cases. They determine the tool confidence level and the tool classification. Each tool operational requirement can be refined by any number of tool requirements. 
 
-\paragraph{Tool Requirements}
-Tool requirements break down the high level TORs down to architectural / design level. Thus, they are interlinked with the design model. Each tool requirement may be linked with any number of low level requirements. 
+\paragraph{Tool Requirements (TRs)}
+Tool requirements break down the high level TORs to architectural / design level. Thus, they are interlinked with the design model. Each tool requirement may be linked with any number of low level requirements. 
 
-\paragraph{Low Level Requirements}
+\paragraph{Low Level Requirements (LLRs)}
 Requirements at code level that are linked directly with the code.
 
 \subsection{Tool Analysis Model}
+The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations. According to \cite{slotosch_model-based_2012} it can be used to automatically derive tool qualification levels (at least for the automotive and aerospace safety standards). In the context of openETCS it should be used as a means to document the tool functions, their assignment to requirements (TORs and TRs) and the artifacts that are used/processed by them (inputs and outputs).
 
 \subsection{Tool Design Model}
+The tool design model shall represent the architecture of the tool to be qualified. Tool requirements shall be allocated to design elements which in turn shall be traceable to the implementation (e.g., references to specific functions, classes or model elements in the context of SCADE modelling). In the context of openETCS the tool design model is built using SysML with the Papyrus tool.
 
 \subsection{Implementation}
+In openETCS the implementation is mainly consisting of a SCADE model that should be structured in a clear way, e.g., to allow referencing of implemented functions.
 
 \subsection{Test and Verification}
 
