@@ -49,8 +49,8 @@
 					<filesToInclude>target/products/org.openetcs.releng.product/*/*/x86/openETCS.ini</filesToInclude>
 					<replacements>
 						<replacement>
-							<tokenFile>token.txt</tokenFile>
-							<valueFile>value.txt</valueFile>
+							<tokenFile>${project.basedir}/../org.openetcs.releng.parent/token.txt</tokenFile>
+							<valueFile>${project.basedir}/../org.openetcs.releng.parent/value.txt</valueFile>
 						</replacement>
 					</replacements>
 					<regexFlags>
