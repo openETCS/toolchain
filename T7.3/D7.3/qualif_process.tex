@@ -142,9 +142,14 @@ During the toolchain qualification it will be iterative tasks where users repeat
 \section{Model-based Tool Qualification}
 \label{sec:model-based-tool-quali}
 
-This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:qualification_process}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party open source tools. In the case of closed source tools it is not possible to follow this process as the internal workings of the tools are hidden.
+This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:qualification_process}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party tools classified T1 and T2 and open source T3 tools. In the case of closed source T3 tools it is not possible to follow this process as the internal workings of the tools are hidden.
 
-We propose setting up the operational tool qualification based on the approach by Slotosch et al. which has been briefly sketched in Section~\ref{sec:slotosh-approach}. In particular we will focus on the artifacts and documentation necessary to conduct the qualification steps. Figure~\ref{fig:qualification-models-linkage} shows the different parts of the qualification model according to \cite{slotosch_model-based_2012}. Some links are not directly evident in the paper but have been added where reasonable. In the context of openETCS the ``Quality Assurance'' part mentioned in \cite{slotosch_model-based_2012} is covered by using the GitHub issue tracker and is thus not explicitly considered in the following.
+We propose setting up the operational tool qualification based on the approach by Slotosch et al. which has been briefly sketched in Section~\ref{sec:slotosh-approach}. It has been simplified and adapted to our purposes. In particular, we will focus on the artifacts and documentation necessary to conduct the qualification steps. Figure~\ref{fig:qualification-models-linkage} shows the different parts of the qualification model according to \cite{slotosch_model-based_2012}. We propose to tailor this approach as follows:
+\begin{itemize}
+    \item The different levels of requirements have been simplified: We propose to keep a single level of requirements and in addition a special type of requirement: the \emph{use case}.
+    \item In the context of openETCS the tool design model is built using SysML with the Papyrus tool.
+	\item The ``Quality Assurance'' part is covered by using the GitHub issue tracker (not depicted in Figure~\ref{fig:qualification-models-linkage}.
+\end{itemize}
 
 \begin{figure}
 \begin{center}
@@ -174,43 +179,14 @@ We propose setting up the operational tool qualification based on the approach b
 \label{fig:qualification-models-linkage}
 \end{figure}
 
-The two SysML block diagrams depicted in Figures~\ref{fig:requirements_model} and \ref{fig:tool_analysis_model} depict qualification metamodels for openETCS derived from \cite{slotosch_model-based_2012}. They need to be instantiated for each individual tool.
+The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depicts the proposed qualification metamodel for openETCS. It needs to be instantiated for each individual tool. The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations. Ideally, it shall establish the traceability between requirements, use cases, implementations and test cases.
 
-\begin{figure}
-\includegraphics[width=\textwidth]{RequirementsModel.pdf}
-\caption{Requirements meta model for qualification}
-\label{fig:requirements_model}
-\end{figure}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{ToolAnalysisModel.pdf}
 \caption{Tool analysis meta model for qualification}
 \label{fig:tool_analysis_model}
 \end{figure}
-
-\subsection{Requirements Model}
-
-The requirements are represented on three different levels of abstraction interlinked with each other.
-
-\paragraph{Tool Operational Requirements (TORs)}
-The tool operational requirements are derived from both, the safety standard applicable for openETCS, CENELEC EN 50128, and the operating environment of the tool based on the use cases. They determine the tool confidence level and the tool classification. Each tool operational requirement can be refined by any number of tool requirements. 
-
-\paragraph{Tool Requirements (TRs)}
-Tool requirements break down the high level TORs to architectural / design level. Thus, they are interlinked with the design model. Each tool requirement may be linked with any number of low level requirements. 
-
-\paragraph{Low Level Requirements (LLRs)}
-Requirements at code level that are linked directly with the code.
-
-\subsection{Tool Analysis Model}
-The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations. According to \cite{slotosch_model-based_2012} it can be used to automatically derive tool qualification levels (at least for the automotive and aerospace safety standards). In the context of openETCS it should be used as a means to document the tool functions, their assignment to requirements (TORs and TRs) and the artifacts that are used/processed by them (inputs and outputs).
-
-\subsection{Tool Design Model}
-The tool design model shall represent the architecture of the tool to be qualified. Tool requirements shall be allocated to design elements which in turn shall be traceable to the implementation (e.g., references to specific functions, classes or model elements in the context of SCADE modelling). In the context of openETCS the tool design model is built using SysML with the Papyrus tool.
-
-\subsection{Implementation}
-In openETCS the implementation is mainly consisting of a SCADE model that should be structured in a clear way, e.g., to allow referencing of implemented functions.
-
-\subsection{Test and Verification}
 
 
 \section{OpenETCS Toolchain Qualification Process}
