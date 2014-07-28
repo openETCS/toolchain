@@ -24,56 +24,6 @@ ensure the following safety-goals that will avoid some extra tool qualification:
   verifiable.
 \end{itemize}
 
-\begin{figure}
-\begin{center}
-\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
-	\node [block] (n1) {Features Analysis};
-	\node [block, below of=n1] (n2) {Toolchain Platform Analysis};
-	\node [block, below of=n2] (n3) {Design Qualification Plan};
-	\node [below of=n3] (sub3) {};
-	\node [left of=sub3, node distance=4cm] (label1) {Toolchain \& Platform Development};
-	\node [block, below of=label1, node distance=1cm] (n4) {Functional Specification};
-	\node [block, below of=n4] (n5) {Code Development};
-	\node [block, below of=n5] (n6) {Code Review};
-	\node [block, below of=n6] (n7) {Testing};
-	\node [block, right of=sub3, node distance=4cm] (n8) {Tools Evaluation};
-
-	\node [below of=n8,align=center, node distance=2cm] (tq1) {Individual Tool Qualification\\(to be followed for each tool)};
-
-	\node [block, below of=tq1, node distance=1.5cm] (tq2) {Operational\\Qualification};
-	\node [block, left of=tq2, node distance=2.5cm] (tq3) {Installation\\Qualification};
-	\node [block, right of=tq2, node distance=2.5cm] (tq4) {Performance\\Qualification};
-	\begin{scope}[on background layer]
-		\node [block, fit=(tq1) (tq2) (tq3) (tq4)] (n9) {};
-		\node [block, fit=(label1) (n4) (n5) (n6) (n7)] (n10) {};
-	\end{scope}
-	\node [block, below of=n3, node distance=9cm] (n11) {Tool \& Platform Integration};
-	\node [block, below of=n11] (n12) {Toolchain Installation Qualification};
-	\node [block, below of=n12] (n13) {Toolchain Operational Qualification};
-	\node [block, below of=n13] (n14) {Toolchain Performance Qualification};
-	\node [block, below of=n14] (n15) {Maintenance};
-
-	\draw[->] (n1) -- (n2);
-	\draw[->] (n2) -- (n3);
-	\draw[->] (n3) -- (n10);
-	\draw[->] (n3) -- (n8);
-	\draw[->] (n8) -- (n9);
-	\draw[->] (n4) -- (n5);
-	\draw[->] (n5) -- (n6);
-	\draw[->] (n6) -- (n7);
-	\draw[->] (n9) -- (n11);
-	\draw[->] (n10) -- (n11);
-	\draw[->] (n11) -- (n12);
-	\draw[->] (n12) -- (n13);
-	\draw[->] (n13) -- (n14);
-	\draw[->] (n14) -- (n15);
-\end{tikzpicture}
-\end{center}
-\caption{Qualification process as proposed by Izaskun de la Torre}
-\label{fig:qualification_process_idelatorre}
-\end{figure}
 
 \begin{figure}
 \begin{center}
@@ -92,7 +42,7 @@ ensure the following safety-goals that will avoid some extra tool qualification:
 	\node [decision, right of=subd1, node distance=4.5cm] (d2) {Qualification\\by third party\\possible};
 	\node [block, below of=d2, node distance=3cm] (n6) {Provide process and usage context\\for third party qualification};
 	\node [decision, below of=d1, node distance= 3cm] (d4) {Conformance?};
-	\node [decision, below of=d4, node distance=3cm] (d3) {Tool is\\open source};
+	\node [decision, below of=d4, node distance=3cm] (d3) {Tool is\\open source\\or T1 or T2?};
 	\node [below of=d3, node distance = 2.53cm] (subd3) {};
 	\node [block, fill=red!20, right of=subd3, node distance=2.5cm] (n7) {Qualification impossible\\(except ``proven in use'')};
 	\node [block, left of=subd3, node distance=2.5cm] (n8) {Operational Qualification\\by Tool Chain Integrator};
@@ -112,8 +62,8 @@ ensure the following safety-goals that will avoid some extra tool qualification:
 	\draw[->] (d1) -- node [near start] {no} (d2);
 	\draw[->] (d2) -- node [near start] {yes} (n6);
 	\draw[->] (d2) -- node [near start] {no} (d3);
-	\draw[->] (d3) -- node [near start] {no} (n7);
-	\draw[->] (d3) -- node [near start] {yes} (n8);
+	\draw[->] (d3) -- node [right] {no} (n7);
+	\draw[->] (d3) -- node [left] {yes} (n8);
 	\draw[->] (n5) -- (d4);
 	\draw[->] (d4) -- node [near start] {no} (d2);
 	\draw[->] (n8) -- (n9);
@@ -124,8 +74,8 @@ ensure the following safety-goals that will avoid some extra tool qualification:
 	\draw[->] (n11) -- (n12);
 \end{tikzpicture}}
 \end{center}
-\caption{Proposed adaptation by Stefan Rieger (among other changes, the TC development branch was removed as this work is not part of qualification itself)}
-\label{fig:qualification_process_srieger}
+\caption{Proposal for the openETCS qualification process}
+\label{fig:qualification_process}
 \end{figure}
 
 \section{Scenario-based Qualification of Individual Tools}
@@ -192,7 +142,7 @@ During the toolchain qualification it will be iterative tasks where users repeat
 \section{Model-based Tool Qualification}
 \label{sec:model-based-tool-quali}
 
-This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:qualification_process_srieger}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party open source tools. In the case of closed source tools it is not possible to follow this process as the internal workings of the tools are hidden.
+This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:qualification_process}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party open source tools. In the case of closed source tools it is not possible to follow this process as the internal workings of the tools are hidden.
 
 We propose setting up the operational tool qualification based on the approach by Slotosch et al. which has been briefly sketched in Section~\ref{sec:slotosh-approach}. In particular we will focus on the artifacts and documentation necessary to conduct the qualification steps. Figure~\ref{fig:qualification-models-linkage} shows the different parts of the qualification model according to \cite{slotosch_model-based_2012}. Some links are not directly evident in the paper but have been added where reasonable. In the context of openETCS the ``Quality Assurance'' part mentioned in \cite{slotosch_model-based_2012} is covered by using the GitHub issue tracker and is thus not explicitly considered in the following.
 
