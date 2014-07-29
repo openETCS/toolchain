@@ -1,4 +1,4 @@
-\section{Toolchain Analysis}
+\section{OpenETCS Tool Chain Characteristics}
 \label{sec:toolchain-analysis}
 
 All the methods mentioned above start with a complete definition of the toolchain. In OpenETCS, the development of the toolchain follows an \emph{agile} approach.
@@ -6,6 +6,7 @@ Hence, for each (major) release we have to deal with an incomplete tool
 chain. In addition to the methods of the previous section,  we need a qualification
 process that can adapt to the development speed, deal with an incomplete toolchain
 and can re-use qualification information.
+
 
 Moreover, as stated by Asplund et al., the toolchain itself may
 provide some mechanism that may reduce the tool qualification effort
@@ -24,17 +25,91 @@ ensure the following safety-goals that will avoid some extra tool qualification:
   verifiable.
 \end{itemize}
 
+These goals will be included in our tool integration
+qualification, they will be extra requirements for each tool qualification.
 
-\begin{figure}
+In the following sections we define the tool chain qualification
+process by first giving an overview of the process, then getting into
+details for individual tool qualification, we then focus on the
+incremental development of the tool chain and finally apply this
+process to our tool chain implementation.
+
+\section{Qualification Process Overview}
+
+Figure \ref{fig:qualification_process} defines the qualification
+process.
+The following steps are defined as follows:
+
+{\bf $\bullet$ Feature Analysis}\\
+The tool chain is defined as feature or activity (e.g. ``Requirement
+Engineering'', ``Documentation'', ``Modeling'') . Each tool of the
+tool chain  are then categorized according to its activities. Inside
+one feature  a work-flow is defined.
+
+{\bf $\bullet$ Tool chain Analysis}\\
+The work-flow between the tool chain feature is defined.
+
+{\bf $\bullet$ Individual Tool Qualification (to be followed for each
+  tool)}\\
+See section \ref{sec:individual-tool-qualif}
+
+{\bf $\bullet$ Tool Chain Installation Qualification}\\
+Installation should verify that the toolchain is properly
+installed. It does not verify that the tool chain conforms to the functional and performance specification. This is done later in the OQ phase..  to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
+
+{\bf $\bullet$ Operational qualification}\\
+Operation qualification should demonstrate that the tool chain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
+
+{\bf $\bullet$ Performance qualification}\\
+Performance qualification should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance are regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
+
+The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
+
+
+\begin{figure}[htbp]
 \begin{center}
 \scalebox{0.9}{
 \begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
 \tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center, font=\footnotesize]
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
 	\node [block] (n1) {Features Analysis};
-	\node [block, below of=n1] (n2) {Toolchain Platform Analysis};
-	\node [below of=n2,align=center] (l1) {Individual Tool Qualification (to be followed for each tool)};
-	\node [block, below of=l1, node distance=1cm] (n3) {Define Process \& Usage Context};
+	\node [block, below of=n1] (n2) {Toolchain Analysis};
+	\node [block, below of=n2,align=center] (l1) {Individual Tool Qualification (to be followed for each tool)};
+		\node [block, below of=l1] (n10) {Toolchain Installation Qualification};
+	\node [block, below of=n10] (n11) {Toolchain Operational Qualification};
+	\node [block, below of=n11] (n12) {Toolchain Performance Qualification};
+
+	\draw[->] (n1) -- (n2);
+	\draw[->] (n2) -- (l1);
+	\draw[->] (l1) -- (n10);
+	\draw[->] (n10) -- (n11);
+	\draw[->] (n11) -- (n12);
+\end{tikzpicture}}
+\end{center}
+\caption{Proposal for the openETCS qualification process}
+\label{fig:qualification_process}
+\end{figure}
+
+
+
+\section{Individual Tool Qualification}
+\label{sec:individual-tool-qualif}
+The qualification of a tool chain implies that each tools should be
+qualified. Figure \ref{fig:tool_qualification_process} proposes a tool
+qualification process that should be perform for each tool.
+This section explains the steps for the tool qualification whenever a
+new tool is added. Next section will deal with the special cases where tools are
+updated and when a first qualification has already been performed.
+
+\begin{figure}[htp]
+\begin{center}
+\scalebox{0.9}{
+\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center, font=\footnotesize]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center,
+  rounded corners]
+	\node [align=center] (l1) {Individual Tool Qualification (to be followed for each tool)};
+        \node [block, below of =l1] (n3) {Define Process \& Usage Context};
 	\node [block, below of=n3] (n4) {Tool Classification};
 	\node [decision, below of=n4, anchor=north] (d1) {Tool is\\prequalified};
 	\node [below of=d1, node distance = 3cm] (subd1) {};
@@ -50,12 +125,6 @@ ensure the following safety-goals that will avoid some extra tool qualification:
 	\begin{scope}[on background layer]
 		\node [block, fill=black!10, fit=(l1) (n3) (n4) (d1) (n5) (d2) (n6) (n9)] (individual_quali) {};
 	\end{scope}
-	\node [block, below of=n9] (n10) {Toolchain Installation Qualification};
-	\node [block, below of=n10] (n11) {Toolchain Operational Qualification};
-	\node [block, below of=n11] (n12) {Toolchain Performance Qualification};
-
-	\draw[->] (n1) -- (n2);
-	\draw[->] (n2) -- (individual_quali);
 	\draw[->] (n3) -- (n4);
 	\draw[->] (n4) -- (d1);
 	\draw[->] (d1) -- node [near start] {yes} (n5);
@@ -69,21 +138,36 @@ ensure the following safety-goals that will avoid some extra tool qualification:
 	\draw[->] (n8) -- (n9);
 	\draw[->, out=190, in=180] (d4) to node [near start] {yes} (n9);
 	\draw[->, out=-50, in=0] (n6) to (n9);
-	\draw[->] (individual_quali) -- (n10);
-	\draw[->] (n10) -- (n11);
-	\draw[->] (n11) -- (n12);
+
+
 \end{tikzpicture}}
 \end{center}
-\caption{Proposal for the openETCS qualification process}
-\label{fig:qualification_process}
+\caption{Proposal for the openETCS Tools qualification process}
+\label{fig:tool_qualification_process}
 \end{figure}
 
-\section{Scenario-based Qualification of Individual Tools}
+{\bf $\bullet$ Define Process \& Usage Context}\\
+The process starts by defining the tool purposes and the usage context
+of tool. More precisely, the input and output artifacts of the tool
+should be identified, the dependency with our tools should be
+explicitly defined and the feature analysis should be consolidate.
+
+{\bf $\bullet$  Tool Classification}\\
+The class of the tool should be set according to the EN50128
+definition (see section \ref{sec:sota-tool-qualification} ). An evidence can be expressed using the feature and
+the tool chain analysis.
+
+
+These two first steps may be seen as pre-qualification steps that
+guides the qualification process.
+
+\subsection{Scenario-based Qualification of Individual Tools}
 \label{sec:scenario-based-tool-quali}
+
 
 Qualifying a toolchain always requires the qualification of the individual tools it is comprised of. The effort required depends on the type and license of the tool to be qualified. To this end in the following we have identified a number of different scenarios that are of relevance in the context of the openETCS project as depicted in Figure~\ref{fig:tool-qualification-scenarios}.
 
-\begin{figure}
+\begin{figure}[htbp]
 \begin{center}
 \begin{tikzpicture}[parent anchor=east,child anchor=west,grow=east, edge from parent, level distance=5cm]
 	\tikzstyle{every node}=[fill=black!20,rounded corners]
@@ -102,11 +186,11 @@ Qualifying a toolchain always requires the qualification of the individual tools
 
 In the following considerations for the individual scenarios are described.
 
-\subsection{Self-developed Tool}
+\subsubsection{Self-developed Tool}
 
 For a self-developed tool the project needs to provide the means for qualification and quality assurance. As the tool has not been employed in productive use by others the ``proven in use'' argument \textcolor{red}{[Remark: It needs to be checked whether this argument actually applies to EN 50128]} does not apply.
 
-\subsection{Tool Provided by a Tool Provider}
+\subsubsection{Tool Provided by a Tool Provider}
 
 For tools provided by a third party we must distinguish again two cases:
 
@@ -118,31 +202,14 @@ If the tool is not pre-qualified by the tool provider the options are limited. I
 
 In this case it would be possible to adapt the tool and analyse it to enable qualification. However, this involves a huge amount of effort which is best done by the tool provider who as a better insight into the tool's internal workings. Also a third party who has already experience with the tool or is a specialist with regards to qualifying safety-critical tools could be entrusted with the qualification task.
 
-\subsection{Open Source Tool Provided by the ``Community''}
+\subsubsection{Open Source Tool Provided by the ``Community''}
 
 If no tool provider can be identified but the tool is developed by the community and distributed under an open source license, the tool qualification has to be conducted by the project. However, many open source tools have a large development and expert community which can certainly be of help. In addition, the ``proven in use'' argument could possibly be applied (e.g., for tools like GCC).
 
-\section{Incremental Tasks for toolchain qualification}
-The qualification of the toolchain shall follow an incremental process adding the next tool to the previously qualified tool chain. The process will continue until the last qualified tool is integrated and the complete toolchain is qualified. The botton-up approach will be applied. As a result, the errors related to intertool interface should be easier to pinpoint.
-
-After the individual tools are qualified, their integrations into the toolchain are planned. As part of the integration planning, the team will analize the dependencies of the different tools to minimize the effects of unavoidable dependencies. 
-
-When each iteration is released, a new qualification process should be conducted following the previously commented phases:
-\begin{itemize}
-\item Installation qualification: Installation should verify that the toolchain is properly installed. It does not verify that the toochain conforms to the functional and performance specification. This is done later in the OQ phase..  to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
-\item Operational qualification: should demonstrate that the toolchain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
-\item Performance qualification: should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance are regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
-
-The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
-\end{itemize}
-
-During the toolchain qualification it will be iterative tasks where users repeat a set of actions over and over again so it would be necessary to evaluate these type of tasks and try to automate a subset of them to minimize the execution time.
-
-
-\section{Model-based Tool Qualification}
+\subsection{Model-based Tool Qualification}
 \label{sec:model-based-tool-quali}
 
-This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:qualification_process}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party tools classified T1 and T2 and open source T3 tools. In the case of closed source T3 tools it is not possible to follow this process as the internal workings of the tools are hidden.
+This section describes a proposal on how to setup the operational qualification of individual tools. This step of the qualification process (cf. Figure~\ref{fig:tool_qualification_process}) is required for any tool that is not pre-qualified. With respect to the scenarios described in Section~\ref{sec:scenario-based-tool-quali} it applies to self-developed and third party tools classified T1 and T2 and open source T3 tools. In the case of closed source T3 tools it is not possible to follow this process as the internal workings of the tools are hidden.
 
 We propose setting up the operational tool qualification based on the approach by Slotosch et al. which has been briefly sketched in Section~\ref{sec:slotosh-approach}. It has been simplified and adapted to our purposes. In particular, we will focus on the artifacts and documentation necessary to conduct the qualification steps. Figure~\ref{fig:qualification-models-linkage} shows the different parts of the qualification model according to \cite{slotosch_model-based_2012}. We propose to tailor this approach as follows:
 \begin{itemize}
@@ -151,7 +218,7 @@ We propose setting up the operational tool qualification based on the approach b
 	\item The ``Quality Assurance'' part is covered by using the GitHub issue tracker (not depicted in Figure~\ref{fig:qualification-models-linkage}.
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[htbp]
 \begin{center}
 \begin{tikzpicture}
 	\tikzstyle{block} = [rectangle, draw, align=center, minimum width=2cm, minimum height=1cm]
@@ -189,9 +256,83 @@ The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depict
 \end{figure}
 
 
+Each tool will be then defined by all information represented in our
+meta-model. This can be seen as our template for collecting all
+information need for tool qualification.
+
+\subsection{Tool-to-Platform Integration Qualification}
+This step ensures that the tool is correctly integrated within the
+tool chain.
+
+After all individual tools are qualified, their integration into the
+tool chain are planned. As part of the integration planning, the team
+will analyze the dependencies of the different tools to minimize the
+effects of unavoidable dependencies.
+
+Moreover, for each Artifacts used or produced by the tool, evidence
+should be provided that the safety-goals of section
+\ref{sec:toolchain-analysis} are satisfied. 
+Whenever an artifact is modify, a new time stamp has to be added and
+notification should be triggered. Whenever an artifact is used a check
+of its obsolescence should be performed.
+
+
+
+\section{Incremental Tasks for toolchain qualification}
+The qualification of the toolchain shall follow an incremental process
+adding the next tool to the previously qualified tool chain. The
+process will continue until the last qualified tool is integrated and
+the complete toolchain is qualified. The botton-up approach will be
+applied. As a result, the errors related to tool interface should be
+easier to pinpoint.
+
+A new tool chain release deal with different type of changes :
+\begin{enumerate} 
+\item Add a new tool: the tool chain is extended
+\item Replace a tool: a tool function is replaced by another one
+\item Update a tool: a tool is update (bug fixes, performance
+  improvements ...)
+\end{enumerate}
+
+In the first case, the complete qualification process should be
+performed and the qualification of the new tool should be added.
+
+In the two other cases, the feature model should also be updated, as
+well as the manual, the use cases and the potential  errors.
+Moreover, evidence that all tool that depends on this tool are still
+compatible with the new one.  
+
+
+
+In all cases a new qualification  the three last phases should also be
+performed again.
+
+
+
+
+
+During the toolchain qualification it will be iterative tasks where
+users repeat a set of actions over and over again so it would be
+necessary to evaluate these type of tasks and try to automate a subset
+of them to minimize the execution time.
+
+
+
+
 \section{OpenETCS Toolchain Qualification Process}
 \label{sec:toolchain-qualification-process}
 
+This section will apply the set of concepts described in the previous
+section to the openETCS tool chain.
+Figure \ref{fig:openetcs-process} implements the qualification process
+describes in the previous section.
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{openETCS_process.pdf}
+\caption{\label{fig:openetcs-process} The OpenETCS Qualification process}
+\end{figure}
+
+The first step is the feature Analysis.
 The OpenETCS tool chain  will be defined by the set of its features and
 a guideline describing how to correctly use it.
 A SysML block diagram describes the tool chain architecture at a certain point in time as shown in
@@ -221,73 +362,164 @@ Currently, the diagram neither highlights the use of the tools, nor the order of
 to be performed. This diagram should be completed by guidelines on
 how to use the tool chain and/or an activity diagram.
 
-To mitigate the qualification process, we will first consider more
-than one feature at a time considering that errors from a tool A may
-be detected by a Tool B in the next step of the tool chain process.
-Furthermore, the toolchain is a collection
-of features and not only tools. This differs from Asplund and al. in the sense that
-some of the tool integration mechanisms that automate transformation of data, represent features
- and are thus not out of the scope of the qualification.
+%To mitigate the qualification process, we will first consider more
+%than one feature at a time considering that errors from a tool A may
+%be detected by a Tool B in the next step of the tool chain process.
+%Furthermore, the toolchain is a collection
+%of features and not only tools. This differs from Asplund and al. in the sense that
+%some of the tool integration mechanisms that automate transformation of data, represent features
+% and are thus not out of the scope of the qualification.
 
-Due to our development process, a ``pre-qualification'' of tools should be made
-when integrating a tool.
+%Due to our development process, a ``pre-qualification'' of tools should be made
+%when integrating a tool.
 
-\todo[inline]{This high-level list should be detailed.}
-\paragraph{Tool Integration Process for Qualification}
 
+The second step, the tool chain analysis consists of Bundle Analysis
+and the work-flow Analysis.
+The openETCS tool chain is integrated into the Eclipse platform. One
+can analyses the sources of the tool chain to automatically derived
+information about the tool:
 \begin{itemize}
-\item Define name and version
-\item Describe use cases
-\item Provide justification of the tool within the tool chain
-\item Provide input/output artifacts format (associated with the
-  version)
-\item Integrate the tool in the SysML model
-\item Provide tool manual and other available documentation (associated with the version)
-\item Link with an issue tracker
+\item Name
+\item Version
+\item Description
+\item Dependencies
 \end{itemize}
-
-One possible implementation is to represent all these in formations
-directly in the SysML model.
-
-\todo[inline]{This high-level list should be detailed.  What I would expect: Which artefacts exist; How they are connected; When artefacts have to be re-validated (e.g. due to changes); What roles exist; who is responsible for what; etc.}
-\paragraph{The Qualification Process}
-
-\begin{enumerate}
-\item Feature Analysis
-  \begin{itemize}
-  \item This step should assign a class to each feature based on the use cases.
-  \item Define the potential errors
-  \item Identify counter measure and/or error detection
-  \item For T3 tools 2 alternatives:  certified compiler/generator or
-    object code checker and/or exhaustive tester
-  \end{itemize}
-\item Tool platform  analysis 
-  \begin{itemize}
-  \item Provide evidence that the safety-goals mentioned in the
-    previous sub-section are fulfilled\textcolor{red}{[The identification of safety goals is missing in step 1]}
-  \end{itemize}
-\item Toolchain Analysis
-  \begin{itemize}
-  \item Defines the work-flow
-  \item Identify the ``hot spots'' of the toolchain
-  \item Rearrange the toolchain if possible
-  \item Find new measures when needed with combining tools (redundancy with orthogonal
-    codes \ldots{})
-  \end{itemize}
-\item Toolchain qualification verification 
-  \begin{itemize}
-  \item Check consistency of tool version with  manuals and other
-    provided feature information
-  \item Generate table to  check if all possible errors has a
-    detection or a correction mechanism
-\item Generate the qualification report
-  \end{itemize}
-
-\end{enumerate}
+A list of tool should be produced and must be completed by the
+qualification team. These information should be added directly in the
+sources to make them available for the next tool releases.
 
 
+From the work-flow of the tool chain it is possible to automatically
+derived some basic use cases such as parsing or producing
+artifacts. These basic use cases may be coupled with basic potential
+errors such as ``no file found'', ``too many file produced''...
+
+After the tool chain analysis phase, the individual tool qualification
+starts. With the help of the tool list, the previous information given
+(for former releases) and the basic use cases, the tool information
+should be completed. Table \ref{tbl:tool-info} \ref{tbl:artifacts} and
+\ref{tbl:functions} summarize the set of information needed for the
+qualification of a tool.
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:tool-info}Tool Information to be completed}
+\begin{tabular}{|l|p{5cm}|}\hline
+Tool Name: &\\\hline
+Version: & \\\hline
+Tool Dependencies & -\\
+ & -\\
+ & -\\ \hline
+Description: & \\
+ & \\ \hline
+Tool Class: & \\\hline
+\multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
+Tool Justification & \\
+ & \\ \hline
+Manual Link and version & \\\hline
+Artifact List link & \\\hline
+Function List link& \\\hline
+\multicolumn{2}{|c|}{If T3 Tools}\\\hline
+Validation method& \\\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\caption{\label{tbl:artifacts} List of  Artifacts Description}
+{\small
+\begin{tabular}{|p{4em}|l|c|l|p{5em}|c|l|p{5em}|}\hline
+Name & Format & Is read ? & Restrictions & Time stamp check? &Is
+written ? & Restrictions & Time Stamp produced ?\\\hline
+Artifact1 & tex &yes &none&yes&no&&\\\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:functions} Function Definition}
+\begin{tabular}{|p{5cm}|p{5cm}|}\hline
+Name&\\\hline
+Description& \\\hline
+Inputs & \\\hline
+Outputs & \\\hline
+Use Case & \\\hline\hline
+Potential Errors & Error Mitigation \\\hline
+&  \\\hline
+&  \\\hline
+\end{tabular}
+\end{table}
+
+\todo[inline]{Finish the table with VnV activities}
+
+
+When all tool are completely defined, we may want to generate the
+dependency list of the tools and the artifact matrix.
+The former may be used to check if all tool can be correctly
+integrated into the tool platform. 
+The latter allow to check if all artifacts are correctly read and write
+and/or all possible errors  are mitigated.
+In case of re-qualification of the tool chain, the matrix can be used
+to see which tool are impacted by the change.
+
+\todo[inline]{Add the last steps}
+%% \paragraph{Tool Integration Process for Qualification}
+
+%% \begin{itemize}
+%% \item Define name and version
+%% \item Describe use cases
+%% \item Provide justification of the tool within the tool chain
+%% \item Provide input/output artifacts format (associated with the
+%%   version)
+%% \item Integrate the tool in the SysML model
+%% \item Provide tool manual and other available documentation (associated with the version)
+%% \item Link with an issue tracker
+%% \end{itemize}
+
+%% One possible implementation is to represent all these in formations
+%% directly in the SysML model.
+
+%% \todo[inline]{This high-level list should be detailed.  What I would expect: Which artefacts exist; How they are connected; When artefacts have to be re-validated (e.g. due to changes); What roles exist; who is responsible for what; etc.}
+%% \paragraph{The Qualification Process}
+
+%% \begin{enumerate}
+%% \item Feature Analysis
+%%   \begin{itemize}
+%%   \item This step should assign a class to each feature based on the use cases.
+%%   \item Define the potential errors
+%%   \item Identify counter measure and/or error detection
+%%   \item For T3 tools 2 alternatives:  certified compiler/generator or
+%%     object code checker and/or exhaustive tester
+%%   \end{itemize}
+%% \item Tool platform  analysis 
+%%   \begin{itemize}
+%%   \item Provide evidence that the safety-goals mentioned in the
+%%     previous sub-section are fulfilled\textcolor{red}{[The identification of safety goals is missing in step 1]}
+%%   \end{itemize}
+%% \item Toolchain Analysis
+%%   \begin{itemize}
+%%   \item Defines the work-flow
+%%   \item Identify the ``hot spots'' of the toolchain
+%%   \item Rearrange the toolchain if possible
+%%   \item Find new measures when needed with combining tools (redundancy with orthogonal
+%%     codes \ldots{})
+%%   \end{itemize}
+%% \item Toolchain qualification verification 
+%%   \begin{itemize}
+%%   \item Check consistency of tool version with  manuals and other
+%%     provided feature information
+%%   \item Generate table to  check if all possible errors has a
+%%     detection or a correction mechanism
+%% \item Generate the qualification report
+%%   \end{itemize}
+
+%% \end{enumerate}
 
 
 
 
 
+%%  LocalWords:  openETCS
