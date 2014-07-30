@@ -2,45 +2,49 @@ package org.openetcs.sysml2scade.suite.transformation;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.IHandler;
-import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.handlers.HandlerUtil;
+import org.openetcs.common.Util;
+import org.openetcs.sysml2scade.suite.transformation.wizard.TransformationWizard;
+import org.eclipse.core.commands.AbstractHandler;
 
-public class PerformTransformationHandler implements IHandler {
-
-	@Override
-	public void addHandlerListener(IHandlerListener handlerListener) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-
-	}
+public class PerformTransformationHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO Auto-generated method stub
+		Shell shell = HandlerUtil.getActiveShell(event);
+		IStructuredSelection selection = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		Object object = selection.getFirstElement();
+		IFile file;
+		
+		if (object instanceof IFile) {
+			file = (IFile) object;
+		} else if (object instanceof IPapyrusFile) {
+			IPapyrusFile papyrusFile = (IPapyrusFile) object;
+			file = Util.getUMLFile(papyrusFile);
+		} else {
+			MessageDialog.openWarning(shell, "Transformation can't be called on: ", object.getClass().getName());
+			return null;
+		}
+		
+		TransformationWizard wizard = new TransformationWizard();
+		wizard.setModel(file);
+
+		WizardDialog wizarddialog = new WizardDialog(shell, wizard);
+
+		try {
+			if(wizarddialog.open() == Window.CANCEL)
+				return null;	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
 		return null;
 	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isHandled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void removeHandlerListener(IHandlerListener handlerListener) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
