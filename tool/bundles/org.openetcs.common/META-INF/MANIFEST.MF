@@ -6,10 +6,13 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.openetcs.common.Activator
 Bundle-Vendor: Fraunhofer ESK
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.resources,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
  org.eclipse.papyrus.infra.onefile.model,
  org.eclipse.uml2.uml
 Export-Package: org.openetcs.common
