@@ -29,15 +29,47 @@ These goals will be included in our tool integration
 qualification, they will be extra requirements for each tool qualification.
 
 In the following sections we define the tool chain qualification
-process by first giving an overview of the process, then getting into
-details for individual tool qualification, we then focus on the
-incremental development of the tool chain and finally apply this
-process to our tool chain implementation.
+process by first giving an overview of the process (section
+\ref{sec:process_overview}), then getting into details for individual
+tool qualification (section \ref{sec:individual-tool-qualif}), we then
+focus on the incremental development of the tool chain (section
+\ref{sec:incremental}) and finally apply this process to our tool
+chain implementation (section \ref{sec:toolchain-qualification-process} ).
 
 \section{Qualification Process Overview}
-
+\label{sec:process_overview}
 Figure \ref{fig:qualification_process} defines the qualification
 process.
+
+\begin{figure}[htbp]
+\begin{center}
+\scalebox{0.9}{
+\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center, font=\footnotesize]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
+	\node [block] (n1) {Features Analysis};
+	\node [block, below of=n1] (n2) {Toolchain Analysis};
+	\node [block, below of=n2,align=center] (l1) {Individual Tool
+          Qualification (to be followed for each tool)};
+        \node [block,below of=l1] (n9) {Tool-to-Platform Integration Qualification};
+	\node [block, below of=n9] (n10) {Toolchain Installation Qualification};
+	\node [block, below of=n10] (n11) {Toolchain Operational Qualification};
+	\node [block, below of=n11] (n12) {Toolchain Performance Qualification};
+
+	\draw[->] (n1) -- (n2);
+	\draw[->] (n2) -- (l1);
+	\draw[->] (l1) -- (n9);
+        \draw[->] (n9) -- (n10);
+	\draw[->] (n10) -- (n11);
+	\draw[->] (n11) -- (n12);
+\end{tikzpicture}}
+\end{center}
+\caption{Proposal for the openETCS qualification process}
+\label{fig:qualification_process}
+\end{figure}
+
+
+
 The following steps are defined as follows:
 
 {\bf $\bullet$ Feature Analysis}\\
@@ -46,12 +78,31 @@ Engineering'', ``Documentation'', ``Modeling'') . Each tool of the
 tool chain  are then categorized according to its activities. Inside
 one feature  a work-flow is defined.
 
+This phase  also defines  the interfaces of each tool and the
+artifacts they manipulate within a feature.
+
 {\bf $\bullet$ Tool chain Analysis}\\
 The work-flow between the tool chain feature is defined.
+The interfaces between the feature is defined at this phase as well as
+the artifacts exchange betwen the different features.
 
 {\bf $\bullet$ Individual Tool Qualification (to be followed for each
   tool)}\\
 See section \ref{sec:individual-tool-qualif}
+
+{\bf $\bullet$ Tool-to-Platform Integration Qualification}\\ This step
+ensures that the tool is correctly integrated within the tool chain.
+After all individual tools are qualified, their integration into the
+tool chain are planned. As part of the integration planning, the team
+will analyze the dependencies of the different tools to minimize the
+effects of unavoidable dependencies.
+
+Moreover, for each Artifacts used or produced by the tool, evidence
+should be provided that the safety-goals of section
+\ref{sec:toolchain-analysis} are satisfied. 
+Whenever an artifact is modify, a new time stamp has to be added and
+notification should be triggered. Whenever an artifact is used a check
+of its obsolescence should be performed.
 
 {\bf $\bullet$ Tool Chain Installation Qualification}\\
 Installation should verify that the toolchain is properly
@@ -66,31 +117,6 @@ Performance qualification should demonstrate that the toolchain consistently per
 The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
 
 
-\begin{figure}[htbp]
-\begin{center}
-\scalebox{0.9}{
-\begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, align=center, font=\footnotesize]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, align=center, rounded corners]
-	\node [block] (n1) {Features Analysis};
-	\node [block, below of=n1] (n2) {Toolchain Analysis};
-	\node [block, below of=n2,align=center] (l1) {Individual Tool Qualification (to be followed for each tool)};
-		\node [block, below of=l1] (n10) {Toolchain Installation Qualification};
-	\node [block, below of=n10] (n11) {Toolchain Operational Qualification};
-	\node [block, below of=n11] (n12) {Toolchain Performance Qualification};
-
-	\draw[->] (n1) -- (n2);
-	\draw[->] (n2) -- (l1);
-	\draw[->] (l1) -- (n10);
-	\draw[->] (n10) -- (n11);
-	\draw[->] (n11) -- (n12);
-\end{tikzpicture}}
-\end{center}
-\caption{Proposal for the openETCS qualification process}
-\label{fig:qualification_process}
-\end{figure}
-
-
 
 \section{Individual Tool Qualification}
 \label{sec:individual-tool-qualif}
@@ -101,7 +127,7 @@ This section explains the steps for the tool qualification whenever a
 new tool is added. Next section will deal with the special cases where tools are
 updated and when a first qualification has already been performed.
 
-\begin{figure}[htp]
+\begin{figure}[htbp]
 \begin{center}
 \scalebox{0.9}{
 \begin{tikzpicture}[->, >=stealth,node distance=1.5cm, auto]
@@ -260,25 +286,12 @@ Each tool will be then defined by all information represented in our
 meta-model. This can be seen as our template for collecting all
 information need for tool qualification.
 
-\subsection{Tool-to-Platform Integration Qualification}
-This step ensures that the tool is correctly integrated within the
-tool chain.
 
-After all individual tools are qualified, their integration into the
-tool chain are planned. As part of the integration planning, the team
-will analyze the dependencies of the different tools to minimize the
-effects of unavoidable dependencies.
-
-Moreover, for each Artifacts used or produced by the tool, evidence
-should be provided that the safety-goals of section
-\ref{sec:toolchain-analysis} are satisfied. 
-Whenever an artifact is modify, a new time stamp has to be added and
-notification should be triggered. Whenever an artifact is used a check
-of its obsolescence should be performed.
 
 
 
 \section{Incremental Tasks for toolchain qualification}
+\label{sec:incremental}
 The qualification of the toolchain shall follow an incremental process
 adding the next tool to the previously qualified tool chain. The
 process will continue until the last qualified tool is integrated and
@@ -286,7 +299,7 @@ the complete toolchain is qualified. The botton-up approach will be
 applied. As a result, the errors related to tool interface should be
 easier to pinpoint.
 
-A new tool chain release deal with different type of changes :
+A new  OpenETCS tool chain release deal with different type of changes :
 \begin{enumerate} 
 \item Add a new tool: the tool chain is extended
 \item Replace a tool: a tool function is replaced by another one
@@ -332,7 +345,7 @@ describes in the previous section.
 \caption{\label{fig:openetcs-process} The OpenETCS Qualification process}
 \end{figure}
 
-The first step is the feature Analysis.
+The first step is the {\bf feature Analysis}.
 The OpenETCS tool chain  will be defined by the set of its features and
 a guideline describing how to correctly use it.
 A SysML block diagram describes the tool chain architecture at a certain point in time as shown in
@@ -345,7 +358,6 @@ Figure \ref{fig:overview}.
   Red Block: Not started \\
   White Block: External Artifacts} 
 \end{figure}
-
 This block diagram is intended to grow according to new feature requests and the
 needs of openETCS participants.  This diagram will be kept updated
 as a reference of our tool chain. In any case, the complete information
@@ -374,19 +386,16 @@ how to use the tool chain and/or an activity diagram.
 %when integrating a tool.
 
 
-The second step, the tool chain analysis consists of Bundle Analysis
+The second step, the {\bf tool chain analysis} consists of Bundle Analysis
 and the work-flow Analysis.
 The openETCS tool chain is integrated into the Eclipse platform. One
-can analyses the sources of the tool chain to automatically derived
-information about the tool:
-\begin{itemize}
-\item Name
-\item Version
-\item Description
-\item Dependencies
-\end{itemize}
-A list of tool should be produced and must be completed by the
-qualification team. These information should be added directly in the
+can analyses the sources of the tool chain and automatically derived
+the list of tools present in the tool chain as well as some
+information about them such as :  the name,  the version,
+a description and a list of dependency.
+
+The list of tool should be refined by the development team.
+The missing information should be added directly in the
 sources to make them available for the next tool releases.
 
 
@@ -395,9 +404,9 @@ derived some basic use cases such as parsing or producing
 artifacts. These basic use cases may be coupled with basic potential
 errors such as ``no file found'', ``too many file produced''...
 
-After the tool chain analysis phase, the individual tool qualification
+After the tool chain analysis phase, the {\bf individual tool qualification}
 starts. With the help of the tool list, the previous information given
-(for former releases) and the basic use cases, the tool information
+(from former releases) and the basic use cases, the tool information
 should be completed. Table \ref{tbl:tool-info} \ref{tbl:artifacts} and
 \ref{tbl:functions} summarize the set of information needed for the
 qualification of a tool.
@@ -456,14 +465,15 @@ Potential Errors & Error Mitigation \\\hline
 \todo[inline]{Finish the table with VnV activities}
 
 
-When all tool are completely defined, we may want to generate the
-dependency list of the tools and the artifact matrix.
-The former may be used to check if all tool can be correctly
-integrated into the tool platform. 
-The latter allow to check if all artifacts are correctly read and write
-and/or all possible errors  are mitigated.
-In case of re-qualification of the tool chain, the matrix can be used
-to see which tool are impacted by the change.
+When all tool are completely defined the {\bf tool-to platform
+  integration} starts. From the previous phase, we should generate the
+dependency list of the tools and the artifact matrix.  The dependency
+list is used to check if all tool can be correctly integrated into the
+tool platform by the qualification team and report to the development
+team.  The artifacts allow the qualification team to check if all
+artifacts are correctly read and write and/or all possible errors are
+mitigated.  In case of re-qualification of the tool chain, the matrix
+can be used to see which tool are impacted by the changes.
 
 \todo[inline]{Add the last steps}
 %% \paragraph{Tool Integration Process for Qualification}
