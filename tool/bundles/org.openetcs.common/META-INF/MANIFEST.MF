@@ -7,7 +7,9 @@ Bundle-Activator: org.openetcs.common.Activator
 Bundle-Vendor: Fraunhofer ESK
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ org.eclipse.emf.validation,
+ org.openetcs.sysml.constraints
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.resources,

@@ -8,12 +8,17 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.validation.model.EvaluationMode;
+import org.eclipse.emf.validation.service.IBatchValidator;
+import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.uml2.uml.Model;
+import org.openetcs.sysml.constraints.ClassicalBClientSelector;
 
 public class Util {
 	public void generateProjectFolder(IProject project) {
@@ -53,5 +58,19 @@ public class Util {
 		}
 		
 		return null;
+	}
+
+	public static IStatus validateModel(Model model) {
+		ClassicalBClientSelector.running = true;
+
+		IBatchValidator validator = (IBatchValidator)ModelValidationService.getInstance()
+			.newValidator(EvaluationMode.BATCH);
+		validator.setIncludeLiveConstraints(true);
+
+		IStatus status = validator.validate(model);
+
+		ClassicalBClientSelector.running = false;
+		
+		return status;
 	}
 }
