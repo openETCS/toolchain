@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtend.lib,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
- org.eclipse.papyrus.sysml;bundle-version="0.10.2"
+ org.eclipse.papyrus.sysml;bundle-version="0.10.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Fraunhofer ESK
