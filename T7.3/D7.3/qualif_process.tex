@@ -404,9 +404,11 @@ qualification of a tool.
 \centering
 \caption{\label{tbl:tool-info}Tool Information to be completed}
 \begin{tabular}{|l|p{5cm}|}\hline
-Tool Name: &\\\hline
+Tool Name: & \\\hline
 Version: & \\\hline
-Tool Dependencies & -\\
+Tool License: & \\\hline
+Tool Origin: &\\\hline
+Tool Dependencies & \\
  & -\\
  & -\\ \hline
 Description: & \\
@@ -420,6 +422,7 @@ Artifact List link & \\\hline
 Function List link& \\\hline
 \multicolumn{2}{|c|}{If T3 Tools}\\\hline
 Validation method& \\\hline
+VnV activities report link&\\\hline
 \end{tabular}
 \end{table}
 
@@ -427,10 +430,11 @@ Validation method& \\\hline
 \begin{table}[htbp]
 \caption{\label{tbl:artifacts} List of  Artifacts Description}
 {\small
-\begin{tabular}{|p{4em}|l|c|l|p{5em}|c|l|p{5em}|}\hline
-Name & Format & Is read ? & Restrictions & Time stamp check? &Is
-written ? & Restrictions & Time Stamp produced ?\\\hline
-Artifact1 & tex &yes &none&yes&no&&\\\hline
+\begin{tabular}{|p{4em}|l|p{1.5cm}|l|p{5em}|p{1.8cm}|l|p{5em}|}\hline
+Name & Format & Is read ? By who ?& Restrictions & Time stamp check? &Is
+written ? By Who ?& Restrictions & Time Stamp produced ?\\\hline
+\multirow{2}{*}{Artifact1} & \multirow{2}{*}{tex} & Tool1 & none & yes &no & &\\\cline{3-8}
+                           & & Tool2 & none& no & no & &\\\hline
 \end{tabular}
 }
 \end{table}
