@@ -4,94 +4,134 @@ As an example we will focus on the sample tool cahin depicted figure
 \ref{fig:sample}
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{toolchainsample}
-\caption{\label{fig:sample} Tool chain samples} 
+\includegraphics[width=\textwidth]{toolchainsample1}
+\caption{\label{fig:sample} Tool chain sample} 
+\end{figure}
+
+\vskip 3em
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{feature_analysis}
+\caption{\label{fig:feature} Feature: Data type and Variable Import  }  
 \end{figure}
 
 The first tool chain : Create High-level Architecture I proposes to
 create a high level view of the on board unit from the Subset 026
-specification. It  is composed by
-two features.  
-\subsection{Qualification process for tool chain I}
-\paragraph{Step 1: Feature Analysis}
-{\bf Feature 1: Data type and Variable Import}\\
-\begin{description}
-\item Tool 1: Bitwalker 
-  \begin{itemize}
-  \item Tool Identification: Bitwalker v1.0
-  \item Tool Origin: Self-developed
-  \item Tool license: EUPL
-  \item Tool Justification: 
-  \item Tool Input/Output: 
-  \item Tool dependencies: None
-  \item Use cases:
-  \item Tool Class: T3
-  \item Potential errors: see \ref{sec:bitwalker-example}
-  \item How to Provide Evidence: see \ref{sec:bitwalker-example}
-   \end{itemize}
-\item Tool 2: Data Dictionary
+specification. It  contains two features : Data type and Variable
+Import and the sytem modeling. Figure \ref{fig:feature} describes the
+feature   ``Data type and Variable Import'' in more details.
+The workflow is depicted figure \ref{fig:sample}. 
+
+The tool chain analysis give us the following list of tool :
+\begin{enumerate}
+\item  Feature 1: Data type and Variable Import
 \begin{itemize}
-  \item Tool Identification: Data Dictionary  based on SRS 0.1.201407031006
-  \item Tool Origin: Self-developed
-  \item Tool license: EUPL
-  \item Tool Justification: 
-  \item Tool Input/Output: 
-  \item Tool dependencies: None
-  \item Use cases:
-  \item Tool Class: T3
-  \item Potential errors: 
-  \item How to Provide Evidence:
-   \end{itemize}
-\end{description}
-
-{\bf Feature 2: System Modeling}\\
-  \begin{itemize}
-  \item Tool Identification: Papyrus  0.10.1.v20130918
-  \item Tool Origin: Eclipse Incubation (CEA)
-  \item Tool license:  
-  \item Tool Justification: Papyrus is a modeling tool that allows us
-    to model the high-level architecture of the OBU with SysML.
-  \item Tool Input/Output: 
-  \item Tool dependencies: 
-  \item Use cases:
-  \item Tool Class: T3
-  \item Potential errors:
-  \item How to Provide Evidence:                 
-  \end{itemize}
-
-{\bf Feature 3: Artifacts Versioning}\\
-  \begin{itemize}
-  \item Tool Identification: Eclipse  Egit   3.2.0.2013121812
-  \item Tool Origin: Eclipse foundation
-  \item Tool license:  Eclipse Public License Version 1.0
-  \item Tool Justification: Egit provides an implementation of the Git
-    version system. 
-  \item Tool Input/Output: 
-  \item Tool dependencies: JGit Core
-  \item Use cases:
-  \item Tool Class: T2
-  \item Potential errors:
-  \item How to Provide Evidence:                 
-  \end{itemize}
-
-
-\paragraph{Tool platform Analysis}
-This should only be T1 feature ?
-\begin{itemize}
-\item List of services in Use : GUI ...
-\item Version Compatibility
+\item Tool 1: Bitwalker
+\item Tool 2: Data Dictionary import
 \end{itemize}
-\paragraph{Tool chain Analysis}
+\item  Feature 2: System Modeling
 \begin{itemize}
-\item Tool dependency Analysis: All tool needed present with a
-  compatible version (Need a matrix)
-\item Tool Artifacts interaction matrix: Use for compatibility format
-  and to highlight interactions
-\item List of new Potential error due to interaction
-\item How to provide evidence 
+\item Tool 1: Papyrus
 \end{itemize}
+\end{enumerate}
 
-\subsection{Qualification process for tool chain II}
-How to process changes, the different possible change within the tool
-chain are add, update, replace or remove a tool.
+The following tables give the elements we could directly obtain from the
+eclipse analysis that have to  be completed.
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:datadict}Data dictionary  Information to be completed}
+\begin{tabular}{|l|p{7cm}|}\hline
+Tool Name: &Data Dictionary\\\hline
+Version: &0.1.0 \\\hline
+Tool License:& EUPL V1.1\\\hline
+Tool Origin & Fraunhofer ESK, LAAS-CNRS \\
+Tool Dependencies & - org.eclipse.ui \\
+&-  org.eclipse.core.runtime\\
+& - org.eclipse.emf.ecore\\
+& - org.eclipse.papyrus.uml.extensionpoints \\ \hline
+Description: & This feature contains the DataDictionary. The DataDictionary registers a UML model which contains data structure, variables and messages based on the ETCS System Requirements Specification (SRS). \\ \hline
+Tool Class: & T3 \\\hline
+\multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
+Tool Justification & \\
+ & \\ \hline
+Manual Link and version & \\\hline
+Artifact List link & \\\hline
+Function List link& \\\hline
+\multicolumn{2}{|c|}{If T3 Tools}\\\hline
+Validation method& \\\hline
+VnV activities report link&\\\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:bitwalker-info}Bitwalker Information to be completed}
+\begin{tabular}{|l|p{5cm}|}\hline
+Tool Name: & Bitwalker \\\hline
+Version: & v1.0\\\hline
+Tool License: & EUPL v1.1 \\\hline
+Tool Origin: & Siemens for openETCS\\\hline
+Tool Dependencies & None\\ \hline
+Description: & Transform the word document chapter 7 and 8 to a XML file. \\ \hline
+Tool Class: & T3 \\\hline
+\multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
+Tool Justification & \\
+ & \\ \hline
+Manual Link and version & \\\hline
+Artifact List link & \\\hline
+Function List link& see \ref{sec:bitwalker-example} \\\hline
+\multicolumn{2}{|c|}{If T3 Tools}\\\hline
+Validation method& \\\hline
+VnV activities report link&\\\hline
+\end{tabular}
+\end{table}
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:papyrus-info} Papyrus Information to be completed}
+\begin{tabular}{|l|p{5cm}|}\hline
+Tool Name: & Papyrus  \\\hline
+Version: &  0.10.1.v20130918 \\\hline
+Tool License: & Eclipse \\\hline
+Tool Origin: &  Eclipse Incubation (CEA)\\\hline
+Tool Dependencies & \\
+ & -\\
+ & -\\ \hline
+Description: & \\
+ & \\ \hline
+Tool Class: & \\\hline
+\multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
+Tool Justification &Papyrus is a modeling tool that allows us
+    to model the high-level architecture of the OBU with SysML \\ \hline
+Manual Link and version & \\\hline
+Artifact List link & \\\hline
+Function List link& \\\hline
+\multicolumn{2}{|c|}{If T3 Tools}\\\hline
+Validation method& \\\hline
+VnV activities report link&\\\hline
+\end{tabular}
+\end{table}
+The artifact matrix for the tool chain matrix should look like
+table \ref{tbl:example-artifacts}.
+This table has beed pre-filled with the information available now,
+this should also be completed during the qualification process.
+\begin{table}[htbp]
+\caption{\label{tbl:example-artifacts} List of  Artifacts Description\\ The
+cells with ??? indicates unknown information\\ }
+{\small
+\begin{tabular}{|p{4em}|l|p{1.5cm}|l|p{5em}|p{1.8cm}|l|p{5em}|}\hline
+Name & Format & Is read ? By who ?& Restrictions & Time stamp check? &Is
+written ? By Who ?& Restrictions & Time Stamp produced ?\\\hline
+Subset 026 chapt.7-8 & Word-docx & Bitwalker & none & no & no &
+&\\\hline
+Subset 026 chapt.7-8 & XML  & 
+Data dictionary &  ??? & ??? & Bitwalker & ??? & ??? \\\hline
+UML Library & XMI & Papyrus & Papyrus XMI & ??? & Data dictionary &
+??? & ??? \\\hline 
+Papyrus Model & XMI & Papyrus & Papyrus XMI & ??? & Papyrus &
+ Papyrus XMI & ??? \\\hline 
+
+\end{tabular}
+
+}
+\end{table}
 
