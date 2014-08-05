@@ -52,9 +52,9 @@
           <body>What are the restrictions ?</body>
         </ownedComment>
       </group>
-      <group xmi:type="uml:ActivityPartition" xmi:id="_HH3k0GKCEeO2I5EKGozZ2A" name="Traceability" node="_uDV74F5ZEeO6V4b4pI1W-Q"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_HH3k0GKCEeO2I5EKGozZ2A" name="Traceability" node="_uDfW0GKAEeO2I5EKGozZ2A _V8Fo4GJHEeOtRLinGyaEAA"/>
       <group xmi:type="uml:ActivityPartition" xmi:id="_gYFE0GKCEeO2I5EKGozZ2A" name="Configuration Management" node="_2XRDcGDWEeO0E4DBzB4wCw"/>
-      <group xmi:type="uml:ActivityPartition" xmi:id="_pBdxEIqFEeO2xsSja7i1DA" name="Safety" node="_J5RUkIqGEeO2xsSja7i1DA"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_pBdxEIqFEeO2xsSja7i1DA" name="Safety"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_DBHqQFINEeO2iOU1Kjl0YQ" name="Import Requirement" inPartition="_O5IzoGKAEeO2I5EKGozZ2A" outgoing="_-Gs7wGKAEeO2I5EKGozZ2A" incoming="_y9u-0FIPEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:DataStoreNode" xmi:id="_G8yOkFINEeO2iOU1Kjl0YQ" name="Subset-026 Requirements" inPartition="_O5IzoGKAEeO2I5EKGozZ2A" outgoing="_5rhaAFj1EeOu38sUqSEbjQ _CNaMAF5bEeO6V4b4pI1W-Q _PZ7ysIqEEeO2xsSja7i1DA _dYtIwIqGEeO2xsSja7i1DA" incoming="_zhRJsFIPEeO2iOU1Kjl0YQ" isControlType="true" ordering="unordered">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_G84VMFINEeO2iOU1Kjl0YQ" value="1"/>
@@ -83,18 +83,18 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_ByVRAFIPEeO2iOU1Kjl0YQ" name="Scade Papyrus Integration" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_Om1BwFIQEeO2iOU1Kjl0YQ" incoming="_OIYLMFIQEeO2iOU1Kjl0YQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_MfpSQFj0EeOu38sUqSEbjQ" name="Import BitWalker" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_DQRjMFj1EeOu38sUqSEbjQ" incoming="_ChACYFj1EeOu38sUqSEbjQ"/>
       <node xmi:type="uml:OpaqueAction" xmi:id="_p9ok0Fj1EeOu38sUqSEbjQ" name="Import Requirements 2 Papyrus" inPartition="_Bmte0GKBEeO2I5EKGozZ2A" outgoing="_6S9NcFj1EeOu38sUqSEbjQ" incoming="_5rhaAFj1EeOu38sUqSEbjQ"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="_uDV74F5ZEeO6V4b4pI1W-Q" name="Manage Trace" inPartition="_HH3k0GKCEeO2I5EKGozZ2A" outgoing="_skGgUGKDEeO2I5EKGozZ2A" incoming="_CNaMAF5bEeO6V4b4pI1W-Q _EVXXAF5bEeO6V4b4pI1W-Q _Fyv7AF5bEeO6V4b4pI1W-Q"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_uDV74F5ZEeO6V4b4pI1W-Q" name="Manage Trace" outgoing="_skGgUGKDEeO2I5EKGozZ2A" incoming="_CNaMAF5bEeO6V4b4pI1W-Q _EVXXAF5bEeO6V4b4pI1W-Q _Fyv7AF5bEeO6V4b4pI1W-Q"/>
       <node xmi:type="uml:DataStoreNode" xmi:id="_df7-gF5aEeO6V4b4pI1W-Q" name="Link DataBase" incoming="_skGgUGKDEeO2I5EKGozZ2A" isControlType="true">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_df_B0F5aEeO6V4b4pI1W-Q" value="1"/>
       </node>
       <node xmi:type="uml:OpaqueAction" xmi:id="_2XRDcGDWEeO0E4DBzB4wCw" name="Store Data Bases" inPartition="_gYFE0GKCEeO2I5EKGozZ2A" incoming="_g3zb0GKEEeO2I5EKGozZ2A _hiNDsGKEEeO2I5EKGozZ2A _iC25sGKEEeO2I5EKGozZ2A"/>
-      <node xmi:type="uml:OpaqueAction" xmi:id="_V8Fo4GJHEeOtRLinGyaEAA" name="Requirements Management" inPartition="_O5IzoGKAEeO2I5EKGozZ2A" outgoing="_8gAqwGKAEeO2I5EKGozZ2A" incoming="_PZ7ysIqEEeO2xsSja7i1DA"/>
-      <node xmi:type="uml:MergeNode" xmi:id="_uDfW0GKAEeO2I5EKGozZ2A" name="MergeNode1" inPartition="_O5IzoGKAEeO2I5EKGozZ2A" outgoing="_zhRJsFIPEeO2iOU1Kjl0YQ" incoming="_8gAqwGKAEeO2I5EKGozZ2A _-Gs7wGKAEeO2I5EKGozZ2A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_V8Fo4GJHEeOtRLinGyaEAA" name="Requirements Management" inPartition="_O5IzoGKAEeO2I5EKGozZ2A _HH3k0GKCEeO2I5EKGozZ2A" outgoing="_8gAqwGKAEeO2I5EKGozZ2A" incoming="_PZ7ysIqEEeO2xsSja7i1DA"/>
+      <node xmi:type="uml:MergeNode" xmi:id="_uDfW0GKAEeO2I5EKGozZ2A" name="MergeNode1" inPartition="_O5IzoGKAEeO2I5EKGozZ2A _HH3k0GKCEeO2I5EKGozZ2A" outgoing="_zhRJsFIPEeO2iOU1Kjl0YQ" incoming="_8gAqwGKAEeO2I5EKGozZ2A _-Gs7wGKAEeO2I5EKGozZ2A"/>
       <node xmi:type="uml:DataStoreNode" xmi:id="_LVpJgHeOEeO8tI5e1595aw" name="Subset026 chap 7-8" outgoing="_haxNkHeOEeO8tI5e1595aw _nc18oIqFEeO2xsSja7i1DA" isControlType="true">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_LVq-sHeOEeO8tI5e1595aw" value="1"/>
       </node>
       <node xmi:type="uml:OpaqueAction" xmi:id="_boKDEIqEEeO2xsSja7i1DA" name="Infers Safety Rules" outgoing="_bigcIIqGEeO2xsSja7i1DA" incoming="_dYtIwIqGEeO2xsSja7i1DA _uJm6IIqGEeO2xsSja7i1DA"/>
-      <node xmi:type="uml:DataStoreNode" xmi:id="_J5RUkIqGEeO2xsSja7i1DA" name="Safety Properties" inPartition="_pBdxEIqFEeO2xsSja7i1DA" incoming="_bigcIIqGEeO2xsSja7i1DA" isControlType="true">
+      <node xmi:type="uml:DataStoreNode" xmi:id="_J5RUkIqGEeO2xsSja7i1DA" name="Safety Properties" incoming="_bigcIIqGEeO2xsSja7i1DA" isControlType="true">
         <upperBound xmi:type="uml:LiteralInteger" xmi:id="_J5U-8IqGEeO2xsSja7i1DA" value="1"/>
       </node>
       <node xmi:type="uml:DataStoreNode" xmi:id="_fnt-AIqGEeO2xsSja7i1DA" name="CENELEC EN50128" outgoing="_uJm6IIqGEeO2xsSja7i1DA" isControlType="true">
@@ -124,12 +124,14 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_gIa7gIzwEeO4yNdlNb1RPA" name="Traceability">
         <packagedElement xmi:type="uml:Class" xmi:id="_lnF4UI1sEeO4yNdlNb1RPA" name="Link Database"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_okRbII1sEeO4yNdlNb1RPA" clientDependency="_2IPRQI1-EeOMqbI_LkMcYA" name="Trace Management">
+        <packagedElement xmi:type="uml:Class" xmi:id="_okRbII1sEeO4yNdlNb1RPA" clientDependency="_2IPRQI1-EeOMqbI_LkMcYA _C2o0MBySEeSuKP4IVeSQ3g" name="Trace Management">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_qMDWoI1_EeOMqbI_LkMcYA" name="subset26 requirements" type="_3mZL8I1rEeO4yNdlNb1RPA" association="_qMBhcI1_EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_0WcuEI1_EeOMqbI_LkMcYA" name="papyrus model" type="_jw9AoI1tEeO4yNdlNb1RPA" association="_0WaR0I1_EeOMqbI_LkMcYA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_3irZgI1_EeOMqbI_LkMcYA" name="safety properties" type="_Ilbf8I1sEeO4yNdlNb1RPA" association="_3iqLYI1_EeOMqbI_LkMcYA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Usage" xmi:id="_2IPRQI1-EeOMqbI_LkMcYA" name="Usage1" client="_okRbII1sEeO4yNdlNb1RPA" supplier="_lnF4UI1sEeO4yNdlNb1RPA"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_XDEGsByREeSuKP4IVeSQ3g" name="ProR/Papyrus Proxy"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_C2o0MBySEeSuKP4IVeSQ3g" name="Usage2" client="_okRbII1sEeO4yNdlNb1RPA" supplier="_XDEGsByREeSuKP4IVeSQ3g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_hwo2gIzwEeO4yNdlNb1RPA" name="Configuration Management">
         <packagedElement xmi:type="uml:Class" xmi:id="_zYbhQI1sEeO4yNdlNb1RPA" name="Versioning"/>
@@ -527,4 +529,6 @@
   <OpenETCSProfile:OpenETCSFeature xmi:id="_ntd5IPE8EeOZaPlYwlozBw" Implemented="true" Issue="377" Tool="Documentation Plugin" base_Class="_biIksPE8EeOZaPlYwlozBw"/>
   <Blocks:Block xmi:id="_EL_50PE-EeO2fv87lT06ow" base_Class="_EL-EoPE-EeO2fv87lT06ow"/>
   <OpenETCSProfile:OpenETCSArtifacts xmi:id="_SGVGsPE-EeO2fv87lT06ow" base_Class="_EL-EoPE-EeO2fv87lT06ow"/>
+  <Blocks:Block xmi:id="_XDIYIByREeSuKP4IVeSQ3g" base_Class="_XDEGsByREeSuKP4IVeSQ3g"/>
+  <OpenETCSProfile:OpenETCSFeature xmi:id="_cY8mQByREeSuKP4IVeSQ3g" Implemented="true" Issue="380" SpecificationURL="https://github.com/openETCS/toolchain/tree/master/PositionPapers/FormalMind" Tool="Eclipse + ProR &amp; Papyrus" base_Class="_XDEGsByREeSuKP4IVeSQ3g"/>
 </xmi:XMI>
