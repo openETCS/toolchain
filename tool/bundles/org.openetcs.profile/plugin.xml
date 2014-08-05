@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://OPENETCS_LIBRARIES/"
+            target="platform:/plugin/org.openetcs.profile/libraries/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://OPENETCS_PROFILES/"
+            target="platform:/plugin/org.openetcs.profile/model/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for openETCS"
+            name="openETCS Profile"
+            path="pathmap://OPENETCS_PROFILES/openetcs.profile.uml"
+            provider="Fraunhofer ESK">
+      </profile>
+   </extension>
+
+</plugin>
