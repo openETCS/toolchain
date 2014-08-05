@@ -237,8 +237,8 @@ This section describes a proposal on how to setup the operational qualification 
 
 We propose setting up the operational tool qualification based on the approach by Slotosch et al. which has been briefly sketched in Section~\ref{sec:slotosh-approach}. It has been simplified and adapted to our purposes. In particular, we will focus on the artifacts and documentation necessary to conduct the qualification steps. Figure~\ref{fig:qualification-models-linkage} shows the different parts of the qualification model according to \cite{slotosch_model-based_2012}. We propose to tailor this approach as follows:
 \begin{itemize}
-    \item The different levels of requirements have been simplified: We propose to keep a single level of requirements and in addition a special type of requirement: the \emph{use case}.
-    \item In the context of openETCS the tool design model is built using SysML with the Papyrus tool.
+    \item The different levels of requirements have been simplified: We propose to keep a single level of requirements. In addition we distinguish two special types of requirements: the \emph{use cases} and \emph{safety requirements} which are derived from a safety standard such as CENELEC EN~50128. Safety requirements often enforce constraints to the development process and the employed methods and do not necessarily specify desirable properties of the end result.
+    \item In the context of openETCS the tool design model is built using SysML with the Papyrus tool. 
 	\item The ``Quality Assurance'' part is covered by using the GitHub issue tracker (not depicted in Figure~\ref{fig:qualification-models-linkage}.
 \end{itemize}
 
