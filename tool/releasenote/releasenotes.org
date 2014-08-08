@@ -1,11 +1,10 @@
-** Toolspint 14 (Ends 05-July-2014)
+** Toolspint 16 (Ends 08-August-2014)
 *** resolved issues
-- #298 Reset Target Platform and POMs for RMF after 0.10.0 release
-- #377 Include Documentation plug-in in product build
-- #315 Automate the generation of the documentation wiki
+- #395 Import registered package to Scade system does not work ?
+- #380 Papyrus integration plug-in  with PRO-R proxy listnener
+- #358 Traceability: Visibility on Papyrus Part
 
 *** Important commit 
-- b196d49d138b6b4139dceee865c4da3a355d1489 
-updated plugin with git tasks included into the build file 
-- ab6d5b37aa59a29950e817a315e1b7a20326b1d
-modifications to include documentation plugin inthe openetcs toolchain 
+- 84e4c9cbdffd0ddf9431c3ef7c822581759f20ae
+ Merge of local branch for plugin org.openetcs.pror.tracing.sysml, closing issue #349 and partially #380
+

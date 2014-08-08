@@ -1,3 +1,12 @@
+** Toolspint 16 (Ends 08-August-2014)
+*** resolved issues
+- #395 Import registered package to Scade system does not work ?
+- #380 Papyrus integration plug-in  with PRO-R proxy listnener
+- #358 Traceability: Visibility on Papyrus Part
+
+*** Important commit 
+- 84e4c9cbdffd0ddf9431c3ef7c822581759f20ae
+ Merge of local branch for plugin org.openetcs.pror.tracing.sysml, closing issue #349 and partially #380
 ** Toolspint 14 (Ends 05-July-2014)
 *** resolved issues
 - #298 Reset Target Platform and POMs for RMF after 0.10.0 release
