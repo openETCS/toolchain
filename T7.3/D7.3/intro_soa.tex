@@ -43,12 +43,14 @@ systematic toolchain analysis approach has to be defined.
 
 Table~\ref{tab:oetcs_tool_classification} exemplarily lists the tool classes for some of the tools employed in the openETCS project. The tools Papyrus, SCADE and Bitwalker have a direct effect on the generated code whereas ProR and Git do not. The classification for ProR would be different if it would be used for formal requirements that then could be automatically translated to a model (this would yield a T3-classification). The verification tools RTTester and CPN Tools are not in the ``direct'' chain from requirements to code but they may fail to detect errors in the software or model.
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{lll}
 Tool&Purpose&Tool Class\\\hline
-Papyrus&Definition of the model architecture&T3\\
-SCADE&Low-level modelling and code generation&T3\\
+Papyrus Editor &Definition of the model architecture&T1\\
+Papyrus SysML checker & Check SysML conformity of the model &T2\\
+SCADE Editor &Low-level modelling and code generation&T1\\
+SCADE Code Generator & Code generation&T3\\
 ProR&Requirements management&T1\\
 Bitwalker&Generation of data structures for modelling&T3\\
 Git&Versioning \& Traceability&T1\\

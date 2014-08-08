@@ -78,8 +78,10 @@ Engineering'', ``Documentation'', ``Modelling'') . Each tool of the
 tool chain  is then categorised according to its activities. Inside
 a feature  a work-flow is defined.
 
-This phase  also defines  the interfaces of each tool and the
-artifacts they manipulate within a feature.
+This phase  also defines  the interfaces of each tool within a feature
+and the artifacts manipulated. An artifact is defined by a name and a
+format.
+
 
 \paragraph{Tool chain Analysis}
 The work-flow between the tool chain features is defined.
@@ -171,10 +173,12 @@ updated and when a first qualification has already been performed.
 
 \subsection{Define Process \& Usage Context}
 The process starts by defining the tool purposes and the usage context
-of tool. More precisely, the input and output artifacts of the tool
-should be identified, the dependency with our tools should be
-explicitly defined and the feature analysis should be consolidate. This can be best achieved in a model-based manner. 
-For details on that topic please refer to Section~\ref{sec:model-based-tool-quali}.
+of tool. More precisely, the formats restrictions of the input and
+output artifacts  of the tool should be identified, the dependency with
+our tools should be explicitly defined and the feature analysis should
+be consolidate. This can be best achieved in a model-based manner.
+For details on that topic please refer to
+Section~\ref{sec:model-based-tool-quali}.
 
 \subsection{Tool Classification}
 The class of the tool should be set according to the EN50128
@@ -288,7 +292,7 @@ information needed for tool qualification.
 
 \section{Incremental Tasks for toolchain qualification}
 \label{sec:incremental}
-\todo[inline]{Make this section more robust}
+
 The qualification of the toolchain shall follow an incremental process
 adding the next tool to the previously qualified tool chain. The
 process will continue until the last qualified tool is integrated and
@@ -455,7 +459,7 @@ Potential Errors & Error Mitigation \\\hline
 \end{tabular}
 \end{table}
 
-\todo[inline]{Finish the table with VnV activities}
+
 
 
 When all tool are completely defined the {\bf tool-to platform
@@ -465,10 +469,11 @@ list is used to check if all tool can be correctly integrated into the
 tool platform by the qualification team and report to the development
 team.  The artifacts allow the qualification team to check if all
 artifacts are correctly read and write and/or all possible errors are
-mitigated.  In case of re-qualification of the tool chain, the matrix
-can be used to see which tool are impacted by the changes.
+mitigated.  In case of re-qualification of the tool chain, the work
+may be alleviate by using  the artifacts matrix
+to concentrate on the tools that are impacted by the changes.
 
-\todo[inline]{Add the last steps}
+
 %% \paragraph{Tool Integration Process for Qualification}
 
 %% \begin{itemize}

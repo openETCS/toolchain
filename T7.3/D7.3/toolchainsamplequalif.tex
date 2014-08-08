@@ -30,7 +30,8 @@ The tool chain analysis give us the following list of tool :
 \end{itemize}
 \item  Feature 2: System Modeling
 \begin{itemize}
-\item Tool 1: Papyrus
+\item Tool 1: Papyrus Editor
+\item Tool 2: Papyrus SysML Checker
 \end{itemize}
 \end{enumerate}
 
@@ -85,23 +86,23 @@ Validation method& \\\hline
 VnV activities report link&\\\hline
 \end{tabular}
 \end{table}
+
 \begin{table}[htbp]
 \centering
-\caption{\label{tbl:papyrus-info} Papyrus Information to be completed}
+\caption{\label{tbl:papyrus-info} Papyrus Editor Information to be completed}
 \begin{tabular}{|l|p{5cm}|}\hline
-Tool Name: & Papyrus  \\\hline
+Tool Name: & Papyrus Editor \\\hline
 Version: &  0.10.1.v20130918 \\\hline
 Tool License: & Eclipse \\\hline
 Tool Origin: &  Eclipse Incubation (CEA)\\\hline
 Tool Dependencies & \\
  & -\\
  & -\\ \hline
-Description: & \\
- & \\ \hline
-Tool Class: & \\\hline
+Description: & Papyrus is a modeling tool that allows us
+    to model the high-level architecture of the OBU with SysML  \\ \hline
+Tool Class: & T1\\\hline
 \multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
-Tool Justification &Papyrus is a modeling tool that allows us
-    to model the high-level architecture of the OBU with SysML \\ \hline
+Tool Justification &\\ \hline
 Manual Link and version & \\\hline
 Artifact List link & \\\hline
 Function List link& \\\hline
@@ -110,10 +111,37 @@ Validation method& \\\hline
 VnV activities report link&\\\hline
 \end{tabular}
 \end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tbl:papyrusCheck-info} Papyrus Checker Information to be completed}
+\begin{tabular}{|l|p{5cm}|}\hline
+Tool Name: & Papyrus Checker \\\hline
+Version: &  0.10.1.v20130918 \\\hline
+Tool License: & Eclipse \\\hline
+Tool Origin: &  Eclipse Incubation (CEA)\\\hline
+Tool Dependencies & \\
+ & -\\
+ & -\\ \hline
+Description: & Papyrus checker verifies the basics rules of SysML modeling. \\ \hline
+Tool Class: & T2\\\hline
+\multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
+Tool Justification & To make import and export of the model the sysML
+model should be consistent with SysML rules.\\ \hline
+Manual Link and version & \\\hline
+Artifact List link & \\\hline
+Function List link& \\\hline
+\multicolumn{2}{|c|}{If T3 Tools}\\\hline
+Validation method& \\\hline
+VnV activities report link&\\\hline
+\end{tabular}
+\end{table}
+
 The artifact matrix for the tool chain matrix should look like
 table \ref{tbl:example-artifacts}.
 This table has beed pre-filled with the information available now,
 this should also be completed during the qualification process.
+
 \begin{table}[htbp]
 \caption{\label{tbl:example-artifacts} List of  Artifacts Description\\ The
 cells with ??? indicates unknown information\\ }
