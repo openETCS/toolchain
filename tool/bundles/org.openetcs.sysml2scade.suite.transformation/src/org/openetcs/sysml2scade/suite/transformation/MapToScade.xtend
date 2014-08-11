@@ -12,6 +12,8 @@ import org.eclipse.papyrus.sysml.blocks.Block
 import com.esterel.scade.api.OperatorKind
 import org.eclipse.papyrus.sysml.portandflows.FlowPort
 import org.eclipse.papyrus.sysml.portandflows.FlowDirection
+import org.eclipse.uml2.uml.Type
+
 
 class MapToScade extends ScadeModelWriter {
 	def static void fillScadeModel(Package mainModel, Model sysmlModel, URI baseURI) {
@@ -19,7 +21,7 @@ class MapToScade extends ScadeModelWriter {
 		val theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		
 		val typeInt = findObject(mainModel, "int", ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
-		
+
 		for (block : sysmlModel.getAllBlocks) {
 			// Create xscade file
 			val uriXscade = baseURI.appendSegment(block.name + ".xscade");
@@ -34,10 +36,30 @@ class MapToScade extends ScadeModelWriter {
 			// SysML FlowPorts to operator variables
 			for (port : block.flowPorts) {
 				val variable = theScadeFactory.createVariable()
-				val type = theScadeFactory.createNamedType()
 				variable.setName(port.name)
-				type.setType(typeInt)
-				variable.setType(type)
+				
+				// Really ugly, but ternary operator seems not to exist
+				var type_name = "int"
+				var port_type = port.type
+				
+				if (port.type != null && port.type.name != null) {
+					type_name = port.type.name
+				}
+				
+				var type = findObject(mainModel, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
+				
+				// If we dont have the type, create
+				if (type == null) {
+					type = theScadeFactory.createType()
+					type.name = port.type.name
+					mainModel.getType().add(type)
+					resourceXscade.getContents().add(type)
+				} 
+				
+				// Set type to variable
+				val portType = theScadeFactory.createNamedType()
+				portType.setType(type)
+				variable.setType(portType)
 				
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
 					operator.getInput().add(variable)
@@ -77,6 +99,10 @@ class MapToScade extends ScadeModelWriter {
 	
 	def static String name(FlowPort port) {
 		return port.base_Port.name
+	}
+	
+	def static Type type(FlowPort port) {
+		return port.base_Port.type
 	}
 	
 	/**

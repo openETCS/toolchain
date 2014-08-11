@@ -2,6 +2,7 @@ package org.openetcs.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.validation.model.EvaluationMode;
 import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ModelValidationService;
@@ -35,10 +37,19 @@ public class Util {
 	
 	public static Model openUMLModel(IFile file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		URI uri = URI.createURI(file.getFullPath().toString());
+		URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), false);
 		Resource resource = resourceSet.getResource(uri, true);
-		Model model = (Model) resource.getContents().get(0);
 		
+		try {
+			resource.load(null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		EcoreUtil.resolveAll(resourceSet);
+		EcoreUtil.resolveAll(resource);
+		
+		Model model = (Model) resource.getContents().get(0);
 		return model;
 	}
 	
