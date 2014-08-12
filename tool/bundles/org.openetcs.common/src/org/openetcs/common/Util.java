@@ -20,6 +20,7 @@ import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.openetcs.sysml.constraints.ClassicalBClientSelector;
 
@@ -56,6 +57,10 @@ public class Util {
 
 	public static Model createUMLModel() {
 		return UMLFactory.eINSTANCE.createModel();
+	}
+	
+	public static void applyProfile(Model umlModel, Profile umlProfile) {
+		umlModel.applyProfile(umlProfile);
 	}
 	
 	public static void writeProjectFile(IProject project, IPath folder, String file, String content) throws CoreException {
