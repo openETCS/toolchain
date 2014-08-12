@@ -144,7 +144,7 @@ updated and when a first qualification has already been performed.
 	\node [decision, below of=d1, node distance= 3cm] (d4) {Conformance?};
 	\node [decision, below of=d4, node distance=3cm] (d3) {Tool is\\open source\\or T1 or T2?};
 	\node [below of=d3, node distance = 2.53cm] (subd3) {};
-	\node [block, fill=red!20, right of=subd3, node distance=2.5cm] (n7) {Qualification impossible\\(except ``proven in use'')};
+	\node [block, fill=red!20, right of=subd3, node distance=2.5cm] (n7) {Qualification difficult\\(possibility: e.g., ``proven in use'')};
 	\node [block, left of=subd3, node distance=2.5cm] (n8) {Operational Qualification\\by Tool Chain Integrator};
 	\node [block, below of=d4, node distance=8cm] (n9) {Tool-to-Platform Integration Qualification};
 	\begin{scope}[on background layer]
@@ -160,6 +160,7 @@ updated and when a first qualification has already been performed.
 	\draw[->] (d3) -- node [left] {yes} (n8);
 	\draw[->] (n5) -- (d4);
 	\draw[->] (d4) -- node [near start] {no} (d2);
+	\draw[->,dashed] (n7) -- (n9);
 	\draw[->] (n8) -- (n9);
 	\draw[->, out=190, in=180] (d4) to node [near start] {yes} (n9);
 	\draw[->, out=-50, in=0] (n6) to (n9);
@@ -216,7 +217,7 @@ In the following considerations for the individual scenarios are described.
 
 \subsubsection{Self-developed Tool}
 
-For a self-developed tool the project needs to provide the means for qualification and quality assurance. As the tool has not been employed in productive use by others the ``proven in use'' argument \textcolor{red}{[Remark: It needs to be checked whether this argument actually applies to EN 50128]} does not apply.
+For a self-developed tool the project needs to provide the means for qualification and quality assurance. As the tool has not been employed in productive use by others the ``proven in use'' argument (CENELEC EN50128 §6.7.4.4 a)) does not apply.
 
 \subsubsection{Tool Provided by a Tool Provider}
 
@@ -224,7 +225,7 @@ For tools provided by a third party we must distinguish again two cases:
 
 \paragraph{The tool is provided as closed source tool}
 
-If the tool is not pre-qualified by the tool provider the options are limited for T3 tools. If the tool provider is not willing or unable to provide the means for qualification, the qualification of a T3 tool will be almost impossible. One exception might be if the tool is already in use on a broad scale in industry and is generally regarded as reliable for the intended purpose. Also the tool class must be considered here. This situation is represented as the red node in the process graph in Figure~\ref{fig:tool_qualification_process}.
+If the tool is not pre-qualified by the tool provider the options are limited for T3 tools. If the tool provider is not willing or unable to provide the means for qualification, the qualification of a T3 tool will be difficult. One possibility is the ``proven in use'' argument: if the tool is already in use on a broad scale in industry and is generally regarded as reliable for the intended purpose this can be sufficient. This situation is represented as the red node in the process graph in Figure~\ref{fig:tool_qualification_process}.
 
 \paragraph{The tool is provided as open source}
 
@@ -243,7 +244,7 @@ We propose setting up the operational tool qualification based on the approach b
 \begin{itemize}
     \item The different levels of requirements have been simplified: We propose to keep a single level of requirements. In addition we distinguish two special types of requirements: the \emph{use cases} and \emph{safety requirements} which are derived from a safety standard such as CENELEC EN~50128. Safety requirements often enforce constraints to the development process and the employed methods and do not necessarily specify desirable properties of the end result.
     \item In the context of openETCS the tool design model is built using SysML with the Papyrus tool. 
-	\item The ``Quality Assurance'' part is covered by using the GitHub issue tracker (not depicted in Figure~\ref{fig:qualification-models-linkage}.
+	\item The ``Quality Assurance'' part, containing existing problem reports, their severity and relations to tests and potential errors, can be covered by using the GitHub issue tracker and is therefore not depicted in Figure~\ref{fig:qualification-models-linkage}.
 \end{itemize}
 
 \begin{figure}[htbp]
