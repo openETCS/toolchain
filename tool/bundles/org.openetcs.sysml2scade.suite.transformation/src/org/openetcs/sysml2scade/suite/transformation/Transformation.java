@@ -24,27 +24,13 @@ public class Transformation {
 	}
 
 	public void generateAndWrite() {
-		ResourceSet resourceSet = new ResourceSetImpl();
-		URI baseURI = URI.createFileURI(project.getLocation().toOSString());
-		URI projectURI = baseURI.appendSegment(sysmlModel.getName() + ".etp");
+
+		MapToScade mapper = new MapToScade(sysmlModel, project);
 		
-		// Create empty SCADE project
-		Project project = MapToScade.createEmptyScadeProject(projectURI, resourceSet);
-		
-		// Load the create SCADE project
-		Package mainModel = MapToScade.loadModel(projectURI, resourceSet);
+
 		
 		// Perform the actual SysML to SCADE Transformation
-		MapToScade.fillScadeModel(mainModel, sysmlModel, baseURI);
-		
-		// Put annotations in correct .ann file
-		MapToScade.rearrangeAnnotations(mainModel);
-		
-		// Ensure project contains appropriate FileRefs
-		MapToScade.updateProjectWithModelFiles(project);
-		
-		// Save the project
-		MapToScade.saveAll(project, null);
+		mapper.fillScadeModel();
 	}
 
 }

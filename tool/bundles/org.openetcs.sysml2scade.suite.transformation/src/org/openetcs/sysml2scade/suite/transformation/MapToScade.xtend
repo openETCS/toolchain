@@ -13,19 +13,57 @@ import com.esterel.scade.api.OperatorKind
 import org.eclipse.papyrus.sysml.portandflows.FlowPort
 import org.eclipse.papyrus.sysml.portandflows.FlowDirection
 import org.eclipse.uml2.uml.Type
-
+import org.eclipse.emf.ecore.resource.ResourceSet
+import com.esterel.scade.api.ScadeFactory
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.core.resources.IProject
+import com.esterel.project.api.Project
 
 class MapToScade extends ScadeModelWriter {
-	def static void fillScadeModel(Package mainModel, Model sysmlModel, URI baseURI) {
-		val resourceSet = mainModel.eResource().getResourceSet()
-		val theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
+	
+	private URI baseURI;
+	private ResourceSet sysmlResourceSet;
+	private ResourceSet scadeResourceSet;
+	private Model sysmlModel;
+	private Package scadeModel;
+	private ScadeFactory theScadeFactory;
+	private Project scadeProject;
+	
+	new(Model model, IProject project) {
+		sysmlModel = model;
+		sysmlResourceSet = sysmlModel.eResource().getResourceSet();
+		scadeResourceSet = new ResourceSetImpl();
+		baseURI = URI.createFileURI(project.getLocation().toOSString());
+		val projectURI = baseURI.appendSegment(sysmlModel.getName() + ".etp");
+		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		
-		val typeInt = findObject(mainModel, "int", ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
-
-		for (block : sysmlModel.getAllBlocks) {
+		// Create empty SCADE project
+		scadeProject = createEmptyScadeProject(projectURI, scadeResourceSet);
+		
+		// Load the create SCADE project
+		scadeModel = loadModel(projectURI, scadeResourceSet);
+	}
+	
+	def createXScade(String name) {
+		val uriXscade = baseURI.appendSegment(name + ".xscade");
+		return scadeResourceSet.createResource(uriXscade);
+	} 
+	
+	def Package createScadePackage(String name) {
+		val pkg = theScadeFactory.createPackage()
+		pkg.setName(name)
+		return pkg
+	}
+	
+	def Package iterateModel(org.eclipse.uml2.uml.Package pkg) {
+		val scadePackage = createScadePackage(pkg.name)
+		val resourcePackage = createXScade(pkg.name + "_pkg")
+		resourcePackage.getContents().add(scadePackage)
+		
+		
+		for (block: pkg.getBlocks) {
 			// Create xscade file
-			val uriXscade = baseURI.appendSegment(block.name + ".xscade");
-			val resourceXscade = resourceSet.createResource(uriXscade);
+			val resourceXscade = createXScade(block.name)
 			
 			// Each Block is mapped to operator
 			val operator = theScadeFactory.createOperator();
@@ -46,13 +84,13 @@ class MapToScade extends ScadeModelWriter {
 					type_name = port.type.name
 				}
 				
-				var type = findObject(mainModel, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
+				var type = findObject(scadeModel, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
 				
 				// If we dont have the type, create
 				if (type == null) {
 					type = theScadeFactory.createType()
 					type.name = port.type.name
-					mainModel.getType().add(type)
+					scadeModel.getType().add(type)
 					resourceXscade.getContents().add(type)
 				} 
 				
@@ -69,9 +107,41 @@ class MapToScade extends ScadeModelWriter {
 				}
 			}
 			
-			mainModel.getOperators().add(operator)
+			scadePackage.getOperators().add(operator)
 			resourceXscade.getContents().add(operator);
 		}
+		
+		for (p : pkg.nestedPackages) {
+			scadePackage.getPackages().add(iterateModel(p))
+		}
+		
+		return scadePackage
+	}
+	
+	def EList<Block> getBlocks(Element pkg) {
+		var list = new BasicEList<Block>
+		
+		for (Element element: pkg.ownedElements) {
+			var stereotype = element.getAppliedStereotype("SysML::Blocks::Block") 
+			if (stereotype != null) {
+				list.add(element.getStereotypeApplication(stereotype) as Block)
+			}
+		}
+		
+		return list
+	}
+	
+	def void fillScadeModel() {
+		scadeModel.getPackages().add(iterateModel(sysmlModel))
+		
+		// Put annotations in correct .ann file
+		rearrangeAnnotations(scadeModel);
+		
+		// Ensure project contains appropriate FileRefs
+		updateProjectWithModelFiles(scadeProject);
+		
+		// Save the project
+		saveAll(scadeProject, null);
 	}
 
 	def static EList<Block> getAllBlocks(Model model) {
