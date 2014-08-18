@@ -1,0 +1,194 @@
+ \documentclass{template/openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{appendix}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+\usepackage{multirow}
+%\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{trees, arrows, automata, shapes, fit, backgrounds}
+\usepackage[section,                 % add the glossary to the table of content 
+            description,             % acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist             % no page number
+]{glossaries}
+\hypersetup{
+linkbordercolor 	={1 1 1}}
+
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+% \renewcommand*{\glossaryname}{List of Terms}
+% \makeglossaries
+% \loadglsentries{wp7_glossary} 
+%===========================
+%===========================
+% Todo note margin
+%===========================
+\setlength{\marginparwidth}{7em}
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+{\raggedright\footnotesize #1}}
+%===========================
+
+\begin{document}
+
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/D7.3}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Toolchain''}
+
+%set a title here
+\title{Toolchain Test Plan}
+
+%set a subtitle here
+%\subtitle{}
+
+%set the date of the report here
+\date{August 2014}
+
+%define a list of authors and their affiliation here
+
+\creatorname{Amaia Martija}
+
+\creatoraffil{SQS}
+
+\techassessorname{xxxx}
+\techassessoraffil{xxx}
+
+\qualityassessorname{Izaskun de la Torre}
+\qualityassessoraffil{SQS}
+
+\approvalname{Klaus-R\"udiger Hase}
+\approvalaffil{DB Netz}
+
+\author{Amaia Martija}
+
+\affiliation{SQS}
+
+
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{Tool chain Test Plan}
+
+
+\begin{abstract}
+%define an abstract here
+This document describes the way in which the Open ETCS tool chain will be tested in the validation stage, the test strategy covers, the OpenETCS interface and the plugins it works with.  
+\end{abstract}
+
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+%\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\chapter{Document Information}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & xxx\\
+\hline
+Document title & Toolchain Test Plan \\
+Document version & 00.10 \\
+Document authors (org.)  & Amaia Martija (SQS) \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed &  \\
+\hline
+Main reviewers &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by  &  Amaia Martija & WP7 participant & 14.08.2014 \\
+\hline
+Approved by &  &   &  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.10 & 14.08.2014 & Amaia Martija  &  Document creation  \\
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+%\printglossary
+%==========================================
+\mainmatter
+%----------------------
+
+
+
+
+
+
+
+\chapter{Introduction to Toolchain Test Plan}
+\label{chap:Test Plan introduction}
+\input{intro.tex}
+
+
+
+\chapter{OpenETCS Toolchain Test Plan}
+\label{chap:test-plan}
+\input{test_plan.tex}
+
+\chapter{OpenETCS Toolchain Test Specifications}
+\label{chap:test-spec}
+\input{test_spec.tex}
+
+\bibliographystyle{plain}
+\bibliography{D7.4}
+\end{document}
