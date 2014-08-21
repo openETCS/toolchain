@@ -58,8 +58,8 @@ class MapToScade extends ScadeModelWriter {
 	
 	def Package iterateModel(org.eclipse.uml2.uml.Package pkg) {
 		val scadePackage = createScadePackage(pkg.name)
-		//val resourcePackage = createXScade(pkg.name + "_pkg")
-		//resourcePackage.getContents().add(scadePackage)
+		val resourcePackage = createXScade(pkg.name)
+		resourcePackage.getContents().add(scadePackage)
 		
 		
 		for (block: pkg.getBlocks) {
@@ -108,7 +108,7 @@ class MapToScade extends ScadeModelWriter {
 			}
 			
 			scadePackage.getOperators().add(operator)
-			//resourceXscade.getContents().add(operator);
+			resourcePackage.getContents().add(operator);
 		}
 		
 		for (p : pkg.nestedPackages) {
