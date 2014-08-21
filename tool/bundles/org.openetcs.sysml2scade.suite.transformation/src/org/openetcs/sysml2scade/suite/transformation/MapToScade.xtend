@@ -18,6 +18,7 @@ import com.esterel.scade.api.ScadeFactory
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.core.resources.IProject
 import com.esterel.project.api.Project
+import com.esterel.scade.api.NamedType
 
 class MapToScade extends ScadeModelWriter {
 	
@@ -57,13 +58,13 @@ class MapToScade extends ScadeModelWriter {
 	
 	def Package iterateModel(org.eclipse.uml2.uml.Package pkg) {
 		val scadePackage = createScadePackage(pkg.name)
-		val resourcePackage = createXScade(pkg.name + "_pkg")
-		resourcePackage.getContents().add(scadePackage)
+		//val resourcePackage = createXScade(pkg.name + "_pkg")
+		//resourcePackage.getContents().add(scadePackage)
 		
 		
 		for (block: pkg.getBlocks) {
 			// Create xscade file
-			val resourceXscade = createXScade(block.name)
+			//val resourceXscade = createXScade(block.name)
 			
 			// Each Block is mapped to operator
 			val operator = theScadeFactory.createOperator();
@@ -73,12 +74,9 @@ class MapToScade extends ScadeModelWriter {
 			
 			// SysML FlowPorts to operator variables
 			for (port : block.flowPorts) {
-				val variable = theScadeFactory.createVariable()
-				variable.setName(port.name)
 				
 				// Really ugly, but ternary operator seems not to exist
 				var type_name = "int"
-				var port_type = port.type
 				
 				if (port.type != null && port.type.name != null) {
 					type_name = port.type.name
@@ -91,24 +89,26 @@ class MapToScade extends ScadeModelWriter {
 					type = theScadeFactory.createType()
 					type.name = port.type.name
 					scadeModel.getType().add(type)
-					resourceXscade.getContents().add(type)
+					//resourceXscade.getContents().add(type)
 				} 
 				
 				// Set type to variable
 				val portType = theScadeFactory.createNamedType()
 				portType.setType(type)
-				variable.setType(portType)
-				
+
+				// Create the port
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
-					operator.getInput().add(variable)
-				} else {
-					// TODO: What if we have INOUT_VALUE?
-					operator.getOutput().add(variable)
+					operator.getInput().add(createVariable(port.name, portType))
+				} else if (port.direction.value == FlowDirection.IN_VALUE) {
+					operator.getOutput().add(createVariable(port.name, portType))
+				} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
+					operator.getInput().add(createVariable("input_" + port.name, portType))
+					operator.getOutput().add(createVariable("output_" + port.name, portType))
 				}
 			}
 			
 			scadePackage.getOperators().add(operator)
-			resourceXscade.getContents().add(operator);
+			//resourceXscade.getContents().add(operator);
 		}
 		
 		for (p : pkg.nestedPackages) {
@@ -116,6 +116,14 @@ class MapToScade extends ScadeModelWriter {
 		}
 		
 		return scadePackage
+	}
+	
+	def createVariable(String name, NamedType type) {
+		val variable = theScadeFactory.createVariable()
+		variable.setName(name)
+		variable.setType(type)
+		
+		return variable
 	}
 	
 	def EList<Block> getBlocks(Element pkg) {
@@ -132,7 +140,10 @@ class MapToScade extends ScadeModelWriter {
 	}
 	
 	def void fillScadeModel() {
-		scadeModel.getPackages().add(iterateModel(sysmlModel))
+		val pkg = iterateModel(sysmlModel)
+		scadeModel.getPackages().add(pkg)
+		val res = createXScade("main.xscade")
+		res.getContents().add(pkg)
 		
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
