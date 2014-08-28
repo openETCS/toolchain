@@ -89,11 +89,27 @@ The environments where is going to be tested the toolchain are based on differen
 \item MacOS 32
 \end{itemize}
 
+To perform the testing activities of the toolchain the following tools will be used:
+
+\begin{center}
+\begin{longtable}{|p{2cm}|p{8cm}|}\hline
+GitHub & Configuration Management tool. This tool will be used to maintain under control all the selected configuration items (code, documentation,...), their versions and historial.\\\hline
+Issue Tracker & Tool for the Bug Management and Tracking. The errors found during testing activities will be reported in this tool\\\hline
+Jenkis & Open source continuous integration tool.\\\hline
+Maven &  Build automation tool\\\hline
+\end{longtable}
+\end{center}
+
+
 \section{Test Deliverables}
+Throughout the tool chain testing process a set of documents is created in order to keep track of the activities:
 \begin{itemize}
-\item Test Specifications
-\item Test Results Reports
-\item Test Data
+\item \textbf{Test Plans}: A master test plan and sub-test plans for each plugin or feature will be developed. These documents will contain information about the scope, approach, objectives, features to be tested, resources, tools and schedule of testing activities.  These documents must be prepared in accordance with the EN50128 Standard. A Test Plan Template is provided in Appendices \ref{ref:test_plan_template}
+\item \textbf{Test Specifications}: This document will contain all the information about the tests. For each of them, the ID, name, description and the requirements which the cases validate will be included. In addition, each Test Case will include information about the Entry and Exit specification, a Description of the Event to be performed and other information such as type or Needs Test Environment for conducting the test. The Test Specification Template is provided in the Appendices \ref{ref:test_spec_template}
+\item \textbf{Test Results Reports}: The results obtained after the Test Cases execution will be collected in a Summary Test Report. For each test performed their unique identifier, the date and time which has been successfully executed or not and whether it is passed or failed state shall be indicated. A Test Results Report Template is provided in the Apendices \ref{ref:test_result_template}. In case the tests are executed automatically by a tool that creates its own report, this will also be used as Test Result Report. An example of this last condition is the unit test result report which can be found in \href{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/lastBuild/testReport/}{[Test Report folder]}.
+\item \textbf{Test Data}: All necessary data identified for use in test shoud be under configuration management tool.
+\item \textbf{Test Incident Report}:
+\item \textbf{Test Logs}:
 \end{itemize}
 
 \section{Schedule}
@@ -102,11 +118,135 @@ The plan of tasks related to the activities of the toolchain tests is detailed b
 \centering
 \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}\hline
 \textbf{Activity} & \textbf{Start Date} & \textbf{End Date}\\\hline
-Test Plan Elaboration & & \\\hline
-Test Plan Review & & \\\hline
-Test Cases Specifications & & \\\hline
-Test Cases Review & & \\\hline
-Test Cases Execution & & \\\hline
-Test Results Report & & \\\hline
+Test Plan Elaboration & 14/08/2014 & 05/09/2014 \\\hline
+Test Plan Review & 08/09/2014 & 12/09/2014\\\hline
+Test Plan Corrections & 15/09/2014 & 18/09/2014\\\hline
+Test Plan Approval & 19/09/2014 & 19/09/2014\\\hline
+\multicolumn{3}{|l|}{Test Cases Specifications}\\\hline
+Documentation Plugin Test Cases Specifications & 01/09/2014 & 03/09/2014\\\hline
+Tracing Plugin Test Cases Specifications & & \\\hline
+Data Dictionary Plugin Test Cases Specifications & & \\\hline
+\multicolumn{3}{|l|}{Test Cases Review}\\\hline
+Documentation Plugin Test Cases Review & & \\\hline
+Tracing Plugin Test Cases Review & & \\\hline
+Data Dictionary Plugin Test Cases Review & & \\\hline
+\multicolumn{3}{|l|}{Test Cases Execution}\\\hline
+Documentation Plugin Test Cases Execution & & \\\hline
+Tracing Plugin Test Cases Execution & & \\\hline
+Documentation Plugin Test Cases Execution & & \\\hline
+\multicolumn{3}{|l|}{Test Results Report}\\\hline
+Documentation Plugin Test Results Report & & \\\hline
+Tracing Plugin Test Results Report & & \\\hline
+Data Dictionary Plugin Test Results Report & & \\\hline
 \end{tabular}
 \end{table}
+
+\section{Responsabilities}
+\begin{center}
+\begin{longtable}[H]{|p{3cm}|p{8cm}|p{4cm}|}\hline
+\textbf{Role} & \textbf{Responsabilities} & \textbf{Person in charge}\\\hline
+WP7 Leader & \begin{itemize}
+\item Review and approval of the toolchain testing strategy, approach, and plans
+\item Review of testing results report and defects to determine the impact to overall tool chain and plugins  development and implementation schedule
+\end{itemize}  
+ & Michael Jastram\\\hline
+Testing Manager & \begin{itemize}
+\item Develop Test Strategy and Test Plan
+\item Coordinate the development of testing deliverables
+\item Review and approve testing deliverables
+\item Monitor and report on the status of testing activities
+\item Coordinate testing activities
+\item Defect management
+\end{itemize}  
+ & \\\hline
+Plugin or Feature Owner & Review test cases and results for completeness & \\\hline
+Tool chain Validation and Verification Team & \begin{itemize}
+\item Design Test Cases
+\item Execute Test Cases
+\item Elaborate Test Reports
+\end{itemize}
+& \\\hline
+\end{longtable}
+\end{center}
+
+\newpage
+\begin{appendices}
+   \addappheadtotoc
+   \appendixpage
+
+\section{Test Plan Template}
+\label{ref:test_plan_template}
+
+\subsection{Introduction}
+\subsubsection{Executive Summary}
+\subsubsection{Intended Audience}
+\textit{This section of the Test Plan should list the audience for which the document has been written. Also mention distribution restrictions and levels of confidentiality}
+\subsubsection{Evolution}
+\subsubsection{References, Guidelines and Standards}
+\textit{Provide a complete list of all documents and other sources referenced in the Software Test Plan}
+\subsubsection{Definitions and Abbreviations}
+\textit{Specify definitions of all terms and acronyms required to properly interpret the Test Results Report}
+
+\subsection{Toolchain/Plugin Test Plan}
+\subsubsection{Test Strategy}
+\subsubsection{Test Items}
+\subsubsection{Features to be Tested}
+\textit{Identify all toolchain features and combinations of features to be tested}
+\subsubsection{Item Pass / Fail Criteria}
+\textit{Specify the criteria to be used to determine whether each item has passed or failed testing}
+\subsubsection{Test Environment}
+\subsubsection{Test Deliverables}
+\textit{Identify the deliverable documents from the test process}
+\subsubsection{Schedule}
+\textit{Identify the high level schedule for each testing task. Establish specific milestones for initiating and completing each type of test activity}
+\subsubsection{Responsabilities}
+\textit{Identify the groups responsible for managing, designing, preparing, executing, witnessing, checking, and resolving test activities}
+
+\newpage
+\section{Test Specification Template}
+\label{ref:test_spec_template}
+\begin{center}
+\begin{longtable}{|p{3cm}|p{8cm}|}\hline
+\multicolumn{2}{|c|}{\textbf{Test Case Identifier}: }\\\hline
+Test Objective & \textit{Describe the purpose of the test case. Provide a brief description}\\\hline
+Test Items & \textit{Describe the items or features (e.g., requirements, code, ...) to be tested by the test case}\\\hline
+Input Specifications & \textit{Identify all inputs required to execute the test case.}\\\hline
+Test Steps &  \textit{Describe the series of individually numbered steps that are to be completed in sequential order to execute the test.}\\\hline
+Expected Test Results (Output Specifications) & \textit{Identify all outputs required to verify the test case. Describe what the system should look like after the test case is run.}\\\hline
+Environmental needs &  \textit{Identify any environment requirement (e.g. operating system, tools,  }\\\hline
+Inter-case Dependencies &  \textit{List any prerequisite test cases that would create the test environment or input data in order to run this test case.  Also, list any post-requisite test cases for which the running of this test case would create the test environment or input data.}\\\hline
+\end{longtable}
+\end{center}
+
+\newpage
+\section{Test Results Template}
+\label{ref:test_result_template}
+
+\subsection{Introduction}
+\subsubsection{Purpose}
+\textit{Provide the purpose of the Test Result Document}
+\subsubsection{Audience}
+\textit{This section of the Test Results Report should list the audience for which the document has been written. Also mention distribution restrictions and levels of confidentiality}
+\subsubsection{References}
+\textit{Provide a complete list of all documents and other sources referenced in the Software Test Plan}
+\subsubsection{Definitions and Abbreviations}
+\textit{Specify definitions of all terms and acronyms required to properly interpret the Test Results Report}
+
+\subsection{Toolchain or plugins Test Summary}
+\subsubsection{Objectives, Scope}
+\textit{In the next section the objectives of the testing activities of the specific iteration are explained}
+\subsubsection{Methodology}
+\textit{In this section in which way the toolchain, and plugins requirements or features have been proven, the technique and tools that have been used, etc. will be explained}
+\subsubsection{Results}
+\textit{This section provides a summary of the results of the specific iteration testing of the toolchain and identifies all resolved issues. A list of requirements, test cases and the state, if passed or failed, will be created. In failed case the error number reported shall be identified}
+
+\begin{center}
+\begin{longtable}{|p{3cm}|p{2cm}|p{3cm}|p{3cm}|p{2cm}|}\hline
+Test Identifier & State & Release version & Execution Date & Requirement covered Identifier\\\hline
+ & & & & \\\hline
+ & & & & \\\hline
+\end{longtable}
+\end{center}
+\subsubsection{Evaluation}
+\textit{This section provides an overall evaluation of the testing process}
+\end{appendices}
