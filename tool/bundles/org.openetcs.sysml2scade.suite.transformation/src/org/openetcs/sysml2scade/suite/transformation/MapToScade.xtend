@@ -88,14 +88,14 @@ class MapToScade extends ScadeModelWriter {
 				if (type == null) {
 					type = theScadeFactory.createType()
 					type.name = port.type.name
-					scadeModel.getType().add(type)
-					//resourceXscade.getContents().add(type)
+					scadeModel.getTypes().add(type)
+					//resourcePackage.getContents().add(type)
 				} 
 				
 				// Set type to variable
 				val portType = theScadeFactory.createNamedType()
 				portType.setType(type)
-
+				
 				// Create the port
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
 					operator.getInput().add(createVariable(port.name, portType))
@@ -108,7 +108,8 @@ class MapToScade extends ScadeModelWriter {
 			}
 			
 			scadePackage.getOperators().add(operator)
-			resourcePackage.getContents().add(operator);
+			
+			//resourcePackage.getContents().add(operator);
 		}
 		
 		for (p : pkg.nestedPackages) {
@@ -142,8 +143,6 @@ class MapToScade extends ScadeModelWriter {
 	def void fillScadeModel() {
 		val pkg = iterateModel(sysmlModel)
 		scadeModel.getPackages().add(pkg)
-		val res = createXScade("main.xscade")
-		res.getContents().add(pkg)
 		
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
