@@ -90,20 +90,16 @@ class MapToScade extends ScadeModelWriter {
 					type.name = type_name
 					scadePackage.getTypes().add(type)
 					//resourcePackage.getContents().add(type)
-				} 
-				
-				// Set type to variable
-				val portType = theScadeFactory.createNamedType()
-				portType.setType(type)
+				}
 				
 				// Create the port
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
-					operator.getInput().add(createVariable(port.name, portType))
+					operator.getInput().add(createNamedTypeVariable(port.name, type))
 				} else if (port.direction.value == FlowDirection.IN_VALUE) {
-					operator.getOutput().add(createVariable(port.name, portType))
+					operator.getOutput().add(createNamedTypeVariable(port.name, type))
 				} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
-					operator.getInput().add(createVariable("input_" + port.name, portType))
-					operator.getOutput().add(createVariable("output_" + port.name, portType))
+					operator.getInput().add(createNamedTypeVariable("input_" + port.name, type))
+					operator.getOutput().add(createNamedTypeVariable("output_" + port.name, type))
 				}
 			}
 			
@@ -119,10 +115,15 @@ class MapToScade extends ScadeModelWriter {
 		return scadePackage
 	}
 	
-	def createVariable(String name, NamedType type) {
+	def createNamedTypeVariable(String name, com.esterel.scade.api.Type type) {
+		// Create NamedType
+		val namedType = theScadeFactory.createNamedType()
+		namedType.setType(type)
+		
+		// Create Variable
 		val variable = theScadeFactory.createVariable()
 		variable.setName(name)
-		variable.setType(type)
+		variable.setType(namedType)
 		
 		return variable
 	}
