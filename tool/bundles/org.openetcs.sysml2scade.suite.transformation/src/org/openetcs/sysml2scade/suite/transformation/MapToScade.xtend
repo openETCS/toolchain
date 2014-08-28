@@ -27,6 +27,7 @@ class MapToScade extends ScadeModelWriter {
 	private ResourceSet scadeResourceSet;
 	private Model sysmlModel;
 	private Package scadeModel;
+	private Package typePackage;
 	private ScadeFactory theScadeFactory;
 	private Project scadeProject;
 	
@@ -43,6 +44,10 @@ class MapToScade extends ScadeModelWriter {
 		
 		// Load the create SCADE project
 		scadeModel = loadModel(projectURI, scadeResourceSet);
+		
+		typePackage = createScadePackage("DataDictionary")
+		val resource = createXScade("DataDictionary")
+		resource.getContents().add(typePackage)
 	}
 	
 	def createXScade(String name) {
@@ -82,21 +87,21 @@ class MapToScade extends ScadeModelWriter {
 					type_name = port.type.name
 				}
 				
-				var type = findObject(scadePackage, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
+				var type = findObject(typePackage, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
 				
 				// If we dont have the type, create
 				if (type == null) {
 					type = theScadeFactory.createType()
 					type.name = type_name
-					scadePackage.getTypes().add(type)
+					typePackage.getTypes().add(type)
 					//resourcePackage.getContents().add(type)
 				}
 				
 				// Create the port
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
-					operator.getInput().add(createNamedTypeVariable(port.name, type))
-				} else if (port.direction.value == FlowDirection.IN_VALUE) {
 					operator.getOutput().add(createNamedTypeVariable(port.name, type))
+				} else if (port.direction.value == FlowDirection.IN_VALUE) {
+					operator.getInput().add(createNamedTypeVariable(port.name, type))
 				} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
 					operator.getInput().add(createNamedTypeVariable("input_" + port.name, type))
 					operator.getOutput().add(createNamedTypeVariable("output_" + port.name, type))
@@ -144,6 +149,7 @@ class MapToScade extends ScadeModelWriter {
 	def void fillScadeModel() {
 		val pkg = iterateModel(sysmlModel)
 		scadeModel.getPackages().add(pkg)
+		scadeModel.getPackages().add(typePackage)
 		
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
