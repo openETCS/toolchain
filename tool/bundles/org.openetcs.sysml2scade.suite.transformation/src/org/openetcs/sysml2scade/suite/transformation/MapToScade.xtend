@@ -82,13 +82,13 @@ class MapToScade extends ScadeModelWriter {
 					type_name = port.type.name
 				}
 				
-				var type = findObject(scadeModel, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
+				var type = findObject(scadePackage, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
 				
 				// If we dont have the type, create
 				if (type == null) {
 					type = theScadeFactory.createType()
-					type.name = port.type.name
-					scadeModel.getTypes().add(type)
+					type.name = type_name
+					scadePackage.getTypes().add(type)
 					//resourcePackage.getContents().add(type)
 				} 
 				
