@@ -33,9 +33,9 @@ Currently, openETCS tool chain consists of the following components:
 \item Eclipse Papyrus
 \item Eclipse RMF
 \item Eclipse EGit
-\item openETCS documentation
-\item openETCS DataDictionary 
-\item openETCS tracing
+\item openETCS documentation Plugin
+\item openETCS DataDictionary Plugin
+\item openETCS tracing Plugin
 \end{itemize}
 
 The plugins that are going to be part of the first release of the test plan will be:
@@ -44,6 +44,16 @@ The plugins that are going to be part of the first release of the test plan will
 \item \textbf{Tracing}: The Tracing Features allow the linking of *ProR Requirements* and *SysML Model Elements*. This is realized within the requirements model by using the internal links (SpecRelations) and requirements that act as proxies to the SysML Model element. Note that both, links and proxies, can be extended with additional attributes.
 \item \textbf{Documentation}: The documentation plug-in generates Eclipse Help documentation (a hierarchy of HTML files) and PDF documentation from toolchain wiki pages saved as mediawiki.
 \end{itemize}
+
+\begin{center}
+\begin{longtable}[H]{|p{6cm}|p{4cm}|p{4cm}|}\hline
+\textbf{Test Items} & \textbf{Type of Test} & \textbf{Person in charge}\\\hline
+\multirow{4}{*}{openETCS documentation Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
+\multirow{4}{*}{openETCS DataDictionary Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
+\multirow{4}{*}{openETCS tracing Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
+\end{longtable}
+\end{center}
+
 
 \section{Features to be tested}
 \label{sec:features_test}
@@ -93,10 +103,12 @@ To perform the testing activities of the toolchain the following tools will be u
 
 \begin{center}
 \begin{longtable}{|p{2cm}|p{8cm}|}\hline
+\textbf{Tool} & \textbf{Functionality}\\\hline
 GitHub & Configuration Management tool. This tool will be used to maintain under control all the selected configuration items (code, documentation,...), their versions and historial.\\\hline
 Issue Tracker & Tool for the Bug Management and Tracking. The errors found during testing activities will be reported in this tool\\\hline
-Jenkis & Open source continuous integration tool.\\\hline
-Maven &  Build automation tool\\\hline
+Jenkis & Open source continuous integration tool. This tool will be used to execute Unit tests.\\\hline
+Maven &  Build automation tool. This tool will be used to execute some integration tests.\\\hline
+Eclipse & \\\hline
 \end{longtable}
 \end{center}
 
@@ -114,7 +126,7 @@ Throughout the tool chain testing process a set of documents is created in order
 
 \section{Schedule}
 The plan of tasks related to the activities of the toolchain tests is detailed below:
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}\hline
 \textbf{Activity} & \textbf{Start Date} & \textbf{End Date}\\\hline
@@ -159,7 +171,11 @@ Testing Manager & \begin{itemize}
 \item Defect management
 \end{itemize}  
  & \\\hline
-Plugin or Feature Owner & Review test cases and results for completeness & \\\hline
+SW Development Team & \begin{itemize}
+\item Design Unit Test Cases
+\item Execute Unit Test Cases
+\item Review test cases and results for completeness
+\end{itemize}  & Plugin or Feature Owner\\\hline
 Tool chain Validation and Verification Team & \begin{itemize}
 \item Design Test Cases
 \item Execute Test Cases
@@ -188,17 +204,20 @@ Tool chain Validation and Verification Team & \begin{itemize}
 \textit{Specify definitions of all terms and acronyms required to properly interpret the Test Results Report}
 
 \subsection{Toolchain/Plugin Test Plan}
-\subsubsection{Test Strategy}
+\subsubsection{Test Approach}
+\textit{Identify the types of testing to be performed along with the methods and criteria to be used in performing test activities. Describe the specific methods and procedures for each type of testing.}
 \subsubsection{Test Items}
+\textit{Describe the items/features to be tested that are within the scope of the test plan}
 \subsubsection{Features to be Tested}
 \textit{Identify all toolchain features and combinations of features to be tested}
 \subsubsection{Item Pass / Fail Criteria}
 \textit{Specify the criteria to be used to determine whether each item has passed or failed testing}
 \subsubsection{Test Environment}
+\textit{Describe the tools and high level environment used for the testing activities}
 \subsubsection{Test Deliverables}
 \textit{Identify the deliverable documents from the test process}
 \subsubsection{Schedule}
-\textit{Identify the high level schedule for each testing task. Establish specific milestones for initiating and completing each type of test activity}
+\textit{Identify the high level schedule for each testing task. Establish specific milestones for initiating and completing each type of test activity. Summarize when the testing activities will be done}
 \subsubsection{Responsabilities}
 \textit{Identify the groups responsible for managing, designing, preparing, executing, witnessing, checking, and resolving test activities}
 
