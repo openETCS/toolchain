@@ -1,19 +1,18 @@
-\section{Test Strategy}
+\section{Test Approach}
 \label{sec:test_stra}
 
-The validation has to demonstrate that the openETCS tool chain covers all the functionality. This test strategy will be divided in four sides, the building test, installation test, functional test and performance test:
+The validation has to demonstrate that the platform covers all the functionality:
 \begin{itemize}
-\item Building testing: The main objective is to check the correct building of the toolchain.
-\item Installation test objective: The main objective will be to validate that the OpenETCS platform and the plugins, are correctly installed, and their interoperability is correctly working.
+\item Unit testing: The main objective of unit testing is to test the separate pluggings, or independent software areas.
+\item Integration testing: The main objective will be to validate that the OpenETCS platform and the pluggings are correctly installed, and their interoperability is correctly working.The integration testing will be developed in Botton–up strategy: The bottom-up strategy will be started with unit testing and finished with testing general workflows.
+\item System testing: The main objective of system testing is to check non-functional requirements, During the System testing will be checked: the speed, the security, The reliability…etc.
 \item Functional test objective: The main objective will be validating that the user’s workflows are correctly created and to provide clear evidence that the platform performs as it should in every possible environment.
-\item Performance testing: The main objective is to verify the performance of the tool chain.
+\item Acceptance testing: The acceptance testing objective is to check that designed use cases had the correct results.
 \end{itemize}
 
 \section{Test Items}
 \label{sec:test_items}
-\todo[color=yellow!20, inline]{IT: Brief introduction to the figure. Explanation about how it will grow -according to new feature requests and the
-needs of openETCS participants-}
-
+The OpenETCS tool chain consists of components. A Component is what the user perceives as an atomic tool aspect of openETCS. Some special Components satisfy infrastructure needs and are called Cross-Cutting Concerns. All the components are hosted by the tool platform (eclipse MDT). The OpenETCS tool page lists all the available component. A guidelines to follow the defined life-cycle for OBU development will complete the tool chain.
 
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{ToolChainmodel}
@@ -23,9 +22,7 @@ needs of openETCS participants-}
   Red Block: Not started \\
   White Block: External Artifacts} 
 \end{figure}
-
 The features may be implemented by one or more tools and may also be implemented as plugins.
-
 Currently, openETCS tool chain consists of the following components:
 \begin{itemize}
 \item Eclipse Kepler
@@ -33,16 +30,9 @@ Currently, openETCS tool chain consists of the following components:
 \item Eclipse Papyrus
 \item Eclipse RMF
 \item Eclipse EGit
-\item openETCS documentation Plugin
-\item openETCS DataDictionary Plugin
+\item openETCS documentation Plugin: https://github.com/openETCS/toolchain/wiki/Documentation
+\item openETCS DataDictionary Plugin: https://github.com/openETCS/toolchain/wiki/Data-Dictionary-Plugin
 \item openETCS tracing Plugin
-\end{itemize}
-
-The plugins that are going to be part of the first release of the test plan will be:
-\begin{itemize}
-\item \textbf{Data Dictionary}: This plugin contains the data dictionary plugin which contains data structures, variables, messages, etc. from the ETCS System Requirements Specification (SRS). The plugin registers a UML model, which contains the information from the SRS. After registration, the UML model is available as a UML library.
-\item \textbf{Tracing}: The Tracing Features allow the linking of *ProR Requirements* and *SysML Model Elements*. This is realized within the requirements model by using the internal links (SpecRelations) and requirements that act as proxies to the SysML Model element. Note that both, links and proxies, can be extended with additional attributes.
-\item \textbf{Documentation}: The documentation plug-in generates Eclipse Help documentation (a hierarchy of HTML files) and PDF documentation from toolchain wiki pages saved as mediawiki.
 \end{itemize}
 
 \begin{center}
@@ -53,7 +43,6 @@ The plugins that are going to be part of the first release of the test plan will
 \multirow{4}{*}{openETCS tracing Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
 \end{longtable}
 \end{center}
-
 
 \section{Features to be tested}
 \label{sec:features_test}
@@ -108,7 +97,7 @@ GitHub & Configuration Management tool. This tool will be used to maintain under
 Issue Tracker & Tool for the Bug Management and Tracking. The errors found during testing activities will be reported in this tool\\\hline
 Jenkis & Open source continuous integration tool. This tool will be used to execute Unit tests.\\\hline
 Maven &  Build automation tool. This tool will be used to execute some integration tests.\\\hline
-Eclipse & \\\hline
+Eclipse & Eclipse is a development tool and will be used for test, in functional testing, in an easy and agile way the Open ETCS pluggins.\\\hline
 \end{longtable}
 \end{center}
 
@@ -120,8 +109,8 @@ Throughout the tool chain testing process a set of documents is created in order
 \item \textbf{Test Specifications}: This document will contain all the information about the tests. For each of them, the ID, name, description and the requirements which the cases validate will be included. In addition, each Test Case will include information about the Entry and Exit specification, a Description of the Event to be performed and other information such as type or Needs Test Environment for conducting the test. The Test Specification Template is provided in the Appendices \ref{ref:test_spec_template}
 \item \textbf{Test Results Reports}: The results obtained after the Test Cases execution will be collected in a Summary Test Report. For each test performed their unique identifier, the date and time which has been successfully executed or not and whether it is passed or failed state shall be indicated. A Test Results Report Template is provided in the Apendices \ref{ref:test_result_template}. In case the tests are executed automatically by a tool that creates its own report, this will also be used as Test Result Report. An example of this last condition is the unit test result report which can be found in \href{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/lastBuild/testReport/}{[Test Report folder]}.
 \item \textbf{Test Data}: All necessary data identified for use in test shoud be under configuration management tool.
-\item \textbf{Test Incident Report}:
-\item \textbf{Test Logs}:
+\item \textbf{Test Incident Report}: This document will contain the list of errors found during the execution on test cases. For each error will appear the record of the ticket live.  
+\item \textbf{Test Logs}: This document will contain the logs of the system during the OpenETCS platform testing.
 \end{itemize}
 
 \section{Schedule}
@@ -150,8 +139,14 @@ Documentation Plugin Test Cases Execution & & \\\hline
 Documentation Plugin Test Results Report & & \\\hline
 Tracing Plugin Test Results Report & & \\\hline
 Data Dictionary Plugin Test Results Report & & \\\hline
+Regression testing & & \\\hline
 \end{tabular}
 \end{table}
+
+Also will be performing some specific task detailed below:
+\begin{itemize}
+\item The unit testing will be developed by two developers, writing and executing the test cases. This unit testing will be a continuous activity during the toolchain test.
+\item The functional testing will be executed each three months in a deeply way by the testing team that will be created for the toolchain test. The functional testing will be a continuous activity also.
 
 \section{Responsabilities}
 \begin{center}
