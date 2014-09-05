@@ -22,6 +22,9 @@ import com.esterel.scade.api.NamedType
 import com.esterel.scade.api.Operator
 import com.esterel.scade.api.pragmas.editor.EditorPragmasFactory
 import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
+import com.esterel.scade.api.pragmas.editor.NetDiagram
+import com.esterel.scade.api.pragmas.editor.util.EditorPragmasUtil
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 class MapToScade extends ScadeModelWriter {
 	
@@ -73,9 +76,10 @@ class MapToScade extends ScadeModelWriter {
 
 		for (block: pkg.getBlocks) {			
 			// Each Block is mapped to operator
-			val operator = createScadeOperator(block);
+			val operator = createOperatorInterface(block);
+			val diagram = createScadeDiagram(operator);
+			createOperatorImplementation(operator, diagram);
 			scadePackage.getOperators().add(operator);
-			createScadeDiagram(operator);
 		}
 
 		for (p : pkg.nestedPackages) {
@@ -83,6 +87,45 @@ class MapToScade extends ScadeModelWriter {
 		}
 
 		return scadePackage
+	}
+	
+	def createOperatorImplementation(Operator operator, NetDiagram diagram) {
+		var i = 1;
+		var y_pos = 5;
+		for (input : operator.getInput()) {
+			// Consider using the definedType directly instead of searching for it
+			var variable = createNamedTypeVariable("_L"+i, input.getType().getDefinedType());
+			operator.getLocals().add(variable);
+			
+			var equation = theScadeFactory.createEquation();
+			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
+			equation.getLefts().add(variable);
+			
+			var idexpression = theScadeFactory.createIdExpression();
+			idexpression.setPath(input);
+			
+			equation.setRight(idexpression);
+			operator.getData().add(equation);
+			
+			// Graphical
+			var equation_ge = theEditorPragmasFactory.createEquationGE();
+			equation_ge.setEquation(equation);
+			
+			var point = theEditorPragmasFactory.createPoint();
+			point.setX(100);
+			point.setY(y_pos);
+			equation_ge.setPosition(point);
+			
+			var size  = theEditorPragmasFactory.createSize();
+			size.setWidth(508);
+			size.setHeight(500);
+			equation_ge.setSize(size);
+			
+			diagram.getPresentationElements().add(equation_ge);
+			
+			i = i + 1;
+			y_pos = y_pos + 1000;
+		}
 	}
 	
 	def createScadeDiagram(Operator operator) {
@@ -93,11 +136,12 @@ class MapToScade extends ScadeModelWriter {
 		operator_diagram.setName(operator.name + "_diagram");
 		operator_diagram.setFormat("A4 (210 297)");
 		operator_diagram.setLandscape(true);
-		//operator_diagram.setOid("Op1DiagOid");
 		operator_pragma.getDiagrams().add(operator_diagram);
+		
+		return operator_diagram;
 	}
 	
-	def createScadeOperator(Block block) {
+	def createOperatorInterface(Block block) {
 			val operator = theScadeFactory.createOperator();
 			operator.setName(block.name);
 			operator.setKind(OperatorKind.NODE_LITERAL);
