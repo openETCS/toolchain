@@ -65,37 +65,28 @@ class MapToScade extends ScadeModelWriter {
 		val scadePackage = createScadePackage(pkg.name)
 		val resourcePackage = createXScade(pkg.name)
 		resourcePackage.getContents().add(scadePackage)
-		
-		
-		for (block: pkg.getBlocks) {
-			// Create xscade file
-			//val resourceXscade = createXScade(block.name)
-			
+
+		for (block: pkg.getBlocks) {			
 			// Each Block is mapped to operator
+			val operator = createScadeOperator(block);
+			scadePackage.getOperators().add(operator);
+		}
+
+		for (p : pkg.nestedPackages) {
+			scadePackage.getPackages().add(iterateModel(p))
+		}
+
+		return scadePackage
+	}
+	
+	def createScadeOperator(Block block) {
 			val operator = theScadeFactory.createOperator();
 			operator.setName(block.name);
 			operator.setKind(OperatorKind.NODE_LITERAL);
 
-			
 			// SysML FlowPorts to operator variables
 			for (port : block.flowPorts) {
-				
-				// Really ugly, but ternary operator seems not to exist
-				var type_name = "int"
-				
-				if (port.type != null && port.type.name != null) {
-					type_name = port.type.name
-				}
-				
-				var type = findObject(typePackage, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
-				
-				// If we dont have the type, create
-				if (type == null) {
-					type = theScadeFactory.createType()
-					type.name = type_name
-					typePackage.getTypes().add(type)
-					//resourcePackage.getContents().add(type)
-				}
+				var type = createScadeType(port.type)				
 				
 				// Create the port
 				if (port.direction.value == FlowDirection.OUT_VALUE) {
@@ -108,16 +99,26 @@ class MapToScade extends ScadeModelWriter {
 				}
 			}
 			
-			scadePackage.getOperators().add(operator)
-			
-			//resourcePackage.getContents().add(operator);
+			return operator;
+	}
+	
+	def createScadeType(Type uml_type) {
+		var type_name = "int"
+				
+		if (uml_type != null && uml_type.name != null) {
+			type_name = uml_type.name
 		}
 		
-		for (p : pkg.nestedPackages) {
-			scadePackage.getPackages().add(iterateModel(p))
+		var scade_type = findObject(typePackage, type_name, ScadePackage.Literals.TYPE) as com.esterel.scade.api.Type
+				
+		// If we dont have the type, create
+		if (scade_type == null) {
+			scade_type = theScadeFactory.createType()
+			scade_type.name = type_name
+			typePackage.getTypes().add(scade_type)
 		}
 		
-		return scadePackage
+		return scade_type
 	}
 	
 	def createNamedTypeVariable(String name, com.esterel.scade.api.Type type) {
