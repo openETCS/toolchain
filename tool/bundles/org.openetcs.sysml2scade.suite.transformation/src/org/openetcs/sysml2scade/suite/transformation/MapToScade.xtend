@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.core.resources.IProject
 import com.esterel.project.api.Project
 import com.esterel.scade.api.NamedType
+import com.esterel.scade.api.Operator
+import com.esterel.scade.api.pragmas.editor.EditorPragmasFactory
+import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
 
 class MapToScade extends ScadeModelWriter {
 	
@@ -29,6 +32,7 @@ class MapToScade extends ScadeModelWriter {
 	private Package scadeModel;
 	private Package typePackage;
 	private ScadeFactory theScadeFactory;
+	private EditorPragmasFactory theEditorPragmasFactory;
 	private Project scadeProject;
 	
 	new(Model model, IProject project) {
@@ -38,6 +42,7 @@ class MapToScade extends ScadeModelWriter {
 		baseURI = URI.createFileURI(project.getLocation().toOSString());
 		val projectURI = baseURI.appendSegment(sysmlModel.getName() + ".etp");
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
+		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		
 		// Create empty SCADE project
 		scadeProject = createEmptyScadeProject(projectURI, scadeResourceSet);
@@ -70,6 +75,7 @@ class MapToScade extends ScadeModelWriter {
 			// Each Block is mapped to operator
 			val operator = createScadeOperator(block);
 			scadePackage.getOperators().add(operator);
+			createScadeDiagram(operator);
 		}
 
 		for (p : pkg.nestedPackages) {
@@ -77,6 +83,18 @@ class MapToScade extends ScadeModelWriter {
 		}
 
 		return scadePackage
+	}
+	
+	def createScadeDiagram(Operator operator) {
+		val operator_pragma = theEditorPragmasFactory.createOperator();
+		operator.getPragma().add(operator_pragma);
+		operator_pragma.setNodeKind("graphical");
+		val operator_diagram = theEditorPragmasFactory.createNetDiagram();
+		operator_diagram.setName(operator.name + "_diagram");
+		operator_diagram.setFormat("A4 (210 297)");
+		operator_diagram.setLandscape(true);
+		//operator_diagram.setOid("Op1DiagOid");
+		operator_pragma.getDiagrams().add(operator_diagram);
 	}
 	
 	def createScadeOperator(Block block) {
