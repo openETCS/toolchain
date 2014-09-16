@@ -16,7 +16,7 @@
  * Contributors:
  *     Michael Jastram, formal Mind Gmbh - initial API and implementation
  *     Patrick Tessier, CEA list - SysML & Papyrus proxy action
- *     Matthieu Perin, , CEA list - SysML & Papyrus proxy action
+ *     Matthieu Perin, CEA list - SysML & Papyrus proxy action
  */
 package org.openetcs.pror.tracing.sysml;
 
@@ -27,7 +27,6 @@ import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.emf.utils.ServiceUtilsForEObject;
 import org.eclipse.rmf.reqif10.SpecObject;
 import org.eclipse.rmf.reqif10.SpecRelation;
-import org.eclipse.rmf.reqif10.common.util.ReqIF10Util;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
