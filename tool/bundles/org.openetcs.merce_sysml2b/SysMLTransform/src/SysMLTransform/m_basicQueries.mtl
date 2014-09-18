@@ -1,0 +1,233 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_basicQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::m_blockQueries /]
+[import SysMLTransform::services::m_services /]
+[import SysMLTransform::m_portsQueries /]
+
+[query public q_SysMLToCType (aType : Type) : String 
+	= 	if(aType.name='Integer') then 
+ 			'int' else
+			if(aType.name='Boolean') then 
+ 				'char' else
+				if(aType.name='Real') then 
+ 					'float' else
+					if(aType.name='String') then 
+ 						'string' else
+						aType.name
+					endif
+				endif 
+ 			endif 
+ 		endif
+/]
+
+[query public q_SysMLToBType (aType : Type) : String 
+	= 	if(aType.name='Integer') then 
+ 			'INT' else
+			if(aType.name='Boolean') then 
+ 				'BOOL' else
+				if(aType.name='String') then 
+ 					'STRING' else
+					aType.name
+				endif
+			endif 
+ 		endif
+/]
+
+[query public q_isPrimitiveType (aType : Type) : Boolean 
+	= 	if(aType.name='Integer') then 
+ 			true else
+			if(aType.name='Boolean') then 
+ 				true else
+				if(aType.name='Real') then 
+ 					true else
+					if(aType.name='String') then 
+ 						true else
+						if(aType.oclIsKindOf(PrimitiveType)) then 
+							true else
+							false
+						endif
+					endif
+				endif 
+ 			endif 
+ 		endif
+/]
+
+[query public q_IsEnum (aType : Type) : Boolean 
+	= 	if(aType.oclIsKindOf(Enumeration) or (aType.oclIsKindOf(DataType) and q_getDataType(aType).attribute->exists(p: Property | p.isStatic=true))) then
+			true else
+			false
+		endif
+/]
+
+[query public q_IsDataType (aType : Type) : Boolean 
+	= 	if((aType.oclIsKindOf(DataType) and q_getDataType(aType).attribute->exists(p: Property | p.isStatic=false))) then
+			true else
+			false
+		endif
+/]
+
+[query public q_IsConstDataType (aType : DataType) : Boolean 
+	= 	if(q_getAttributes(aType)->exists(attr:Property|attr.isStatic)) then
+			true else
+			false
+		endif
+/]
+
+[query public q_IsFlowSpecType (aType : Interface) : Boolean 
+	= 	if(aType.hasStereotype('SysML::PortAndFlows::FlowSpecification')) then
+			true else
+			false
+		endif
+/]
+
+[query public q_IsFlowSpecType (aType : Type) : Boolean 
+	= 	if(aType.oclIsKindOf(Interface)) then
+			if(q_IsFlowSpecType(q_getFlowSpec(aType))) then
+			true else
+			false
+			endif
+		else
+			false
+		endif
+/]
+
+[query public q_getDataType (aType : Type) : DataType 
+	= 	if(aType.ancestors()->size() = 0) then
+			aType.eAllContents(DataType)->select(aDataType:DataType | aDataType.name=aType.name)->first()
+		else
+			aType.ancestors()->last().eAllContents(DataType)->select(aDataType:DataType | aDataType.name=aType.name)->first()
+		endif
+/]
+
+[query public q_getFlowSpec (aType : Type) : Interface 
+	= 	if(aType.ancestors()->size() = 0) then
+			aType.eAllContents(Interface)->select(aFlowSpec:Interface | q_IsFlowSpecType(aFlowSpec) and aFlowSpec.name=aType.name)->first()
+		else
+			aType.ancestors()->last().eAllContents(Interface)->select(aFlowSpec:Interface | q_IsFlowSpecType(aFlowSpec) and aFlowSpec.name=aType.name)->first()
+		endif
+/]
+
+[query public q_getAttributes(aClassifier : Classifier) : OrderedSet(Property)
+	= aClassifier.attribute->asOrderedSet()->sortedBy(name)
+/]
+
+[comment Query used to select the Data files that have to be included /]
+[query public q_getDataFileList (aClassifier : Classifier) : OrderedSet(String) 
+	= 	if(aClassifier.oclIsKindOf(Class)) then
+			q_getBlockLocalAttributes(aClassifier)->collect(type)->reject(aType:Type|q_isPrimitiveType(aType))->collect(name.concat('.h'))->union(q_getFinalFlowPort(aClassifier.oclAsType(Class))->collect(type)->reject(aType:Type|q_isPrimitiveType(aType))->collect(name.concat('.h')))->asOrderedSet()
+		else
+			q_getBlockLocalAttributes(aClassifier)->collect(type)->reject(aType:Type|q_isPrimitiveType(aType))->collect(name.concat('.h'))->asOrderedSet()
+		endif
+/]
+
+[query public q_getDataFileList (aElement : Element) : OrderedSet(String) 
+	= 	q_getBlockList(aElement)->collect(q_getDataFileList())->flatten()->asOrderedSet()
+/]
+
+[query public q_getFSMList (aElement : Element) : OrderedSet(StateMachine) 
+	= 	q_getBlockList(aElement)->collect(q_getBlockFSM())->flatten()->asOrderedSet()
+/]
+
+[query public q_getBlockNameList (aElement : Element) : OrderedSet(String) 
+	= 	q_getBlockList(aElement)->collect(name)->asOrderedSet()
+/]
+
+[query public q_getBlocks (aPackage : Package) : OrderedSet(Class) 
+	= 	aPackage.eContents(Class)->flatten()->asOrderedSet()
+/]
+
+[query public q_genInclude(aString : String) : String
+	= '#include "'.concat(aString).concat('"')
+/]
+
+[query public q_GenFramaCEnsures (aProperty : Property ) : String 
+	= 	if(aProperty.type.name='Integer') then 
+ 			'ensures ('.concat(aProperty.name).concat('>-2147483648) && (').concat(aProperty.name).concat('<2147483647)') else
+			if(aProperty.type.name='Boolean') then 
+ 				'ensures ('.concat(aProperty.name).concat('==0) || (').concat(aProperty.name).concat('==1)') else
+				''
+ 			endif 
+ 		endif
+/]
+
+[comment returns true if a Type is a structured type. A structured type is a type which is not a primitive type or an enumeration. 
+A dataType can be enumeration of a structured type./]
+[query public q_isStructType (aType : Type) : Boolean
+	= 	if(q_isPrimitiveType(aType) or q_IsEnum(aType)) then
+			false
+		else
+			true
+		endif
+/]
+
+[comment returns all the final fields contained by aType. Example : if aType = struct{typeA a; typeB b} and typeA = struct{int c ; int d} and
+typeB = Enum{e,f}, then return {c, d, b}. An enum or a primitive type is considered as a final field./]
+[query public q_getFields (aProp : Property) : OrderedSet (Property)
+	= 	if(q_isStructType(aProp.type)) then
+			if(q_IsFlowSpecType(aProp.type)) then
+				q_getAttributes(q_getFlowSpec(aProp.type))->collect(q_getFields())
+			else
+				q_getAttributes(q_getDataType(aProp.type))->collect(q_getFields())
+			endif
+		else
+			aProp->asOrderedSet()
+		endif	
+/]
+
+[comment returns the name of all the final fields contained by aType. /]
+[query public q_getNamedFields (aProp : Property, aPropName : String) : OrderedSet (String)
+	= 	if(q_isStructType(aProp.type)) then
+			if(q_IsFlowSpecType(aProp.type)) then				
+				q_getAttributes(q_getFlowSpec(aProp.type))->collect(q_getNamedFields_recursive(aPropName.concat('_'),name))
+			else
+				q_getAttributes(q_getDataType(aProp.type))->collect(q_getNamedFields_recursive(aPropName.concat('_'),name))
+			endif
+		else
+			aProp.name->asOrderedSet()
+		endif	
+/]
+
+[comment returns the name of all the final fields contained by aType. /]
+[query public q_getNamedFields_recursive (aProp : Property, prefix : String, aPropName : String) : OrderedSet (String)
+	= 	if(q_isStructType(aProp.type)) then
+			if(q_IsFlowSpecType(aProp.type)) then				
+				q_getAttributes(q_getFlowSpec(aProp.type))->collect(q_getNamedFields_recursive(aPropName.addPrefix(prefix).concat('_'),name))
+			else
+				q_getAttributes(q_getDataType(aProp.type))->collect(q_getNamedFields_recursive(aPropName.addPrefix(prefix).concat('_'),name))
+			endif
+		else
+			prefix.concat(aProp.name)->asOrderedSet()
+		endif	
+/]
+
+[comment returns the default value associated to the primitive type gived as parameter. Used when no initialisation value had been set in the model/]
+[query public q_TypeDefaultValue(aType : Type) : String
+	=	if(aType.name='Integer') then 
+ 			'0' else
+			if(aType.name='Boolean') then 
+ 				'FALSE' else
+				if(aType.name='String') then 
+ 					'''' else
+					aType.name
+				endif
+			endif 
+ 		endif
+/]
+
+[comment this query returns all the classifier which contain an enumeration /]
+[query public q_getAllEnum (aElement : NamedElement) : OrderedSet(Classifier)
+	= 	if(aElement.ancestors()->size() = 0) then
+			aElement.eAllContents(Classifier)->select(aClassifier:Classifier | q_IsEnum(aClassifier))->asOrderedSet()
+		else
+			(aElement.ancestors()->last()).eAllContents(Classifier)->select(aClassifier:Classifier | q_IsEnum(aClassifier))->asOrderedSet()
+		endif
+/]

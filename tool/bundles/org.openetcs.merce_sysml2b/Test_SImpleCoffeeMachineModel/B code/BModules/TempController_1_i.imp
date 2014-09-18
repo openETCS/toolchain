@@ -1,0 +1,62 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : TempController_1_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance TempController_1 
+ ============================================================================
+ */
+IMPLEMENTATION
+	TempController_1_i
+REFINES
+	TempController_1
+SEES
+    Def_Types
+CONCRETE_VARIABLES
+	/* Inputs */
+	WaterTempMeasure,	
+	
+	/* Outputs */
+	WaterHeating,	
+
+	/* Local variables */
+	WaterTempRef	
+INITIALISATION
+
+    /* Inputs */
+	WaterTempMeasure := 30;
+	
+
+	/* Outputs */
+	WaterHeating := FALSE;
+	
+
+	/* Local Variables */
+	WaterTempRef := 90
+	
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	TempController_1_schedule =
+	BEGIN
+		IF(WaterTempMeasure < WaterTempRef) THEN
+		    WaterHeating := TRUE
+		ELSE
+		    WaterHeating := FALSE
+		END	
+	END;
+
+	/* --------------- Block Write functions --------------- */
+	Write_WaterTempMeasure(temp_var)=
+	BEGIN
+		WaterTempMeasure := temp_var
+	END;
+
+	/* --------------- Block Read functions --------------- */
+	ret_var <-- Read_WaterHeating =
+	BEGIN
+		ret_var := WaterHeating
+	END
+
+END

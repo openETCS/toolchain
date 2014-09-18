@@ -1,0 +1,250 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_instanceQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::services::m_services /]
+[import SysMLTransform::m_blockQueries /]
+[import SysMLTransform::m_portsQueries /]
+
+[comment This query selects all the instances specifications of the model/]
+[query public q_getAllInstances(aElement : Element) : OrderedSet(InstanceSpecification) 
+	=	 if(aElement.ancestors()->size() = 0) then
+				aElement.eAllContents(InstanceSpecification)->select(anInstance:InstanceSpecification | (anInstance.oclIsTypeOf(InstanceSpecification)))->asOrderedSet()
+			else
+				aElement.ancestors()->last().eAllContents(InstanceSpecification)->select(anInstance:InstanceSpecification | (anInstance.oclIsTypeOf(InstanceSpecification)))->asOrderedSet()
+			endif
+/]
+
+[comment This query selects all the slots of the model/]
+[query public q_getAllSlots(aElement : Element) : OrderedSet(Slot) 
+	=	 q_getAllInstances(aElement)->collect(q_getInstanceSlot())->asOrderedSet()
+/]
+
+[comment This query selects all the instances specifications contained in aElement/]
+[query public q_getInstances(aElement:Element): OrderedSet(InstanceSpecification)
+	= aElement.eAllContents(InstanceSpecification)->select(anInstance:InstanceSpecification | (anInstance.oclIsTypeOf(InstanceSpecification)))->asOrderedSet()
+/]
+
+[comment This query selects all the instances specifications of the model that are typed with aClass/]
+[query public q_getAllInstSpec (aClass : Class) : OrderedSet(InstanceSpecification) 
+	= 	 q_getAllInstances(aClass)->select(aInstanceSpec:InstanceSpecification | q_getInstanceType(aInstanceSpec)=aClass)->asOrderedSet()
+/]
+
+[comment This query returns the index of anInstance in the ordered set of all the instances with the same type than anInstance/]
+[query public q_getInstIndex (anInstance : InstanceSpecification) : Integer 
+	= 	 q_getAllInstSpec(q_getInstanceType(anInstance))->indexOf(anInstance)
+/]
+
+[comment This query returns the index of the first instance with the same previous final connector ends than anInstance, in the ordered set of all the instances with the same type than anInstance/]
+[query public q_getInstIndex_2 (anInstance : InstanceSpecification) : Integer 
+	= 	 q_getAllInstSpec(q_getInstanceType(anInstance))->select(aInst : InstanceSpecification | q_AllPrevFinalConnectorEnd_3(aInst) = q_AllPrevFinalConnectorEnd_3(anInstance))->first()->collect(q_getInstIndex())->asOrderedSet()->first()
+/]
+
+[comment This query returns the index of the first instance with the same previous final connector ends than anInstance, in the ordered set of all the instances with the same type than anInstance and with different previous final connector ends/]
+[query public q_getInstIndex_3 (anInstance : InstanceSpecification) : Integer 
+	= 	 q_getAllInstSpec(q_getInstanceType(anInstance))->collect(q_getInstIndex_2())->asOrderedSet()->indexOf(q_getInstIndex_2(anInstance))
+/]
+
+[comment This query selects the instances specifications directly used by another intance specification, ie. the nested instances specifications/]
+[query public q_getSubInstances(anInstance : InstanceSpecification) : OrderedSet(InstanceSpecification)
+	=	anInstance.slot->select(aSlot : Slot | aSlot.value->first().oclIsKindOf(InstanceValue))->collect(value->first().oclAsType(InstanceValue).instance)->asOrderedSet()
+/]
+
+[comment This query selects only the instances specifications of Main blocks (blocks that are non abstract)/]
+[query public q_getMainInstances(aElement:Element) : OrderedSet(InstanceSpecification)
+	=	q_getAllInstances(aElement)->select(anInstance:InstanceSpecification| not(q_getInstanceType(anInstance).isAbstract))->asOrderedSet()
+/]
+
+[comment This query returns the class that type anInstance /]
+[query public q_getInstanceType(anInstance:InstanceSpecification): Class
+	= anInstance.classifier->asOrderedSet()->first().oclAsType(Class)
+/]
+
+[comment This query returns the slots contained by anInstance/]
+[query public q_getInstanceSlot(aInstanceSpec:InstanceSpecification) : OrderedSet(Slot)
+	=	aInstanceSpec.slot->asOrderedSet()
+/]
+
+[comment This query returns all the properties that are used in an instance specification by its slots/]
+[query public q_getInstanceProperty(aInstanceSpec:InstanceSpecification) : OrderedSet(Property)
+	=	q_getInstanceSlot(aInstanceSpec)->collect(definingFeature)->asOrderedSet()
+/]
+
+[comment This query returns the type of the property that aSlot defines/]
+[query public q_GetSlotType(aSlot:Slot):Type
+	=	aSlot.definingFeature.type
+/]
+
+[comment This query returns the property defined by aSlot. /]
+[query public q_GetSlotPart(aSlot:Slot): Property
+	=	if(aSlot.definingFeature.oclIsKindOf(Property)) then
+			aSlot.definingFeature.oclAsType(Property)
+		else
+			null
+		endif
+/]
+
+[comment This query returns the value of a slot when this value is defined by an opaque expression/]
+[query public q_getSlotValueContent(aSlot:Slot): OrderedSet(String)
+	=	aSlot.value->filter(OpaqueExpression)->collect(_body)->asOrderedSet()
+/]
+
+[comment This query returns the instance value of a slot when the value of this slot is defined by an instanceValue/]
+[query public q_getSlotInstanceValue(aSlot:Slot): InstanceSpecification
+	=	if(aSlot.value->filter(InstanceValue)->size() > 0) then
+			aSlot.value->filter(InstanceValue)->collect(oclAsType(InstanceValue))->collect(instance)->first()
+		else
+			null
+		endif
+
+/]
+
+[comment This query returns the name of the property that aSlot defines/]
+[query public q_GetSlotAttributeName(aSlot : Slot) : String
+	=	aSlot.definingFeature.name
+/]
+
+[comment This query returns the instanceSpecifications which use anInstance. It returns the instanceSpecifications which have one of their slots value initialized with anInstance.
+The query returns nothing when anInstance is not used by an another InstanceSpecification. If it is not the case, the query can only return one InstanceSpecification because we suppose that
+anInstance cannot be used by several slots of several InstanceSpecifications./]
+[query public q_getOwningInstance(anInstance:InstanceSpecification) : InstanceSpecification
+	=	if(q_getOwningSlot(anInstance)->size() > 0) then
+			q_getOwningSlot(anInstance).owningInstance
+		else
+			null
+		endif
+/]
+
+[comment This query returns the slot which its value is defined by an InstanceValue and initialised with anInstance. This slot shall represent a part property of a block (and not a reference property).
+ We suppose that anInstance can have only one "Owning slot" in the model or none. /]
+[query public q_getOwningSlot(anInstance:InstanceSpecification) : Slot
+	=	if(q_getAllSlots(anInstance)->size() > 0) then
+			if(q_getAllSlots(anInstance)->exists(aSlot : Slot | q_getSlotInstanceValue(aSlot) = anInstance)) then
+				q_getAllSlots(anInstance)->select(aSlot : Slot | (q_getSlotInstanceValue(aSlot) = anInstance) and aSlot.definingFeature.oclAsType(Property).aggregation.toString()='composite' and not(aSlot.definingFeature.oclAsType(Property).association->isEmpty()))->first()
+			else
+				null
+			endif		
+		else
+			null
+		endif
+/]
+
+[comment This query returns the part property for which anInstance is used. We suppose that an InstanceSpecification cannot be used in the context of several part property but only one or none. /]
+[query public q_getCorrespondingPart(anInstance:InstanceSpecification) : Property
+	=	if(q_getOwningSlot(anInstance)->size() > 0) then
+			q_getOwningSlot(anInstance).definingFeature.oclAsType(Property)
+		else
+			null
+		endif
+/]
+
+[comment This query returns the InstanceSpecification that is directly connected to anInstance througt aPort in the opposite direction of the connection direction (so it is called previous instance). 
+If there is no previous flow port of aPort (aPort is a final flow port with Out direction) then the query returns anInstance  /]
+[query public q_getPrevInstance(anInstance:InstanceSpecification, aPort : Port) : InstanceSpecification
+	=	if(q_getOwningSlot(anInstance)->size() > 0) then
+			if(q_FlowPortDirOUT(aPort)) then
+				if(q_isFinalFlowPort(aPort)) then
+					anInstance
+				else
+					if((q_PrevConnectorEnd_2(q_getCorrespondingPart(anInstance),aPort).partWithPort)->size()>0) then
+						q_getInstanceSlot(anInstance)->select(aSlot : Slot | q_GetSlotPart(aSlot) = q_PrevConnectorEnd_2(q_getCorrespondingPart(anInstance),aPort).partWithPort)->collect(q_getSlotInstanceValue())->first()
+					else
+						anInstance
+					endif					
+				endif
+			else
+				if(q_FlowPortDirIN(aPort)) then
+					if(q_getInstanceType(q_getOwningInstance(anInstance)) = q_PrevConnectorEnd_2(q_getCorrespondingPart(anInstance),aPort).role.oclAsType(Port).class) then
+						q_getOwningInstance(anInstance)
+					else
+						q_getInstanceSlot(q_getOwningInstance(anInstance))->select(aSlot : Slot | q_GetSlotPart(aSlot) = q_PrevConnectorEnd_2(q_getCorrespondingPart(anInstance),aPort).partWithPort)->collect(q_getSlotInstanceValue())->asOrderedSet()->first()
+					endif				
+				else
+					null
+				endif
+			endif
+		else
+			null
+		endif
+/]
+
+[comment This query returns the InstanceSpecification that give information to anInstance througt aPort in the opposite direction of the connection direction (so it is called final previous instance). 
+If there is no previous flow port of aPort (aPort is a final flow port with Out direction) then the query returns anInstance  /]
+[query public q_getFinalPrevInstance(aPort : Port, anInstance : InstanceSpecification) : InstanceSpecification
+	=	if(q_FlowPortDirOUT(aPort) and q_isFinalFlowPort(aPort)) then
+			anInstance
+		else
+			q_getFinalPrevInstanceBis(q_PrevFlowPort_2(q_getCorrespondingPart(anInstance),aPort),q_getPrevInstance(anInstance, aPort))	
+		endif
+/]
+
+[comment This query is needed by the query q_getFinalPrevInstance/]
+[query public q_getFinalPrevInstanceBis(aaPort : Port, aanInstance : InstanceSpecification) : InstanceSpecification
+	=	if(q_FlowPortDirOUT(aaPort) and q_isFinalFlowPort(aaPort)) then
+			aanInstance
+		else
+			q_getFinalPrevInstance(q_PrevFlowPort_2(q_getCorrespondingPart(aanInstance),aaPort),q_getPrevInstance(aanInstance, aaPort))
+		endif
+/]
+
+[comment This query returns all the final previous instances of anInstance./]
+[query public q_getAllFinalPrevInstance(anInstance : InstanceSpecification) : OrderedSet(InstanceSpecification)
+	=	if(q_getCorrespondingPart(anInstance)->size()>0) then
+			q_getCorrespondingPart(anInstance).q_getPartRefBlock().q_getFlowPorts()->reject(aPort : Port | q_FlowPortDirOUT(aPort) and q_isFinalFlowPort(aPort))->collect(q_getFinalPrevInstance(anInstance))->asOrderedSet()
+		else
+			OrderedSet{}
+		endif
+/]
+
+[comment This query returns all the previous final connectorEnds linked with the part represented by anInstance./]
+[query public q_AllPrevFinalConnectorEnd_3(anInstance : InstanceSpecification) : OrderedSet(ConnectorEnd)
+	= 	q_getInstanceType(anInstance).q_getFlowPorts()->collect(q_PrevFinalConnectorEnd_3(anInstance))->reject(aEnd : ConnectorEnd | aEnd.partWithPort = q_getCorrespondingPart(anInstance))->asOrderedSet()
+/]
+
+[comment This query returns the previous final connectorEnd linked with the part represented by anInstance and the port aPort/]
+[query public q_PrevFinalConnectorEnd_3(aPort : Port, anInstance : InstanceSpecification) : ConnectorEnd
+	= 	if(q_FlowPortDirOUT(aPort) and q_isFinalFlowPort(aPort)) then
+			q_getConnectorEnds_2(q_getCorrespondingPart(anInstance), aPort)->first()
+		else
+			q_PrevFinalConnectorEnd_3bis(q_PrevFlowPort_2(q_getCorrespondingPart(anInstance),aPort),q_getPrevInstance(anInstance, aPort))
+		endif
+/]
+
+[comment This query is needed by the query q_PrevFinalConnectorEnd_3/]
+[query public q_PrevFinalConnectorEnd_3bis(aaPort : Port, aanInstance : InstanceSpecification) : ConnectorEnd
+	= 	if(q_FlowPortDirOUT(aaPort) and q_isFinalFlowPort(aaPort)) then
+			q_getConnectorEnds_2(q_getCorrespondingPart(aanInstance), aaPort)->first()
+		else
+			q_PrevFinalConnectorEnd_3(q_PrevFlowPort_2(q_getCorrespondingPart(aanInstance),aaPort),q_getPrevInstance(aanInstance, aaPort))
+		endif
+/]
+
+[comment This query returns the properties of aClass that are seen as local variables and which their default value is set by aClass and not by a slot of anInstance /]
+[query public q_getGenericBlockLocalAttributes(aClass : Classifier, anInstance : InstanceSpecification) : OrderedSet(Property)
+	= 	q_getBlockLocalAttributes(aClass)->reject(aProp:Property| q_getInstanceProperty(anInstance)->includes(aProp))->asOrderedSet()
+/]
+
+[query public q_isDefaultValueSet(aAttribute : Property) : Boolean
+	= 	if(aAttribute.default <> null) then
+			true
+		else
+			false
+		endif
+/]
+
+[comment This query return s the rank of the part aPart in the ordered of part properties which belong to aClass/]
+[ query public q_getPartRank(aPart : Property, anInstance : InstanceSpecification) : Integer
+	= q_getSubInstances(anInstance)->indexOf(q_getSubInstances(anInstance)->select(aaInstance : InstanceSpecification | q_getCorrespondingPart(aaInstance) = aPart)->first())
+/]
+
+[comment This query returns the root instance of the hierarchical tree of the model instances/]
+[ query public q_getFirstInstance(anElement : NamedElement) : InstanceSpecification
+	= q_getAllInstances(anElement)->select(q_getOwningSlot()->size()<1)->first()
+/]

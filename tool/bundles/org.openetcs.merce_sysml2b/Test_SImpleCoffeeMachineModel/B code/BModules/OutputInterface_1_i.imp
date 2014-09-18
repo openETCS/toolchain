@@ -1,0 +1,98 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : OutputInterface_1_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance OutputInterface_1 
+ ============================================================================
+ */
+IMPLEMENTATION
+	OutputInterface_1_i
+REFINES
+	OutputInterface_1
+SEES
+    Def_Types
+CONCRETE_VARIABLES
+	/* Inputs */
+	AddSugar,	
+	ChangeAmount,	
+	GiveChange,	
+	GrindCoffee,	
+	MixCoffeeAndWater,	
+	NewCup,	
+	SugarQuantity,	
+	WaterHeating	
+	
+	/* Outputs */
+
+	/* Local variables */
+INITIALISATION
+
+    /* Inputs */
+	AddSugar := FALSE;
+	ChangeAmount := 0;
+	GiveChange := FALSE;
+	GrindCoffee := FALSE;
+	MixCoffeeAndWater := FALSE;
+	NewCup := FALSE;
+	SugarQuantity := 2;
+	WaterHeating := FALSE
+	
+
+	/* Outputs */
+	
+
+	/* Local Variables */
+	
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	OutputInterface_1_schedule =
+	BEGIN
+		skip
+	END;
+
+	/* --------------- Block Write functions --------------- */
+	Write_AddSugar(temp_var)=
+	BEGIN
+		AddSugar := temp_var
+	END;
+
+	Write_ChangeAmount(temp_var)=
+	BEGIN
+		ChangeAmount := temp_var
+	END;
+
+	Write_GiveChange(temp_var)=
+	BEGIN
+		GiveChange := temp_var
+	END;
+
+	Write_GrindCoffee(temp_var)=
+	BEGIN
+		GrindCoffee := temp_var
+	END;
+
+	Write_MixCoffeeAndWater(temp_var)=
+	BEGIN
+		MixCoffeeAndWater := temp_var
+	END;
+
+	Write_NewCup(temp_var)=
+	BEGIN
+		NewCup := temp_var
+	END;
+
+	Write_SugarQuantity(temp_var)=
+	BEGIN
+		SugarQuantity := temp_var
+	END;
+
+	Write_WaterHeating(temp_var)=
+	BEGIN
+		WaterHeating := temp_var
+	END
+
+	/* --------------- Block Read functions --------------- */
+END
