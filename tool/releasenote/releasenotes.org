@@ -1,10 +1,12 @@
-** Toolspint 16 (Ends 08-August-2014)
+
+** Toolspint 18 (Ends 19-September-2014)
 *** resolved issues
-- #395 Import registered package to Scade system does not work ?
-- #380 Papyrus integration plug-in  with PRO-R proxy listnener
-- #358 Traceability: Visibility on Papyrus Part
+- #423 Feature Request: Print Papyrus model
+- #411 org.openetcs.pror.tracing.sysml not yet part of maven build
+- #410 ProR-SysML-Tracing Plugin produces Compile errors (due to target platform)
 
 *** Important commit 
-- 84e4c9cbdffd0ddf9431c3ef7c822581759f20ae
- Merge of local branch for plugin org.openetcs.pror.tracing.sysml, closing issue #349 and partially #380
-
+- 4b6705957ba0dea34436e4f3db8cd86d0c91f961
+ [issue #411] Adding org.openetcs.pror.tracing.sysml to build.
+- 81a3a71655ff3be275059a2a8aa9341af29d0ad4
+ [issue #410] Correct licensing & Papyrus version issue.
