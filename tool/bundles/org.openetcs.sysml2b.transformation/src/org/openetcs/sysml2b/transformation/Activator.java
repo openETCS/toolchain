@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package SysMLTransform;
+package org.openetcs.sysml2b.transformation;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;

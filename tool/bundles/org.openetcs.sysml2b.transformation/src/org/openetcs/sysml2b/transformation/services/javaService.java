@@ -6,7 +6,7 @@ Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Eu
 Licensed under the EUPL V.1.1
 
 */
-package SysMLTransform.services;
+package org.openetcs.sysml2b.transformation.services;
 
 import java.util.ArrayList;
 import java.util.Collection;

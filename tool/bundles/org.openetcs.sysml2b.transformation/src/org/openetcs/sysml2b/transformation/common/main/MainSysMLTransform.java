@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package SysMLTransform.common.main;
+package org.openetcs.sysml2b.transformation.common.main;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,24 +25,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'M_MainSysMLTransform' generation module.
+ * Entry point of the 'MainSysMLTransform' generation module.
  *
  * @generated
  */
-public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
+public class MainSysMLTransform extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/SysMLTransform/common/main/m_MainSysMLTransform";
+    public static final String MODULE_FILE_NAME = "/SysMLTransform/common/main/MainSysMLTransform";
     
     /**
      * The name of the templates that are to be generated.
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "t_SysML2BTransform" };
+    public static final String[] TEMPLATE_NAMES = { "generateElement" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -65,7 +65,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public M_MainSysMLTransform() {
+    public MainSysMLTransform() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public M_MainSysMLTransform(URI modelURI, File targetFolder,
+    public MainSysMLTransform(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public M_MainSysMLTransform(EObject model, File targetFolder,
+    public MainSysMLTransform(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -141,7 +141,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                M_MainSysMLTransform generator = new M_MainSysMLTransform(modelURI, folder, arguments);
+                MainSysMLTransform generator = new MainSysMLTransform(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.

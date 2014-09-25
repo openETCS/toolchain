@@ -3,8 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Acceleo SysMLTransform Module Runtime Plug-in
 Bundle-SymbolicName: org.openetcs.sysml2b.transformation
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: SysMLTransform.Activator
-Bundle-Vendor: Eclipse Modeling Project
+Bundle-Activator: org.openetcs.sysml2b.transformation.Activator
+Bundle-Vendor: MERCE
 Require-Bundle: org.eclipse.core.runtime, 
  org.eclipse.uml2.uml, 
  org.eclipse.papyrus.sysml, 
@@ -20,11 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
-Export-Package: SysMLTransform.common.main;
-  uses:="org.eclipse.emf.ecore.resource,
-   org.eclipse.emf.ecore,
-   org.eclipse.emf.common.util,
-   org.eclipse.acceleo.engine.generation.strategy,
-   org.eclipse.acceleo.engine.service",
- SysMLTransform.services
+Export-Package: org.openetcs.sysml2b.transformation.common.main,
+ org.openetcs.sysml2b.transformation.services
 
