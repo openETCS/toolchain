@@ -110,7 +110,7 @@ Installation should verify that the toolchain is properly
 installed. It does not verify that the tool chain conforms to the functional and performance specification. This is done later in the operational qualification phase. The goal of this step is to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
 
 \paragraph{Operational qualification}
-Operation qualification should demonstrate that the tool chain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
+Operational qualification should demonstrate that the tool chain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
 
 \paragraph{Performance qualification}
 Performance qualification should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance is regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
@@ -275,7 +275,7 @@ We propose setting up the operational tool qualification based on the approach b
 \label{fig:qualification-models-linkage}
 \end{figure}
 
-The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depicts the proposed qualification meta-model for openETCS. It needs to be instantiated for each individual tool. The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations. Ideally, it shall establish the traceability between requirements, use cases, implementations and test cases.
+The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depicts the proposed qualification meta-model for openETCS. It needs to be instantiated for each individual tool. The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations which are the result of a thorough risk analysis. Ideally, the qualification meta-model shall establish the traceability between requirements, use cases, implementations and test cases.
 
 
 \begin{figure}
@@ -288,6 +288,10 @@ The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depict
 Each tool will then be defined by all information represented in our
 meta-model. This can be seen as our template for collecting all
 information needed for tool qualification.
+
+For T3 tools it needs to be ensured that the set of potential errors that may lead to a safety problem is exhaustive. To this end, evidence must be provided. For T2 and T3 tools it is also necessary to provide evidence that the user manual is sufficiently detailed and free of errors that may lead to maloperation. 
+
+
 
 
 
@@ -305,7 +309,7 @@ A new  OpenETCS tool chain release deal with different type of changes:
 \begin{enumerate} 
 \item Add a new tool: the tool chain is extended
 \item Replace a tool: a tool function is replaced by another one
-\item Update a tool: a tool is update (bug fixes, performance
+\item Update a tool: a tool is updated (bug fixes, performance
   improvements ...)
 \end{enumerate}
 
@@ -394,9 +398,9 @@ sources to make them available for the next tool releases.
 
 
 From the work-flow of the tool chain it is possible to automatically
-derived some basic use cases such as parsing or producing
+derive some basic use cases such as parsing or producing
 artifacts. These basic use cases may be coupled with basic potential
-errors such as ``no file found'', ``too many file produced''...
+errors such as ``no file found'', ``too many files produced''...
 
 After the tool chain analysis phase, the {\bf individual tool qualification}
 starts. With the help of the tool list, the previous information given
