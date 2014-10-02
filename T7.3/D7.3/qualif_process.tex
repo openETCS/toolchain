@@ -387,6 +387,8 @@ can analyses the sources of the tool chain and automatically derived
 the list of tools present in the tool chain as well as some
 information about them such as :  the name,  the version,
 a description and a list of dependency.
+These information should be included in the release documentation of
+the opentECTS tool chain.
 
 The list of tool should be refined by the development team.
 The missing information should be added directly in the
@@ -405,16 +407,19 @@ should be completed. Table \ref{tbl:tool-info} \ref{tbl:artifacts} and
 \ref{tbl:functions} summarise the set of information needed for the
 qualification of a tool.
 
+
+
 \begin{table}[htbp]
 \centering
 \caption{\label{tbl:tool-info}Tool Information to be completed}
+
 \begin{tabular}{|l|p{5cm}|}\hline
 Tool Name: & \\\hline
 Version: & \\\hline
 Tool License: & \\\hline
 Tool Origin: &\\\hline
 Tool Dependencies & \\
- & -\\
+(with version) & -\\
  & -\\ \hline
 Description: & \\
  & \\ \hline
@@ -422,13 +427,18 @@ Tool Class: & \\\hline
 \multicolumn{2}{|c|}{If T2/T3 Tools}\\\hline
 Tool Justification & \\
  & \\ \hline
-Manual Link and version & \\\hline
+Manual or Specification & \\
+Link and version & \\\hline
 Artifact List link & \\\hline
 Function List link& \\\hline
 \multicolumn{2}{|c|}{If T3 Tools}\\\hline
-Validation method& \\\hline
+Evidence of correctness or  & \\
+failure detection \footnotemark& \\\hline
 VnV activities report link&\\\hline
 \end{tabular}
+
+\vspace{1em}
+$^1$\footnotesize{See EN50128 6.7.4.4 for the list of alternatives}
 \end{table}
 
 
@@ -463,16 +473,22 @@ Potential Errors & Error Mitigation \\\hline
 
 
 
-When all tool are completely defined the {\bf tool-to platform
-  integration} starts. From the previous phase, we should generate the
-dependency list of the tools and the artifact matrix.  The dependency
-list is used to check if all tool can be correctly integrated into the
-tool platform by the qualification team and report to the development
-team.  The artifacts allow the qualification team to check if all
-artifacts are correctly read and write and/or all possible errors are
-mitigated.  In case of re-qualification of the tool chain, the work
-may be alleviate by using  the artifacts matrix
-to concentrate on the tools that are impacted by the changes.
+When all tool are completely defined the {\bf tool-to-platform
+  integration} starts. From the previous phases, we should be able to generate
+the dependency list of the tools and the artifact matrix. The
+dependency list is obtained by following the work-flow  and the
+eclipse dependency list definition that includes the version of the tools.
+The dependency list is used to check if
+all tool can be correctly integrated into the tool platform by the
+qualification team and report to the development team. Part of this
+task may be automatically done by the Eclipse tool platform. 
+
+The artifact matrix allow the qualification team to check if all artifacts are correctly
+read and write and/or all possible errors are mitigated.  In case of
+re-qualification of the tool chain, impact analysis of the change
+shall be perform form the artifacts matrix. Hence,  the work may be
+alleviate by focusing on the tools that are impacted by
+the changes. 
 
 
 %% \paragraph{Tool Integration Process for Qualification}
@@ -531,4 +547,4 @@ to concentrate on the tools that are impacted by the changes.
 
 
 
-%%  LocalWords:  openETCS
+%%  LocalWords:  openETCS opentECTS
