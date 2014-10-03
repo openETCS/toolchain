@@ -2,7 +2,8 @@
 \section{Bitwalker Model-Based Qualification Example}
 \label{sec:bitwalker-example}
 
-This section gives an example of a tool analysis model as described in Section~\ref{sec:model-based-tool-quali} based on the specification import function of the Bitwalker tool.
+This section gives an example of a tool analysis model as described in Section~\ref{sec:model-based-tool-quali} based on the specification import function of the Bitwalker tool. The example is by no means complete; its goal is to illustrate the concepts described in this document.
+
 \paragraph{Functions}
 
 \begin{tabular}{|lp{0.7\textwidth}|}
@@ -133,12 +134,21 @@ This section gives an example of a tool analysis model as described in Section~\
 
 \begin{tabular}{|lp{0.7\textwidth}|}
 \hline
-\multicolumn{2}{|c|}{\bf Correctness Inspection}\\
+\multicolumn{2}{|c|}{\bf VnVActivity1}\\
+\bf Type&Correctnes Inspection\\
 \bf Requirement&UC1/Success Condition\\
 \bf Description&Manually inspect whether all definitions of ArtifactSubset026-7 and ArtifactSubset026-8 are actually represented correctly in the Data Dictionary\\
 \hline
 \end{tabular}
 
+\begin{tabular}{|lp{0.7\textwidth}|}
+\hline
+\multicolumn{2}{|c|}{\bf VnVResult1}\\
+\bf V\&V Activity&VnVActivity1\\
+\bf Result&Passed/Failed\\
+\bf Findings&Descriptions of the findings of the inspection.\\
+\hline
+\end{tabular}
 
 
 \textbf{Remark: } It will be necessary to provide evidence that critical errors such as PotentialError2 or PotentialError4 can be detected or are not present in the tool. 

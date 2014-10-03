@@ -13,11 +13,12 @@ three classes namely, T1, T2 \& T3 respectively.''}
 We recall here the different class definitions:
 \begin{itemize}
 \item Tool class T1: No generated output can be used directly or indirectly to the
-  executable code;
-\item Tool class T2: Verification tools, the tool may fail to detect errors or
+  safetey critical executable code;
+\item Tool class T2: Verification tools, e.g. that can not introduce
+  errors to the safety critical executable code but those tools may fail to detect errors or
   defects;
 \item Tool class T3: Generated output directly or indirectly  as part of the
-  executable code.
+  safety critical executable code.
 \end{itemize}
 The deliverable D2.2 \cite{pokam_report_2013} summarizes the requirements for the
 tool needed by the different tool classes. The report highlights that the
@@ -41,7 +42,16 @@ capabilities. To reduce the cost of the toolchain qualification and
 regarding the fact that our development imply regular releases, a
 systematic toolchain analysis approach has to be defined.
 
-Table~\ref{tab:oetcs_tool_classification} exemplarily lists the tool classes for some of the tools employed in the openETCS project. The tools Papyrus, SCADE and Bitwalker have a direct effect on the generated code whereas ProR and Git do not. The classification for ProR would be different if it would be used for formal requirements that then could be automatically translated to a model (this would yield a T3-classification). The verification tools RTTester and CPN Tools are not in the ``direct'' chain from requirements to code but they may fail to detect errors in the software or model.
+Table~\ref{tab:oetcs_tool_classification} exemplarily lists the tool
+classes for some of the tools employed in the openETCS
+project. Automatic code generator for SCADE model such as KCG or the
+Bitwalker tool have a direct effect on the generated code whereas ProR
+and Git do not. The classification for ProR would be different if it
+would be used for formal requirements that then could be automatically
+translated to a model (this would yield a T3-classification). The
+verification tools RT-Tester and CPN Tools are not in the ``direct''
+chain from requirements to code but they may fail to detect errors in
+the software or model.
 
 \begin{table}[h]
 \begin{center}
@@ -135,7 +145,7 @@ qualification and to identify safety issues related to tool integration.
 
 In \cite{asplund_towards_2012}, they explore the step 2): identifying
 the required safety goals due to tool integration and obtaining a
-description of a reference work-flow and tool-chain with annotations regarding the mitigating effort.  They propos to use the TIL language, a
+description of a reference work-flow and tool-chain with annotations regarding the mitigating effort.  They propose to use the TIL language, a
 domain specific language for toolchain models.  The model of the tool
 chain is used to perform a risk analysis and to annotate parts
 that need mitigating effort for the safety issues due to tool
