@@ -1,0 +1,34 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_generateTypes_B('http://www.eclipse.org/papyrus/0.7.0/SysML', 'http://www.eclipse.org/uml2/4.0.0/UML')]
+[import SysMLTransform::m_basicTemplates_B /]
+[import SysMLTransform::m_basicQueries /]
+
+[template public generateTypesFiles(aElement : NamedElement,fileName : String, mainPath : String, Version : Real)]
+[file (mainPath.concat('/').concat(fileName).concat('.mch'), false)]
+[comment Add the File Header /]
+[aElement.t_AddFileHeader_B(fileName.concat('.mch'), '', 'B machine which contains the définition of the enumarations used by the project', Version)/]
+
+MACHINE
+	[fileName/]
+SETS
+/* Definition of the enumerations */
+	E_Phase={in,out,scheduleReq}[if(q_getAllEnum(aElement)->size()>0)];[/if]
+[for(aEnum : Classifier | q_getAllEnum(aElement))]
+	[if(aEnum.oclIsKindOf(Enumeration))]
+	[aEnum.name/]={[for (p: EnumerationLiteral | aEnum.member->filter(EnumerationLiteral)->sortedBy(name)) separator(',')][p.name/][/for]}[if(i<q_getAllEnum(aElement)->size())];[/if]
+	[elseif(aEnum.oclIsKindOf(DataType))]
+	[aEnum.name/]={[for (p: Property | q_getAttributes(aEnum)) separator(',')][p.name/][/for]}[if(i<q_getAllEnum(aElement)->size())];[/if]
+	[/if]
+[/for]
+END
+[/file]
+[/template]

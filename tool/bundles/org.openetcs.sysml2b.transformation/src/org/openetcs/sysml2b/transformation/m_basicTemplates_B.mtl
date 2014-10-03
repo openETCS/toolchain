@@ -1,0 +1,52 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_basicTemplates_B('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::m_basicQueries /]
+[import SysMLTransform::m_instanceQueries /]
+[import SysMLTransform::m_blockQueries /]
+
+[template public t_AddFileHeader_B(aElement : NamedElement, aName : String, aAuthor : String, aDescription : String, aVersion : Real )]
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : [aName /]
+ Author      : [aAuthor /]
+ Version     : [aVersion /]
+ Copyright   : 
+ Description : [aDescription /] 
+ ============================================================================
+ */
+[/template]
+
+[comment This template  is used to fill the INITIALISATION B clause for each attribute of aAttributeList. 
+The parameter "isLastAttributeList" is true when this template is called for the last time in order to fill an INITIALISATION clause./]
+[template public t_InitWithDefaultValue_B(anInstance : InstanceSpecification, aAttributeList : OrderedSet(Property), isLastAttributeList : Boolean)]
+[for (aAttribute:Property | aAttributeList)]
+	[if(not(q_getInstanceSlot(anInstance)->exists(q_GetSlotPart() = aAttribute)))]
+		[for (aString : String| q_getNamedFields(aAttribute, aAttribute.name))]
+			[if((aAttribute.default <> null) or (aAttribute.q_getFields()->at(i).default <> null))]
+[aString/] := [q_getDefaultValueContent(aAttribute.q_getFields()->at(i))/][if(isLastAttributeList = false or aString<>q_getNamedFields(aAttribute, aAttribute.name)->last() or aAttribute<>aAttributeList->last())];[/if]
+			[else]
+[aString/] := [q_TypeDefaultValue(q_getFields(aAttribute)->at(i).type)/][if(isLastAttributeList = false or aString<>q_getNamedFields(aAttribute, aAttribute.name)->last() or aAttribute<>aAttributeList->last())];[/if]
+			[/if]
+		[/for]
+	[else]
+		[for (aSlot:Slot | q_getInstanceSlot(anInstance))]
+			[if(q_GetSlotPart(aSlot) = aAttribute)]
+				[for (aString : String| q_getNamedFields(aAttribute, aAttribute.name))]
+[aString/] := [q_getSlotValueContent(aSlot)->first().tokenize(';')->at(i).tokenize('=')->last()/][if(isLastAttributeList = false or aString<>q_getNamedFields(aAttribute, aAttribute.name)->last() or aAttribute<>aAttributeList->last())];[/if]
+				[/for]
+			[/if]
+		[/for]
+	[/if]
+[/for]
+[/template]
+

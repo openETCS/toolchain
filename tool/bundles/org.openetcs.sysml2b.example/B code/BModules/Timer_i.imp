@@ -1,0 +1,63 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : Timer_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance Timer 
+ ============================================================================
+ */
+IMPLEMENTATION
+	Timer_i
+REFINES
+	Timer
+SEES
+    Def_Types
+CONCRETE_VARIABLES
+	/* Inputs */
+	StartTimer,	
+	TimeOut,	
+	TimerValue	
+	
+	/* Outputs */
+
+	/* Local variables */
+INITIALISATION
+
+    /* Inputs */
+	StartTimer := FALSE;
+	TimeOut := FALSE;
+	TimerValue := 10
+	
+
+	/* Outputs */
+	
+
+	/* Local Variables */
+	
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	Timer_schedule =
+	BEGIN
+		skip
+	END;
+
+	/* --------------- Block Write functions --------------- */
+	Write_StartTimer(temp_var)=
+	BEGIN
+		StartTimer := temp_var
+	END;
+
+	Write_TimeOut(temp_var)=
+	BEGIN
+		TimeOut := temp_var
+	END;
+
+	Write_TimerValue(temp_var)=
+	BEGIN
+		TimerValue := temp_var
+	END
+
+	/* --------------- Block Read functions --------------- */
+END

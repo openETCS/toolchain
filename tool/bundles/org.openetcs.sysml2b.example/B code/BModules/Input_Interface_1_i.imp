@@ -1,0 +1,83 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : Input_Interface_1_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance Input_Interface_1 
+ ============================================================================
+ */
+IMPLEMENTATION
+	Input_Interface_1_i
+REFINES
+	Input_Interface_1
+SEES
+    Def_Types
+CONCRETE_VARIABLES
+	/* Inputs */
+	
+	/* Outputs */
+	CreditAmount,	
+	GrindStatus,	
+	MakeCoffee_CoffeeSelected,	MakeCoffee_SugarLevel,	
+	WaterTemperature	
+
+	/* Local variables */
+INITIALISATION
+
+    /* Inputs */
+	
+
+	/* Outputs */
+	CreditAmount := 0;
+	GrindStatus := nonActive;
+	MakeCoffee_CoffeeSelected := FALSE;
+	MakeCoffee_SugarLevel := level2;
+	WaterTemperature := 30
+	
+
+	/* Local Variables */
+	
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	Input_Interface_1_schedule =
+	BEGIN
+		/* This operation has to be completed manually */
+		CreditAmount := 0;
+		GrindStatus := nonActive;
+		MakeCoffee_CoffeeSelected := FALSE;
+		MakeCoffee_SugarLevel := level2;
+		WaterTemperature := 30
+		
+		
+	END;
+
+	/* --------------- Block Write functions --------------- */
+	/* --------------- Block Read functions --------------- */
+	ret_var <-- Read_CreditAmount =
+	BEGIN
+		ret_var := CreditAmount
+	END;
+
+	ret_var <-- Read_GrindStatus =
+	BEGIN
+		ret_var := GrindStatus
+	END;
+
+	ret_var <-- Read_MakeCoffee_CoffeeSelected =
+	BEGIN
+		ret_var := MakeCoffee_CoffeeSelected
+	END;
+
+	ret_var <-- Read_MakeCoffee_SugarLevel =
+	BEGIN
+		ret_var := MakeCoffee_SugarLevel
+	END;
+
+	ret_var <-- Read_WaterTemperature =
+	BEGIN
+		ret_var := WaterTemperature
+	END
+
+END

@@ -1,0 +1,116 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : Selector_1_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance Selector_1 
+ ============================================================================
+ */
+IMPLEMENTATION
+	Selector_1_i
+REFINES
+	Selector_1
+SEES
+    Def_Types
+CONCRETE_VARIABLES
+	/* Inputs */
+	CreditAmount,	
+	MakeCoffee_CoffeeSelected,	MakeCoffee_SugarLevel,	
+	
+	/* Outputs */
+	ChangeAmount,	
+	GiveChange,	
+	StartNewCoffee,	
+	SugarLevel,	
+
+	/* Local variables */
+	CoffeePrice,	
+	/* Phase variable */
+	Phase
+INITIALISATION
+	/* Phase variable */
+	Phase := in;
+
+    /* Inputs */
+	CreditAmount := 0;
+	MakeCoffee_CoffeeSelected := FALSE;
+	MakeCoffee_SugarLevel := level2;
+	
+
+	/* Outputs */
+	ChangeAmount := 0;
+	GiveChange := FALSE;
+	StartNewCoffee := FALSE;
+	SugarLevel := level1;
+	
+
+	/* Local Variables */
+	CoffeePrice := 30
+	
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	Selector_1_schedule =
+	BEGIN
+		IF((MakeCoffee_CoffeeSelected = TRUE) & (CreditAmount>CoffeePrice)) THEN
+          StartNewCoffee := TRUE;
+          ChangeAmount := CreditAmount - CoffeePrice;
+          GiveChange := TRUE
+      ELSE
+          StartNewCoffee := FALSE;
+          GiveChange := FALSE;
+          ChangeAmount := 0
+      END;  
+		/* Update Phase */
+		Phase := out	
+	END;
+
+	/* --------------- Block Write functions --------------- */
+	Write_CreditAmount(temp_var)=
+	BEGIN
+		CreditAmount := temp_var
+	END;
+
+	Write_MakeCoffee_CoffeeSelected(temp_var)=
+	BEGIN
+		MakeCoffee_CoffeeSelected := temp_var
+	END;
+
+	Write_MakeCoffee_SugarLevel(temp_var)=
+	BEGIN
+		MakeCoffee_SugarLevel := temp_var
+	END;
+
+	/* --------------- Block Read functions --------------- */
+	ret_var <-- Read_ChangeAmount =
+	BEGIN
+		ret_var := ChangeAmount
+	END;
+
+	ret_var <-- Read_GiveChange =
+	BEGIN
+		ret_var := GiveChange
+	END;
+
+	ret_var <-- Read_StartNewCoffee =
+	BEGIN
+		ret_var := StartNewCoffee
+	END;
+
+	ret_var <-- Read_SugarLevel =
+	BEGIN
+		ret_var := SugarLevel
+	END;
+
+	/* --------------- Block Phase functions --------------- */
+	Phase_In =
+	BEGIN
+		Phase := in
+	END;
+
+	Phase_ScheduleReq =
+	BEGIN
+		Phase := scheduleReq
+	END
+END

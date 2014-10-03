@@ -1,0 +1,111 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_blockQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::services::m_services /]
+[import SysMLTransform::m_portsQueries /]
+
+[comment This query returns all the Blocks of the model/]
+[query public q_getBlockList (aElement : Element) : OrderedSet(Class) 
+	= 	if(aElement.ancestors()->size() = 0) then
+			(aElement.eAllContents(Package)->select(p:Package|p.name<>'Requirements' and ( p.eContents(Class)->notEmpty() ))).eContents(Class)->flatten()->asOrderedSet()
+		else
+			((aElement.ancestors()->last()).eAllContents(Package)->select(p:Package|p.name<>'Requirements' and ( p.eContents(Class)->notEmpty() ))).eContents(Class)->flatten()->asOrderedSet()
+		endif
+/]
+
+[comment This query returns the name of the header files which contain the declaration of block functions usefull to the class "aClass"/]
+[query public q_getBlockFileList (aClass : Class) : OrderedSet(String) 
+	= 	q_getUsedBlocks(aClass)->collect(name.concat('.h'))->asOrderedSet()
+/]
+
+[comment This query returns all the blocks than can be used by the instances of aClass. It is all the blocks that can provide to the instances of a Class some information. /]
+[query public q_getUsedBlocks(aClass : Class) : OrderedSet(Class)
+	= q_getFinalFlowPortIN(aClass)->collect(q_PrevFinalFlowPorts2())->collect(class)->asOrderedSet()
+/]
+
+[comment This query returns all the blocks than can be used by the instance aPart. It is all the blocks that can provide to aPart some information. /]
+[query public q_getUsedBlocks(aPart : Property) : OrderedSet(Class)
+	= q_getPartorRefConnectorEnds(aPart)->collect(q_getPartRefBlock())->asOrderedSet()
+/]
+
+[comment This query returns all the Part properties and Reference properties than can be used by the part aPart. It is all the parts and references that can provide to aPart some information. /]
+[query public q_getUsedPartsandRef(aPart : Property) : OrderedSet(Property)
+	= q_getPartorRefConnectorEnds(aPart)->select(aEnd:ConnectorEnd | q_FlowPortDirIN(aEnd.role.oclAsType(Port)) and q_isFinalFlowPort(aEnd.role.oclAsType(Port)))->collect(q_PrevFinalConnectorEnd())->flatten()->collect(partWithPort)->asOrderedSet()
+/]
+
+[query public q_getBlockFSM(aClass : Class) : OrderedSet(StateMachine)
+	= aClass.ownedBehavior->filter(StateMachine)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the part properties which belong to aClass/]
+[query public q_getBlockParts(aClass : Class) : OrderedSet(Property)
+	= aClass.part->select(aPart:Property | aPart.aggregation.toString()='composite' and not(aPart.association->isEmpty()))->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns all the part properties of the model which are typed with aClass/]
+[query public q_getTypedParts(aClass : Class) : OrderedSet(Property)
+	= q_getAllParts(aClass)->select(aPart : Property | q_getPartRefBlock(aPart) = aClass)->asOrderedSet()
+/]
+
+[comment This query returns all the part properties of the model/]
+[query public q_getAllParts(aElement : Element) : OrderedSet(Property)
+	= q_getBlockList(aElement)->collect(q_getBlockParts())->asOrderedSet()
+/]
+
+[comment This query returns the block for which aPart is an instance/]
+[query public q_getPartRefBlock(aPart : Property) : Class
+	= aPart.type.oclAsType(Class)
+/]
+
+[comment This query returns the properties of aClass that are seen as local variables /]
+[query public q_getBlockLocalAttributes(aClass : Classifier) : OrderedSet(Property)
+	= 	if(aClass.ownedElement->filter(Property)->size() > 0) then
+			aClass.ownedElement->filter(Property)->reject(aProp:Property|aProp.oclIsKindOf(Port) or aProp.oclIsKindOf(Operation) or aProp.association<>null)->asOrderedSet()->sortedBy(name)
+		else
+			null
+		endif
+/]
+
+[query public q_getDefaultValueContent(aAttribute : Property) : OrderedSet(String)
+	= 	aAttribute.default.tokenize(';')->asOrderedSet()->sortedBy(name)
+/]
+
+[query public q_getDefaultValueContentFormated(aAttribute : Property, Prefix : String, aClass : Class) : OrderedSet(String)
+	= 	q_getDefaultValueContent(aAttribute)->collect(replaceStringList(q_getBlockLocalAttributes(aClass)->union(q_getFinalFlowPortOUT(aClass))->collect(name)->asSequence(), Prefix))->asOrderedSet()
+/]
+
+[query public q_getBlockRules(aClass : Class) : OrderedSet(Constraint)
+	= 	aClass.ownedRule->asOrderedSet()->sortedBy(name)
+/]
+
+[query public q_getRuleContents(aRule : Constraint) : OrderedSet(String)
+	= 	aRule.eContents(OpaqueExpression)._body->asOrderedSet()
+/]
+
+[query public q_getBlockRulesContents(aClass : Class) : OrderedSet(String)
+	= 	q_getBlockRules(aClass)->collect(q_getRuleContents())->asOrderedSet()
+/]
+
+[query public q_getBlockRulesContentsFormated(aClass : Class , Prefix : String) : OrderedSet(String)
+	= 	q_getBlockRulesContents(aClass)->collect(replaceStringList(q_getBlockLocalAttributes(aClass)->union(q_getFinalFlowPortOUT(aClass))->collect(name)->asSequence(), Prefix))->asOrderedSet()
+/]
+
+[query public q_getBlockRule(aProp : Property) : OrderedSet(Constraint)
+	= 	q_getBlockRules(aProp.eContainer(Class))->select(aConstraint:Constraint | q_getRuleContents(aConstraint)->exists(aRule:String|aRule.contains(aProp.name)))->asOrderedSet()->sortedBy(name)
+/]
+
+[query public q_getBlockRuleContent(aProp : Property) : OrderedSet(String)
+	= 	q_getBlockRule(aProp)->collect(q_getRuleContents())->asOrderedSet()
+/]
+
+[query public q_getBlockRuleContentFormated(aProp : Property , Prefix : String) : OrderedSet(String)
+	= 	q_getBlockRuleContent(aProp)->collect(replaceStringList(q_getBlockLocalAttributes(aProp.eContainer(Class))->union(q_getFinalFlowPortOUT(aProp.eContainer(Class)))->collect(name)->asSequence(), Prefix))->asOrderedSet()
+/]

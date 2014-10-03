@@ -1,0 +1,62 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_generateMain_B('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::m_basicTemplates_B /]
+
+[template public t_generateMainBModule(FirstInstance : InstanceSpecification,fileName : String, mainPath : String, Version : Real, DataFileName : String)]
+[let fileName_mch: String = mainPath.concat('/').concat(fileName).concat('.mch')]
+[let fileName_imp: String = mainPath.concat('/').concat(fileName).concat('_i.imp')]
+
+[comment Generate the header file .h associate to the block /]
+[FirstInstance.t_generateMainMachine(fileName, fileName_mch,Version,DataFileName)/]
+[comment Generate the B .c file associate to the block /]
+[FirstInstance.t_generateMainImplementation(fileName.concat('_i'), fileName_imp,Version,DataFileName)/]
+
+[/let]
+[/let]
+[/template]
+
+[template public t_generateMainMachine(FirstInstance : InstanceSpecification, fileName : String, filePath : String, Version : Real, DataFileName : String)]
+[file (filePath, false)]
+[comment Add the File Header /]
+[FirstInstance.t_AddFileHeader_B(fileName.concat('.mch'), '', 'Definition of the main B machine which contains the main run cycle operation', Version)/]
+
+MACHINE
+	[fileName/]
+OPERATIONS
+run_cycle =
+	BEGIN
+		skip
+	END
+END
+[/file]
+[/template]
+
+[template public t_generateMainImplementation(FirstInstance : InstanceSpecification, fileName : String, filePath : String, Version : Real, DataFileName : String)]
+[file (filePath, false)]
+[comment Add the File Header /]
+[t_AddFileHeader_B(FirstInstance,fileName.concat('.imp'), '', 'Definition of the main B implementation which contains the main run cycle operation', Version)/]
+
+IMPLEMENTATION
+	[fileName/]
+REFINES
+	[fileName.strtok('_', 0)/]
+IMPORTS
+	[DataFileName/],
+	[FirstInstance.name/] 
+OPERATIONS
+run_cycle =
+	BEGIN
+		[FirstInstance.name.concat('_schedule')/]
+	END
+END
+[/file]
+[/template]

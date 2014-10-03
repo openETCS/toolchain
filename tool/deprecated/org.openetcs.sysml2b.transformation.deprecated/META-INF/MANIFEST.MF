@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sysml2b
+Bundle-SymbolicName: org.openetcs.sysml2b.transformation.deprecated;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.fraunhofer.esk.openetcs.sysml2b.transformation.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.sysml,
+ org.eclipse.core.resources,
+ org.eclipse.emf.validation,
+ org.openetcs.sysml2b.common.deprecated,
+ org.eclipse.jface,
+ org.eclipse.ui.workbench,
+ org.eclipse.swt,
+ org.eclipse.papyrus.infra.onefile,
+ org.openetcs.sysml.constraints;bundle-version="0.1.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

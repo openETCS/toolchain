@@ -1,0 +1,188 @@
+/*
+ - File automatically generated -
+ ============================================================================
+ Name        : CoffeeMaker_1_i.imp
+ Author      : 
+ Version     : 0.1
+ Copyright   : 
+ Description : Definition of the B implementation associated to the SysML instance CoffeeMaker_1 
+ ============================================================================
+ */
+IMPLEMENTATION
+	CoffeeMaker_1_i
+REFINES
+	CoffeeMaker_1
+SEES
+    Def_Types
+SETS
+    MachineStates={Waiting, Grinding, Pouring}
+CONCRETE_VARIABLES
+	/* Inputs */
+	GrindStatus,	
+	StartNewCoffee,	
+	SugarLevel,	
+	WaterTemperature,	
+	
+	/* Outputs */
+	AddSugar,	
+	GrindCoffee,	
+	MixCoffeeAndWater,	
+	NewCup,	
+	StartTimer,	
+	SugarQuantity,	
+	TimeOut,	
+	TimerValue,	
+
+	/* Local variables */
+	PouringDuration,
+	ActiveState
+INVARIANT
+   ActiveState:MachineStates
+INITIALISATION
+
+    /* Inputs */
+	GrindStatus := nonActive;
+	StartNewCoffee := FALSE;
+	SugarLevel := level0;
+	WaterTemperature := 30;
+	
+
+	/* Outputs */
+	AddSugar := FALSE;
+	GrindCoffee := FALSE;
+	MixCoffeeAndWater := FALSE;
+	NewCup := FALSE;
+	StartTimer := FALSE;
+	SugarQuantity := 2;
+	TimeOut := FALSE;
+	TimerValue := 10;
+	
+
+	/* Local Variables */
+	PouringDuration := 10;
+	ActiveState := Waiting
+LOCAL_OPERATIONS
+   SugarLevelOp =
+   BEGIN
+       SugarQuantity :: INT
+   END
+   
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	CoffeeMaker_1_schedule =
+	BEGIN
+		CASE ActiveState OF
+		    EITHER Waiting THEN
+		        IF(StartNewCoffee = TRUE) THEN
+		            GrindCoffee := TRUE;
+		            NewCup := TRUE;
+		            ActiveState := Grinding
+		        END
+          OR Grinding THEN
+              GrindCoffee := FALSE;
+              NewCup := FALSE;
+              IF(GrindStatus=nonActive) THEN
+                  AddSugar := TRUE;
+                  MixCoffeeAndWater := TRUE;
+                  StartTimer := TRUE;
+                  ActiveState := Pouring
+              END
+          OR Pouring THEN
+              AddSugar := FALSE;  
+              MixCoffeeAndWater := FALSE;
+              StartTimer := FALSE;
+              IF(TimeOut = TRUE) THEN
+                  ActiveState := Waiting
+              END
+          ELSE
+              ActiveState := Waiting;
+              GrindCoffee := FALSE;
+		        MixCoffeeAndWater := FALSE;
+		        NewCup := FALSE;
+		        StartTimer := FALSE
+          END
+      END
+		
+	END;
+
+   SugarLevelOp =
+   BEGIN
+       CASE SugarLevel OF
+           EITHER level0 THEN
+               SugarQuantity := 0
+           OR level1 THEN
+               SugarQuantity := 2
+           OR level2 THEN
+               SugarQuantity := 4
+           OR level3 THEN
+               SugarQuantity := 6
+           OR level4 THEN
+               SugarQuantity := 8
+           ELSE
+               SugarQuantity:=2
+           END 
+       END
+   END;
+	/* --------------- Block Write functions --------------- */
+	Write_GrindStatus(temp_var)=
+	BEGIN
+		GrindStatus := temp_var
+	END;
+
+	Write_StartNewCoffee(temp_var)=
+	BEGIN
+		StartNewCoffee := temp_var
+	END;
+
+	Write_SugarLevel(temp_var)=
+	BEGIN
+		SugarLevel := temp_var
+	END;
+
+	Write_WaterTemperature(temp_var)=
+	BEGIN
+		WaterTemperature := temp_var
+	END;
+
+	/* --------------- Block Read functions --------------- */
+	ret_var <-- Read_AddSugar =
+	BEGIN
+		ret_var := AddSugar
+	END;
+
+	ret_var <-- Read_GrindCoffee =
+	BEGIN
+		ret_var := GrindCoffee
+	END;
+
+	ret_var <-- Read_MixCoffeeAndWater =
+	BEGIN
+		ret_var := MixCoffeeAndWater
+	END;
+
+	ret_var <-- Read_NewCup =
+	BEGIN
+		ret_var := NewCup
+	END;
+
+	ret_var <-- Read_StartTimer =
+	BEGIN
+		ret_var := StartTimer
+	END;
+
+	ret_var <-- Read_SugarQuantity =
+	BEGIN
+		ret_var := SugarQuantity
+	END;
+
+	ret_var <-- Read_TimeOut =
+	BEGIN
+		ret_var := TimeOut
+	END;
+
+	ret_var <-- Read_TimerValue =
+	BEGIN
+		ret_var := TimerValue
+	END
+
+END

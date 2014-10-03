@@ -1,0 +1,381 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_generateBlock_B('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::m_basicTemplates_B /]
+[import SysMLTransform::m_instanceQueries /]
+[import SysMLTransform::m_portsQueries /]
+[import SysMLTransform::m_basicQueries /]
+[import SysMLTransform::m_blockQueries /]
+[import SysMLTransform::services::m_services /]
+
+[comment This template generates the B module related to an instance of a block/]
+[template public t_generateBModule(anInstance : InstanceSpecification, mainPath : String, Version:Real, DataFileName : String, varGenerateFinalImpl : Boolean) ]
+
+[let fileName_mch: String = mainPath.concat('/').concat(anInstance.name).concat('.mch')]
+[let fileName_imp: String = mainPath.concat('/').concat(anInstance.name).concat('_i.imp')]
+
+[comment Generate the header file .h associate to the block /]
+[anInstance.t_generateBMachine(fileName_mch,mainPath,Version,DataFileName)/]
+[comment Generate the B .c file associate to the block /]
+[if(q_getSubInstances(anInstance)->size()>0 or varGenerateFinalImpl = true)]
+[anInstance.t_generateBImplementation(fileName_imp,mainPath,Version,DataFileName)/]
+[/if]
+[/let]
+[/let]
+[/template]
+
+[template public t_generateBMachine(anInstance : InstanceSpecification, fileName : String, mainPath : String, Version : Real, DataFileName : String)]
+[let aClass: Class = q_getInstanceType(anInstance)]
+[file (fileName, false)]
+[comment Add the File Header /]
+[anInstance.t_AddFileHeader_B(anInstance.name.concat('.mch'), '', 'Definition of the B machine associated to the SysML instance '.concat(anInstance.name), Version)/]
+
+MACHINE
+	[anInstance.name/]
+SEES
+    [DataFileName/]
+[if (q_getFlowPortIN(aClass)->size() > 0 or q_getFlowPortOUT(aClass)->size() > 0 or q_getBlockLocalAttributes(aClass)->size() > 0)]
+ABSTRACT_VARIABLES
+	/* Inputs */
+	[for (aPort:Port | q_getFlowPortIN(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/][if( (q_getFlowPortOUT(aClass)->size()>0) or (q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortIN(aClass)->indexOf(aPort)<q_getFlowPortIN(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+	
+	/* Outputs */
+	[for (aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/][if((q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortOUT(aClass)->indexOf(aPort)<q_getFlowPortOUT(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+
+	/* Local Variables */
+	[for (aProperty:Property | q_getBlockLocalAttributes(aClass))]
+		[for (aString : String| q_getNamedFields(aProperty, aProperty.name))]
+	[aString/][if((i<q_getNamedFields(aProperty,aProperty.name)->size()) or (q_getBlockLocalAttributes(aClass)->indexOf(aProperty)<q_getBlockLocalAttributes(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* Phase variable */
+	Phase
+	[/if]
+[/if]
+[if (q_getFlowPortIN(aClass)->size() > 0 or q_getFlowPortOUT(aClass)->size() > 0 or q_getBlockLocalAttributes(aClass)->size() > 0 or q_getBlockRules(aClass)->size()>0)]
+INVARIANT
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* Phase variable */
+	Phase : E_Phase &
+	[/if]
+
+	/* Inputs */
+	[for (aPort:Port | q_getFlowPortIN(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/]:[q_SysMLToBType(aPort.q_getFields()->at(i).type)/][if( (q_getFlowPortOUT(aClass)->size()>0) or (q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortIN(aClass)->indexOf(aPort)<q_getFlowPortIN(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)] &[/if][/for]
+	
+	[/for]
+	
+	/* Outputs */
+	[for (aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/]:[q_SysMLToBType(aPort.q_getFields()->at(i).type)/][if((q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortOUT(aClass)->indexOf(aPort)<q_getFlowPortOUT(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)] &[/if][/for]
+	
+	[/for]
+
+	/* Local Variables */
+	[for (aProperty:Property | q_getBlockLocalAttributes(aClass))]
+		[for (aString : String| q_getNamedFields(aProperty, aProperty.name))]
+	[aString/]:[q_SysMLToBType(aProperty.q_getFields()->at(i).type)/][if((i<q_getNamedFields(aProperty,aProperty.name)->size()) or (q_getBlockLocalAttributes(aClass)->indexOf(aProperty)<q_getBlockLocalAttributes(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)] &[/if][/for]
+	
+	[/for]
+
+	/* instance rule(s) */
+	[for (aString : String | q_getBlockRulesContents(aClass))]
+	(Phase = out => ([aString/]))[if(aString <> q_getBlockRulesContents(aClass)->last())]&[/if]
+	[/for]
+[/if]
+[if (q_getFlowPortIN(aClass)->size() > 0 or q_getFlowPortOUT(aClass)->size() > 0 or q_getBlockLocalAttributes(aClass)->size() > 0)]
+INITIALISATION
+	[for(aProp : Property | q_getFlowPortIN(aClass)->union(q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass)))->asOrderedSet())]
+		[for (aString : String| q_getNamedFields(aProp, aProp.name))]
+	[aString/][if(i<aProp.q_getNamedFields(aProp.name)->size() or aProp<>q_getFlowPortIN(aClass)->union(q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass)))->asOrderedSet()->last() or q_getBlockRulesContents(aClass)->size()>0)],[else]:([/if]
+		[/for]
+	[/for]
+	[if(q_getBlockRulesContents(aClass)->size()>0)]Phase:([/if]
+	[for(aProp : Property | q_getFlowPortIN(aClass)->union(q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass)))->asOrderedSet())]
+		[for (aString : String| q_getNamedFields(aProp, aProp.name))]
+	[aString/]:[q_SysMLToBType(aProp.q_getFields()->at(i).type)/][if(i<aProp.q_getNamedFields(aProp.name)->size() or aProp<>q_getFlowPortIN(aClass)->union(q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass)))->asOrderedSet()->last() or q_getBlockRulesContents(aClass)->size()>0)] &[else])[/if]
+		[/for]
+	[/for]
+	[if(q_getBlockRulesContents(aClass)->size()>0)]Phase=in)[/if]
+[/if]
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	[anInstance.name/]_schedule =
+	BEGIN
+	[if(q_getFlowPortOUT(aClass)->size()=0 and q_getBlockLocalAttributes(aClass)->size()=0)]
+		[if(q_getBlockRulesContents(aClass)->size()>0)]
+		/* Update Phase */
+		Phase := out
+		[else]
+		skip
+		[/if]
+	[else]
+		[for(aProp : Property | q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass))->asOrderedSet())]
+			[for (aString : String| q_getNamedFields(aProp, aProp.name))]
+		[aString/][if(i<aProp.q_getNamedFields(aProp.name)->size() or aProp<>q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass))->asOrderedSet()->last())],[else]:([/if]
+			[/for]
+		[/for]
+		[for(aProp : Property | q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass))->asOrderedSet())]
+			[for (aString : String| q_getNamedFields(aProp, aProp.name))]
+		[aString/]:[q_SysMLToBType(aProp.q_getFields()->at(i).type)/][if(i<aProp.q_getNamedFields(aProp.name)->size() or aProp<>q_getFlowPortOUT(aClass)->union(q_getBlockLocalAttributes(aClass))->asOrderedSet()->last() or q_getBlockRulesContents(aClass)->size()>0)] &[else])[/if]
+			[/for]
+		[/for]
+		[for (aString : String | q_getBlockRulesContents(aClass))]
+		([aString/])[if(aString <> q_getBlockRulesContents(aClass)->last())] &[elseif(q_getBlockRulesContents(aClass)->size()>0)]) || [else] || [/if]
+		[/for]  
+		[if(q_getBlockRulesContents(aClass)->size()>0)]
+		/* Update Phase */
+		Phase := out
+		[/if]
+	[/if]
+	END[if( (q_getFlowPortIN(aClass)->size()>0) or q_getFlowPortOUT(aClass)->size()>0)];[/if]
+
+   [comment Write functions for each input/]
+	/* --------------- Block Write functions --------------- */
+	[for (aPort:Port | q_getFlowPortIN(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	Write_[aString/](temp_var)=
+	PRE
+		temp_var:[q_SysMLToBType(aPort.q_getFields()->at(i).type)/][if(q_getBlockRulesContents(aClass)->size()>0)] &	
+		Phase = in
+		[/if]
+	THEN
+		[aString/] := temp_var
+	END[if( (q_getFlowPortOUT(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortIN(aClass)->indexOf(aPort)<q_getFlowPortIN(aClass)->size()))];[/if]
+
+		[/for]
+	[/for]
+	[comment Read functions for each output/]
+	/* --------------- Block Read functions --------------- */
+	[for (aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	ret_var <-- Read_[aString/] =
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	PRE		
+		Phase = out
+	THEN
+	[else]
+	BEGIN
+	[/if]
+		ret_var :(ret_var:[q_SysMLToBType(aPort.q_getFields()->at(i).type)/] &
+					ret_var = [aString/])
+	END[if( (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortOUT(aClass)->indexOf(aPort)<q_getFlowPortOUT(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)];[/if]
+
+		[/for]
+	[/for]
+	[comment functions which set Phase variable/]
+	/* --------------- Block Phase functions --------------- */
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	Phase_In =
+	BEGIN
+		Phase := in
+	END;
+
+	Phase_ScheduleReq =
+	BEGIN
+		Phase := scheduleReq
+	END
+	[/if]
+END
+[/file]
+[/let]
+[/template]
+
+[template public t_generateBImplementation(anInstance : InstanceSpecification, fileName : String, mainPath : String, Version : Real, DataFileName : String)]
+[let aClass: Class = q_getInstanceType(anInstance)]
+[file (fileName, false)]
+[comment Add the File Header /]
+[anInstance.t_AddFileHeader_B(anInstance.name.concat('_i.imp'), '', 'Definition of the B implementation associated to the SysML instance '.concat(anInstance.name), Version)/]
+IMPLEMENTATION
+	[anInstance.name/]_i
+REFINES
+	[anInstance.name/]
+SEES
+    [DataFileName/]
+[if(q_getSubInstances(anInstance)->size()>0)]
+IMPORTS
+	 [for (aSubInstance : InstanceSpecification | q_getSubInstances(anInstance))]
+	 part[i/].[aSubInstance.name/][if(i<q_getSubInstances(anInstance)->size())],[/if]
+	 [/for]
+[/if]
+[if (q_getFlowPortIN(aClass)->size() > 0 or q_getFlowPortOUT(aClass)->size() > 0 or q_getBlockLocalAttributes(aClass)->size() > 0)]
+CONCRETE_VARIABLES
+	/* Inputs */
+	[for (aPort:Port | q_getFlowPortIN(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/][if( (q_getFlowPortOUT(aClass)->size()>0) or (q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortIN(aClass)->indexOf(aPort)<q_getFlowPortIN(aClass)->size())or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+	
+	/* Outputs */
+	[for (aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/][if((q_getBlockLocalAttributes(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortOUT(aClass)->indexOf(aPort)<q_getFlowPortOUT(aClass)->size())or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+
+	/* Local variables */
+	[for (aProperty:Property | q_getBlockLocalAttributes(aClass))]
+		[for (aString : String| q_getNamedFields(aProperty, aProperty.name))]
+	[aString/][if((i<q_getNamedFields(aProperty,aProperty.name)->size()) or (q_getBlockLocalAttributes(aClass)->indexOf(aProperty)<q_getBlockLocalAttributes(aClass)->size()) or q_getBlockRulesContents(aClass)->size()>0)],[/if][/for]
+	
+	[/for]
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* Phase variable */
+	Phase
+	[/if]
+[/if]
+[if (q_getFlowPortIN(aClass)->size() > 0 or q_getFlowPortOUT(aClass)->size() > 0 or q_getBlockLocalAttributes(aClass)->size() > 0)]
+INITIALISATION
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* Phase variable */
+	Phase := in[if(q_getFlowPortIN(aClass)->size()>0 or q_getFlowPortOUT(aClass)->size()>0 or q_getBlockLocalAttributes(aClass)->size()>0)];[/if]
+	[/if]
+
+    /* Inputs */
+	[t_InitWithDefaultValue_B(anInstance,q_getFlowPortIN(aClass), q_getFlowPortOUT(aClass)->size()+q_getBlockLocalAttributes(aClass)->size() = 0)/]
+
+	/* Outputs */
+	[t_InitWithDefaultValue_B(anInstance,q_getFlowPortOUT(aClass), q_getBlockLocalAttributes(aClass)->size() = 0)/]
+
+	/* Local Variables */
+	[t_InitWithDefaultValue_B(anInstance,q_getBlockLocalAttributes(aClass), true)/]
+[/if]
+OPERATIONS
+	/* --------------- Block main operation --------------- */
+	[anInstance.name/]_schedule =
+	[if(q_getFlowPortOUT(aClass)->size()=0 and q_getBlockLocalAttributes(aClass)->size()=0 and q_getSubInstances(anInstance)->size()=0)]
+	BEGIN
+		[if(q_getBlockRulesContents(aClass)->size()>0)]
+		/* Update Phase */
+		Phase := out
+		[else]
+		skip
+		[/if]
+	[elseif(q_getSubInstances(anInstance)->size()=0)]
+	BEGIN
+		/* This operation has to be completed manually */
+		[if(q_getBlockRulesContents(aClass)->size()>0)]
+		/* Update Phase */
+		Phase := out[if(q_getFlowPortOUT(aClass)->size()>0 or q_getBlockLocalAttributes(aClass)->size()>0)];[/if]
+		[/if]
+		[t_InitWithDefaultValue_B(anInstance,q_getFlowPortOUT(aClass), q_getBlockLocalAttributes(aClass)->size() = 0)/]
+		[t_InitWithDefaultValue_B(anInstance,q_getBlockLocalAttributes(aClass), true)/]
+	[else]
+	VAR
+		/* local variables used for buffering values */
+	[for(aPort : Port | q_getSubPorts(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+		l_[aString/][if(i<q_getNamedFields(aPort, aPort.name)->size() or aPort <> q_getSubPorts(aClass)->last())],[/if]
+		[/for]
+	[/for]
+	IN
+	[for(varUnused : Integer | q_getBlockParts(aClass)->collect(q_getNbMaxPrevParts())->asOrderedSet())]	
+		[for(aPart : Property | q_getBlockParts(aClass)->select(aPart : Property | q_getNbMaxPrevParts(aPart) = i))]
+
+			[if(q_getBlockRulesContents(q_getPartRefBlock(aPart))->size()>0)]
+	part[q_getPartRank(aPart,anInstance)/].Phase_In;		
+			[/if]
+			[for (aPort:Port | q_getFlowPortIN(q_getPartRefBlock(aPart)))]
+				[for (aString : String| q_getNamedFields(aPort, aPort.name))]	
+					[if(q_isDelayedEnd(aPort,aPart))]
+	[comment TODO - to continue in order to manage the connectors with the delayed stereotype /]
+	part[q_getPartRank(aPart,anInstance)/].Write_[aString/]([q_getNamedFields(q_PrevFlowPort_2(aPart, aPort), q_PrevFlowPort_2(aPart, aPort).name)->at(i)/]_delayed);
+					[else]
+						[if(q_PrevFlowPort_2(aPart, aPort).class = aClass)]
+	part[q_getPartRank(aPart,anInstance)/].Write_[aString/]([q_getNamedFields(q_PrevFlowPort_2(aPart, aPort), q_PrevFlowPort_2(aPart, aPort).name)->at(i)/]);
+						[else]
+	part[q_getPartRank(aPart,anInstance)/].Write_[aString/](l_[q_getNamedFields(q_PrevFlowPort_2(aPart, aPort), q_PrevFlowPort_2(aPart, aPort).name)->at(i)/]);
+						[/if]
+					[/if]
+				[/for]
+			[/for]
+	[if(q_getBlockRulesContents(q_getPartRefBlock(aPart))->size()>0)]
+	part[q_getPartRank(aPart,anInstance)/].Phase_ScheduleReq;		
+	[/if]
+	part[q_getPartRank(aPart,anInstance)/].[q_getSubInstances(anInstance)->at(q_getPartRank(aPart,anInstance)).name/]_schedule[if(q_getFlowPortOUT(q_getPartRefBlock(aPart))->size()>0 or q_getFlowPortOUT(aClass)->size()>0)];[/if]
+			[for (aPort:Port | q_getFlowPortOUT(q_getPartRefBlock(aPart)))]
+				[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+					[if(q_isDelayedEnd(aPort,aPart))]
+	[comment TODO - to continue in order to manage the connectors with the delayed stereotype /]
+	[aString/]_delayed <-- part[q_getPartRank(aPart,anInstance)/].Read_[aString/][if(aString<>q_getNamedFields(aPort, aPort.name)->last() or aPort<>q_getFlowPortOUT(q_getPartRefBlock(aPart))->last() or q_getNbMaxPrevParts(aPart) < (q_getBlockParts(aClass)->collect(q_getNbMaxPrevParts())->max()) or (q_getBlockParts(aClass)->select(aaPart : Property | q_getNbMaxPrevParts(aaPart) = q_getNbMaxPrevParts(aPart))->last()) <> aPart or q_getFlowPortOUT(aClass)->size()>0)];[/if]
+					[else]
+	l_[aString/] <-- part[q_getPartRank(aPart,anInstance)/].Read_[aString/][if(aString<>q_getNamedFields(aPort, aPort.name)->last() or aPort<>q_getFlowPortOUT(q_getPartRefBlock(aPart))->last() or q_getNbMaxPrevParts(aPart) < (q_getBlockParts(aClass)->collect(q_getNbMaxPrevParts())->max()) or (q_getBlockParts(aClass)->select(aaPart : Property | q_getNbMaxPrevParts(aaPart) = q_getNbMaxPrevParts(aPart))->last()) <> aPart or q_getFlowPortOUT(aClass)->size()>0)];[/if]
+					[/if]
+				[/for]
+			[/for]
+		[/for]
+	[/for]
+	
+	/* Update instance outputs */
+	[for(aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	[aString/] := l_[q_getNamedFields(q_PrevFlowPort2(aPort)->first(), q_PrevFlowPort2(aPort)->first().name)->at(i)/][if(aString <> q_getNamedFields(aPort, aPort.name)->last() or aPort<>q_getFlowPortOUT(aClass)->last() or q_getBlockRulesContents(aClass)->size()>0)];[/if]		
+		[/for]
+	[/for]
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* Update Phase */
+		Phase := out
+	[/if]
+	[/if]
+	END[if( (q_getFlowPortIN(aClass)->size()>0) or q_getFlowPortOUT(aClass)->size()>0)];[/if]
+
+   [comment Write functions for each input/]
+	/* --------------- Block Write functions --------------- */
+	[for (aPort:Port | q_getFlowPortIN(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	Write_[aString/](temp_var)=
+	BEGIN
+		[aString/] := temp_var
+	END[if( (q_getFlowPortOUT(aClass)->size()>0) or (i<q_getNamedFields(aPort, aPort.name)->size()) or (q_getFlowPortIN(aClass)->indexOf(aPort)<q_getFlowPortIN(aClass)->size()))];[/if]
+
+		[/for]
+	[/for]
+	[comment Read functions for each output/]
+	/* --------------- Block Read functions --------------- */
+	[for (aPort:Port | q_getFlowPortOUT(aClass))]
+		[for (aString : String| q_getNamedFields(aPort, aPort.name))]
+	ret_var <-- Read_[aString/] =
+	BEGIN
+		ret_var := [aString/]
+	END[if(aString<>q_getNamedFields(aPort, aPort.name)->last() or aPort<>q_getFlowPortOUT(aClass)->last() or q_getBlockRulesContents(aClass)->size()>0)];[/if]
+
+		[/for]
+	[/for]
+	[comment functions which set Phase variable/]
+	[if(q_getBlockRulesContents(aClass)->size()>0)]
+	/* --------------- Block Phase functions --------------- */
+	Phase_In =
+	BEGIN
+		Phase := in
+	END;
+
+	Phase_ScheduleReq =
+	BEGIN
+		Phase := scheduleReq
+	END
+	[/if]
+END
+[/file]
+[/let]
+[/template]

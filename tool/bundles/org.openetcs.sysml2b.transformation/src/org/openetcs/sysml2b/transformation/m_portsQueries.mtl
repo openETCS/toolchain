@@ -1,0 +1,312 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_portsQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import SysMLTransform::services::m_services /]
+[import SysMLTransform::m_blockQueries /]
+
+[comment This module file contains the queries that manage basics functions about the connections with flow ports between the model elements/]
+
+[comment This query returns all the connector ends of the model/]
+[query public q_getAllConnectorEnd(aElement : Element): OrderedSet(ConnectorEnd)
+	= if(aElement.ancestors()->size() = 0) then
+				aElement.eAllContents(ConnectorEnd)->asOrderedSet()
+			else
+				aElement.ancestors()->last().eAllContents(ConnectorEnd)->asOrderedSet()
+			endif
+/]
+
+[comment This query returns all the connector ends for which the port is aPort/]
+[query public q_getPort(aConnectorEnd : ConnectorEnd) : Port
+	= aConnectorEnd.role.oclAsType(Port)
+/]
+
+[comment This query returns all the connector ends for which the port is aPort/]
+[query public q_getConnectorEnds(aPort : Port) : OrderedSet(ConnectorEnd)
+	= aPort.end->asOrderedSet()
+/]
+
+[comment This query returns all the connector ends that belong to aPart and to aPort. /]
+[query public q_getConnectorEnds_2(aPart : Property, aPort : Port) : OrderedSet(ConnectorEnd) 
+	= 	q_getConnectorEnds(aPort)->select(aEnd : ConnectorEnd | aEnd.partWithPort = aPart)->asOrderedSet()
+/]
+
+[comment This query returns all the connectors connected with aPort/]
+[query public q_getConnectors(aPort : Port) : OrderedSet(Connector)
+	= q_getConnectorEnds(aPort)->collect(owner)->asOrderedSet()
+/]
+
+[comment This query returns all the connectors connected to the port of aConnectorEnd and which belong to the same part property. Returns null if the connector end does not belong to a part/]
+[query public q_getConnectors(aConnectorEnd : ConnectorEnd) : OrderedSet(Connector)
+	= 	if(aConnectorEnd.partWithPort->size() >0) then
+			q_getConnectorEnds(aConnectorEnd.role.oclAsType(Port))->select(aEnd : ConnectorEnd | aEnd.partWithPort = aConnectorEnd.partWithPort)->collect(owner)->asOrderedSet()
+		else
+			null
+		endif
+/]
+
+[comment This query returns the connector end that is connected with aConnectorEnd. /]
+[query public q_getConnectedEnd(aConnectorEnd : ConnectorEnd) : ConnectorEnd
+	= q_getAllConnectorEnd(aConnectorEnd)->select(aEnd : ConnectorEnd | (aEnd.owner = aConnectorEnd.owner) and (aEnd <> aConnectorEnd))->asOrderedSet()->first()
+/]
+
+[comment This query returns the connector ends that belong to ports which are connected with aPort. /]
+[query public q_getConnectedEnds(aPort : Port) : OrderedSet(ConnectorEnd)
+	= q_getConnectorEnds(aPort)->collect(q_getConnectedEnd())->asOrderedSet()
+/]
+
+[comment This query returns the set of flow ports that belong to aClass. /]
+[query public q_getFlowPorts(aClass : Class) : OrderedSet(Port)
+	= aClass.ownedElement->filter(Port)->select(aPort:Port | (aPort.q_FlowPortDirOUT()=true) or (aPort.q_FlowPortDirIN()=true))->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the ports that are connected with aPort. /]
+[query public q_getConnectedPorts2(aPort : Port) : OrderedSet(Port)
+	= q_getConnectedEnds(aPort)->collect(role)->collect(oclAsType(Port))->select(aaPort : Port | (aaPort.q_FlowPortDirOUT()=true) or (aaPort.q_FlowPortDirIN()=true))->asOrderedSet()
+/]
+
+[comment This query returns all the connector end that belong to the part or reference property called aProp. /]
+[query public q_getPartorRefConnectorEnds(aProp : Property) : OrderedSet(ConnectorEnd) 
+	= 	q_getFlowPorts(q_getPartRefBlock(aProp))->collect(q_getConnectorEnds())->select(aEnd : ConnectorEnd | aEnd.partWithPort = aProp)->asOrderedSet()
+/]
+
+[query public q_FlowPortDirOUT(aPort : Port) : Boolean
+	= 	if(aPort.hasStereotype('SysML::PortAndFlows::FlowPort')) then
+			if(getTaggedValue(aPort, 'SysML::PortAndFlows::FlowPort', 'direction')->first().toString()='out') then
+				true
+			else
+				false
+			endif
+		else
+			false
+		endif
+/]
+
+[query public q_FlowPortDirIN(aPort : Port) : Boolean
+	= 	if(aPort.hasStereotype('SysML::PortAndFlows::FlowPort')) then
+			if(getTaggedValue(aPort, 'SysML::PortAndFlows::FlowPort', 'direction')->first().toString()='in') then
+				true
+			else
+				false
+			endif
+		else
+			false
+		endif
+/]
+
+[comment This query returns the flow ports with IN direction owned by aClass /]
+[query public q_getFlowPortIN(aClass : Class) : OrderedSet(Port)
+	= q_getFlowPorts(aClass)->select(aPort:Port | aPort.q_FlowPortDirIN()=true)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the flow ports with OUT direction owned by aClass /]
+[query public q_getFlowPortOUT(aClass : Class) : OrderedSet(Port)
+	= q_getFlowPorts(aClass)->select(aPort:Port | aPort.q_FlowPortDirOUT()=true)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns true if the port is a final flow port /]
+[query public q_isFinalFlowPort(aPort : Port) : Boolean
+	= 	if ( q_getConnectedPorts2(aPort)->collect(class.name)->exists(aName:String | q_getBlockParts(aPort.class)->collect(type.name)->includes(aName) ) ) then
+			false else
+			true
+		endif
+/]
+
+[comment This query returns the final flow ports owned by aClass /]
+[query public q_getFinalFlowPort(aClass : Class) : OrderedSet(Port)
+	= q_getFlowPorts(aClass)->select(aPort:Port | aPort.q_isFinalFlowPort()=true)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the final flow ports with IN direction owned by aClass /]
+[query public q_getFinalFlowPortIN(aClass : Class) : OrderedSet(Port)
+	= q_getFinalFlowPort(aClass)->select(aPort:Port | aPort.q_FlowPortDirIN()=true)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the final flow ports with OUT direction owned by aClass /]
+[query public q_getFinalFlowPortOUT(aClass : Class) : OrderedSet(Port)
+	= q_getFinalFlowPort(aClass)->select(aPort:Port | aPort.q_FlowPortDirOUT()=true)->asOrderedSet()->sortedBy(name)
+/]
+
+[comment This query returns the connector ends which belong to a previous flow port of the one which owns aConnectorEnd.
+If aConnectorEnd belong to a part, then there is only one previous connector end connected with this one.
+If aConnectorEnd does not belong to a part, then it it can have several previous connector ends.
+If the port whith which aConnectorEnd belongs does not have a previous flow port, then the query returns aConnectorEnd. /]
+[query public q_PrevConnectorEnd(aConnectorEnd : ConnectorEnd) : OrderedSet(ConnectorEnd)
+	= 	if(q_PrevFlowPort2(aConnectorEnd.role.oclAsType(Port))->size()>0) then
+			if(q_FlowPortDirOUT(aConnectorEnd.role.oclAsType(Port)) and q_isFinalFlowPort(aConnectorEnd.role.oclAsType(Port))) then
+				aConnectorEnd
+			else
+				if(aConnectorEnd.partWithPort->size() > 0) then
+					if(q_FlowPortDirOUT(aConnectorEnd.role.oclAsType(Port)) and not(q_isFinalFlowPort(aConnectorEnd.role.oclAsType(Port)))) then
+						q_getConnectedEnds(aConnectorEnd.role.oclAsType(Port))->select(aEnd : ConnectorEnd | q_PrevFlowPort2(aConnectorEnd.role.oclAsType(Port))->includes(aEnd.role.oclAsType(Port)))->asOrderedSet()
+					else
+						q_PrevFlowPort2(aConnectorEnd.role.oclAsType(Port))->collect(q_getConnectors())->select(aConnector : Connector | q_getConnectors(aConnectorEnd)->includes(aConnector))->collect(end)->select(aEnd : ConnectorEnd | aEnd.role <> aConnectorEnd.role)->asOrderedSet()			
+					endif
+				else
+					q_getConnectedEnds(aConnectorEnd.role.oclAsType(Port))->select(aEnd : ConnectorEnd | q_PrevFlowPort2(aConnectorEnd.role.oclAsType(Port))->includes(aEnd.role.oclAsType(Port)))->asOrderedSet()
+				endif
+			endif
+		else
+			null
+		endif
+/]
+
+[comment This query returns the connector ends which belong to a next flow port of the one which owns aConnectorEnd.
+It can have several next connector ends.
+If the port whith which aConnectorEnd belongs does not have a next flow port, then the query returns aConnectorEnd. /]
+[comment TODO /]
+[query public q_NextConnectorEnd(aConnectorEnd : ConnectorEnd) : OrderedSet(ConnectorEnd)
+	= 	if(q_NextFlowPort2(aConnectorEnd.role.oclAsType(Port))->size()>0) then
+			if(q_FlowPortDirIN(aConnectorEnd.role.oclAsType(Port)) and q_isFinalFlowPort(aConnectorEnd.role.oclAsType(Port))) then
+				aConnectorEnd
+			else
+				q_getConnectedEnds(aConnectorEnd.role.oclAsType(Port))->select(aEnd : ConnectorEnd | q_NextFlowPort2(aConnectorEnd.role.oclAsType(Port))->includes(aEnd.role.oclAsType(Port)))->asOrderedSet()
+			endif
+		else
+			null
+		endif
+
+/]
+
+[comment This query returns the previous connectorEnd of a ConnectorEnd which belong to the part aPart and the port aPort. When a connector end belongs to a port and a part, then it can have only one previous connector end./]
+[query public q_PrevConnectorEnd_2(aPart : Property, aPort : Port) : ConnectorEnd
+	= 	q_getConnectorEnds_2(aPart, aPort)->first().q_PrevConnectorEnd()->first()
+/]
+
+[comment This query returns the final previous connectorEnds of aConnectorEnd./]
+[query public q_PrevFinalConnectorEnd(aConnectorEnd : ConnectorEnd) : OrderedSet(ConnectorEnd)
+	= 	if(q_FlowPortDirOUT(aConnectorEnd.role.oclAsType(Port)) and q_isFinalFlowPort(aConnectorEnd.role.oclAsType(Port))) then
+			aConnectorEnd
+		else
+			q_PrevConnectorEnd(aConnectorEnd)->collect(q_PrevFinalConnectorEnd())
+		endif
+/]
+
+[comment This query returns the previous final connectorEnds of aConnectorEnd ./]
+[query public q_PrevFinalConnectorEnd_2(aPart : Property, aPort : Port) : OrderedSet(ConnectorEnd)
+	= 	q_getConnectorEnds_2(aPart, aPort)->first().q_PrevFinalConnectorEnd()
+/]
+
+[comment This query returns all the previous ports of aPort. If the direction of aPort is OUT, it cannot exist more than one previous flow port. 
+If the flow port does not have a previous flow port, then it returns aPort /]
+[query public q_PrevFlowPort2(aPort : Port) : OrderedSet(Port)
+	= 	if(aPort.hasStereotype('SysML::PortAndFlows::FlowPort')) then
+			if(q_FlowPortDirOUT(aPort)) then
+				if(q_isFinalFlowPort(aPort)) then
+					aPort->asOrderedSet()
+				else
+					if( (q_getConnectedPorts2(aPort)->collect(class.name)->select(aName:String | q_getBlockParts(aPort.class)->collect(type.name)->includes(aName)))->size()=1 ) then
+						(q_getConnectedPorts2(aPort)->select(aaPort:Port | q_getBlockParts(aPort.class)->collect(type.name)->includes(aaPort.class.name)))
+					else
+						null
+					endif
+				endif
+			else
+				if(q_FlowPortDirIN(aPort)) then
+					if( (q_getConnectedPorts2(aPort)->collect(class.name)->reject(aName:String | q_getBlockParts(aPort.class)->collect(type.name)->includes(aName)))->size()>0 ) then
+						(q_getConnectedPorts2(aPort)->reject(aaPort:Port | q_getBlockParts(aPort.class)->collect(type.name)->includes(aaPort.class.name)))
+					else
+						null
+					endif
+				else
+					null
+				endif
+			endif
+		else
+			null
+		endif
+/]
+
+[comment This query returns all the next ports of aPort.  
+If the flow port does not have a next flow port, then it returns aPort /]
+[query public q_NextFlowPort2(aPort : Port) : OrderedSet(Port)
+	= 	if(aPort.hasStereotype('SysML::PortAndFlows::FlowPort')) then
+			if(q_FlowPortDirIN(aPort)) then
+				if(q_isFinalFlowPort(aPort)) then
+					aPort->asOrderedSet()
+				else
+					if( (q_getConnectedPorts2(aPort)->collect(class.name)->select(aName:String | q_getBlockParts(aPort.class)->collect(type.name)->includes(aName)))->size()>0 ) then
+						(q_getConnectedPorts2(aPort)->select(aaPort:Port | q_getBlockParts(aPort.class)->collect(type.name)->includes(aaPort.class.name)))
+					else
+						null
+					endif
+				endif
+			else
+				if(q_FlowPortDirOUT(aPort)) then
+					if( (q_getConnectedPorts2(aPort)->collect(class.name)->reject(aName:String | q_getBlockParts(aPort.class)->collect(type.name)->includes(aName)))->size()>0 ) then
+						(q_getConnectedPorts2(aPort)->reject(aaPort:Port | q_getBlockParts(aPort.class)->collect(type.name)->includes(aaPort.class.name)))
+					else
+						null
+					endif
+				else
+					null
+				endif
+			endif
+		else
+			null
+		endif
+/]
+
+[comment This query returns the previous port of of aPort in the context of the part property aPart ./]
+[query public q_PrevFlowPort_2(aPart : Property, aPort : Port) : Port
+	= 	q_getConnectorEnds(aPort)->select(aEnd : ConnectorEnd | aEnd.partWithPort = aPart)->collect(q_PrevConnectorEnd())->collect(role)->collect(oclAsType(Port))->asOrderedSet()->first()
+/]
+
+[comment This query returns all the previous final ports of aPort./]
+[query public q_PrevFinalFlowPorts2(aPort : Port) : OrderedSet(Port)
+	= 	if(aPort.hasStereotype('SysML::PortAndFlows::FlowPort')) then
+			if(q_FlowPortDirOUT(aPort) and q_isFinalFlowPort(aPort)) then
+				aPort
+			else
+				q_PrevFlowPort2(aPort)->collect(q_PrevFinalFlowPorts2())
+			endif
+		else
+			null
+		endif
+/]
+
+[comment  This query returns true if it exists a connector end connected to aConnectorEnd which does not belong to a "Out" port of the owning block of the part that contain aConnectorEnd (called aClass)/]
+[query public q_isALocalVariable(aPort : Port, aPart : Property, aClass : Class) : Boolean
+	= q_getConnectorEnds_2(aPart, aPort)->collect(q_getConnectedEnd())->exists(aaConnectorEnd : ConnectorEnd | q_getFlowPortOUT(aClass)->excludes(q_getPort(aaConnectorEnd)))
+/]
+
+[comment This query returns the 'Out' ports that belong to the parts of aClass and for which a local varaible have to be created /]
+[query public q_getSubPorts(aClass : Class): OrderedSet(Port)
+	= q_getBlockParts(aClass)->collect(q_getPartRefBlock())->collect(q_getFlowPortOUT())->asOrderedSet()
+/]
+
+[query public q_getNextParts(aPart : Property) : Set(Property)
+	= q_getPartorRefConnectorEnds(aPart)->select(aaEnd : ConnectorEnd | q_FlowPortDirOUT(q_getPort(aaEnd)))->collect(q_NextConnectorEnd())->select(aEnd : ConnectorEnd | (aEnd.partWithPort->size() > 0) and (aEnd.partWithPort <> aPart))->collect(partWithPort)->asSet()
+/]
+
+[query public q_getPrevParts(aPart : Property) : OrderedSet(Property)
+	= q_getPartorRefConnectorEnds(aPart)->select(aaEnd : ConnectorEnd | q_FlowPortDirIN(q_getPort(aaEnd)))->collect(q_PrevConnectorEnd())->select(aEnd : ConnectorEnd | (aEnd.partWithPort->size() > 0) and (aEnd.partWithPort <> aPart))->collect(partWithPort)->asOrderedSet()
+/]
+
+[comment This query returns an integer which indicates the rank of the part. For example, if a class has three parts : PartA, PartB and PartC.
+An input port of the class gives an information to PartA. The result computed by PartA is transmitted to PartB which transmits its result to PartC. PartC also receives an information directly from an input of the owning class.
+Then, the rank of PartA is 0, the rank of PartB is 1 and the rank of Part C is 2./]
+[query public q_getNbMaxPrevParts(aPart : Property) : Integer
+	= 	if(q_getPrevParts(aPart)->size() = 0) then
+			1
+		else
+			q_getPrevParts(aPart)->collect(q_getNbMaxPrevParts())->asOrderedSet()->max() +1
+		endif
+/]
+
+[comment This query returns true if aConnector has the stereotype 'profile::DelayedConnector'. TODO/]
+[query public q_isDelayedConnector(aConnector : Connector) : Boolean
+	=	hasStereotype(aConnector,'profile::DelayedConnector')
+/]
+
+[comment This query returns true if the connector end defined by aPort and aPart is connected to a delayed connector/]
+[query public q_isDelayedEnd(aPort : Port, aPart : Property) : Boolean
+	=	q_getConnectorEnds_2(aPart, aPort)->collect(q_getConnectors())->collect(q_isDelayedConnector())->includes(true)
+/]
