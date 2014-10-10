@@ -10,6 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
+	@SuppressWarnings("javadoc")
 	public static final String PLUGIN_ID = "org.openetcs.datadictionary.transform"; //$NON-NLS-1$
 
 	// The shared instance
