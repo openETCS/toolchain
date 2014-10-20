@@ -31,7 +31,6 @@ import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.uml2.uml.Model;
-
 import org.openetcs.common.IOUtil;
 
 

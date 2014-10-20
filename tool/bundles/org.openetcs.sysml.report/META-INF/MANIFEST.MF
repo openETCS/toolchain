@@ -12,8 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.uml2.uml;bundle-version="4.1.2",
  org.openetcs.common;bundle-version="0.1.0",
- org.eclipse.core.resources.source;bundle-version="3.8.101",
- org.eclipse.papyrus.infra.onefile
+ org.eclipse.papyrus.infra.onefile,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 
