@@ -1,3 +1,12 @@
+** Toolspint 20 (Ends 17-October-2014)
+*** resolved issues
+- #422 Integrate SysML to B translator into openETCS
+- #70 Chapter for developer documentation: License Guideline
+
+*** Important commit 
+- ab6a0ebd150ef6ac03a607b11bd4fc40e9c937b2
+ [#422] adding SysML2B transformation and various correction.
+
 ** Toolspint 18 (Ends 19-September-2014)
 *** resolved issues
 - #423 Feature Request: Print Papyrus model
