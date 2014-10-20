@@ -1,11 +1,17 @@
 package org.openetcs.datadictionary.transform;
 
+/**
+ * Factory for Bitwalker transformers. 
+ */
 public class TransformServiceFactory {
-
-	private static ITransformService service = new TransformServiceImpl();
-	
-	public static ITransformService getInstance() {
-		return service;
+		
+	/**
+	 * Create a bitwalker transformer.
+	 * 
+	 * @return new Bitwalker transformer.
+	 */
+	public static ITransformer createTransformer() {
+		return new BitwalkerTransformer();
 	}
 	
 }

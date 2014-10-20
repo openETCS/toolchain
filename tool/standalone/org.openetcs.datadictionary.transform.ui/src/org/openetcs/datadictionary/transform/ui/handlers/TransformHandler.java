@@ -1,23 +1,20 @@
 package org.openetcs.datadictionary.transform.ui.handlers;
 
-import java.io.File;
+import java.util.Arrays;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.filesystem.EFS;
-import org.eclipse.core.filesystem.IFileStore;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.ui.ide.IDE;
-import org.openetcs.datadictionary.transform.ITransformService;
+import org.openetcs.datadictionary.transform.ITransformer;
 import org.openetcs.datadictionary.transform.TransformServiceFactory;
+import org.openetcs.datadictionary.transform.ui.TransformationDialog;
+
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -43,43 +40,26 @@ public class TransformHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		ITransformService transformer = TransformServiceFactory.getInstance();
-
 		// open file dialog
-		Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event)
-				.getShell();
-
-		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-		dialog.setFilterExtensions(FILE_EXTENSIONS);
-		dialog.setFilterNames(FILE_NAMES);
-		String file = dialog.open();
-
-		if (file != null) {
-			String output = transformer.transform(file);
-
-			if (output == null) {
-				MessageDialog error_dialog = new MessageDialog(shell,
-						"Transformation Error", null,
-						"Unable to perform transformation",
-						MessageDialog.ERROR, new String[] { "Continue" }, 0);
-				error_dialog.open();
-				return null;
-			}
-
-			File f = new File(output);
-			IFileStore store = EFS.getLocalFileSystem().getStore(f.toURI());
-			IWorkbenchPage page = PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage();
-			try {
-				IDE.openEditorOnFileStore(page, store);
-			} catch (PartInitException e) {
-				MessageDialog error_dialog = new MessageDialog(shell,
-						"Transformation Error", null, "Could not open editor",
-						MessageDialog.ERROR, new String[] { "Continue" }, 0);
-				error_dialog.open();
-			}
+		Shell shell = HandlerUtil.getActiveWorkbenchWindowChecked(event).getShell();		
+		final TransformationDialog dialog = new TransformationDialog(shell);		
+		dialog.open();
+		final String[] files = dialog.getFiles();
+				
+		if (files != null && files.length > 0) {
+			Job job = new Job("Generating DataDictionary") {
+				protected IStatus run(IProgressMonitor monitor) {
+					Arrays.sort(files);					
+					ITransformer transformer = TransformServiceFactory.createTransformer();
+					boolean res = transformer.transform(dialog.getProjectName(), dialog.getModelName(), files, monitor, ITransformer.LOG_WARN);
+					return res ? Status.OK_STATUS : Status.CANCEL_STATUS;
+				}
+			};
+			job.setPriority(Job.SHORT);
+			job.schedule();
+			
 		}
-
+		
 		return null;
 	}
 }

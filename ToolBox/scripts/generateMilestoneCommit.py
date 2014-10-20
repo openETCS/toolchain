@@ -4,6 +4,7 @@
 ###########################################################
 #Created on Mon  Feb 17 11:00:40 2014
 #
+# Uses PyGitgub library http://jacquev6.github.io/PyGithub/v1/
 #@author: cecile
 #
 #@description:
