@@ -77,8 +77,8 @@ The steps of the process are defined as follows:
 
 \paragraph{Feature Analysis}
 The tool chain is defined as feature or activity (e.g. ``Requirements
-Engineering'', ``Documentation'', ``Modelling'') . Each tool of the
-tool chain  is then categorised according to its activities. Inside
+Engineering'', ``Documentation'', ``Modeling'') . Each tool of the
+tool chain  is then categorized according to its activities. Inside
 a feature  a work-flow is defined.
 
 This phase  also defines  the interfaces of each tool within a feature
@@ -98,7 +98,7 @@ See section \ref{sec:individual-tool-qualif}
 This step ensures that the tool is correctly integrated within the tool chain.
 After all individual tools are qualified, their integration into the
 tool chain is planned. As part of the integration planning, the team
-will analyse the dependencies of the different tools to minimise the
+will analyze the dependencies of the different tools to minimize the
 effects of unavoidable dependencies.
 
 Moreover, for each artifact used or produced by the tool, evidence
@@ -232,7 +232,7 @@ If the tool is not pre-qualified by the tool provider the options are limited fo
 
 \paragraph{The tool is provided as open source}
 
-In this case it would be possible to adapt the tool and analyse it to enable qualification. However, this involves a huge amount of effort which is best done by the tool provider who as a better insight into the tool's internal workings. Also a third party who has already experience with the tool or is a specialist with regards to qualifying safety-critical tools could be entrusted with the qualification task.
+In this case it would be possible to adapt the tool and analyze it to enable qualification. However, this involves a huge amount of effort which is best done by the tool provider who as a better insight into the tool's internal workings. Also a third party who has already experience with the tool or is a specialist with regards to qualifying safety-critical tools could be entrusted with the qualification task.
 
 \subsubsection{Open Source Tool Provided by the ``Community''}
 
@@ -278,7 +278,7 @@ We propose setting up the operational tool qualification based on the approach b
 \label{fig:qualification-models-linkage}
 \end{figure}
 
-The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depicts the proposed qualification meta-model for openETCS. It needs to be instantiated for each individual tool. The tool analysis model is used to analyse the functions of the tool and potential errors and mitigations which are the result of a thorough risk analysis. Ideally, the qualification meta-model shall establish the traceability between requirements, use cases, implementations and test cases.
+The SysML block diagrams depicted in Figure~\ref{fig:tool_analysis_model} depicts the proposed qualification meta-model for openETCS. It needs to be instantiated for each individual tool. The tool analysis model is used to analyze the functions of the tool and potential errors and mitigation which are the result of a thorough risk analysis. Ideally, the qualification meta-model shall establish the traceability between requirements, use cases, implementations and test cases.
 
 
 \begin{figure}
@@ -292,7 +292,11 @@ Each tool will then be defined by all information represented in our
 meta-model. This can be seen as our template for collecting all
 information needed for tool qualification.
 
-For T3 tools it needs to be ensured that the set of potential errors that may lead to a safety problem is exhaustive. To this end, evidence must be provided. For T2 and T3 tools it is also necessary to provide evidence that the user manual is sufficiently detailed and free of errors that may lead to maloperation. 
+For T3 tools it needs to be ensured that the set of potential errors
+that may lead to a safety problem is exhaustive. To this end, evidence
+must be provided. For T2 and T3 tools it is also necessary to provide
+evidence that the user manual is sufficiently detailed and free of
+errors that may lead to maloperation.
 
 
 
@@ -330,7 +334,7 @@ performed again.
 During the toolchain qualification there will be iterative tasks where
 users repeat a set of actions over and over again. Thus, it would be
 necessary to evaluate these type of tasks and try to automate a subset
-of them to minimise the execution time.
+of them to minimize the execution time.
 
 
 \section{OpenETCS Toolchain Qualification Process}
@@ -353,7 +357,7 @@ A SysML block diagram describes the tool chain architecture at a certain point i
 Figure \ref{fig:overview}. 
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{ToolChainmodel}
-\caption{\label{fig:overview} Tool Chain overview (20.02.14) -- \\
+\caption[Tool Chain overview (20.02.14)]{\label{fig:overview} Tool Chain overview (20.02.14) -- \\
   Green Block: Implemented \\
   Yellow Block: Work in Progress \\
   Red Block: Not started \\
@@ -367,7 +371,7 @@ definition.
 
 Each feature of the toolchain is a block with the profile ``openETCSFeature''
 and  each artifact is block with the profile ``openETCSArtifact''.  Each
-feature realises at least one use case and may be implemented by one or more tools.
+feature realizes at least one use case and may be implemented by one or more tools.
 Note that in the tool platform features  may also be
 implemented as plug-ins. The diagram also imposes a (partial) order
 on the tasks. While some may be done in parallel, many tasks are dependent on others.
@@ -395,7 +399,7 @@ the list of tools present in the tool chain as well as some
 information about them such as :  the name,  the version,
 a description and a list of dependency.
 These information should be included in the release documentation of
-the opentECTS tool chain.
+the indicts tool chain.
 
 The list of tool should be refined by the development team.
 The missing information should be added directly in the
@@ -411,7 +415,7 @@ After the tool chain analysis phase, the {\bf individual tool qualification}
 starts. With the help of the tool list, the previous information given
 (from former releases) and the basic use cases, the tool information
 should be completed. Table \ref{tbl:tool-info} \ref{tbl:artifacts} and
-\ref{tbl:functions} summarise the set of information needed for the
+\ref{tbl:functions} summaries the set of information needed for the
 qualification of a tool.
 
 
@@ -561,18 +565,13 @@ the changes.
 \begin{longtable}{|m{2,20cm}|m{6,50cm}|m{6,50cm}|}
 \caption{OpenETCS Toolchain Qualification Roles}\\
 
-\hline \multicolumn{1}{|c|}{Role} & \multicolumn{1}{|c|}{Responsibilities} & \multicolumn{1}{|c|}{Skills} \\ \hline 
-\endfirsthead
-
-\multicolumn{3}{c}%
-{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-\hline \multicolumn{1}{|c|}{Role} & \multicolumn{1}{|c|}{Responsibilities} & \multicolumn{1}{|c|}{Skills} \\ \hline
+\hline \multicolumn{1}{|>{\centering\arraybackslash}m{2,20cm}|}{Role} & \multicolumn{1}{>{\centering\arraybackslash}m{6,50cm}|}{Responsibilities} & \multicolumn{1}{>{\centering\arraybackslash}m{6,50cm}|}{Skills} \\ \hline 
 \endhead
+
 
 \hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
 \endfoot
 
-\hline \hline
 \endlastfoot
 
 Qualification Manager & \begin{itemize}
@@ -600,7 +599,7 @@ Qualification Lead & \begin{itemize}
 \item Experience in qualification plans design for the qualification of incomplete tools and variable development speeds
 \item Experience in the work with qualification process that tests the performance and the safety-goals of the tools 
 \item Experience for analyzing the results and quality of qualification process
-\item Experience in analysing dependences between different tools
+\item Experience in analyzing dependencies between different tools
 \end{itemize}
 \\\hline
 Qualification Test Designer & \begin{itemize}
@@ -628,7 +627,7 @@ Tester & \begin{itemize}
 \item Experience testing and analyzing the behavior and safety-goals of tools
 \item Experience working with data integrity and data mining
 \item Experience testing tools of different classification and scenario
-\item Experience in model based(sysml, papyrus) tool qualification
+\item Experience in model based(SysML, papyrus) tool qualification
 \end{itemize}
 \\\hline
 Automation Developer & \begin{itemize}
@@ -637,7 +636,7 @@ Automation Developer & \begin{itemize}
 \item Design, build, test, and deploy effective test automation solutions
 \end{itemize}
 & \begin{itemize}
-\item Experience building up automated platforms for incomplete toolchains
+\item Experience building up automated platforms for incomplete tool chains
 \item Experience working with different testing automation techniques
 \end{itemize}
 \\\hline
@@ -654,4 +653,4 @@ Qualification Validator & \begin{itemize}
 \end{longtable}
 \end{center}
 
-%%  LocalWords:  openETCS opentECTS
+%%  LocalWords:  openETCS 
