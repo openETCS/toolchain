@@ -36,8 +36,11 @@ process by first giving an overview of the process (section
 \ref{sec:process_overview}), then getting into details for individual
 tool qualification (section \ref{sec:individual-tool-qualif}), we then
 focus on the incremental development of the tool chain (section
-\ref{sec:incremental}) and finally provide some example on how this process can be applied to our tool
-chain implementation (section \ref{sec:toolchain-qualification-process} ).
+\ref{sec:incremental}) and finally provide some example on how this
+process can be applied to our tool chain implementation (section
+\ref{sec:toolchain-qualification-process} ).
+Section \ref{sec:toolchain-qualification-roles} defines the roles and
+responsabilities involve in the tool chain.
 
 \section{Qualification Process Overview}
 \label{sec:process_overview}
@@ -76,49 +79,87 @@ process.
 The steps of the process are defined as follows:
 
 \paragraph{Feature Analysis}
-The tool chain is defined as feature or activity (e.g. ``Requirements
+The tool chain is defined as a set of features or activities (e.g. ``Requirements
 Engineering'', ``Documentation'', ``Modeling'') . Each tool of the
 tool chain  is then categorized according to its activities. Inside
 a feature  a work-flow is defined.
-
 This phase  also defines  the interfaces of each tool within a feature
 and the artifacts manipulated. An artifact is defined by a name and a
 format.
 
+This high-level defintion of the tool chain is made by the
+{\em qualification leader} with the help of the {\em qualification
+  manager} that decompose the qualification work.
 
 \paragraph{Tool chain Analysis}
-The work-flow between the tool chain features is defined.
+The work-flow between the tool chain features is defined by the 
+{\em qualifcation leader} by exchanging with the tool/toolchain programmers.
 The interfaces between the features are defined at this phase as well as
 the artifacts exchange between the different features.
 
-\paragraph{Individual Tool Qualification (to be followed for each tool)}
-See section \ref{sec:individual-tool-qualif}
+\paragraph{Individual Tool Qualification (to be followed for each
+  tool)}
+ The {\em qualification leader} and the {\em qualification tester}
+ defines for each tool the qualification process detailed section
+ \ref{sec:individual-tool-qualif}.
 
 \paragraph{Tool-to-Platform Integration Qualification}
 This step ensures that the tool is correctly integrated within the tool chain.
 After all individual tools are qualified, their integration into the
 tool chain is planned. As part of the integration planning, the team
 will analyze the dependencies of the different tools to minimize the
-effects of unavoidable dependencies.
+effects of unavoidable dependencies. \\
+The {\em qualification test designer}
+will define the integration tests with the help of the {\em tester}
+that will also performs the integration tests.
 
 Moreover, for each artifact used or produced by the tool, evidence
 should be provided that the safety-goals of section
 \ref{sec:toolchain-analysis} are satisfied. 
 Whenever an artifact is modified, a new time stamp has to be added and
 notification should be triggered. Whenever an artifact is used a check
-of its obsolescence should be performed.
+of its obsolescence should be performed.\\
+The {\em Automation Developer} will implement the mechanism to ensure
+the artifacts consistency.
 
+\vskip 1em
 \paragraph{Tool Chain Installation Qualification}
 Installation should verify that the toolchain is properly
-installed. It does not verify that the tool chain conforms to the functional and performance specification. This is done later in the operational qualification phase. The goal of this step is to verify correct software installation and to document all computer hardware, software and configuration settings as the initial baseline configuration.
+installed. It does not verify that the tool chain conforms to the
+functional and performance specification. This is done later in the
+operational qualification phase. The goal of this step is to verify
+correct software installation and to document all computer hardware,
+software and configuration settings as the initial baseline
+configuration. This task should be perform by the {\em Tester}.
 
 \paragraph{Operational qualification}
-Operational qualification should demonstrate that the tool chain will function according to its operational specification in the selected environment. The tests should be performed to verify that the toolchain meets the specifications, requirements in the specific environment.
+Operational qualification should demonstrate that the tool chain will
+function according to its operational specification in the selected
+environment. The tests should be planed by the {\em qualification test
+  designer}. The tests should be performed (by the {\em tester}) to verify that the
+toolchain meets the specifications, requirements in the specific
+environment.
 
 \paragraph{Performance qualification}
-Performance qualification should demonstrate that the toolchain consistently performs according to the specifications defined by the openETCS project, and is appropriate for the intended use. Important for consistent openETCS toolchain performance is regular preventive maintenance, making changes to the toolchain in a controlled manner and regular testing.
+Performance qualification should demonstrate that the toolchain
+consistently performs according to the specifications defined by the
+openETCS project, and is appropriate for the intended use. Important
+for consistent openETCS toolchain performance is regular preventive
+maintenance, making changes to the toolchain in a controlled manner
+and regular testing. These tests should b model with the 
+{\em qualification test designer} and test performs by the {\em tester}.
 
-The toolchain should be well maintained to ensure proper ongoing performance. Procedures should be in place for regular preventive maintenance of it to detect and fix problems before they can have a negative impact.
+
+The toolchain should be well maintained to ensure proper ongoing
+performance. Procedures should be in place for regular preventive
+maintenance to detect and fix problems before they can have a
+negative impact. The {\em Automation developer} should provide some
+automation for this task.
+
+
+The last five steps of the qualification process are then validate by
+the {\em qualification validator}.
+
 
 \section{Individual Tool Qualification}
 \label{sec:individual-tool-qualif}
@@ -328,13 +369,14 @@ well as the manual, the use cases and the potential  errors.
 Moreover, evidence that all tools that depend on this tool are still
 compatible with the new one.  
 
-In all cases of a new qualification  the three last phases should also be
+In all cases of a new qualification,  the three last phases should also be
 performed again.
 
 During the toolchain qualification there will be iterative tasks where
-users repeat a set of actions over and over again. Thus, it would be
+users repeat a set of actions over and over again.  Thus, it would be
 necessary to evaluate these type of tasks and try to automate a subset
-of them to minimize the execution time.
+of them to minimize the execution time. The {\em automation developer}
+should also implements mechanism that detects changes impacts.
 
 
 \section{OpenETCS Toolchain Qualification Process}
@@ -355,12 +397,13 @@ The OpenETCS tool chain  will be defined by the set of its features and
 a guideline describing how to correctly use it.
 A SysML block diagram describes the tool chain architecture at a certain point in time as shown in
 Figure \ref{fig:overview}. 
+
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{ToolChainmodel}
 \caption[Tool Chain overview (20.02.14)]{\label{fig:overview} Tool Chain overview (20.02.14) -- \\
-  Green Block: Implemented \\
+  Green Block: Implemented ; 
   Yellow Block: Work in Progress \\
-  Red Block: Not started \\
+  Red Block: Not started ;
   White Block: External Artifacts} 
 \end{figure}
 This block diagram is intended to grow according to new feature requests and the
@@ -561,6 +604,9 @@ the changes.
 \section{OpenETCS Toolchain Qualification Roles}
 \label{sec:toolchain-qualification-roles}
 
+This section describes the different roles with their associated
+responsabilities and skills involve int the openETCS qualification
+process. 
 \begin{center}
 \begin{longtable}{|m{2,20cm}|m{6,50cm}|m{6,50cm}|}
 \caption{OpenETCS Toolchain Qualification Roles}\\
