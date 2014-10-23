@@ -9,7 +9,7 @@
     <relativePath>../org.openetcs.releng.parent/</relativePath>
   </parent>
   <groupId>org.openetcs</groupId>
-  <artifactId>openETCS-Kepler</artifactId>
+  <artifactId>openETCS-Luna</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>eclipse-target-definition</packaging>
 </project>

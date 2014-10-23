@@ -85,7 +85,7 @@
           <target>
             <artifact>
               <groupId>org.openetcs</groupId>
-              <artifactId>openETCS-Kepler</artifactId>
+              <artifactId>openETCS-Luna</artifactId>
               <version>${openetcs-version}</version>
             </artifact>
           </target>
