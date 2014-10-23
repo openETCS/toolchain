@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="m_MainSysMLTransform" name="SysMLTransform">
-    <property name="ECLIPSE_HOME" value="C:/Program Files/eclipse-modeling-kepler-SR2-win32-x86_64/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../EclipseWorkspace_Kepler_SR2"/>
+<project default="m_MainSysMLTransform" name="org.openetcs.sysml2b.transformation">
+    <property name="ECLIPSE_HOME" value="../../../../../../../Eclipse/eclipse-java-luna-SR1-win32-x86_64_L_DEV_OpenETCS"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../Eclipse/WORKSPACE/workspace_L_DEV_OpenETCS"/>
 
     <!-- The classpath with only the dependencies used by the project -->
-    <path id="SysMLTransform.libraryclasspath">
-        <pathelement location="${ECLIPSE_WORKSPACE}/SysMLTransform/bin"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.9.100.v20131218-1515.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/javax.annotation_1.1.0.v201209060031.jar"/>
+    <path id="org.openetcs.sysml2b.transformation.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/org.openetcs.sysml2b.transformation/bin"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/javax.annotation_1.2.0.v201401042248.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.0.v20091030.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.9.1.v20140110-1610.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.10.1.v20140909-1633.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi.compatibility.state_1.0.1.v20140709-1414.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.5.300.v20130429-1813.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.200.v20130514-1256/runtime_registry_compatibility.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.5.301.v20130717-1549.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.5.100.v20130422-1538.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.4.200.v20130326-1255.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.3.100.v20130327-1442.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml_4.1.2.v20140202-2055.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.9.2.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.9.2.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.9.1.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.common_1.8.2.v20140202-2055.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.types_1.1.0.v20140202-2055.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mapping.ecore2xml_2.7.0.v20140203-1126.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.validation_1.7.0.201306111341.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.resources_3.8.101.v20130717-0806.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.papyrus.sysml_0.10.2.v201402191554.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.3.0.v20140120-1508.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.6.0.v20140424-0053.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.300.v20140128-0851/runtime_registry_compatibility.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.5.200.v20140224-1527.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.4.200.v20140207-1251.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.3.200.v20130910-1609.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml_5.0.1.v20140910-1354.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.10.1.v20140901-1043.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.10.1.v20140901-1043.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.10.1.v20140901-1043.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.common_2.0.1.v20140910-1354.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.types_2.0.0.v20140910-1354.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mapping.ecore2xml_2.8.0.v20140901-1055.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.papyrus.sysml_1.0.1.v201409170932.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml.profile.standard_1.0.0.v20140910-1354.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.4.2.v20140725-2242.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.1.0.v20130531-0544.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.0.v20130520-1222.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.9.1.v20140203-1126.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.9.0.v20140203-1126.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_11.0.2.v201303041551.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.2.0.v20140610-0641.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.3.100.v20140610-0641.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.5.1.201409021433.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.5.1.201409021433.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.5.1.201409021433.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.5.1.201409021433.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.10.1.v20140901-1055.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.10.0.v20140901-1055.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
     </path>
 
-    <path id="SysMLTransform.classpath">
-        <path refid="SysMLTransform.libraryclasspath"/>
+    <path id="org.openetcs.sysml2b.transformation.classpath">
+        <path refid="org.openetcs.sysml2b.transformation.libraryclasspath"/>
     </path>
 
     <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
-    <path id="SysMLTransform.libraryclasspath.alljars">
-        <pathelement location="../SysMLTransform/bin"/>
+    <path id="org.openetcs.sysml2b.transformation.libraryclasspath.alljars">
+        <pathelement location="../org.openetcs.sysml2b.transformation/bin"/>
         <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
     </path>
 
-    <path id="SysMLTransform.classpath.alljars">
-        <path refid="SysMLTransform.libraryclasspath.alljars"/>
+    <path id="org.openetcs.sysml2b.transformation.classpath.alljars">
+        <path refid="org.openetcs.sysml2b.transformation.libraryclasspath.alljars"/>
     </path>
 
     <!-- The default task with the jars used by this project -->
     <target name="m_MainSysMLTransform">
-        <java classname="SysMLTransform.common.main.M_MainSysMLTransform" classpathref="SysMLTransform.classpath">
+        <java classname="org.openetcs.sysml2b.transformation.common.main.M_MainSysMLTransform" classpathref="org.openetcs.sysml2b.transformation.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -67,7 +67,7 @@
         Keep in mind that having two versions of the same jar can create problems
     -->
     <target name="m_MainSysMLTransform.alljars">
-        <java classname="SysMLTransform.common.main.M_MainSysMLTransform" classpathref="SysMLTransform.classpath">
+        <java classname="org.openetcs.sysml2b.transformation.common.main.M_MainSysMLTransform" classpathref="org.openetcs.sysml2b.transformation.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>

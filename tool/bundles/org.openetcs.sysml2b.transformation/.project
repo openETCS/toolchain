@@ -20,26 +20,8 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name>
-			<arguments>
-				<dictionary>
-					<key>compilation.kind</key>
-					<value>compilation.platform.resource</value>
-				</dictionary>
-				<dictionary>
-					<key>compliance</key>
-					<value>pragmatic</value>
-				</dictionary>
-				<dictionary>
-					<key>resource.kind</key>
-					<value>xmi</value>
-				</dictionary>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.acceleo.ide.ui.acceleoNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>
