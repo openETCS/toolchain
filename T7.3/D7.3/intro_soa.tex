@@ -13,7 +13,7 @@ three classes namely, T1, T2 \& T3 respectively.''}
 We recall here the different class definitions:
 \begin{itemize}
 \item Tool class T1: No generated output can be used directly or indirectly to the
-  safetey critical executable code;
+  safety critical executable code;
 \item Tool class T2: Verification tools, e.g. that can not introduce
   errors to the safety critical executable code but those tools may fail to detect errors or
   defects;
@@ -42,7 +42,7 @@ capabilities. To reduce the cost of the toolchain qualification and
 regarding the fact that our development imply regular releases, a
 systematic toolchain analysis approach has to be defined.
 
-Table~\ref{tab:oetcs_tool_classification} exemplarily lists the tool
+Table~\ref{tab:oetcs_tool_classification} exemplary lists the tool
 classes for some of the tools employed in the openETCS
 project. Automatic code generator for SCADE model such as KCG or the
 Bitwalker tool have a direct effect on the generated code whereas ProR
@@ -55,17 +55,18 @@ the software or model.
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{lll}
-Tool&Purpose&Tool Class\\\hline
+\begin{tabular}{lll}\toprule
+Tool&Purpose&Tool Class\\\midrule
 Papyrus Editor &Definition of the model architecture&T1\\
 Papyrus SysML checker & Check SysML conformity of the model &T2\\
-SCADE Editor &Low-level modelling and code generation&T1\\
+SCADE Editor &Low-level modeling and code generation&T1\\
 SCADE Code Generator & Code generation&T3\\
 ProR&Requirements management&T1\\
-Bitwalker&Generation of data structures for modelling&T3\\
+Bitwalker&Generation of data structures for model-ling&T3\\
 Git&Versioning \& Traceability&T1\\
-RTTester&Model-based testing&T2\\
+RT Tester&Model-based testing&T2\\
 CPN Tools&Model checking and test case generation&T2\\
+\bottomrule
 \end{tabular}
 \end{center}
 \caption{Classification of some tools in the openETCS tool chain}
@@ -90,7 +91,7 @@ the most significant ones.
 \item[Clarity:] remove ambiguities;
 \item[Re-usability and Transparency:] check for reuse in different toolchain;
 \item[Completeness:] the model covers all parts of the  development
-  process and tis traceable;
+  process and  is traceable;
 \item[Automation:] Some part of the process may be automated.
 \end{description}
 

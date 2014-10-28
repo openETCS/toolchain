@@ -1,12 +1,8 @@
-
-** Toolspint 18 (Ends 19-September-2014)
+** Toolspint 20 (Ends 17-October-2014)
 *** resolved issues
-- #423 Feature Request: Print Papyrus model
-- #411 org.openetcs.pror.tracing.sysml not yet part of maven build
-- #410 ProR-SysML-Tracing Plugin produces Compile errors (due to target platform)
+- #422 Integrate SysML to B translator into openETCS
+- #70 Chapter for developer documentation: License Guideline
 
 *** Important commit 
-- 4b6705957ba0dea34436e4f3db8cd86d0c91f961
- [issue #411] Adding org.openetcs.pror.tracing.sysml to build.
-- 81a3a71655ff3be275059a2a8aa9341af29d0ad4
- [issue #410] Correct licensing & Papyrus version issue.
+- ab6a0ebd150ef6ac03a607b11bd4fc40e9c937b2
+ [#422] adding SysML2B transformation and various correction.
