@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.URI
 import com.esterel.scade.api.ScadePackage
 import org.eclipse.emf.common.util.EList
 import org.eclipse.uml2.uml.Element
+import org.eclipse.uml2.uml.Property
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.papyrus.sysml.blocks.Block
 import com.esterel.scade.api.OperatorKind
@@ -25,6 +26,10 @@ import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
 import com.esterel.scade.api.pragmas.editor.NetDiagram
 import com.esterel.scade.api.pragmas.editor.util.EditorPragmasUtil
 import org.eclipse.emf.ecore.util.EcoreUtil
+import java.util.Map
+import java.util.Map.Entry
+import java.util.AbstractMap.SimpleEntry
+import java.util.HashMap
 
 class MapToScade extends ScadeModelWriter {
 	
@@ -37,6 +42,7 @@ class MapToScade extends ScadeModelWriter {
 	private ScadeFactory theScadeFactory;
 	private EditorPragmasFactory theEditorPragmasFactory;
 	private Project scadeProject;
+	private Map<Block, Operator> blockToOperatorMap;
 	
 	new(Model model, IProject project) {
 		sysmlModel = model;
@@ -46,6 +52,7 @@ class MapToScade extends ScadeModelWriter {
 		val projectURI = baseURI.appendSegment(sysmlModel.getName() + ".etp");
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
+		blockToOperatorMap = new HashMap<Block, Operator>()
 		
 		// Create empty SCADE project
 		scadeProject = createEmptyScadeProject(projectURI, scadeResourceSet);
@@ -80,6 +87,9 @@ class MapToScade extends ScadeModelWriter {
 			val diagram = createScadeDiagram(operator);
 			createOperatorImplementation(operator, diagram);
 			scadePackage.getOperators().add(operator);
+			
+			// Build list of generated blocks and operators
+			blockToOperatorMap.put(block, operator)
 		}
 
 		for (p : pkg.nestedPackages) {
@@ -145,6 +155,8 @@ class MapToScade extends ScadeModelWriter {
 			val operator = theScadeFactory.createOperator();
 			operator.setName(block.name);
 			operator.setKind(OperatorKind.NODE_LITERAL);
+
+
 
 			// SysML FlowPorts to operator variables
 			for (port : block.flowPorts) {
@@ -214,6 +226,8 @@ class MapToScade extends ScadeModelWriter {
 		scadeModel.getPackages().add(pkg)
 		scadeModel.getPackages().add(typePackage)
 		
+		createHierarchy()
+		
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
 		
@@ -222,6 +236,58 @@ class MapToScade extends ScadeModelWriter {
 		
 		// Save the project
 		saveAll(scadeProject, null);
+	}
+	
+	def createHierarchy() {
+		for (entry: blockToOperatorMap.entrySet()) {
+			var block = entry.key
+			var operator = entry.value
+			var name = 1;
+			
+			for (nblock : block.getNestedBlocks()) {
+				// Create equation
+				var equation = theScadeFactory.createEquation()
+				
+				// Create Call expression
+				var call_expression = theScadeFactory.createCallExpression()
+				
+				// Create function call
+				var call = theScadeFactory.createOpCall();
+				call.setName(name.toString)
+				
+				var op = blockToOperatorMap.get(nblock)
+				call.setOperator(op)
+				
+				// Set function call to call expression
+				call_expression.setOperator(call)
+				
+				// Set call expression to right side of equation
+				equation.setRight(call_expression)
+				
+				// Set equation to operator
+				operator.getData().add(equation)
+				
+				name = name + 1
+			}
+		}
+	}
+	
+	def EList<Block> getNestedBlocks(Block block) {
+		var list = new BasicEList<Block>
+		
+		for (Property property:block.base_Class.ownedAttributes) {
+			var type = property.type
+			
+			if (type != null) {			
+				var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
+				
+				if (stereotype != null) {
+					list.add(property.getStereotypeApplication(stereotype) as Block)
+				}	
+			}
+		}
+		
+		return list
 	}
 
 	def static EList<Block> getAllBlocks(Model model) {
