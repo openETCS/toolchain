@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.openetcs.pror.tracing.feature"
+      label="ProR Tracing Feature"
+      version="0.1.0.qualifier"
+      provider-name="Formal Mind GmbH">
+
+   <description url="http://www.example.com/description">
+      Contains ProR/RMF-related plugins from the openetcs.org project.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      Copyright (c) 2014 Formal Mind GmbH
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      European Union Public Licence
+                                     V.1.1
+                      EUPL © the European Community 2007
+
+This European Union Public Licence (the “EUPL”) applies to the Work or Software
+(as defined below) which is provided under the terms of this Licence. Any use of the
+Work, other than as authorised under this Licence is prohibited (to the extent such use
+is covered by a right of the copyright holder of the Work).
+
+The Original Work is provided under the terms of this Licence when the Licensor (as
+defined below) has placed the following notice immediately following the copyright
+notice for the Original Work:
+
+                         Licensed under the EUPL V.1.1
+
+or has expressed by any other mean his willingness to license under the EUPL.
+   </license>
+
+   <url>
+      <discovery label="OpenETCS Project Site" url="http://www.openetcs.org"/>
+   </url>
+
+   <plugin
+         id="org.openetcs.pror.tracing"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
