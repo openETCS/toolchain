@@ -71,7 +71,6 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 	}
 
 	private ReqIF buildTestReqif() throws IOException {
@@ -83,19 +82,24 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		
 		// Build the Datatypes
 		DatatypeDefinitionString t_string = rf.createDatatypeDefinitionString();
+		t_string.setIdentifier("dds-id");
 		content.getDatatypes().add(t_string);
 		
 		// Build SpecObject Type for requirements.
 		SpecObjectType requirementType = rf.createSpecObjectType();
+		requirementType.setIdentifier("sot-id");
 		AttributeDefinitionString ad_requirement = rf.createAttributeDefinitionString();
 		ad_requirement.setType(t_string);
+		ad_requirement.setIdentifier("ads-id");
 		requirementType.getSpecAttributes().add(ad_requirement);
 		content.getSpecTypes().add(requirementType);
 		
 		// Build SpecObject Type for proxy.
 		SpecObjectType proxyType = rf.createSpecObjectType();
+		proxyType.setIdentifier("pt-id");
 		AttributeDefinitionString ad_proxy = rf.createAttributeDefinitionString();
 		ad_proxy.setType(t_string);
+		ad_proxy.setIdentifier("adpt-id");
 		proxyType.getSpecAttributes().add(ad_proxy);
 		content.getSpecTypes().add(proxyType);
 		
@@ -119,6 +123,7 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		
 		requirement = rf.createSpecObject();
 		requirement.setType(requirementType);
+		requirement.setIdentifier("requirement-id");
 		content.getSpecObjects().add(requirement);
 		return reqif;
 	}
@@ -132,17 +137,16 @@ public class CreateTraceCommandTest extends AbstractItemProviderTest {
 		ReqIFHeader header= ReqIF10Factory.eINSTANCE.createReqIFHeader();
 		header.setTitle("HeaderTitle");
 		reqif.setTheHeader(header);
-		external = header;
 		
 		File file = File.createTempFile("tracing-test-", ".reqif");
 		file.deleteOnExit();
 		URI uri = URI.createFileURI(file.getAbsolutePath());
 		Resource resource = editingDomain.createResource(uri.toString());
 		System.out.println(resource);
-		resource.getContents().add(external);
+		resource.getContents().add(reqif);
 		resource.save(null);
 
-		return external;
+		return header;
 	}
 
 	/**
