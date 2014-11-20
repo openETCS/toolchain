@@ -247,6 +247,7 @@ class MapToScade extends ScadeModelWriter {
 			for (nblock : block.getNestedBlocks()) {
 				// Create equation
 				var equation = theScadeFactory.createEquation()
+				EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID())
 				
 				// Create Call expression
 				var call_expression = theScadeFactory.createCallExpression()
