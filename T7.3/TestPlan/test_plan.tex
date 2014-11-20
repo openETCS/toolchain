@@ -168,55 +168,14 @@ The OpenETCS tool chain consists of components. A Component is what the user per
   White Block: External Artifacts} 
 \end{figure}
 The features may be implemented by one or more tools and may also be implemented as plugins.
-Currently, openETCS tool chain consists of the following components:
-\begin{itemize}
-\item Eclipse Kepler
-\item Eclipse Modeling Tools
-\item \href{http://www.eclipse.org/papyrus/}{[Eclipse Papyrus]}  
-\item \href{http://eclipse.org/rmf/}{[Eclipse RMF]}
-\item \href{http://www.eclipse.org/egit/}{[Eclipse EGit]}
-\item \href{https://github.com/openETCS/toolchain/wiki/User-Documentation#Generating_Documentation}{[openETCS documentation Plugin]}
-\item \href{https://github.com/openETCS/toolchain/wiki/Data-Dictionary-Plugin}{[openETCS DataDictionary Plugin]} 
-\item \href{https://github.com/openETCS/toolchain/wiki/User-Documentation#Tracing_Requirements_and_SysML_Models}{[openETCS tracing Plugin]} 
-\end{itemize}
+All the features and plugins that make up the current tool chain and that should be tested are allocated in \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles}{[Toolchain repository]}.
 
-\begin{center}
-\begin{longtable}[H]{|p{6cm}|p{4cm}|p{4cm}|}\hline
-\textbf{Test Items} & \textbf{Type of Test} & \textbf{Person in charge}\\\hline
-\multirow{4}{*}{openETCS documentation Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
-\multirow{4}{*}{openETCS DataDictionary Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
-\multirow{4}{*}{openETCS tracing Plugin} & Unit Testing & \\\cline{2-3} & Integration Testing & \\\cline{2-3} & Functional Testing & \\\cline{2-3} & Acceptance Testing & \\\hline
-\end{longtable}
-\end{center}
+In addition to this, the person in charge of each test item is identified in the information allocated in the test management folder as it is shown in Figure \ref{fig:testmanag}.
 
 \section{Features to be tested}
 \label{sec:features_test}
 
-\begin{center}
-\begin{longtable}[H]{|p{2cm}|p{8cm}|}\hline
-%\centering
-%\begin{tabular}{|p{2cm}|p{8cm}|}\hline
-\multicolumn{2}{|c|}{ProR}\\\hline
-1 & Check if the RMF documentation is on Eclipse Help\\\hline
-2 & Check if is possible to import a ProR requirements model\\\hline
-3 & Check if it is possible to import a SysML requirements model\\\hline
-4 & Check if it is possible to create a link between ProR and SysML\\\hline
-5 & Check if it is possible to add extended attributes to the created links\\\hline
-6 & Check how are created the required type of data.\\\hline
-7 & Check if it is possible to delete required type of data\\\hline
-8 & Check the plugin configuration\\ \hline
-9 & ... \\ \hline
-\multicolumn{2}{|c|}{Documentation}\\\hline
-1 & Check if the documentation is on the eclipse help\\\hline
-2 & Check if the links are correct in Eclipse Help\\\hline
-3 & Check if the links are correct in the github wiki pages\\\hline
-4 & Check if the links are correct in the PDF file\\\hline
-5 & ...\\ \hline
-\multicolumn{2}{|c|}{Data Dictionary}\\\hline
-1 & \\ \hline
-%\end{tabular}
-\end{longtable}
-\end{center}
+The features to be tested are identified in \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles}{[test specifications]} folder.
 
 
 \section{Item Pass / Fail Criteria}
@@ -249,6 +208,13 @@ Eclipse & Eclipse is a development tool and will be used for test, in functional
 \begin{figure}[htbp]
 \includegraphics[width=\textwidth]{tools}
 \caption{\label{fig:tools} Test environment tools} 
+\end{figure}
+
+As previously mentioned, GitHub will be used for configuration management. At following, the proposed structure to manage the testing process of tool chain supported by GitHub tool in order to assist in quality control and tool chain testing, to provide support for the planning and execution of the tests consistently, while keeping track of the requirements, versions, tasks, configurations and defect management, is shown:
+ 
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{test_info_management}
+\caption{\label{fig:testmanag} Test Information Management} 
 \end{figure}
 
 \section{Test Deliverables}
