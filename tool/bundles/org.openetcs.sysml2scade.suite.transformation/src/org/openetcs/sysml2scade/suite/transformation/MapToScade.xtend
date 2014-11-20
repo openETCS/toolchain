@@ -43,6 +43,7 @@ class MapToScade extends ScadeModelWriter {
 	private EditorPragmasFactory theEditorPragmasFactory;
 	private Project scadeProject;
 	private Map<Block, Operator> blockToOperatorMap;
+	private Map<Operator, NetDiagram> operatorToNetDiagramMap;
 	
 	new(Model model, IProject project) {
 		sysmlModel = model;
@@ -53,6 +54,7 @@ class MapToScade extends ScadeModelWriter {
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		blockToOperatorMap = new HashMap<Block, Operator>()
+		operatorToNetDiagramMap = new HashMap<Operator, NetDiagram>()
 		
 		// Create empty SCADE project
 		scadeProject = createEmptyScadeProject(projectURI, scadeResourceSet);
@@ -90,6 +92,7 @@ class MapToScade extends ScadeModelWriter {
 			
 			// Build list of generated blocks and operators
 			blockToOperatorMap.put(block, operator)
+			operatorToNetDiagramMap.put(operator, diagram)
 		}
 
 		for (p : pkg.nestedPackages) {
@@ -243,6 +246,7 @@ class MapToScade extends ScadeModelWriter {
 			var block = entry.key
 			var operator = entry.value
 			var name = 1;
+			var diagram = operatorToNetDiagramMap.get(operator);
 			
 			for (nblock : block.getNestedBlocks()) {
 				// Create equation
@@ -267,6 +271,17 @@ class MapToScade extends ScadeModelWriter {
 				
 				// Set equation to operator
 				operator.getData().add(equation)
+				
+				// Graphical
+				var equation_ge = theEditorPragmasFactory.createEquationGE();
+				equation_ge.setEquation(equation);
+				
+				var size  = theEditorPragmasFactory.createSize();
+				size.setWidth(508);
+				size.setHeight(500);
+				equation_ge.setSize(size);
+				
+				diagram.getPresentationElements().add(equation_ge);
 				
 				name = name + 1
 			}
