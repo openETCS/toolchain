@@ -13,6 +13,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.uml2.uml.Model;
+import org.openetcs.common.IOUtil;
 import org.openetcs.common.Util;
 import org.openetcs.sysml2scade.suite.transformation.Transformation;
 
@@ -30,7 +31,7 @@ public class TransformationWizard extends Wizard implements StringConstants {
 		shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 
 		// Perform model check
-		Model model = Util.openUMLModel(model_file);
+		Model model = IOUtil.openUMLModel(model_file);
 
 		if (page.performModelCheck()) {
 			IStatus status = Util.validateModel(model);
