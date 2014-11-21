@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.openetcs.sysml2scade.feature"
-      label="OpenETCS SysML to Scade Project Converter"
+      id="org.openetcs.sysml2scade.suite.feature"
+      label="OpenETCS SysML to Scade Integration"
       version="0.1.0.qualifier"
       provider-name="Fraunhofer ESK">
 
@@ -20,16 +20,26 @@
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="com.esterel-technologies.project.api" version="6.5.0" match="greaterOrEqual"/>
+      <import plugin="com.esterel-technologies.scade.api" version="6.5.0" match="greaterOrEqual"/>
+      <import plugin="com.esterel-technologies.scade.api.utils" version="6.5.0" match="greaterOrEqual"/>
+      <import plugin="com.esterel-technologies.scade.api.pragmas.editor"/>
+      <import plugin="com.esterel-technologies.scade.api.pragmas.codegen"/>
       <import plugin="org.eclipse.xtend.lib"/>
       <import plugin="com.google.guava"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="org.eclipse.papyrus.sysml" version="0.10.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.papyrus.infra.onefile"/>
+      <import plugin="org.eclipse.uml2.uml"/>
       <import plugin="org.openetcs.common"/>
    </requires>
 
    <plugin
-         id="org.openetcs.sysml2scade.transformation"
+         id="org.openetcs.sysml2scade.suite.transformation"
          download-size="0"
          install-size="0"
          version="0.0.0"
