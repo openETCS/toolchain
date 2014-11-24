@@ -30,7 +30,7 @@ import java.util.Map
 import java.util.Map.Entry
 import java.util.AbstractMap.SimpleEntry
 import java.util.HashMap
-
+import com.esterel.scade.api.Variable
 class MapToScade extends ScadeModelWriter {
 	
 	private URI baseURI;
@@ -126,6 +126,40 @@ class MapToScade extends ScadeModelWriter {
 			
 			var point = theEditorPragmasFactory.createPoint();
 			point.setX(100);
+			point.setY(y_pos);
+			equation_ge.setPosition(point);
+			
+			var size  = theEditorPragmasFactory.createSize();
+			size.setWidth(508);
+			size.setHeight(500);
+			equation_ge.setSize(size);
+			
+			diagram.getPresentationElements().add(equation_ge);
+			
+			i = i + 1;
+			y_pos = y_pos + 1000;
+		}
+		y_pos = 5		
+		for (output : operator.getOutput()) {
+			var variable = createNamedTypeVariable("_L"+i, output.getType().getDefinedType());
+			operator.getLocals().add(variable);
+			
+			var equation = theScadeFactory.createEquation();
+			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
+			equation.getLefts().add(output);
+			
+			var idexpression = theScadeFactory.createIdExpression();
+			idexpression.setPath(variable);
+			
+			equation.setRight(idexpression);
+			operator.getData().add(equation);
+			
+			// Graphical
+			var equation_ge = theEditorPragmasFactory.createEquationGE();
+			equation_ge.setEquation(equation);
+			
+			var point = theEditorPragmasFactory.createPoint();
+			point.setX(10000);
 			point.setY(y_pos);
 			equation_ge.setPosition(point);
 			
