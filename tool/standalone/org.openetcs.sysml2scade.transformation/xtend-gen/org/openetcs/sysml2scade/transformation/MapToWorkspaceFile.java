@@ -1,0 +1,86 @@
+package org.openetcs.sysml2scade.transformation;
+
+import org.eclipse.xtend2.lib.StringConcatenation;
+
+@SuppressWarnings("all")
+public class MapToWorkspaceFile {
+  public static CharSequence createWorkspace(final String name) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Entities_Definitions DEFINITIONS ::= BEGIN");
+    _builder.newLine();
+    _builder.append("project_ref ::= SEQUENCE OF {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("SEQUENCE {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("identity oid,");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("persist_as string,");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("workspace oid");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("workspace ::= SEQUENCE OF {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("SEQUENCE {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("identity oid,");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("active_project oid");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("base ::= SEQUENCE OF {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("SEQUENCE {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("oid_count integer,");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("version string");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("base ::= {");
+    _builder.newLine();
+    _builder.append("{2, \"\"}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("workspace ::= {");
+    _builder.newLine();
+    _builder.append("{\"1\", \"2\"}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("project_ref ::= {");
+    _builder.newLine();
+    _builder.append("{\"2\", \"");
+    _builder.append(name, "");
+    _builder.append(".etp\", \"1\"}");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("END");
+    _builder.newLine();
+    return _builder;
+  }
+}

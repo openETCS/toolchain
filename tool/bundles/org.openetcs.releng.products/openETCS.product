@@ -71,7 +71,6 @@ or has expressed by any other mean his willingness to license under the EUPL.
       <feature id="org.openetcs.target.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.datadictionary.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.sysml.constraints.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.sysml2scade.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.pror.tracing.feature" version="0.1.0.qualifier"/>
    </features>
 
