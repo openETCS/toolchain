@@ -180,7 +180,6 @@ public final class TracingUtil {
 	}
 
 	/**
-	 * 
 	 * Notifies proxy listeners, when something interesting happens.<p>
 	 * 
 	 * NOTE: Currently the only event processed is the creation of a proxy element.
@@ -193,6 +192,7 @@ public final class TracingUtil {
 	public static void notifyProxyListeners(SpecObject requirement,
 			SpecRelation trace, EObject element) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		if (registry == null) return; // For unit testing.
 		IExtensionPoint extensionPoint = registry
 				.getExtensionPoint("org.openetcs.pror.tracing.notification");
 		IExtension[] extensions = extensionPoint.getExtensions();
