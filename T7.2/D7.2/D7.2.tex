@@ -1,10 +1,14 @@
 \documentclass{template/openetcs_report}
 % Use the option "nocc" if the document is not licensed under Creative Commons
-%\documentclass[nocc]{template/openetcs_article}
 \usepackage{rotating,url,color}
 %\usepackage[hidelinks]{hyperref}
 %hidelinks put some problems on some distributions
 \usepackage{hyperref}
+\usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{color, colortbl}
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+\usepackage[modulo]{lineno}
 \graphicspath{{./template/}{.}{./images/}}
 \begin{document}
 \frontmatter
@@ -29,7 +33,21 @@
 
 
 %set the date of the report here
-\date{January 2014}
+\date{March 2014}
+
+%document approval
+%define the name and affiliation of the people involved in the documents approbation here
+\creatorname{Marielle Petit-Doche}
+\creatoraffil{Systerel}
+
+\techassessorname{Cécile Braunstein}
+\techassessoraffil{University of Bremen}
+
+\qualityassessorname{Cécile Braunstein}
+\qualityassessoraffil{University of Bremen}
+
+\approvalname{Klaus-R\"udiger Hase}
+\approvalaffil{DB Netz}
 
 %define a list of authors and their affiliation here
 
@@ -60,9 +78,40 @@ This document gives results of the evaluation and selection of  the tools and me
 %=============================
 %Do not change the next three lines
 \maketitle
+
+%Modification history
+%if you do not need a modification history table for your document simply comment out the eight lines below
+%=============================
+\section*{Modification History}
+\tablefirsthead{
+\hline 
+\rowcolor{gray} 
+Version & Section & Modification / Description & Author \\\hline}
+\begin{supertabular}{| m{1.2cm} | m{1.2cm} | m{6.6cm} | m{4cm} |}
+00.01 & & 19/12/2013 Document creation & M. Petit-Doche \\
+\hline  
+00.02 & & 19/12/2013 Approach (issue \#236), review comments, tool descriptions & M. Petit-Doche  \\
+\hline
+00.03 & & 08/01/2014 Completing section on ProR & M. Jastram \\
+\hline
+00.04 & & 09/01/2014 RT-tester description added & C. Braunstein \\
+\hline  
+00.05 & & 13/01/2014 Added description in the CPN Tools section; Added section on CPN Tools (copy from V and V); Added the section for ACedit and GSN (only copy from management);  Completed Acedit section to give basic tool information; Added structure for section ACedit and ReqCycle & J. Welte \\
+\hline  
+00.06 & & 29/01/2014 Frama-C summary & V. Prevosto \\
+\hline
+00.07 & & 21/02/2014 Additions to SystemC and Uppaal sections & S. Rieger \\
+\hline  
+00.08 & & 28/02/2014 Adding to Acceleo Section & A. Nitsch \\
+\hline  
+01.00 & & 03/03/2014 Finalization of the Deliverable & M. Jastram  \\
+\hline  
+01.01 & & 26/11/2014 Updating of the template for compliance & M. Jastram  \\\hline
+
+\end{supertabular}
+
 \tableofcontents
 \listoffiguresandtables
-\newpage
 %=============================
 
 
@@ -83,9 +132,9 @@ Document authors (org.)  & Marielle Petit-Doche (Systerel)  \\
 \hline
 \multicolumn{2}{|c|}{Review information} \\
 \hline
-Last version reviewed & 00.01 \\
+Last version reviewed & 01.01 \\
 \hline
-Main reviewers &  \\
+Main reviewers & See revision history. \\
  
 \hline
 \end{tabular}
@@ -98,34 +147,8 @@ Main reviewers &  \\
 \hline  
 Written by    &  Marielle Petit-Doche & WP7-T7.2 Sub-Task Leader  & \\
 \hline
-Approved by & Michael Jastram & WP7 leader & \\
+Approved by & Michael Jastram & WP7 leader & 3-Mar-2014 \\
 \hline
-\end{tabular}
-
-\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
-\hline
-\multicolumn{4}{|c|}{Document evolution} \\
-\hline
-Version &  Date & Author(s) & Justification  \\
-\hline  
-00.01 & 19/12/2013 & M. Petit-Doche &  Document creation  \\
-\hline  
-00.02 & 19/12/2013 & M. Petit-Doche &  Approach (issue \#236), review comments, tool descriptions  \\
-\hline
-00.03 & 08/01/2014 & M. Jastram & Completing section on ProR \\
-\hline
-00.04 & 09/01/2014 & C. Braunstein & RT-tester description added \\
-\hline  
-00.05 & 13/01/2014 & J. Welte & Added description in the CPN Tools section; Added section on CPN Tools (copy from V and V); Added the section for ACedit and GSN (only copy from management);  Completed Acedit section to give basic tool information; Added structure for section ACedit and ReqCycle \\
-\hline  
-00.06 & 29/01/2014 & V. Prevosto &  Frama-C summary \\
-\hline
-00.07 & 21/02/2014 & S. Rieger &  Additions to SystemC and Uppaal sections \\
-\hline  
-00.08 & 28/02/2014 & A. Nitsch & Adding to Acceleo Section \\
-\hline  
-01.00 & 03/03/2014 & M. Jastram &  Finalization of the Deliverable  \\
-\hline 
 \end{tabular}
 
 % The actual document starts below this line

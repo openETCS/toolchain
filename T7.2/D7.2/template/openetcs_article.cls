@@ -15,7 +15,8 @@ openETCS project ]
 %% David Mentres FIXME macro
 \newcommand{\FIXME}[1]{\marginpar{FIXME}\textsf{FIXME: #1}}
 \newcommand{\IsLicensedUnderCC}[1]{#1}
-\DeclareOption{nocc}{\renewcommand{\IsLicensedUnderCC}[1]{ }}
+\newcommand{\IsNonPublic}[1]{}
+\DeclareOption{nocc}{\renewcommand{\IsLicensedUnderCC}[1]{} \renewcommand{\IsNonPublic}[1]{#1}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt,twoside]{article}
@@ -33,6 +34,19 @@ openETCS project ]
 % PdfLaTeX Choix 1 "times Helvet et math" http://www.cuk.ch/articles/4237
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
+
+% definition of approval variables
+\def\creatorname#1{\gdef\@creatorname{#1}}
+\def\creatoraffil#1{\gdef\@creatoraffil{#1}}
+
+\def\techassessorname#1{\gdef\@techassessorname{#1}}
+\def\techassessoraffil#1{\gdef\@techassessoraffil{#1}}
+
+\def\qualityassessorname#1{\gdef\@qualityassessorname{#1}}
+\def\qualityassessoraffil#1{\gdef\@qualityassessoraffil{#1}}
+
+\def\approvalname#1{\gdef\@approvalname{#1}}
+\def\approvalaffil#1{\gdef\@approvalaffil{#1}}
 
 
 \def\@projectfont{%
@@ -84,7 +98,8 @@ openETCS project ]
 \rhead{\textsf{\textbf{\footnotesize\thepage}}}
 \chead{}
 \lfoot{}
-\cfoot{\scriptsize \textit{This work is licensed under the "openETCS Open License Terms" (oOLT).}}
+\IsLicensedUnderCC{\cfoot{\scriptsize \textit{This work is licensed under the "openETCS Open License Terms" (oOLT).}}}
+\IsNonPublic{\cfoot{\scriptsize \textit{Confidential -- only for members of the consortium, including ITEA2 services.}}}
 %\cfoot{\color{blue}\textsf{\textbf{\textit{openETCS}}}\color{black}\IsLicensedUnderCC{ - \includegraphics[width=3em]{ccbysa.png}}}
 \rfoot{}
 \newif\if@frontmatter
@@ -276,6 +291,7 @@ TERMS AND CONDITIONS.
    \vfill
    \begin{@coverlist}%
      \IsLicensedUnderCC{\@distributionfont\@distribution}
+     \IsNonPublic{\@distributionfont \centering \large Confidential -- only for members of the consortium, including ITEA2 services.}
    \end{@coverlist}%
    \newpage
    This page is intentionally left blank
@@ -297,6 +313,31 @@ TERMS AND CONDITIONS.
       \vspace*{3\p@}%
       \bfseries\@subtitle\par
   \end{minipage}\rule[-0.7in]{\z@}{1in}\par
+  
+  
+% document approbation
+  
+  \large Document approbation
+    
+        \begin{tabular}{ |p{3.6cm}|  p{3.6cm}|  p{3.6cm}| p{3.6cm}|}
+        \hline
+        \normalsize Lead author: & \normalsize Technical assessor: & \normalsize  Quality assessor: & \normalsize Project lead: \\
+        \hline
+        \tiny location / date \vspace{1.2cm} & \tiny location / date &\tiny location / date &\tiny location / date \\
+        \hline
+        \tiny signature \vspace{1.2cm} & \tiny signature &\tiny signature &\tiny signature \\
+        
+        \small \@creatorname & \small\@techassessorname & \small\@qualityassessorname & \small\@approvalname \\
+        
+        \small(\@creatoraffil ) & \small(\@techassessoraffil ) & \small(\@qualityassessoraffil ) & \small(\@approvalaffil ) \\
+        \hline        
+        \end{tabular}
+        \vspace{.5cm}
+
+
+
+
+        
      \def\author##1{%
        \def\@tempa{##1}%
        \nxandlist{\unskip, }{\unskip{} \@@and~}{\unskip{} \@@and~}\@tempa
@@ -309,7 +350,11 @@ TERMS AND CONDITIONS.
 %     {\IsLicensedUnderCC{\@distributionfont\@distribution\par}}%
    \end{minipage}
  \end{@titlelist}%
-  \vfill
+  %\vfill
+
+
+  
+  
   \begin{@titlelist}%
     \sffamily\normalsize\fontseries{k}\selectfont
     \ifx\@additionalinfo\@empty\else\@additionalinfo\par\fi
@@ -330,6 +375,8 @@ TERMS AND CONDITIONS.
              \fi
        \end{@titleblock}
     \fi
+    
+    
   \end{@titlelist}%
   \clearpage
   \ifvoid\abstractbox
