@@ -1,8 +1,19 @@
-** Toolspint 20 (Ends 17-October-2014)
+** Toolspint 22 (Ends 21-November-2014)
 *** resolved issues
-- #422 Integrate SysML to B translator into openETCS
-- #70 Chapter for developer documentation: License Guideline
+- #434 Temporary installation instructions for Sysml2Scade for early evaluation
+- #412 Unit Tests Broken
+- #360 DataDictionary transform : produce SysML using papyrus commands.
+- #459 Fix the build : exclude sysml2scade feature & plugins  
 
 *** Important commit 
-- ab6a0ebd150ef6ac03a607b11bd4fc40e9c937b2
- [#422] adding SysML2B transformation and various correction.
+- a5e733458364fe72011ed79c883f40db4543a1b7
+ Fixing unit tests (#412)
+- 24d73580670358af4991bc6963e398b546ad2b56
+ [#360] Bitwalker DataDictionary to SysML transformation implemented.
+- a336f29a277a9475b3bb34ec6195b4c76132c6de
+Creating a separate feature for ProR Tracing 
+- e237c53b70353330e438cd9f1a84ea1d53799a49 
+Fix the build : exclude sysml2scade feature & plugins
+   -  Move Sysml2scade plugins from bundle to standalone folder (out of the build)
+   - change openETCS.product (org.openetcs.releng.products) to exclude Sysml2scade feature.
+   - change pom file in the releng.parent plugin to exlude plugins from the build
