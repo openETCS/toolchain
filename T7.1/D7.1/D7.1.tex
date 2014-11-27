@@ -1,10 +1,12 @@
 \documentclass{template/openetcs_report}
-% Use the option "nocc" if the document is not licensed under Creative Commons
-%\documentclass[nocc]{template/openetcs_article}
 \usepackage{rotating,url,color}
 %\usepackage[hidelinks]{hyperref}
-%hidelinks put some problems on some distributions
 \usepackage{hyperref}
+\usepackage{supertabular}
+\usepackage{multirow}
+\usepackage{color, colortbl}
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+\usepackage[modulo]{lineno}
 \graphicspath{{./template/}{.}{./images/}}
 \begin{document}
 \frontmatter
@@ -27,7 +29,21 @@
 \subtitle{ Decision on the final choice for the means of description (O7.1.4), tools (O7.1.8) and tool platform (O7.1.11)}
 
 %set the date of the report here
-\date{October 2013}
+\date{October 2013\\Revised November 2014}
+
+%document approval
+%define the name and affiliation of the people involved in the documents approbation here
+\creatorname{Michael Jastram}
+\creatoraffil{Formal Mind}
+
+\techassessorname{Michael Jastram}
+\techassessoraffil{Formal Mind}
+
+\qualityassessorname{Cécile Braunstein}
+\qualityassessoraffil{University of Bremen}
+
+\approvalname{Klaus-R\"udiger Hase}
+\approvalaffil{DB Netz}
 
 %define a list of authors and their affiliation here
 
@@ -54,11 +70,46 @@ This document gives  a description and the results of the first task of WP7. The
 %=============================
 %Do not change the next three lines
 \maketitle
+
+%Modification history
+%if you do not need a modification history table for your document simply comment out the eight lines below
+%=============================
+\section*{Modification History}
+\tablefirsthead{
+\hline 
+\rowcolor{gray} 
+Version & Section & Modification / Description & Author \\\hline}
+\begin{supertabular}{| m{1.2cm} | m{0.2cm} | m{7.6cm} | m{4cm} |}
+00.01 & & 08/07/2013 Document creation & M. Petit-Doche  \\
+00.02 & & 18/07/2013 Complements in § 3 & M.~Jastram, C.~Braunstein \\
+      &  & Draft version of appendix A & U. Steinke \\
+00.03 & & 19/07/2013 Complements in § 2 and § 4 & M.Petit-Doche \\
+00.04 & & 31/07/2013 Significant work in §§1, 2, 3 and 4 before review. & M.Jastram \\
+00.05 & & 13/08/2013 Github issues taken into account: 80, 84, 87, 88, 89, 90(partial), 96 107& M.Petit-Doche \\
+00.06 & & 15/08/2013 significant review of Papyrus-ERTMSFormalSpecs-Eclipse proposal & Stanislas Pinte\\
+00.07 & & 26/08/2013 Cleaning in all the document Github issues taken into account: 82, 83, 90, 100, 112, 116, 119 & U. Steinke, M. Petit-Doche \\
+00.08 & & 29/08/2013 Cleaning in all the document Github issues taken into account: 85, 99, 100, 123, 124, 126 &  M. Petit-Doche \\
+00.09 & & 03/09/2013 Cleaning in all the document Github issues taken into account: 62, 102, 126 (partial), 132, 136 & M. Jastram,  M. Petit-Doche \\
+00.10 & & 03/09/2013 Description: Image of SysML / Classical B toolchain updated. Minor updates in text. & A. Stante \\
+00.11 & & 03/09/2013 Cleaning in all the document Github issues taken into account: 86, 108, 116 &  M. Petit-Doche \\
+00.12 & &05/09/2013 Issue taken into account: 118 &  A. Stante \\
+01.00 & & 05/10/2013 Rewrite according to Review meetings and issues, in order to start the second review round. &  M. Jastram \\
+01.01 & & 12/09/2013 Issues 139, 144 &  M. Petit-Doche  \\
+01.02 & & 12/09/2013 Review, Decision and Resource Allocation &  M. Jastram \\
+01.03 & & 13/09/2013 Issues 142 &  M. Petit-Doche  \\
+01.04 & & 13/09/2013 Issues 75, 153 &  M. Petit-Doche \\
+02.00 & & 01/10/2013 Major version for 2nd decision meeting &  M. Petit-Doche  \\
+02.01 & & 26/11/2014 Updating the template for compliance. & Michael Jastram \\\hline
+\end{supertabular}
+
 \tableofcontents
 \listoffiguresandtables
-\newpage
+
 %=============================
 
+%=============================
+% The actual document starts below this line
+%=============================
 
 \begin{tabular}{|p{4.4cm}|p{8.7cm}|}
 \hline
@@ -68,7 +119,7 @@ Work Package &  WP7  \\
 Deliverable ID or doc. ref. & D.7.1 (including O7.1.4, O7.1.8, O7.1.11) \\
 \hline
 Document title & Report on the final choices for the primary toolchain \\
-Document version & 02.00 \\
+Document version & 02.01 \\
 Document authors (org.)  & Michael Jastram (Formal Mind), Marielle Petit-Doche (Systerel) and WP7 partners  \\
 \hline
 \end{tabular}
@@ -77,9 +128,9 @@ Document authors (org.)  & Michael Jastram (Formal Mind), Marielle Petit-Doche (
 \hline
 \multicolumn{2}{|c|}{Review information} \\
 \hline
-Last version reviewed & 01.00 \\
+Last version reviewed & 02.01 \\
 \hline
-Main reviewers &  \\
+Main reviewers & See Revisions \\
 \hline
 \end{tabular}
 
@@ -98,34 +149,6 @@ Written by  & Michael Jastram & WP7 Task Leader  &  October 2013 \\
 \hline
 Approved by & Michael Jastram & WP7 leader & October 2013 \\
 \hline
-\end{tabular}
-
-\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
-\hline
-\multicolumn{4}{|c|}{Document evolution} \\
-\hline
-Version &  Date & Author(s) & Justification  \\
-\hline  
-00.01 & 08/07/2013 & M. Petit-Doche &  Document creation  \\
-00.02 & 18/07/2013 & M.~Jastram, C.~Braunstein & Complements in § 3 \\
- &  & U. Steinke & Draft version of appendix A \\
-00.03 & 19/07/2013 & M.Petit-Doche & Complements in § 2 and § 4 \\
-00.04 & 31/07/2013 & M.Jastram & Significant work in §§1, 2, 3 and 4 before review. \\
-00.05 & 13/08/2013 & M.Petit-Doche & Github issues taken into account: 80, 84, 87, 88, 89, 90(partial), 96 107 \\
-00.06 & 15/08/2013 & Stanislas Pinte & significant review of Papyrus-ERTMSFormalSpecs-Eclipse proposal \\
-00.07 & 26/08/2013 & U. Steinke, M. Petit-Doche & Cleaning in all the document Github issues taken into account: 82, 83, 90, 100, 112, 116, 119 \\
-00.08 & 29/08/2013 &  M. Petit-Doche & Cleaning in all the document Github issues taken into account: 85, 99, 100, 123, 124, 126 \\
-00.09 & 03/09/2013 & M. Jastram,  M. Petit-Doche & Cleaning in all the document Github issues taken into account: 62, 102, 126 (partial), 132, 136 \\
-00.10 & 03/09/2013 & A. Stante & Description: Image of SysML / Classical B toolchain updated. Minor updates in text. \\
-00.11 & 03/09/2013 &  M. Petit-Doche & Cleaning in all the document Github issues taken into account: 86, 108, 116 \\
-00.12 & 05/09/2013 &  A. Stante & Issue taken into account: 118 \\
-01.00 & 05/10/2013 &  M. Jastram & Rewrite according to Review meetings and issues, in order to start the second review round. \\
-01.01 & 12/09/2013 &  M. Petit-Doche & Issues 139, 144  \\
-01.02 & 12/09/2013 &  M. Jastram & Review, Decision and Resource Allocation \\
-01.03 & 13/09/2013 &  M. Petit-Doche & Issues 142  \\
-01.04 & 13/09/2013 &  M. Petit-Doche & Issues 75, 153  \\
-02.00 & 01/10/2013 &  M. Petit-Doche & Major version for 2nd decision meeting  \\
-\hline  
 \end{tabular}
 
 % The actual document starts below this line
