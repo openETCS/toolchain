@@ -10,13 +10,13 @@ In each iteration the scrum team evolves the product (makes an incremental deliv
 
 In the quality control stage of each sprint, unit testing, integration testing, performance, functional and acceptance testing will be made in the test environments ensuring the quality of the openETCS tool chain.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{types_test}
 \caption{\label{fig:types} Types of test during the development life cycle} 
 \end{figure}
 
 
-The fact of rerun every test every sprint is time consuming so in each sprint unit testing will be executed continuosly and a good regression set based on risk classifications and business value will be collected and executed to give more time to specify and execute test cases for the functionalities implemented during the current sprint. All cross-sections along the subsets of test cases can form the total regression tests that are selected.
+The fact of rerun every test every sprint is time consuming so in each sprint unit testing will be executed continuosly and a good regression set based on risk classifications and business value will be collected and executed to give more time to specify and execute test cases for the functionalities implemented during the current sprint. All cross-sections along the subsets of test cases can form the total regression tests that are selected. So, a test suite has to be passed to assure that all functions and components are working and integrated correctly.
 
 If the toolchain reach the stage of functional testing with too critical and / or blocking errors the tool chain will be returned to the unit testing stage
 
@@ -68,10 +68,10 @@ At following the type of tests to be executed will be described.
 \begin{center}
 \begin{longtable}[H]{|p{4cm}|p{9cm}|}\hline
 \multicolumn{2}{|c|}{\textbf{System Tests}}\\\hline
-\textbf{Objective} &  Validate non-functional requirements. During the System testing will be checked: the speed, the security, the reliability…etc.\\\hline
+\textbf{Objective} &  Validate non-functional requirements. During the System testing non functional requirements will be checked. These requirements are allocated in the \href{https://github.com/openETCS/requirements/blob/master/D2.6-9/D2_6-9.pdf}[D2.6-9 deliverable].\\\hline
 \textbf{Method} & \begin{itemize}
 \item Develop test sets for performance, load (high data size), etc
-\item During system testing, testing team will use preloaded data which is available on github repository.
+\item During system testing, testing team will use preloaded data which is available on \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles/Tests/Tests%20Data}[Tests Data folder] on github.
 \end{itemize}  \\\hline
 \textbf{Tools} & -\\\hline
 \textbf{Responsible} & Validation and Verification Team\\\hline
@@ -88,7 +88,7 @@ At following the type of tests to be executed will be described.
 \begin{center}
 \begin{longtable}[H]{|p{4cm}|p{9cm}|}\hline
 \multicolumn{2}{|c|}{\textbf{Functional Tests}}\\\hline
-\textbf{Objective} &  validating that the user’s workflows are correctly created and to provide clear evidence that the platform performs as it should in every possible environment.\\\hline
+\textbf{Objective} &  validating that the user’s workflows and functional requirements provided on \href{https://github.com/openETCS/toolchain/wiki/User-Documentation}[documentation page] and on \href{https://github.com/openETCS/requirements/blob/master/D2.6-9/D2_6-9.pdf}[D2.6-9 deliverable] are correctly created and to provide clear evidence that the platform performs as it should in every possible environment.\\\hline
 \textbf{Method} & During functional testing, testing team will use preloaded data which is available on github repository. 
 
 Validation and execution of test set using valid and invalid data
@@ -127,7 +127,7 @@ Develop a test set of the minimun requirements for the proper tool chain operati
 \begin{center}
 \begin{longtable}[H]{|p{4cm}|p{9cm}|}\hline
 \multicolumn{2}{|c|}{\textbf{User Acceptance Tests}}\\\hline
-\textbf{Objective} &  Check that designed use cases had the correct results.\\\hline
+\textbf{Objective} &  Check that designed user test cases allocated on \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles/Tests/Tests%20Specifications}[Tests Specifications] had the correct results.\\\hline
 \textbf{Method} & Validation and Verification team will write the UAT test cases based on the inputs from End User and project goals \\\hline
 \textbf{Tools} & -\\\hline
 \textbf{Responsible} & End Users\\\hline
@@ -159,7 +159,7 @@ Develop a test set of the minimun requirements for the proper tool chain operati
 \label{sec:test_items}
 The OpenETCS tool chain consists of components. A Component is what the user perceives as an atomic tool aspect of openETCS. Some special Components satisfy infrastructure needs and are called Cross-Cutting Concerns. All the components are hosted by the tool platform (eclipse MDT). The OpenETCS tool page lists all the available components. A guideline to follow the defined life-cycle for OBU development will complete the tool chain.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{ToolChainmodel}
 \caption{\label{fig:overview} Tool Chain overview (20.02.14) -- \\
   Green Block: Implemented \\
@@ -170,7 +170,7 @@ The OpenETCS tool chain consists of components. A Component is what the user per
 The features may be implemented by one or more tools and may also be implemented as plugins.
 All the features and plugins that make up the current tool chain and that should be tested are allocated in \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles}{[Toolchain repository]}.
 
-In addition to this, the person in charge of each test item is identified in the information allocated in the test management folder as it is shown in Figure \ref{fig:testmanag}.
+In addition to this, the person in charge of each test item is identified in the information allocated in \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles/Tests/Tests%20Management}{[test management folder]} as it is shown in Figure \ref{fig:testmanag}.
 
 \section{Features to be tested}
 \label{sec:features_test}
@@ -205,14 +205,14 @@ Eclipse & Eclipse is a development tool and will be used for test, in functional
 \end{longtable}
 \end{center}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{tools}
 \caption{\label{fig:tools} Test environment tools} 
 \end{figure}
 
 As previously mentioned, GitHub will be used for configuration management. At following, the proposed structure to manage the testing process of tool chain supported by GitHub tool in order to assist in quality control and tool chain testing, to provide support for the planning and execution of the tests consistently, while keeping track of the requirements, versions, tasks, configurations and defect management, is shown:
  
-\begin{figure}[htbp]
+\begin{figure}[H]
 \includegraphics[width=\textwidth]{test_info_management}
 \caption{\label{fig:testmanag} Test Information Management} 
 \end{figure}
@@ -221,7 +221,7 @@ As previously mentioned, GitHub will be used for configuration management. At fo
 Throughout the tool chain testing process a set of documents is created in order to keep track of the activities:
 \begin{itemize}
 \item \textbf{Test Plans}: A master test plan and sub-test plans for each plugin or feature will be developed. These documents will contain information about the scope, approach, objectives, features to be tested, resources, tools and schedule of testing activities.  These documents must be prepared in accordance with the EN50128 Standard. A Test Plan Template is provided in Appendices \ref{ref:test_plan_template}
-\item \textbf{Test Specifications}: This document will contain all the information about the tests. For each of them, the ID, name, description and the requirements which the cases validate will be included. In addition, each Test Case will include information about the Entry and Exit specification, a Description of the Event to be performed and other information such as type or Needs Test Environment for conducting the test. The Test Specification Template is provided in the Appendices \ref{ref:test_spec_template}
+\item \textbf{Test Specifications}: This document will contain all the information about the tests. For each of them, the ID, name, description and the requirements which the cases validate will be included. In addition, each Test Case will include information about the Entry and Exit specification, a Description of the Event to be performed and other information such as type or Needs Test Environment for conducting the test. The Test Specification Structure is provided in the Appendices \ref{ref:test_spec_template}
 \item \textbf{Test Results Reports}: The results obtained after the Test Cases execution will be collected in a Summary Test Report. For each test performed their unique identifier, the date and time which has been successfully executed or not and whether it is passed or failed state shall be indicated. A Test Results Report Template is provided in the Apendices \ref{ref:test_result_template}. In case the tests are executed automatically by a tool that creates its own report, this will also be used as Test Result Report. An example of this last condition is the unit test result report which can be found in \href{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/lastBuild/testReport/}{[Test Report folder]}.
 \item \textbf{Test Scripts}: All created scripts identified for use in test shoud be under configuration management tool.
 \item \textbf{Test Data}: All necessary data identified for use in test shoud be under configuration management tool.
