@@ -213,8 +213,10 @@ Eclipse & Eclipse is a development tool and will be used for test, in functional
 As previously mentioned, GitHub will be used for configuration management. At following, the proposed structure to manage the testing process of tool chain supported by GitHub tool in order to assist in quality control and tool chain testing, to provide support for the planning and execution of the tests consistently, while keeping track of the requirements, versions, tasks, configurations and defect management, is shown:
  
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{test_info_management}
+\begin{center}
+\includegraphics[scale=0.8]{test_info_management}
 \caption{\label{fig:testmanag} Test Information Management} 
+\end{center}
 \end{figure}
 
 \section{Test Deliverables}
@@ -224,7 +226,7 @@ Throughout the tool chain testing process a set of documents is created in order
 \item \textbf{Test Specifications}: This document will contain all the information about the tests. For each of them, the ID, name, description and the requirements which the cases validate will be included. In addition, each Test Case will include information about the Entry and Exit specification, a Description of the Event to be performed and other information such as type or Needs Test Environment for conducting the test. The Test Specification Structure is provided in the Appendices \ref{ref:test_spec_template}
 \item \textbf{Test Results Reports}: The results obtained after the Test Cases execution will be collected in a Summary Test Report. For each test performed their unique identifier, the date and time which has been successfully executed or not and whether it is passed or failed state shall be indicated. A Test Results Report Template is provided in the Apendices \ref{ref:test_result_template}. In case the tests are executed automatically by a tool that creates its own report, this will also be used as Test Result Report. An example of this last condition is the unit test result report which can be found in \href{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/lastBuild/testReport/}{[Test Report folder]}.
 \item \textbf{Test Scripts}: All created scripts identified for use in test shoud be under configuration management tool.
-\item \textbf{Test Data}: All necessary data identified for use in test shoud be under configuration management tool.
+\item \textbf{Test Data}: All necessary data identified for use in test shoud be under configuration management tool. These data or the reference where they are are located in \href{https://github.com/openETCS/toolchain/tree/master/tool/bundles/Tests/Tests%20Data/}{[Test Data folder]}
 \item \textbf{Test Incident Report}: This document will contain the list of errors found during the execution on test cases. For each error will appear the record of the ticket live.  
 \item \textbf{Test Logs}: This document will contain the logs of the system during the OpenETCS platform testing.
 \end{itemize}
