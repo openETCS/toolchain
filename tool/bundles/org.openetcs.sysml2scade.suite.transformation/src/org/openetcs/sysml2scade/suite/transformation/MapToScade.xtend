@@ -31,6 +31,7 @@ import java.util.Map.Entry
 import java.util.AbstractMap.SimpleEntry
 import java.util.HashMap
 import com.esterel.scade.api.Variable
+
 class MapToScade extends ScadeModelWriter {
 	
 	private URI baseURI;
@@ -105,6 +106,7 @@ class MapToScade extends ScadeModelWriter {
 	def createOperatorImplementation(Operator operator, NetDiagram diagram) {
 		var i = 1;
 		var y_pos = 5;
+
 		for (input : operator.getInput()) {
 			// Consider using the definedType directly instead of searching for it
 			var variable = createNamedTypeVariable("_L"+i, input.getType().getDefinedType());
@@ -139,7 +141,7 @@ class MapToScade extends ScadeModelWriter {
 			i = i + 1;
 			y_pos = y_pos + 1000;
 		}
-		y_pos = 5		
+		y_pos = 5
 		for (output : operator.getOutput()) {
 			var variable = createNamedTypeVariable("_L"+i, output.getType().getDefinedType());
 			operator.getLocals().add(variable);
@@ -281,6 +283,7 @@ class MapToScade extends ScadeModelWriter {
 			var operator = entry.value
 			var name = 1;
 			var diagram = operatorToNetDiagramMap.get(operator);
+			var y_pos = 5
 			
 			for (nblock : block.getNestedBlocks()) {
 				// Create equation
@@ -300,6 +303,9 @@ class MapToScade extends ScadeModelWriter {
 				// Set function call to call expression
 				call_expression.setOperator(call)
 				
+				var idexpression = theScadeFactory.createIdExpression()
+				call_expression.getCallParameters().add(idexpression)
+				
 				// Set call expression to right side of equation
 				equation.setRight(call_expression)
 				
@@ -310,14 +316,20 @@ class MapToScade extends ScadeModelWriter {
 				var equation_ge = theEditorPragmasFactory.createEquationGE();
 				equation_ge.setEquation(equation);
 				
+				var point = theEditorPragmasFactory.createPoint();
+				point.setX(5000);
+				point.setY(y_pos);
+				equation_ge.setPosition(point);
+				
 				var size  = theEditorPragmasFactory.createSize();
-				size.setWidth(508);
-				size.setHeight(500);
+				size.setWidth(4000);
+				size.setHeight(3000);
 				equation_ge.setSize(size);
 				
 				diagram.getPresentationElements().add(equation_ge);
 				
 				name = name + 1
+				y_pos = y_pos + 4000
 			}
 		}
 	}
