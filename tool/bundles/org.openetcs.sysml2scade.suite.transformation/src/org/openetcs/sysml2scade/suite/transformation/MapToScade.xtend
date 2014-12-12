@@ -123,8 +123,7 @@ class MapToScade extends ScadeModelWriter {
 		var i = 1;
 		var y_pos = 5;
 
-		for (input : operator.getInput()) {
-
+		for (input : operator.getInputs()) {
 			// Consider using the definedType directly instead of searching for it
 			var variable = createNamedTypeVariable("_L" + i, (input.getType() as NamedType).getType());
 			operator.getLocals().add(variable);
@@ -161,7 +160,7 @@ class MapToScade extends ScadeModelWriter {
 			y_pos = y_pos + 1000;
 		}
 		y_pos = 5
-		for (output : operator.getOutput()) {
+		for (output : operator.getOutputs()) {
 			var equation = theScadeFactory.createEquation();
 			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
 			equation.getLefts().add(output);
@@ -192,7 +191,7 @@ class MapToScade extends ScadeModelWriter {
 
 	def createScadeDiagram(Operator operator) {
 		val operator_pragma = theEditorPragmasFactory.createOperator();
-		operator.getPragma().add(operator_pragma);
+		operator.getPragmas().add(operator_pragma);
 		operator_pragma.setNodeKind("graphical");
 		val operator_diagram = theEditorPragmasFactory.createNetDiagram();
 		operator_diagram.setName(operator.name + "_diagram");
@@ -214,18 +213,18 @@ class MapToScade extends ScadeModelWriter {
 			// Create the port
 			if (port.direction.value == FlowDirection.OUT_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
-				operator.getOutput().add(variable)
+				operator.getOutputs().add(variable)
 				flowportToOutputMap.put(port, variable)
 			} else if (port.direction.value == FlowDirection.IN_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
-				operator.getInput().add(variable)
+				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
 				var variable = createNamedTypeVariable("input_" + port.name, type)
-				operator.getInput().add(variable)
+				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
 				variable = createNamedTypeVariable("output_" + port.name, type)
-				operator.getOutput().add(variable)
+				operator.getOutputs().add(variable)
 				flowportToOutputMap.put(port, variable)
 			}
 		}
