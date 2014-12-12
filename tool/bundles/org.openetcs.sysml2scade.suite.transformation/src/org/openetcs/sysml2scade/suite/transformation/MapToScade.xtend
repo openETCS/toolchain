@@ -344,7 +344,7 @@ class MapToScade extends ScadeModelWriter {
 				var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
 				
 				if (stereotype != null) {
-					list.add(property.getStereotypeApplication(stereotype) as Block)
+					list.add(type.getStereotypeApplication(stereotype) as Block)
 				}	
 			}
 		}
