@@ -216,11 +216,11 @@ existing one.
 
 \section{Subset-026 import}
 \label{sec-2}
-The Subset-026 import is realized by a script transforming the Word document
+The subset-026 import is realized by a script transforming the Word document
 into a req-IF format file.
 \subsection{Script description}
 \label{sec-2-1}
-The script \todo{The script need a name} generates a hierarchical tree of all traceworthy
+The script \todo{The script needs a name} generates a hierarchical tree of all traceworthy
 artifacts in each chapter of subset-026. Each artifact shall be uniquely
 addressable via a tracestring.
 
@@ -235,56 +235,49 @@ Take the following example:
 \end{figure}
 
 
-\subsubsection{Guideline}
-\label{sec-2-2-1}
+\paragraph{Guideline}
 The scope of a single requirement ID is a paragraph of text (there are six such
 paragraphs in the above example).  requirement IDs are hierarchical. The
-hierarchy is a direct mapping of the hierarchy in the original subset026
+hierarchy is a direct mapping of the hierarchy in the original subset-026
 text. Levels are separated by a dot. There is a requirement at each level
 (i.e. you may truncate the requirement ID to any level and it stays valid).
 
-\subsubsection{How to}
-\label{sec-2-2-2}
+\paragraph{How to}
 
 Suppose we want to trace the fifth paragraph in the above example i.e
 \begin{verbatim}
 • End of mission is performed
 \end{verbatim}
 \begin{enumerate}
-\item Let traceString be the variable to store the result.
+\item Let \textsl{traceString} be the variable to store the result.
 \item Find the current running number of the base list. That is the list which
 includes the chapter number. In this example this number equals
-\verb+3.5.3.7.+ Set traceString to this number.
+\verb+3.5.3.7.+ Set \textsl{traceString} to this number.
 \item Count the number of paragraphs in this list item starting with 1 and append
-this number in square brackets to the traceString if it is greater than 1.
-\end{enumerate}
+this number in square brackets to the \textsl{traceString} if it is greater than 1.
 
 Note: For the first iteration in the example there is only one such paragraph
 (\texttt{If the establishment...}). Hence, we do not append anything. In the
 second iteration there are two such paragraphs (\texttt{The on-board shall...} and
 \texttt{If this request is not ...}). Hence, the second one will receive an
 \texttt{[2]} appendix.
-\begin{enumerate}
+
 \item Until you arrived at your target paragraph: Append any running number of
 sub-lists and remove leading or trailing characters (such as braces). If the
 current sub-list is bulleted then the level string always becomes
 \verb+[*][n]+ (with n being the running number of that bullet starting at
 1). Prefix this new level with a dot (\verb+.+) and append it to the
-traceString.
-\end{enumerate}
+\textsl{traceString}.
 
 Note: \verb+a)+ is the identifier of one such sub-list item. The trailing brace
 will be removed. The bullet points form another (less significant) sub-list.
-\begin{enumerate}
 \item Do step 3.
 \item Do step 4 or break.
-\item traceString is now the fully qualified requirementID.
+\item \textsl{traceString} is now the fully qualified requirementID.
 \end{enumerate}
 
-This will result in the following requirement ID:
-\begin{verbatim}
-3.5.3.7.a[2].[*][2]
-\end{verbatim}
+This will result in the following requirement ID: \quad \verb+3.5.3.7.a[2].[*][2]+
+
 
 \section{Requirement Database}
 \label{sec-3}
