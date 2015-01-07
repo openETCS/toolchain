@@ -25,7 +25,6 @@ import de.cau.cs.kieler.kiml.AbstractLayoutProvider
 import de.cau.cs.kieler.kiml.klayoutdata.KEdgeLayout
 import de.cau.cs.kieler.kiml.klayoutdata.KShapeLayout
 import de.cau.cs.kieler.kiml.options.Direction
-import de.cau.cs.kieler.kiml.options.EdgeLabelPlacement
 import de.cau.cs.kieler.kiml.options.EdgeRouting
 import de.cau.cs.kieler.kiml.options.LayoutOptions
 import de.cau.cs.kieler.kiml.options.PortConstraints
@@ -37,10 +36,8 @@ import de.cau.cs.kieler.kiml.util.KimlUtil
 import de.cau.cs.kieler.klay.layered.LayeredLayoutProvider
 import java.util.EnumSet
 import java.util.HashMap
-import java.util.HashSet
 import java.util.LinkedList
 import java.util.Map
-import java.util.Set
 import org.eclipse.core.resources.IProject
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.emf.common.util.EList
@@ -80,11 +77,9 @@ class MapToScade extends ScadeModelWriter {
 	private Project scadeProject;
 	private AbstractLayoutProvider layoutProvider
 	private Map<Block, Operator> blockToOperatorMap;
-	private Map<Operator, NetDiagram> operatorToNetDiagramMap;
 	private Map<Variable, Variable> inputToVariableMap;
 	private Map<FlowPort, Variable> flowportToOutputMap;
 	private Map<FlowPort, Variable> flowportToInputMap;
-	private Map<Variable, EquationGE> portsToGraphicalMap;
 	private Map<Variable, Equation> outputToEquationMap;
 
 	new(Model model, IProject project) {
@@ -96,13 +91,11 @@ class MapToScade extends ScadeModelWriter {
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		blockToOperatorMap = new HashMap<Block, Operator>()
-		operatorToNetDiagramMap = new HashMap<Operator, NetDiagram>()
 		layoutProvider = new LayeredLayoutProvider()
 
 		inputToVariableMap = new HashMap<Variable, Variable>()
 		flowportToOutputMap = new HashMap<FlowPort, Variable>()
 		flowportToInputMap = new HashMap<FlowPort, Variable>()
-		portsToGraphicalMap = new HashMap<Variable, EquationGE>()
 		outputToEquationMap = new HashMap<Variable, Equation>()
 
 		// Create empty SCADE project
@@ -136,13 +129,11 @@ class MapToScade extends ScadeModelWriter {
 
 			// Each Block is mapped to operator
 			val operator = createOperatorInterface(block);
-			val diagram = createScadeDiagram(operator);
-			createOperatorImplementation(operator, diagram);
+			createOperatorImplementation(operator);
 			scadePackage.getOperators().add(operator);
 
 			// Build list of generated blocks and operators
 			blockToOperatorMap.put(block, operator)
-			operatorToNetDiagramMap.put(operator, diagram)
 		}
 		for (p : pkg.nestedPackages) {
 			scadePackage.getPackages().add(iterateModel(p))
@@ -151,9 +142,8 @@ class MapToScade extends ScadeModelWriter {
 		return scadePackage
 	}
 
-	def createOperatorImplementation(Operator operator, NetDiagram diagram) {
+	def createOperatorImplementation(Operator operator) {
 		var i = 1;
-		var y_pos = 5;
 
 		for (input : operator.getInputs()) {
 
@@ -172,53 +162,14 @@ class MapToScade extends ScadeModelWriter {
 			equation.setRight(idexpression);
 			operator.getData().add(equation);
 
-			// Graphical
-			var equation_ge = theEditorPragmasFactory.createEquationGE();
-			equation_ge.setEquation(equation);
-			portsToGraphicalMap.put(input, equation_ge)
-
-			var point = theEditorPragmasFactory.createPoint();
-			point.setX(100);
-			point.setY(y_pos);
-			equation_ge.setPosition(point);
-
-			var size = theEditorPragmasFactory.createSize();
-			size.setWidth(508);
-			size.setHeight(500);
-			equation_ge.setSize(size);
-
-			diagram.getPresentationElements().add(equation_ge);
-
 			i = i + 1;
-			y_pos = y_pos + 1000;
 		}
-		y_pos = 5
 		for (output : operator.getOutputs()) {
 			var equation = theScadeFactory.createEquation();
 			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
 			equation.getLefts().add(output);
 			operator.getData().add(equation);
-
-			// Graphical
-			var equation_ge = theEditorPragmasFactory.createEquationGE();
-			equation_ge.setEquation(equation);
 			outputToEquationMap.put(output, equation)
-			portsToGraphicalMap.put(output, equation_ge)
-
-			var point = theEditorPragmasFactory.createPoint();
-			point.setX(10000);
-			point.setY(y_pos);
-			equation_ge.setPosition(point);
-
-			var size = theEditorPragmasFactory.createSize();
-			size.setWidth(508);
-			size.setHeight(500);
-			equation_ge.setSize(size);
-
-			diagram.getPresentationElements().add(equation_ge);
-
-			i = i + 1;
-			y_pos = y_pos + 1000;
 		}
 	}
 
@@ -334,21 +285,17 @@ class MapToScade extends ScadeModelWriter {
 			var operator = entry.value
 			var name = 1;
 			var locals_counter = operator.locals.size + 1
-			var diagram = operatorToNetDiagramMap.get(operator);
-			var y_pos = 5
 
 			var propertyToEquationMap = new HashMap<Property, Equation>()
 			var equationToOutputToVariableMap = new HashMap<Equation, HashMap<Variable, Variable>>()
 			var equationToOperatorMap = new HashMap<Equation, Operator>()
 			var equationToCallMap = new HashMap<Equation, CallExpression>()
-			var equationToGraphicalMap = new HashMap<Equation, EquationGE>()
 			var propertyToInputToConnectorendMap = new HashMap<Property, HashMap<Variable, ConnectorEnd>>()
 			var outputToConnectorendMap = new HashMap<Variable, ConnectorEnd>()
 
 			for (property : block.nestedBlocksAsProperties) {
 				locals_counter = addOperatorCall(property, propertyToEquationMap, name, operator, equationToOperatorMap,
-					equationToCallMap, locals_counter, equationToOutputToVariableMap, equationToGraphicalMap, y_pos)
-				y_pos = y_pos + 4000
+					equationToCallMap, locals_counter, equationToOutputToVariableMap)
 				name++
 			}
 			mapConnectorends(block.base_Class.ownedConnectors, propertyToEquationMap, outputToConnectorendMap,
@@ -363,20 +310,16 @@ class MapToScade extends ScadeModelWriter {
 					if (end.partWithPort == null) {
 						var input = flowportToInputMap.get(port)
 						var source = inputToVariableMap.get(input)
-						connectWithOutput(source, 1, portsToGraphicalMap.get(input), destination, diagram);
+						connectWithOutput(source, destination);
 					} else if (equationToOutputToVariableMap.containsKey(equation)) {
 						var sourcePort = flowportToOutputMap.get(port)
 						var source = equationToOutputToVariableMap.get(equation, sourcePort)
-						var src_index = equationToOperatorMap.get(equation).outputs.indexOf(
-							flowportToOutputMap.get(port)) + 1
-						connectWithOutput(source, src_index, equationToGraphicalMap.get(equation), destination,
-							diagram)
+						connectWithOutput(source, destination)
 					}
 				}
 			}
 			for (property : propertyToInputToConnectorendMap.keySet) {
 				var equation = propertyToEquationMap.get(property)
-				var equation_ge = equationToGraphicalMap.get(equation)
 				var op = equationToOperatorMap.get(equation)
 				var call_expression = equationToCallMap.get(equation)
 				var map = propertyToInputToConnectorendMap.get(property)
@@ -389,18 +332,17 @@ class MapToScade extends ScadeModelWriter {
 							if (end.partWithPort == null) {
 								var source = flowportToInputMap.get(port)
 								var variable = inputToVariableMap.get(source)
-								connectWithOperator(variable, 1, portsToGraphicalMap.get(source), dst_index, equation_ge,
-									call_expression, diagram)
+								connectWithOperator(variable, call_expression)
 							} else {
 								var eq = propertyToEquationMap.get(end.partWithPort)
 								var source = equationToOutputToVariableMap.get(eq, flowportToOutputMap.get(port))
-								connectWithOperator(source, equationToOperatorMap.get(eq).outputs.indexOf(source) + 1,
-									equationToGraphicalMap.get(eq), dst_index, equation_ge, call_expression, diagram)
+								connectWithOperator(source, call_expression)
 							}
+						} else {
+							call_expression.callParameters.add(theScadeFactory.createIdExpression())
 						}
 						dst_index = dst_index + 1
 					}
-					diagram.getPresentationElements().add(equationToGraphicalMap.get(equation));
 					name = name + 1
 				}
 			}
@@ -410,8 +352,7 @@ class MapToScade extends ScadeModelWriter {
 	def int addOperatorCall(Property property, HashMap<Property, Equation> propertyToEquationMap, int name,
 		Operator operator, HashMap<Equation, Operator> equationToOperatorMap,
 		HashMap<Equation, CallExpression> equationToCallMap, int locals_counter,
-		HashMap<Equation, HashMap<Variable, Variable>> equationToOutputToVariableMap,
-		HashMap<Equation, EquationGE> equationToGraphicalMap, int y_pos) {
+		HashMap<Equation, HashMap<Variable, Variable>> equationToOutputToVariableMap) {
 
 		var stereotype = property.type.getAppliedStereotype("SysML::Blocks::Block")
 		var nblock = property.type.getStereotypeApplication(stereotype) as Block
@@ -441,20 +382,6 @@ class MapToScade extends ScadeModelWriter {
 				counter = counter + 1
 			}
 
-			// Graphical
-			var equation_ge = theEditorPragmasFactory.createEquationGE();
-			equation_ge.setEquation(equation);
-			equationToGraphicalMap.put(equation, equation_ge)
-
-			var point = theEditorPragmasFactory.createPoint();
-			point.setX(5000);
-			point.setY(y_pos);
-			equation_ge.setPosition(point);
-
-			var size = theEditorPragmasFactory.createSize();
-			size.setWidth(4000);
-			size.setHeight(3000);
-			equation_ge.setSize(size)
 		} else {
 			propertyToEquationMap.remove(property)
 		}
@@ -582,8 +509,8 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode, Map<KPort, Equation> portToEquation,
-		Map<KPort, Integer> portToIndex) {
+	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode,
+		Map<KPort, Equation> portToEquation, Map<KPort, Integer> portToIndex) {
 		var equationToGraphical = new HashMap<Equation, EquationGE>()
 		for (entry : callToNode.entrySet) {
 			var equation = entry.key
@@ -710,34 +637,18 @@ class MapToScade extends ScadeModelWriter {
 		source.getEdges().add(edge)
 	}
 
-	def connectWithOperator(Variable source, int src_index, EquationGE src_ge, int dst_index, EquationGE dst_ge,
-		CallExpression call, NetDiagram diagram) {
+	def connectWithOperator(Variable source, CallExpression call) {
 		var idexpression = theScadeFactory.createIdExpression()
 		idexpression.setPath(source)
 		call.callParameters.add(idexpression)
-		var edge = theEditorPragmasFactory.createEdge()
-		edge.setLeftVarIndex(src_index)
-		edge.setRightExprIndex(dst_index)
-		edge.setSrcEquation(src_ge)
-		edge.setDstEquation(dst_ge)
-		diagram.presentationElements.add(edge)
 	}
 
-	def void connectWithOutput(Variable source, int src_index, EquationGE source_ge, Variable destination,
-		NetDiagram diagram) {
+	def void connectWithOutput(Variable source, Variable destination) {
 		var equation = outputToEquationMap.get(destination)
 		var idexpression = theScadeFactory.createIdExpression();
 		idexpression.setPath(source);
 		equation.setRight(idexpression);
 		equation.getLefts.add(destination)
-		var equation_ge = portsToGraphicalMap.get(destination)
-		diagram.presentationElements.add(equation_ge)
-		var edge = theEditorPragmasFactory.createEdge();
-		edge.setLeftVarIndex(src_index)
-		edge.setRightExprIndex(1)
-		edge.setSrcEquation(source_ge)
-		edge.setDstEquation(equation_ge)
-		diagram.presentationElements.add(edge)
 	}
 
 	def FlowPort getFlowPort(ConnectorEnd end) {
