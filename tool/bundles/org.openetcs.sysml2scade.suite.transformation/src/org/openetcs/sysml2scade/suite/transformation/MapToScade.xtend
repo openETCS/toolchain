@@ -3,6 +3,7 @@ package org.openetcs.sysml2scade.suite.transformation
 import com.esterel.project.api.Project
 import com.esterel.scade.api.CallExpression
 import com.esterel.scade.api.Equation
+import com.esterel.scade.api.IdExpression
 import com.esterel.scade.api.NamedType
 import com.esterel.scade.api.Operator
 import com.esterel.scade.api.OperatorKind
@@ -16,8 +17,28 @@ import com.esterel.scade.api.pragmas.editor.EquationGE
 import com.esterel.scade.api.pragmas.editor.NetDiagram
 import com.esterel.scade.api.pragmas.editor.util.EditorPragmasUtil
 import com.esterel.scade.api.util.ScadeModelWriter
+import de.cau.cs.kieler.core.alg.BasicProgressMonitor
+import de.cau.cs.kieler.core.kgraph.KEdge
+import de.cau.cs.kieler.core.kgraph.KNode
+import de.cau.cs.kieler.core.kgraph.KPort
+import de.cau.cs.kieler.kiml.AbstractLayoutProvider
+import de.cau.cs.kieler.kiml.klayoutdata.KEdgeLayout
+import de.cau.cs.kieler.kiml.klayoutdata.KShapeLayout
+import de.cau.cs.kieler.kiml.options.Direction
+import de.cau.cs.kieler.kiml.options.EdgeLabelPlacement
+import de.cau.cs.kieler.kiml.options.EdgeRouting
+import de.cau.cs.kieler.kiml.options.LayoutOptions
+import de.cau.cs.kieler.kiml.options.PortConstraints
+import de.cau.cs.kieler.kiml.options.PortLabelPlacement
+import de.cau.cs.kieler.kiml.options.PortSide
+import de.cau.cs.kieler.kiml.options.SizeConstraint
+import de.cau.cs.kieler.kiml.options.SizeOptions
+import de.cau.cs.kieler.kiml.util.KimlUtil
+import de.cau.cs.kieler.klay.layered.LayeredLayoutProvider
+import java.util.EnumSet
 import java.util.HashMap
 import java.util.HashSet
+import java.util.LinkedList
 import java.util.Map
 import java.util.Set
 import org.eclipse.core.resources.IProject
@@ -39,6 +60,15 @@ import org.eclipse.uml2.uml.Type
 
 class MapToScade extends ScadeModelWriter {
 
+	private val GRAPHICAL_OFFSET = 50f
+	private val OPERATOR_SPACING = 500f
+	private val PORT_SPACING = 500f
+	private val PORT_HEIGHT = 300f
+	private val PORT_WIDTH = 250f
+	private val OPERATOR_MIN_HEIGHT = 1500f
+	private val OPERATOR_MIN_WIDTH = 3000f
+	private val OPERATOR_ASPECT_RATIO = 0.5f
+
 	private URI baseURI;
 	private ResourceSet sysmlResourceSet;
 	private ResourceSet scadeResourceSet;
@@ -48,6 +78,7 @@ class MapToScade extends ScadeModelWriter {
 	private ScadeFactory theScadeFactory;
 	private EditorPragmasFactory theEditorPragmasFactory;
 	private Project scadeProject;
+	private AbstractLayoutProvider layoutProvider
 	private Map<Block, Operator> blockToOperatorMap;
 	private Map<Operator, NetDiagram> operatorToNetDiagramMap;
 	private Map<Variable, Variable> inputToVariableMap;
@@ -66,6 +97,7 @@ class MapToScade extends ScadeModelWriter {
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		blockToOperatorMap = new HashMap<Block, Operator>()
 		operatorToNetDiagramMap = new HashMap<Operator, NetDiagram>()
+		layoutProvider = new LayeredLayoutProvider()
 
 		inputToVariableMap = new HashMap<Variable, Variable>()
 		flowportToOutputMap = new HashMap<FlowPort, Variable>()
@@ -124,6 +156,7 @@ class MapToScade extends ScadeModelWriter {
 		var y_pos = 5;
 
 		for (input : operator.getInputs()) {
+
 			// Consider using the definedType directly instead of searching for it
 			var variable = createNamedTypeVariable("_L" + i, (input.getType() as NamedType).getType());
 			operator.getLocals().add(variable);
@@ -283,6 +316,7 @@ class MapToScade extends ScadeModelWriter {
 		scadeModel.getPackages().add(typePackage)
 
 		createHierarchy()
+		createGraphical()
 
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
@@ -456,6 +490,224 @@ class MapToScade extends ScadeModelWriter {
 				}
 			}
 		}
+	}
+
+	def createGraphical() {
+		for (operator : blockToOperatorMap.values) {
+			var inputMap = new HashMap<Variable, Equation>()
+			var outputMap = new HashMap<Variable, Equation>()
+			var callList = new LinkedList<Equation>()
+			for (elem : operator.data) {
+				var equation = elem as Equation
+				if (equation.lefts.size == 1 && operator.outputs.contains(equation.lefts.get(0))) {
+					outputMap.put(equation.lefts.get(0), equation)
+				} else if (equation.right instanceof IdExpression) {
+					inputMap.put((equation.right as IdExpression).path as Variable, equation)
+				} else {
+					callList.add(equation)
+				}
+			}
+
+			var portToEquation = new HashMap<KPort, Equation>()
+			var localsToSourcePort = new HashMap<Variable, KPort>()
+			var callToNode = new HashMap<Equation, KNode>()
+			var pNode = KimlUtil.createInitializedNode()
+			var portToIndex = new HashMap<KPort, Integer>()
+
+			for (var i = 0; i < operator.inputs.size; i++) {
+				var input = operator.inputs.get(i)
+				var port = KimlUtil.createInitializedPort()
+				port.setNode(pNode)
+				port.setSide(PortSide.WEST)
+				var portLabel = KimlUtil.createInitializedLabel(port)
+				portLabel.setText(input.name)
+				var equation = inputMap.get(input)
+				portToEquation.put(port, equation)
+				portToIndex.put(port, 1)
+				localsToSourcePort.put(equation.lefts.get(0), port)
+			}
+			for (equation : callList) {
+				var cNode = KimlUtil.createInitializedNode()
+				cNode.setParent(pNode)
+				callToNode.put(equation, cNode)
+				for (var i = 0; i < equation.lefts.size; i++) {
+					var output = equation.lefts.get(i)
+					var port = KimlUtil.createInitializedPort()
+					port.setNode(cNode)
+					port.setSide(PortSide.EAST)
+					localsToSourcePort.put(output, port)
+					portToEquation.put(port, equation)
+					portToIndex.put(port, i + 1)
+				}
+			}
+			for (var i = 0; i < operator.outputs.size; i++) {
+				var output = operator.outputs.get(i)
+				var port = KimlUtil.createInitializedPort()
+				port.setNode(pNode)
+				port.setSide(PortSide.EAST)
+				var portLabel = KimlUtil.createInitializedLabel(port)
+				portLabel.setText(output.name)
+				var equation = outputMap.get(output)
+				portToEquation.put(port, equation)
+				portToIndex.put(port, 1)
+				var idExpression = equation.right
+				if (idExpression != null) {
+					var source = (idExpression as IdExpression).path as Variable
+					if (source != null) {
+						localsToSourcePort.get(source).addEdgeTo(port)
+					}
+				}
+			}
+			for (equation : callList) {
+				var parameters = (equation.right as CallExpression).callParameters
+				for (var i = parameters.size; i > 0; i--) {
+					var expression = parameters.get(i - 1) as IdExpression
+					var cNode = callToNode.get(equation)
+					var port = KimlUtil.createInitializedPort()
+					port.setNode(cNode)
+					port.setSide(PortSide.WEST)
+					portToEquation.put(port, equation)
+					portToIndex.put(port, i)
+					var source = expression.path
+					if (source != null) {
+						localsToSourcePort.get(source).addEdgeTo(port)
+					}
+				}
+			}
+			pNode.addLayoutOptions
+			var progressMonitor = new BasicProgressMonitor()
+			layoutProvider.doLayout(pNode, progressMonitor)
+			var diagram = createScadeDiagram(operator)
+			diagram.fillDiagram(pNode, callToNode, portToEquation, portToIndex)
+		}
+	}
+
+	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode, Map<KPort, Equation> portToEquation,
+		Map<KPort, Integer> portToIndex) {
+		var equationToGraphical = new HashMap<Equation, EquationGE>()
+		for (entry : callToNode.entrySet) {
+			var equation = entry.key
+			var node = entry.value.getData(typeof(KShapeLayout))
+			var graphical = equation.createEquationGE(node.xpos as int, node.ypos as int, node.width as int,
+				node.height as int)
+			diagram.presentationElements.add(graphical)
+			equationToGraphical.put(equation, graphical)
+		}
+		for (port : pNode.ports) {
+			if (port.edges.size > 0) {
+				var equation = portToEquation.get(port)
+				var layout = port.getData(typeof(KShapeLayout))
+				var graphical = equation.createEquationGE(layout.xpos as int, layout.ypos as int, layout.width as int,
+					layout.height as int)
+				diagram.presentationElements.add(graphical)
+				equationToGraphical.put(equation, graphical)
+			}
+		}
+		var edgesList = new LinkedList<KEdge>()
+		for (edge : pNode.incomingEdges) {
+			edgesList.add(edge)
+		}
+		for (cNode : pNode.children) {
+			for (edge : cNode.incomingEdges) {
+				edgesList.add(edge)
+			}
+		}
+		for (kEdge : edgesList) {
+			var sEdge = theEditorPragmasFactory.createEdge
+			var srcPort = kEdge.sourcePort
+			var dstPort = kEdge.targetPort
+			sEdge.setLeftVarIndex(portToIndex.get(srcPort))
+			sEdge.setRightExprIndex(portToIndex.get(dstPort))
+			sEdge.setSrcEquation(equationToGraphical.get(portToEquation.get(srcPort)))
+			sEdge.setDstEquation(equationToGraphical.get(portToEquation.get(dstPort)))
+			var layout = kEdge.getData(typeof(KEdgeLayout))
+
+			var point = theEditorPragmasFactory.createPoint()
+			point.setX(layout.sourcePoint.x as int)
+			point.setY(layout.sourcePoint.y as int)
+			sEdge.positions.add(point)
+			var previousPoint = point
+			for (bendPoint : layout.bendPoints) {
+				point = theEditorPragmasFactory.createPoint()
+				point.setX(bendPoint.x as int)
+				point.setY(bendPoint.y as int)
+				if (previousPoint.x != point.x || previousPoint.y != point.y) {
+					sEdge.positions.add(point)
+					previousPoint = point
+				}
+			}
+			point = theEditorPragmasFactory.createPoint()
+			point.setX(layout.targetPoint.x as int)
+			point.setY(layout.targetPoint.y as int)
+			if (previousPoint.x != point.x || previousPoint.y != point.y) {
+				sEdge.positions.add(point)
+			}
+			diagram.presentationElements.add(sEdge)
+		}
+	}
+
+	def addLayoutOptions(KNode pNode) {
+		var pLayout = pNode.getData(typeof(KShapeLayout))
+		pLayout.setProperty(LayoutOptions.DIRECTION, Direction.RIGHT)
+		pLayout.setProperty(LayoutOptions.EDGE_ROUTING, EdgeRouting.ORTHOGONAL)
+		pLayout.setProperty(LayoutOptions.PORT_CONSTRAINTS, PortConstraints.FIXED_SIDE)
+		pLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.free)
+		pLayout.setProperty(LayoutOptions.SIZE_OPTIONS, EnumSet.of(SizeOptions.COMPUTE_INSETS))
+		pLayout.setProperty(LayoutOptions.SPACING, this.OPERATOR_SPACING)
+		pLayout.setProperty(LayoutOptions.ALGORITHM, "DataFlow")
+		pLayout.setProperty(LayoutOptions.PORT_LABEL_PLACEMENT, PortLabelPlacement.INSIDE)
+		pLayout.setProperty(LayoutOptions.PORT_SPACING, this.PORT_SPACING)
+		pLayout.setProperty(LayoutOptions.BORDER_SPACING, this.GRAPHICAL_OFFSET)
+
+		for (port : pNode.ports) {
+			var portLayout = port.getData(typeof(KShapeLayout))
+			portLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.fixed)
+			portLayout.setProperty(LayoutOptions.OFFSET, (PORT_WIDTH + GRAPHICAL_OFFSET) * (-1))
+			portLayout.setHeight(this.PORT_HEIGHT)
+			portLayout.setWidth(this.PORT_WIDTH)
+		}
+
+		for (cNode : pNode.children) {
+			var cLayout = cNode.getData(typeof(KShapeLayout))
+			cLayout.setProperty(LayoutOptions.PORT_CONSTRAINTS, PortConstraints.FIXED_ORDER)
+			cLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.free)
+			cLayout.setProperty(LayoutOptions.SIZE_OPTIONS,
+				EnumSet.of(SizeOptions.COMPUTE_INSETS, SizeOptions.MINIMUM_SIZE_ACCOUNTS_FOR_INSETS))
+			cLayout.setProperty(LayoutOptions.MIN_WIDTH, this.OPERATOR_MIN_WIDTH)
+			cLayout.setProperty(LayoutOptions.MIN_HEIGHT, this.OPERATOR_MIN_HEIGHT)
+			cLayout.setProperty(LayoutOptions.PORT_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
+			cLayout.setProperty(LayoutOptions.BORDER_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
+			cLayout.setProperty(LayoutOptions.ASPECT_RATIO, this.OPERATOR_ASPECT_RATIO)
+		}
+	}
+
+	def createEquationGE(Equation equation, int xpos, int ypos, int width, int height) {
+		var equation_ge = theEditorPragmasFactory.createEquationGE();
+		equation_ge.setEquation(equation);
+		var point = theEditorPragmasFactory.createPoint();
+		point.setX(xpos);
+		point.setY(ypos);
+		equation_ge.setPosition(point);
+		var size = theEditorPragmasFactory.createSize();
+		size.setWidth(width);
+		size.setHeight(height);
+		equation_ge.setSize(size)
+		return equation_ge
+	}
+
+	def void setSide(KPort port, PortSide side) {
+		var portLayout = port.getData(typeof(KShapeLayout))
+		portLayout.setProperty(LayoutOptions.PORT_SIDE, side)
+	}
+
+	def addEdgeTo(KPort source, KPort target) {
+		var edge = KimlUtil.createInitializedEdge()
+		edge.setTargetPort(target)
+		edge.setTarget(target.node)
+		target.getEdges().add(edge)
+		edge.setSourcePort(source)
+		edge.setSource(source.node)
+		source.getEdges().add(edge)
 	}
 
 	def connectWithOperator(Variable source, int src_index, EquationGE src_ge, int dst_index, EquationGE dst_ge,
