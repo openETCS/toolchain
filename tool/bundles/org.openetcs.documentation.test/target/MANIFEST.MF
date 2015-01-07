@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Require-Bundle: org.junit,org.apache.ant;bundle-version="1.8.4",org.ec
+ lipse.ant.launching;bundle-version="1.0.300",org.apache.xerces;bundle
+ -version="2.9.0"
+Bundle-Vendor: SQS
+Fragment-Host: org.openetcs.documentation
+Bundle-Version: 0.1.0.201501070852
+Bundle-Name: Test
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.openetcs.documentation.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
