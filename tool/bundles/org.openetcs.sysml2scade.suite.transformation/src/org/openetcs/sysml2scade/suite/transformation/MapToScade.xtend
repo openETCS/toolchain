@@ -82,6 +82,8 @@ class MapToScade extends ScadeModelWriter {
 	private Map<FlowPort, Variable> flowportToInputMap;
 	private Map<Variable, Equation> outputToEquationMap;
 
+	private Trace tracefile;
+
 	new(Model model, IProject project) {
 		sysmlResourceSet = model.eResource().getResourceSet();
 		initialize(project, model.name)
@@ -130,6 +132,8 @@ class MapToScade extends ScadeModelWriter {
 		typePackage = createScadePackage("DataDictionary")
 		val resource = createXScade("DataDictionary")
 		resource.getContents().add(typePackage)
+
+		tracefile = new Trace();
 	}
 
 	def createXScade(String name) {
@@ -171,7 +175,8 @@ class MapToScade extends ScadeModelWriter {
 		for (input : operator.getInputs()) {
 
 			// Consider using the definedType directly instead of searching for it
-			var variable = createNamedTypeVariable("_L" + i, (input.getType() as NamedType).getType());
+			var type = (input.getType() as NamedType).type
+			var variable = createNamedTypeVariable("_L" + i, type)
 			operator.getLocals().add(variable);
 			inputToVariableMap.put(input, variable)
 
@@ -184,6 +189,8 @@ class MapToScade extends ScadeModelWriter {
 
 			equation.setRight(idexpression);
 			operator.getData().add(equation);
+			
+			tracefile.addInputToBlock(operator.name, input.name, input.oid, type.name)
 
 			i = i + 1;
 		}
@@ -193,6 +200,7 @@ class MapToScade extends ScadeModelWriter {
 			equation.getLefts().add(output);
 			operator.getData().add(equation);
 			outputToEquationMap.put(output, equation)
+			tracefile.addOutputToBlock(operator.name, output.name, output.oid, (output.type as NamedType).type.name)
 		}
 	}
 
@@ -214,6 +222,8 @@ class MapToScade extends ScadeModelWriter {
 		operator.setName(block.name);
 		operator.setKind(OperatorKind.NODE_LITERAL);
 		EditorPragmasUtil.setOid(operator, EcoreUtil.generateUUID());
+		tracefile.addBlock(operator.name, operator.oid)
+
 		for (port : block.flowPorts) {
 			var type = createScadeType(port.type)
 
@@ -226,6 +236,7 @@ class MapToScade extends ScadeModelWriter {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
+				var tmp = port.type // TODO
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
 				var variable = createNamedTypeVariable("input_" + port.name, type)
 				operator.getInputs().add(variable)
@@ -267,6 +278,8 @@ class MapToScade extends ScadeModelWriter {
 		val variable = theScadeFactory.createVariable()
 		variable.setName(name)
 		variable.setType(namedType)
+		
+		EditorPragmasUtil.setOid(variable, EcoreUtil.generateUUID());
 
 		return variable
 	}
@@ -290,6 +303,8 @@ class MapToScade extends ScadeModelWriter {
 
 		createHierarchy()
 		createGraphical()
+		
+		tracefile.saveAsXml(baseURI.appendSegment("tracefile.xml"))
 
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
@@ -333,10 +348,12 @@ class MapToScade extends ScadeModelWriter {
 						var input = flowportToInputMap.get(port)
 						var source = inputToVariableMap.get(input)
 						connectWithOutput(source, destination);
+						tracefile.addFlowToOutput(destination.oid, input.oid, null)
 					} else if (equationToOutputToVariableMap.containsKey(equation)) {
 						var sourcePort = flowportToOutputMap.get(port)
 						var source = equationToOutputToVariableMap.get(equation, sourcePort)
 						connectWithOutput(source, destination)
+						tracefile.addFlowToOutput(destination.oid, source.oid, equation.oid)
 					}
 				}
 			}
@@ -355,10 +372,12 @@ class MapToScade extends ScadeModelWriter {
 								var source = flowportToInputMap.get(port)
 								var variable = inputToVariableMap.get(source)
 								connectWithOperator(variable, call_expression)
+								tracefile.addFlowToCall(equation.oid, destination.oid, source.oid, null)
 							} else {
 								var eq = propertyToEquationMap.get(end.partWithPort)
 								var source = equationToOutputToVariableMap.get(eq, flowportToOutputMap.get(port))
 								connectWithOperator(source, call_expression)
+								tracefile.addFlowToCall(equation.oid, destination.oid, source.oid, eq.oid)
 							}
 						} else {
 							call_expression.callParameters.add(theScadeFactory.createIdExpression())
@@ -403,7 +422,7 @@ class MapToScade extends ScadeModelWriter {
 				equationToOutputToVariableMap.put(equation, output, variable)
 				counter = counter + 1
 			}
-
+			tracefile.addCall(operator.name, op.name, equation.oid)
 		} else {
 			propertyToEquationMap.remove(property)
 		}
@@ -416,28 +435,30 @@ class MapToScade extends ScadeModelWriter {
 		for (connector : list) {
 			var end1 = connector.ends.get(0)
 			var end2 = connector.ends.get(1)
-			if (propertyToEquationMap.containsKey(end1.partWithPort) ||
-				propertyToEquationMap.containsKey(end2.partWithPort)) {
-				var port = end1.flowPort
-				if ((port.direction.value == FlowDirection.IN_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort != null) {
-					propertyToInputToConnectorendMap.put(end1.partWithPort, flowportToInputMap.get(port), end2)
-				}
-				if ((port.direction.value == FlowDirection.OUT_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
-					outputToConnectorendMap.put(flowportToOutputMap.get(port), end2)
-				}
 
-				port = end2.flowPort
-				if ((port.direction.value == FlowDirection.IN_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort != null) {
-					propertyToInputToConnectorendMap.put(end2.partWithPort, flowportToInputMap.get(port), end1)
-				}
-				if ((port.direction.value == FlowDirection.OUT_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort == null) {
-					outputToConnectorendMap.put(flowportToOutputMap.get(port), end1)
-				}
+			//if (propertyToEquationMap.containsKey(end1.partWithPort) ||
+			//	propertyToEquationMap.containsKey(end2.partWithPort)) {
+			var port = end1.flowPort
+			if (port != null && (port.direction.value == FlowDirection.IN_VALUE ||
+				port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort != null) {
+				propertyToInputToConnectorendMap.put(end1.partWithPort, flowportToInputMap.get(port), end2)
 			}
+			if (port != null && (port.direction.value == FlowDirection.OUT_VALUE ||
+				port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
+				outputToConnectorendMap.put(flowportToOutputMap.get(port), end2)
+			}
+
+			port = end2.flowPort
+			if (port != null && (port.direction.value == FlowDirection.IN_VALUE ||
+				port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort != null) {
+				propertyToInputToConnectorendMap.put(end2.partWithPort, flowportToInputMap.get(port), end1)
+			}
+			if (port != null && (port.direction.value == FlowDirection.OUT_VALUE ||
+				port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort == null) {
+				outputToConnectorendMap.put(flowportToOutputMap.get(port), end1)
+			}
+
+		//}
 		}
 	}
 
