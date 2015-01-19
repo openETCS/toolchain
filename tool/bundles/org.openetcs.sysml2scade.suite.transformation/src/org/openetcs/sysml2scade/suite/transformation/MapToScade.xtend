@@ -36,15 +36,19 @@ import de.cau.cs.kieler.kiml.util.KimlUtil
 import de.cau.cs.kieler.klay.layered.LayeredLayoutProvider
 import java.util.EnumSet
 import java.util.HashMap
+import java.util.HashSet
 import java.util.LinkedList
 import java.util.Map
 import org.eclipse.core.resources.IProject
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.papyrus.sysml.blocks.Block
 import org.eclipse.papyrus.sysml.portandflows.FlowDirection
 import org.eclipse.papyrus.sysml.portandflows.FlowPort
@@ -69,6 +73,7 @@ class MapToScade extends ScadeModelWriter {
 	private URI baseURI;
 	private ResourceSet sysmlResourceSet;
 	private ResourceSet scadeResourceSet;
+	private XMLResource sysmlResource;
 	private Package sysmlPackage;
 	private Package scadeModel;
 	private Package typePackage;
@@ -84,32 +89,52 @@ class MapToScade extends ScadeModelWriter {
 
 	private Trace tracefile;
 
-	new(Model model, IProject project) {
-		sysmlResourceSet = model.eResource().getResourceSet();
-		initialize(project, model.name)
+	new(Model model, IProject project, Trace trace) {
+		sysmlResource = model.eResource as XMLResource
+		initialize(project, model.name, trace)
 
 		sysmlPackage = iterateModel(model)
 	}
 
-	new(Block block, IProject project, String name) {
-		sysmlResourceSet = block.eResource.resourceSet
-		initialize(project, name)
+	new(Block block, IProject project, String name, Trace trace) {
+		sysmlResource = block.eResource as XMLResource
+		initialize(project, name, trace)
 
-		val scadePackage = createScadePackage(block.name)
-		val resourcePackage = createXScade(block.name)
+		val sysmlToScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Package>()
+		val sysmlToXScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Resource>()
+		val package = block.base_Class.eContainer as org.eclipse.uml2.uml.Package
+		val scadePackage = createScadePackage(package.name)
+		sysmlToScadePkg.put(package, scadePackage)
+		val resourcePackage = createXScade(package.name)
+		sysmlToXScadePkg.put(package, resourcePackage)
 		resourcePackage.contents.add(scadePackage)
 		var operator = createOperatorInterface(block)
 		createOperatorImplementation(operator)
 		scadePackage.operators.add(operator)
 		blockToOperatorMap.put(block, operator)
-		val package = block.eContainer as org.eclipse.uml2.uml.Package
-		for (pkg : package.nestedPackages) {
-			scadePackage.packages.add(iterateModel(pkg))
+		for (nBlock : block.nestedBlocks) {
+			val pkg = block.base_Class.eContainer as org.eclipse.uml2.uml.Package
+			var scadePkg = sysmlToScadePkg.get(pkg)
+			if (scadePkg === null) {
+				scadePkg = createScadePackage(pkg.name)
+				sysmlToScadePkg.put(pkg, scadePkg)
+			}
+			var resourcePkg = sysmlToXScadePkg.get(pkg)
+			if (resourcePkg === null) {
+				resourcePkg = createXScade(pkg.name)
+				resourcePkg.contents.add(scadePkg)
+				sysmlToXScadePkg.put(pkg, resourcePkg)
+			}
+			var op = createOperatorInterface(nBlock)
+			createOperatorImplementation(op)
+			scadePackage.operators.add(operator)
+			blockToOperatorMap.put(block, operator)
 		}
 		sysmlPackage = scadePackage
 	}
 
-	def private void initialize(IProject project, String projectName) {
+	def private void initialize(IProject project, String projectName, Trace trace) {
+		sysmlResourceSet = sysmlResource.getResourceSet();
 		scadeResourceSet = new ResourceSetImpl();
 		baseURI = URI.createFileURI(project.getLocation().toOSString());
 		val projectURI = baseURI.appendSegment(projectName + ".etp");
@@ -132,8 +157,7 @@ class MapToScade extends ScadeModelWriter {
 		typePackage = createScadePackage("DataDictionary")
 		val resource = createXScade("DataDictionary")
 		resource.getContents().add(typePackage)
-
-		tracefile = new Trace();
+		tracefile = trace
 	}
 
 	def createXScade(String name) {
@@ -189,8 +213,6 @@ class MapToScade extends ScadeModelWriter {
 
 			equation.setRight(idexpression);
 			operator.getData().add(equation);
-			
-			tracefile.addInputToBlock(operator.name, input.name, input.oid, type.name)
 
 			i = i + 1;
 		}
@@ -200,7 +222,6 @@ class MapToScade extends ScadeModelWriter {
 			equation.getLefts().add(output);
 			operator.getData().add(equation);
 			outputToEquationMap.put(output, equation)
-			tracefile.addOutputToBlock(operator.name, output.name, output.oid, (output.type as NamedType).type.name)
 		}
 	}
 
@@ -222,8 +243,7 @@ class MapToScade extends ScadeModelWriter {
 		operator.setName(block.name);
 		operator.setKind(OperatorKind.NODE_LITERAL);
 		EditorPragmasUtil.setOid(operator, EcoreUtil.generateUUID());
-		tracefile.addBlock(operator.name, operator.oid)
-
+		tracefile.addElement(block.UUID, operator.oid)
 		for (port : block.flowPorts) {
 			var type = createScadeType(port.type)
 
@@ -232,18 +252,21 @@ class MapToScade extends ScadeModelWriter {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getOutputs().add(variable)
 				flowportToOutputMap.put(port, variable)
+				tracefile.addElement(port.UUID, variable.oid)
 			} else if (port.direction.value == FlowDirection.IN_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
-				var tmp = port.type // TODO
+				tracefile.addElement(port.UUID, variable.oid)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
 				var variable = createNamedTypeVariable("input_" + port.name, type)
 				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
+				tracefile.addElement(port.UUID, variable.oid)
 				variable = createNamedTypeVariable("output_" + port.name, type)
 				operator.getOutputs().add(variable)
 				flowportToOutputMap.put(port, variable)
+				tracefile.addElement(port.UUID, variable.oid)
 			}
 		}
 		return operator;
@@ -278,8 +301,7 @@ class MapToScade extends ScadeModelWriter {
 		val variable = theScadeFactory.createVariable()
 		variable.setName(name)
 		variable.setType(namedType)
-		
-		EditorPragmasUtil.setOid(variable, EcoreUtil.generateUUID());
+		EditorPragmasUtil.setOid(variable, EcoreUtil.generateUUID())
 
 		return variable
 	}
@@ -303,8 +325,8 @@ class MapToScade extends ScadeModelWriter {
 
 		createHierarchy()
 		createGraphical()
-		
-		tracefile.saveAsXml(baseURI.appendSegment("tracefile.xml"))
+
+		tracefile.save
 
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
@@ -316,6 +338,10 @@ class MapToScade extends ScadeModelWriter {
 		saveAll(scadeProject, null);
 	}
 
+	/* 
+	 * TODO JUnit later
+	 * 
+	 */
 	def createHierarchy() {
 		for (entry : blockToOperatorMap.entrySet()) {
 			var block = entry.key
@@ -348,12 +374,10 @@ class MapToScade extends ScadeModelWriter {
 						var input = flowportToInputMap.get(port)
 						var source = inputToVariableMap.get(input)
 						connectWithOutput(source, destination);
-						tracefile.addFlowToOutput(destination.oid, input.oid, null)
 					} else if (equationToOutputToVariableMap.containsKey(equation)) {
 						var sourcePort = flowportToOutputMap.get(port)
 						var source = equationToOutputToVariableMap.get(equation, sourcePort)
 						connectWithOutput(source, destination)
-						tracefile.addFlowToOutput(destination.oid, source.oid, equation.oid)
 					}
 				}
 			}
@@ -372,12 +396,11 @@ class MapToScade extends ScadeModelWriter {
 								var source = flowportToInputMap.get(port)
 								var variable = inputToVariableMap.get(source)
 								connectWithOperator(variable, call_expression)
-								tracefile.addFlowToCall(equation.oid, destination.oid, source.oid, null)
 							} else {
 								var eq = propertyToEquationMap.get(end.partWithPort)
-								var source = equationToOutputToVariableMap.get(eq, flowportToOutputMap.get(port))
+								var sourcePort = flowportToOutputMap.get(port)
+								var source = equationToOutputToVariableMap.get(eq, sourcePort)
 								connectWithOperator(source, call_expression)
-								tracefile.addFlowToCall(equation.oid, destination.oid, source.oid, eq.oid)
 							}
 						} else {
 							call_expression.callParameters.add(theScadeFactory.createIdExpression())
@@ -390,6 +413,10 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/* 
+	 * TODO JUnit now
+	 * 
+	 */
 	def int addOperatorCall(Property property, HashMap<Property, Equation> propertyToEquationMap, int name,
 		Operator operator, HashMap<Equation, Operator> equationToOperatorMap,
 		HashMap<Equation, CallExpression> equationToCallMap, int locals_counter,
@@ -422,13 +449,13 @@ class MapToScade extends ScadeModelWriter {
 				equationToOutputToVariableMap.put(equation, output, variable)
 				counter = counter + 1
 			}
-			tracefile.addCall(operator.name, op.name, equation.oid)
 		} else {
 			propertyToEquationMap.remove(property)
 		}
 		return counter
 	}
 
+	// TODO JUnit now
 	def mapConnectorends(EList<Connector> list, HashMap<Property, Equation> propertyToEquationMap,
 		HashMap<Variable, ConnectorEnd> outputToConnectorendMap,
 		HashMap<Property, HashMap<Variable, ConnectorEnd>> propertyToInputToConnectorendMap) {
@@ -462,6 +489,7 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	// TODO JUnit later
 	def createGraphical() {
 		for (operator : blockToOperatorMap.values) {
 			var inputMap = new HashMap<Variable, Equation>()
@@ -552,6 +580,7 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	// TODO JUnit now
 	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode,
 		Map<KPort, Equation> portToEquation, Map<KPort, Integer> portToIndex) {
 		var equationToGraphical = new HashMap<Equation, EquationGE>()
@@ -712,6 +741,17 @@ class MapToScade extends ScadeModelWriter {
 		return list.get(0)
 	}
 
+	/**
+	 * Puts an element in a HashMap within a Map. If the inner map does not exist it will be created
+	 * 
+	 * @param <KEY1> The type of the key of the outer map
+	 * @param <KEY2> The type of the key of the inner map
+	 * @param <ELEM> The type of the element which to put in the inner map
+	 * @param map The outer map
+	 * @param key1 The key for the outer map
+	 * @param key2 The key for the inner map
+	 * @param element The element which to add
+	 */
 	def <KEY1, KEY2, ELEM> put(Map<KEY1, HashMap<KEY2, ELEM>> map, KEY1 key1, KEY2 key2, ELEM element) {
 		if (!map.containsKey(key1)) {
 			map.put(key1, new HashMap<KEY2, ELEM>())
@@ -719,7 +759,19 @@ class MapToScade extends ScadeModelWriter {
 		map.get(key1).put(key2, element)
 	}
 
-	def <KEY1, KEY2, ELEM> ELEM get(Map<KEY1, HashMap<KEY2, ELEM>> map, KEY1 key1, KEY2 key2) {
+	/**
+	 * Function returning an element of a map within a map using two keys or null if does not exist
+	 * 
+	 * @param <M> The type of the nested Map
+	 * @param <KEY1> The type of the keys of the outer map
+	 * @param <KEY2> The type of the keys of the inner map
+	 * @param <ELEM> The type of the returning element
+	 * @param map The outer map
+	 * @param key1 The key for the outer map
+	 * @param key2 The key for the inner map
+	 * @return The element which to get or null if does not exist
+	 */
+	def <M extends Map<KEY2, ELEM>, KEY1, KEY2, ELEM> ELEM get(Map<KEY1, M> map, KEY1 key1, KEY2 key2) {
 		if (map != null && key1 != null && key2 != null) {
 			var innerMap = map.get(key1)
 			if (innerMap != null) {
@@ -745,7 +797,31 @@ class MapToScade extends ScadeModelWriter {
 		}
 		return list
 	}
+	
+	def Iterable<Block> getNestedBlocks(Block block) {
+		var set = new HashSet<Block>()
+		for (property : block.base_Class.ownedAttributes) {
+			var type = property.type
+			if (type != null) {
+				var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
+				if (stereotype != null) {
+					set.add(type.getStereotypeApplication(stereotype) as Block);
+				}
+			}
+		}
+		return set
+	}
 
+	def String getUUID(EObject object) {
+		return sysmlResource.getID(object);
+	}
+
+	/**
+	 * Function returning all blocks of a SysML Model
+	 * 
+	 * @param model The model for which the function return the blocks
+	 * @return A list of all blocks of the model
+	 */
 	def static EList<Block> getAllBlocks(Model model) {
 		var list = new BasicEList<Block>
 
@@ -768,10 +844,22 @@ class MapToScade extends ScadeModelWriter {
 		return block.base_Class.name
 	}
 
+	/**
+	 * Function returning the name of a Port
+	 * 
+	 * @param port The port for which the function return the Name
+	 * @return The name of the port
+	 */
 	def static String name(FlowPort port) {
 		return port.base_Port.name
 	}
 
+	/**
+	 * Function returning the type of a Port
+	 * 
+	 * @param port The port for which the function return the type
+	 * @return The type of the port
+	 */
 	def static Type type(FlowPort port) {
 		return port.base_Port.type
 	}
