@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.openetcs.documentation.test
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: SQS
+Fragment-Host: org.openetcs.documentation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ org.apache.ant;bundle-version="1.8.4",
+ org.eclipse.ant.launching;bundle-version="1.0.300",
+ org.apache.xerces;bundle-version="2.9.0"
