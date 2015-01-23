@@ -1,4 +1,4 @@
- \documentclass{openetcs_report}
+ \documentclass{template/openetcs_report}
 % Use the option "nocc" if the document is not licensed under Creative Commons
 %\documentclass[nocc]{template/openetcs_article}
 \usepackage{todonotes}
@@ -54,6 +54,20 @@
 %set the date of the report here
 \date{August 2013}
 
+%document approval
+%define the name and affiliation of the people involved in the documents approbation here
+\creatorname{Cecile Braunstein}
+\creatoraffil{University bremen}
+
+\techassessorname{Baselyos Jacob}
+\techassessoraffil{DB Netz}
+
+\qualityassessorname{Jan Welte}
+\qualityassessoraffil{TU Braunschweig}
+
+\approvalname{Klaus-R\"udiger Hase}
+\approvalaffil{DB Netz}
+
 %define a list of authors and their affiliation here
 
 \author{Cecile Braunstein \and Jan Peleska}
@@ -66,16 +80,13 @@
 \coverart[width=350pt]{openETCS_EUPL}
 
 %define the type of report
-\reporttype{Tool chain Architecture}
+\reporttype{Final Report}
 
 
 \begin{abstract}
 %define an abstract here
-This document defines the tool chain architecture : the links between
-the tools and the interoperability mechanism implemented.
-
-The present tool chain will propose some alternative path to give more
-flexibility with the chosen tools.
+This document defines the tool chain architecture. It gives an
+overview of what has benn implemented and what is at the moment running .
 \end{abstract}
 
 %=============================
@@ -138,6 +149,8 @@ Approved by & &  & \\
 Version &  Date & Author(s) & Justification  \\
 \hline  
 00.00 & 25.07.2013 & C. Braunstein  &  Document creation  \\
+00.01 & 23.01.2015 & C. Braunstein & Document transformation to covers
+current openETCS tool chain implementation\\ 
 \hline  
 \end{tabular}
 \newpage
@@ -150,7 +163,7 @@ Version &  Date & Author(s) & Justification  \\
 \mainmatter
 %----------------------
 \chapter{Introduction and Motivation}
-\todo[color=green!40,noline]{Chap resp. CB/JP}
+\todo[color=green!40,noline]{Chap resp. Cecile}
 \input{intro}
 
 
@@ -158,49 +171,86 @@ Version &  Date & Author(s) & Justification  \\
 \chapter{OpenETCS Tool chain Presentation}
 %----------------------
 \label{chap:toolchaindef}
-\todo[color=green!40,noline]{Chap resp. CB/JP}
+\todo[color=green!40,noline]{Chap resp. Cécile/Izaskun}
 
 \input{definition}
 
-\todo[inline]{Highlight the documentation production for each activity}
+
 %----------------------
-\chapter{OpenETCS Requirement Engineering}
+\chapter{Activities covered by the OpenETCS tool chain}
 %----------------------
 \label{chap:reqhandling}
 \todo[color=green!40,noline]{Chap resp. ??}
 
-\input{req_handle}
+%----------------------
+  \section{Traceability}
+%----------------------
+The traceability architecture is described in detail in the document \cite{O7_trace}
+ %----------------------
+    \subsection{From Word document to ReqIF}
+ %----------------------
+     \todo[color=green!40,noline]{Chap resp. Moritz}
+ %----------------------
+    \subsection{ProR and papyrus Proxy}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
+ %----------------------
+    \subsection{Data Dictionary}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
 
 %----------------------
-\chapter{OpenETCS Sub-System Modeling}
+  \section{Modeling}
 %----------------------
-\label{chap:sysphase}
+\label{sec:model}
+ %----------------------
+    \subsection{Papyrus}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
+ %----------------------
+    \subsection{SysML2Scade}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
+ %----------------------
+    \subsection{SysML2B}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
+ %----------------------
+    \subsection{SysML constraints checkers}
+ %----------------------
+     \todo[color=green!40,noline]{Chap ??}
+
+%----------------------
+  \section{Documentation}
+%----------------------
+  \label{sec:doc}
+     \todo[color=green!40,noline]{Chap ??}
+
+%----------------------
+  \section{VnV Activities}
+%----------------------
+  \label{sec:doc}
+     \todo[color=green!40,noline]{Chap ??}
+
+%----------------------
+
+%----------------------
+\chapter{Tests}
+%----------------------
+
+\label{chap:test}
 \todo[color=green!40,noline]{Chap resp. ??}
-
-\input{modeling}
-
-%----------------------
-\chapter{OpenETCS  Software Modeling}
-%----------------------
-\label{chap:softphase}
-\todo[color=green!40,noline]{Chap resp. ??}
-
-\input{soft_phase}
-
-%----------------------
-\chapter{V\&V Activities}
-%----------------------
-\label{chap:VnV}
-\todo[color=green!40,noline]{Chap resp. ??}
+ %----------------------
+    \subsection{Requirement lists}
+ %----------------------
+ \todo[color=green!40,noline]{Chap ??}
+ %----------------------
+    \subsection{Test Specification}
+ %----------------------
+ \todo[color=green!40,noline]{Chap ??}
 
 
-%----------------------
-\chapter{Interoperability specification}
-%----------------------
-\label{chap:interope}
-\todo[color=green!40,noline]{Chap resp. ??}
 
-\input{interoperability}
 
 %----------------------
 \chapter{Integration in the tool platform}
@@ -228,3 +278,5 @@ Version &  Date & Author(s) & Justification  \\
 %Do NOT change anything below this line
 
 \end{document}
+
+%%  LocalWords:  Izaskun Cécile traceability

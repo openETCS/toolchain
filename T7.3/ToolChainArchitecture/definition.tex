@@ -49,20 +49,32 @@ manipulating EMF components.
 %----------------------------------------------------
 \subsection{The SysML Model}
 %----------------------------------------------------
-A SysML model of the tool chain will be added to this document. It
-will allow us to have a formal representation of the tool chain and
+A SysML model of the tool shown figure \ref{fig:overview} . It
+allows us to have a formal representation of the tool chain and
 help to model precisely the different interaction between the
 development tools as well as the management tools.  The SysML model
 may be also seen as a guideline for integrated new tool: each new tool
 should be fully described and comply to the defined interfaces.
 Moreover following the idea of Slotosch \cite{slotosch_iso_2012} the
-model will be the basis to the qualification analysis.
+model will be the basis to the qualification analysis \cite{D7.3}.
+
+\begin{figure}[htbp]
+\includegraphics[width= \textwidth]{images/ToolChainmodel.png}
+\caption{\label{fig:overview}OpenETCS tool chain Status Overview}
+\end{figure}
+\todo[inline]{Check if the overview is up-to-date and complient with
+  the real implementation}
 
 The requirements of WP2 \cite{baro_requirements_2013} as well as our
 intern requirements (Appendixes \ref{app:wp2req} and \ref{app:WP7Req})
 will be included in the SysML model. Each tools and their connections
 should then also comply to the requirements list.
 
+
+%----------------------------------------------------
+\subsection{The OpenETCS lifecycle}
+%----------------------------------------------------
+\todo[inline]{Insert the tool chain lifecycle definition from WP1}
 %----------------------------------------------------
 \section{OpenETCS \gls{EVC} lifecycle}
 %----------------------------------------------------
@@ -83,12 +95,6 @@ one or more tools in the tool chain.
 
 The next chapters will define the limits of each activities, we will
 show what should be consumed and produced by each activities. 
-Note that lifecycle activities may be realized by more than one tool, thus some
-activities will be presented with alternative tools.
-
-This vision of the tool chain allowed us to think in term of interface
-and not about tool only. This will give more flexibility for the
-implementation of tool chain alternatives. 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{images/WholeProcess_Activities}
