@@ -16,6 +16,15 @@
             </command>
          </menu>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=filtersMenu">
+         <command
+               commandId="org.openetcs.sysml2scade.suite.transformation.execute"
+               label="Generate SCADE Suite project"
+               style="push">
+         </command>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -35,11 +44,25 @@
                      <instanceof
                            value="org.eclipse.papyrus.infra.onefile.model.IPapyrusFile">
                      </instanceof>
+                     <test
+                           forcePluginActivation="true"
+                           property="org.openetcs.sysml2scade.suite.transformation.isTransferable">
+                     </test>
                   </or>
                </iterate>
             </with>
          </activeWhen>
       </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.openetcs.sysml2scade.suite.transformation.ElementIsTransferableTester"
+            id="org.openetcs.sysml2scade.suite.transformation.ElementIsTransferableTester"
+            namespace="org.openetcs.sysml2scade.suite.transformation"
+            properties="isTransferable"
+            type="java.lang.Object">
+      </propertyTester>
    </extension>
 
 </plugin>

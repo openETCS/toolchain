@@ -24,14 +24,20 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
 import org.eclipse.papyrus.infra.onefile.model.IPapyrusFile;
+import org.eclipse.papyrus.sysml.blocks.Block;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
-
+import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Stereotype;
 import org.openetcs.common.IOUtil;
 import org.openetcs.sysml2scade.suite.transformation.wizard.TransformationWizard;
 
@@ -40,32 +46,62 @@ public class PerformTransformationHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		Shell shell = HandlerUtil.getActiveShell(event);
-		IStructuredSelection selection = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+		IStructuredSelection selection = (IStructuredSelection) HandlerUtil
+				.getCurrentSelectionChecked(event);
 		Object object = selection.getFirstElement();
-		IFile file;
-		
+		IFile file = null;
+		Block block = null;
+		Model model = null;
+		EObject eobject = EMFHelper.getEObject(object);
+
 		if (object instanceof IFile) {
 			file = (IFile) object;
 		} else if (object instanceof IPapyrusFile) {
 			IPapyrusFile papyrusFile = (IPapyrusFile) object;
 			file = IOUtil.getUMLFile(papyrusFile);
+		} else if (eobject != null) {
+			if (eobject instanceof Model) {
+				model = (Model) eobject;
+			} else if (eobject instanceof Element) {
+				Element element;
+				if (eobject instanceof Property) {
+					element = ((Property) eobject).getType();
+				} else {
+					element = (Element) eobject;
+				}
+				Stereotype stereotype = element.getAppliedStereotype("SysML::Blocks::Block");
+				if (stereotype != null) {
+					block = (Block) element.getStereotypeApplication(stereotype);
+				}
+			}
+		} 
+
+		TransformationWizard wizard;
+		if(file != null) {
+			wizard = new TransformationWizard();
+			wizard.setModel(file);
+		} else if (block != null) {
+			wizard = new TransformationWizard();
+			wizard.setBlock(block);
+		} else if (model != null) {
+			wizard = new TransformationWizard();
+			wizard.setModel(model);
 		} else {
-			MessageDialog.openWarning(shell, "Transformation can't be called on: ", object.getClass().getName());
+			MessageDialog.openWarning(shell,
+					"Transformation can't be called on: ", object.getClass()
+							.getName());
 			return null;
 		}
-		
-		TransformationWizard wizard = new TransformationWizard();
-		wizard.setModel(file);
 
 		WizardDialog wizarddialog = new WizardDialog(shell, wizard);
 
 		try {
-			if(wizarddialog.open() == Window.CANCEL)
-				return null;	
+			if (wizarddialog.open() == Window.CANCEL)
+				return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+
 		return null;
 	}
 }

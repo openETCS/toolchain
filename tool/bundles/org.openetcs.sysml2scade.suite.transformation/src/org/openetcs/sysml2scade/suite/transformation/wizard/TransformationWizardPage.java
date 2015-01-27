@@ -14,11 +14,10 @@ import org.eclipse.ui.PlatformUI;
 
 public class TransformationWizardPage extends WizardPage implements StringConstants {
 
-	private Text modelNameWidget;
 	private Text projectNameWidget;
+	private Text modelNameWidget;
 	private Button checkModel;
-	private String modelName = "";
-	
+
 	protected TransformationWizardPage(String pageName) {
 		super(pageName);
 		setTitle(pageName);
@@ -37,15 +36,8 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 		// Create layout for wizard page
 		GridLayout gl = new GridLayout(2, false);
 		composite.setLayout(gl);
-		
-		// Model
-		new Label(composite, SWT.NONE).setText(UI_WIZARDPAGE_SYSMLMODEL);
-		modelNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);
-		modelNameWidget.setText(modelName);
 
 		GridData gridData = new GridData(GridData.FILL, GridData.CENTER, true, false);
-		modelNameWidget.setLayoutData(gridData);
-		
 
 		// Project
 		new Label(composite, SWT.NONE).setText(UI_WIZARDPAGE_PROJECTNAME);
@@ -63,6 +55,10 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 			}
 		});
 
+		new Label(composite, SWT.None).setText(UI_WIZARDPAGE_MODELNAME);
+		modelNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);
+		modelNameWidget.setLayoutData(gridData);
+
 		// Check model
 		GridData spanData = new GridData(GridData.FILL, GridData.END, true, false);
 		spanData.horizontalSpan = 2;
@@ -78,10 +74,6 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 	
 	public String getProjectName() {
 		return projectNameWidget.getText();
-	}
-	
-	public void setModelName(String model) {
-		modelName = model;
 	}
 	
 	public String getModelName() {

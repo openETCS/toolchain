@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.papyrus.sysml.blocks.Block;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.uml2.uml.Model;
@@ -20,8 +21,9 @@ import org.openetcs.sysml2scade.suite.transformation.Transformation;
 public class TransformationWizard extends Wizard implements StringConstants {
 
 	private TransformationWizardPage page;
-	private IFile model_file;
+	private Model model;
 	private Shell shell;
+	private Block block;
 	
 	@Override
 	public boolean performFinish() {
@@ -31,8 +33,6 @@ public class TransformationWizard extends Wizard implements StringConstants {
 		shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 
 		// Perform model check
-		Model model = IOUtil.openUMLModel(model_file);
-
 		if (page.performModelCheck()) {
 			IStatus status = Util.validateModel(model);
 
@@ -58,9 +58,14 @@ public class TransformationWizard extends Wizard implements StringConstants {
 		}
 
 		// Generate the Classical B source
-		Transformation generator= new Transformation(model, project);
+		Transformation generator = new Transformation(project);
 		try {
-			generator.generateAndWrite();
+			if (block != null) {
+				generator.generateAndWrite(block, page.getModelName());
+			}
+			else {
+				generator.generateAndWrite(model);
+			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -81,11 +86,19 @@ public class TransformationWizard extends Wizard implements StringConstants {
 	@Override
 	public void addPages() {
 		page = new TransformationWizardPage(UI_WIZARDPAGE_NAME);
-		page.setModelName(model_file.getFullPath().toOSString());
 		addPage(page);
 	}
 
-	public void setModel(IFile model) {
-		this.model_file = model;
+	public void setModel(IFile model_file) {
+		this.model = IOUtil.openUMLModel(model_file);
+	}
+	
+	public void setModel(Model sysml_model) {
+		this.model = sysml_model;
+	}
+	
+	public void setBlock(Block block) {
+		this.block = block;
+		this.model = (Model) block.getBase_Class().eContainer();
 	}
 }
