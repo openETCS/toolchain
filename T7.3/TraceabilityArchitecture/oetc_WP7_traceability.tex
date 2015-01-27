@@ -76,6 +76,9 @@
 \author{Moritz Dorka}
 \affiliation{DB}
 
+\author{David Mentré}
+\affiliation{Mitsubishi Electric R\&D Centre Europe}
+
 
 % define the coverart
 \coverart[width=350pt]{openETCS_EUPL}
@@ -175,7 +178,7 @@ the artifacts and/or activities that are using it.
 The goal of traceability is that, from any artifacts produced, we are able to
 track which requirement it realizes, implements  or refers to. These links can
 take different form and be done by different tools. 
-Two traceability tools will be evaluate before being integrated in the OpenETCS tool chain:
+Two traceability tools will be evaluated before being integrated in the OpenETCS tool chain:
 ReqCycle and Reqtify.
 
 The present solution proposes a first "by hand" approach, to deal with
@@ -190,19 +193,19 @@ traceability without having all the proper tools already integrated into the too
 \end{figure}
 
 Figure \ref{fig:trace_first} proposes a first solution to handle traceability.
-The basic idea is to all refers to the same requirements data base. This data
+The basic idea is to allways refer to the same requirements data base. This data
 base is itself directly imported from the subset-026 word document. The data
 base provides the list of requirements as well as an unique identifiers for each
-requirements. These identifiers are fixed and cannot be modified by any other
+requirement. These identifiers are fixed and cannot be modified by any other
 tools. But it may be possible for requirement management tools to refine these
 requirements but they should guarantee the following rules:
 \begin{enumerate}
 \item The requirement's structure is not modified.
 \item No requirement should be deleted.
-\item Newly added requirements should be either refinement or a decomposition of an
+\item Newly added requirements should be either a refinement or a decomposition of an
 existing one.
 \item The identifier pattern should be respected.
-\item Identifier should stay unique.
+\item Identifiers should stay unique.
 \end{enumerate}
 
 
