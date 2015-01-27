@@ -69,7 +69,7 @@ class MapToScade extends ScadeModelWriter {
 	private URI baseURI;
 	private ResourceSet sysmlResourceSet;
 	private ResourceSet scadeResourceSet;
-	private Model sysmlModel;
+	private Package sysmlPackage;
 	private Package scadeModel;
 	private Package typePackage;
 	private ScadeFactory theScadeFactory;
@@ -83,11 +83,34 @@ class MapToScade extends ScadeModelWriter {
 	private Map<Variable, Equation> outputToEquationMap;
 
 	new(Model model, IProject project) {
-		sysmlModel = model;
-		sysmlResourceSet = sysmlModel.eResource().getResourceSet();
+		sysmlResourceSet = model.eResource().getResourceSet();
+		initialize(project, model.name)
+
+		sysmlPackage = iterateModel(model)
+	}
+
+	new(Block block, IProject project, String name) {
+		sysmlResourceSet = block.eResource.resourceSet
+		initialize(project, name)
+
+		val scadePackage = createScadePackage(block.name)
+		val resourcePackage = createXScade(block.name)
+		resourcePackage.contents.add(scadePackage)
+		var operator = createOperatorInterface(block)
+		createOperatorImplementation(operator)
+		scadePackage.operators.add(operator)
+		blockToOperatorMap.put(block, operator)
+		val package = block.eContainer as org.eclipse.uml2.uml.Package
+		for (pkg : package.nestedPackages) {
+			scadePackage.packages.add(iterateModel(pkg))
+		}
+		sysmlPackage = scadePackage
+	}
+
+	def private void initialize(IProject project, String projectName) {
 		scadeResourceSet = new ResourceSetImpl();
 		baseURI = URI.createFileURI(project.getLocation().toOSString());
-		val projectURI = baseURI.appendSegment(sysmlModel.getName() + ".etp");
+		val projectURI = baseURI.appendSegment(projectName + ".etp");
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		blockToOperatorMap = new HashMap<Block, Operator>()
@@ -190,7 +213,7 @@ class MapToScade extends ScadeModelWriter {
 		val operator = theScadeFactory.createOperator();
 		operator.setName(block.name);
 		operator.setKind(OperatorKind.NODE_LITERAL);
-
+		EditorPragmasUtil.setOid(operator, EcoreUtil.generateUUID());
 		for (port : block.flowPorts) {
 			var type = createScadeType(port.type)
 
@@ -262,8 +285,7 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	def void fillScadeModel() {
-		val pkg = iterateModel(sysmlModel)
-		scadeModel.getPackages().add(pkg)
+		scadeModel.getPackages().add(sysmlPackage)
 		scadeModel.getPackages().add(typePackage)
 
 		createHierarchy()
