@@ -4,16 +4,16 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.openetcs.sysml2b.ui.handlers.DoThings"
-            commandId="org.openetcs.sysml2b.ui.dothingscmd">
+            class="org.openetcs.sysml2b.ui.handlers.TransformToClassicalB"
+            commandId="org.openetcs.sysml2b.ui.transformtoclassicalb">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
             categoryId="org.eclipse.papyrus.editor.category"
-            id="org.openetcs.sysml2b.ui.dothingscmd"
-            name="Dothings on the code !">
+            id="org.openetcs.sysml2b.ui.transformtoclassicalb"
+            name="Transform a SysML project into Classical B">
       </command>
    </extension>
    <extension
@@ -22,8 +22,8 @@
             allPopups="false"
             locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
          <command
-               commandId="org.openetcs.sysml2b.ui.dothingscmd"
-               label="do things !"
+               commandId="org.openetcs.sysml2b.ui.transformtoclassicalb"
+               label="Transform to Classical B"
                style="push">
             <visibleWhen
                   checkEnabled="true">
