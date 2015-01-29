@@ -7,7 +7,9 @@ Bundle-Activator: org.openetcs.sysml2b.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.commands,
- org.eclipse.papyrus.infra.emf
+ org.eclipse.papyrus.infra.emf,
+ org.openetcs.sysml2b.transformation,
+ org.eclipse.acceleo.engine
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore,
