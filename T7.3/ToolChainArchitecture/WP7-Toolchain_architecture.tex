@@ -196,8 +196,27 @@ The traceability architecture is described in detail in the document \cite{O7_tr
      \todo[color=green!40,noline]{Chap ??}
  %----------------------
     \subsection{Data Dictionary}
+
+    The Data Dictionary contains information from the SRS that should
+    be shared between all created modeling artifacts. A way to make
+    such shared data available is a SysML package which contains all
+    the information of the Data Dictionary. A SysML Model can import
+    this package and then reuse all of its contents.
+
+    The initial model is automatically generated from Bitwalker (XML)
+    version of subsets 26-7, 26-8 of the specification. A
+    transformation is provided as standalone plugins. This is a
+    one-shot transformation, once the model is used in production
+    replacing it may result in many manual rewiring in user
+    models. Regenerating this model often is bad practice.
+
+    The tutorial available at~\cite{datadictionary::tutorial} explains
+    how to add the model to projects.
+
+    For more details refer to~\cite{datadictionary::wiki}. 
+
  %----------------------
-     \todo[color=green!40,noline]{Chap ??}
+    %\todo[color=green!40,noline]{Chap ??}
 
 %----------------------
   \section{Modeling}
