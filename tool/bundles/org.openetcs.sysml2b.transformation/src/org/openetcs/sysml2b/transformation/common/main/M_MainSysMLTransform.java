@@ -35,7 +35,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/SysMLTransform/common/main/m_MainSysMLTransform";
+    public static final String MODULE_FILE_NAME = "/org/openetcs/sysml2b/transformation/common/main/m_MainSysMLTransform";
     
     /**
      * The name of the templates that are to be generated.

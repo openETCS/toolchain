@@ -9,9 +9,9 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_basicQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::m_blockQueries /]
-[import SysMLTransform::services::m_services /]
-[import SysMLTransform::m_portsQueries /]
+[import org::openetcs::sysml2b::transformation::m_blockQueries /]
+[import org::openetcs::sysml2b::transformation::services::m_services /]
+[import org::openetcs::sysml2b::transformation::m_portsQueries /]
 
 [query public q_SysMLToCType (aType : Type) : String 
 	= 	if(aType.name='Integer') then 
@@ -102,6 +102,14 @@ Licensed under the EUPL V.1.1
 
 [query public q_getDataType (aType : Type) : DataType 
 	= 	if(aType.ancestors()->size() = 0) then
+			q_getAllPackages(aType,aType.oclAsType(Package)->asOrderedSet())->collect(eAllContents(DataType))->flatten()->select(aDataType:DataType | aDataType.name=aType.name)->first()
+		else
+			q_getAllPackages(aType,aType.ancestors()->last().oclAsType(Package)->asOrderedSet())->collect(eAllContents(DataType))->flatten()->select(aDataType:DataType | aDataType.name=aType.name)->first()
+		endif
+/]
+
+[query public q_getDataType_old (aType : Type) : DataType 
+	= 	if(aType.ancestors()->size() = 0) then
 			aType.eAllContents(DataType)->select(aDataType:DataType | aDataType.name=aType.name)->first()
 		else
 			aType.ancestors()->last().eAllContents(DataType)->select(aDataType:DataType | aDataType.name=aType.name)->first()
@@ -109,6 +117,14 @@ Licensed under the EUPL V.1.1
 /]
 
 [query public q_getFlowSpec (aType : Type) : Interface 
+	= 	if(aType.ancestors()->size() = 0) then
+			q_getAllPackages(aType,aType.oclAsType(Package)->asOrderedSet())->collect(eAllContents(Interface))->flatten()->select(aFlowSpec:Interface | q_IsFlowSpecType(aFlowSpec) and aFlowSpec.name=aType.name)->first()
+		else
+			q_getAllPackages(aType,aType.ancestors()->last().oclAsType(Package)->asOrderedSet())->collect(eAllContents(Interface))->flatten()->select(aFlowSpec:Interface | q_IsFlowSpecType(aFlowSpec) and aFlowSpec.name=aType.name)->first()
+		endif
+/]
+
+[query public q_getFlowSpec_old (aType : Type) : Interface 
 	= 	if(aType.ancestors()->size() = 0) then
 			aType.eAllContents(Interface)->select(aFlowSpec:Interface | q_IsFlowSpecType(aFlowSpec) and aFlowSpec.name=aType.name)->first()
 		else
@@ -224,7 +240,16 @@ typeB = Enum{e,f}, then return {c, d, b}. An enum or a primitive type is conside
 /]
 
 [comment this query returns all the classifier which contain an enumeration /]
-[query public q_getAllEnum (aElement : NamedElement) : OrderedSet(Classifier)
+[query public q_getAllEnum (aElement : NamedElement) : OrderedSet(Classifier) 
+	= 	if(aElement.ancestors()->size() = 0) then
+			q_getAllPackages(aElement,aElement.oclAsType(Package)->asOrderedSet())->collect(eAllContents(Classifier))->flatten()->select(aClassifier:Classifier | q_IsEnum(aClassifier))->asOrderedSet()
+		else
+			q_getAllPackages(aElement,aElement.ancestors()->last().oclAsType(Package)->asOrderedSet())->collect(eAllContents(Classifier))->flatten()->select(aClassifier:Classifier | q_IsEnum(aClassifier))->asOrderedSet()
+		endif
+/]
+
+[comment Deprecated - this query returns all the classifier which contain an enumeration /]
+[query public q_getAllEnum_old (aElement : NamedElement) : OrderedSet(Classifier)
 	= 	if(aElement.ancestors()->size() = 0) then
 			aElement.eAllContents(Classifier)->select(aClassifier:Classifier | q_IsEnum(aClassifier))->asOrderedSet()
 		else

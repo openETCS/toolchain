@@ -9,9 +9,9 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_basicTemplates_B('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::m_basicQueries /]
-[import SysMLTransform::m_instanceQueries /]
-[import SysMLTransform::m_blockQueries /]
+[import org::openetcs::sysml2b::transformation::m_basicQueries /]
+[import org::openetcs::sysml2b::transformation::m_instanceQueries /]
+[import org::openetcs::sysml2b::transformation::m_blockQueries /]
 
 [template public t_AddFileHeader_B(aElement : NamedElement, aName : String, aAuthor : String, aDescription : String, aVersion : Real )]
 /*

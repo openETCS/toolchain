@@ -9,18 +9,27 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_portsQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::services::m_services /]
-[import SysMLTransform::m_blockQueries /]
+[import org::openetcs::sysml2b::transformation::services::m_services /]
+[import org::openetcs::sysml2b::transformation::m_blockQueries /]
 
 [comment This module file contains the queries that manage basics functions about the connections with flow ports between the model elements/]
 
-[comment This query returns all the connector ends of the model/]
-[query public q_getAllConnectorEnd(aElement : Element): OrderedSet(ConnectorEnd)
+[comment Deprecated - This query returns all the connector ends of the model/]
+[query public q_getAllConnectorEnd_Old(aElement : Element): OrderedSet(ConnectorEnd)
 	= if(aElement.ancestors()->size() = 0) then
 				aElement.eAllContents(ConnectorEnd)->asOrderedSet()
 			else
 				aElement.ancestors()->last().eAllContents(ConnectorEnd)->asOrderedSet()
 			endif
+/]
+
+[comment This query returns all the connector ends of the model/]
+[query public q_getAllConnectorEnd (aElement : Element) : OrderedSet(ConnectorEnd) 
+	= 	if(aElement.ancestors()->size() = 0) then
+			q_getAllPackages(aElement,aElement.oclAsType(Package)->asOrderedSet())->collect(eAllContents(ConnectorEnd))->flatten()->asOrderedSet()
+		else
+			q_getAllPackages(aElement,aElement.ancestors()->last().oclAsType(Package)->asOrderedSet())->collect(eAllContents(ConnectorEnd))->flatten()->asOrderedSet()
+		endif
 /]
 
 [comment This query returns all the connector ends for which the port is aPort/]

@@ -9,10 +9,10 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_MainSysMLTransform('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::m_generateBlock_B /]
-[import SysMLTransform::m_generateTypes_B /]
-[import SysMLTransform::m_generateMain_B /]
-[import SysMLTransform::m_instanceQueries /]
+[import org::openetcs::sysml2b::transformation::m_generateBlock_B /]
+[import org::openetcs::sysml2b::transformation::m_generateTypes_B /]
+[import org::openetcs::sysml2b::transformation::m_generateMain_B /]
+[import org::openetcs::sysml2b::transformation::m_instanceQueries /]
 
 [template public t_SysML2BTransform(MyModel:Model) ?(MyModel.ancestors()->size() = 0)]
 	[comment @main/]

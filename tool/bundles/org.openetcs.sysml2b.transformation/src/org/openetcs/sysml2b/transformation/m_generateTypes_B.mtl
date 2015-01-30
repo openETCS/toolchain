@@ -9,8 +9,8 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_generateTypes_B('http://www.eclipse.org/papyrus/0.7.0/SysML', 'http://www.eclipse.org/uml2/4.0.0/UML')]
-[import SysMLTransform::m_basicTemplates_B /]
-[import SysMLTransform::m_basicQueries /]
+[import org::openetcs::sysml2b::transformation::m_basicTemplates_B /]
+[import org::openetcs::sysml2b::transformation::m_basicQueries /]
 
 [template public generateTypesFiles(aElement : NamedElement,fileName : String, mainPath : String, Version : Real)]
 [file (mainPath.concat('/').concat(fileName).concat('.mch'), false)]

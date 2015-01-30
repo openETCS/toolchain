@@ -9,11 +9,45 @@ Licensed under the EUPL V.1.1
 
 [comment encoding = UTF-8 /]
 [module m_blockQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::services::m_services /]
-[import SysMLTransform::m_portsQueries /]
+[import org::openetcs::sysml2b::transformation::services::m_services /]
+[import org::openetcs::sysml2b::transformation::m_portsQueries /]
+
+
+[query public q_getAllPackages (aElement : Element, aPackageList : OrderedSet(Package) ) : OrderedSet(Package) 
+	= 	if(q_getImportedPackages(aElement)->size() = 0) then
+			aPackageList
+		else
+			aPackageList->union(q_getImportedPackages(aElement)->collect(q_getAllPackages(aElement.oclAsType(Package)->asOrderedSet()))->flatten()->collect(oclAsType(Package))->asOrderedSet())->asOrderedSet()
+		endif
+/]
+
+[comment This query returns all the imported package of the model/]
+[query public q_getImportedPackages (aElement : Element) : OrderedSet(Package) 
+	= 	if(aElement.ancestors()->size() = 0) then
+			aElement.oclAsType(Model).eAllContents(PackageImport)->collect(importedPackage)->reject(aPackage : Package | aElement.oclAsType(Model).eAllContents(Package)->includes(aPackage))->asOrderedSet()
+		else
+			(aElement.ancestors()->last()).oclAsType(Model).eAllContents(PackageImport)->collect(importedPackage)->reject(aPackage : Package | (aElement.ancestors()->last()).oclAsType(Model).eAllContents(Package)->includes(aPackage))->asOrderedSet()
+		endif
+/]
 
 [comment This query returns all the Blocks of the model/]
 [query public q_getBlockList (aElement : Element) : OrderedSet(Class) 
+	= 	if(aElement.ancestors()->size() = 0) then
+			q_getAllPackages(aElement,aElement.oclAsType(Package)->asOrderedSet())->collect(eAllContents(Class))->flatten()->select(aClass : Class | q_IsBlock(aClass) = true)->asOrderedSet()
+		else
+			q_getAllPackages(aElement,aElement.ancestors()->last().oclAsType(Package)->asOrderedSet())->collect(eAllContents(Class))->flatten()->select(aClass : Class | q_IsBlock(aClass) = true)->asOrderedSet()
+		endif
+/]
+
+[query public q_IsBlock (aType : Class) : Boolean 
+	= 	if(aType.hasStereotype('SysML::Blocks::Block')) then
+			true else
+			false
+		endif
+/]
+
+[comment Deprecated - This query returns all the Blocks of the model/]
+[query public q_getBlockListOld (aElement : Element) : OrderedSet(Class) 
 	= 	if(aElement.ancestors()->size() = 0) then
 			(aElement.eAllContents(Package)->select(p:Package|p.name<>'Requirements' and ( p.eContents(Class)->notEmpty() ))).eContents(Class)->flatten()->asOrderedSet()
 		else
