@@ -19,7 +19,6 @@ public class TransformToClassicalB extends AbstractHandler {
 	
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return super.isEnabled();
 	}
 
@@ -36,6 +35,7 @@ public class TransformToClassicalB extends AbstractHandler {
 			File folder = new File("B_code/"); // FIXME: we should ask user where to save the generated B code
 			
 			try {
+				// FIXME: Add a way to decide if we want to generate implementation skeleton or not
 				M_MainSysMLTransform transform = new M_MainSysMLTransform(eobj, folder, arguments);
 				
 				System.out.println("** Start transformation **");
