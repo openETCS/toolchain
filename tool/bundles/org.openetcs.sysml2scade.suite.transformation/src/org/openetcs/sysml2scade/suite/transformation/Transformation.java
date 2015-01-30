@@ -11,9 +11,9 @@ public class Transformation {
 		this.project = project;
 	}
 
-	public void generateAndWrite(Model sysmlModel) {
+	public void generateAndWrite(Model sysmlModel, Trace tracefile) {
 
-		MapToScade mapper = new MapToScade(sysmlModel, project);
+		MapToScade mapper = new MapToScade(sysmlModel, project, tracefile);
 		
 
 		
@@ -21,8 +21,8 @@ public class Transformation {
 		mapper.fillScadeModel();
 	}
 	
-	public void generateAndWrite(Block block, String projectName) {
-		MapToScade mapper = new MapToScade(block, project, projectName);
+	public void generateAndWrite(Block block, String projectName, Trace tracefile) {
+		MapToScade mapper = new MapToScade(block, project, projectName, tracefile);
 		
 		mapper.fillScadeModel();
 	}

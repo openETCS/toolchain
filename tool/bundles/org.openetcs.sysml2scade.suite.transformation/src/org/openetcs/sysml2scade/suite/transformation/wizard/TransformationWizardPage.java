@@ -1,10 +1,14 @@
 package org.openetcs.sysml2scade.suite.transformation.wizard;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
@@ -14,16 +18,18 @@ import org.eclipse.ui.PlatformUI;
 
 public class TransformationWizardPage extends WizardPage implements StringConstants {
 
-	private Text projectNameWidget;
+	private Combo projectNameWidget;
 	private Text modelNameWidget;
 	private Button checkModel;
+	private List<String> targets;
 
-	protected TransformationWizardPage(String pageName) {
+	protected TransformationWizardPage(String pageName, List<String> targets) {
 		super(pageName);
 		setTitle(pageName);
 		setPageComplete(false);
 		setDescription(UI_WIZARDPAGE_DESCRIPTION);
 		setErrorMessage(UI_WIZARDPAGE_EMSG_NAME);
+		this.targets = targets;
 	}
 	
 	@Override
@@ -44,6 +50,7 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 		projectNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);
 		projectNameWidget.setLayoutData(gridData);
 		projectNameWidget.addListener(SWT.CHANGED, new Listener() {
+			@Override
 			public void handleEvent(Event e) {
 				if (!projectNameWidget.getText().equals("")) {
 					setPageComplete(true);
@@ -54,6 +61,7 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 				}
 			}
 		});
+
 
 		new Label(composite, SWT.None).setText(UI_WIZARDPAGE_MODELNAME);
 		modelNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);

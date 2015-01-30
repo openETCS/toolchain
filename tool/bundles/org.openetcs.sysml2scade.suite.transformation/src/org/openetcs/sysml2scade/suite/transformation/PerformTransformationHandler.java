@@ -20,10 +20,17 @@
 
 package org.openetcs.sysml2scade.suite.transformation;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -40,8 +47,11 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.openetcs.common.IOUtil;
 import org.openetcs.sysml2scade.suite.transformation.wizard.TransformationWizard;
+import org.xml.sax.SAXException;
 
 public class PerformTransformationHandler extends AbstractHandler {
+
+	private static final String TRACEFILE_NAME = "tracefile.xml";
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -69,30 +79,46 @@ public class PerformTransformationHandler extends AbstractHandler {
 				} else {
 					element = (Element) eobject;
 				}
-				Stereotype stereotype = element.getAppliedStereotype("SysML::Blocks::Block");
+				Stereotype stereotype = element
+						.getAppliedStereotype("SysML::Blocks::Block");
 				if (stereotype != null) {
-					block = (Block) element.getStereotypeApplication(stereotype);
+					block = (Block) element
+							.getStereotypeApplication(stereotype);
 				}
 			}
-		} 
-
-		TransformationWizard wizard;
-		if(file != null) {
-			wizard = new TransformationWizard();
-			wizard.setModel(file);
-		} else if (block != null) {
-			wizard = new TransformationWizard();
-			wizard.setBlock(block);
-		} else if (model != null) {
-			wizard = new TransformationWizard();
-			wizard.setModel(model);
-		} else {
-			MessageDialog.openWarning(shell,
-					"Transformation can't be called on: ", object.getClass()
-							.getName());
-			return null;
 		}
 
+		TransformationWizard wizard;
+		Trace tracefile;
+		try {
+			if (file != null) {
+				tracefile = new Trace(file.getLocation().removeLastSegments(1)
+						.append(TRACEFILE_NAME).toFile());
+				wizard = new TransformationWizard();
+				wizard.setModel(file);
+			} else if (block != null) {
+				tracefile = new Trace(getTracefileFile(block.eResource()
+						.getURI()));
+				wizard = new TransformationWizard();
+				wizard.setBlock(block);
+			} else if (model != null) {
+				tracefile = new Trace(getTracefileFile(model.eResource()
+						.getURI()));
+				wizard = new TransformationWizard();
+				wizard.setModel(model);
+			} else {
+				MessageDialog.openWarning(shell,
+						"Transformation can't be called on: ", object
+								.getClass().getName());
+				return null;
+			}
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		wizard.setTracefile(tracefile);
 		WizardDialog wizarddialog = new WizardDialog(shell, wizard);
 
 		try {
@@ -103,5 +129,14 @@ public class PerformTransformationHandler extends AbstractHandler {
 		}
 
 		return null;
+	}
+
+	private File getTracefileFile(URI uri) {
+		return ResourcesPlugin
+				.getWorkspace()
+				.getRoot()
+				.getLocation()
+				.append(uri.trimSegments(1).appendSegment(TRACEFILE_NAME)
+						.path()).toFile();
 	}
 }
