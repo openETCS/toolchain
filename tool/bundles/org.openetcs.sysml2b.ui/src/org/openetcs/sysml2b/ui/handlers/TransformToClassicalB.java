@@ -33,14 +33,14 @@ public class TransformToClassicalB extends AbstractHandler {
 			
 			// Apply SysML2B transformation on EObject
 			List<String> arguments = new ArrayList<String>();
-			File folder = new File("/B_code/B_modules/");
+			File folder = new File("B_code/"); // FIXME: we should ask user where to save the generated B code
 			
-			M_MainSysMLTransform transform;
 			try {
-				transform = new M_MainSysMLTransform(eobj, folder, arguments);
+				M_MainSysMLTransform transform = new M_MainSysMLTransform(eobj, folder, arguments);
 				
 				System.out.println("** Start transformation **");
-				transform.doGenerate(null);
+				//System.out.println(EMFHelper.getContainmentPath(eobj));
+				transform.doGenerate(null); // FIXME: We should give a feedback to the user through the monitor parameter
 				System.out.println("** End transformation **");
 				
 			} catch (IOException e) {
