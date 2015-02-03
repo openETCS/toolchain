@@ -8,12 +8,18 @@ import java.util.List;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+//import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
+//import org.eclipse.papyrus.infra.emf.utils.ResourceUtils;
 import org.eclipse.ui.handlers.HandlerUtil;
+//import org.eclipse.uml2.uml.Model;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.openetcs.sysml2b.transformation.common.main.M_MainSysMLTransform;
+//import org.openetcs.common.Util;
+//import org.openetcs.common.IOUtil;
 
 public class TransformToClassicalB extends AbstractHandler {
 	
@@ -34,14 +40,23 @@ public class TransformToClassicalB extends AbstractHandler {
 			List<String> arguments = new ArrayList<String>();
 			File folder = new File("B_code/"); // FIXME: we should ask user where to save the generated B code
 			
+			// get the IFile of the selected Model
+//			Model UMLModel = Util.createUMLModel();
+//			System.out.println(UMLModel);
+//			IFile modelIFile = ResourceUtils.getFile(UMLModel.eResource());
+//			System.out.println(modelIFile);
+			
 			try {
 				// FIXME: Add a way to decide if we want to generate implementation skeleton or not
 				M_MainSysMLTransform transform = new M_MainSysMLTransform(eobj, folder, arguments);
 				
 				System.out.println("** Start transformation **");
 				//System.out.println(EMFHelper.getContainmentPath(eobj));
-				transform.doGenerate(null); // FIXME: We should give a feedback to the user through the monitor parameter
+				transform.doGenerate(null);
 				System.out.println("** End transformation **");
+
+				// Display a message to the user
+				MessageDialog.openInformation(HandlerUtil.getActiveShell(event), "Transformation to Classical B", "Transformation to B done");
 				
 			} catch (IOException e) {
 				e.printStackTrace();
