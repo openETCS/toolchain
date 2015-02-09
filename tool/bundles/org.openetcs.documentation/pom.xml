@@ -2,17 +2,16 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
- <parent>
+  <parent>
     <groupId>org.openetcs</groupId>
     <artifactId>org.openetcs.releng.parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../org.openetcs.releng.parent/</relativePath>
   </parent>
-  
   <groupId>org.openetcs</groupId>  
   <artifactId>org.openetcs.documentation</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-
+  <packaging>eclipse-plugin</packaging>
 <build>
         <plugins>
             <plugin>
@@ -54,5 +53,4 @@
             </plugin>
            </plugins> 
     </build>
-  <packaging>eclipse-plugin</packaging>
 </project>
