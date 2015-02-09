@@ -32,7 +32,7 @@
 	<module>../org.openetcs.sysml.constraints</module>
 	<module>../org.openetcs.sysml.constraints.feature</module>
 	<module>../org.openetcs.sysml2b.transformation</module>
-	    <module>../org.openetcs.documentation.test</module>
+	<module>../org.openetcs.documentation.test</module>
   </modules>
   
   <build>
