@@ -9,6 +9,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.validation;bundle-version="1.7.0",
  org.eclipse.uml2.uml
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Fraunhofer ESK
 Export-Package: org.openetcs.sysml.constraints

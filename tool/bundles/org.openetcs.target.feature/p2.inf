@@ -1,5 +1,5 @@
 instructions.configure=\
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//download.eclipse.org/releases/kepler);\
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//download.eclipse.org/releases/kepler);\
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//download.eclipse.org/releases/luna);\
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//download.eclipse.org/releases/luna);\
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//openetcs.ci.cloudbees.com/job/openETCS-tycho/lastSuccessfulBuild/artifact/tool/bundles/org.openetcs.releng.products/target/repository);\
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//openetcs.ci.cloudbees.com/job/openETCS-tycho/lastSuccessfulBuild/artifact/tool/bundles/org.openetcs.releng.products/target/repository);
