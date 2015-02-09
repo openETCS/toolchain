@@ -17,8 +17,10 @@ http://openetcs.org/
 
    <launcherArgs>
       <vmArgs>-Xmx1536M
--XX:MaxPermSize=768M</vmArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+-XX:MaxPermSize=768M
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="logo/openETCS-logo16x16.png" i32="logo/openETCS-logo32x32.png" i48="logo/openETCS-logo48x48.png" i64="logo/openETCS-logo64x64.png" i128="logo/openETCS-logo128x128.png"/>
@@ -67,9 +69,9 @@ or has expressed by any other mean his willingness to license under the EUPL.
    </plugins>
 
    <features>
+      <feature id="org.openetcs.datadictionary.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.core.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.target.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.datadictionary.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.sysml.constraints.feature" version="0.1.0.qualifier"/>
       <feature id="org.openetcs.pror.tracing.feature" version="0.1.0.qualifier"/>
    </features>
