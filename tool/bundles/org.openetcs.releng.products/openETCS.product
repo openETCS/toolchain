@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.7" useFeatures="true" includeLaunchers="true">
+<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.openetcs.product/openETCS-logo.png"/>
@@ -69,11 +69,11 @@ or has expressed by any other mean his willingness to license under the EUPL.
    </plugins>
 
    <features>
-      <feature id="org.openetcs.datadictionary.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.core.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.target.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.sysml.constraints.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.pror.tracing.feature" version="0.1.0.qualifier"/>
+      <feature id="org.openetcs.datadictionary.feature" version="1.0.0.qualifier"/>
+      <feature id="org.openetcs.core.feature" version="1.0.0.qualifier"/>
+      <feature id="org.openetcs.target.feature" version="1.0.0.qualifier"/>
+      <feature id="org.openetcs.sysml.constraints.feature" version="1.0.0.qualifier"/>
+      <feature id="org.openetcs.pror.tracing.feature" version="1.0.0.qualifier"/>
    </features>
 
    <configurations>

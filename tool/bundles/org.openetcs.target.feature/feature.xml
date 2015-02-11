@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.target.feature"
       label="Target Feature"
-      version="0.1.0.qualifier"
+      version="1.0.0.qualifier"
       provider-name="itea2 openETCS">
 
    <description url="http://www.example.com/description">

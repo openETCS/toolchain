@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openetcs</groupId>
   <artifactId>org.openetcs.releng.parent</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <properties>
-    <openetcs-version>0.1.0-SNAPSHOT</openetcs-version>
+    <openetcs-version>1.0.0-SNAPSHOT</openetcs-version>
     <tycho-version>0.22.0</tycho-version>
 	<replacer-version>1.4.1</replacer-version>
 	<assembly-version>2.4</assembly-version>
@@ -22,28 +22,34 @@
 		<repository>
 			<id>eclipse-rmf</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/rmf/updates/milestones</url>
-		</repository>				
+			<url>http://download.eclipse.org/rmf/updates/milestones</url> 
+		</repository>
+		<repository>
+			<id>uni-bremen-rtt</id>
+			<layout>p2</layout>
+			<url>http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/</url>
+		</repository>					
 	</repositories>	
   <modules>
     <module>../org.openetcs.common</module>
+    <module>../org.openetcs.sysml.constraints</module>
+	<module>../org.openetcs.sysml.constraints.feature</module>
     <module>../org.openetcs.core.feature</module>
 	<module>../org.openetcs.datadictionary</module>
 	<module>../org.openetcs.datadictionary.feature</module>
     <module>../org.openetcs.intro</module>
-      <module>../org.openetcs.documentation</module>
+    <module>../org.openetcs.documentation</module>
 	<module>../org.openetcs.product</module>
     <module>../org.openetcs.releng.products</module>
 	<module>../org.openetcs.releng.target</module>
 	<module>../org.openetcs.target.feature</module>
 	<module>../org.openetcs.pror.tracing</module>
-	<module>../org.openetcs.pror.tracing.feature</module>
 	<module>../org.openetcs.pror.tracing.sysml</module>
-	<module>../org.openetcs.pror.tracing.test</module>
-	<module>../org.openetcs.sysml.constraints</module>
-	<module>../org.openetcs.sysml.constraints.feature</module>
+	<module>../org.openetcs.pror.tracing.feature</module>
 	<module>../org.openetcs.sysml2b.transformation</module>
-	<module>../org.openetcs.documentation.test</module>
+	<module>../org.openetcs.sysml.report</module>
+<!-- <module>../org.openetcs.pror.tracing.test</module>
+	<module>../org.openetcs.documentation.test</module>  -->
   </modules>
   
   <build>

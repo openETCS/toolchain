@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.core.feature"
       label="OpenETCS Core Feature"
-      version="0.1.0.qualifier"
+      version="1.0.0.qualifier"
       provider-name="itea2 openETCS"
       plugin="org.openetcs.product">
 

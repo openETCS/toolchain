@@ -2,4 +2,6 @@ instructions.configure=\
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//download.eclipse.org/releases/luna);\
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//download.eclipse.org/releases/luna);\
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//openetcs.ci.cloudbees.com/job/openETCS-tycho/lastSuccessfulBuild/artifact/tool/bundles/org.openetcs.releng.products/target/repository);\
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//openetcs.ci.cloudbees.com/job/openETCS-tycho/lastSuccessfulBuild/artifact/tool/bundles/org.openetcs.releng.products/target/repository);
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//openetcs.ci.cloudbees.com/job/openETCS-tycho/lastSuccessfulBuild/artifact/tool/bundles/org.openetcs.releng.products/target/repository);\
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//urmel.informatik.uni-bremen.de/rtt-plugin-update-site);\
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//urmel.informatik.uni-bremen.de/rtt-plugin-update-site);

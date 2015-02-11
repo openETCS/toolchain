@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.sysml.constraints.feature"
       label="OpenETCS SysML Constraint Checker"
-      version="0.1.0.qualifier"
+      version="1.0.0.qualifier"
       provider-name="Fraunhofer ESK">
 
    <description url="http://www.example.com/description">
