@@ -1,7 +1,8 @@
-<toc label="Toolchain Documentation">
+<toc label="OpenETCS User Guide">
 		<topic label="Overview"><link toc="bin/documentation/Overview-toc.xml"/></topic>
 			  	<topic label="Installation"><link toc="bin/documentation/Installation-toc.xml"/></topic>
 			  	<topic label="Getting-Started"><link toc="bin/documentation/Getting-Started-toc.xml"/></topic>
+			  	<topic label="Process-Documentation"><link toc="bin/documentation/Process-Documentation-toc.xml"/></topic>
 			  	<topic label="User-Documentation"><link toc="bin/documentation/User-Documentation-toc.xml"/></topic>
 			  	<topic label="Developer-Documentation"><link toc="bin/documentation/Developer-Documentation-toc.xml"/></topic>
 			  	<topic label="FAQ"><link toc="bin/documentation/FAQ-toc.xml"/></topic>
