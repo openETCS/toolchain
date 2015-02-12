@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<toc topic="bin/documentation/Installation.html" label="Installation">
-	<topic href="bin/documentation/Installation.html" label="System Requirements"></topic>
-	<topic href="bin/documentation/Installation.html#Installation_procedure" label="Installation procedure">
-		<topic href="bin/documentation/Installation.html#Installing_ProR_Essentials" label="Installing ProR Essentials"></topic>
-	</topic>
-	<topic href="bin/documentation/Installation.html#TODO_Upgrade_procedure" label="TODO Upgrade procedure"></topic>
-</toc>

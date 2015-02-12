@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: antexecutor.DocumentationTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec
-testDocumentationCreationIsOk(antexecutor.DocumentationTest)  Time elapsed: 0.05 sectestGenerateHelp(antexecutor.DocumentationTest)  Time elapsed: 0 sectestGenerateFo(antexecutor.DocumentationTest)  Time elapsed: 0 sectestCloneIsOk(antexecutor.DocumentationTest)  Time elapsed: 0.02 sectestGenerateOpenETCSPDF(antexecutor.DocumentationTest)  Time elapsed: 0 sectestGenerateTocDinamically(antexecutor.DocumentationTest)  Time elapsed: 0 sec
