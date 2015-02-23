@@ -14,7 +14,7 @@
             Constraint Provider description.
          </description>
          <package
-               namespaceUri="http://www.eclipse.org/uml2/4.0.0/UML">
+               namespaceUri="http://www.eclipse.org/uml2/5.0.0/UML">
          </package>
          <constraints
                categories="org.openetcs.sysml.constraints.category">
