@@ -20,7 +20,6 @@
 
 package org.openetcs.sysml2scade.suite.transformation;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,8 +28,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -93,17 +91,19 @@ public class PerformTransformationHandler extends AbstractHandler {
 		try {
 			if (file != null) {
 				tracefile = new Trace(file.getLocation().removeLastSegments(1)
-						.append(TRACEFILE_NAME).toFile());
+						.append(TRACEFILE_NAME).toFile(), null);
 				wizard = new TransformationWizard();
 				wizard.setModel(file);
 			} else if (block != null) {
-				tracefile = new Trace(getTracefileFile(block.eResource()
-						.getURI()));
+				tracefile = new Trace(CommonPlugin
+						.resolve(block.eResource().getURI()).trimSegments(1)
+						.appendSegment(TRACEFILE_NAME).toFileString(), null);
 				wizard = new TransformationWizard();
 				wizard.setBlock(block);
 			} else if (model != null) {
-				tracefile = new Trace(getTracefileFile(model.eResource()
-						.getURI()));
+				tracefile = new Trace(CommonPlugin
+						.resolve(model.eResource().getURI()).trimSegments(1)
+						.appendSegment(TRACEFILE_NAME).toFileString(), null);
 				wizard = new TransformationWizard();
 				wizard.setModel(model);
 			} else {
@@ -113,9 +113,9 @@ public class PerformTransformationHandler extends AbstractHandler {
 				return null;
 			}
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
-			throw new RuntimeException(e);
+			MessageDialog.openWarning(shell, "Failed to load tracefile",
+					e.getLocalizedMessage());
+			return null;
 		}
 
 		wizard.setTracefile(tracefile);
@@ -129,14 +129,5 @@ public class PerformTransformationHandler extends AbstractHandler {
 		}
 
 		return null;
-	}
-
-	private File getTracefileFile(URI uri) {
-		return ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getLocation()
-				.append(uri.trimSegments(1).appendSegment(TRACEFILE_NAME)
-						.path()).toFile();
 	}
 }

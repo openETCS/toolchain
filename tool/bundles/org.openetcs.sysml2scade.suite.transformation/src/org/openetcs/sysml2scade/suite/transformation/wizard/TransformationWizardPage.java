@@ -47,9 +47,11 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 
 		// Project
 		new Label(composite, SWT.NONE).setText(UI_WIZARDPAGE_PROJECTNAME);
-		projectNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);
+		projectNameWidget = new Combo(composite, SWT.DROP_DOWN);
+		Collections.sort(this.targets);
+		projectNameWidget.setItems(this.targets.toArray(new String[0]));
 		projectNameWidget.setLayoutData(gridData);
-		projectNameWidget.addListener(SWT.CHANGED, new Listener() {
+		projectNameWidget.addListener(SWT.Modify, new Listener() {
 			@Override
 			public void handleEvent(Event e) {
 				if (!projectNameWidget.getText().equals("")) {
@@ -61,7 +63,6 @@ public class TransformationWizardPage extends WizardPage implements StringConsta
 				}
 			}
 		});
-
 
 		new Label(composite, SWT.None).setText(UI_WIZARDPAGE_MODELNAME);
 		modelNameWidget = new Text(composite, SWT.BOLD | SWT.BORDER);
