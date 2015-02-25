@@ -161,7 +161,9 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	def createXScade(String name) {
+
 		val uriXscade = baseURI.appendSegment(name + ".xscade");
+
 		return scadeResourceSet.createResource(uriXscade);
 	}
 
@@ -338,10 +340,6 @@ class MapToScade extends ScadeModelWriter {
 		saveAll(scadeProject, null);
 	}
 
-	/* 
-	 * TODO JUnit later
-	 * 
-	 */
 	def createHierarchy() {
 		for (entry : blockToOperatorMap.entrySet()) {
 			var block = entry.key
@@ -407,23 +405,17 @@ class MapToScade extends ScadeModelWriter {
 						}
 						dst_index = dst_index + 1
 					}
-					name = name + 1
 				}
 			}
 		}
 	}
 
-	/* 
-	 * TODO JUnit now
-	 * 
-	 */
 	def int addOperatorCall(Property property, HashMap<Property, Equation> propertyToEquationMap, int name,
 		Operator operator, HashMap<Equation, Operator> equationToOperatorMap,
 		HashMap<Equation, CallExpression> equationToCallMap, int locals_counter,
 		HashMap<Equation, HashMap<Variable, Variable>> equationToOutputToVariableMap) {
 
-		var stereotype = property.type.getAppliedStereotype("SysML::Blocks::Block")
-		var nblock = property.type.getStereotypeApplication(stereotype) as Block
+		var nblock = property.block
 		var equation = theScadeFactory.createEquation()
 		var counter = locals_counter
 
@@ -455,7 +447,6 @@ class MapToScade extends ScadeModelWriter {
 		return counter
 	}
 
-	// TODO JUnit now
 	def mapConnectorends(EList<Connector> list, HashMap<Property, Equation> propertyToEquationMap,
 		HashMap<Variable, ConnectorEnd> outputToConnectorendMap,
 		HashMap<Property, HashMap<Variable, ConnectorEnd>> propertyToInputToConnectorendMap) {
@@ -489,7 +480,6 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	// TODO JUnit later
 	def createGraphical() {
 		for (operator : blockToOperatorMap.values) {
 			var inputMap = new HashMap<Variable, Equation>()
@@ -580,7 +570,6 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	// TODO JUnit now
 	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode,
 		Map<KPort, Equation> portToEquation, Map<KPort, Integer> portToIndex) {
 		var equationToGraphical = new HashMap<Equation, EquationGE>()
@@ -723,6 +712,17 @@ class MapToScade extends ScadeModelWriter {
 		equation.getLefts.add(destination)
 	}
 
+	private def Block getBlock(Property property) {
+		var type = property.type
+		if (type != null) {
+			var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
+			if (stereotype != null) {
+				return property.type.getStereotypeApplication(stereotype) as Block
+			}
+		}
+		return null
+	}
+
 	def FlowPort getFlowPort(ConnectorEnd end) {
 		if (end != null && end.role != null) {
 			var stereotype = end.role.getAppliedStereotype("SysML::PortAndFlows::FlowPort")
@@ -760,7 +760,7 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	/**
-	 * Function returning an element of a map within a map using two keys or null if does not exist
+	 * Function returning an element of a map within a map using two keys
 	 * 
 	 * @param <M> The type of the nested Map
 	 * @param <KEY1> The type of the keys of the outer map
@@ -783,10 +783,8 @@ class MapToScade extends ScadeModelWriter {
 
 	def EList<Property> getNestedBlocksAsProperties(Block block) {
 		var list = new BasicEList<Property>
-
 		for (property : block.base_Class.ownedAttributes) {
 			var type = property.type
-
 			if (type != null) {
 				var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
 
@@ -797,7 +795,7 @@ class MapToScade extends ScadeModelWriter {
 		}
 		return list
 	}
-	
+
 	def Iterable<Block> getNestedBlocks(Block block) {
 		var set = new HashSet<Block>()
 		for (property : block.base_Class.ownedAttributes) {
