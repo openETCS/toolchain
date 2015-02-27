@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openetcs</groupId>
   <artifactId>org.openetcs.releng.parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <properties>
-    <openetcs-version>1.0.0-SNAPSHOT</openetcs-version>
+    <openetcs-version>1.0.1-SNAPSHOT</openetcs-version>
     <tycho-version>0.22.0</tycho-version>
 	<replacer-version>1.4.1</replacer-version>
 	<assembly-version>2.4</assembly-version>
