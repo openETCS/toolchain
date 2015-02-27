@@ -27,6 +27,8 @@
 <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="1.0.1.v201412190917"/>
 <unit id="org.eclipse.papyrus.extra.sources.feature.feature.group" version="1.0.1.v201412191003"/>
 <repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
+<unit id="eu.compassresearch.rttmbt.feature.feature.group" version="0.4.1.1505"/>
+<repository location="http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/"/>
 </location>
 </locations>
 </target>
