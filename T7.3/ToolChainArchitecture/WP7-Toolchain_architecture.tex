@@ -86,7 +86,7 @@
 \begin{abstract}
 %define an abstract here
 This document defines the tool chain architecture. It gives an
-overview of what has benn implemented and what is at the moment running .
+overview of what has been implemented and what is at the moment running .
 \end{abstract}
 
 %=============================
@@ -150,7 +150,8 @@ Version &  Date & Author(s) & Justification  \\
 \hline  
 00.00 & 25.07.2013 & C. Braunstein  &  Document creation  \\
 00.01 & 23.01.2015 & C. Braunstein & Document transformation to covers
-current openETCS tool chain implementation\\ 
+current openETCS tool chain implementation\\
+00.02 & 10.02.2015 & M. Dorka & Add explanation of Word import\\
 \hline  
 \end{tabular}
 \newpage
@@ -189,7 +190,13 @@ The traceability architecture is described in detail in the document \cite{O7_tr
  %----------------------
     \subsection{From Word document to ReqIF}
  %----------------------
-     \todo[color=green!40,noline]{Chap resp. Moritz}
+
+The native file format of the ETCS requirements, specifically the subset026, is the old binary format used by Microsoft Word from Word 97 through Word 2003. Though still limited in terms of accompanying semantic information (e.g. this structure is a table with $n$ rows and $m$ columns), it still excels compared to PDF which the ERA provides as a second, derived format. Each chapter of the subset026 constitutes one independent file.\\
+In order to extract as much information as possible from those weakly structured documents a special, heavily domain-specific import tool has been developed. It reads the Word files using Apache POI, an open-source Microsoft Office parsing library, identifies individual requirements, generates an appropriate hierarchical structure, attributes unique, human-readable identifiers to each meaningful artifact and serializes the result into an XML-file conforming to ReqIF v1.1.\\
+The entire process is fully automated, thus facilitating imports of any possible updates to the requirements in the future. Tight integration into the Eclipse-based toolchain is possible due to the use of the Java programming language and no OS-specific dependencies.\\
+Future enhancements of the tool will include improved metadata extraction which can help both the modellers to better understand a specific requirement as well enable automated searching / categorization of requirement artifacts.\\
+No closed-source parts are employed anywhere in this step. Conformance of the tool with EN\,50128 T1 requirements is sought.
+
  %----------------------
     \subsection{ProR and papyrus Proxy}
  %----------------------

@@ -1,4 +1,4 @@
-** Toolspint 22 (Ends 21-November-2014)
+** Toolsprint 22 (Ends 21-November-2014)
 *** resolved issues
 - #434 Temporary installation instructions for Sysml2Scade for early evaluation
 - #412 Unit Tests Broken
@@ -18,7 +18,7 @@ Fix the build : exclude sysml2scade feature & plugins
    - change openETCS.product (org.openetcs.releng.products) to exclude Sysml2scade feature.
    - change pom file in the releng.parent plugin to exlude plugins from the build
 
-** Toolspint 20 (Ends 17-October-2014)
+** Toolsprint 20 (Ends 17-October-2014)
 *** resolved issues
 - #422 Integrate SysML to B translator into openETCS
 - #70 Chapter for developer documentation: License Guideline
@@ -27,7 +27,7 @@ Fix the build : exclude sysml2scade feature & plugins
 - ab6a0ebd150ef6ac03a607b11bd4fc40e9c937b2
  [#422] adding SysML2B transformation and various correction.
 
-** Toolspint 18 (Ends 19-September-2014)
+** Toolsprint 18 (Ends 19-September-2014)
 *** resolved issues
 - #423 Feature Request: Print Papyrus model
 - #411 org.openetcs.pror.tracing.sysml yet part of maven build
@@ -40,7 +40,7 @@ Fix the build : exclude sysml2scade feature & plugins
  [issue #410] Correct licensing & Papyrus version issue.
 
 
-** Toolspint 16 (Ends 08-August-2014)
+** Toolsprint 16 (Ends 08-August-2014)
 *** resolved issues
 - #395 Import registered package to Scade system does not work ?
 - #380 Papyrus integration plug-in  with PRO-R proxy listnener
@@ -49,7 +49,7 @@ Fix the build : exclude sysml2scade feature & plugins
 *** Important commit 
 - 84e4c9cbdffd0ddf9431c3ef7c822581759f20ae
  Merge of local branch for plugin org.openetcs.pror.tracing.sysml, closing issue #349 and partially #380
-** Toolspint 14 (Ends 05-July-2014)
+** Toolsprint 14 (Ends 05-July-2014)
 *** resolved issues
 - #298 Reset Target Platform and POMs for RMF after 0.10.0 release
 - #377 Include Documentation plug-in in product build
