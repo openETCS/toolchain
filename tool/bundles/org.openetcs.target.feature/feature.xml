@@ -98,6 +98,10 @@
    <includes
          id="org.eclipse.papyrus.uml.nattable.feature"
          version="0.0.0"/>
+         
+   <includes
+         id="org.eclipse.papyrus.infra.gmfdiag.css.feature"
+         version="0.0.0"/>
 
    <includes
          id="eu.compassresearch.rttmbt.feature"
