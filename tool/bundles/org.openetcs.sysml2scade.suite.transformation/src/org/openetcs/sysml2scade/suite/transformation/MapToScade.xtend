@@ -1,6 +1,7 @@
 package org.openetcs.sysml2scade.suite.transformation
 
 import com.esterel.project.api.Project
+import com.esterel.scade.api.Annotable
 import com.esterel.scade.api.CallExpression
 import com.esterel.scade.api.Equation
 import com.esterel.scade.api.IdExpression
@@ -170,6 +171,7 @@ class MapToScade extends ScadeModelWriter {
 	def Package createScadePackage(String name) {
 		val pkg = theScadeFactory.createPackage()
 		pkg.setName(name)
+		EditorPragmasUtil.setOid(pkg, EcoreUtil.generateUUID());
 		return pkg
 	}
 
@@ -177,6 +179,7 @@ class MapToScade extends ScadeModelWriter {
 		val scadePackage = createScadePackage(pkg.name)
 		val resourcePackage = createXScade(pkg.name)
 		resourcePackage.getContents().add(scadePackage)
+		tracefile.addElement(pkg.UUID, pkg.eContainer.UUID, scadePackage.oid)
 
 		for (block : pkg.getBlocks) {
 
@@ -245,7 +248,8 @@ class MapToScade extends ScadeModelWriter {
 		operator.setName(block.name);
 		operator.setKind(OperatorKind.NODE_LITERAL);
 		EditorPragmasUtil.setOid(operator, EcoreUtil.generateUUID());
-		tracefile.addElement(block.UUID, operator.oid)
+		var blockID = block.base_Class.UUID
+		tracefile.addElement(blockID, block.base_Class.eContainer.UUID, operator.oid)
 		for (port : block.flowPorts) {
 			var type = createScadeType(port.type)
 
@@ -254,21 +258,20 @@ class MapToScade extends ScadeModelWriter {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getOutputs().add(variable)
 				flowportToOutputMap.put(port, variable)
-				tracefile.addElement(port.UUID, variable.oid)
+				tracefile.addElement(port.UUID, blockID, variable.oid)
 			} else if (port.direction.value == FlowDirection.IN_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getInputs().add(variable)
 				flowportToInputMap.put(port, variable)
-				tracefile.addElement(port.UUID, variable.oid)
+				tracefile.addElement(port.UUID, blockID, variable.oid)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
-				var variable = createNamedTypeVariable("input_" + port.name, type)
-				operator.getInputs().add(variable)
-				flowportToInputMap.put(port, variable)
-				tracefile.addElement(port.UUID, variable.oid)
-				variable = createNamedTypeVariable("output_" + port.name, type)
-				operator.getOutputs().add(variable)
-				flowportToOutputMap.put(port, variable)
-				tracefile.addElement(port.UUID, variable.oid)
+				var input = createNamedTypeVariable("input_" + port.name, type)
+				operator.getInputs().add(input)
+				flowportToInputMap.put(port, input)
+				var output = createNamedTypeVariable("output_" + port.name, type)
+				operator.getOutputs().add(output)
+				flowportToOutputMap.put(port, output)
+				tracefile.addElement(port.UUID, blockID, input.oid, output.oid)
 			}
 		}
 		return operator;
@@ -421,6 +424,7 @@ class MapToScade extends ScadeModelWriter {
 
 		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID())
 		propertyToEquationMap.put(property, equation)
+		tracefile.addElement(property.UUID, property.eContainer.UUID, equation.oid)
 
 		var op = blockToOperatorMap.get(nblock)
 		if (op != null) {
@@ -811,7 +815,14 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	def String getUUID(EObject object) {
-		return sysmlResource.getID(object);
+		if (object === null) {
+			return null
+		} else if (object instanceof Annotable) {
+			return object.oid
+		} else if (object instanceof Block) {
+			return object.base_Class.UUID
+		}
+		return (object.eResource as XMLResource).getID(object)
 	}
 
 	/**
