@@ -59,6 +59,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource
 import org.eclipse.papyrus.sysml.blocks.Block
 import org.eclipse.papyrus.sysml.portandflows.FlowDirection
 import org.eclipse.papyrus.sysml.portandflows.FlowPort
+import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Connector
 import org.eclipse.uml2.uml.ConnectorEnd
 import org.eclipse.uml2.uml.Element
@@ -686,6 +687,7 @@ class MapToScade extends ScadeModelWriter {
 		for (id : removed) {
 			tracefile.removeElement(id)
 		}
+		updateElements(modelElements, blockInstances)
 		addPorts(newPorts, modelElements)
 		addEquations(newProperties, modelElements, blockInstances)
 		dispensableVariables.addAll(moveElements(moved, modelElements, blockInstances))
@@ -904,6 +906,82 @@ class MapToScade extends ScadeModelWriter {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	private def updateElements(Map<String, EObject> scadeElements, Map<String, LinkedList<Property>> blockInstances) {
+		var elementIds = tracefile.getAllSourceIDs
+		for (sourceID : elementIds) {
+			var sysmlElement = sysmlResource.getEObject(sourceID)
+			for (targetID : tracefile.getTargetIDs(sourceID)) {
+				if (sysmlElement instanceof org.eclipse.uml2.uml.Package) {
+					var pkg = scadeElements.get(targetID) as Package
+					pkg.name = sysmlElement.name
+				} else if (sysmlElement instanceof Class) {
+					val operator = scadeElements.get(targetID) as Operator
+					if (operator.name != sysmlElement.name) {
+						blockInstances.get(sourceID)?.forEach [
+							var eq = (scadeElements.getBySourceID(it.UUID) as Equation)
+							var opc = (eq.right as CallExpression).operator as OpCall
+							opc.operator = operator
+						]
+						operator.name = sysmlElement.name
+					}
+				} else if (sysmlElement instanceof FlowPort) {
+					val port = scadeElements.get(targetID) as Variable
+					updatePort(port, sysmlElement)
+				}
+			}
+		}
+	}
+
+	private def void updatePort(Variable port, FlowPort sysmlElement) {
+		var parent = port.owner as Operator
+		val sysmlType = createScadeType(sysmlElement.type)
+		val scadeType = (port.type as NamedType).type
+		if (parent.outputs.contains(port)) {
+			val name = if (sysmlElement.direction.value == FlowDirection.INOUT_VALUE) {
+					INOUT_OUT_NAME_PREFIX + sysmlElement.name
+				} else {
+					sysmlElement.name;
+				}
+			if (port.name != name || scadeType != sysmlType) {
+				val equation = parent.data.findFirst [
+					it instanceof Equation && (it as Equation).lefts.get(0).name == port.name
+				] as Equation
+				equation.lefts.get(0).name = name
+				port.name = name
+				var namedType = theScadeFactory.createNamedType
+				namedType.setType(sysmlType)
+				var local = parent.locals.findFirst[it.name == (equation.right as IdExpression)?.path?.name]
+				if (local != null) {
+					local.type = namedType
+				}
+				port.type = namedType;
+			}
+		} else if (parent.inputs.contains(port)) {
+			val name = if (sysmlElement.direction.value == FlowDirection.INOUT_VALUE) {
+					INOUT_IN_NAME_PREFIX + sysmlElement.name
+				} else {
+					sysmlElement.name;
+				}
+			if (port.name != name || scadeType != sysmlType) {
+				val equation = parent.data.findFirst [
+					if (it instanceof Equation && (it as Equation).right instanceof IdExpression) {
+						return ((it as Equation).right as IdExpression).path.name == port.name
+					}
+					return false
+				] as Equation
+				(equation.right as IdExpression).path.name = name
+				var namedType = theScadeFactory.createNamedType
+				namedType.setType(sysmlType)
+				var local = parent.locals.findFirst[it.name == equation.lefts.get(0).name]
+				if (local != null) {
+					local.type = namedType
+				}
+				port.name = name
+				port.type = namedType;
 			}
 		}
 	}
