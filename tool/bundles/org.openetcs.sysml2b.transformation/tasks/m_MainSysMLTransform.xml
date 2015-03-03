@@ -8,7 +8,7 @@
         <pathelement location="${ECLIPSE_WORKSPACE}/org.openetcs.sysml2b.transformation/bin"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/javax.annotation_1.2.0.v201401042248.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.0.v20091030.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/javax.inject_1.0.1.v20091030.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.10.1.v20140909-1633.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi.compatibility.state_1.0.1.v20140709-1414.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar"/>
@@ -25,8 +25,8 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.common_2.0.1.v20140910-1354.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.types_2.0.0.v20140910-1354.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.mapping.ecore2xml_2.8.0.v20140901-1055.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.papyrus.sysml_1.0.1.v201409170932.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml.profile.standard_1.0.0.v20140910-1354.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.papyrus.sysml_1.0.1.v201412190917.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.uml2.uml.profile.standard_1.0.1.v20140910-1354.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.4.2.v20140725-2242.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.2.0.v20140610-0641.jar"/>

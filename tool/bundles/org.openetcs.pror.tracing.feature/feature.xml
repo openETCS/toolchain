@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.pror.tracing.feature"
       label="ProR Tracing Feature"
-      version="1.0.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="Formal Mind GmbH">
 
    <description url="http://www.example.com/description">
