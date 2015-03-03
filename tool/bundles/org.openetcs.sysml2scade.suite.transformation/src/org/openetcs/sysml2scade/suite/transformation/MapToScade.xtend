@@ -13,10 +13,12 @@ import com.esterel.scade.api.Package
 import com.esterel.scade.api.ScadeFactory
 import com.esterel.scade.api.ScadePackage
 import com.esterel.scade.api.Variable
+import com.esterel.scade.api.pragmas.editor.Edge
 import com.esterel.scade.api.pragmas.editor.EditorPragmasFactory
 import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
 import com.esterel.scade.api.pragmas.editor.EquationGE
 import com.esterel.scade.api.pragmas.editor.NetDiagram
+import com.esterel.scade.api.pragmas.editor.PresentationElement
 import com.esterel.scade.api.pragmas.editor.util.EditorPragmasUtil
 import com.esterel.scade.api.util.ScadeModelReader
 import com.esterel.scade.api.util.ScadeModelWriter
@@ -43,6 +45,7 @@ import java.util.HashSet
 import java.util.LinkedList
 import java.util.List
 import java.util.Map
+import java.util.Set
 import org.eclipse.core.resources.IProject
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.emf.common.util.EList
@@ -62,6 +65,7 @@ import org.eclipse.uml2.uml.Element
 import org.eclipse.uml2.uml.Model
 import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Type
+import org.eclipse.xtext.xbase.lib.Functions.Function1
 
 class MapToScade extends ScadeModelWriter {
 
@@ -678,11 +682,14 @@ class MapToScade extends ScadeModelWriter {
 		var moved = new LinkedList<EObject>
 		var blockInstances = new HashMap<String, LinkedList<Property>>
 		model.searchForNewAndMovedElements(modelElements, newPorts, newProperties, moved, blockInstances)
+		var dispensableVariables = deleteElements(removed, modelElements, blockInstances)
 		for (id : removed) {
 			tracefile.removeElement(id)
 		}
 		addPorts(newPorts, modelElements)
 		addEquations(newProperties, modelElements, blockInstances)
+		dispensableVariables.addAll(moveElements(moved, modelElements, blockInstances))
+		cleanupLocals(dispensableVariables)
 
 		// Put annotations in correct .ann file
 		rearrangeAnnotations(scadeModel);
@@ -782,6 +789,123 @@ class MapToScade extends ScadeModelWriter {
 
 	def <R> R getBySourceID(Map<String, R> map, String sourceID) {
 		return map.get(tracefile.getTargetIDs(sourceID)?.findFirst[map.containsKey(it)])
+	}
+
+	private def deleteElements(List<String> removed, Map<String, EObject> modelElements,
+		HashMap<String, LinkedList<Property>> blockInstances) {
+		val dispensableVariables = new LinkedList<Variable>
+		for (id : removed) {
+			var targets = tracefile.getTargetIDs(id)
+			for (target : targets) {
+				val scadeObject = modelElements.get(target)
+				if (scadeObject instanceof Package) {
+					scadeObject.owningPackage.packages.remove(scadeObject)
+				} else if (scadeObject instanceof Operator) {
+					scadeObject.owningPackage.operators.remove(scadeObject)
+				} else if (scadeObject instanceof Variable) {
+					var operator = scadeObject.operator
+					var parent = tracefile.getParentID(id)
+					val index = Math.max(operator.outputs.indexOf(scadeObject), operator.inputs.indexOf(scadeObject))
+					if (operator.outputs.remove(scadeObject)) {
+						operator.removeEquation(
+							operator.data.findFirst [
+								it instanceof Equation && (it as Equation).lefts.get(0) instanceof Variable &&
+									(it as Equation).lefts.get(0).name == scadeObject.name
+							] as Equation)
+						blockInstances.get(parent)?.forEach [
+							(modelElements.getBySourceID(it.UUID) as Equation).removeOutput(index)
+						]
+					} else if (operator.inputs.remove(scadeObject)) {
+						dispensableVariables.addAll(
+							operator.removeEquation(
+								operator.data.findFirst [
+									it instanceof Equation && (it as Equation).right instanceof IdExpression &&
+										((it as Equation).right as IdExpression).path.name == scadeObject.name
+								] as Equation))
+						blockInstances.get(parent)?.forEach [
+							(modelElements.getBySourceID(it.UUID) as Equation).removeInput(index)
+						]
+					}
+				} else if (scadeObject instanceof Equation) {
+					var operator = modelElements.getBySourceID(tracefile.getParentID(id)) as Operator
+					dispensableVariables.addAll(operator.removeEquation(scadeObject))
+				}
+			}
+		}
+		return dispensableVariables
+	}
+
+	private def void removeOutput(Equation equation, int index) {
+		equation.lefts.remove(index)
+		val ge_index = index + 1
+		(equation.owner as Operator).removeGraphical [
+			if (it instanceof Edge) {
+				if (it.srcEquation.equation.oid == equation.oid) {
+					if (it.leftVarIndex == ge_index) {
+						return true
+					} else if (it.leftVarIndex > ge_index) {
+						it.leftVarIndex = it.leftVarIndex - 1
+					}
+				}
+			}
+			return false
+		]
+	}
+
+	private def removeInput(Equation equation, int index) {
+		val expression = (equation.right as CallExpression).callParameters.remove(index) as IdExpression
+		val parent = equation.owner as Operator
+		parent.removeGraphical [
+			if (it instanceof Edge) {
+				if (it.dstEquation.equation.oid == equation.oid) {
+					if (it.rightExprIndex == index + 1) {
+						return true
+					} else if (it.rightExprIndex > index + 1) {
+						it.rightExprIndex = it.rightExprIndex - 1
+					}
+				}
+			}
+			return false
+		]
+		return parent.locals.findFirst[it.name == expression.path.name]
+	}
+
+	private def List<Variable> removeEquation(Operator parent, Equation equation) {
+		parent.data.remove(equation)
+		var params = new HashSet<String>
+		for (left : equation.lefts) {
+			params.add(left.name)
+		}
+		var dispensable = new LinkedList<Variable>
+		for (local : parent.locals) {
+			if (params.contains(local.name)) {
+				dispensable.add(local)
+			}
+		}
+		parent.removeGraphical [
+			if (it instanceof EquationGE) {
+				return it.equation.oid == equation.oid
+			} else if (it instanceof Edge) {
+				return it.srcEquation.equation.oid == equation.oid || it.dstEquation.equation.oid == equation.oid
+			}
+			return false
+		]
+		return dispensable
+	}
+
+	private def void removeGraphical(Operator operator, Function1<PresentationElement, Boolean> predicate) {
+		for (pragma : operator.pragmas) {
+			if (pragma instanceof com.esterel.scade.api.pragmas.editor.Operator) {
+				for (diagram : pragma.diagrams) {
+					for (var iterator = diagram.presentationElements.iterator; iterator.hasNext;) {
+						var element = iterator.next
+						if (predicate.apply(element)) {
+							iterator.remove
+						}
+					}
+				}
+			}
+		}
 	}
 
 	def addPorts(LinkedList<FlowPort> ports, HashMap<String, EObject> scadeElements) {
@@ -890,6 +1014,71 @@ class MapToScade extends ScadeModelWriter {
 			parent.data.add(equation)
 			scadeElements.put(equation.oid, equation)
 			tracefile.addElement(property.UUID, property.eContainer.UUID, equation.oid)
+		}
+	}
+
+	private def moveElements(List<EObject> moved, Map<String, EObject> scadeElements,
+		HashMap<String, LinkedList<Property>> blockInstances) {
+		var idList = moved.map [
+			if (it instanceof Block) {
+				return it.base_Class.UUID
+			}
+			it.UUID
+		]
+		var dispensable = deleteElements(idList, scadeElements, new HashMap<String, LinkedList<Property>>)
+		for (element : moved) {
+			if (element instanceof org.eclipse.uml2.uml.Package) {
+				var scadePkg = scadeElements.getBySourceID(element.UUID) as Package
+				var scadeParent = scadeElements.getBySourceID(element.eContainer.UUID) as Package
+				scadeParent.packages.add(scadePkg)
+				tracefile.removeElement(element.UUID)
+				tracefile.addElement(element.UUID, element.eContainer.UUID, scadePkg.oid)
+			} else if (element instanceof Block) {
+				val operator = scadeElements.getBySourceID(element.base_Class.UUID) as Operator
+				val scadeParent = scadeElements.getBySourceID(element.base_Class.eContainer.UUID) as Package
+				scadeParent.operators.add(operator)
+				tracefile.moveElement(element.base_Class.UUID, element.base_Class.eContainer.UUID)
+				blockInstances.get(element.base_Class.UUID)?.forEach [
+					var equation = scadeElements.getBySourceID(it.UUID) as Equation
+					var opCall = (equation.right as CallExpression).operator as OpCall;
+					opCall.setOperator(operator)
+				]
+			}
+		}
+		return dispensable
+	}
+
+	private def cleanupLocals(List<Variable> list) {
+		var map = new HashMap<Operator, Set<String>>
+		for (local : list) {
+			var set = map.get(local.owner)
+			if (set == null) {
+				set = new HashSet<String>
+				map.put(local.owner as Operator, set)
+			}
+			set.add(local.name)
+		}
+		for (entry : map.entrySet) {
+			for (var iterator = entry.key.locals.iterator; iterator.hasNext;) {
+				var element = iterator.next
+				if (entry.value.contains(element.name)) {
+					iterator.remove
+				}
+			}
+			for (equation : entry.key.data.filter[it instanceof Equation].map[it as Equation]) {
+				for (expression : equation.lefts) {
+					if (expression instanceof IdExpression &&
+						entry.value.contains((expression as IdExpression).path.name)) {
+						(expression as IdExpression).path = null
+					}
+				}
+				if (equation.right instanceof IdExpression) {
+					var expression = (equation as Equation).right as IdExpression
+					if (expression.path != null && entry.value.contains(expression.path.name)) {
+						expression.path = null
+					}
+				}
+			}
 		}
 	}
 
