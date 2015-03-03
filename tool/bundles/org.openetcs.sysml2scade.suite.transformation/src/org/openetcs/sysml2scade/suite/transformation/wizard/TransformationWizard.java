@@ -49,6 +49,7 @@ public class TransformationWizard extends Wizard implements StringConstants {
 			}
 		}
 
+		Boolean update = false;
 		// Display Message Dialog of project path already exists and create
 		// project if not existing
 		if (project.exists()) {
@@ -56,19 +57,21 @@ public class TransformationWizard extends Wizard implements StringConstants {
 					UI_MESSAGE_PROJECT_EXISTS) == false) {
 				return false;
 			}
-		}
-		
-		if(projects.contains(page.getProjectName()) && !project.exists()) {
-			if(MessageDialog.openConfirm(shell, UI_MESSAGE_TITLE, UI_TRACED_PROJECT_MISSING) == false) {
+			update = true;
+		} else if (projects.contains(page.getProjectName())) {
+			if(MessageDialog.openConfirm(shell, UI_MESSAGE_TITLE, UI_TRACED_PROJECT_MISSING) == true) {
 				tracefile.removeTarget(page.getProjectName());
+				projects.remove(page.getProjectName());
 			}
 		}
 
 		// Create project
-		try {
-			project.create(monitor);
-		} catch (CoreException e) {
-			e.printStackTrace();
+		if (!project.exists()) {
+			try {
+				project.create(monitor);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
 		}
 
 		// Generate the Classical B source
@@ -79,7 +82,11 @@ public class TransformationWizard extends Wizard implements StringConstants {
 				generator.generateAndWrite(block, page.getModelName(),
 						tracefile);
 			} else {
-				generator.generateAndWrite(model, tracefile);
+				if (update) {
+					generator.update(model, tracefile);
+				} else {
+					generator.generateAndWrite(model, tracefile);
+				}
 			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

@@ -13,7 +13,7 @@ public class Transformation {
 
 	public void generateAndWrite(Model sysmlModel, Trace tracefile) {
 
-		MapToScade mapper = new MapToScade(sysmlModel, project, tracefile);
+		MapToScade mapper = new MapToScade(sysmlModel, project, tracefile, false);
 		
 
 		
@@ -25,6 +25,11 @@ public class Transformation {
 		MapToScade mapper = new MapToScade(block, project, projectName, tracefile);
 		
 		mapper.fillScadeModel();
+	}
+	
+	public void update(Model sysmlModel, Trace tracefile) {
+		MapToScade mapper = new MapToScade(sysmlModel, project, tracefile, true);
+		mapper.progressUpdate(sysmlModel);
 	}
 
 }
