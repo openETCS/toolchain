@@ -6,6 +6,7 @@ import com.esterel.scade.api.CallExpression
 import com.esterel.scade.api.Equation
 import com.esterel.scade.api.IdExpression
 import com.esterel.scade.api.NamedType
+import com.esterel.scade.api.OpCall
 import com.esterel.scade.api.Operator
 import com.esterel.scade.api.OperatorKind
 import com.esterel.scade.api.Package
@@ -17,6 +18,7 @@ import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
 import com.esterel.scade.api.pragmas.editor.EquationGE
 import com.esterel.scade.api.pragmas.editor.NetDiagram
 import com.esterel.scade.api.pragmas.editor.util.EditorPragmasUtil
+import com.esterel.scade.api.util.ScadeModelReader
 import com.esterel.scade.api.util.ScadeModelWriter
 import de.cau.cs.kieler.core.alg.BasicProgressMonitor
 import de.cau.cs.kieler.core.kgraph.KEdge
@@ -39,6 +41,7 @@ import java.util.EnumSet
 import java.util.HashMap
 import java.util.HashSet
 import java.util.LinkedList
+import java.util.List
 import java.util.Map
 import org.eclipse.core.resources.IProject
 import org.eclipse.emf.common.util.BasicEList
@@ -71,6 +74,9 @@ class MapToScade extends ScadeModelWriter {
 	private val OPERATOR_MIN_WIDTH = 3000f
 	private val OPERATOR_ASPECT_RATIO = 0.5f
 
+	private static val INOUT_IN_NAME_PREFIX = "input_"
+	private static val INOUT_OUT_NAME_PREFIX = "output_"
+
 	private URI baseURI;
 	private ResourceSet sysmlResourceSet;
 	private ResourceSet scadeResourceSet;
@@ -90,16 +96,28 @@ class MapToScade extends ScadeModelWriter {
 
 	private Trace tracefile;
 
-	new(Model model, IProject project, Trace trace) {
+	new(Model model, IProject project, Trace trace, Boolean update) {
 		sysmlResource = model.eResource as XMLResource
-		initialize(project, model.name, trace)
+		initialize(project, trace)
+		if (update) {
+			loadProject(project, model.name)
+			val packages = new HashMap<String, Package>
+			val operators = new HashMap<String, Operator>
+			scadeModel.packages.forEach [
+				packages.put(it.oid, it)
+				it.operators.forEach[operators.put(it.oid, it)]
+			]
 
-		sysmlPackage = iterateModel(model)
+		} else {
+			newProject(project, model.name)
+			sysmlPackage = iterateModel(model)
+		}
 	}
 
 	new(Block block, IProject project, String name, Trace trace) {
 		sysmlResource = block.eResource as XMLResource
-		initialize(project, name, trace)
+		initialize(project, trace)
+		newProject(project, name)
 
 		val sysmlToScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Package>()
 		val sysmlToXScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Resource>()
@@ -134,37 +152,46 @@ class MapToScade extends ScadeModelWriter {
 		sysmlPackage = scadePackage
 	}
 
-	def private void initialize(IProject project, String projectName, Trace trace) {
+	def private void initialize(IProject project, Trace trace) {
 		sysmlResourceSet = sysmlResource.getResourceSet();
 		scadeResourceSet = new ResourceSetImpl();
-		baseURI = URI.createFileURI(project.getLocation().toOSString());
-		val projectURI = baseURI.appendSegment(projectName + ".etp");
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
+
 		blockToOperatorMap = new HashMap<Block, Operator>()
 		layoutProvider = new LayeredLayoutProvider()
-
 		inputToVariableMap = new HashMap<Variable, Variable>()
 		flowportToOutputMap = new HashMap<FlowPort, Variable>()
 		flowportToInputMap = new HashMap<FlowPort, Variable>()
 		outputToEquationMap = new HashMap<Variable, Equation>()
+		tracefile = trace
+	}
+
+	def private void newProject(IProject project, String projectName) {
+		baseURI = URI.createFileURI(project.getLocation().toOSString());
+		val projectURI = baseURI.appendSegment(projectName + ".etp");
 
 		// Create empty SCADE project
 		scadeProject = createEmptyScadeProject(projectURI, scadeResourceSet);
 
 		// Load the create SCADE project
 		scadeModel = loadModel(projectURI, scadeResourceSet);
-
 		typePackage = createScadePackage("DataDictionary")
+
 		val resource = createXScade("DataDictionary")
 		resource.getContents().add(typePackage)
-		tracefile = trace
 	}
 
-	def createXScade(String name) {
+	def private void loadProject(IProject project, String projectName) {
+		baseURI = URI.createFileURI(project.getLocation().toOSString());
+		val projectURI = baseURI.appendSegment(projectName + ".etp");
+		scadeProject = ScadeModelReader.getProject(projectURI, scadeResourceSet)
+		scadeModel = ScadeModelReader.loadModel(projectURI, scadeResourceSet)
+		typePackage = scadeModel.packages.findFirst["DataDictionary".equals(it.name)]
+	}
 
+	def Resource createXScade(String name) {
 		val uriXscade = baseURI.appendSegment(name + ".xscade");
-
 		return scadeResourceSet.createResource(uriXscade);
 	}
 
@@ -265,10 +292,10 @@ class MapToScade extends ScadeModelWriter {
 				flowportToInputMap.put(port, variable)
 				tracefile.addElement(port.UUID, blockID, variable.oid)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
-				var input = createNamedTypeVariable("input_" + port.name, type)
+				var input = createNamedTypeVariable(INOUT_IN_NAME_PREFIX + port.name, type)
 				operator.getInputs().add(input)
 				flowportToInputMap.put(port, input)
-				var output = createNamedTypeVariable("output_" + port.name, type)
+				var output = createNamedTypeVariable(INOUT_OUT_NAME_PREFIX + port.name, type)
 				operator.getOutputs().add(output)
 				flowportToOutputMap.put(port, output)
 				tracefile.addElement(port.UUID, blockID, input.oid, output.oid)
@@ -635,6 +662,234 @@ class MapToScade extends ScadeModelWriter {
 				sEdge.positions.add(point)
 			}
 			diagram.presentationElements.add(sEdge)
+		}
+	}
+
+	def progressUpdate(Model model) {
+		var modelElements = mapScadeModel()
+		var removed = new LinkedList<String>
+		for (id : tracefile.getAllSourceIDs()) {
+			if (sysmlResource.getEObject(id) === null) {
+				removed.add(id)
+			}
+		}
+		var newPorts = new LinkedList<FlowPort>
+		var newProperties = new LinkedList<Property>
+		var moved = new LinkedList<EObject>
+		var blockInstances = new HashMap<String, LinkedList<Property>>
+		model.searchForNewAndMovedElements(modelElements, newPorts, newProperties, moved, blockInstances)
+		for (id : removed) {
+			tracefile.removeElement(id)
+		}
+		addPorts(newPorts, modelElements)
+		addEquations(newProperties, modelElements, blockInstances)
+
+		// Put annotations in correct .ann file
+		rearrangeAnnotations(scadeModel);
+
+		// Ensure project contains appropriate FileRefs
+		updateProjectWithModelFiles(scadeProject);
+
+		// Save the project
+		saveAll(scadeProject, null);
+
+		tracefile.save()
+	}
+
+	private def mapScadeModel() {
+		var map = new HashMap<String, EObject>
+		var packages = new LinkedList<Package>
+		packages.addAll(scadeModel.packages)
+		var Package package
+		while (packages.size > 0) {
+			package = packages.pop()
+			packages.addAll(package.packages)
+			map.put(package.oid, package)
+			for (operator : package.operators) {
+				map.put(operator.oid, operator)
+				for (input : operator.inputs) {
+					map.put(input.oid, input)
+				}
+				for (output : operator.outputs) {
+					map.put(output.oid, output)
+				}
+				for (equation : operator.data) {
+					map.put(equation.oid, equation)
+				}
+			}
+		}
+		return map
+	}
+
+	private def void searchForNewAndMovedElements(org.eclipse.uml2.uml.Package pkg, Map<String, EObject> modelElements,
+		List<FlowPort> newPorts, List<Property> newProperties, List<EObject> moved,
+		HashMap<String, LinkedList<Property>> blockInstances) {
+		var scadePackage = modelElements.getBySourceID(pkg.UUID) as Package
+		if (scadePackage === null) {
+			scadePackage = createScadePackage(pkg.name);
+			val resourcePackage = createXScade(pkg.name)
+			resourcePackage.contents.add(scadePackage)
+			modelElements.put(scadePackage.UUID, scadePackage)
+			scadeModel.packages.add(scadePackage)
+			val parentID = pkg.eContainer.UUID
+			var parent = modelElements.getBySourceID(parentID) as Package
+			tracefile.addElement(pkg.UUID, parentID, scadePackage.oid)
+			if (parent != null) {
+				parent.packages.add(scadePackage)
+			}
+		} else if (tracefile.getParentID(pkg.UUID) != pkg.eContainer.UUID) {
+			moved.add(pkg);
+		}
+		for (block : pkg.blocks) {
+			var blockID = block.base_Class.UUID
+			if (!tracefile.isTransferred(blockID)) {
+				var operator = createOperatorInterface(block);
+				createOperatorImplementation(operator);
+				scadePackage.operators.add(operator)
+				modelElements.put(operator.UUID, operator)
+				modelElements.putAll(operator.inputs.toMap[it.oid])
+				modelElements.putAll(operator.outputs.toMap[it.oid])
+			} else if (tracefile.getParentID(blockID) != block.base_Class.eContainer.UUID) {
+				moved.add(block)
+			}
+			for (port : block.flowPorts) {
+				var portID = port.UUID
+				if (!tracefile.isTransferred(portID)) {
+					newPorts.add(port)
+				} else if (tracefile.getParentID(portID) != port.base_Port.eContainer.UUID) {
+					moved.add(port)
+				}
+			}
+			for (property : block.nestedBlocksAsProperties) {
+				var list = blockInstances.get(property.block.base_Class.UUID)
+				if (list === null) {
+					list = new LinkedList<Property>
+					blockInstances.put(property.block.base_Class.UUID, list)
+				}
+				list.add(property)
+				var id = property.UUID
+				if (!tracefile.isTransferred(id)) {
+					newProperties.add(property)
+				} else if (tracefile.getParentID(id) != property.eContainer.UUID) {
+					moved.add(property)
+				}
+			}
+		}
+		for (p : pkg.nestedPackages) {
+			p.searchForNewAndMovedElements(modelElements, newPorts, newProperties, moved, blockInstances)
+		}
+	}
+
+	def <R> R getBySourceID(Map<String, R> map, String sourceID) {
+		return map.get(tracefile.getTargetIDs(sourceID)?.findFirst[map.containsKey(it)])
+	}
+
+	def addPorts(LinkedList<FlowPort> ports, HashMap<String, EObject> scadeElements) {
+		for (port : ports) {
+			var operator = scadeElements.getBySourceID(port.base_Port.eContainer.UUID) as Operator
+			var type = createScadeType(port.type)
+			if (port.direction == FlowDirection.OUT_VALUE) {
+				var oid = operator.addOutput(port.name, type)
+				tracefile.addElement(port.UUID, operator.oid, oid)
+			} else if (port.direction == FlowDirection.IN_VALUE) {
+				var oid = operator.addInput(port.name, operator.localsCount, type)
+				tracefile.addElement(port.UUID, operator.oid, oid)
+			} else if (port.direction == FlowDirection.INOUT_VALUE) {
+				var inOid = operator.addInput(INOUT_IN_NAME_PREFIX + port.name, operator.localsCount, type)
+				var outOid = operator.addOutput(INOUT_OUT_NAME_PREFIX + port.name, type)
+				tracefile.addElement(port.UUID, operator.oid, inOid, outOid)
+			}
+		}
+	}
+
+	def String addOutput(Operator operator, String name, com.esterel.scade.api.Type type) {
+		var output = createNamedTypeVariable(name, type)
+		operator.outputs.add(output)
+		var equation = theScadeFactory.createEquation();
+		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
+		equation.getLefts().add(output);
+		operator.getData().add(equation)
+		return output.oid
+	}
+
+	def String addInput(Operator operator, String name, int locals_count, com.esterel.scade.api.Type type) {
+		var input = createNamedTypeVariable(name, type)
+		operator.inputs.add(input)
+		var variable = createNamedTypeVariable("_L" + locals_count, type)
+		operator.getLocals().add(variable);
+		inputToVariableMap.put(input, variable)
+
+		var equation = theScadeFactory.createEquation();
+		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
+		equation.getLefts().add(variable);
+
+		var idexpression = theScadeFactory.createIdExpression();
+		idexpression.setPath(input);
+
+		equation.setRight(idexpression);
+		operator.getData().add(equation)
+		return input.oid
+	}
+
+	private def int getLocalsCount(Operator operator) {
+		var int locals_count = 1
+		for (local : operator.locals) {
+			try {
+				locals_count = Math.max(Integer.parseInt(local.name.replaceFirst("^\\_L", "")), locals_count)
+			} catch (NumberFormatException e) {
+				// Do nothing
+			}
+		}
+		return locals_count
+	}
+
+	private def void addEquations(List<Property> properties, Map<String, EObject> scadeElements,
+		Map<String, LinkedList<Property>> blockInstances) {
+		for (property : properties) {
+			var parentID = property.eContainer.UUID
+			var parent = scadeElements.getBySourceID(parentID) as Operator
+			var instances = blockInstances.get(parentID)
+			if (instances === null) {
+				instances = new LinkedList
+				blockInstances.put(parentID, instances)
+			}
+			instances.add(property)
+			var operator = scadeElements.getBySourceID(property.block.base_Class.UUID) as Operator
+			var equation = theScadeFactory.createEquation();
+			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
+			var call_expression = theScadeFactory.createCallExpression()
+			var call = theScadeFactory.createOpCall()
+			call.setOperator(operator)
+			call_expression.setOperator(call)
+			equation.setRight(call_expression)
+			var locals_count = parent.localsCount + 1
+			var call_name = 1
+			for (eq : parent.data) {
+
+				try {
+					var ce = (eq as Equation).right as CallExpression
+					if (ce != null) {
+						call_name = Math.max(Integer.parseInt((ce.operator as OpCall).name), call_name)
+					}
+				} catch (NumberFormatException e) {
+					// Do nothing
+				} catch (ClassCastException e) {
+				}
+			}
+			call_name = call_name + 1
+			call.name = call_name.toString
+			for (output : operator.outputs) {
+				var variable = createNamedTypeVariable("_L" + locals_count, (output.getType() as NamedType).getType());
+				parent.getLocals().add(variable);
+				equation.lefts.add(variable)
+				locals_count++
+			}
+			for (input : operator.inputs) {
+				call_expression.callParameters.add(theScadeFactory.createIdExpression())
+			}
+			parent.data.add(equation)
+			scadeElements.put(equation.oid, equation)
+			tracefile.addElement(property.UUID, property.eContainer.UUID, equation.oid)
 		}
 	}
 
