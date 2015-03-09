@@ -118,7 +118,6 @@ class MapToScade extends ScadeModelWriter {
 
 		} else {
 			newProject(project, model.name)
-			sysmlPackage = iterateModel(model)
 		}
 	}
 
@@ -358,13 +357,120 @@ class MapToScade extends ScadeModelWriter {
 
 		return list
 	}
+	
+	def void fillModel(Model model) {
+		sysmlPackage = createScadePackage(scadeModel.name)
+		scadeModel.getPackages().add(typePackage)
+		scadeModel.getPackages().add(sysmlPackage)
+
+		var newPorts = new LinkedList<FlowPort>
+		var newProperties = new LinkedList<Property>
+		var blockInstances = new HashMap<String, LinkedList<Property>>
+		var modelElements = new HashMap
+		model.searchForNewAndMovedElements(modelElements, newPorts, newProperties, new LinkedList, blockInstances)
+		addPorts(newPorts, modelElements)
+		addEquations(newProperties, modelElements, blockInstances)
+
+		addConnectors(modelElements)
+		createGraphical(modelElements.values.filter[it instanceof Operator].map[it as Operator])
+
+		tracefile.save
+
+		// Put annotations in correct .ann file
+		rearrangeAnnotations(scadeModel);
+
+		// Ensure project contains appropriate FileRefs
+		updateProjectWithModelFiles(scadeProject);
+
+		// Save the project
+		saveAll(scadeProject, null);
+	}
+
+	def addConnectors(HashMap<String, EObject> scadeElements) {
+		var connectors = sysmlResourceSet.allContents.filter[it instanceof Connector].map[it as Connector]
+		var inEnds = new LinkedList<ConnectorEnd>
+		while (connectors.hasNext) {
+			var connector = connectors.next
+			var end = connector.ends.get(0)
+			var direction = end.flowPort.direction.value
+			if (direction == FlowDirection.INOUT_VALUE) {
+				inEnds.addAll(connector.ends)
+			} else if ((direction == FlowDirection.IN_VALUE) == (end.partWithPort != null)) {
+				inEnds.add(end)
+			} else {
+				inEnds.add(end.oppositeEnd)
+			}
+		}
+		for (end : inEnds) {
+			var idexpression = fetchIdexpression(scadeElements, end)
+			var Variable local
+			val oppositeEnd = end.oppositeEnd
+			if (oppositeEnd.partWithPort == null) {
+				val operator = scadeElements.getBySourceID(oppositeEnd.flowPort.base_Port.eContainer.UUID) as Operator
+				val input = scadeElements.get(
+					tracefile.getTargetIDs(oppositeEnd.flowPort.UUID).findFirst[
+						operator.inputs.contains(scadeElements.get(it))]) as Variable
+				var equation = operator.data.findFirst [
+					if (it instanceof Equation) {
+						var expression = it.right
+						if (expression instanceof IdExpression) {
+							return expression.path.name == input.name
+						}
+					}
+					return false
+				] as Equation
+				local = equation.lefts.get(0)
+			} else {
+				val operator = scadeElements.getBySourceID(oppositeEnd.flowPort.base_Port.eContainer.UUID) as Operator
+				var ids = tracefile.getTargetIDs(oppositeEnd.flowPort.UUID)
+				var index = -1
+				for (var i = 0; index == -1 && i < ids.size; i++) {
+					index = operator.outputs.indexOf(scadeElements.get(ids.get(i)))
+				}
+				val equation = scadeElements.getBySourceID(oppositeEnd.partWithPort.UUID) as Equation
+				local = equation.lefts.get(index)
+			}
+			idexpression.path = local
+		}
+	}
+
+	private def IdExpression fetchIdexpression(Map<String, EObject> scadeElements, ConnectorEnd end) {
+		if (end.partWithPort == null) {
+			val operator = scadeElements.getBySourceID(end.flowPort.base_Port.eContainer.UUID) as Operator
+			var id = tracefile.getTargetIDs(end.flowPort.UUID).findFirst[
+				operator.outputs.contains(scadeElements.get(it))]
+			val output = scadeElements.get(id) as Variable
+			var equation = operator.data.findFirst [
+				if (it instanceof Equation) {
+					return output.name == it.lefts.get(0)?.name
+				}
+				return false
+			] as Equation
+			if (equation.right == null) {
+				var idexpression = theScadeFactory.createIdExpression
+				equation.right = idexpression
+				return idexpression
+			} else {
+				return equation.right as IdExpression
+			}
+		} else {
+			val operator = scadeElements.getBySourceID(end.flowPort.base_Port.eContainer.UUID) as Operator
+			var ids = tracefile.getTargetIDs(end.flowPort.UUID)
+			var index = -1
+			for (var i = 0; index == -1 && i < ids.size; i++) {
+				index = operator.inputs.indexOf(scadeElements.get(ids.get(i)))
+			}
+			val equation = scadeElements.getBySourceID(end.partWithPort.UUID) as Equation
+			return (equation.right as CallExpression).callParameters.get(index) as IdExpression
+		}
+	}
 
 	def void fillScadeModel() {
-		scadeModel.getPackages().add(sysmlPackage)
+		//scadeModel.getPackages().add(sysmlPackage)
 		scadeModel.getPackages().add(typePackage)
 
 		createHierarchy()
-		createGraphical()
+		createGraphical(blockToOperatorMap.values)
 
 		tracefile.save
 
@@ -519,8 +625,8 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	def createGraphical() {
-		for (operator : blockToOperatorMap.values) {
+	def createGraphical(Iterable<Operator> operators) {
+		for (operator : operators) {
 			var inputMap = new HashMap<Variable, Equation>()
 			var outputMap = new HashMap<Variable, Equation>()
 			var callList = new LinkedList<Equation>()

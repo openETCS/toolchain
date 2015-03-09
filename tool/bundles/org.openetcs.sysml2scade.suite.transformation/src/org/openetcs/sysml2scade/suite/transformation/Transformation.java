@@ -18,7 +18,7 @@ public class Transformation {
 
 		
 		// Perform the actual SysML to SCADE Transformation
-		mapper.fillScadeModel();
+		mapper.fillModel(sysmlModel);
 	}
 	
 	public void generateAndWrite(Block block, String projectName, Trace tracefile) {
