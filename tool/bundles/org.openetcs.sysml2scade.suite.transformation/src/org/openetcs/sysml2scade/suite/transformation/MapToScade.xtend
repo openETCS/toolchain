@@ -197,11 +197,23 @@ class MapToScade extends ScadeModelWriter {
 		typePackage = scadeModel.packages.findFirst["DataDictionary".equals(it.name)]
 	}
 
+	/**
+	 * Creates a new {@link org.eclipse.emf.ecore.resource.Resource} with the given name and "xscade" as ending.
+	 * 
+	 * @param name The name of the created Resource
+	 * @return The created Resource
+	 */
 	def Resource createXScade(String name) {
 		val uriXscade = baseURI.appendSegment(name + ".xscade");
 		return scadeResourceSet.createResource(uriXscade);
 	}
 
+	/**
+	 * Creates and initializes a new {@link com.esterel.scade.api.Package} with the given name.
+	 * 
+	 * @param name The name of the created Package
+	 * @return The created Package
+	 */
 	def Package createScadePackage(String name) {
 		val pkg = theScadeFactory.createPackage()
 		pkg.setName(name)
@@ -264,7 +276,14 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	def createScadeDiagram(Operator operator) {
+	/**
+	 * Creates and initializes an empty {@link com.esterel.scade.api.pragmas.editor.NetDiagram} and adds it to
+	 * the given {@link com.esterel.scade.api.Operator}
+	 * 
+	 * @param operator The Operator for which the diagram is created
+	 * @return The created Diagram
+	 */
+	def NetDiagram createScadeDiagram(Operator operator) {
 		val operator_pragma = theEditorPragmasFactory.createOperator();
 		operator.getPragmas().add(operator_pragma);
 		operator_pragma.setNodeKind("graphical");
@@ -277,6 +296,12 @@ class MapToScade extends ScadeModelWriter {
 		return operator_diagram;
 	}
 
+	/**
+	 * Transforms an {@link org.eclipse.papyrus.sysml.blocks.Block} to an {@link com.esterel.scade.api.Operator}
+	 * 
+	 * @param block The Block which is transformed
+	 * @return The created Operator
+	 */
 	def createOperatorInterface(Block block) {
 		val operator = theScadeFactory.createOperator();
 		operator.setName(block.name);
@@ -311,6 +336,15 @@ class MapToScade extends ScadeModelWriter {
 		return operator;
 	}
 
+	/**
+	 * Returns a {@link com.esterel.scade.api.Type} on basis of the given {@link org.eclipse.uml2.uml.Type} by searching 
+	 * for a {@link com.esterel.scade.api.Type} with the same name in {@link MapToScade#typePackage} or creating a new
+	 * {@link com.esterel.scade.api.Type} if does not exist yet.
+	 * If {@code uml_type} is null, or it has no name "int" is used as standard name.
+	 * 
+	 * @param uml_type {@link org.eclipse.uml2.uml.Type} for which the {@link com.esterel.scade.api.Type} is created
+	 * @return The resulting {@link com.esterel.scade.api.Type}
+	 */
 	def createScadeType(Type uml_type) {
 		var type_name = "int"
 
@@ -330,7 +364,14 @@ class MapToScade extends ScadeModelWriter {
 		return scade_type
 	}
 
-	def createNamedTypeVariable(String name, com.esterel.scade.api.Type type) {
+	/**
+	 * Creates a new object of type {@link com.esterel.scade.api.Variable} with the given name and type
+	 * 
+	 * @param name The name for the created Variable
+	 * @param type The type of the Variable
+	 * @return The created Variable
+	 */
+	def Variable createNamedTypeVariable(String name, com.esterel.scade.api.Type type) {
 
 		// Create NamedType
 		val namedType = theScadeFactory.createNamedType()
@@ -345,6 +386,15 @@ class MapToScade extends ScadeModelWriter {
 		return variable
 	}
 
+	/**
+	 * Returns all {@link org.eclipse.papyrus.sysml.blocks.Block} references which are owned by {@code pkg}. This is done by
+	 * filtering the list returned by {@link org.eclipse.uml2.uml.Element#getOwnedElements()}.
+	 * 
+	 * @see org.eclipse.uml2.uml.Element#getOwnedElements()
+	 * 
+	 * @param pkg The owner of the Blocks
+	 * @return List of Blocks owned by {@code pkg}
+	 */
 	def EList<Block> getBlocks(Element pkg) {
 		var list = new BasicEList<Block>
 
@@ -357,7 +407,12 @@ class MapToScade extends ScadeModelWriter {
 
 		return list
 	}
-	
+
+	/**
+	 * Transfers {@code model} to SCADE by creating an empty SCADE project and use the update mechanism to transfer the contents.
+	 * 
+	 * @param model The {@link org.eclipse.uml2.uml.Model} which to transfer
+	 */
 	def void fillModel(Model model) {
 		sysmlPackage = createScadePackage(scadeModel.name)
 		scadeModel.getPackages().add(typePackage)
@@ -386,6 +441,11 @@ class MapToScade extends ScadeModelWriter {
 		saveAll(scadeProject, null);
 	}
 
+	/**
+	 * Adds the connectors to a newly created SCADE model.
+	 * 
+	 * @param scadeElements A map from the OIDs to all Packages, Operators, Ports and Equations of the SCADE model
+	 */
 	def addConnectors(HashMap<String, EObject> scadeElements) {
 		var connectors = sysmlResourceSet.allContents.filter[it instanceof Connector].map[it as Connector]
 		var inEnds = new LinkedList<ConnectorEnd>
@@ -408,8 +468,9 @@ class MapToScade extends ScadeModelWriter {
 			if (oppositeEnd.partWithPort == null) {
 				val operator = scadeElements.getBySourceID(oppositeEnd.flowPort.base_Port.eContainer.UUID) as Operator
 				val input = scadeElements.get(
-					tracefile.getTargetIDs(oppositeEnd.flowPort.UUID).findFirst[
-						operator.inputs.contains(scadeElements.get(it))]) as Variable
+					tracefile.getTargetIDs(oppositeEnd.flowPort.UUID).findFirst [
+					operator.inputs.contains(scadeElements.get(it))
+				]) as Variable
 				var equation = operator.data.findFirst [
 					if (it instanceof Equation) {
 						var expression = it.right
@@ -434,11 +495,19 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Retrieves the {@link com.esterel.scade.api.IdExpression} which represents the {@code end} parameter in the SCADE model.
+	 * 
+	 * @param scadeElements
+	 * @param end The end for which the counterpart is fetched
+	 * @return {@link com.esterel.scade.api.IdExpression} which is searched
+	 */
 	private def IdExpression fetchIdexpression(Map<String, EObject> scadeElements, ConnectorEnd end) {
 		if (end.partWithPort == null) {
 			val operator = scadeElements.getBySourceID(end.flowPort.base_Port.eContainer.UUID) as Operator
-			var id = tracefile.getTargetIDs(end.flowPort.UUID).findFirst[
-				operator.outputs.contains(scadeElements.get(it))]
+			var id = tracefile.getTargetIDs(end.flowPort.UUID).findFirst [
+				operator.outputs.contains(scadeElements.get(it))
+			]
 			val output = scadeElements.get(id) as Variable
 			var equation = operator.data.findFirst [
 				if (it instanceof Equation) {
@@ -598,13 +667,27 @@ class MapToScade extends ScadeModelWriter {
 		for (connector : list) {
 			var end1 = connector.ends.get(0)
 			var end2 = connector.ends.get(1)
+			if (propertyToEquationMap.containsKey(end1.partWithPort) ||
+				propertyToEquationMap.containsKey(end2.partWithPort)) {
+				var port = end1.flowPort
+				if ((port.direction.value == FlowDirection.IN_VALUE ||
+					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort != null) {
+						propertyToInputToConnectorendMap.put(end1.partWithPort, flowportToInputMap.get(port), end2)
+				}
+				if ((port.direction.value == FlowDirection.OUT_VALUE ||
+					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
+						outputToConnectorendMap.put(flowportToOutputMap.get(port), end2)
+				}
 
-			//if (propertyToEquationMap.containsKey(end1.partWithPort) ||
-			//	propertyToEquationMap.containsKey(end2.partWithPort)) {
-			var port = end1.flowPort
-			if (port != null && (port.direction.value == FlowDirection.IN_VALUE ||
-				port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort != null) {
-				propertyToInputToConnectorendMap.put(end1.partWithPort, flowportToInputMap.get(port), end2)
+				port = end2.flowPort
+				if ((port.direction.value == FlowDirection.IN_VALUE ||
+					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort != null) {
+						propertyToInputToConnectorendMap.put(end2.partWithPort, flowportToInputMap.get(port), end1)
+				}
+				if ((port.direction.value == FlowDirection.OUT_VALUE ||
+					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort == null) {
+						outputToConnectorendMap.put(flowportToOutputMap.get(port), end1)
+				}
 			}
 			if (port != null && (port.direction.value == FlowDirection.OUT_VALUE ||
 				port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
@@ -625,6 +708,12 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Generates for all Operators in {@code operators} a diagram by generating a KIELER diagram, layouting it with KIELER and
+	 * then transforming it to a SCADE diagram.
+	 * 
+	 * @param opeators The operators for which to generate a diagram
+	 */
 	def createGraphical(Iterable<Operator> operators) {
 		for (operator : operators) {
 			var inputMap = new HashMap<Variable, Equation>()
@@ -715,6 +804,15 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Transforms a layouted KIELER graph to a {@link com.esterel.scade.api.pragmas.editor.NetDiagram}.
+	 * 
+	 * @param diagram The NetDiagram which is filled with content
+	 * @param pNode The KNode Which is representing the Operator for which a diagram is generated
+	 * @param callToNode A map linking Equation with CallExpression to KNode
+	 * @param portToEquation A map linking KPort to Equation which represents the ports
+	 * @param portToIndex A map mapping the KPort to their indexes
+	 */
 	def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode,
 		Map<KPort, Equation> portToEquation, Map<KPort, Integer> portToIndex) {
 		var equationToGraphical = new HashMap<Equation, EquationGE>()
@@ -779,6 +877,13 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Updates a SCADE model according to the {@code model} by calling the various methods for deleting, creating, updating and moving
+	 * the different elements of the model. After this new diagrams are generated. This does not apply to elements of type 
+	 * {@link org.eclipse.uml2.uml.Connector}.
+	 * 
+	 * @param model
+	 */
 	def progressUpdate(Model model) {
 		var modelElements = mapScadeModel()
 		var removed = new LinkedList<String>
@@ -815,6 +920,12 @@ class MapToScade extends ScadeModelWriter {
 		tracefile.save()
 	}
 
+	/**
+	 * Puts all packages, operators, ports and equations of {@link MapToScade#scadeModel} into a map with their OIDs as key and the
+	 * element itself as value
+	 * 
+	 * @return Map containing all elements of the currently loaded SCADE model
+	 */
 	private def mapScadeModel() {
 		var map = new HashMap<String, EObject>
 		var packages = new LinkedList<Package>
@@ -899,6 +1010,9 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Utility function for easy access to elements which should have only one representation in a SCADE model
+	 */
 	def <R> R getBySourceID(Map<String, R> map, String sourceID) {
 		return map.get(tracefile.getTargetIDs(sourceID)?.findFirst[map.containsKey(it)])
 	}
@@ -919,21 +1033,18 @@ class MapToScade extends ScadeModelWriter {
 					var parent = tracefile.getParentID(id)
 					val index = Math.max(operator.outputs.indexOf(scadeObject), operator.inputs.indexOf(scadeObject))
 					if (operator.outputs.remove(scadeObject)) {
-						operator.removeEquation(
-							operator.data.findFirst [
-								it instanceof Equation && (it as Equation).lefts.get(0) instanceof Variable &&
-									(it as Equation).lefts.get(0).name == scadeObject.name
-							] as Equation)
+						operator.removeEquation(operator.data.findFirst [
+							it instanceof Equation && (it as Equation).lefts.get(0) instanceof Variable &&
+								(it as Equation).lefts.get(0).name == scadeObject.name
+						] as Equation)
 						blockInstances.get(parent)?.forEach [
 							(modelElements.getBySourceID(it.UUID) as Equation).removeOutput(index)
 						]
 					} else if (operator.inputs.remove(scadeObject)) {
-						dispensableVariables.addAll(
-							operator.removeEquation(
-								operator.data.findFirst [
-									it instanceof Equation && (it as Equation).right instanceof IdExpression &&
-										((it as Equation).right as IdExpression).path.name == scadeObject.name
-								] as Equation))
+						dispensableVariables.addAll(operator.removeEquation(operator.data.findFirst [
+							it instanceof Equation && (it as Equation).right instanceof IdExpression &&
+								((it as Equation).right as IdExpression).path.name == scadeObject.name
+						] as Equation))
 						blockInstances.get(parent)?.forEach [
 							(modelElements.getBySourceID(it.UUID) as Equation).removeInput(index)
 						]
@@ -947,6 +1058,13 @@ class MapToScade extends ScadeModelWriter {
 		return dispensableVariables
 	}
 
+
+	/**
+	 * Removes the output at {@code index} from {@code equation} and in its graphical representation.
+	 * 
+	 * @param equation The equation from which to remove the output
+	 * @param The index of the output
+	 */
 	private def void removeOutput(Equation equation, int index) {
 		equation.lefts.remove(index)
 		val ge_index = index + 1
@@ -964,6 +1082,12 @@ class MapToScade extends ScadeModelWriter {
 		]
 	}
 
+	/**
+	 * Removes the input at {@code index} from {@code equation} and in its graphical representation.
+	 * 
+	 * @param equation The equation from which to remove the input
+	 * @param The index of the input
+	 */
 	private def removeInput(Equation equation, int index) {
 		val expression = (equation.right as CallExpression).callParameters.remove(index) as IdExpression
 		val parent = equation.owner as Operator
@@ -982,6 +1106,15 @@ class MapToScade extends ScadeModelWriter {
 		return parent.locals.findFirst[it.name == expression.path.name]
 	}
 
+	/**
+	 * Removes {@code equation} from {@code parent}, the corresponding {@link com.esterel.scade.api.pragmas.editor.EquationGE} and
+	 * all objects of type {@link com.esterel.scade.api.pragmas.editor.Edge} connected to it. Furthermore all the
+	 * {@link com.esterel.scade.api.Variable} which represents the outputs of {@code equation} are returned.
+	 * 
+	 * @param parent The operator from which to remove {@code equation}
+	 * @param equation The equation which to remove
+	 * @return List of {@link com.esterel.scade.api.Variable} which represents the outputs of {@code equation}
+	 */
 	private def List<Variable> removeEquation(Operator parent, Equation equation) {
 		parent.data.remove(equation)
 		var params = new HashSet<String>
@@ -1005,6 +1138,13 @@ class MapToScade extends ScadeModelWriter {
 		return dispensable
 	}
 
+	/**
+	 * Iterates over all PresentationElements of {@code operator} and applies {@code predicate} to them. If {@predicate} returns
+	 * {@code true} the element is removed. The PresentationElements may be altered by {@code predicate}.
+	 * 
+	 * @param operator The operator which elements are iterated
+	 * @param predicate The predicate which determinants if an element is removed. May apply changes to elements
+	 */
 	private def void removeGraphical(Operator operator, Function1<PresentationElement, Boolean> predicate) {
 		for (pragma : operator.pragmas) {
 			if (pragma instanceof com.esterel.scade.api.pragmas.editor.Operator) {
@@ -1020,6 +1160,11 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Fetches all sourceIDs from {@link MapToScade#tracefile} and iterates over their targets, comparing the source and target objects
+	 * and updating the target object if they differ. In the current state this applies to the names of packages, operators and ports
+	 * and the types of ports.
+	 */
 	private def updateElements(Map<String, EObject> scadeElements, Map<String, LinkedList<Property>> blockInstances) {
 		var elementIds = tracefile.getAllSourceIDs
 		for (sourceID : elementIds) {
@@ -1040,13 +1185,19 @@ class MapToScade extends ScadeModelWriter {
 					}
 				} else if (sysmlElement instanceof FlowPort) {
 					val port = scadeElements.get(targetID) as Variable
-					updatePort(port, sysmlElement)
+					updatePort(port, sysmlElement, blockInstances.get(tracefile.getParentID(sysmlElement.UUID)),
+						scadeElements)
 				}
 			}
 		}
 	}
 
-	private def void updatePort(Variable port, FlowPort sysmlElement) {
+	/**
+	 * Compares the SCADE port with the SysML port and updates {@code port} if they differ.
+	 * @see MapToScade#updateElements
+	 */
+	private def void updatePort(Variable port, FlowPort sysmlElement, List<Property> blockInstances,
+		Map<String, EObject> scadeElements) {
 		var parent = port.owner as Operator
 		val sysmlType = createScadeType(sysmlElement.type)
 		val scadeType = (port.type as NamedType).type
@@ -1064,7 +1215,9 @@ class MapToScade extends ScadeModelWriter {
 				port.name = name
 				var namedType = theScadeFactory.createNamedType
 				namedType.setType(sysmlType)
-				var local = parent.locals.findFirst[it.name == (equation.right as IdExpression)?.path?.name]
+				var local = parent.locals.findFirst [
+					it.name == (equation.right as IdExpression)?.path?.name
+				]
 				if (local != null) {
 					local.type = namedType
 				}
@@ -1096,6 +1249,11 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Add the SysML Ports stored in {@code ports} to the SCADE model
+	 * 
+	 * @param ports List of {@link org.eclipse.papyrus.sysml.portandflows.FlowPort} which add to the model
+	 */
 	def addPorts(LinkedList<FlowPort> ports, HashMap<String, EObject> scadeElements) {
 		for (port : ports) {
 			var operator = scadeElements.getBySourceID(port.base_Port.eContainer.UUID) as Operator
@@ -1114,6 +1272,16 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Adds a new {@link com.esterel.scade.api.Variable} as output to {@code operator} with {@code name} as name and {@code type} as type,
+	 * and initializes a new {@link com.esterel.scade.api.Equation} for the created output to {@code operator}. After this the new output is
+	 * returned.
+	 * 
+	 * @param operator The operator on which the output is added
+	 * @param name The name of the output
+	 * @param type The type of the output
+	 * @return The new output
+	 */
 	def String addOutput(Operator operator, String name, com.esterel.scade.api.Type type) {
 		var output = createNamedTypeVariable(name, type)
 		operator.outputs.add(output)
@@ -1124,6 +1292,16 @@ class MapToScade extends ScadeModelWriter {
 		return output.oid
 	}
 
+	/**
+	 * Adds a new {@link com.esterel.scade.api.Variable} as input to {@code operator} with {@code name} as name and {@code type} as type,
+	 * and initializes a new {@link com.esterel.scade.api.Equation} for the created input to {@code operator}. After this the new input
+	 * is returned
+	 * 
+	 * @param operator The operator on which the input is added
+	 * @param name The name of the input
+	 * @param type The type of the input
+	 * @return The new input
+	 */
 	def String addInput(Operator operator, String name, int locals_count, com.esterel.scade.api.Type type) {
 		var input = createNamedTypeVariable(name, type)
 		operator.inputs.add(input)
@@ -1143,6 +1321,13 @@ class MapToScade extends ScadeModelWriter {
 		return input.oid
 	}
 
+	/**
+	 * Generated local variables are named after the schema: "_L" + number. This function returns the highest number for
+	 * {@code operator} as integer or one as default.
+	 * 
+	 * @param operator The operator for which to compute the number
+	 * @return The highest number used for {@code operator} with the naming schema for generated local variables
+	 */
 	private def int getLocalsCount(Operator operator) {
 		var int locals_count = 1
 		for (local : operator.locals) {
@@ -1155,6 +1340,9 @@ class MapToScade extends ScadeModelWriter {
 		return locals_count
 	}
 
+	/**
+	 * Transfers the {@link org.eclipse.uml2.uml.Property}s in {@code properties} to SCADE
+	 */
 	private def void addEquations(List<Property> properties, Map<String, EObject> scadeElements,
 		Map<String, LinkedList<Property>> blockInstances) {
 		for (property : properties) {
@@ -1205,6 +1393,12 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Moves {@link com.esterel.scade.api.Package}s and {@link com.esterel.scade.api.Operator}s within a SCADE model according
+	 * to their changed positions in the SysML model. As neither {@link org.eclipse.uml2.uml.Property}s nor
+	 * {@link org.eclipse.papyrus.sysml.portandflows.FlowPort}s can be moved within the SysML model their representations in the
+	 * SCADE model are not processed.
+	 */
 	private def moveElements(List<EObject> moved, Map<String, EObject> scadeElements,
 		HashMap<String, LinkedList<Property>> blockInstances) {
 		var idList = moved.map [
@@ -1236,6 +1430,11 @@ class MapToScade extends ScadeModelWriter {
 		return dispensable
 	}
 
+	/**
+	 * Removes all occurrences from the {@link com.esterel.scade.api.Variable}s in {@code list} from the SCADE model.
+	 * 
+	 * @param list The list of local variables to delete, the value returned by {@link Variable#getOwner()} should not be null.
+	 */
 	private def cleanupLocals(List<Variable> list) {
 		var map = new HashMap<Operator, Set<String>>
 		for (local : list) {
@@ -1270,6 +1469,12 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Removes the old diagram and generates a new for all {@link com.esterel.scade.api.Operators} in the SCADE model. This is done by
+	 * using the interactive mode from KIELER, which tries to alter of elements which are already layouted as little as possible.
+	 * 
+	 * @see de.cau.cs.kieler.kiml.options.LayoutOptions#INTERACTIVE
+	 */
 	private def updateGraphical() {
 		var fixedProvider = new FixedLayoutProvider
 		for (operator : scadeModel.operators) {
@@ -1383,10 +1588,13 @@ class MapToScade extends ScadeModelWriter {
 				layout.setProperty(LayoutOptions.MIN_WIDTH, equationGE.size.width as float)
 				layout.setProperty(LayoutOptions.MIN_HEIGHT, equationGE.size.height as float)
 			}
+
 			// Set existing elements to their positions
 			fixedProvider.doLayout(pNode, new BasicProgressMonitor)
+
 			// Layout only elements without layout
 			pNode.getData(typeof(KShapeLayout)).setProperty(LayoutOptions.INTERACTIVE, true)
+
 			// Actual layout
 			layoutProvider.doLayout(pNode, new BasicProgressMonitor)
 			operator.pragmas.findFirst [
@@ -1402,6 +1610,12 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Bundles the setting of the different {@link de.cau.cs.kieler.kiml.options.LayoutOptions} which are applied in one function.
+	 * Different options are applied to {@code pNode}, its ports and its child nodes.
+	 * 
+	 * @param pNode The parent node to which and on its children the layout options are applied.
+	 */
 	def addLayoutOptions(KNode pNode) {
 		var pLayout = pNode.getData(typeof(KShapeLayout))
 		pLayout.setProperty(LayoutOptions.DIRECTION, Direction.RIGHT)
@@ -1437,6 +1651,17 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
+	/**
+	 * Creates and returns a new {@link com.esterel.scade.api.pragmas.editor.EquationGE} for {@code equation} with {@code xpos}
+	 * and {@code ypos} as position, and {@code width} and {@code height} as size.
+	 * 
+	 * @param equation The equation for which to create the {@link com.esterel.scade.api.pragmas.editor.EquationGE}
+	 * @param xpos The x position of the created EquationGE
+	 * @param ypos The y position of the created EquationGE
+	 * @param width The width of the created EquationGE
+	 * @param height The height of the created EquationGE
+	 * @return The created {@link com.esterel.scade.api.pragmas.editor.EquationGE}
+	 */
 	def createEquationGE(Equation equation, int xpos, int ypos, int width, int height) {
 		var equation_ge = theEditorPragmasFactory.createEquationGE();
 		equation_ge.setEquation(equation);
@@ -1451,11 +1676,24 @@ class MapToScade extends ScadeModelWriter {
 		return equation_ge
 	}
 
+	/**
+	 * Sets the side of {@code port} to {@code side}
+	 * 
+	 * @param port The port for which to set the side
+	 * @param side The side which to set
+	 */
 	def void setSide(KPort port, PortSide side) {
 		var portLayout = port.getData(typeof(KShapeLayout))
 		portLayout.setProperty(LayoutOptions.PORT_SIDE, side)
 	}
 
+	/**
+	 * Adds a {@link de.cau.cs.kieler.core.kgraph.KEdge} from {@code source} to {@code target} and returns it.
+	 * 
+	 * @param source The source port
+	 * @param target The target port
+	 * @return The created Edge
+	 */
 	def KEdge addEdgeTo(KPort source, KPort target) {
 		var edge = KimlUtil.createInitializedEdge()
 		edge.setTargetPort(target)
@@ -1467,6 +1705,12 @@ class MapToScade extends ScadeModelWriter {
 		return edge
 	}
 
+	/**
+	 * Creates a new {@link com.esterel.scade.api.IdExpression} with {@code source} as path and adds it to {@code call}
+	 * 
+	 * @param source The path of created IdExpression
+	 * @param call The CallExpression where the created IdExpression is added to.
+	 */
 	def connectWithOperator(Variable source, CallExpression call) {
 		var idexpression = theScadeFactory.createIdExpression()
 		idexpression.setPath(source)
@@ -1481,6 +1725,12 @@ class MapToScade extends ScadeModelWriter {
 		equation.getLefts.add(destination)
 	}
 
+	/**
+	 * Retrieves the Block from a property with the Block stereotype application. If does not exist {@code null} is returned.
+	 * 
+	 * @param property The property from which to retrieve the Block
+	 * @return The Block stereotype application
+	 */
 	private def Block getBlock(Property property) {
 		var type = property.type
 		if (type != null) {
@@ -1492,6 +1742,9 @@ class MapToScade extends ScadeModelWriter {
 		return null
 	}
 
+	/**
+	 * Retrieves the FlowPort to which {@code end} is connected.
+	 */
 	def FlowPort getFlowPort(ConnectorEnd end) {
 		if (end != null && end.role != null) {
 			var stereotype = end.role.getAppliedStereotype("SysML::PortAndFlows::FlowPort")
@@ -1502,6 +1755,9 @@ class MapToScade extends ScadeModelWriter {
 		return null
 	}
 
+	/**
+	 * Retrieves the opposite end from the Connector which is the owner of {@code end}
+	 */
 	def ConnectorEnd getOppositeEnd(ConnectorEnd end) {
 		var list = (end.eContainer as Connector).ends
 		if (list.get(0) == end) {
@@ -1511,7 +1767,7 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	/**
-	 * Puts an element in a HashMap within a Map. If the inner map does not exist it will be created
+	 * Puts an element in a HashMap within a Map. If the inner map does not exist yet it will be created.
 	 * 
 	 * @param <KEY1> The type of the key of the outer map
 	 * @param <KEY2> The type of the key of the inner map
@@ -1529,7 +1785,7 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	/**
-	 * Function returning an element of a map within a map using two keys
+	 * Function returning an element of a map within a map using two keys.
 	 * 
 	 * @param <M> The type of the nested Map
 	 * @param <KEY1> The type of the keys of the outer map
@@ -1550,6 +1806,9 @@ class MapToScade extends ScadeModelWriter {
 		return null
 	}
 
+	/**
+	 * Retrieves all Properties which has the "SysML::Blocks::Block" stereotype applied from a Block.
+	 */
 	def EList<Property> getNestedBlocksAsProperties(Block block) {
 		var list = new BasicEList<Property>
 		for (property : block.base_Class.ownedAttributes) {
@@ -1565,6 +1824,9 @@ class MapToScade extends ScadeModelWriter {
 		return list
 	}
 
+	/**
+	 * Retrieves all nested Blocks of a Block
+	 */
 	def Iterable<Block> getNestedBlocks(Block block) {
 		var set = new HashSet<Block>()
 		for (property : block.base_Class.ownedAttributes) {
