@@ -73,7 +73,9 @@ class UpdateScade extends AbstractMapper {
 		addEquations(newProperties, blockInstances)
 		dispensableVariables.addAll(moveElements(moved, blockInstances))
 		cleanupLocals(dispensableVariables)
-		new GenerateDiagram().updateGraphical(oidToScadeElementMap.values.filter[it instanceof Operator].map[it as Operator])
+		for (operator : oidToScadeElementMap.values.filter[it instanceof Operator].map[it as Operator]) {
+			new GenerateDiagram(operator).updateGraphical()
+		}
 
 		saveProject(createEmptyScadeProject(projectURI, scadeResourceSet))
 	}

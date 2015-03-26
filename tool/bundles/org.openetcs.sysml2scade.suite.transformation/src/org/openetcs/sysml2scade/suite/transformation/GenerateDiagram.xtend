@@ -4,14 +4,17 @@ import com.esterel.scade.api.CallExpression
 import com.esterel.scade.api.Equation
 import com.esterel.scade.api.IdExpression
 import com.esterel.scade.api.Operator
-import com.esterel.scade.api.Variable
 import com.esterel.scade.api.pragmas.editor.Edge
 import com.esterel.scade.api.pragmas.editor.EditorPragmasFactory
 import com.esterel.scade.api.pragmas.editor.EditorPragmasPackage
 import com.esterel.scade.api.pragmas.editor.EquationGE
 import com.esterel.scade.api.pragmas.editor.NetDiagram
+import com.google.common.collect.BiMap
+import com.google.common.collect.HashBasedTable
+import com.google.common.collect.HashBiMap
 import de.cau.cs.kieler.core.alg.BasicProgressMonitor
 import de.cau.cs.kieler.core.kgraph.KEdge
+import de.cau.cs.kieler.core.kgraph.KGraphElement
 import de.cau.cs.kieler.core.kgraph.KNode
 import de.cau.cs.kieler.core.kgraph.KPort
 import de.cau.cs.kieler.core.math.KVector
@@ -34,123 +37,129 @@ import java.util.EnumSet
 import java.util.HashMap
 import java.util.HashSet
 import java.util.LinkedList
-import java.util.Map
 
 class GenerateDiagram {
-	
-	private val GRAPHICAL_OFFSET = 50f
-	private val OPERATOR_SPACING = 500f
-	private val PORT_SPACING = 500f
-	private val PORT_HEIGHT = 300f
-	private val PORT_WIDTH = 250f
-	private val OPERATOR_MIN_HEIGHT = 1500f
-	private val OPERATOR_MIN_WIDTH = 3000f
-	private val OPERATOR_ASPECT_RATIO = 0.5f
-	
-	private EditorPragmasFactory theEditorPragmasFactory;
+
+	private static val GRAPHICAL_OFFSET = 50f
+	private static val OPERATOR_SPACING = 3000f
+	private static val PORT_HEIGHT = 500f
+	private static val PORT_WIDTH = 1000f
+	private static val OPERATOR_MIN_HEIGHT = 3000f
+	private static val OPERATOR_MIN_WIDTH = 6000f
+	private static val OPERATOR_ASPECT_RATIO = 0.5f
+	private static val PORT_THRESHOLD = 3
+	private static val PORT_SPACING = 750f
+	private static val OPERATOR_PORT_SPACING = OPERATOR_MIN_HEIGHT / (PORT_THRESHOLD + 2)
+
+	private EditorPragmasFactory theEditorPragmasFactory
 	private AbstractLayoutProvider layoutProvider
-	
-	new () {
+	private Operator operator
+
+	private HashMap<KPort, Integer> portToIndex
+	private BiMap<KGraphElement, Equation> kGraphElementToEquation
+
+	new(Operator operator) {
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 		layoutProvider = new LayeredLayoutProvider()
+		this.operator = operator
+
+		portToIndex = new HashMap<KPort, Integer>
+		kGraphElementToEquation = HashBiMap.create
 	}
-	
 
 	/**
-	 * Generates for all Operators in {@code operators} a diagram by generating a KIELER diagram, layouting it with KIELER and
+	 * Generates for {@link GenerateDiagram#operator} a diagram by generating a KIELER diagram, layouting it with KIELER and
 	 * then transforming it to a SCADE diagram.
-	 * 
-	 * @param opeators The operators for which to generate a diagram
 	 */
-	protected def createGraphical(Iterable<Operator> operators) {
-		for (operator : operators) {
-			var inputMap = new HashMap<Variable, Equation>()
-			var outputMap = new HashMap<Variable, Equation>()
-			var callList = new LinkedList<Equation>()
-			for (elem : operator.data) {
-				var equation = elem as Equation
-				if (equation.lefts.size == 1 && operator.outputs.contains(equation.lefts.get(0))) {
-					outputMap.put(equation.lefts.get(0), equation)
-				} else if (equation.right instanceof IdExpression) {
-					inputMap.put((equation.right as IdExpression).path as Variable, equation)
-				} else {
-					callList.add(equation)
-				}
-			}
+	public def createGraphical() {
+		var pNode = transformToKieler
+		pNode.addLayoutOptions
+		var progressMonitor = new BasicProgressMonitor()
+		layoutProvider.doLayout(pNode, progressMonitor)
+		pNode.translateOffset()
+		var diagram = createScadeDiagram(operator)
+		diagram.fillDiagram(pNode)
 
-			var portToEquation = new HashMap<KPort, Equation>()
-			var localsToSourcePort = new HashMap<Variable, KPort>()
-			var callToNode = new HashMap<Equation, KNode>()
-			var pNode = KimlUtil.createInitializedNode()
-			var portToIndex = new HashMap<KPort, Integer>()
+	}
 
-			for (var i = 0; i < operator.inputs.size; i++) {
-				var input = operator.inputs.get(i)
-				var port = KimlUtil.createInitializedPort()
-				port.setNode(pNode)
-				port.setSide(PortSide.WEST)
-				var portLabel = KimlUtil.createInitializedLabel(port)
-				portLabel.setText(input.name)
-				var equation = inputMap.get(input)
-				portToEquation.put(port, equation)
-				portToIndex.put(port, 1)
-				localsToSourcePort.put(equation.lefts.get(0), port)
+	private def KNode transformToKieler() {
+		var outputNames = new HashSet(operator.outputs.map[it.name])
+		var inputMap = new HashMap<String, Equation>()
+		var outputMap = new HashMap<String, Equation>()
+		var callList = new LinkedList<Equation>()
+		for (elem : operator.data) {
+			var equation = elem as Equation
+			if (outputNames.contains(equation.lefts.get(0).name)) {
+				outputMap.put(equation.lefts.get(0).name, equation)
+			} else if (equation.right instanceof IdExpression) {
+				inputMap.put((equation.right as IdExpression).path.name, equation)
+			} else {
+				callList.add(equation)
 			}
-			for (equation : callList) {
-				var cNode = KimlUtil.createInitializedNode()
-				cNode.setParent(pNode)
-				callToNode.put(equation, cNode)
-				for (var i = 0; i < equation.lefts.size; i++) {
-					var output = equation.lefts.get(i)
-					var port = KimlUtil.createInitializedPort()
-					port.setNode(cNode)
-					port.setSide(PortSide.EAST)
-					localsToSourcePort.put(output, port)
-					portToEquation.put(port, equation)
-					portToIndex.put(port, i + 1)
-				}
-			}
-			for (var i = 0; i < operator.outputs.size; i++) {
-				var output = operator.outputs.get(i)
-				var port = KimlUtil.createInitializedPort()
-				port.setNode(pNode)
-				port.setSide(PortSide.EAST)
-				var portLabel = KimlUtil.createInitializedLabel(port)
-				portLabel.setText(output.name)
-				var equation = outputMap.get(output)
-				portToEquation.put(port, equation)
-				portToIndex.put(port, 1)
-				var idExpression = equation.right
-				if (idExpression != null) {
-					var source = (idExpression as IdExpression).path as Variable
-					if (source != null) {
-						localsToSourcePort.get(source).addEdgeTo(port)
-					}
-				}
-			}
-			for (equation : callList) {
-				var parameters = (equation.right as CallExpression).callParameters
-				for (var i = parameters.size; i > 0; i--) {
-					var expression = parameters.get(i - 1) as IdExpression
-					var cNode = callToNode.get(equation)
-					var port = KimlUtil.createInitializedPort()
-					port.setNode(cNode)
-					port.setSide(PortSide.WEST)
-					portToEquation.put(port, equation)
-					portToIndex.put(port, i)
-					var source = expression.path
-					if (source != null) {
-						localsToSourcePort.get(source).addEdgeTo(port)
-					}
-				}
-			}
-			pNode.addLayoutOptions
-			var progressMonitor = new BasicProgressMonitor()
-			layoutProvider.doLayout(pNode, progressMonitor)
-			pNode.translateOffset()
-			var diagram = createScadeDiagram(operator)
-			diagram.fillDiagram(pNode, callToNode, portToEquation, portToIndex)
 		}
+
+		var localsToSourcePort = new HashMap<String, KPort>()
+		var pNode = KimlUtil.createInitializedNode()
+
+		for (var i = 0; i < operator.inputs.size; i++) {
+			var input = operator.inputs.get(i)
+			var port = KimlUtil.createInitializedPort()
+			port.setNode(pNode)
+			port.setSide(PortSide.WEST)
+			var portLabel = KimlUtil.createInitializedLabel(port)
+			portLabel.setText(input.name)
+			var equation = inputMap.get(input.name)
+			kGraphElementToEquation.put(port, equation)
+			portToIndex.put(port, 1)
+			localsToSourcePort.put(equation.lefts.get(0).name, port)
+		}
+		for (equation : callList) {
+			var cNode = KimlUtil.createInitializedNode()
+			cNode.setParent(pNode)
+			kGraphElementToEquation.put(cNode, equation)
+			for (var i = 0; i < equation.lefts.size; i++) {
+				var output = equation.lefts.get(i)
+				var port = KimlUtil.createInitializedPort()
+				port.setNode(cNode)
+				port.setSide(PortSide.EAST)
+				localsToSourcePort.put(output.name, port)
+				portToIndex.put(port, i + 1)
+			}
+		}
+		for (var i = 0; i < operator.outputs.size; i++) {
+			var output = operator.outputs.get(i)
+			var port = KimlUtil.createInitializedPort()
+			port.setNode(pNode)
+			port.setSide(PortSide.EAST)
+			var portLabel = KimlUtil.createInitializedLabel(port)
+			portLabel.setText(output.name)
+			var equation = outputMap.get(output.name)
+			kGraphElementToEquation.put(port, equation)
+			portToIndex.put(port, 1)
+			var idExpression = equation.right
+			if (idExpression != null) {
+				var source = (idExpression as IdExpression).path?.name
+				if (source != null) {
+					localsToSourcePort.get(source).addEdgeTo(port)
+				}
+			}
+		}
+		for (cNode : pNode.children) {
+			var equation = kGraphElementToEquation.get(cNode)
+			var parameters = (equation.right as CallExpression).callParameters
+			for (var i = parameters.size; i > 0; i--) {
+				var expression = parameters.get(i - 1) as IdExpression
+				var port = KimlUtil.createInitializedPort()
+				port.setNode(cNode)
+				port.setSide(PortSide.WEST)
+				portToIndex.put(port, i)
+				var source = expression.path?.name
+				if (source != null) {
+					localsToSourcePort.get(source).addEdgeTo(port)
+				}
+			}
+		}
+		return pNode
 	}
 
 	/**
@@ -158,29 +167,25 @@ class GenerateDiagram {
 	 * 
 	 * @param diagram The NetDiagram which is filled with content
 	 * @param pNode The KNode Which is representing the Operator for which a diagram is generated
-	 * @param callToNode A map linking Equation with CallExpression to KNode
-	 * @param portToEquation A map linking KPort to Equation which represents the ports
-	 * @param portToIndex A map mapping the KPort to their indexes
 	 */
-	private def fillDiagram(NetDiagram diagram, KNode pNode, Map<Equation, KNode> callToNode,
-		Map<KPort, Equation> portToEquation, Map<KPort, Integer> portToIndex) {
-		var equationToGraphical = new HashMap<Equation, EquationGE>()
-		for (entry : callToNode.entrySet) {
-			var equation = entry.key
-			var node = entry.value.getData(typeof(KShapeLayout))
-			var graphical = equation.createEquationGE(node.xpos as int, node.ypos as int, node.width as int,
-				node.height as int)
+	private def fillDiagram(NetDiagram diagram, KNode pNode) {
+		val kGraphElementToGraphical = new HashMap<KGraphElement, EquationGE>()
+		var kielerToScade = [ KGraphElement element |
+			var equation = kGraphElementToEquation.get(element)
+			var layout = element.getData(typeof(KShapeLayout))
+			var graphical = equation.createEquationGE(layout.xpos as int, layout.ypos as int, layout.width as int,
+				layout.height as int)
 			diagram.presentationElements.add(graphical)
-			equationToGraphical.put(equation, graphical)
+			kGraphElementToGraphical.put(element, graphical)
+			return graphical
+		]
+		for (cNode : pNode.children) {
+			val graphical = kielerToScade.apply(cNode)
+			kGraphElementToGraphical.putAll(cNode.ports.toInvertedMap[graphical])
 		}
 		for (port : pNode.ports) {
 			if (port.edges.size > 0) {
-				var equation = portToEquation.get(port)
-				var layout = port.getData(typeof(KShapeLayout))
-				var graphical = equation.createEquationGE(layout.xpos as int, layout.ypos as int, layout.width as int,
-					layout.height as int)
-				diagram.presentationElements.add(graphical)
-				equationToGraphical.put(equation, graphical)
+				kielerToScade.apply(port)
 			}
 		}
 		var edgesList = new LinkedList<KEdge>()
@@ -198,8 +203,8 @@ class GenerateDiagram {
 			var dstPort = kEdge.targetPort
 			sEdge.setLeftVarIndex(portToIndex.get(srcPort))
 			sEdge.setRightExprIndex(portToIndex.get(dstPort))
-			sEdge.setSrcEquation(equationToGraphical.get(portToEquation.get(srcPort)))
-			sEdge.setDstEquation(equationToGraphical.get(portToEquation.get(dstPort)))
+			sEdge.setSrcEquation(kGraphElementToGraphical.get(srcPort))
+			sEdge.setDstEquation(kGraphElementToGraphical.get(dstPort))
 			var layout = kEdge.getData(typeof(KEdgeLayout))
 
 			var point = theEditorPragmasFactory.createPoint()
@@ -232,140 +237,69 @@ class GenerateDiagram {
 	 * 
 	 * @see LayoutOptions#INTERACTIVE
 	 */
-	protected def updateGraphical(Iterable<Operator> operators) {
-		var fixedProvider = new FixedLayoutProvider
-		for (operator : operators) {
-			var equationGEs = new HashMap<String, EquationGE>
-			var edges = new LinkedList<Edge>
-			for (pragma : operator.pragmas) {
-				if (pragma instanceof com.esterel.scade.api.pragmas.editor.Operator) {
-					for (diagram : pragma.diagrams) {
-						for (element : diagram.presentationElements) {
-							if (element instanceof EquationGE) {
-								equationGEs.put(element.equation.oid, element)
-							} else if (element instanceof Edge) {
-								edges.add(element)
-							}
+	public def updateGraphical() {
+		var equationGEs = new LinkedList<EquationGE>
+		var edges = new LinkedList<Edge>
+		for (pragma : operator.pragmas) {
+			if (pragma instanceof com.esterel.scade.api.pragmas.editor.Operator) {
+				for (diagram : pragma.diagrams) {
+					for (element : diagram.presentationElements) {
+						if (element instanceof EquationGE) {
+							equationGEs.add(element)
+						} else if (element instanceof Edge) {
+							edges.add(element)
 						}
 					}
 				}
 			}
-			var portNames = new HashSet(operator.inputs.map[it.name])
-			portNames.addAll(operator.outputs.map[it.name])
-			var portToEquation = new HashMap<String, Equation>
-			var callList = new LinkedList<Equation>
-			for (element : operator.data.filter[it instanceof Equation].map[it as Equation]) {
-				var equation = element
-				if (portNames.contains(equation.lefts.get(0).name)) {
-					portToEquation.put(equation.lefts.get(0).name, equation)
-				} else if (equation.right instanceof IdExpression) {
-					var name = (equation.right as IdExpression).path.name
-					if (portNames.contains(name)) {
-						portToEquation.put(name, equation)
-					} else {
-						callList.add(equation)
-					}
-				} else {
-					callList.add(equation)
-				}
-			}
-			var pNode = KimlUtil.createInitializedNode
-			var portEquationToKPort = new HashMap<String, KPort>
-			var kportToEquation = new HashMap<KPort, Equation>
-			for (input : operator.inputs) {
-				var port = KimlUtil.createInitializedPort()
-				port.setNode(pNode)
-				port.setSide(PortSide.WEST)
-				var portLabel = KimlUtil.createInitializedLabel(port)
-				portLabel.setText(input.name)
-				portEquationToKPort.put(portToEquation.get(input.name).oid, port)
-				kportToEquation.put(port, portToEquation.get(input.name))
-			}
-			for (output : operator.outputs) {
-				var port = KimlUtil.createInitializedPort()
-				port.setNode(pNode)
-				port.setSide(PortSide.EAST)
-				var portLabel = KimlUtil.createInitializedLabel(port)
-				portLabel.setText(output.name)
-				portEquationToKPort.put(portToEquation.get(output.name).oid, port)
-				kportToEquation.put(port, portToEquation.get(output.name))
-			}
-			var equationToInputIndexToKPort = new HashMap<String, HashMap<Integer, KPort>>
-			var equationToOutputIndexToKPort = new HashMap<String, HashMap<Integer, KPort>>
-			var equationToKNode = new HashMap<Equation, KNode>
-			for (equation : callList) {
-				var cNode = KimlUtil.createInitializedNode()
-				cNode.setParent(pNode)
-				equationToKNode.put(equation, cNode)
-				for (var i = 0; i < equation.lefts.size; i++) {
-					var port = KimlUtil.createInitializedPort()
-					port.setNode(cNode)
-					port.setSide(PortSide.EAST)
-					equationToOutputIndexToKPort.put(equation.oid, i, port)
-				}
-				for (var i = 0; i < (equation.right as CallExpression).callParameters.size; i++) {
-					var port = KimlUtil.createInitializedPort()
-					port.setNode(cNode)
-					port.setSide(PortSide.WEST)
-					equationToInputIndexToKPort.put(equation.oid, i, port)
-				}
-			}
-			var scadeEdgeToKEdge = new HashMap<Edge, KEdge>
-			var portToIndex = new HashMap<KPort, Integer>
-			for (edge : edges) {
-				var srcOid = edge.srcEquation.equation.oid
-				var source = if (portEquationToKPort.containsKey(srcOid)) {
-						portEquationToKPort.get(srcOid)
-					} else {
-						equationToOutputIndexToKPort.get(srcOid, edge.leftVarIndex)
-					}
-				portToIndex.put(source, edge.leftVarIndex)
-				var dstOid = edge.dstEquation.equation.oid
-				var destination = if (portEquationToKPort.containsKey(dstOid)) {
-						portEquationToKPort.get(srcOid)
-					} else {
-						equationToInputIndexToKPort.get(dstOid, edge.rightExprIndex)
-					}
-				portToIndex.put(destination, edge.rightExprIndex)
-				scadeEdgeToKEdge.put(edge, source.addEdgeTo(destination))
-			}
-			pNode.addLayoutOptions
-			for (entry : scadeEdgeToKEdge.entrySet) {
-				var vectorChain = new KVectorChain
-				for (position : entry.key.positions) {
-					vectorChain.add(position.x, position.y)
-				}
-				entry.value.getData(typeof(KEdgeLayout)).setProperty(LayoutOptions.BEND_POINTS, vectorChain)
-			}
-			for (entry : equationToKNode.entrySet) {
-				var equationGE = equationGEs.get(entry.key.oid)
-				var layout = entry.value.getData(typeof(KShapeLayout))
-				var position = equationGE.position
-				layout.setProperty(LayoutOptions.POSITION, new KVector(position.x, position.y))
-				layout.setProperty(LayoutOptions.MIN_WIDTH, equationGE.size.width as float)
-				layout.setProperty(LayoutOptions.MIN_HEIGHT, equationGE.size.height as float)
-			}
-
-			// Set existing elements to their positions
-			fixedProvider.doLayout(pNode, new BasicProgressMonitor)
-
-			// Layout only elements without layout
-			pNode.getData(typeof(KShapeLayout)).setProperty(LayoutOptions.INTERACTIVE, true)
-
-			// Actual layout
-			layoutProvider.doLayout(pNode, new BasicProgressMonitor)
-			operator.pragmas.findFirst [
-				if (it instanceof com.esterel.scade.api.pragmas.editor.Operator) {
-					if (it.diagrams.size > 0) {
-						it.diagrams.remove(0)
-						return true
-					}
-				}
-				return false
-			]
-			pNode.translateOffset()
-			operator.createScadeDiagram.fillDiagram(pNode, equationToKNode, kportToEquation, portToIndex)
 		}
+		var pNode = transformToKieler
+		pNode.addLayoutOptions
+		var edgeTable = HashBasedTable.create
+		for (edge : pNode.incomingEdges) {
+			edgeTable.put(kGraphElementToEquation.get(edge.targetPort).oid, 1, edge)
+		}
+		for (cNode : pNode.children) {
+			for (edge : cNode.incomingEdges) {
+				edgeTable.put(kGraphElementToEquation.get(edge.target).oid, portToIndex.get(edge.targetPort), edge)
+			}
+		}
+		for (scadeEdge : edges) {
+			var kEdge = edgeTable.get(scadeEdge.dstEquation.equation.oid, scadeEdge.rightExprIndex)
+			var vectorChain = new KVectorChain
+			for (position : scadeEdge.positions) {
+				vectorChain.add(position.x, position.y)
+			}
+			kEdge.getData(typeof(KEdgeLayout)).setProperty(LayoutOptions.BEND_POINTS, vectorChain)
+		}
+		var equationTokGraphElement = kGraphElementToEquation.inverse
+		for (equation_ge : equationGEs) {
+			var layout = equationTokGraphElement.get(equation_ge.equation).getData(typeof(KShapeLayout))
+			var position = equation_ge.position
+			layout.setProperty(LayoutOptions.POSITION, new KVector(position.x, position.y))
+			layout.setProperty(LayoutOptions.MIN_WIDTH, equation_ge.size.width as float)
+			layout.setProperty(LayoutOptions.MIN_HEIGHT, equation_ge.size.height as float)
+		}
+
+		var fixedProvider = new FixedLayoutProvider
+		// Set existing elements to their positions in KIELER
+		fixedProvider.doLayout(pNode, new BasicProgressMonitor)
+
+		// Layout only elements without layout
+		pNode.getData(typeof(KShapeLayout)).setProperty(LayoutOptions.INTERACTIVE, true)
+
+		// Actual layout
+		layoutProvider.doLayout(pNode, new BasicProgressMonitor)
+		operator.pragmas.remove(operator.pragmas.findFirst [
+			if (it instanceof com.esterel.scade.api.pragmas.editor.Operator) {
+				if (it.diagrams.size > 0) {
+					return true
+				}
+			}
+			return false
+		])
+		pNode.translateOffset()
+		operator.createScadeDiagram.fillDiagram(pNode)
 	}
 
 	/**
@@ -381,17 +315,17 @@ class GenerateDiagram {
 		pLayout.setProperty(LayoutOptions.PORT_CONSTRAINTS, PortConstraints.FIXED_SIDE)
 		pLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.free)
 		pLayout.setProperty(LayoutOptions.SIZE_OPTIONS, EnumSet.of(SizeOptions.COMPUTE_INSETS))
-		pLayout.setProperty(LayoutOptions.SPACING, this.OPERATOR_SPACING)
+		pLayout.setProperty(LayoutOptions.SPACING, GenerateDiagram.OPERATOR_SPACING)
 		pLayout.setProperty(LayoutOptions.ALGORITHM, "DataFlow")
 		pLayout.setProperty(LayoutOptions.PORT_LABEL_PLACEMENT, PortLabelPlacement.INSIDE)
-		pLayout.setProperty(LayoutOptions.PORT_SPACING, this.PORT_SPACING)
-		pLayout.setProperty(LayoutOptions.BORDER_SPACING, this.GRAPHICAL_OFFSET)
+		pLayout.setProperty(LayoutOptions.PORT_SPACING, GenerateDiagram.PORT_SPACING)
+		pLayout.setProperty(LayoutOptions.BORDER_SPACING, GenerateDiagram.GRAPHICAL_OFFSET)
 
 		for (port : pNode.ports) {
 			var portLayout = port.getData(typeof(KShapeLayout))
 			portLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.fixed)
-			portLayout.setHeight(this.PORT_HEIGHT)
-			portLayout.setWidth(this.PORT_WIDTH)
+			portLayout.setHeight(GenerateDiagram.PORT_HEIGHT)
+			portLayout.setWidth(GenerateDiagram.PORT_WIDTH)
 		}
 
 		for (cNode : pNode.children) {
@@ -400,11 +334,11 @@ class GenerateDiagram {
 			cLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.free)
 			cLayout.setProperty(LayoutOptions.SIZE_OPTIONS,
 				EnumSet.of(SizeOptions.COMPUTE_INSETS, SizeOptions.MINIMUM_SIZE_ACCOUNTS_FOR_INSETS))
-			cLayout.setProperty(LayoutOptions.MIN_WIDTH, this.OPERATOR_MIN_WIDTH)
-			cLayout.setProperty(LayoutOptions.MIN_HEIGHT, this.OPERATOR_MIN_HEIGHT)
-			cLayout.setProperty(LayoutOptions.PORT_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
-			cLayout.setProperty(LayoutOptions.BORDER_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
-			cLayout.setProperty(LayoutOptions.ASPECT_RATIO, this.OPERATOR_ASPECT_RATIO)
+			cLayout.setProperty(LayoutOptions.MIN_WIDTH, GenerateDiagram.OPERATOR_MIN_WIDTH)
+			cLayout.setProperty(LayoutOptions.MIN_HEIGHT, GenerateDiagram.OPERATOR_MIN_HEIGHT)
+			cLayout.setProperty(LayoutOptions.PORT_SPACING, GenerateDiagram.OPERATOR_PORT_SPACING)
+			cLayout.setProperty(LayoutOptions.BORDER_SPACING, GenerateDiagram.OPERATOR_PORT_SPACING)
+			cLayout.setProperty(LayoutOptions.ASPECT_RATIO, GenerateDiagram.OPERATOR_ASPECT_RATIO)
 		}
 	}
 
@@ -497,7 +431,7 @@ class GenerateDiagram {
 	 * @param operator The Operator for which the diagram is created
 	 * @return The created Diagram
 	 */
-	def NetDiagram createScadeDiagram(Operator operator) {
+	private def NetDiagram createScadeDiagram(Operator operator) {
 		val operator_pragma = theEditorPragmasFactory.createOperator();
 		operator.getPragmas().add(operator_pragma);
 		operator_pragma.setNodeKind("graphical");
@@ -508,45 +442,5 @@ class GenerateDiagram {
 		operator_pragma.getDiagrams().add(operator_diagram);
 
 		return operator_diagram;
-	}
-
-	/**
-	 * Puts an element in a HashMap within a Map. If the inner map does not exist yet it will be created.
-	 * 
-	 * @param <KEY1> The type of the key of the outer map
-	 * @param <KEY2> The type of the key of the inner map
-	 * @param <ELEM> The type of the element which to put in the inner map
-	 * @param map The outer map
-	 * @param key1 The key for the outer map
-	 * @param key2 The key for the inner map
-	 * @param element The element which to add
-	 */
-	def <KEY1, KEY2, ELEM> put(Map<KEY1, HashMap<KEY2, ELEM>> map, KEY1 key1, KEY2 key2, ELEM element) {
-		if (!map.containsKey(key1)) {
-			map.put(key1, new HashMap<KEY2, ELEM>())
-		}
-		map.get(key1).put(key2, element)
-	}
-
-	/**
-	 * Function returning an element of a map within a map using two keys.
-	 * 
-	 * @param <M> The type of the nested Map
-	 * @param <KEY1> The type of the keys of the outer map
-	 * @param <KEY2> The type of the keys of the inner map
-	 * @param <ELEM> The type of the returning element
-	 * @param map The outer map
-	 * @param key1 The key for the outer map
-	 * @param key2 The key for the inner map
-	 * @return The element which to get or null if does not exist
-	 */
-	def <M extends Map<KEY2, ELEM>, KEY1, KEY2, ELEM> ELEM get(Map<KEY1, M> map, KEY1 key1, KEY2 key2) {
-		if (map != null && key1 != null && key2 != null) {
-			var innerMap = map.get(key1)
-			if (innerMap != null) {
-				return innerMap.get(key2)
-			}
-		}
-		return null
 	}
 }

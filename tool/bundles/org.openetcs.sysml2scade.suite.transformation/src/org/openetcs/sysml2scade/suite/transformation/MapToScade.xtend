@@ -48,7 +48,9 @@ class MapToScade extends AbstractMapper {
 		addEquations(newProperties, blockInstances)
 
 		addConnectors()
-		new GenerateDiagram().createGraphical(oidToScadeElementMap.values.filter[it instanceof Operator].map[it as Operator])
+		for (operator : oidToScadeElementMap.values.filter[it instanceof Operator].map[it as Operator]) {
+			new GenerateDiagram(operator).createGraphical()
+		}
 
 		tracefile.save
 
