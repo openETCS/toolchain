@@ -16,7 +16,7 @@ public class Transformation {
 		MapToScade mapper = new MapToScade(sysmlModel, project, tracefile);
 
 		// Perform the actual SysML to SCADE Transformation
-		mapper.fillModel(sysmlModel);
+		mapper.fillScadeModel();
 	}
 	
 	public void generateAndWrite(Block block, String projectName, Trace tracefile) {
@@ -28,7 +28,7 @@ public class Transformation {
 	
 	public void update(Model sysmlModel, Trace tracefile) {
 		UpdateScade mapper = new UpdateScade(sysmlModel, project, tracefile);
-		mapper.progressUpdate(sysmlModel);
+		mapper.progressUpdate();
 	}
 
 }

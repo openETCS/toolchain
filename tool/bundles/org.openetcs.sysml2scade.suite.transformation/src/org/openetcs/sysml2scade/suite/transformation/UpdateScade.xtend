@@ -30,18 +30,18 @@ import org.eclipse.uml2.uml.Property
 import org.eclipse.xtext.xbase.lib.Functions.Function1
 
 class UpdateScade extends AbstractMapper {
-	
+
 	private Resource sysmlResource
-	
+
 	protected new(Model model, IProject project, Trace tracefile) {
 		super(model, project, tracefile)
 		sysmlResource = model.eResource
 	}
-	
+
 	override protected loadProject() {
 		return getProject(projectURI, scadeResourceSet)
 	}
-	
+
 	override protected loadTypePackage() {
 		return scadeModel.packages.findFirst["DataDictionary".equals(it.name)]
 	}
@@ -50,11 +50,9 @@ class UpdateScade extends AbstractMapper {
 	 * Updates a SCADE model according to the {@code model} by calling the various methods for deleting, creating, updating and moving
 	 * the different elements of the model. After this new diagrams are generated. This does not apply to elements of type 
 	 * {@link Connector}.
-	 * 
-	 * @param model
 	 */
-	def progressUpdate(Model model) {
-		var modelElements = mapScadeModel()
+	protected def progressUpdate() {
+		mapScadeModel()
 		var removed = new LinkedList<String>
 		for (id : tracefile.getAllSourceIDs()) {
 			if (sysmlResource.getEObject(id) === null) {
@@ -65,70 +63,54 @@ class UpdateScade extends AbstractMapper {
 		var newProperties = new LinkedList<Property>
 		var moved = new LinkedList<EObject>
 		var blockInstances = new HashMap<String, LinkedList<Property>>
-		model.searchForNewAndMovedElements(modelElements, newPorts, newProperties, moved, blockInstances)
-		var dispensableVariables = deleteElements(removed, modelElements, blockInstances)
+		sysmlModel.searchForNewAndMovedElements(newPorts, newProperties, moved, blockInstances)
+		var dispensableVariables = deleteElements(removed, blockInstances)
 		for (id : removed) {
 			tracefile.removeElement(id)
 		}
-		updateElements(modelElements, blockInstances)
-		addPorts(newPorts, modelElements)
-		addEquations(newProperties, modelElements, blockInstances)
-		dispensableVariables.addAll(moveElements(moved, modelElements, blockInstances))
+		updateElements(blockInstances)
+		addPorts(newPorts)
+		addEquations(newProperties, blockInstances)
+		dispensableVariables.addAll(moveElements(moved, blockInstances))
 		cleanupLocals(dispensableVariables)
-		new GenerateDiagram().updateGraphical(modelElements.values.filter[it instanceof Operator].map[it as Operator])
+		new GenerateDiagram().updateGraphical(oidToScadeElementMap.values.filter[it instanceof Operator].map[it as Operator])
 
-		// Put annotations in correct .ann file
-		rearrangeAnnotations(scadeModel);
-
-		// Ensure project contains appropriate FileRefs
-		updateProjectWithModelFiles(scadeProject);
-
-		// Save the project
-		saveAll(scadeProject, null);
-
-		tracefile.save()
+		saveProject(createEmptyScadeProject(projectURI, scadeResourceSet))
 	}
 
 	/**
-	 * Puts all packages, operators, ports and equations of {@link MapToScade#scadeModel} into a map with their OIDs as key and the
+	 * Puts all packages, operators, ports and equations of {@link AbstractMapper#scadeModel} into a map with their OIDs as key and the
 	 * element itself as value
-	 * 
-	 * @return Map containing all elements of the currently loaded SCADE model
 	 */
-	private def mapScadeModel() {
-		var map = new HashMap<String, EObject>
+	private def void mapScadeModel() {
 		var packages = new LinkedList<Package>
 		packages.addAll(scadeModel.packages)
 		var Package package
 		while (packages.size > 0) {
 			package = packages.pop()
 			packages.addAll(package.packages)
-			map.put(package.oid, package)
+			oidToScadeElementMap.put(package.oid, package)
 			for (operator : package.operators) {
-				map.put(operator.oid, operator)
-				for (input : operator.inputs) {
-					map.put(input.oid, input)
-				}
-				for (output : operator.outputs) {
-					map.put(output.oid, output)
-				}
-				for (equation : operator.data) {
-					map.put(equation.oid, equation)
-				}
+				oidToScadeElementMap.put(operator.oid, operator)
+				oidToScadeElementMap.putAll(operator.inputs.toMap[it.oid])
+				oidToScadeElementMap.putAll(operator.outputs.toMap[it.oid])
+				oidToScadeElementMap.putAll(operator.data.toMap[it.oid])
 			}
 		}
-		return map
 	}
 
-	private def deleteElements(List<String> removed, Map<String, EObject> modelElements,
-		HashMap<String, LinkedList<Property>> blockInstances) {
+	/**
+	 * 
+	 */
+	private def deleteElements(List<String> removed, HashMap<String, LinkedList<Property>> blockInstances) {
 		val dispensableVariables = new LinkedList<Variable>
 		for (id : removed) {
 			var targets = tracefile.getTargetIDs(id)
 			for (target : targets) {
-				val scadeObject = modelElements.get(target)
+				val scadeObject = oidToScadeElementMap.get(target)
 				if (scadeObject instanceof Package) {
 					scadeObject.owningPackage.packages.remove(scadeObject)
+					scadeModel.packages.remove(scadeObject)
 				} else if (scadeObject instanceof Operator) {
 					scadeObject.owningPackage.operators.remove(scadeObject)
 				} else if (scadeObject instanceof Variable) {
@@ -136,24 +118,28 @@ class UpdateScade extends AbstractMapper {
 					var parent = tracefile.getParentID(id)
 					val index = Math.max(operator.outputs.indexOf(scadeObject), operator.inputs.indexOf(scadeObject))
 					if (operator.outputs.remove(scadeObject)) {
-						operator.removeEquation(operator.data.findFirst [
-							it instanceof Equation && (it as Equation).lefts.get(0) instanceof Variable &&
-								(it as Equation).lefts.get(0).name == scadeObject.name
-						] as Equation)
+						operator.removeEquation(
+							operator.data.findFirst [
+								it instanceof Equation && (it as Equation).lefts.get(0) instanceof Variable &&
+									(it as Equation).lefts.get(0).name == scadeObject.name
+							] as Equation)
 						blockInstances.get(parent)?.forEach [
-							(modelElements.getBySourceID(it.UUID) as Equation).removeOutput(index)
+							var local = (oidToScadeElementMap.getBySourceID(it.UUID) as Equation).removeOutput(index)
+							dispensableVariables.add(local)
 						]
 					} else if (operator.inputs.remove(scadeObject)) {
-						dispensableVariables.addAll(operator.removeEquation(operator.data.findFirst [
-							it instanceof Equation && (it as Equation).right instanceof IdExpression &&
-								((it as Equation).right as IdExpression).path.name == scadeObject.name
-						] as Equation))
+						dispensableVariables.addAll(
+							operator.removeEquation(
+								operator.data.findFirst [
+									it instanceof Equation && (it as Equation).right instanceof IdExpression &&
+										((it as Equation).right as IdExpression).path.name == scadeObject.name
+								] as Equation))
 						blockInstances.get(parent)?.forEach [
-							(modelElements.getBySourceID(it.UUID) as Equation).removeInput(index)
+							(oidToScadeElementMap.getBySourceID(it.UUID) as Equation).removeInput(index)
 						]
 					}
 				} else if (scadeObject instanceof Equation) {
-					var operator = modelElements.getBySourceID(tracefile.getParentID(id)) as Operator
+					var operator = oidToScadeElementMap.getBySourceID(tracefile.getParentID(id)) as Operator
 					dispensableVariables.addAll(operator.removeEquation(scadeObject))
 				}
 			}
@@ -162,32 +148,31 @@ class UpdateScade extends AbstractMapper {
 	}
 
 	/**
-	 * Fetches all sourceIDs from {@link MapToScade#tracefile} and iterates over their targets, comparing the source and target objects
+	 * Fetches all sourceIDs from {@link AbstractMapper#tracefile} and iterates over their targets, comparing the source and target objects
 	 * and updating the target object if they differ. In the current state this applies to the names of packages, operators and ports
 	 * and the types of ports.
 	 */
-	private def updateElements(Map<String, EObject> scadeElements, Map<String, LinkedList<Property>> blockInstances) {
+	private def updateElements(Map<String, LinkedList<Property>> blockInstances) {
 		var elementIds = tracefile.getAllSourceIDs
 		for (sourceID : elementIds) {
 			var sysmlElement = sysmlResource.getEObject(sourceID)
 			for (targetID : tracefile.getTargetIDs(sourceID)) {
 				if (sysmlElement instanceof org.eclipse.uml2.uml.Package) {
-					var pkg = scadeElements.get(targetID) as Package
+					var pkg = oidToScadeElementMap.get(targetID) as Package
 					pkg.name = sysmlElement.name
 				} else if (sysmlElement instanceof Class) {
-					val operator = scadeElements.get(targetID) as Operator
+					val operator = oidToScadeElementMap.get(targetID) as Operator
 					if (operator.name != sysmlElement.name) {
 						blockInstances.get(sourceID)?.forEach [
-							var eq = (scadeElements.getBySourceID(it.UUID) as Equation)
+							var eq = (oidToScadeElementMap.getBySourceID(it.UUID) as Equation)
 							var opc = (eq.right as CallExpression).operator as OpCall
 							opc.operator = operator
 						]
 						operator.name = sysmlElement.name
 					}
 				} else if (sysmlElement instanceof FlowPort) {
-					val port = scadeElements.get(targetID) as Variable
-					updatePort(port, sysmlElement, blockInstances.get(tracefile.getParentID(sysmlElement.UUID)),
-						scadeElements)
+					val port = oidToScadeElementMap.get(targetID) as Variable
+					updatePort(port, sysmlElement, blockInstances.get(tracefile.getParentID(sysmlElement.UUID)))
 				}
 			}
 		}
@@ -195,57 +180,64 @@ class UpdateScade extends AbstractMapper {
 
 	/**
 	 * Compares the SCADE port with the SysML port and updates {@code port} if they differ.
-	 * @see MapToScade#updateElements
+	 * @see UpdateScade#updateElements
 	 */
-	private def void updatePort(Variable port, FlowPort sysmlElement, List<Property> blockInstances,
-		Map<String, EObject> scadeElements) {
+	private def void updatePort(Variable port, FlowPort sysmlPort, List<Property> blockInstances) {
 		var parent = port.owner as Operator
-		val sysmlType = createScadeType(sysmlElement.type)
+		val newType = createScadeType(sysmlPort.type)
 		val scadeType = (port.type as NamedType).type
 		if (parent.outputs.contains(port)) {
-			val name = if (sysmlElement.direction.value == FlowDirection.INOUT_VALUE) {
-					INOUT_OUT_NAME_PREFIX + sysmlElement.name
+			val name = if (sysmlPort.direction.value == FlowDirection.INOUT_VALUE) {
+					INOUT_OUT_NAME_PREFIX + sysmlPort.name
 				} else {
-					sysmlElement.name;
+					sysmlPort.name;
 				}
-			if (port.name != name || scadeType != sysmlType) {
+			if (port.name != name || scadeType != newType) {
 				val equation = parent.data.findFirst [
 					it instanceof Equation && (it as Equation).lefts.get(0).name == port.name
 				] as Equation
 				equation.lefts.get(0).name = name
 				port.name = name
-				var namedType = theScadeFactory.createNamedType
-				namedType.setType(sysmlType)
-				var local = parent.locals.findFirst [
-					it.name == (equation.right as IdExpression)?.path?.name
-				]
-				if (local != null) {
-					local.type = namedType
-				}
+				val namedType = theScadeFactory.createNamedType
+				namedType.setType(newType)
 				port.type = namedType;
 			}
 		} else if (parent.inputs.contains(port)) {
-			val name = if (sysmlElement.direction.value == FlowDirection.INOUT_VALUE) {
-					INOUT_IN_NAME_PREFIX + sysmlElement.name
+			val name = if (sysmlPort.direction.value == FlowDirection.INOUT_VALUE) {
+					INOUT_IN_NAME_PREFIX + sysmlPort.name
 				} else {
-					sysmlElement.name;
+					sysmlPort.name;
 				}
-			if (port.name != name || scadeType != sysmlType) {
+			if (port.name != name || scadeType != newType) {
 				val equation = parent.data.findFirst [
 					if (it instanceof Equation && (it as Equation).right instanceof IdExpression) {
-						return ((it as Equation).right as IdExpression).path.name == port.name
+						return ((it as Equation).right as IdExpression).path?.name == port.name
 					}
 					return false
 				] as Equation
 				(equation.right as IdExpression).path.name = name
 				var namedType = theScadeFactory.createNamedType
-				namedType.setType(sysmlType)
+				namedType.setType(newType)
 				var local = parent.locals.findFirst[it.name == equation.lefts.get(0).name]
 				if (local != null) {
-					local.type = namedType
+					var type = theScadeFactory.createNamedType
+					type.setType(newType)
+					local.type = type
 				}
 				port.name = name
 				port.type = namedType;
+				val index = parent.inputs.indexOf(port)
+				blockInstances?.forEach [
+					val eq = oidToScadeElementMap.getBySourceID(it.UUID) as Equation
+					val operator = oidToScadeElementMap.getBySourceID(tracefile.getParentID(it.UUID)) as Operator
+					val local_name = ((eq.right as CallExpression).callParameters.get(index) as IdExpression).path?.name
+					if (local_name != null) {
+						val l = operator.locals.findFirst[it.name == local_name]
+						val type = theScadeFactory.createNamedType
+						type.setType(newType)
+						l.setType(type)
+					}
+				]
 			}
 		}
 	}
@@ -256,29 +248,28 @@ class UpdateScade extends AbstractMapper {
 	 * {@link FlowPort}s can be moved within the SysML model their representations in the
 	 * SCADE model are not processed.
 	 */
-	private def moveElements(List<EObject> moved, Map<String, EObject> scadeElements,
-		HashMap<String, LinkedList<Property>> blockInstances) {
+	private def moveElements(List<EObject> moved, Map<String, LinkedList<Property>> blockInstances) {
 		var idList = moved.map [
 			if (it instanceof Block) {
 				return it.base_Class.UUID
 			}
 			it.UUID
 		]
-		var dispensable = deleteElements(idList, scadeElements, new HashMap<String, LinkedList<Property>>)
+		var dispensable = deleteElements(idList, new HashMap<String, LinkedList<Property>>)
 		for (element : moved) {
 			if (element instanceof org.eclipse.uml2.uml.Package) {
-				var scadePkg = scadeElements.getBySourceID(element.UUID) as Package
-				var scadeParent = scadeElements.getBySourceID(element.eContainer.UUID) as Package
+				var scadePkg = oidToScadeElementMap.getBySourceID(element.UUID) as Package
+				var scadeParent = oidToScadeElementMap.getBySourceID(element.eContainer.UUID) as Package
 				scadeParent.packages.add(scadePkg)
 				tracefile.removeElement(element.UUID)
 				tracefile.addElement(element.UUID, element.eContainer.UUID, scadePkg.oid)
 			} else if (element instanceof Block) {
-				val operator = scadeElements.getBySourceID(element.base_Class.UUID) as Operator
-				val scadeParent = scadeElements.getBySourceID(element.base_Class.eContainer.UUID) as Package
+				val operator = oidToScadeElementMap.getBySourceID(element.base_Class.UUID) as Operator
+				val scadeParent = oidToScadeElementMap.getBySourceID(element.base_Class.eContainer.UUID) as Package
 				scadeParent.operators.add(operator)
 				tracefile.moveElement(element.base_Class.UUID, element.base_Class.eContainer.UUID)
 				blockInstances.get(element.base_Class.UUID)?.forEach [
-					var equation = scadeElements.getBySourceID(it.UUID) as Equation
+					var equation = oidToScadeElementMap.getBySourceID(it.UUID) as Equation
 					var opCall = (equation.right as CallExpression).operator as OpCall;
 					opCall.setOperator(operator)
 				]
@@ -332,10 +323,11 @@ class UpdateScade extends AbstractMapper {
 	 * @param equation The equation from which to remove the output
 	 * @param The index of the output
 	 */
-	private def void removeOutput(Equation equation, int index) {
-		equation.lefts.remove(index)
+	private def static Variable removeOutput(Equation equation, int index) {
+		val local = equation.lefts.remove(index).name
 		val ge_index = index + 1
-		(equation.owner as Operator).removeGraphical [
+		val parent = equation.owner as Operator
+		parent.removeGraphical [
 			if (it instanceof Edge) {
 				if (it.srcEquation.equation.oid == equation.oid) {
 					if (it.leftVarIndex == ge_index) {
@@ -347,6 +339,7 @@ class UpdateScade extends AbstractMapper {
 			}
 			return false
 		]
+		return parent.locals.findFirst[it.name == local]
 	}
 
 	/**
@@ -355,10 +348,8 @@ class UpdateScade extends AbstractMapper {
 	 * @param equation The equation from which to remove the input
 	 * @param The index of the input
 	 */
-	private def removeInput(Equation equation, int index) {
-		val expression = (equation.right as CallExpression).callParameters.remove(index) as IdExpression
-		val parent = equation.owner as Operator
-		parent.removeGraphical [
+	private def static void removeInput(Equation equation, int index) {
+		(equation.owner as Operator).removeGraphical [
 			if (it instanceof Edge) {
 				if (it.dstEquation.equation.oid == equation.oid) {
 					if (it.rightExprIndex == index + 1) {
@@ -370,7 +361,6 @@ class UpdateScade extends AbstractMapper {
 			}
 			return false
 		]
-		return parent.locals.findFirst[it.name == expression.path.name]
 	}
 
 	/**
@@ -382,12 +372,9 @@ class UpdateScade extends AbstractMapper {
 	 * @param equation The equation which to remove
 	 * @return List of {@link Variable} which represents the outputs of {@code equation}
 	 */
-	private def List<Variable> removeEquation(Operator parent, Equation equation) {
+	private def static List<Variable> removeEquation(Operator parent, Equation equation) {
 		parent.data.remove(equation)
-		var params = new HashSet<String>
-		for (left : equation.lefts) {
-			params.add(left.name)
-		}
+		var params = new HashSet<String>(equation.lefts.map[it.name])
 		var dispensable = new LinkedList<Variable>
 		for (local : parent.locals) {
 			if (params.contains(local.name)) {
@@ -412,7 +399,7 @@ class UpdateScade extends AbstractMapper {
 	 * @param operator The operator which elements are iterated
 	 * @param predicate The predicate which determinants if an element is removed. May apply changes to elements
 	 */
-	private def void removeGraphical(Operator operator, Function1<PresentationElement, Boolean> predicate) {
+	private def static void removeGraphical(Operator operator, Function1<PresentationElement, Boolean> predicate) {
 		for (pragma : operator.pragmas) {
 			if (pragma instanceof com.esterel.scade.api.pragmas.editor.Operator) {
 				for (diagram : pragma.diagrams) {

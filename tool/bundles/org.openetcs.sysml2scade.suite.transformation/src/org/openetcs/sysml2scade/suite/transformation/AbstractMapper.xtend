@@ -39,20 +39,24 @@ import org.eclipse.uml2.uml.Property
 abstract class AbstractMapper extends ScadeModelWriter {
 	protected static val INOUT_IN_NAME_PREFIX = "input_"
 	protected static val INOUT_OUT_NAME_PREFIX = "output_"
-	
-	protected val ScadeFactory theScadeFactory;
-	
-	protected val ResourceSet sysmlResourceSet;
-	protected val URI baseURI;
+
+	protected val ScadeFactory theScadeFactory
+
+	protected val Model sysmlModel
+	protected val ResourceSet sysmlResourceSet
+	protected val URI baseURI
 	protected val URI projectURI
 	protected val Project scadeProject;
-	protected val Package scadeModel;
-	protected val ResourceSet scadeResourceSet;
-	protected val Package typePackage;
-	
+	protected val Package scadeModel
+	protected val ResourceSet scadeResourceSet
+	protected val Package typePackage
+
+	protected val Map<String, EObject> oidToScadeElementMap
+
 	protected val Trace tracefile;
-	
+
 	protected new(Model model, IProject project, Trace tracefile) {
+		sysmlModel = model
 		sysmlResourceSet = model.eResource.getResourceSet()
 		baseURI = URI.createFileURI(project.getLocation().toOSString())
 		projectURI = baseURI.appendSegment(model.name + ".etp")
@@ -63,24 +67,38 @@ abstract class AbstractMapper extends ScadeModelWriter {
 		scadeModel = loadModel(projectURI, scadeResourceSet)
 		this.typePackage = loadTypePackage()
 		this.tracefile = tracefile
+		oidToScadeElementMap = new HashMap<String, EObject>
 	}
 
 	protected abstract def Project loadProject()
 
 	protected abstract def Package loadTypePackage()
-	
-	protected def void searchForNewAndMovedElements(org.eclipse.uml2.uml.Package pkg, Map<String, EObject> modelElements,
-		List<FlowPort> newPorts, List<Property> newProperties, List<EObject> moved,
-		HashMap<String, LinkedList<Property>> blockInstances) {
-		var scadePackage = modelElements.getBySourceID(pkg.UUID) as Package
+
+	protected def saveProject(Project scadeProject) {
+
+		// Put annotations in correct .ann file
+		rearrangeAnnotations(scadeModel);
+
+		// Ensure project contains appropriate FileRefs
+		updateProjectWithModelFiles(scadeProject);
+
+		// Save the project
+		saveAll(scadeProject, null);
+
+		tracefile.save()
+	}
+
+	protected def void searchForNewAndMovedElements(org.eclipse.uml2.uml.Package pkg, List<FlowPort> newPorts,
+		List<Property> newProperties, List<EObject> moved, HashMap<String, LinkedList<Property>> blockInstances) {
+		var scadePackage = oidToScadeElementMap.getBySourceID(pkg.UUID) as Package
 		if (scadePackage === null) {
 			scadePackage = createScadePackage(pkg.name);
 			val resourcePackage = createXScade(pkg.name)
 			resourcePackage.contents.add(scadePackage)
-			modelElements.put(scadePackage.UUID, scadePackage)
+			oidToScadeElementMap.put(scadePackage.UUID, scadePackage)
 			scadeModel.packages.add(scadePackage)
 			val parentID = pkg.eContainer.UUID
-			var parent = modelElements.getBySourceID(parentID) as Package
+			var parent = oidToScadeElementMap.getBySourceID(parentID) as Package
 			tracefile.addElement(pkg.UUID, parentID, scadePackage.oid)
 			if (parent != null) {
 				parent.packages.add(scadePackage)
@@ -92,11 +110,10 @@ abstract class AbstractMapper extends ScadeModelWriter {
 			var blockID = block.base_Class.UUID
 			if (!tracefile.isTransferred(blockID)) {
 				var operator = createOperatorInterface(block);
-				createOperatorImplementation(operator);
 				scadePackage.operators.add(operator)
-				modelElements.put(operator.UUID, operator)
-				modelElements.putAll(operator.inputs.toMap[it.oid])
-				modelElements.putAll(operator.outputs.toMap[it.oid])
+				oidToScadeElementMap.put(operator.UUID, operator)
+				oidToScadeElementMap.putAll(operator.inputs.toMap[it.oid])
+				oidToScadeElementMap.putAll(operator.outputs.toMap[it.oid])
 			} else if (tracefile.getParentID(blockID) != block.base_Class.eContainer.UUID) {
 				moved.add(block)
 			}
@@ -124,7 +141,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 			}
 		}
 		for (p : pkg.nestedPackages) {
-			p.searchForNewAndMovedElements(modelElements, newPorts, newProperties, moved, blockInstances)
+			p.searchForNewAndMovedElements(newPorts, newProperties, moved, blockInstances)
 		}
 	}
 
@@ -133,20 +150,23 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * 
 	 * @param ports List of {@link FlowPort} which add to the model
 	 */
-	protected def addPorts(LinkedList<FlowPort> ports, HashMap<String, EObject> scadeElements) {
+	protected def addPorts(List<FlowPort> ports) {
 		for (port : ports) {
-			var operator = scadeElements.getBySourceID(port.base_Port.eContainer.UUID) as Operator
+			var operator = oidToScadeElementMap.getBySourceID(port.base_Port.eContainer.UUID) as Operator
 			var type = createScadeType(port.type)
 			if (port.direction == FlowDirection.OUT_VALUE) {
-				var oid = operator.addOutput(port.name, type)
-				tracefile.addElement(port.UUID, operator.oid, oid)
+				var output = operator.addOutput(port.name, type)
+				tracefile.addElement(port.UUID, operator.oid, output.oid)
+				oidToScadeElementMap.put(output.oid, output)
 			} else if (port.direction == FlowDirection.IN_VALUE) {
-				var oid = operator.addInput(port.name, operator.localsCount, type)
-				tracefile.addElement(port.UUID, operator.oid, oid)
+				var input = operator.addInput(port.name, operator.localsCount, type)
+				tracefile.addElement(port.UUID, operator.oid, input.oid)
 			} else if (port.direction == FlowDirection.INOUT_VALUE) {
-				var inOid = operator.addInput(INOUT_IN_NAME_PREFIX + port.name, operator.localsCount, type)
-				var outOid = operator.addOutput(INOUT_OUT_NAME_PREFIX + port.name, type)
-				tracefile.addElement(port.UUID, operator.oid, inOid, outOid)
+				var input = operator.addInput(INOUT_IN_NAME_PREFIX + port.name, operator.localsCount, type)
+				oidToScadeElementMap.put(input.oid, input)
+				var output = operator.addOutput(INOUT_OUT_NAME_PREFIX + port.name, type)
+				oidToScadeElementMap.put(output.oid, output)
+				tracefile.addElement(port.UUID, operator.oid, input.oid, output.oid)
 			}
 		}
 	}
@@ -154,18 +174,17 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	/**
 	 * Transfers the {@link Property}s in {@code properties} to SCADE
 	 */
-	protected def void addEquations(List<Property> properties, Map<String, EObject> scadeElements,
-		Map<String, LinkedList<Property>> blockInstances) {
+	protected def void addEquations(List<Property> properties, Map<String, LinkedList<Property>> blockInstances) {
 		for (property : properties) {
 			var parentID = property.eContainer.UUID
-			var parent = scadeElements.getBySourceID(parentID) as Operator
+			var parent = oidToScadeElementMap.getBySourceID(parentID) as Operator
 			var instances = blockInstances.get(parentID)
 			if (instances === null) {
 				instances = new LinkedList
 				blockInstances.put(parentID, instances)
 			}
 			instances.add(property)
-			var operator = scadeElements.getBySourceID(property.block.base_Class.UUID) as Operator
+			var operator = oidToScadeElementMap.getBySourceID(property.block.base_Class.UUID) as Operator
 			var equation = theScadeFactory.createEquation();
 			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
 			var call_expression = theScadeFactory.createCallExpression()
@@ -199,7 +218,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 				call_expression.callParameters.add(theScadeFactory.createIdExpression())
 			}
 			parent.data.add(equation)
-			scadeElements.put(equation.oid, equation)
+			oidToScadeElementMap.put(equation.oid, equation)
 			tracefile.addElement(property.UUID, property.eContainer.UUID, equation.oid)
 		}
 	}
@@ -248,57 +267,26 @@ abstract class AbstractMapper extends ScadeModelWriter {
 		EditorPragmasUtil.setOid(operator, EcoreUtil.generateUUID());
 		var blockID = block.base_Class.UUID
 		tracefile.addElement(blockID, block.base_Class.eContainer.UUID, operator.oid)
+		var local_count = 1
 		for (port : block.flowPorts) {
 			var type = createScadeType(port.type)
 
 			// Create the port
 			if (port.direction.value == FlowDirection.OUT_VALUE) {
-				var variable = createNamedTypeVariable(port.name, type)
-				operator.getOutputs().add(variable)
-				tracefile.addElement(port.UUID, blockID, variable.oid)
+				var output = operator.addOutput(port.name, type)
+				tracefile.addElement(port.UUID, blockID, output.oid)
 			} else if (port.direction.value == FlowDirection.IN_VALUE) {
-				var variable = createNamedTypeVariable(port.name, type)
-				operator.getInputs().add(variable)
-				tracefile.addElement(port.UUID, blockID, variable.oid)
+				var input = operator.addInput(port.name, local_count, type)
+				local_count++
+				tracefile.addElement(port.UUID, blockID, input.oid)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
-				var input = createNamedTypeVariable(INOUT_IN_NAME_PREFIX + port.name, type)
-				operator.getInputs().add(input)
-				var output = createNamedTypeVariable(INOUT_OUT_NAME_PREFIX + port.name, type)
-				operator.getOutputs().add(output)
+				var input = operator.addInput(INOUT_IN_NAME_PREFIX + port.name, local_count, type)
+				var output = operator.addOutput(INOUT_OUT_NAME_PREFIX + port.name, type)
+				local_count++
 				tracefile.addElement(port.UUID, blockID, input.oid, output.oid)
 			}
 		}
 		return operator;
-	}
-
-	private def createOperatorImplementation(Operator operator) {
-		var i = 1;
-
-		for (input : operator.getInputs()) {
-
-			// Consider using the definedType directly instead of searching for it
-			var type = (input.getType() as NamedType).type
-			var variable = createNamedTypeVariable("_L" + i, type)
-			operator.getLocals().add(variable);
-
-			var equation = theScadeFactory.createEquation();
-			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
-			equation.getLefts().add(variable);
-
-			var idexpression = theScadeFactory.createIdExpression();
-			idexpression.setPath(input);
-
-			equation.setRight(idexpression);
-			operator.getData().add(equation);
-
-			i = i + 1;
-		}
-		for (output : operator.getOutputs()) {
-			var equation = theScadeFactory.createEquation();
-			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
-			equation.getLefts().add(output);
-			operator.getData().add(equation);
-		}
 	}
 
 	/**
@@ -311,14 +299,15 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param type The type of the output
 	 * @return The new output
 	 */
-	private def String addOutput(Operator operator, String name, Type type) {
+	private def Variable addOutput(Operator operator, String name, Type type) {
 		var output = createNamedTypeVariable(name, type)
 		operator.outputs.add(output)
 		var equation = theScadeFactory.createEquation();
 		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
 		equation.getLefts().add(output);
 		operator.getData().add(equation)
-		return output.oid
+		oidToScadeElementMap.put(equation.oid, equation)
+		return output
 	}
 
 	/**
@@ -331,7 +320,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param type The type of the input
 	 * @return The new input
 	 */
-	private def String addInput(Operator operator, String name, int locals_count, Type type) {
+	private def Variable addInput(Operator operator, String name, int locals_count, Type type) {
 		var input = createNamedTypeVariable(name, type)
 		operator.inputs.add(input)
 		var variable = createNamedTypeVariable("_L" + locals_count, type)
@@ -346,7 +335,8 @@ abstract class AbstractMapper extends ScadeModelWriter {
 
 		equation.setRight(idexpression);
 		operator.getData().add(equation)
-		return input.oid
+		oidToScadeElementMap.put(equation.oid, equation)
+		return input
 	}
 
 	/**
@@ -399,7 +389,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 		return scade_type
 	}
 
-	protected def String getUUID(EObject object) {
+	protected def static String getUUID(EObject object) {
 		if (object === null) {
 			return null
 		} else if (object instanceof Annotable) {
@@ -419,7 +409,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param pkg The owner of the Blocks
 	 * @return List of Blocks owned by {@code pkg}
 	 */
-	private def EList<Block> getBlocks(Element pkg) {
+	private def static EList<Block> getBlocks(Element pkg) {
 		var list = new BasicEList<Block>
 
 		for (Element element : pkg.ownedElements) {
@@ -438,7 +428,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param block The block for which the function returns all FlowPorts
 	 * @return List of FlowPorts
 	 */
-	private def static EList<FlowPort> flowPorts(Block block) {
+	private def static List<FlowPort> getFlowPorts(Block block) {
 		var list = new BasicEList<FlowPort>
 
 		for (port : block.base_Class.ownedPorts) {
@@ -455,7 +445,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	/**
 	 * Retrieves all Properties which has the "SysML::Blocks::Block" stereotype applied from a Block.
 	 */
-	private def EList<Property> getNestedBlocksAsProperties(Block block) {
+	private def static List<Property> getNestedBlocksAsProperties(Block block) {
 		var list = new BasicEList<Property>
 		for (property : block.base_Class.ownedAttributes) {
 			var type = property.type
@@ -476,7 +466,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param property The property from which to retrieve the Block
 	 * @return The Block stereotype application
 	 */
-	protected def Block getBlock(Property property) {
+	private def static Block getBlock(Property property) {
 		var type = property.type
 		if (type != null) {
 			var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
@@ -493,7 +483,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param block The block for which the function return the Name
 	 * @return The name of the block
 	 */
-	private def static String name(Block block) {
+	private def static String getName(Block block) {
 		return block.base_Class.name
 	}
 
@@ -524,7 +514,7 @@ abstract class AbstractMapper extends ScadeModelWriter {
 	 * @param operator The operator for which to compute the number
 	 * @return The highest number used for {@code operator} with the naming schema for generated local variables
 	 */
-	private def int getLocalsCount(Operator operator) {
+	private def static int getLocalsCount(Operator operator) {
 		var int locals_count = 1
 		for (local : operator.locals) {
 			try {
