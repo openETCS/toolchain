@@ -147,6 +147,7 @@ class GenerateDiagram {
 			pNode.addLayoutOptions
 			var progressMonitor = new BasicProgressMonitor()
 			layoutProvider.doLayout(pNode, progressMonitor)
+			pNode.translateOffset()
 			var diagram = createScadeDiagram(operator)
 			diagram.fillDiagram(pNode, callToNode, portToEquation, portToIndex)
 		}
@@ -362,6 +363,7 @@ class GenerateDiagram {
 				}
 				return false
 			]
+			pNode.translateOffset()
 			operator.createScadeDiagram.fillDiagram(pNode, equationToKNode, kportToEquation, portToIndex)
 		}
 	}
@@ -388,7 +390,6 @@ class GenerateDiagram {
 		for (port : pNode.ports) {
 			var portLayout = port.getData(typeof(KShapeLayout))
 			portLayout.setProperty(LayoutOptions.SIZE_CONSTRAINT, SizeConstraint.fixed)
-			portLayout.setProperty(LayoutOptions.OFFSET, (PORT_WIDTH + GRAPHICAL_OFFSET) * (-1))
 			portLayout.setHeight(this.PORT_HEIGHT)
 			portLayout.setWidth(this.PORT_WIDTH)
 		}
@@ -404,6 +405,34 @@ class GenerateDiagram {
 			cLayout.setProperty(LayoutOptions.PORT_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
 			cLayout.setProperty(LayoutOptions.BORDER_SPACING, this.OPERATOR_MIN_HEIGHT / 5)
 			cLayout.setProperty(LayoutOptions.ASPECT_RATIO, this.OPERATOR_ASPECT_RATIO)
+		}
+	}
+
+	/**
+	 * After the layouting with KIELER ports are outside of the operator. This functions shifts all elements, so that the ports are
+	 * within {@code node}.
+	 * 
+	 * @param node The element which ports are outside of it.
+	 */
+	private def void translateOffset(KNode node) {
+		var xOffset = 0f
+		var yOffset = 0f
+		for (port : node.ports) {
+			var layout = port.getData(typeof(KShapeLayout))
+			if (layout.xpos < xOffset) {
+				xOffset = layout.xpos
+			}
+			if (layout.ypos < yOffset) {
+				yOffset = layout.ypos
+			}
+		}
+		xOffset = Math.abs(xOffset) + GRAPHICAL_OFFSET
+		yOffset = Math.abs(yOffset) + GRAPHICAL_OFFSET
+		KimlUtil.translate(node, xOffset, yOffset)
+		for (port : node.ports) {
+			var layout = port.getData(typeof(KShapeLayout))
+			layout.setXpos(layout.xpos + xOffset)
+			layout.setYpos(layout.ypos + yOffset)
 		}
 	}
 
