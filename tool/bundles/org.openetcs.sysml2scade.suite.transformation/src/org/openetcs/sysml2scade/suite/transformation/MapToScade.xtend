@@ -96,11 +96,6 @@ class MapToScade extends ScadeModelWriter {
 	private EditorPragmasFactory theEditorPragmasFactory;
 	private Project scadeProject;
 	private AbstractLayoutProvider layoutProvider
-	private Map<Block, Operator> blockToOperatorMap;
-	private Map<Variable, Variable> inputToVariableMap;
-	private Map<FlowPort, Variable> flowportToOutputMap;
-	private Map<FlowPort, Variable> flowportToInputMap;
-	private Map<Variable, Equation> outputToEquationMap;
 
 	private Trace tracefile;
 
@@ -121,56 +116,13 @@ class MapToScade extends ScadeModelWriter {
 		}
 	}
 
-	new(Block block, IProject project, String name, Trace trace) {
-		sysmlResource = block.eResource as XMLResource
-		initialize(project, trace)
-		newProject(project, name)
-
-		val sysmlToScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Package>()
-		val sysmlToXScadePkg = new HashMap<org.eclipse.uml2.uml.Package, Resource>()
-		val package = block.base_Class.eContainer as org.eclipse.uml2.uml.Package
-		val scadePackage = createScadePackage(package.name)
-		sysmlToScadePkg.put(package, scadePackage)
-		val resourcePackage = createXScade(package.name)
-		sysmlToXScadePkg.put(package, resourcePackage)
-		resourcePackage.contents.add(scadePackage)
-		var operator = createOperatorInterface(block)
-		createOperatorImplementation(operator)
-		scadePackage.operators.add(operator)
-		blockToOperatorMap.put(block, operator)
-		for (nBlock : block.nestedBlocks) {
-			val pkg = block.base_Class.eContainer as org.eclipse.uml2.uml.Package
-			var scadePkg = sysmlToScadePkg.get(pkg)
-			if (scadePkg === null) {
-				scadePkg = createScadePackage(pkg.name)
-				sysmlToScadePkg.put(pkg, scadePkg)
-			}
-			var resourcePkg = sysmlToXScadePkg.get(pkg)
-			if (resourcePkg === null) {
-				resourcePkg = createXScade(pkg.name)
-				resourcePkg.contents.add(scadePkg)
-				sysmlToXScadePkg.put(pkg, resourcePkg)
-			}
-			var op = createOperatorInterface(nBlock)
-			createOperatorImplementation(op)
-			scadePackage.operators.add(operator)
-			blockToOperatorMap.put(block, operator)
-		}
-		sysmlPackage = scadePackage
-	}
-
 	def private void initialize(IProject project, Trace trace) {
 		sysmlResourceSet = sysmlResource.getResourceSet();
 		scadeResourceSet = new ResourceSetImpl();
 		theScadeFactory = ScadePackage.eINSTANCE.getScadeFactory()
 		theEditorPragmasFactory = EditorPragmasPackage.eINSTANCE.getEditorPragmasFactory();
 
-		blockToOperatorMap = new HashMap<Block, Operator>()
 		layoutProvider = new LayeredLayoutProvider()
-		inputToVariableMap = new HashMap<Variable, Variable>()
-		flowportToOutputMap = new HashMap<FlowPort, Variable>()
-		flowportToInputMap = new HashMap<FlowPort, Variable>()
-		outputToEquationMap = new HashMap<Variable, Equation>()
 		tracefile = trace
 	}
 
@@ -221,29 +173,6 @@ class MapToScade extends ScadeModelWriter {
 		return pkg
 	}
 
-	def Package iterateModel(org.eclipse.uml2.uml.Package pkg) {
-		val scadePackage = createScadePackage(pkg.name)
-		val resourcePackage = createXScade(pkg.name)
-		resourcePackage.getContents().add(scadePackage)
-		tracefile.addElement(pkg.UUID, pkg.eContainer.UUID, scadePackage.oid)
-
-		for (block : pkg.getBlocks) {
-
-			// Each Block is mapped to operator
-			val operator = createOperatorInterface(block);
-			createOperatorImplementation(operator);
-			scadePackage.getOperators().add(operator);
-
-			// Build list of generated blocks and operators
-			blockToOperatorMap.put(block, operator)
-		}
-		for (p : pkg.nestedPackages) {
-			scadePackage.getPackages().add(iterateModel(p))
-		}
-
-		return scadePackage
-	}
-
 	def createOperatorImplementation(Operator operator) {
 		var i = 1;
 
@@ -253,7 +182,6 @@ class MapToScade extends ScadeModelWriter {
 			var type = (input.getType() as NamedType).type
 			var variable = createNamedTypeVariable("_L" + i, type)
 			operator.getLocals().add(variable);
-			inputToVariableMap.put(input, variable)
 
 			var equation = theScadeFactory.createEquation();
 			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
@@ -272,7 +200,6 @@ class MapToScade extends ScadeModelWriter {
 			EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
 			equation.getLefts().add(output);
 			operator.getData().add(equation);
-			outputToEquationMap.put(output, equation)
 		}
 	}
 
@@ -316,20 +243,16 @@ class MapToScade extends ScadeModelWriter {
 			if (port.direction.value == FlowDirection.OUT_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getOutputs().add(variable)
-				flowportToOutputMap.put(port, variable)
 				tracefile.addElement(port.UUID, blockID, variable.oid)
 			} else if (port.direction.value == FlowDirection.IN_VALUE) {
 				var variable = createNamedTypeVariable(port.name, type)
 				operator.getInputs().add(variable)
-				flowportToInputMap.put(port, variable)
 				tracefile.addElement(port.UUID, blockID, variable.oid)
 			} else if (port.direction.value == FlowDirection.INOUT_VALUE) {
 				var input = createNamedTypeVariable(INOUT_IN_NAME_PREFIX + port.name, type)
 				operator.getInputs().add(input)
-				flowportToInputMap.put(port, input)
 				var output = createNamedTypeVariable(INOUT_OUT_NAME_PREFIX + port.name, type)
 				operator.getOutputs().add(output)
-				flowportToOutputMap.put(port, output)
 				tracefile.addElement(port.UUID, blockID, input.oid, output.oid)
 			}
 		}
@@ -531,180 +454,6 @@ class MapToScade extends ScadeModelWriter {
 			}
 			val equation = scadeElements.getBySourceID(end.partWithPort.UUID) as Equation
 			return (equation.right as CallExpression).callParameters.get(index) as IdExpression
-		}
-	}
-
-	def void fillScadeModel() {
-		//scadeModel.getPackages().add(sysmlPackage)
-		scadeModel.getPackages().add(typePackage)
-
-		createHierarchy()
-		createGraphical(blockToOperatorMap.values)
-
-		tracefile.save
-
-		// Put annotations in correct .ann file
-		rearrangeAnnotations(scadeModel);
-
-		// Ensure project contains appropriate FileRefs
-		updateProjectWithModelFiles(scadeProject);
-
-		// Save the project
-		saveAll(scadeProject, null);
-	}
-
-	def createHierarchy() {
-		for (entry : blockToOperatorMap.entrySet()) {
-			var block = entry.key
-			var operator = entry.value
-			var name = 1;
-			var locals_counter = operator.locals.size + 1
-
-			var propertyToEquationMap = new HashMap<Property, Equation>()
-			var equationToOutputToVariableMap = new HashMap<Equation, HashMap<Variable, Variable>>()
-			var equationToOperatorMap = new HashMap<Equation, Operator>()
-			var equationToCallMap = new HashMap<Equation, CallExpression>()
-			var propertyToInputToConnectorendMap = new HashMap<Property, HashMap<Variable, ConnectorEnd>>()
-			var outputToConnectorendMap = new HashMap<Variable, ConnectorEnd>()
-
-			for (property : block.nestedBlocksAsProperties) {
-				locals_counter = addOperatorCall(property, propertyToEquationMap, name, operator, equationToOperatorMap,
-					equationToCallMap, locals_counter, equationToOutputToVariableMap)
-				name++
-			}
-			mapConnectorends(block.base_Class.ownedConnectors, propertyToEquationMap, outputToConnectorendMap,
-				propertyToInputToConnectorendMap)
-
-			// Connect the outputs of block with the corresponding inputs
-			for (destination : operator.outputs) {
-				var end = outputToConnectorendMap.get(destination)
-				var port = end.flowPort
-				if (port != null) {
-					var equation = propertyToEquationMap.get(end.partWithPort)
-					if (end.partWithPort == null) {
-						var input = flowportToInputMap.get(port)
-						var source = inputToVariableMap.get(input)
-						connectWithOutput(source, destination);
-					} else if (equationToOutputToVariableMap.containsKey(equation)) {
-						var sourcePort = flowportToOutputMap.get(port)
-						var source = equationToOutputToVariableMap.get(equation, sourcePort)
-						connectWithOutput(source, destination)
-					}
-				}
-			}
-			for (property : propertyToInputToConnectorendMap.keySet) {
-				var equation = propertyToEquationMap.get(property)
-				var op = equationToOperatorMap.get(equation)
-				var call_expression = equationToCallMap.get(equation)
-				var map = propertyToInputToConnectorendMap.get(property)
-				if (op != null && map != null) {
-					var dst_index = 1
-					for (destination : op.inputs) {
-						var end = map.get(destination)
-						var port = end.flowPort
-						if (port != null) {
-							if (end.partWithPort == null) {
-								var source = flowportToInputMap.get(port)
-								var variable = inputToVariableMap.get(source)
-								connectWithOperator(variable, call_expression)
-							} else {
-								var eq = propertyToEquationMap.get(end.partWithPort)
-								var sourcePort = flowportToOutputMap.get(port)
-								var source = equationToOutputToVariableMap.get(eq, sourcePort)
-								connectWithOperator(source, call_expression)
-							}
-						} else {
-							call_expression.callParameters.add(theScadeFactory.createIdExpression())
-						}
-						dst_index = dst_index + 1
-					}
-				}
-			}
-		}
-	}
-
-	def int addOperatorCall(Property property, HashMap<Property, Equation> propertyToEquationMap, int name,
-		Operator operator, HashMap<Equation, Operator> equationToOperatorMap,
-		HashMap<Equation, CallExpression> equationToCallMap, int locals_counter,
-		HashMap<Equation, HashMap<Variable, Variable>> equationToOutputToVariableMap) {
-
-		var nblock = property.block
-		var equation = theScadeFactory.createEquation()
-		var counter = locals_counter
-
-		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID())
-		propertyToEquationMap.put(property, equation)
-		tracefile.addElement(property.UUID, property.eContainer.UUID, equation.oid)
-
-		var op = blockToOperatorMap.get(nblock)
-		if (op != null) {
-			var call_expression = theScadeFactory.createCallExpression()
-			var call = theScadeFactory.createOpCall();
-			call.setName(name.toString)
-			call.setOperator(op)
-			call_expression.setOperator(call)
-			equation.setRight(call_expression)
-			operator.getData().add(equation)
-			equationToOperatorMap.put(equation, op)
-			equationToCallMap.put(equation, call_expression)
-
-			for (output : op.outputs) {
-				var variable = createNamedTypeVariable("_L" + counter, (output.getType() as NamedType).getType());
-				operator.getLocals().add(variable);
-				equation.lefts.add(variable)
-				equationToOutputToVariableMap.put(equation, output, variable)
-				counter = counter + 1
-			}
-		} else {
-			propertyToEquationMap.remove(property)
-		}
-		return counter
-	}
-
-	def mapConnectorends(EList<Connector> list, HashMap<Property, Equation> propertyToEquationMap,
-		HashMap<Variable, ConnectorEnd> outputToConnectorendMap,
-		HashMap<Property, HashMap<Variable, ConnectorEnd>> propertyToInputToConnectorendMap) {
-		for (connector : list) {
-			var end1 = connector.ends.get(0)
-			var end2 = connector.ends.get(1)
-			if (propertyToEquationMap.containsKey(end1.partWithPort) ||
-				propertyToEquationMap.containsKey(end2.partWithPort)) {
-				var port = end1.flowPort
-				if ((port.direction.value == FlowDirection.IN_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort != null) {
-						propertyToInputToConnectorendMap.put(end1.partWithPort, flowportToInputMap.get(port), end2)
-				}
-				if ((port.direction.value == FlowDirection.OUT_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
-						outputToConnectorendMap.put(flowportToOutputMap.get(port), end2)
-				}
-
-				port = end2.flowPort
-				if ((port.direction.value == FlowDirection.IN_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort != null) {
-						propertyToInputToConnectorendMap.put(end2.partWithPort, flowportToInputMap.get(port), end1)
-				}
-				if ((port.direction.value == FlowDirection.OUT_VALUE ||
-					port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort == null) {
-						outputToConnectorendMap.put(flowportToOutputMap.get(port), end1)
-				}
-			}
-			if (port != null && (port.direction.value == FlowDirection.OUT_VALUE ||
-				port.direction.value == FlowDirection.INOUT_VALUE) && end1.partWithPort == null) {
-				outputToConnectorendMap.put(flowportToOutputMap.get(port), end2)
-			}
-
-			port = end2.flowPort
-			if (port != null && (port.direction.value == FlowDirection.IN_VALUE ||
-				port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort != null) {
-				propertyToInputToConnectorendMap.put(end2.partWithPort, flowportToInputMap.get(port), end1)
-			}
-			if (port != null && (port.direction.value == FlowDirection.OUT_VALUE ||
-				port.direction.value == FlowDirection.INOUT_VALUE) && end2.partWithPort == null) {
-				outputToConnectorendMap.put(flowportToOutputMap.get(port), end1)
-			}
-
-		//}
 		}
 	}
 
@@ -1307,7 +1056,6 @@ class MapToScade extends ScadeModelWriter {
 		operator.inputs.add(input)
 		var variable = createNamedTypeVariable("_L" + locals_count, type)
 		operator.getLocals().add(variable);
-		inputToVariableMap.put(input, variable)
 
 		var equation = theScadeFactory.createEquation();
 		EditorPragmasUtil.setOid(equation, EcoreUtil.generateUUID());
@@ -1706,26 +1454,6 @@ class MapToScade extends ScadeModelWriter {
 	}
 
 	/**
-	 * Creates a new {@link com.esterel.scade.api.IdExpression} with {@code source} as path and adds it to {@code call}
-	 * 
-	 * @param source The path of created IdExpression
-	 * @param call The CallExpression where the created IdExpression is added to.
-	 */
-	def connectWithOperator(Variable source, CallExpression call) {
-		var idexpression = theScadeFactory.createIdExpression()
-		idexpression.setPath(source)
-		call.callParameters.add(idexpression)
-	}
-
-	def void connectWithOutput(Variable source, Variable destination) {
-		var equation = outputToEquationMap.get(destination)
-		var idexpression = theScadeFactory.createIdExpression();
-		idexpression.setPath(source);
-		equation.setRight(idexpression);
-		equation.getLefts.add(destination)
-	}
-
-	/**
 	 * Retrieves the Block from a property with the Block stereotype application. If does not exist {@code null} is returned.
 	 * 
 	 * @param property The property from which to retrieve the Block
@@ -1824,23 +1552,6 @@ class MapToScade extends ScadeModelWriter {
 		return list
 	}
 
-	/**
-	 * Retrieves all nested Blocks of a Block
-	 */
-	def Iterable<Block> getNestedBlocks(Block block) {
-		var set = new HashSet<Block>()
-		for (property : block.base_Class.ownedAttributes) {
-			var type = property.type
-			if (type != null) {
-				var stereotype = type.getAppliedStereotype("SysML::Blocks::Block")
-				if (stereotype != null) {
-					set.add(type.getStereotypeApplication(stereotype) as Block);
-				}
-			}
-		}
-		return set
-	}
-
 	def String getUUID(EObject object) {
 		if (object === null) {
 			return null
@@ -1850,24 +1561,6 @@ class MapToScade extends ScadeModelWriter {
 			return object.base_Class.UUID
 		}
 		return (object.eResource as XMLResource).getID(object)
-	}
-
-	/**
-	 * Function returning all blocks of a SysML Model
-	 * 
-	 * @param model The model for which the function return the blocks
-	 * @return A list of all blocks of the model
-	 */
-	def static EList<Block> getAllBlocks(Model model) {
-		var list = new BasicEList<Block>
-
-		for (Element element : model.allOwnedElements) {
-			var stereotype = element.getAppliedStereotype("SysML::Blocks::Block")
-			if (stereotype != null) {
-				list.add(element.getStereotypeApplication(stereotype) as Block)
-			}
-		}
-		return list
 	}
 
 	/**

@@ -22,9 +22,10 @@ public class Transformation {
 	}
 	
 	public void generateAndWrite(Block block, String projectName, Trace tracefile) {
-		MapToScade mapper = new MapToScade(block, project, projectName, tracefile);
-		
-		mapper.fillScadeModel();
+//		MapToScade mapper = new MapToScade(block, project, projectName, tracefile);
+//		
+//		mapper.fillScadeModel();
+		throw new UnsupportedOperationException();
 	}
 	
 	public void update(Model sysmlModel, Trace tracefile) {
