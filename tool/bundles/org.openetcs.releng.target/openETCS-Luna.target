@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="42">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="50">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.11.0.201408220301"/>
-<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.11.0.201408220301"/>
-<repository location="http://download.eclipse.org/rmf/updates/milestones"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
-<repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.xsd.sdk.feature.group" version="2.10.0.v20150123-0452"/>
 <unit id="org.eclipse.gef.sdk.feature.group" version="3.9.101.201408150207"/>
@@ -30,6 +21,24 @@
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
 <unit id="org.eclipse.platform.sdk" version="4.4.2.M20150204-1700"/>
 <repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
+<repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.formalmind.rmf.pror.transfer.feature.feature.group" version="1.0.0.201503131109"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature.feature.group" version="1.0.0.201503131109"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201503131109"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature.feature.group" version="1.0.0.201503131109"/>
+<unit id="org.eclipse.rmf.reqif10.pror.feature.feature.group" version="0.12.0.201503131033"/>
+<unit id="org.eclipse.rmf.reqif10.feature.feature.group" version="0.12.0.201503131033"/>
+<unit id="com.formalmind.pror.essentials.registration" version="1.0.0.201503131109"/>
+<repository location="http://update.formalmind.com/essentials"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.fx.target.rcp4.feature.feature.group" version="1.1.0.201411050703"/>
+<repository location="http://download.eclipse.org/efxclipse/runtime-released/1.1.0/site"/>
 </location>
 </locations>
 </target>
