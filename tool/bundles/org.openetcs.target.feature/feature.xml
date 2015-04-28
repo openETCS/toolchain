@@ -18,19 +18,43 @@
    </license>
 
    <includes
-         id="org.eclipse.platform"
+         id="org.openetcs.sysml.constraints.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.help"
+         id="org.openetcs.pror.tracing.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.emf.ecore"
+         id="org.eclipse.rmf.reqif10.pror.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.e4.rcp"
+         id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="com.formalmind.rmf.pror.transfer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.rmf.reqif10.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.rmf.reqif10.thirdparty.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.fx.target.rcp4.feature"
          version="0.0.0"/>
 
    <includes
@@ -38,7 +62,23 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.emf.common"
+         id="org.eclipse.ecf.core.ssl.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.nattable.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.validation.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sphinx.emf.serialization"
          version="0.0.0"/>
 
    <includes
@@ -50,27 +90,11 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.rcp"
+         id="org.eclipse.papyrus.emf.facet.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.p2.extras.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rmf.reqif10.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rmf.reqif10.pror.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.rmf.reqif10.thirdparty.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.papyrus.sdk.feature"
+         id="org.eclipse.papyrus.sysml.feature"
          version="0.0.0"/>
 
    <includes
@@ -78,11 +102,43 @@
          version="0.0.0"/>
 
    <includes
+         id="org.eclipse.papyrus.infra.widget.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.properties.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.eclipse.jgit"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.papyrus.infra.nattable.feature"
+         id="org.eclipse.papyrus.uml.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.emf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.xwt.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.common"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.p2.extras.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.discovery.feature"
          version="0.0.0"/>
 
    <includes
@@ -90,19 +146,347 @@
          version="0.0.0"/>
 
    <includes
+         id="org.eclipse.papyrus.views.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.httpclient4.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.diagram.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.gmfdiag.css.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.textedit.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.nattable.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.xtext.integration.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.help"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.diagram.css.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.search.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.ssl.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.properties.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.gmfdiag.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.viewpoints.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.services.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.core.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.editor.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.tools.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.core.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.e4.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.diagram.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.customization.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.alf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.search.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.properties.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.runtime.notation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.runtime.thirdparty"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.tooling"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.workspace"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.transaction"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.edit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.draw2d"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.validation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.edit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gef"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2.common"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2.uml"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2.common.edit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2.codegen.ecore.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.uml2.uml.edit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.converter"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.xtend.typesystem.uml2"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.customization.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.editor.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.emf.facet.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.core.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.discovery.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.emf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.gmfdiag.css.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.gmfdiag.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.nattable.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.services.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.viewpoints.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.infra.widget.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.diagram.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.nattable.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.sysml.properties.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.alf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.diagram.css.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.diagram.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
          id="org.eclipse.papyrus.uml.nattable.feature"
          version="0.0.0"/>
-         
+
    <includes
-         id="org.eclipse.papyrus.infra.gmfdiag.css.feature"
+         id="org.eclipse.papyrus.uml.properties.feature"
          version="0.0.0"/>
 
    <includes
-         id="eu.compassresearch.rttmbt.feature"
+         id="org.eclipse.papyrus.uml.search.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.papyrus.infra.gmfdiag.css.feature"
+         id="org.eclipse.papyrus.uml.textedit.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.tools.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.uml.xtext.integration.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.modelexplorer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.properties.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.search.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.views.validation.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.papyrus.xwt.feature"
          version="0.0.0"/>
 
    <plugin
@@ -517,13 +901,6 @@
 
    <plugin
          id="org.eclipse.m2m.qvt.oml.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.jdt.apt.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
