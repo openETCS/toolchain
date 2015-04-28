@@ -74,6 +74,69 @@ or has expressed by any other mean his willingness to license under the EUPL.
       <feature id="org.openetcs.target.feature" version="1.0.1.qualifier"/>
       <feature id="org.openetcs.sysml.constraints.feature" version="1.0.1.qualifier"/>
       <feature id="org.openetcs.pror.tracing.feature" version="1.0.1.qualifier"/>
+      <feature id="org.eclipse.rmf.reqif10.pror.feature" version="0.12.0.201503131033"/>
+      <feature id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature" version="1.0.0.201503131109"/>
+      <feature id="com.formalmind.rmf.pror.transfer.feature" version="1.0.0.201503131109"/>
+      <feature id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature" version="1.0.0.201503131109"/>
+      <feature id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature" version="1.0.0.201503131109"/>
+      <feature id="org.eclipse.rmf.reqif10.feature" version="0.12.0.201503131033"/>
+      <feature id="org.eclipse.rmf.reqif10.thirdparty.feature" version="0.12.0.201503131033"/>
+      <feature id="org.eclipse.fx.target.rcp4.feature" version="1.1.0.201411050703"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.papyrus.uml.nattable.feature"/>
+      <feature id="org.eclipse.papyrus.views.validation.feature"/>
+      <feature id="org.eclipse.sphinx.emf.serialization"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.papyrus.emf.facet.feature"/>
+      <feature id="org.eclipse.papyrus.sysml.feature"/>
+      <feature id="org.eclipse.egit"/>
+      <feature id="org.eclipse.papyrus.infra.widget.feature"/>
+      <feature id="org.eclipse.papyrus.uml.properties.feature"/>
+      <feature id="org.eclipse.jgit"/>
+      <feature id="org.eclipse.papyrus.uml.modelexplorer.feature"/>
+      <feature id="org.eclipse.papyrus.sysml.modelexplorer.feature"/>
+      <feature id="org.eclipse.papyrus.infra.emf.feature"/>
+      <feature id="org.eclipse.papyrus.xwt.feature"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.papyrus.infra.discovery.feature"/>
+      <feature id="org.eclipse.papyrus.sysml.nattable.feature"/>
+      <feature id="org.eclipse.papyrus.views.modelexplorer.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.papyrus.sysml.diagram.feature"/>
+      <feature id="org.eclipse.papyrus.infra.gmfdiag.css.feature"/>
+      <feature id="org.eclipse.papyrus.uml.textedit.feature"/>
+      <feature id="org.eclipse.papyrus.infra.nattable.feature"/>
+      <feature id="org.eclipse.papyrus.uml.xtext.integration.feature"/>
+      <feature id="org.eclipse.papyrus.sdk.feature"/>
+      <feature id="org.eclipse.papyrus.uml.feature"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.eclipse.papyrus.infra.feature"/>
+      <feature id="org.eclipse.papyrus.uml.diagram.css.feature"/>
+      <feature id="org.eclipse.papyrus.doc.feature"/>
+      <feature id="org.eclipse.papyrus.views.search.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.papyrus.views.properties.feature"/>
+      <feature id="org.eclipse.papyrus.infra.gmfdiag.feature"/>
+      <feature id="org.eclipse.papyrus.infra.viewpoints.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.papyrus.infra.services.feature"/>
+      <feature id="org.eclipse.papyrus.infra.core.feature"/>
+      <feature id="org.eclipse.papyrus.editor.feature"/>
+      <feature id="org.eclipse.papyrus.uml.tools.feature"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.papyrus.uml.diagram.feature"/>
+      <feature id="org.eclipse.papyrus.customization.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.papyrus.uml.alf.feature"/>
+      <feature id="org.eclipse.papyrus.uml.search.feature"/>
+      <feature id="org.eclipse.papyrus.sysml.properties.feature"/>
    </features>
 
    <configurations>
