@@ -1,21 +1,21 @@
 [comment
 
-Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
-  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+Copyright 2014 Thomas Bardot, David Mentrï¿½ and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentrï¿½ <d.mentre@fr.merce.mee.com>
 
 Licensed under the EUPL V.1.1
 
 /]
 
 [comment encoding = UTF-8 /]
-[module m_generateTypes_B('http://www.eclipse.org/papyrus/0.7.0/SysML', 'http://www.eclipse.org/uml2/4.0.0/UML')]
-[import SysMLTransform::m_basicTemplates_B /]
-[import SysMLTransform::m_basicQueries /]
+[module m_generateTypes_B('http://www.eclipse.org/papyrus/0.7.0/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML')]
+[import org::openetcs::sysml2b::transformation::m_basicTemplates_B /]
+[import org::openetcs::sysml2b::transformation::m_basicQueries /]
 
 [template public generateTypesFiles(aElement : NamedElement,fileName : String, mainPath : String, Version : Real)]
 [file (mainPath.concat('/').concat(fileName).concat('.mch'), false)]
 [comment Add the File Header /]
-[aElement.t_AddFileHeader_B(fileName.concat('.mch'), '', 'B machine which contains the définition of the enumarations used by the project', Version)/]
+[aElement.t_AddFileHeader_B(fileName.concat('.mch'), '', 'B machine which contains the dï¿½finition of the enumarations used by the project', Version)/]
 
 MACHINE
 	[fileName/]

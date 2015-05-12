@@ -1,16 +1,17 @@
 [comment
 
-Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
-  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+Copyright 2014 Thomas Bardot, David Mentrï¿½ and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentrï¿½ <d.mentre@fr.merce.mee.com>
 
 Licensed under the EUPL V.1.1
 
 /]
 
 [comment encoding = UTF-8 /]
-[module m_blockQueries('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::services::m_services /]
-[import SysMLTransform::m_portsQueries /]
+[module m_blockQueries('http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import org::openetcs::sysml2b::transformation::services::m_services /]
+[import org::openetcs::sysml2b::transformation::m_generalQueries /]
+[import org::openetcs::sysml2b::transformation::m_portsQueries /]
 
 [comment This query returns all the Blocks of the model/]
 [query public q_getBlockList (aElement : Element) : OrderedSet(Class) 
@@ -45,11 +46,6 @@ Licensed under the EUPL V.1.1
 	= aClass.ownedBehavior->filter(StateMachine)->asOrderedSet()->sortedBy(name)
 /]
 
-[comment This query returns the part properties which belong to aClass/]
-[query public q_getBlockParts(aClass : Class) : OrderedSet(Property)
-	= aClass.part->select(aPart:Property | aPart.aggregation.toString()='composite' and not(aPart.association->isEmpty()))->asOrderedSet()->sortedBy(name)
-/]
-
 [comment This query returns all the part properties of the model which are typed with aClass/]
 [query public q_getTypedParts(aClass : Class) : OrderedSet(Property)
 	= q_getAllParts(aClass)->select(aPart : Property | q_getPartRefBlock(aPart) = aClass)->asOrderedSet()
@@ -58,11 +54,6 @@ Licensed under the EUPL V.1.1
 [comment This query returns all the part properties of the model/]
 [query public q_getAllParts(aElement : Element) : OrderedSet(Property)
 	= q_getBlockList(aElement)->collect(q_getBlockParts())->asOrderedSet()
-/]
-
-[comment This query returns the block for which aPart is an instance/]
-[query public q_getPartRefBlock(aPart : Property) : Class
-	= aPart.type.oclAsType(Class)
 /]
 
 [comment This query returns the properties of aClass that are seen as local variables /]

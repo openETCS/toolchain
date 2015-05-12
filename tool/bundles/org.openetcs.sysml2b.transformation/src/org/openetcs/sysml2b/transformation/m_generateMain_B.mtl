@@ -1,15 +1,15 @@
 [comment
 
-Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
-  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+Copyright 2014 Thomas Bardot, David Mentrï¿½ and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentrï¿½ <d.mentre@fr.merce.mee.com>
 
 Licensed under the EUPL V.1.1
 
 /]
 
 [comment encoding = UTF-8 /]
-[module m_generateMain_B('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
-[import SysMLTransform::m_basicTemplates_B /]
+[module m_generateMain_B('http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+[import org::openetcs::sysml2b::transformation::m_basicTemplates_B /]
 
 [template public t_generateMainBModule(FirstInstance : InstanceSpecification,fileName : String, mainPath : String, Version : Real, DataFileName : String)]
 [let fileName_mch: String = mainPath.concat('/').concat(fileName).concat('.mch')]

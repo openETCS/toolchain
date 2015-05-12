@@ -1,27 +1,27 @@
 [comment
 
-Copyright 2014 Thomas Bardot, David Mentré and Mitsubishi Electric R&D Centre Europe
-  Contact: David Mentré <d.mentre@fr.merce.mee.com>
+Copyright 2014 Thomas Bardot, David Mentrï¿½ and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentrï¿½ <d.mentre@fr.merce.mee.com>
 
 Licensed under the EUPL V.1.1
 
 /]
 
 [comment encoding = Cp1252 /]
-[module m_services('http://www.eclipse.org/uml2/4.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')/]
+[module m_services('http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')/]
 
 [query public hasStereotype(arg0 : Element, arg1 : String) : Boolean
-	= invoke('SysMLTransform.services.javaService', 'hasStereotype(org.eclipse.uml2.uml.Element, java.lang.String)', Sequence{arg0, arg1})
+	= invoke('org.openetcs.sysml2b.transformation.services.javaService', 'hasStereotype(org.eclipse.uml2.uml.Element, java.lang.String)', Sequence{arg0, arg1})
 /]
 
 [query public getTaggedValue(arg0 : Element, arg1 : String, arg2 : String) : Sequence(OclAny)
-	= invoke('SysMLTransform.services.javaService', 'getTaggedValue(org.eclipse.uml2.uml.Element, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2})
+	= invoke('org.openetcs.sysml2b.transformation.services.javaService', 'getTaggedValue(org.eclipse.uml2.uml.Element, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2})
 /]
 
 [query public replaceStringList(arg0 : String, arg1 : Sequence(OclAny), arg2 : String) : String
-	= invoke('SysMLTransform.services.javaService', 'replaceStringList(java.lang.String, java.util.List, java.lang.String)', Sequence{arg0, arg1, arg2})
+	= invoke('org.openetcs.sysml2b.transformation.services.javaService', 'replaceStringList(java.lang.String, java.util.List, java.lang.String)', Sequence{arg0, arg1, arg2})
 /]
 
 [query public addPrefix(arg0 : String, arg1 : String) : String
-	= invoke('SysMLTransform.services.javaService', 'addPrefix(java.lang.String, java.lang.String)', Sequence{arg0, arg1})
+	= invoke('org.openetcs.sysml2b.transformation.services.javaService', 'addPrefix(java.lang.String, java.lang.String)', Sequence{arg0, arg1})
 /]

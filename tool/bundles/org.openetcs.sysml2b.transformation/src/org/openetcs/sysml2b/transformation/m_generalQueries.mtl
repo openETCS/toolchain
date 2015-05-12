@@ -1,0 +1,23 @@
+[comment
+
+Copyright 2014 Thomas Bardot, David Mentr� and Mitsubishi Electric R&D Centre Europe
+  Contact: David Mentr� <d.mentre@fr.merce.mee.com>
+
+Licensed under the EUPL V.1.1
+
+/]
+
+[comment encoding = UTF-8 /]
+[module m_generalQueries('http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/papyrus/0.7.0/SysML')]
+
+[comment This aim of this module is to avoid circular dependencies between m_blockQueries and m_bportsQueries. /]
+
+[comment This query returns the block for which aPart is an instance/]
+[query public q_getPartRefBlock(aPart : Property) : Class
+	= aPart.type.oclAsType(Class)
+/]
+
+[comment This query returns the part properties which belong to aClass/]
+[query public q_getBlockParts(aClass : Class) : OrderedSet(Property)
+	= aClass.part->select(aPart:Property | aPart.aggregation.toString()='composite' and not(aPart.association->isEmpty()))->asOrderedSet()->sortedBy(name)
+/]
