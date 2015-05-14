@@ -18,6 +18,7 @@ http://openetcs.org/
    <launcherArgs>
       <vmArgs>-Xmx1536M
 -XX:MaxPermSize=768M
+-Dosgi.framework.extensions=org.eclipse.fx.osgi
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
