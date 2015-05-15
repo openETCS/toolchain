@@ -2,6 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>org.openetcs</groupId>
   <artifactId>org.openetcs.releng.parent</artifactId>
   <version>1.0.1-SNAPSHOT</version>
@@ -13,23 +14,7 @@
 	<replacer-version>1.4.1</replacer-version>
 	<assembly-version>2.4</assembly-version>
   </properties>
-  <repositories>
-		<repository>
-			<id>eclipse-luna</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/luna</url>
-		</repository>
-		<repository>
-			<id>eclipse-rmf</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/rmf/updates/milestones</url> 
-		</repository>
-		<repository>
-			<id>uni-bremen-rtt</id>
-			<layout>p2</layout>
-			<url>http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/</url>
-		</repository>					
-	</repositories>	
+
   <modules>
     <module>../org.openetcs.common</module>
     <module>../org.openetcs.sysml.constraints</module>
@@ -98,16 +83,36 @@
               <arch>x86_64</arch>
             </environment>
           </environments>
-		  <!--  
+
           <target>
             <artifact>
               <groupId>org.openetcs</groupId>
               <artifactId>openETCS-Luna</artifactId>
               <version>${openetcs-version}</version>
             </artifact>
-          </target>-->
+          </target>
         </configuration>
       </plugin>
+
+			<!-- Get JavaFX that ships with JRE onto classpath -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- add JavaFX to classpath -->
+					<extraClasspathElements>
+						<extraClasspathElement>
+							<groupId>com.oracle</groupId>
+							<artifactId>javafx</artifactId>
+							<version>2.2.0-SNAPSHOT</version>
+							<systemPath>${java.home}/lib/jfxrt.jar</systemPath>
+							<scope>system</scope>
+						</extraClasspathElement>
+					</extraClasspathElements>
+				</configuration>
+			</plugin>
+
     </plugins>
   </build>
 </project>
