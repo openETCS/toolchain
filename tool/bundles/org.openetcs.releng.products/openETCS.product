@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="0.1.7" useFeatures="true" includeLaunchers="true">
+<product name="openETCS Extended Tool Construction Set" uid="org.openetcs.releng.product" id="org.openetcs.product.openetcs" application="org.eclipse.ui.ide.workbench" version="1.0.1" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.openetcs.product/openETCS-logo.png"/>
@@ -17,8 +17,11 @@ http://openetcs.org/
 
    <launcherArgs>
       <vmArgs>-Xmx1536M
--XX:MaxPermSize=768M</vmArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+-XX:MaxPermSize=768M
+-Dosgi.framework.extensions=org.eclipse.fx.osgi
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="logo/openETCS-logo16x16.png" i32="logo/openETCS-logo32x32.png" i48="logo/openETCS-logo48x48.png" i64="logo/openETCS-logo64x64.png" i128="logo/openETCS-logo128x128.png"/>
@@ -67,11 +70,9 @@ or has expressed by any other mean his willingness to license under the EUPL.
    </plugins>
 
    <features>
-      <feature id="org.openetcs.core.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.target.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.datadictionary.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.sysml.constraints.feature" version="0.1.0.qualifier"/>
-      <feature id="org.openetcs.pror.tracing.feature" version="0.1.0.qualifier"/>
+      <feature id="org.openetcs.datadictionary.feature"/>
+      <feature id="org.openetcs.core.feature"/>
+      <feature id="org.openetcs.target.feature"/>
    </features>
 
    <configurations>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Functionaly commonly used by openETCS plugins
 Bundle-SymbolicName: org.openetcs.common;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Activator: org.openetcs.common.Activator
 Bundle-Vendor: Fraunhofer ESK
 Require-Bundle: org.eclipse.ui,
@@ -11,12 +11,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.validation,
  org.openetcs.sysml.constraints,
  org.eclipse.papyrus.sysml,
- org.eclipse.uml2.uml
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.infra.onefile
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.core.resources,
- org.eclipse.emf.ecore.resource,
- org.eclipse.emf.ecore.resource.impl,
- org.eclipse.papyrus.infra.onefile.model,
- org.eclipse.uml2.uml
 Export-Package: org.openetcs.common

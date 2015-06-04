@@ -2,7 +2,7 @@
 <feature
       id="org.openetcs.datadictionary.feature"
       label="Data Dictionary based on System Requirements Specification (SRS)"
-      version="0.1.0.qualifier"
+      version="1.0.1.qualifier"
       provider-name="Fraunhofer ESK, LAAS-CNRS">
 
    <description>

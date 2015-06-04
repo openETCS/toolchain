@@ -3,6 +3,7 @@
 		<toc primary="false" category="Doc" file="bin/documentation/Overview-toc.xml"></toc>
 		  		<toc primary="false" category="Doc" file="bin/documentation/Installation-toc.xml"></toc>
 		  		<toc primary="false" category="Doc" file="bin/documentation/Getting-Started-toc.xml"></toc>
+		  		<toc primary="false" category="Doc" file="bin/documentation/Process-Documentation-toc.xml"></toc>
 		  		<toc primary="false" category="Doc" file="bin/documentation/User-Documentation-toc.xml"></toc>
 		  		<toc primary="false" category="Doc" file="bin/documentation/Developer-Documentation-toc.xml"></toc>
 		  		<toc primary="false" category="Doc" file="bin/documentation/FAQ-toc.xml"></toc>

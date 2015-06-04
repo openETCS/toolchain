@@ -23,18 +23,6 @@
 		<buildCommand>
 			<name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name>
 			<arguments>
-				<dictionary>
-					<key>compilation.kind</key>
-					<value>compilation.platform.resource</value>
-				</dictionary>
-				<dictionary>
-					<key>compliance</key>
-					<value>pragmatic</value>
-				</dictionary>
-				<dictionary>
-					<key>resource.kind</key>
-					<value>xmi</value>
-				</dictionary>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
@@ -44,3 +32,4 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>
 </projectDescription>
+

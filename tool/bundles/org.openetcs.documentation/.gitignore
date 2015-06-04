@@ -1,3 +1,4 @@
 /target
-bin
-cloned_repository
+/cloned_repository
+/target
+/tmp
