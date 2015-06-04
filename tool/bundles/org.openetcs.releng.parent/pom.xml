@@ -32,8 +32,8 @@
 	<module>../org.openetcs.pror.tracing.sysml</module>
 	<module>../org.openetcs.pror.tracing.feature</module>
 	<module>../org.openetcs.sysml2b.transformation</module>
-	<module>../org.openetcs.sysml.report</module>
-<!-- <module>../org.openetcs.pror.tracing.test</module>
+<!--	<module>../org.openetcs.sysml.report</module>
+ <module>../org.openetcs.pror.tracing.test</module>
 	<module>../org.openetcs.documentation.test</module>  -->
   </modules>
   
