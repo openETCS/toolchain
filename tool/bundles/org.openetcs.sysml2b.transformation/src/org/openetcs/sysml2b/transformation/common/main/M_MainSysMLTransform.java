@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
@@ -23,6 +24,8 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.papyrus.sysml.util.SysmlResource;
+import org.eclipse.uml2.uml.resource.UMLResource;
 
 /**
  * Entry point of the 'M_MainSysMLTransform' generation module.
@@ -335,7 +338,7 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
@@ -376,6 +379,19 @@ public class M_MainSysMLTransform extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.papyrus.sysml.usecases.UsecasesPackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.papyrus.sysml.usecases.UsecasesPackage.eINSTANCE.getNsURI(), org.eclipse.papyrus.sysml.usecases.UsecasesPackage.eINSTANCE);
         }
+        
+        Map<URI, URI> uriMap = resourceSet.getURIConverter().getURIMap();
+        
+        // UML2 profiles
+        URI uri = URI.createURI("platform:/plugin/org.eclipse.uml2.uml.resources");
+        uriMap.put(URI.createURI(UMLResource.LIBRARIES_PATHMAP), uri.appendSegment("libraries").appendSegment(""));
+        uriMap.put(URI.createURI(UMLResource.METAMODELS_PATHMAP), uri.appendSegment("metamodels").appendSegment(""));
+        uriMap.put(URI.createURI(UMLResource.PROFILES_PATHMAP), uri.appendSegment("profiles").appendSegment(""));  
+        
+        // SysML profiles
+        uri = URI.createURI("platform:/plugin/org.eclipse.papyrus.sysml");
+        uriMap.put(URI.createURI(SysmlResource.LIBRARIES_PATHMAP), uri.appendSegment("librairies").appendSegment(""));
+        uriMap.put(URI.createURI("pathmap://SysML_PROFILES/"), uri.appendSegment("model").appendSegment(""));
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
