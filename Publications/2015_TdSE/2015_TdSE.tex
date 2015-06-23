@@ -37,7 +37,8 @@
 % ------
 % Titling (section/subsection)
 \usepackage{titlesec}
-\titleformat{\section}[block]{\large\scshape\centering{\Roman{section}.}}{}{1em}{}
+\titleformat{\section}[block]{\large\scshape\centering{\thesection.}}{}{1em}{}
+\titleformat{\subsection}[block]{\large\scshape\centering{\thesubsection}}{}{1em}{}
 
 
 % ------
@@ -112,7 +113,7 @@
 \lipsum[2]
 
 %=========================================================================
-\section{ETCS und openETCS}
+\subsection{ETCS und openETCS}
 % 1 Seite, Michael
 %=========================================================================
 
@@ -128,16 +129,21 @@ Open Proofs
 
 Realität
 
-%=========================================================================
-\section{Subset 26}
+%-------------------------------------------------------------------------
+\subsection{Subset 26}
 % ½ Seite, Moritz
-%=========================================================================
+%-------------------------------------------------------------------------
 
 ETCS besteht aus diversen Teilsystemen, deren jeweilige Spezifikationen unabhängig voneinander gepflegt werden. Die Kernfunktionalität des Systems wird in dem gut 500-seitigen Dokument \glqq Subset-026\grqq\ beschrieben, das wiederum aus acht, in einzelnen Dateien verwalteten Kapiteln besteht.
 
 Thematisch behandelt das \glqq Subset-026\grqq\ hauptsächlich einen Fahrzeugrechner, den sogenannten European Vital Computer (EVC) und dessen Schnittstellen. Der EVC kommuniziert über drei verschiedene Arten (punktförmiger Transponder, Leiterschleife und Funk) mit den streckenseitigen Einrichtungen und verfügt zudem über eine Mensch-Maschine-Schnittstelle (Driver Machine Interface) über die der Triebfahrzeugführer Eingaben vornehmen kann. All diese Daten verarbeitet der Rechner kontinuierlich und leitet daraus Aktionen für das Fahrzeug ab (Bremsen, Beschleunigen, Stromabnehmer heben/senken, ...).
 
-Neben dem \glqq Subset-026\grqq\ gibt es zahlreiche weitere Subsets, die sich mit den vom EVC angesteuerten Komponenten befassen. Deren breit gefächerte Inhalte reichen von funktionalen Anforderungen an eine fahrzeugseitige Aufzeichnungseinheit (eine Art \glqq Black-Box\grqq ) über streckenseitige Stellwerksschnittstellen bis hin zu kryptographischen Details für die Funkverbindung. Alle Spezifikationen werden von der European Railway Agency, einer EU-Behörde, zentral verwaltet und sind als Word- und PDF-Dokumente 
+Neben dem \glqq{}Subset-026\grqq{} gibt es zahlreiche weitere Subsets, die sich mit den vom EVC angesteuerten Komponenten befassen. Deren breit gefächerte Inhalte reichen von funktionalen Anforderungen an eine fahrzeugseitige Aufzeichnungseinheit (eine Art \glqq Black-Box\grqq ) über streckenseitige Stellwerksschnittstellen bis hin zu kryptographischen Details für die Funkverbindung. Alle Spezifikationen werden von der European Railway Agency, einer EU-Behörde, zentral verwaltet und sind als Word- und PDF-Dokumente 
+
+%-------------------------------------------------------------------------
+\subsection{ReqIF}
+% ½ Seite, Michael
+%-------------------------------------------------------------------------
 
 %=========================================================================
 \section{Von Word nach ReqIF}
@@ -146,26 +152,32 @@ Neben dem \glqq Subset-026\grqq\ gibt es zahlreiche weitere Subsets, die sich mi
 Hier wird das eigentliche Arbeitsergebnis von Moritz vorgestellt.
 
 %-------------------------------------------------------------------------
-\section{Anforderungen im V-Modell}
+\subsection{Anforderungen im V-Modell}
 % ½ Seite, Michael
 %-------------------------------------------------------------------------
+
+Im Schienenbereich bewegen wir uns im sicherheitskritischen Bereich, wo entsprechende Vorschriften herrschen.  Maßgeblich ist hier EN 50128 \cite{en50128}, eine Spezialisierung der EN 61508 für sicherheitsrelevante Software der Eisenbahn.  Hardware ist nicht im Scope von openETCS.  Der im Standard beschriebene Entwicklungsprozess orientiert sich am V-Modell.
+
+Das V-Modell zeichnet sich unter anderem dadurch aus, dass Anforderungen und deren Verfolgbarkeit eine zentrale Rolle spielen: Anforderungen bilden den Ausgangspunkt der Entwicklung (\glqq{}links oben\grqq{}), wovon sich nachfolgend Artefakte bis zur Implementierung ableiten (\glqq{}Mitte unten\grqq{}). Wie viele Zwischenschritte es gibt, hängt von der Größe der Entwicklung ab.  Gleichzeitig gibt es eine Traceability zu den entsprechenden Tests auf den verschiedenen Ebenen (\glqq{}rechter Ast\grqq{}).
+
+
 
 Zentrale Bedeutung von Anforderungen und Traceability / ReqIF passt strategisch sehr gut ins Projekt (offen, standardisiert, Eclipse-Implementierung besteht).
 
 %-------------------------------------------------------------------------
-\section{Word: Herausforderungen}
+\subsection{Word: Herausforderungen}
 % ½ Seite, Moritz
 %-------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------
-\section{Lösungsansatz und Implementierung}
+\subsection{Lösungsansatz und Implementierung}
 % 1 Seite, Moritz
 %-------------------------------------------------------------------------
 
 Hier schreiben wir noch nichts über die weitere Verwertung – das würde ich im Abschluss machen, und von hier darauf verweisen.
 
 %-------------------------------------------------------------------------
-\section{Einsatz in openETCS}
+\subsection{Einsatz in openETCS}
 % ½ Seite, Moritz, Michael
 %-------------------------------------------------------------------------
 
@@ -178,7 +190,7 @@ Einsatz der IDs in Reqtify, Nutzung von Eclipse RMF als Viewer für die Anforder
 Projekt endet dieses Jahr; Ergebnisse im Bereich Open Source eher enttäuschend. RMF die brauchbarste Komponente; wird durch den Word-Converter erheblich aufgewertet.
 
 %-------------------------------------------------------------------------
-\section{ReqIF in der Systementwicklung}
+\subsection{ReqIF in der Systementwicklung}
 % 1 Seite, Michael
 %-------------------------------------------------------------------------
 
@@ -187,7 +199,7 @@ Entwicklung von SysML2B, als alternative zu Scade.  Leichte Integration mit ReqI
 Hinweis auf PolarSys, und entsprechende Aktivitäten
 
 %-------------------------------------------------------------------------
-\section{Verwertung}
+\subsection{Verwertung}
 % 1½ Seiten; Michael & Moritz
 %-------------------------------------------------------------------------
 
