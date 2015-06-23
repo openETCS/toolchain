@@ -1,0 +1,185 @@
+\documentclass[twoside]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{nopageno}
+\usepackage{lipsum}
+
+% ------
+% Fonts and typesetting settings
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\linespread{1.05} % Palatino needs more space between lines
+\usepackage{microtype}
+\usepackage{ngerman}
+
+% ------
+% Page layout
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
+\usepackage[font=it]{caption}
+\usepackage{paralist}
+\usepackage{multicol}
+
+% ------
+% Lettrines
+\usepackage{lettrine}
+
+
+% ------
+% Abstract
+\usepackage{abstract}
+	\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+	\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+
+
+% ------
+% Titling (section/subsection)
+\usepackage{titlesec}
+\titleformat{\section}[block]{\large\scshape\centering{\Roman{section}.}}{}{1em}{}
+
+
+% ------
+% Header/footer
+\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead{}
+	\fancyfoot{}
+	\fancyhead[C]{Einreichung zu TdSE 2015 $\bullet$ Industrievortrag $\bullet$ Jastram, Dorka}
+	\fancyfoot[RO,LE]{\thepage}
+
+
+% ------
+% Clickable URLs (optional)
+\usepackage{hyperref}
+
+% PDF Metadata
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=true,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Einreichung zur TdSE 2015: Solide Anforderungen dank ReqIF im europäischen Schienenverkehr},    % title
+    pdfauthor={Michael Jastram, Moritz Dorka},     % author
+    pdfsubject={Industrievortrag},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+% ------
+% Maketitle metadata
+\title{\vspace{-15mm}%
+	\fontsize{24pt}{10pt}\selectfont
+	\textbf{Solide Anforderungen dank ReqIF im europäischen Schienenverkehr}
+	}	
+\author{%
+	\large
+	\textsc{Michael Jastram, Moritz Dorka} \\[2mm]
+	\normalsize	Formal Mind GmbH \\
+	\normalsize	TU Dresden
+	\vspace{-5mm}
+	}
+\date{}
+
+%\usepackage[left=2cm,top=0.9cm,right=2cm,bottom=3cm,nohead,nofoot]{geometry}
+%\titleformat{\section}{\large\bfseries}{\thesection}{compact}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+\noindent Im Zug von Düsseldorf über Brüssel nach Paris – das ist heute schon möglich, dank ETCS, dem European Train Control System.  Diese Spezifikation beschreibt die Kommunikation zwischen Signalanlagen und Zug. Leider wurde bei der Erstellung im Jahre 1998 auf den kleinsten gemeinsamen Nenner zurückgegriffen, MS Word. Das Ergebnis sind tausende Seiten, die schwer zu pflegen und inkonsistent formatiert und über viele Dateien verteilt sind.  Im Rahmen des ITEA-Projekts openETCS wurde ein Konverter entwickelt, mit dem diese Dokumente in das offene, international standardisierte ReqIF überführt werden kann.  Das ReqIF-basierte Anforderungsmodell wird dann im Projekt als Basis für die weitere Systemmodelllierung eingesetzt, wo es von verschiedenen Werkzeugen konsumiert werden kann.
+\end{abstract}
+	
+\begin{multicols}{2}
+\noindent 
+
+%=========================================================================
+\section{Einleitung}
+% 1 Seite, zum Schluss schreiben
+%=========================================================================
+
+\lipsum[2]
+
+%=========================================================================
+\section{ETCS und openETCS}
+% 1 Seite, Michael
+%=========================================================================
+
+Auch wenn es ETCS schon fast 20 Jahre gibt, so geht die Umsetzung in Europa doch eher träge voran \cite{traege_umsetzung}.
+
+%=========================================================================
+\section{Subset 26}
+% ½ Seite, Moritz
+%=========================================================================
+
+ETCS besteht aus diversen Teilsystemen, deren jeweilige Spezifikationen unabhängig voneinander gepflegt werden. Die Kernfunktionalität des Systems wird in dem gut 500-seitigen Dokument \glqq Subset-026\grqq\ beschrieben, das wiederum aus acht, in einzelnen Dateien verwalteten Kapiteln besteht.
+
+Thematisch behandelt das \glqq Subset-026\grqq\ hauptsächlich einen Fahrzeugrechner, den sogenannten European Vital Computer (EVC) und dessen Schnittstellen. Der EVC kommuniziert über drei verschiedene Arten (punktförmiger Transponder, Leiterschleife und Funk) mit den streckenseitigen Einrichtungen und verfügt zudem über eine Mensch-Maschine-Schnittstelle (Driver Machine Interface) über die der Triebfahrzeugführer Eingaben vornehmen kann. All diese Daten verarbeitet der Rechner kontinuierlich und leitet daraus Aktionen für das Fahrzeug ab (Bremsen, Beschleunigen, Stromabnehmer heben/senken, ...).
+
+Neben dem \glqq Subset-026\grqq\ gibt es zahlreiche weitere Subsets, die sich mit den vom EVC angesteuerten Komponenten befassen. Deren breit gefächerte Inhalte reichen von funktionalen Anforderungen an eine fahrzeugseitige Aufzeichnungseinheit (eine Art \glqq Black-Box\grqq ) über streckenseitige Stellwerksschnittstellen bis hin zu kryptographischen Details für die Funkverbindung. Alle Spezifikationen werden von der European Railway Agency, einer EU-Behörde, zentral verwaltet und sind als Word- und PDF-Dokumente 
+
+%=========================================================================
+\section{Von Word nach ReqIF}
+%=========================================================================
+
+%-------------------------------------------------------------------------
+\section{Anforderungen im V-Modell}
+% ½ Seite, Michael
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\section{Word: Herausforderungen}
+% ½ Seite, Moritz
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\section{Lösungsansatz und Implementierung}
+% 1 Seite, Moritz
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\section{Einsatz in openETCS}
+% ½ Seite, Moritz, Michael
+%-------------------------------------------------------------------------
+
+%=========================================================================
+\section{Die Zukunft von openETCS}
+%=========================================================================
+
+%-------------------------------------------------------------------------
+\section{ReqIF in der Systementwicklung}
+% 1 Seite, Michael
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\section{Verwertung}
+% 1½ Seiten; Michael & Moritz
+%-------------------------------------------------------------------------
+
+%=========================================================================
+\section{Fazit}
+% ½ Seite
+%=========================================================================
+
+
+\end{multicols}
+
+\titleformat{\section}[block]{\large\scshape\centering{}}{}{1em}{}
+
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
+
+
+\end{document}
+
