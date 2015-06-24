@@ -163,11 +163,16 @@ Das V-Modell zeichnet sich unter anderem dadurch aus, dass Anforderungen und der
 
 
 Zentrale Bedeutung von Anforderungen und Traceability / ReqIF passt strategisch sehr gut ins Projekt (offen, standardisiert, Eclipse-Implementierung besteht).
+Siehe auch clause D.58 der EN 50128 wonach Traceability für SIL 3 und 4 \emph{mandatory} ist.
 
 %-------------------------------------------------------------------------
 \subsection{Word: Herausforderungen}
 % ½ Seite, Moritz
 %-------------------------------------------------------------------------
+
+Microsoft Word ist ein Textverarbeitungsprogramm für die breite Masse. Es versucht dementsprechend möglichst viele Anwendungsbereiche abzudecken und dem Nutzer dabei möglichst wenige Einschränkungen zu machen. Dies führt unweigerlich zu einer sehr komplexen Software (\glqq eierlegende Wollmilchsau\grqq ) und spiegelt sich auch in dem zugrundeliegenden Dateiformat wider. Zudem verführt die Verfügbarkeit all dieser Funktionen den Nutzer bisweilen auch zu deren Verwendung -- was insbesondere im Umfeld von technischen Dokumentationen nicht unbedingt vorteilhaft sein muss.
+
+Das größte Manko an Word aus Sicht des Anforderungsmanagements ist allerdings das Fehlen einer klaren semantischen Struktur. Es ist also nicht in jedem Fall ohne Weiteres möglich aus dem Fließtext eines solchen Dokuments einzelne, genau abgegrenzte Anforderungen zu extrahieren. Vielmehr sind hier domänenspezifische Algorithmen notwendig, die kontextabhängig sinnvolle, möglichst atomare Elemente in dem Datenstrom des Worddokuments erkennen und ihnen eindeutige Bezeichner für die spätere Traceability zuweisen können. Ebenso muss eine algorithmenbasierte Formalisierung der diversen Formatierungen erfolgen. Durch die Unterstützung von XHTML bietet ReqIF zwar die Voraussetzungen um zahlreiche einfachere Auszeichnungen (Fettdruck, Unterstreichungen, \ldots ) direkt zu übernehmen. Aber insbesondere bei stark layoutabhängigen Elementen (z.B. Pfeilen) hat sich die vorherige Umwandlung in eine Textform als sinnvoll erwiesen.
 
 %-------------------------------------------------------------------------
 \subsection{Lösungsansatz und Implementierung}
