@@ -117,7 +117,9 @@
 % 1 Seite, Michael
 %=========================================================================
 
-Auch wenn es ETCS schon fast 20 Jahre gibt, so geht die Umsetzung in Europa doch eher träge voran \cite{traege_umsetzung}.
+
+
+Auch wenn es ETCS schon fast 20 Jahre gibt, so geht die Umsetzung in Europa doch eher träge voran \cite{traege_umsetzung}.  
 
 Status quo Zugverkehr – hier im Prinzip eine Zusammenfassung von Klaus-Rüdigers Folien und Veröffentlichungen.
 
@@ -138,7 +140,9 @@ ETCS besteht aus diversen Teilsystemen, deren jeweilige Spezifikationen unabhän
 
 Thematisch behandelt das \glqq Subset-026\grqq\ hauptsächlich einen Fahrzeugrechner, den sogenannten European Vital Computer (EVC) und dessen Schnittstellen. Der EVC kommuniziert über drei verschiedene Arten (punktförmiger Transponder, Leiterschleife und Funk) mit den streckenseitigen Einrichtungen und verfügt zudem über eine Mensch-Maschine-Schnittstelle (Driver Machine Interface) über die der Triebfahrzeugführer Eingaben vornehmen kann. All diese Daten verarbeitet der Rechner kontinuierlich und leitet daraus Aktionen für das Fahrzeug ab (Bremsen, Beschleunigen, Stromabnehmer heben/senken, \ldots ).
 
-Neben dem \glqq{}Subset-026\grqq{} gibt es zahlreiche weitere Subsets, die sich mit den vom EVC angesteuerten Komponenten befassen. Deren breit gefächerte Inhalte reichen von funktionalen Anforderungen an eine fahrzeugseitige Aufzeichnungseinheit (eine Art \glqq Black-Box\grqq ) über streckenseitige Stellwerksschnittstellen bis hin zu kryptographischen Details für die Funkverbindung. Alle Spezifikationen werden von der European Railway Agency, einer EU-Behörde, zentral verwaltet und sind als Word- und PDF-Dokumente verfügbar.
+Neben dem \glqq{}Subset-026\grqq{} gibt es zahlreiche weitere Subsets, die sich mit den vom EVC angesteuerten Komponenten befassen. Deren breit gefächerte Inhalte reichen von funktionalen Anforderungen an eine fahrzeugseitige Aufzeichnungseinheit (eine Art \glqq Black-Box\grqq) über streckenseitige Stellwerksschnittstellen bis hin zu kryptographischen Details für die Funkverbindung. Alle Spezifikationen werden von der European Railway Agency, einer EU-Behörde, zentral verwaltet und sind als Word- und PDF-Dokumente verfügbar.
+
+Doch hier ergibt sich ein weiteres Problem: Die Anforderungen von Subset 26 haben leider keine IDs: Statt dessen wurden die von Word generierte Headline-Nummerierung für die Identifizierung von Anforderungen herangezogen. Leider wurde diese nicht konsistent angewendet, wodurch Querverweise teilweise als einfacher Text eingefügt wurden, und viele Überschriften den Titel \glqq{}Intentionally Deleted\grqq, oder ähnliches, enthalten.
 
 %-------------------------------------------------------------------------
 \subsection{ReqIF}
@@ -156,9 +160,26 @@ Hier wird das eigentliche Arbeitsergebnis von Moritz vorgestellt.
 % ½ Seite, Michael
 %-------------------------------------------------------------------------
 
-Im Schienenbereich bewegen wir uns im sicherheitskritischen Bereich, wo entsprechende Vorschriften herrschen.  Maßgeblich ist hier EN 50128 \cite{en50128}, eine Spezialisierung der EN 61508 für sicherheitsrelevante Software der Eisenbahn.  Hardware ist nicht im Scope von openETCS.  Der im Standard beschriebene Entwicklungsprozess orientiert sich am V-Modell.
+Im Schienenbereich bewegen wir uns im sicherheitskritischen Bereich, wo entsprechende Vorschriften herrschen.  Maßgeblich ist hier EN 50128 \cite{en50128}, eine Spezialisierung der EN 61508 für sicherheitsrelevante Software der Eisenbahn.  Hardware ist nicht im Scope von openETCS.  Der im Standard beschriebene Entwicklungsprozess orientiert sich am V-Modell, welches dort auch beschrieben ist (Seite 23, Abb. 4).
 
-Das V-Modell zeichnet sich unter anderem dadurch aus, dass Anforderungen und deren Verfolgbarkeit eine zentrale Rolle spielen: Anforderungen bilden den Ausgangspunkt der Entwicklung (\glqq{}links oben\grqq{}), wovon sich nachfolgend Artefakte bis zur Implementierung ableiten (\glqq{}Mitte unten\grqq{}). Wie viele Zwischenschritte es gibt, hängt von der Größe der Entwicklung ab.  Gleichzeitig gibt es eine Traceability zu den entsprechenden Tests auf den verschiedenen Ebenen (\glqq{}rechter Ast\grqq{}).
+Das V-Modell zeichnet sich unter anderem dadurch aus, dass Anforderungen und deren Verfolgbarkeit eine zentrale Rolle spielen: Anforderungen bilden den Ausgangspunkt der Entwicklung (\glqq{}links oben\grqq{}), wovon sich nachfolgend Artefakte bis zur Implementierung ableiten (\glqq{}Mitte unten\grqq{}). Wie viele Zwischenschritte es gibt, hängt von der Größe der Entwicklung ab.  Gleichzeitig gibt es eine \glqq{}horizontale\grqq{} Nachverfolgbarkeit (Traceability) zu den entsprechenden Tests auf den verschiedenen Ebenen (\glqq{}rechter Ast\grqq{}).
+
+%-------------------------------------------------------------------------
+\subsection{Traceability von Anforderungen}
+% ½ Seite, Michael
+%-------------------------------------------------------------------------
+
+Ziel des openETCS-Projekts ist es, mit offenen Standards und offenen Werkzeugen die Entwicklung durchzuführen.  Dabei wurden verschiedene Ansätze, Werkzeuge und Technologien evaluiert.  Insbesondere wurde das auf Eclipse basierende PolarSys-Werkzeug \cite{polarsys} in Betracht gezogen.  Letzten Endes wurde nur eine Komponente von PolarSys für openETCS ausgewählt, und zwar Eclipse Papyrus \cite{papyrus}.  Papyrus ist ein Werkzeug für die UML- und SysML-Modellierung.  Für die Anforderungen wurden dementsprechend SysML-Requirements in Betracht gezogen, aber wieder verworfen: Zum einen skaliert Papyrus bei weitem nicht gut genug, um auch nur einen Teil der in den 500 Seiten System-26 enthaltenen Anforderungen zu verwalten.  Zum anderen sollte die Traceability direkt ins Subset-26 möglich sein.
+
+Doch hier gibt es noch ein weiteres Problem: Die in Subset-26 
+
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=9cm]{v-model.png}
+%\caption{{A high-level view of the V-Model}}
+%\end{figure}
+
 
 
 
