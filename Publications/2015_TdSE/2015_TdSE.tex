@@ -146,7 +146,7 @@ Doch hier ergibt sich ein weiteres Problem: Die Anforderungen von Subset 26 habe
 
 Auch wenn die Nachverfolgbarkeit von Subset-26 über die Nummerierung der Überschriften realisiert werden könnte, ist dies kein empfehlenswertes vorgehen (gelinde ausgedrückt!).  Daher wurde entschieden, das Subset-26 in das Requirements Interchange Format (ReqIF) zu überführen. 
 
-ReqIF \cite{reqifolution} ist ein internationaler Standard zum Austausch von Anforderungen, der von der OMG herausgegeben wird.  Viele verbreitete Anforderungs-Werkzeuge wie IBM DOORS, PTC Integrity oder Polarion ALM ermöglichen inzwischen den Anforderungsaustausch per ReqIF.  Damit hat ReqIF die vom Open Proofs-Ansatz geforderten Eigenschaften.  Und nicht nur das: Mit dem Eclipse Requirements Modeling Framework (RMF) gibt es bereits eine quelloffnene Referenzimplementierung, um mit ReqIF-Daten umzugehen. Wie in \ref{sec:openetcs} beschrieben, wurde die Entscheidung gefällt, die Systemmodellierung mit Eclipse Papyrus durchzuführen.  Durch die gemeinsame Technologieplattform Eclipse ist damit auch eine Integration leicht realisierbar, was in \ref{sec:emf-traceability} noch weiter erörtert wird.
+ReqIF \cite{openup} ist ein internationaler Standard zum Austausch von Anforderungen, der von der OMG herausgegeben wird.  Viele verbreitete Anforderungs-Werkzeuge wie IBM DOORS, PTC Integrity oder Polarion ALM ermöglichen inzwischen den Anforderungsaustausch per ReqIF.  Damit hat ReqIF die vom Open Proofs-Ansatz geforderten Eigenschaften.  Und nicht nur das: Mit dem Eclipse Requirements Modeling Framework (RMF) gibt es bereits eine quelloffnene Referenzimplementierung, um mit ReqIF-Daten umzugehen. Wie in \ref{sec:openetcs} beschrieben, wurde die Entscheidung gefällt, die Systemmodellierung mit Eclipse Papyrus durchzuführen.  Durch die gemeinsame Technologieplattform Eclipse ist damit auch eine Integration leicht realisierbar, was in \ref{sec:traceability} noch weiter erörtert wird.
 
 das ReqIF-Format ermöglicht es, alle wichtigen Strukturen eines Anforderungsmodells abzubilden.  Dabei benutzt ReqIF eine eigenwillige Terminologie.  Anforderungen werden SpecObjects genannt und können typisiert werden.  Der Typ bestimmt dann, welche Attribute die Anforderung hat, bspw. Anforderungstext, ID, Status, Autor, etc. Die einzelnen Attribute sind ebenfalls typisiert, zum Beispiel als Text, Zahl, Aufzählung, formatierter Text, etc.
 
@@ -186,7 +186,7 @@ Ziel des openETCS-Projekts ist es, mit offenen Standards und offenen Werkzeugen 
 
 Um dennoch eine Traceability zwischen den Subsete-26-Anforderungen (als ReqIF) und dem SysML-Modell (Papyrus) zu ermöglichen, wurden ebenfalls mehrere Ansätze evaluiert.  Zum einen wurde im Projekt ein Traceability-Plug-in entwickelt, welches die Verlinkung über Drag\&Drop ermöglicht, und die Verlinkung in ReqIF-SpecRelations abspeichert \cite{rmf-traces}.  Attraktiv bei diesem Ansatz ist, dass die Verlinkung im ReqIF-Modell liegt, und damit auch anderen Werkzeugen zugänglich gemacht werden kann (bspw. durch einen Import nach IBM DOORS).
 
-Da die Traceability jedoch auch über das SysML-Modell hinausgehen und auch für Daten zugänglich sein soll, die nicht im Eclipse-Ökosystem liegen, wurden zwei weitere Ansätze identifiziert.  Zum einen wurde Eclipse ReqCycle \cite{} als generische Traceability-Lösung in Betracht gezogen.  Allerdings ist es nicht ausgereift genug, um schon eingesetzt zu werden.  Weiterhin wird für Teile da proprietäre Reqtify eingesetzt.  Um eine durchgängige und zuverlässige Traceability zu ermöglichen, wurde bei der Konvertierung von Word besonders Wert auf die Erzeugung der IDs gelegt, wie in \ref{sec:} beschrieben ist.
+Da die Traceability jedoch auch über das SysML-Modell hinausgehen und auch für Daten zugänglich sein soll, die nicht im Eclipse-Ökosystem liegen, wurden zwei weitere Ansätze identifiziert.  Zum einen wurde Eclipse ReqCycle \cite{} als generische Traceability-Lösung in Betracht gezogen.  Allerdings ist es nicht ausgereift genug, um schon eingesetzt zu werden.  Weiterhin wird für Teile da proprietäre Reqtify eingesetzt.  Um eine durchgängige und zuverlässige Traceability zu ermöglichen, wurde bei der Konvertierung von Word besonders Wert auf die Erzeugung der IDs gelegt, wie in \ref{sec:ids} beschrieben ist.
 
 %-------------------------------------------------------------------------
 \subsection{Word: Herausforderungen}
@@ -214,6 +214,7 @@ Falls die ReqIF-Ausgabe auch die Abbildungen, OLE-Objekte (z.B. Gleichungen) und
 
 %-------------------------------------------------------------------------
 \subsection{Eindeutige IDs}
+\label{sec:ids}
 % ½ Seite, Moritz, Michael
 %-------------------------------------------------------------------------
 
@@ -227,14 +228,14 @@ Das Projekt openETCS endet mit Jahresende.  Die Ergebnisse im Bereich Open Sourc
 
 Im Bereich Modellierung wurde mit Scade der Grundstein für eine herstellerübergreifende Arbeit geschaffen.  Das ist an sich schon ein gutes Ergebnis.  
 
-Und nicht zuletzt wurden im Projekt auch weitere Ansätze verfolgt, um sich in Folgeprojekten von proprietären Werkzeugen lösen zu können.  Besonders vielversprechend ist ein Ansatz, SysML-Modelle nach B zu übersetzen \cite{david}.
+Und nicht zuletzt wurden im Projekt auch weitere Ansätze verfolgt, um sich in Folgeprojekten von proprietären Werkzeugen lösen zu können.  Besonders vielversprechend ist ein Ansatz, SysML-Modelle nach B zu übersetzen \cite{sysml2b}. 
 
 %-------------------------------------------------------------------------
 \subsection{ReqIF und RMF in der Systementwicklung}
 % 1 Seite, Michael
 %-------------------------------------------------------------------------
 
-Es gibt weitere Projekte, die ReqIF für die Modellierung von Anforderungen in der Systementwicklung einsetzen.  Insbesondere wird das Eclipse RMF-Framework von mindestens drei kommerziellen Anbietern eingesetzt, und uns sind mehrere firmeninterne Projekte bekannt, die auf RMF aufsetzen.
+Es gibt weitere Projekte, die ReqIF für die Modellierung von Anforderungen in der Systementwicklung einsetzen \cite{reqifolution,ix,eclipse-teaching}.  Insbesondere wird das Eclipse RMF-Framework von mindestens drei kommerziellen Anbietern eingesetzt, und uns sind mehrere firmeninterne Projekte bekannt, die auf RMF aufsetzen.
 
 Erwähnenswert ist hier das Projekt SE Teaching \cite{se-teaching}.  Hier ist es das Ziel, mit offenen Standards und Werkzeugen eine Grundlage für die Lehre des Systems Engineering zu legen.  In diesem Projekt wird mit einer minimalen, Eclipse-basierten Entwicklungsumgebung gearbeitet, bei der RMF für das Anforderungsmanagement herangezogen wird.
 
@@ -258,7 +259,7 @@ Aber insbesondere im Bereich Anforderungsmanagement hat dieses Projekt dazu beig
 
 \titleformat{\section}[block]{\large\scshape\centering{}}{}{1em}{}
 
-\bibliographystyle{amsalpha}
+\bibliographystyle{alpha}
 \bibliography{bibliography}
 
 
