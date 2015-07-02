@@ -193,18 +193,34 @@ Da die Traceability jedoch auch über das SysML-Modell hinausgehen und auch für
 % ½ Seite, Moritz
 %-------------------------------------------------------------------------
 
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{img/word_screenshot.png}
+\caption{Beispielhaftes Layout von chapter 3 des Subset-026}
+\label{fig:word_screenshot}
+\end{figure*}
+
 Microsoft Word ist ein Textverarbeitungsprogramm für die breite Masse. Es versucht dementsprechend möglichst viele Anwendungsbereiche abzudecken und dem Nutzer dabei möglichst wenige Einschränkungen zu machen. Dies führt unweigerlich zu einer sehr komplexen Software (\glqq{} eierlegende Wollmilchsau\grqq{}) und spiegelt sich auch in dem zugrundeliegenden Dateiformat wider. Zudem verführt die Verfügbarkeit all dieser Funktionen den Nutzer bisweilen auch zu deren Verwendung -- was insbesondere im Umfeld von technischen Dokumentationen nicht unbedingt vorteilhaft sein muss.
 
-Das mit Abstand größte Manko an Word aus Sicht des Anforderungsmanagements ist allerdings das Fehlen einer klaren semantischen Struktur. Es ist also nicht in jedem Fall ohne Weiteres möglich aus dem Fließtext eines solchen Dokuments einzelne, genau abgegrenzte Anforderungen zu extrahieren. Vielmehr sind hier domänenspezifische Algorithmen notwendig, die kontextabhängig sinnvolle, möglichst atomare Elemente in dem Datenstrom des Worddokuments erkennen und ihnen eindeutige Bezeichner für die spätere Traceability zuweisen können. Ebenso muss eine algorithmenbasierte Formalisierung der diversen Formatierungen erfolgen. Durch die Unterstützung von XHTML bietet ReqIF zwar die Voraussetzungen um zahlreiche einfachere Auszeichnungen (Fettdruck, Unterstreichungen, \ldots{}) direkt zu übernehmen. Aber insbesondere bei stark layoutabhängigen Elementen (z.B. Pfeilen) hat sich die vorherige Umwandlung in eine Textform als sinnvoll erwiesen.
+Das mit Abstand größte Manko an Word aus Sicht des Anforderungsmanagements ist allerdings das Fehlen einer klaren semantischen Struktur. Es ist also nicht in jedem Fall ohne Weiteres möglich aus dem Fließtext eines solchen Dokuments einzelne, genau abgegrenzte Anforderungen zu extrahieren. Vielmehr sind hier domänenspezifische Algorithmen notwendig, die kontextabhängig sinnvolle, möglichst atomare Elemente in dem Datenstrom des Worddokuments erkennen und ihnen eindeutige Bezeichner für die spätere Traceability zuweisen können. Ebenso muss eine algorithmenbasierte Formalisierung der diversen Formatierungen erfolgen. Durch die Unterstützung von XHTML bietet ReqIF zwar die Voraussetzungen um zahlreiche einfachere Auszeichnungen (Fettdruck, Unterstreichungen, \ldots{}) direkt zu übernehmen. Aber insbesondere bei stark layoutabhängigen Elementen (z.B. Pfeilen, vgl. Abbildung \ref{fig:word_screenshot} oben) hat sich die vorherige Umwandlung in eine Textform als sinnvoll erwiesen.
 
 %-------------------------------------------------------------------------
 \subsection{Lösungsansatz und Implementierung}
 % 1 Seite, Moritz
 %-------------------------------------------------------------------------
 
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{img/pror_screenshot.png}
+\caption{Darstellung des unteren Teils von Abbildung \ref{fig:word_screenshot} in ProR}
+\label{fig:pror_screenshot}
+\end{figure*}
+
 Vorhandene Werkzeuge zum Import von Word-Spezifikationsdokumenten, wie sie beispielsweise in DOORS und reqtify/SCADE integriert sind, stellen gewisse Anforderungen an deren strukturellen Aufbau. Im vorliegenden Fall war es aber weder gewünscht noch mit vertretbarem Aufwand möglich diese Struktur durch Veränderungen im Ausgangsdokument herbeizuführen. Ohne derartige Anpassungen sind die Importergebnisse dieser Tools allerdings kaum brauchbar da gewisse, vermeintlich unwesentliche Details wie Tabellenhintergründe oder Pfeile (siehe oben) schlicht unterschlagen werden und die willkürlich generierten Identifikatoren der extrahierten Anforderungen mit dem bisher (manuell) genutzten, listenbasierten Adressierungsschema nicht harmonieren. Zudem ist keines der am Markt verfügbaren Werkzeuge quelloffen, was dem erklärten Projektziel entgegensteht.
 
-Als Alternative wurde eine neuartige Software speziell für das \glqq{}Subset-026\grqq{} geschaffen, die vorab auf dessen Besonderheiten hin konfiguriert werden kann \cite{TodoMoriz}. Danach ist sie imstande vollkommen autark eine Konvertierung zu ReqIF mitsamt einer Aufwertung der textuellen Inhalte durchzuführen. Das Tool wurde in Java entwickelt und fußt auf einer stark angepassten Version von Apache POI, einer quelloffenen Implementierung des binären Word-Dateiformats, um die Spezifikationen einzulesen. Anschließend kommen domänenspezifische Algorithmen zum Einsatz, die auf Grundlage der teilweise vorhandenen Listennummerierung menschenlesbare Bezeichner für die einzelnen Anforderungen generieren und wiederkehrende Elemente (Tabellen, Gleichungen, boolesche Beziehungen, \ldots{}) erkennen.
+Als Alternative wurde eine neuartige Software speziell für das \glqq{}Subset-026\grqq{} geschaffen, die vorab auf dessen Besonderheiten hin konfiguriert werden kann \cite{TodoMoriz}. Danach ist sie imstande vollkommen autark eine Konvertierung zu ReqIF mitsamt einer Aufwertung der textuellen Inhalte durchzuführen. Das Tool wurde in Java entwickelt und fußt auf einer stark angepassten Version von Apache POI, einer quelloffenen Implementierung des binären Word-Dateiformats, um die Spezifikationen einzulesen. Anschließend kommen domänenspezifische Algorithmen zum Einsatz, die auf Grundlage der teilweise vorhandenen Listennummerierung (vgl. Abbildung \ref{fig:word_screenshot}) menschenlesbare Bezeichner für die einzelnen Anforderungen generieren und wiederkehrende Elemente (Tabellen, Gleichungen, boolesche Beziehungen, \ldots{}) erkennen.
 
 Im folgenden Aufwertungsschritt finden zahlreiche reguläre Ausdrücke und in sehr begrenztem Maße auch Algorithmen aus dem Bereich des Natural Language Processing Anwendung. Deren Ausgabe mündet in diversen Metadaten, die an die einzelnen Anforderungen in der resultierenden ReqIF-Datei angehangen werden und diese beispielsweise kategorisieren (Note, Example, deleted, \ldots ) oder deren Implementierungsnotwendigkeit (verpflichtend, optional, unklar, \ldots ) kodieren. Zudem gibt es ein spezielles Feld in dem der Anforderungstext annotiert wird um domänenspezifische Phrasen (z.B. \glqq Lineside Electronic Unit\grqq ) oder schwache Wörter (\glqq{}immediately\grqq{}, \glqq{}if possible\grqq{}, \ldots{}) hervorzuheben. Unabhängig davon werden auch verschiedene Arten von Querverweisen automatisiert ausgelesen, formalisiert und schließlich in deren ReqIF-Pendant überführt. Durch einen speziellen Zeiger, der ebenfalls in den Metadaten enthalten ist, wird zudem die Rückverfolgbarkeit in das Ausgangsdokument sichergestellt. Damit ist es möglich jederzeit an die Stelle in dem Word-Dokument zu springen die die Ausgangsdaten einer bestimmten Anforderung enthält.
 
