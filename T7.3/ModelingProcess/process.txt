@@ -1,0 +1,9 @@
+A CI build process for the openETCS modeling team
+
+Summary: For the modeling and V&V teams it is important that the modeling repository contains only artefacts that compile without errors (at a minimum).  Due to the nature of the tools used (Scade Suite requiring expensive licenses), it is not possible to perform build automation within openETCS.
+
+Therefore: A lightweight, manual process is needed to ensure error-freeness in the repository. The following process is inspired by gitFlow.
+
+One requirement is to impose as little inconveniences to the team as possible.  They are currently working on the master branch. We will keep it that way, even though gitFlow works differently.
+
+
