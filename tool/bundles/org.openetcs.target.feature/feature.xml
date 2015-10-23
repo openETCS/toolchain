@@ -54,14 +54,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.fx.target.rcp4.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.core.ssl.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.emf.ecore"
          version="0.0.0"/>
 
@@ -102,10 +94,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.platform"
          version="0.0.0"/>
 
@@ -114,27 +102,11 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.ecf.filetransfer.ssl.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.rcp"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.ecf.core.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.e4.rcp"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"
          version="0.0.0"/>
 
    <includes

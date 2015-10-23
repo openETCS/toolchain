@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="93">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="94">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
 <repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.uml2.sdk.feature.group" version="5.0.2.v20150202-0947"/>
 <unit id="org.eclipse.xsd.sdk.feature.group" version="2.10.0.v20150123-0452"/>
 <unit id="org.eclipse.xpand.sdk.feature.group" version="2.0.0.v201406030414"/>
@@ -35,11 +35,11 @@
 <unit id="org.eclipse.epp.mpc.feature.group" version="1.3.2.v20150218-2039"/>
 <repository location="http://download.eclipse.org/releases/luna"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.fx.target.rcp.feature.feature.group" version="1.2.0.201501301037"/>
 <repository location="http://download.eclipse.org/efxclipse/runtime-released/1.2.0/site"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.formalmind.rmf.reqif10.pror.compare.feature.feature.group" version="1.0.0.201510191950"/>
 <unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201510191950"/>
 <unit id="org.eclipse.rmf.reqif10.pror.feature.feature.group" version="0.14.0.201510191921"/>
