@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="65">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="93">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
@@ -27,6 +27,12 @@
 <unit id="org.eclipse.platform.sdk" version="4.4.2.M20150204-1700"/>
 <unit id="org.eclipse.gmf.sdk.feature.group" version="3.2.1.201502182128"/>
 <unit id="org.eclipse.equinox.core.sdk.feature.group" version="3.10.2.v20150203-1939"/>
+<unit id="org.eclipse.ecf.core.feature.feature.group" version="1.1.0.v20140528-1625"/>
+<unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.0.0.v20141221-2352"/>
+<unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.8.0.201405281451"/>
+<unit id="org.eclipse.ocl.core.sdk.feature.group" version="5.0.2.v20140725-2242"/>
+<unit id="org.eclipse.ocl.examples.unified.feature.group" version="3.4.4.v20150213-2254"/>
+<unit id="org.eclipse.epp.mpc.feature.group" version="1.3.2.v20150218-2039"/>
 <repository location="http://download.eclipse.org/releases/luna"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -44,6 +50,10 @@
 <unit id="org.eclipse.rmf.reqif10.feature.feature.group" version="0.14.0.201510191921"/>
 <unit id="com.formalmind.rmf.reqif10.studio.editor" version="1.0.0.201510191950"/>
 <repository location="http://update.formalmind.com/essentials"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.9.1.201509170812"/>
+<repository location="http://download.eclipse.org/sphinx/releases/0.9.x"/>
 </location>
 </locations>
 </target>
