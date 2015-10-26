@@ -155,7 +155,7 @@ Version &  Date & Author(s) & Justification  \\
 \hline  
 00.00 & 17.12.2014 & C. Braunstein  &  Document creation  \\
 \hline  
-00.00 & 23.10.2015 & R. Faudou  &  Update concerning model scope  \\
+00.00 & 23.10.2015 & R. Faudou  &  Precisions concerning OpenETCS requirements and models and update of tool chain traceability requirements  \\
 
 
 \hline  
@@ -177,7 +177,7 @@ ISO 15288:2015 defines 3 main generic levels:
 \begin{itemize}
 \item problem definition,
 \item system/Sub system definition (recursive decomposition) 
-\item building blocks of software, hardware (mechanical, electrical, electronics, plastic...) or procedures that can be realized independently
+\item physical building blocks of software, hardware (mechanical, electrical, electronics, plastic...) or procedures that can be realized independently and integrated to provide whole system
 \end{itemize}
 
 \begin{figure}[htb]
@@ -186,12 +186,13 @@ ISO 15288:2015 defines 3 main generic levels:
 \caption{\label{fig:standardReqEngineering}IS0 15288:2015 standard Systems Engineering requirement levels}
 \end{figure}
 
-Concerning OpenETCS project, there are 4 main sources for requirements:
+Concerning OpenETCS project, there are 5 main sources for requirements:
 \begin{itemize}
 \item User stories, concerning problem definition
 \item CENELEC regulation requirements that are part of stakeholder requirements
 \item SRS Subset 026 that can be considered as system level requirements
 \item openETCS new requirements created during system definition by decomposition or derivation of SRS Subset 026 requirements
+\item openETCS API, that provides software requirements to integrate a vendor specific platform
 \end{itemize}
 
 
@@ -216,7 +217,7 @@ shows a possible classification of models aligned on the standard requirement en
 \caption{\label{fig:requirementEngineeringWithModels}Possible classification of models with respect to standard requirement engineering levels}
 \end{figure}
 
-If we look at the different models produced in the openETCS project we find:
+Figure \ref{fig:openETCSRequirementsAndModels} illustrates the different models produced in the openETCS project and positionned on standard engineering levels:
 \begin{itemize}
 \item User stories model that refines user stories 
 \item OpenETCS architecture model, that describes high level system breakdown structure with system elements and their interfaces
@@ -224,8 +225,7 @@ If we look at the different models produced in the openETCS project we find:
 \item OpenETCS Onboard Unit functions model, a formal executable model that focuses on chapters 7 and 8 of Subset026 SRS (ETCS Language and messages)
 \end{itemize}
 
-In order to depict their scope and relative positions we can try to align them on standard engineering levels presented previously. Figure \ref{fig:openETCSRequirementsAndModels} illustrates those positions.
-
+ 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=.9\linewidth]
@@ -249,7 +249,7 @@ Figure \ref{fig:openETCSTraceabilityMainPriority} highlights traceability chains
 \caption{\label{fig:openETCSTraceabilityMainPriority}OpenETCS traceability chains with highest priority}
 \end{figure}
 
-\chapter{OpenETCS tool chain Proposition}
+\chapter{OpenETCS traceability process and associated tool chain requirements}
 \section{Traceability Process}
 \label{sec-3}
 From the Subset026 SRS specification we want to be able to trace all artifacts
@@ -267,9 +267,82 @@ the artifacts and/or activities that are using it.
 The goal of traceability is that, from any artifacts produced, we are able to
 track which requirement it realizes, implements  or refers to. These links can
 take different form and be done by different tools. 
-Two traceability tools will be evaluated before being integrated in the OpenETCS tool chain:
-ReqCycle and Reqtify.
 
+Next paragraph lists tool requirements or capabilities required to support openETCS requirement management and requirement traceability.
+
+\section{Tool chain capabilities to support requirement management and traceability}
+\label{sec-4} 
+\subsection{Requirement management capabilities}
+\label{sec-4-1} 
+
+Requirement management is an activity that consists in supporting different tasks concerning requirements during the project, whatever the engineering level. In OpenETCS project we need at least the following commands available in the tool chain (and potentially restricted according to access rights if defined):
+\begin{itemize}
+
+\item Visualization of one or several requirements, their links if any and their attributes. 
+\begin{itemize} \item \textbf{OpenETCS example}: visualize one Subset026 SRS requirement, its statement and its hierarchy (father requirement if any and children requirements if any).\end{itemize}
+
+\item Query (filter, ordering) on a set of requirements with filter based on requirement attribute values or on links between requirements
+\begin{itemize} \item \textbf{OpenETCS example}: list only subset026 SRS chapter 7 requirements that deal with "train position" and that are not yet traced (no traceability link).\end{itemize}
+
+\item Creation and storage of requirement and of different attributes based on a given requirement template/type, in a given requirement hierarchy and with unique identifier allocation based on a flexible (customizable) strategy
+\begin{itemize} \item \textbf{OpenETCS example}: creation of a new openETCS requirement decomposed from a susbet026 SRS requirement. Newly created requirement shall have unique identifier automatically allocated to be consistent with its hierarchy (father requirement id) and with an attribute "maturity" set to "to be confirmed" and creation date set to the current date.\end{itemize}
+
+\item classification of one or several requirements into modules/groups that can be defined by end users.
+\begin{itemize} \item \textbf{OpenETCS example}: allocation of a newly created requirement to the Onboard Unit scope.\end{itemize}
+
+\item Edition of one or several requirements and their attributes
+\begin{itemize} \item \textbf{OpenETCS example}: confirmation of a newly created requirement with attribute "maturity" set to "confirmed".\end{itemize}
+
+\item Addition of a version on one requirement or on a set of requirements
+\begin{itemize} \item \textbf{OpenETCS example}: selection of a set of reviewed openETCS requirements and addition of a version for all those requirements.\end{itemize}
+
+\item Ability to compare two versions of a set of requirements and list all requirements that have been added or modified.
+\begin{itemize} \item \textbf{OpenETCS example}: comparison of two versions of Subset026 SRS requirements and visualization of all requirement links to check.\end{itemize}
+
+\item Import of requirements coming from external sources (ReqIF, Word, Excel...)
+\begin{itemize} \item \textbf{openETCS example}: import of Subset026 Word document or ReqIF format. Import of openETCS API definition.\end{itemize}
+
+\item Export of a set of requirements to another format: at least ReqIF standard interchange format but also office format (.csv, excel or word...)
+
+\begin{itemize} \item \textbf{OpenETCS example}: export of all openETCS created requirements and links into .csv file.\end{itemize}
+\end{itemize}
+
+In addition, requirement management tooling shall enable share and access of requirements within a team, through a shared repository (shared directory on a network drive or CVS repository like SVN, Git, ClearCase or any other one): either directly (all team members access same shared repository) or with local work and synchronizations between team members through a shared repository.
+
+\subsection{Requirement traceability capabilities}
+\label{sec-4-2}  
+Requirement traceability activity consists in ensuring that all product engineering artefacts (including verification means) can be traced to an originating stakeholder requirement either directly (direct link) or through other system requirements derived from stakeholder requirements. It means creating links but also manage their status (created, confirmed...) and potentially their deletion.
+
+In order to support this activity in openETCS project we need at least the following commands available in the tool chain:
+
+\begin{itemize}
+
+\item Creation of a link between a requirement and an engineering artefact, based on a given link template/type (refine, derive, implement, verify...). 
+\begin{itemize} \item \textbf{OpenETCS example}: create a "Refine" link between one Subset026 SRS requirement and one OnBoard Unit function, with  "status" link attribute set to "defined".\end{itemize}
+
+\item edition of link status. 
+\begin{itemize} \item \textbf{OpenETCS example}: after review, confirm some traceability links  by setting "status" attribute to "validated" value.
+	\item \textbf{other OpenETCS example}: after change in some Subset026 SRS requirements, for all traceability links of modified requirements, set status to "to check" value.\end{itemize}
+
+\item deletion of requirement traceability link. 
+\begin{itemize} \item \textbf{OpenETCS example}: after review, decide that some traceability are not accurate and delete them.\end{itemize}
+
+\item export of requirement traceability
+\begin{itemize} \item \textbf{OpenETCS example}: after progress meeting, export current requirement traceability to .csv file so that it can be analysed by project manager and/or quality team\end{itemize}
+
+\end{itemize}
+
+\section{tooling existing components}
+\label{sec-5} 
+Concerning requirement management and traceability there exist a lot of solutions. If we focus on open source solutions and especially those able to integrate into Eclipse platform, we find:
+\begin{itemize}
+\item Eclipse Requirement Modeling Framework (RMF). As mentioned on Eclipse web site, RMF is a framework to manage textual requirements through ReqIF standard requirement exchange format. There is a powerful GUI called "ProR" to configure, visualize and edit ReqIF requirements in RMF.
+
+\item PolarSys ReqCycle. It is a solution that focuses on requirement traceability. It can allow managing requirements (creation, edition, queries) with classification (scopes) and custom requirement data models but with very limited requirement editor. Strength is its ability to capture and aggregate traceability links coming from different sources (EMF models, C code, Java code, SysML models...) and to define own traceability links based on custom link types with potential attributes.
+
+\end{itemize}
+
+If we extend search to proprietary solutions, we find IBM DOORS and IBM DOORS Next requirement management products and Dassault Systems ReqTify product as leading solutions to support respectively requirement management and requirement traceability.
 
 The present solution proposes a first "by hand" approach, to deal with
 traceability without having all the proper tools already integrated into the tool chain.
