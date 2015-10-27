@@ -68,8 +68,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-  This document describes and evaluate a set of scenarios for
-  migrating the openETCS OBU model, currently modeled using the
+  This document describes and evaluate possible scenarios for
+  migrating the openETCS OBU model, currently developed using the
   proprietary Scade language, to an open format. After a brief
   description of the current modeling choices, we describe the
   different export formats supported by the Scade toolsuite. We base
@@ -143,6 +143,7 @@ Version &  Date & Author(s) & Justification  \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Introduction}
+\label{cha:introduction}
 
 One of the main purpose of the openETCS project is to develop a model
 of the ETCS using ``Open Standards'' on all levels. This includes
@@ -152,9 +153,9 @@ design tools. One of the most important output of the project is a
 formal specification of the ETCS onboard unit (OBU) that follows the
 specification defined by the European Railway Agency (ERA) in its
 Subset-026 document~\cite{subset-026}. Nonetheless, for reasons that
-we should briefly recall below, the proprietary language Scade---that
-is a ``close-source'' solution---was chosen to develop the functional
-model of the OBU.
+we will briefly recall in this chapter, the proprietary language
+Scade---that is a ``close-source'' solution---was chosen to develop
+the functional model of the OBU.
 
 Scade, now one of the product of ANSYS (\url{http://www.ansys.com/}),
 is a formal modeling language and tool suite targeting safety-critical
@@ -193,16 +194,20 @@ migration process. In the remainder of this text we use the term of
 \emph{semantics preserving} migration to refer to this issue. This
 issue is quite delicate. Indeed, Scade relies on a strong
 implementation hypothesis, the so-called ``synchronous approach'', and
-it is not clear how the properties of a model developed with a
+it is not obvious how the properties of a model developed with a
 synchronous approach can be preserved when transferred to another
 setting, say for example the more ``hybrid approach'' favored by
-languages such as Simulink. We give an example of the kind of
-``semantic'' problem that can arise in the next section.
+languages such as Simulink. To state this problem shortly: we may
+always translate a piece of text from one language to another, but it
+is difficult to prove that the original meaning is preserved in the
+process. We give one\ example of the kind of ``semantic'' problem that
+can arise in the next section.
 
-The rest of the report is as follows. In the next sections, we briefly
-describe the Scade language and the particularity of the OBU Scade
-model. We close the chapter with a short description of alternative
-specification languages that could have been used for the model. In
+The rest of the report is as follows. In the remaining sections of
+chapter~\ref{cha:introduction}, we briefly describe the Scade language
+and the particularity of the OBU Scade model. We close the chapter
+with a short description of alternative specification languages that
+could have been used for the model. In
 chapter~\ref{cha:over-goal-transf}, we list the criteria that should
 be taken into account when evaluating the possible migration
 scenarios. Each migration scenario can be described by a
@@ -238,9 +243,6 @@ output formats and list the strengths and weaknesses of each approach.
 \section{Overview of Scade and Motivations Behind its Adoption in the
   Project}
 
-XXXX WORK STILL IN PROGRESS XXXXX
-
-
 Scade is a formal modeling language that provides both a graphical
 (diagrammatic) and textual concrete syntax. Formal here means that the
 intended meaning of a model can be defined unambiguously using a
@@ -249,31 +251,34 @@ and to prove properties on them with a very high-level of
 confidence. More precisely, Scade models are synchronously clocked
 state machines, interacting on infinite data streams, that can be
 nested and intermixed with each other without limitations. Actually
-the core of the Scade language is based on Lustre ...XXXX . Another
-nice property is that Scade is an executable language with a
-deterministic semantics, meaning that the ``execution'' of a Scade
-model is deterministic XXXX????++++.  All these characteristics of
+the core of the Scade language is based on Lustre~\cite{al91}, a
+declarative, synchronous dataflow programming language for reactive
+systems defined in the early 1980s in Grenoble. 
+
+Another nice property is that Scade is an executable language with a
+deterministic semantics, meaning that no randomness is involved in the
+``execution'' of a Scade model; A model will thus always produce the
+same outputs from a given initial state.  All these characteristics of
 Scade (formal, concrete, executable and deterministic) made it
 possible to develop DO-178B and EN50128 certified code generators to C
-and ADA, which is not a small feat.
+and ADA, which is one of the main benefit of using Scade with respect
+to competing frameworks.
 
-The language is supported by a toolbox, the Scade suite, that provides
-an integrated design and development environment. Scade suite offers
-several services: simulation and debugging at the model level; test
-case execution; model test coverage measurement; code verification on
-models; ... An extension of the tool. called Scade system, provides
-additional functionalities that are of interest in the context of the
-openETCS project.  Scade System provides systems modeling and model
-generation based on the SysML standard and the Eclipse Papyrus open
-source technology. In particular it offers gateway from and to SysML
-and integration with Eclipse through the use of the Eclipse Modeling
-Framework (EMF) and its integration with the Papyrus editor. Indeed,
-Eclipse was selected as the de facto Open Source platform for
-integrating the tools developed in the project while SysML was
-selected for modeling the architecture of the system (and the SysML
-diagrams have been edited using the Papyrus editor, with the
-participation of CEA)
-
+The Scade language is supported by a toolbox, the \emph{Scade suite},
+that provides an integrated design and development environment. Scade
+suite offers several services: simulation and debugging at the model
+level; test case execution; model test coverage measurement; code
+verification on models; ... An extension of the tool. called
+\emph{Scade system}, provides additional functionalities that are of
+interest in the context of the openETCS project. Basically, Scade
+System provides systems modeling and model generation based on the
+SysML standard and the Eclipse Papyrus editor. In particular, Scade
+system offers ``partial'' gateway from and to SysML and integration
+with Eclipse through the use of the Eclipse Modeling Framework
+(EMF). This is relevant for the openETCS project since Eclipse was
+selected as the de facto open source platform for integrating the
+tools developed in the project, while SysML was selected for modeling
+the architecture of the system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -281,19 +286,20 @@ Scade has been used, in production, on several big projects that
 covers many application domains: avionics, rail, automotive, \dots It
 allows the production of rapid prototype as well as of safety related
 target system software. All these qualities are enough to motivate the
-choice of Scade for modeling the OBU functions. 
-
-But outside these purely factual advantages of Scade upon other
-formats, there are also important ``contextual'' reasons. Most
-importantly there does not exists an Open Source solution with the
-same degree of maturity. For example, even though the Scade editor
-requires a moderately high learning curve, it is a solid piece of
-software that has been tested on many real-size examples. Another is
-also , since Siemens, one of the major partner of the project, already
-had a working knowledge of Scade and that some models related to the
-ETCS (provided by Siemens) were already available. Henceforth,
-considereing the deadlines of the project, Scade was the most (and the
-less risky) solution for
+choice of Scade for modeling the OBU functions. But outside these
+purely factual advantages, there are also important contextual
+reasons. Most importantly, there does not exists an Open Source
+solution with the same degree of maturity. For example, even though
+the Scade editor requires a moderately high learning curve, it is a
+solid piece of software that has been tested on many real-size
+examples. Another circumstantial reason for the adoption of Scade in
+the project is that Siemens, one of the major partner, already had a
+working knowledge of Scade and that some test models related to the
+ETCS (provided by Siemens) were already available in the first months
+of the project. Henceforth, considering the strong constraints on the
+deadlines and the large amount of modeling work involved, Scade was an
+obvious choice. And it was certainly the choice incurring the less
+amount of risk.
 
 
 We can also list several drawbacks to the choice of Scade. First the
@@ -321,10 +327,12 @@ solution:
 
 
 
-\section{High-Level Description of the openETCS Scade Model}
+XXXX WORK STILL IN PROGRESS XXXXX
+
 
 The Scade model for the OBU is available on the GitHUb of the project
-(\url{...}). The A description of the model is given in deliverable XXXX
+(\url{...}). The A description of the model is given in deliverable
+XXXX
 
 
 XXX What were the decision on modeling; what are the choices in modeling
