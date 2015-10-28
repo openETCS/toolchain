@@ -24,6 +24,11 @@
 \BOOKMARK [1][-]{section.5.2}{System Model}{chapter.5}% 24
 \BOOKMARK [1][-]{section.5.3}{Interface Definition}{chapter.5}% 25
 \BOOKMARK [1][-]{section.5.4}{TODO Verification and Validation}{chapter.5}% 26
-\BOOKMARK [0][-]{chapter.6}{Second physical traceability solution: ReqCycle}{}% 27
-\BOOKMARK [1][-]{subsection.6.0.1}{TODO ReqCycle Evaluation}{chapter.6}% 28
-\BOOKMARK [2][-]{subsection.6.0.2}{TODO Reqtify Evaluation}{subsection.6.0.1}% 29
+\BOOKMARK [0][-]{chapter.6}{Second physical traceability solution: ReqIF-ReqCycle}{}% 27
+\BOOKMARK [1][-]{section.6.1}{Subset-026 import}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.2}{Creation of additional OpenETCS requirements}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.3}{Creation of links between SysML model elements and requirements}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.4}{Creation of links between SCADE model and requirements}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.5}{Aggregation of traceability links and export}{chapter.6}% 32
+\BOOKMARK [2][-]{subsection.6.5.1}{TODO ReqCycle Evaluation}{section.6.5}% 33
+\BOOKMARK [2][-]{subsection.6.5.2}{TODO Reqtify Evaluation}{section.6.5}% 34

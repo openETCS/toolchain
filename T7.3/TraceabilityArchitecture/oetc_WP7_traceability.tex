@@ -443,18 +443,18 @@ Figure \ref{fig:trace_first} illustrates this solution with associated tools/tec
 
 
 \section{Subset-026 import}
-\label{sec-5}
+\label{sec-5-1}
 The subset-026 import is realized by a script transforming the Word document
 into a req-IF format file.
 \subsection{Script description}
-\label{sec-2-1}
+\label{sec-5-1-1}
 The script \todo{The script needs a name} generates a hierarchical tree of all traceworthy
 artifacts in each chapter of subset-026. Each artifact shall be uniquely
 addressable via a tracestring.
 
 
 \subsection{Unique ID definition}
-\label{sec-2-2}
+\label{sec-5-1-2}
 Take the following example:
 \begin{figure}[htb]
 \centering
@@ -521,7 +521,7 @@ directly apply from ProR to a Papyrus elements.
 \section{Interface Definition}
 \label{sec-9}
 
-Should define the interfaces between the architecture artefacts.  It is used and
+It should define the interfaces between the architecture artefacts.  It is used and
 set up to facilitate team working together on a big architecture. Its definition
 comes from the requirements but can also be refined by the modelling team without
 changing the existing implemented requirements.
@@ -531,8 +531,60 @@ changing the existing implemented requirements.
 \section{{\bfseries\sffamily TODO} Verification and Validation}
 \label{sec-11}
 
-\chapter{Second physical traceability solution: ReqCycle}
+\chapter{Second physical traceability solution: ReqIF-ReqCycle}
 \label{sec-6}
+
+This second solution consists in using only one centralized eclipse-based technology to support requirement management and traceability for all models: PolarSys ReqCycle.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{images/second_trace_solution.png}
+\caption{\label{fig:trace_second}Traceability architecture second solution}
+\end{figure}
+
+With that approach, there is still one master reference requirements data base but it is managed by ReqCycle solution. Requirement database can be initialized by two means: either by import from the subset-026 word document (1.A path in the figure) 
+
+\section{Subset-026 import}
+\label{sec-6-1}
+The subset-026 import can be realized by two means:
+\begin{itemize}
+\item either by direct import from the subset-026 word document (ReqCycle Document import connector)
+\item else by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
+	\begin{itemize}
+
+	\item 1.A1 transformation can be realized with same script than the one described in first traceability solution - see \ref{sec-5-1}
+
+	\item 1.A2 transformation (import) can be done by ReqCycle ReqIF import connector.
+	\end{itemize}
+\end{itemize}
+
+\section{Creation of additional OpenETCS requirements}
+\label{sec-6-2}
+ReqCycle provides a "local" connector to create new requirements and those requirements can be linked to existing other requirements through different kinds of links (derivation, refinement, decomposition). Those link types have to be defined first in ReqCycle configuration.
+
+To complete
+
+\section{Creation of links between SysML model elements and requirements}
+\label{sec-6-3}
+ReqCycle provides a view that allows creating a link between two selected objects (traceability Creator).
+ReqCycle provides a view with requirements (Requirement View) from which it is possible to select one source object.
+Papyrus provides a view with model elements (Model explorer) from which it is possible to select a destination object.
+When both source and destination objects are selected, ReqCycle provides a command (button) to create links between selected objects if a link type definition is compliant with such source and destination.
+
+Figure to DO.
+
+\section{Creation of links between SCADE model and requirements}
+\label{sec-6-4}
+There are two approaches that can be used: 
+\begin{enumerate}
+\item use same approach than in \ref{sec-6-3} but there is some development to make selection of SCADE model element appear in ReqCycle traceability creator view
+\item select requirement in ReqCycle Requirement view and prepare the creation of traceability link through a dedicated ReqCycle command that copies the traceability link identifier in clipboard, and then use "paste" command in SCADE tool environement, in the comment area associated to the model element to trace.
+\end{enumerate} 
+
+Figure to DO.
+
+\section{Aggregation of traceability links and export}
+\label{sec-6-5}
 
 \subsection{{\bfseries\sffamily TODO} ReqCycle  Evaluation}
 \label{sec-4-5}

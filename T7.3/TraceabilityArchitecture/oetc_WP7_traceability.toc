@@ -26,6 +26,11 @@
 \contentsline {section}{\numberline {5.2}System Model}{15}{section.5.2}
 \contentsline {section}{\numberline {5.3}Interface Definition}{15}{section.5.3}
 \contentsline {section}{\numberline {5.4}{\bfseries \sffamily TODO} Verification and Validation}{16}{section.5.4}
-\contentsline {chapter}{\numberline {6}Second physical traceability solution: ReqCycle}{17}{chapter.6}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.0.1}{\bfseries \sffamily TODO} ReqCycle Evaluation}{17}{subsection.6.0.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.0.2}{\bfseries \sffamily TODO} Reqtify Evaluation}{17}{subsection.6.0.2}
+\contentsline {chapter}{\numberline {6}Second physical traceability solution: ReqIF-ReqCycle}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}Subset-026 import}{17}{section.6.1}
+\contentsline {section}{\numberline {6.2}Creation of additional OpenETCS requirements}{17}{section.6.2}
+\contentsline {section}{\numberline {6.3}Creation of links between SysML model elements and requirements}{18}{section.6.3}
+\contentsline {section}{\numberline {6.4}Creation of links between SCADE model and requirements}{18}{section.6.4}
+\contentsline {section}{\numberline {6.5}Aggregation of traceability links and export}{18}{section.6.5}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.5.1}{\bfseries \sffamily TODO} ReqCycle Evaluation}{18}{subsection.6.5.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.5.2}{\bfseries \sffamily TODO} Reqtify Evaluation}{18}{subsection.6.5.2}
