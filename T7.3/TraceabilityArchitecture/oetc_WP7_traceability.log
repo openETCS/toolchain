@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  28 OCT 2015 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  28 OCT 2015 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1169,7 +1169,7 @@ File: pppdftex.def 2015/05/11 v0.4x Pdfpages driver for pdfTeX (AM)
 )
 (./oetc_WP7_traceability.aux
 
-LaTeX Warning: Label `sec-4-2' multiply defined.
+LaTeX Warning: Label `sec-5' multiply defined.
 
 )
 \openout1 = `oetc_WP7_traceability.aux'.
@@ -1406,7 +1406,7 @@ LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 LaTeX Font Warning: Font shape `T1/txss/k/n' undefined
 (Font)              using `T1/txss/m/n' instead on input line 101.
 
-<./template/itea.jpg, id=115, 240.9pt x 67.452pt>
+<./template/itea.jpg, id=123, 240.9pt x 67.452pt>
 File: ./template/itea.jpg Graphic file (type jpg)
  <use ./template/itea.jpg>
 Package pdftex.def Info: ./template/itea.jpg used on input line 101.
@@ -1435,7 +1435,7 @@ LaTeX Font Info:    Font shape `T1/txss/h/n' will be
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-<./template/openETCS_EUPL.png, id=116, 1228.59pt x 1129.21875pt>
+<./template/openETCS_EUPL.png, id=124, 1228.59pt x 1129.21875pt>
 File: ./template/openETCS_EUPL.png Graphic file (type png)
 
 <use ./template/openETCS_EUPL.png>
@@ -1444,7 +1444,7 @@ Package pdftex.def Info: ./template/openETCS_EUPL.png used on input line 101.
 LaTeX Font Info:    Font shape `T1/txss/k/n' will be
 (Font)              scaled to size 8.54997pt on input line 101.
 
-<./template/oOLT.png, id=118, 590.95781pt x 292.84406pt>
+<./template/oOLT.png, id=126, 590.95781pt x 292.84406pt>
 File: ./template/oOLT.png Graphic file (type png)
 
 <use ./template/oOLT.png>
@@ -1542,9 +1542,9 @@ LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 8.54997pt on input line 101.
  (./oetc_WP7_traceability.toc
 LaTeX Font Info:    Font shape `T1/txss/bx/it' in size <9> not available
-(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 16.
+(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 30.
 LaTeX Font Info:    Font shape `T1/txss/bx/sl' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 30.
 )
 \tf@toc=\write5
 \openout5 = `oetc_WP7_traceability.toc'.
@@ -1602,7 +1602,7 @@ Underfull \hbox (badness 10000) detected at line 180
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
-<./images/standardRequirementEngineering.png, id=182, 501.072pt x 383.031pt>
+<./images/standardRequirementEngineering.png, id=192, 501.072pt x 383.031pt>
 File: ./images/standardRequirementEngineering.png Graphic file (type png)
 
 <use ./images/standardRequirementEngineering.png>
@@ -1643,7 +1643,7 @@ Underfull \hbox (badness 10000) detected at line 195
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
-<./images/OpenETCSRequirementsWrtStandard.png, id=191, 510.708pt x 383.031pt>
+<./images/OpenETCSRequirementsWrtStandard.png, id=201, 510.708pt x 383.031pt>
 File: ./images/OpenETCSRequirementsWrtStandard.png Graphic file (type png)
 
 <use ./images/OpenETCSRequirementsWrtStandard.png>
@@ -1651,7 +1651,7 @@ Package pdftex.def Info: ./images/OpenETCSRequirementsWrtStandard.png used on i
 nput line 202.
 (pdftex.def)             Requested size: 375.14705pt x 281.36952pt.
 
-<./images/requirementEngineeringWithModels.png, id=193, 557.9244pt x 477.9456pt
+<./images/requirementEngineeringWithModels.png, id=203, 557.9244pt x 477.9456pt
 >
 File: ./images/requirementEngineeringWithModels.png Graphic file (type png)
  <use ./images/requirementEngineeringWithModels.png>
@@ -1678,7 +1678,7 @@ Underfull \hbox (badness 10000) detected at line 225
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
-<./images/openETCSRequirementsAndModels.png, id=195, 566.5968pt x 480.3546pt>
+<./images/openETCSRequirementsAndModels.png, id=205, 566.5968pt x 480.3546pt>
 File: ./images/openETCSRequirementsAndModels.png Graphic file (type png)
 
 <use ./images/openETCSRequirementsAndModels.png>
@@ -1703,7 +1703,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 tsAndModels.png>]
 Chapter 2.
 
-<./images/openETCSTraceabilityMainPriority.png, id=211, 451.4466pt x 404.712pt>
+<./images/openETCSTraceabilityMainPriority.png, id=221, 451.4466pt x 404.712pt>
 File: ./images/openETCSTraceabilityMainPriority.png Graphic file (type png)
 <use ./images/openETCSTraceabilityMainPriority.png>
 Package pdftex.def Info: ./images/openETCSTraceabilityMainPriority.png used on 
@@ -1719,14 +1719,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [4
 
  <./images/openETCSTraceabilityMainPriority.png>]
-<./images/trace_archi.pdf, id=218, 539.52188pt x 407.06116pt>
+<./images/trace_archi.pdf, id=228, 539.52188pt x 407.06116pt>
 File: ./images/trace_archi.pdf Graphic file (type pdf)
 
 <use ./images/trace_archi.pdf>
 Package pdftex.def Info: ./images/trace_archi.pdf used on input line 261.
 (pdftex.def)             Requested size: 375.14705pt x 283.05264pt.
 
-<./images/ToolChainTraceabilityMainScenario.png, id=220, 1077.02374pt x 1131.22
+<./images/ToolChainTraceabilityMainScenario.png, id=230, 1077.02374pt x 1131.22
 626pt>
 File: ./images/ToolChainTraceabilityMainScenario.png Graphic file (type png)
  <use ./images/ToolChainTraceabilityMainScenario.png>
@@ -1888,6 +1888,12 @@ Underfull \hbox (badness 10000) detected at line 344
  []
 
 
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
 Underfull \hbox (badness 10000) detected at line 345
 []\T1/txr/bx/n/10.95 ^^U[]
  []
@@ -1898,55 +1904,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [9]
 Chapter 4.
+<images/ToolChainLogicalArchitecture.png, id=277, 831.105pt x 1047.915pt>
+File: images/ToolChainLogicalArchitecture.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) detected at line 358
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
+<use images/ToolChainLogicalArchitecture.png>
+Package pdftex.def Info: images/ToolChainLogicalArchitecture.png used on input 
+line 358.
+(pdftex.def)             Requested size: 375.14705pt x 473.01247pt.
 
+<images/ToolChainWhiteBoxInteractionsConcerningTraceability.png, id=279, 1389.1
+9pt x 1261.71375pt>
+File: images/ToolChainWhiteBoxInteractionsConcerningTraceability.png Graphic fi
+le (type png)
 
-Underfull \hbox (badness 10000) detected at line 360
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
+<use images/ToolChainWhiteBoxInteractionsConcerningTraceability.png>
+Package pdftex.def Info: images/ToolChainWhiteBoxInteractionsConcerningTraceabi
+lity.png used on input line 367.
+(pdftex.def)             Requested size: 458.5187pt x 416.44383pt.
 
-<images/first_trace_solution.pdf, id=266, 321.89537pt x 318.72144pt>
-File: images/first_trace_solution.pdf Graphic file (type pdf)
-
-<use images/first_trace_solution.pdf>
-Package pdftex.def Info: images/first_trace_solution.pdf used on input line 375
-.
-(pdftex.def)             Requested size: 375.14705pt x 371.46791pt.
-
-Underfull \hbox (badness 10000) detected at line 387
-[]\T1/txr/m/n/10.95 1.[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 388
-[]\T1/txr/m/n/10.95 2.[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 389
-[]\T1/txr/m/n/10.95 3.[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 391
-[]\T1/txr/m/n/10.95 4.[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 392
-[]\T1/txr/m/n/10.95 5.[]
+Overfull \hbox (41.68582pt too wide) in paragraph at lines 367--368
+ [][] 
  []
 
 
@@ -1957,28 +1936,101 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [10
 
-]
+ <./images/ToolChainLogicalArchitecture.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11 <./images/first_trace_solution.pdf>]
+[11 <./images/ToolChainWhiteBoxInteractionsConcerningTraceability.png>]
+Underfull \hbox (badness 10000) detected at line 377
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 385
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
 Chapter 5.
+<images/first_trace_solution.pdf, id=296, 321.89537pt x 318.72144pt>
+File: images/first_trace_solution.pdf Graphic file (type pdf)
+
+<use images/first_trace_solution.pdf>
+Package pdftex.def Info: images/first_trace_solution.pdf used on input line 410
+.
+(pdftex.def)             Requested size: 375.14705pt x 371.46791pt.
+
+Underfull \hbox (badness 10000) detected at line 423
+[]\T1/txr/m/n/10.95 1.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 424
+[]\T1/txr/m/n/10.95 2.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 425
+[]\T1/txr/m/n/10.95 3.[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13
+
+ <./images/first_trace_solution.pdf>]
+Underfull \hbox (badness 10000) detected at line 426
+[]\T1/txr/m/n/10.95 4.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 427
+[]\T1/txr/m/n/10.95 5.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 434
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 436
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 410.
-<images/tracestring-ex.png, id=355, 497.9403pt x 191.5155pt>
+ine 451.
+<images/tracestring-ex.png, id=379, 497.9403pt x 191.5155pt>
 File: images/tracestring-ex.png Graphic file (type png)
 
 <use images/tracestring-ex.png>
-Package pdftex.def Info: images/tracestring-ex.png used on input line 420.
+Package pdftex.def Info: images/tracestring-ex.png used on input line 461.
 (pdftex.def)             Requested size: 375.14705pt x 144.285pt.
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./images/tracestring-ex.png>]
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-LaTeX Font Info:    Try loading font information for TS1+txtt on input line 437
+LaTeX Font Info:    Try loading font information for TS1+txtt on input line 478
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/txfonts/ts1txtt.fd
@@ -1989,67 +2041,58 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) detected at line 439
+Underfull \hbox (badness 10000) detected at line 480
 []\T1/txr/m/n/10.95 1.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 440
+Underfull \hbox (badness 10000) detected at line 481
 []\T1/txr/m/n/10.95 2.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 443
+Underfull \hbox (badness 10000) detected at line 484
 []\T1/txr/m/n/10.95 3.[]
  []
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[12
-
- <./images/tracestring-ex.png>]
-Underfull \hbox (badness 10000) detected at line 452
+Underfull \hbox (badness 10000) detected at line 493
 []\T1/txr/m/n/10.95 4.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 461
+Underfull \hbox (badness 10000) detected at line 502
 []\T1/txr/m/n/10.95 5.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 462
+Underfull \hbox (badness 10000) detected at line 503
 []\T1/txr/m/n/10.95 6.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 463
+Underfull \hbox (badness 10000) detected at line 504
 []\T1/txr/m/n/10.95 7.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 482
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[15]
 
-Underfull \hbox (badness 10000) detected at line 483
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[16]
+Chapter 6.
 
-Underfull \hbox (badness 10000) detected at line 484
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 485
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 537.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2057,21 +2100,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13]
+[17
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 522.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 522.
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 548.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 548.
  (./oetc_WP7_traceability.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 522.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 522.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 548.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 548.
 Package rerunfilecheck Info: File `oetc_WP7_traceability.out' has not changed.
-(rerunfilecheck)             Checksum: 9285F90CE0CD90B3253A09D408BB9FA6;2048.
+(rerunfilecheck)             Checksum: 689AA2CDE7DC3B6E2DFC1CCE5FC9DFC6;2401.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2083,14 +2121,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 522.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 548.
  ) 
 Here is how much of TeX's memory you used:
- 24015 strings out of 493089
- 422935 string characters out of 6134841
- 508910 words of memory out of 5000000
- 26674 multiletter control sequences out of 15000+600000
- 114157 words of font info for 317 fonts, out of 8000000 for 9000
+ 24031 strings out of 493089
+ 423662 string characters out of 6134841
+ 510512 words of memory out of 5000000
+ 26685 multiletter control sequences out of 15000+600000
+ 113982 words of font info for 314 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,79p,546b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -2107,10 +2145,10 @@ b8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 al/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on oetc_WP7_traceability.pdf (20 pages, 1919576 bytes).
+Output written on oetc_WP7_traceability.pdf (23 pages, 2248958 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 66337 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 477 PDF objects out of 1000 (max. 8388607)
+ 384 compressed objects within 4 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 66363 words of extra memory for PDF output out of 74296 (max. 10000000)
 

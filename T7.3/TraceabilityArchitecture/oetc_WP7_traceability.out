@@ -10,18 +10,20 @@
 \BOOKMARK [0][-]{chapter.3}{OpenETCS tool chain requirements about traceability}{}% 10
 \BOOKMARK [1][-]{section.3.1}{Tool chain capabilities to support requirement management}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{Tool chain capabilities to support requirement traceability}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Tool chain architecture to support traceability}{}% 13
-\BOOKMARK [1][-]{section.4.1}{Existing tooling}{chapter.4}% 14
-\BOOKMARK [1][-]{section.4.2}{First Solution}{chapter.4}% 15
-\BOOKMARK [2][-]{subsection.4.2.1}{TODO ReqCycle Evaluation}{section.4.2}% 16
-\BOOKMARK [2][-]{subsection.4.2.2}{TODO Reqtify Evaluation}{section.4.2}% 17
-\BOOKMARK [0][-]{chapter.5}{Activities Details}{}% 18
-\BOOKMARK [1][-]{section.5.1}{Subset-026 import}{chapter.5}% 19
-\BOOKMARK [2][-]{subsection.5.1.1}{Script description}{section.5.1}% 20
-\BOOKMARK [2][-]{subsection.5.1.2}{Unique ID definition}{section.5.1}% 21
-\BOOKMARK [1][-]{section.5.2}{Requirement Database}{chapter.5}% 22
-\BOOKMARK [1][-]{section.5.3}{Requirement management}{chapter.5}% 23
-\BOOKMARK [1][-]{section.5.4}{System Model}{chapter.5}% 24
-\BOOKMARK [1][-]{section.5.5}{Interface Definition}{chapter.5}% 25
-\BOOKMARK [1][-]{section.5.6}{Functional model}{chapter.5}% 26
-\BOOKMARK [1][-]{section.5.7}{TODO Verification and Validation}{chapter.5}% 27
+\BOOKMARK [0][-]{chapter.4}{Tool chain logical architecture and existing solutions to support traceability}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Components and their interactions}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.2}{Component design: existing technologies/tooling}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.2.1}{Requirement management and traceability}{section.4.2}% 16
+\BOOKMARK [2][-]{subsection.4.2.2}{Modelling tool for system model}{section.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.2.3}{Modelling tool for OBU functional model}{section.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.2.4}{OBU Functional model}{section.4.2}% 19
+\BOOKMARK [0][-]{chapter.5}{First physical traceability solution: ReqIF-RMGateway-ProR}{}% 20
+\BOOKMARK [1][-]{section.5.1}{Subset-026 import}{chapter.5}% 21
+\BOOKMARK [2][-]{subsection.5.1.1}{Script description}{section.5.1}% 22
+\BOOKMARK [2][-]{subsection.5.1.2}{Unique ID definition}{section.5.1}% 23
+\BOOKMARK [1][-]{section.5.2}{System Model}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.3}{Interface Definition}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.4}{TODO Verification and Validation}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{Second physical traceability solution: ReqCycle}{}% 27
+\BOOKMARK [1][-]{subsection.6.0.1}{TODO ReqCycle Evaluation}{chapter.6}% 28
+\BOOKMARK [2][-]{subsection.6.0.2}{TODO Reqtify Evaluation}{subsection.6.0.1}% 29

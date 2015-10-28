@@ -332,7 +332,7 @@ In order to support this activity in openETCS project we need at least the follo
 \begin{itemize}
 
 \item Creation of a link between a requirement and an engineering artefact, based on a given link template/type (refine, derive, implement, verify...). 
-\begin{itemize} \item \textbf{OpenETCS example}: create a "Refine" link between one Subset026 SRS requirement and one OnBoard Unit function, with  "status" link attribute set to "defined".\end{itemize}
+\begin{itemize} \item \textbf{OpenETCS example}: create a "Satisfy" link between one Subset026 SRS requirement and one OnBoard Unit function, with  "status" link attribute set to "defined" and "rationale" attribute set with appropriate justification.\end{itemize}
 
 \item edition of link status. 
 \begin{itemize} \item \textbf{OpenETCS example}: after review, confirm some traceability links  by setting "status" attribute to "validated" value.
@@ -346,16 +346,41 @@ In order to support this activity in openETCS project we need at least the follo
 
 \end{itemize}
 
-\chapter{Tool chain architecture to support traceability}
-\label{sec-4} 
-Traceability architecture is mainly based on two components: requirement management component and requirement traceability component.
-
-\section{Existing tooling}
+\chapter{Tool chain logical architecture and existing solutions to support traceability}
+\section{Components and their interactions}
 
 \label{sec-4-1} 
+
+Figure \ref{fig:ToolChainLogicalArchitecture} shows a possible tool chain architecture with two components(in red) identified to support respectively requirement management and requirement traceability.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{images/ToolChainLogicalArchitecture.png}
+\caption{\label{fig:ToolChainLogicalArchitecture}Tool chain logical architecture with focus on requirement management and traceability}
+\end{figure}
+
+Figure \ref{fig:ToolChainWhiteBoxInteractionsConcerningTraceability} shows interactions between tool chain logical components concerning requirement flow down and traceability.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=1.1\linewidth]{images/ToolChainWhiteBoxInteractionsConcerningTraceability.png}
+\caption{\label{fig:ToolChainWhiteBoxInteractionsConcerningTraceability}interaction between tool chain components to support requirement flow down and traceability}
+\end{figure}
+
+\section{Component design: existing technologies/tooling}
+
+\subsection{Requirement management and traceability}
+\label{sec-4-2} 
 Concerning requirement management and traceability there exist a lot of solutions. If we focus on open source solutions and especially those able to integrate into Eclipse platform, we find:
 \begin{itemize}
 \item Eclipse Requirement Modeling Framework (RMF). As mentioned on Eclipse web site, RMF is a framework to manage textual requirements through ReqIF standard requirement exchange format. There is a powerful GUI called "ProR" to configure, visualize and edit ReqIF requirements in RMF.
+RMF/ProR is the natural choice for OpenETCS to support requirement management.
+
+Alternatively to deal with the closed source path the requirement management may
+be done by Reqtify Gateway of SCADE (also called "RM Gateway"). 
+
+ProR can also be used to support traceability between requirements (native functionality) and between requirements and Papyrus models through a "proxy" connector.
 
 \item PolarSys ReqCycle. It is a solution that focuses on requirement traceability. It can allow managing requirements (creation, edition, queries) with classification (scopes) and custom requirement data models but with very limited requirement editor. Strength is its ability to capture and aggregate traceability links coming from different sources (EMF models, C code, Java code, SysML models...) and to define own traceability links based on custom link types with potential attributes.
 
@@ -363,12 +388,22 @@ Concerning requirement management and traceability there exist a lot of solution
 
 If we extend search to proprietary solutions, we find IBM DOORS and IBM DOORS Next requirement management products and Dassault Systems ReqTify product as leading solutions to support respectively requirement management and requirement traceability.
 
-The present solution proposes a first "by hand" approach, to deal with
-traceability without having all the proper tools already integrated into the tool chain.
+\subsection{Modelling tool for system model}
+The system model defines block and interfaces between those blocks that realize
+the specification. This is done with Eclipse Papyrus. 
 
-\section{First Solution}
-\label{sec-4-2}
-TO COMPLETE...
+\subsection{Modelling tool for OBU functional model}
+The system model defines block and interfaces between those blocks that realize
+the specification. This is done with Eclipse Papyrus. 
+
+\subsection{OBU Functional model}
+\label{sec-10}
+OBU functional model is done with SCADE suite tool.
+
+\chapter{First physical traceability solution: ReqIF-RMGateway-ProR}
+\label{sec-5}
+
+This first solution consists in handling traceability "by hand" (without full integration in the tool chain), with different solutions locally integrated to the different modelling environments used in the project (SCADE, Papyrus) and aggregate results in a shared global requirement database.
 
 \begin{figure}[htb]
 \centering
@@ -376,30 +411,36 @@ TO COMPLETE...
 \caption{\label{fig:trace_first}Traceability architecture first solution}
 \end{figure}
 
-Figure \ref{fig:trace_first} proposes a first solution to handle traceability.
-The basic idea is to allways refer to the same requirements data base. This data
+With that approach, there is one master reference requirements data base. This data
 base is itself directly imported from the subset-026 word document. The data
 base provides the list of requirements as well as an unique identifiers for each
 requirement. These identifiers are fixed and cannot be modified by any other
-tools. But it may be possible for requirement management tools to refine these
+tools. 
+
+Note: it is possible for requirement management tools to complete imported
 requirements but they should guarantee the following rules:
 \begin{enumerate}
-\item The requirement's structure is not modified.
+\item The requirement's structure (hierarchy, scope) is not modified.
 \item No requirement should be deleted.
-\item Newly added requirements should be either a refinement or a decomposition of an
-existing one.
+\item Newly added requirements should be either a refinement, derivation or a decomposition of an existing one.
 \item The identifier pattern should be respected.
-\item Identifiers should stay unique.
+\item Identifiers should remain unique.
 \end{enumerate}
 
+Concerning database, best solution is to use ReqIF standard exchange format, as it can be fulfilled by most requirement management tools. 
 
-\subsection{{\bfseries\sffamily TODO} ReqCycle  Evaluation}
-\label{sec-4-2}
-\subsection{{\bfseries\sffamily TODO} Reqtify Evaluation}
-\label{sec-4-3}
+Concerning requirement management and traceability "local" solutions we get: 
+\begin{itemize}
+\item For Scade modelling: most direct solution is Scade RM-Gateway (based on ReqTify solution) as it is integrated with SCADE tool.
+Note: alternative solutions are "ReqCycle" but it does not have direct traceability connector for SCADE modeling tool.
+\item For Papyrus SysML model: ProR can be used with a given proxy added to Papyrus to support creation of links between ReqIF requirements and SysML elements.
+Note: another direct solution is to use ReqCycle solution that is well suited to create and capture links with Papyrus models. It will be investigated in another candidate architecture.
+
+Figure \ref{fig:trace_first} illustrates this solution with associated tools/technologies.
+
+\end{itemize}
 
 
-\chapter{Activities Details}
 
 \section{Subset-026 import}
 \label{sec-5}
@@ -466,35 +507,9 @@ will be removed. The bullet points form another (less significant) sub-list.
 This will result in the following requirement ID: \quad \verb+3.5.3.7.a[2].[*][2]+
 
 
-\section{Requirement Database}
-\label{sec-6}
-The requirement data base is a ReqIF file-based.
-
-\section{Requirement management}
-\label{sec-7}
-The requirement management allows us to have a look at the set of requirements
-and performs some actions.
-The set of requirements can be automatically imported from a Req-IF file.
-
-The requirement management should be use to refine the high-level requirements
-from the import. It can be use to give more precise information about :
-\begin{itemize}
-\item Which requirements are implementable
-\item Who is assigned to implement a set of requirements
-\item How and if the requirement is decomposed.
-\item TODO (list to be refined)
-\end{itemize}
-
-In the OpenETCS tool chain this tasks is done with ProR.
-Alternatively to deal with the closed source path the requirement management may
-be done by Reqtify Gateway of SCADE. 
 
 \section{System Model}
 \label{sec-8}
-
-The system model defines block and interfaces between those blocks that realizes
-the specification.
-This is done with Papyrus. 
 
 The link with the requirement may be included via requirements diagram with a
 direct link of requirement in ProR
@@ -506,18 +521,29 @@ directly apply from ProR to a Papyrus elements.
 \section{Interface Definition}
 \label{sec-9}
 
-Should define the interfaces between the architecture artifacts.  It is used and
+Should define the interfaces between the architecture artefacts.  It is used and
 set up to facilitate team working together on a big architecture. Its definition
-comes from the requirements but can also be refines by the modeling team without
+comes from the requirements but can also be refined by the modelling team without
 changing the existing implemented requirements.
 
-\section{Functional model}
-\label{sec-10}
-The function model is the implementation of the system defines in the system
-model. It should covers the set of implementable requirements.
+
 
 \section{{\bfseries\sffamily TODO} Verification and Validation}
 \label{sec-11}
+
+\chapter{Second physical traceability solution: ReqCycle}
+\label{sec-6}
+
+\subsection{{\bfseries\sffamily TODO} ReqCycle  Evaluation}
+\label{sec-4-5}
+\subsection{{\bfseries\sffamily TODO} Reqtify Evaluation}
+\label{sec-4-6}
+
+
+
+
+
+
 % Emacs 24.3.1 (Org mode 8.2.4)
 \end{document}
 
