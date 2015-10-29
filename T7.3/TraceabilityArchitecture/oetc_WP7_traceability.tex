@@ -548,14 +548,26 @@ All new OpenETCS requirements are added in this requirement database through Pro
 Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
 Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
 
+Interactions through the tool chain are detailed in figure \ref{fig:trace_second-interactions} below with focus put on traceability between requirements and functional model (traceability with SysML model, creation of tests and export of traceability are not shown here). 
+
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\linewidth]{images/second_trace_solution_interactions.png}
+\caption{\label{fig:trace_second-interactions}second solution - interactions between tool chain components}
+\end{figure}
+
+
+\textbf{Note}: this solution requires synchronization from ProR to ReqCycle each time requirements change in the reference.
+ 
 Most complex commands are detailed in next paragraphs.
 
 \section{Subset-026 import}
 \label{sec-6-1}
 The subset-026 import can be realized by two means:
 \begin{itemize}
-\item either by direct import from the subset-026 word document (ReqCycle Document import connector)
-\item else by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
+\item Either by direct import from the subset-026 word document (ReqCycle Document import connector)
+\item Or by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
 	\begin{itemize}
 
 	\item 1.A1 transformation can be realized with same script than the one described in first traceability solution - see \ref{sec-5-1}
@@ -651,6 +663,7 @@ Same solution than in second solution. see \ref{sec-6-5}
 
 
 \chapter{Tool evaluations}
+Will be done in a separate document.
 \subsection{{\bfseries\sffamily TODO} ReqCycle  Evaluation}
 \label{sec-4-5}
 \subsection{{\bfseries\sffamily TODO} Reqtify Evaluation}

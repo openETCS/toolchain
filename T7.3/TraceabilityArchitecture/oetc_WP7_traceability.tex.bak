@@ -548,14 +548,26 @@ All new OpenETCS requirements are added in this requirement database through Pro
 Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
 Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
 
+Interactions through the tool chain are detailed in figure \ref{fig:trace_second-interactions} below with focus put on traceability between requirements and functional model (traceability with SysML model, creation of tests and export of traceability are not shown here). 
+
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=1.0\linewidth]{images/second_trace_solution_interactions.png}
+\caption{\label{fig:trace_second-interactions}second solution - interactions between tool chain components}
+\end{figure}
+
+
+\textbf{Note}: this solution requires synchronization from ProR to ReqCycle each time requirements change in the reference.
+ 
 Most complex commands are detailed in next paragraphs.
 
 \section{Subset-026 import}
 \label{sec-6-1}
 The subset-026 import can be realized by two means:
 \begin{itemize}
-\item either by direct import from the subset-026 word document (ReqCycle Document import connector)
-\item else by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
+\item Either by direct import from the subset-026 word document (ReqCycle Document import connector)
+\item Or by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
 	\begin{itemize}
 
 	\item 1.A1 transformation can be realized with same script than the one described in first traceability solution - see \ref{sec-5-1}
@@ -599,10 +611,21 @@ It is exported into EMF format that can be processed by Gendoc to render expecte
 
 \chapter{Third physical traceability solution: ReqCycle}
 \label{sec-7}
-This third solution consists in using only one centralized Requirement database (as in solution 1) managed by one eclipse-based solution (ReqCycle) also used to support requirement traceability for all models (Papyrus and SCADE).
+This third solution consists in using only one centralized Requirement database (as in previous solutions) managed by one eclipse-based solution (ReqCycle) also used to support requirement traceability for all models (Papyrus and SCADE).
 
-Third-Solution-ReqCycle.png
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{images/Third-Solution-ReqCycle.png}
+\caption{\label{fig:trace_third}Traceability architecture third solution with ReqCycle only}
+\end{figure}
 
+With that approach, there is still one master reference requirements data base entirely managed by ReqCycle. Requirement database is initialized by import from the subset-026 word document through two possible means (see next section) and by import from OpenETCS API.
+All new OpenETCS requirements are added in this requirement database through ReqCycle tool.
+
+Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
+Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
+
+Most complex commands are detailed in next paragraphs.
 
 
 \section{Subset-026 import}
@@ -635,14 +658,16 @@ Same solution than in second solution. see \ref{sec-6-4}
 
 \section{Aggregation of traceability links and export}
 \label{sec-6-5}
+Same solution than in second solution. see \ref{sec-6-5}
 
+
+
+\chapter{Tool evaluations}
+Will be done in a separate document.
 \subsection{{\bfseries\sffamily TODO} ReqCycle  Evaluation}
 \label{sec-4-5}
 \subsection{{\bfseries\sffamily TODO} Reqtify Evaluation}
 \label{sec-4-6}
-
-
-
 
 
 
