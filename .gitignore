@@ -1,8 +1,8 @@
 *.el
 *.bbl
 *.lof
-T7.3/MigrationScade2OpenAlternative/OpenETCS_MigrationScade2OpenAlternative.toc
-T7.3/MigrationScade2OpenAlternative/OpenETCS_MigrationScade2OpenAlternative.aux
+*.toc
+*.aux
 *.lot
-T7.3/MigrationScade2OpenAlternative/OpenETCS_MigrationScade2OpenAlternative.blg
+*.blg
 T7.3/MigrationScade2OpenAlternative/#OpenETCS_MigrationScade2OpenAlternative.tex#
