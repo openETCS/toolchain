@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  29 OCT 2015 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  29 OCT 2015 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2168,7 +2168,7 @@ ng)
  <use images/second_trace_solution_TraceabilityCreator.png>
 Package pdftex.def Info: images/second_trace_solution_TraceabilityCreator.png u
 sed on input line 602.
-(pdftex.def)             Requested size: 375.14705pt x 273.09947pt.
+(pdftex.def)             Requested size: 416.83289pt x 303.44714pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2182,9 +2182,20 @@ Underfull \hbox (badness 10000) detected at line 610
  []
 
 
-Underfull \hbox (badness 10000) detected at line 611
+Underfull \hbox (badness 10000) detected at line 614
 []\T1/txr/m/n/10.95 2.[]
  []
+
+
+<images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png, id=508, 538.
+1706pt x 467.8278pt>
+File: images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png Graphic 
+file (type png)
+
+<use images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png>
+Package pdftex.def Info: images/ReqCycle_PrepareTraceLinkAnnotationForExternalE
+lement.png used on input line 627.
+(pdftex.def)             Requested size: 375.14705pt x 326.11378pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2193,26 +2204,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20 <./images/second_trace_solution_TraceabilityCreator.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21 <./images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png>]
 Chapter 7.
-<images/Third-Solution-ReqCycle.png, id=514, 629.2308pt x 414.348pt>
+<images/Third-Solution-ReqCycle.png, id=522, 629.2308pt x 414.348pt>
 File: images/Third-Solution-ReqCycle.png Graphic file (type png)
 
 <use images/Third-Solution-ReqCycle.png>
 Package pdftex.def Info: images/Third-Solution-ReqCycle.png used on input line 
-627.
+643.
 (pdftex.def)             Requested size: 375.14705pt x 247.03642pt.
 
-Underfull \hbox (badness 10000) detected at line 644
+Underfull \hbox (badness 10000) detected at line 660
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 645
+Underfull \hbox (badness 10000) detected at line 661
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 648
+Underfull \hbox (badness 10000) detected at line 664
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -2222,10 +2240,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21
+[22
 
  <./images/Third-Solution-ReqCycle.png>]
-Underfull \hbox (badness 10000) detected at line 650
+Underfull \hbox (badness 10000) detected at line 666
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -2235,11 +2253,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22]
+[23]
 Chapter 8.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 676.
+(hyperref)                than one, level fixed on input line 692.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2247,14 +2265,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23
+[24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 684.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 684.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 700.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 700.
  (./oetc_WP7_traceability.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 684.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 684.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 700.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 700.
 Package rerunfilecheck Info: File `oetc_WP7_traceability.out' has not changed.
 (rerunfilecheck)             Checksum: AF6C251D1C72F5E46F396125912FFC4E;3448.
 
@@ -2268,13 +2286,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 684.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 700.
  ) 
 Here is how much of TeX's memory you used:
- 24135 strings out of 493089
- 425440 string characters out of 6134841
- 513502 words of memory out of 5000000
- 26727 multiletter control sequences out of 15000+600000
+ 24143 strings out of 493089
+ 425837 string characters out of 6134841
+ 513627 words of memory out of 5000000
+ 26732 multiletter control sequences out of 15000+600000
  115382 words of font info for 338 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,79p,546b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2292,10 +2310,10 @@ b8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 al/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on oetc_WP7_traceability.pdf (31 pages, 2822789 bytes).
+Output written on oetc_WP7_traceability.pdf (32 pages, 3299507 bytes).
 PDF statistics:
- 600 PDF objects out of 1000 (max. 8388607)
- 490 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 66479 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 609 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 66484 words of extra memory for PDF output out of 74296 (max. 10000000)
 

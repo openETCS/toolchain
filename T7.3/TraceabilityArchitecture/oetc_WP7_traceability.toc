@@ -31,13 +31,13 @@
 \contentsline {section}{\numberline {6.2}Creation of additional OpenETCS requirements}{19}{section.6.2}
 \contentsline {section}{\numberline {6.3}Creation of links between SysML model elements and requirements}{19}{section.6.3}
 \contentsline {section}{\numberline {6.4}Creation of links between SCADE model and requirements}{20}{section.6.4}
-\contentsline {section}{\numberline {6.5}Aggregation of traceability links and export}{20}{section.6.5}
-\contentsline {chapter}{\numberline {7}Third physical traceability solution: ReqCycle}{21}{chapter.7}
-\contentsline {section}{\numberline {7.1}Subset-026 import}{21}{section.7.1}
-\contentsline {section}{\numberline {7.2}Creation of additional OpenETCS requirements}{22}{section.7.2}
-\contentsline {section}{\numberline {7.3}Creation of links between SysML model elements and requirements}{22}{section.7.3}
-\contentsline {section}{\numberline {7.4}Creation of links between SCADE model and requirements}{22}{section.7.4}
-\contentsline {section}{\numberline {7.5}Aggregation of traceability links and export}{22}{section.7.5}
-\contentsline {chapter}{\numberline {8}Tool evaluations}{23}{chapter.8}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {8.0.1}{\bfseries \sffamily TODO} ReqCycle Evaluation}{23}{subsection.8.0.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {8.0.2}{\bfseries \sffamily TODO} Reqtify Evaluation}{23}{subsection.8.0.2}
+\contentsline {section}{\numberline {6.5}Aggregation of traceability links and export}{21}{section.6.5}
+\contentsline {chapter}{\numberline {7}Third physical traceability solution: ReqCycle}{22}{chapter.7}
+\contentsline {section}{\numberline {7.1}Subset-026 import}{22}{section.7.1}
+\contentsline {section}{\numberline {7.2}Creation of additional OpenETCS requirements}{23}{section.7.2}
+\contentsline {section}{\numberline {7.3}Creation of links between SysML model elements and requirements}{23}{section.7.3}
+\contentsline {section}{\numberline {7.4}Creation of links between SCADE model and requirements}{23}{section.7.4}
+\contentsline {section}{\numberline {7.5}Aggregation of traceability links and export}{23}{section.7.5}
+\contentsline {chapter}{\numberline {8}Tool evaluations}{24}{chapter.8}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {8.0.1}{\bfseries \sffamily TODO} ReqCycle Evaluation}{24}{subsection.8.0.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {8.0.2}{\bfseries \sffamily TODO} Reqtify Evaluation}{24}{subsection.8.0.2}

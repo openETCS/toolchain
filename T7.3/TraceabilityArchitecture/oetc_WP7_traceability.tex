@@ -599,7 +599,7 @@ When both source and destination objects are selected, ReqCycle provides a comma
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\linewidth]{images/second_trace_solution_TraceabilityCreator.png}
+\includegraphics[width=1.0\linewidth]{images/second_trace_solution_TraceabilityCreator.png}
 \caption{\label{fig:trace_second-TraceabilityCreator}ReqCycle - traceability creator}
 \end{figure}
 
@@ -607,11 +607,27 @@ When both source and destination objects are selected, ReqCycle provides a comma
 \label{sec-6-4}
 There are two approaches that can be used: 
 \begin{enumerate}
-\item use same approach than in \ref{sec-6-3} but there is some development to make selection of SCADE model element appear in ReqCycle traceability creator view
-\item select requirement in ReqCycle Requirement view and prepare the creation of traceability link through a dedicated ReqCycle command that copies the traceability link identifier in clipboard, and then use "paste" command in SCADE tool environement, in the comment area associated to the model element to trace.
+\item use same approach than for creation of trace links between SysML model elements and OpenETCS requirements (see \ref{sec-6-3}).
+
+\textbf{Note}: there is some investigation to check that it is (easily) feasible to propagate selection of a SCADE model element in ReqCycle traceability creator view (source or destination area).
+
+\item use SCADE comment area available for any model element, fill it with traceability link data and let ReqCycle capture those traceability links by analysing SCADE model file (dedicated SCADE traceability analysis engine to implement). 
+
+In order to avoid mistakes on editing link annotation in comment area in SCADE, idea is to generate requirement traceability link annotation from ReqCycle command ("Generate requirement traceability annotation for external element") and copy it into the clipboard. 
+
+Then, in SCADE, system designer has just to "paste" string (from clipboard) in the concerned model element comment area and let ReqCycle analyse traceability: ReqCycle will parse SCADE model file, will capture all comments with associated model elements and will build the traceability links from requirement ID, trace link type and SCADE model element.
+
+
+Figure \ref{fig:ReqCycle_PrepareTraceLinkAnnotation} illustrates such command.
+
 \end{enumerate} 
 
-Figure to DO.
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\linewidth]{images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png}
+\caption{\label{fig:ReqCycle_PrepareTraceLinkAnnotation}ReqCycle - generate traceability annotation for external model element (SCADE for instance)}
+\end{figure}
+
 
 \section{Aggregation of traceability links and export}
 \label{sec-6-5}
