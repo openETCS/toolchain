@@ -400,10 +400,10 @@ the specification. This is done with Eclipse Papyrus.
 \label{sec-10}
 OBU functional model is done with SCADE suite tool.
 
-\chapter{First physical traceability solution: ReqIF-RMGateway-ProR}
+\chapter{First physical traceability solution: ProR-RMGateway}
 \label{sec-5}
 
-This first solution consists in handling traceability "by hand" (without full integration in the tool chain), with different solutions locally integrated to the different modelling environments used in the project (SCADE, Papyrus) and aggregate results in a shared global requirement database.
+This first solution consists in handling traceability "by hand" (without full integration in the tool chain), with different solutions locally integrated to the different modelling environments used in the project (SCADE and Papyrus) and aggregate results in a shared global requirement database.
 
 \begin{figure}[htb]
 \centering
@@ -432,7 +432,7 @@ Concerning database, best solution is to use ReqIF standard exchange format, as 
 Concerning requirement management and traceability "local" solutions we get: 
 \begin{itemize}
 \item For Scade modelling: most direct solution is Scade RM-Gateway (based on ReqTify solution) as it is integrated with SCADE tool.
-Note: alternative solutions are "ReqCycle" but it does not have direct traceability connector for SCADE modeling tool.
+Note: alternative solutions are "ReqCycle" (see other solutions later in this document).
 \item For Papyrus SysML model: ProR can be used with a given proxy added to Papyrus to support creation of links between ReqIF requirements and SysML elements.
 Note: another direct solution is to use ReqCycle solution that is well suited to create and capture links with Papyrus models. It will be investigated in another candidate architecture.
 
@@ -531,18 +531,24 @@ changing the existing implemented requirements.
 \section{{\bfseries\sffamily TODO} Verification and Validation}
 \label{sec-11}
 
-\chapter{Second physical traceability solution: ReqIF-ReqCycle}
+\chapter{Second physical traceability solution: ProR-ReqCycle}
 \label{sec-6}
 
-This second solution consists in using only one centralized eclipse-based technology to support requirement management and traceability for all models: PolarSys ReqCycle.
+This second solution consists in using only one centralized Requirement database (as in solution 1) managed by one eclipse-based requirement management solution (ProR) and only one eclipse-based technology to support requirement traceability for all models (Papyrus and SCADE): PolarSys ReqCycle.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=.9\linewidth]{images/second_trace_solution.png}
+\includegraphics[width=.9\linewidth]{images/second_trace_solution-ProR-ReqCycle.png}
 \caption{\label{fig:trace_second}Traceability architecture second solution}
 \end{figure}
 
-With that approach, there is still one master reference requirements data base but it is managed by ReqCycle solution. Requirement database can be initialized by two means: either by import from the subset-026 word document (1.A path in the figure) 
+With that approach, there is still one master reference requirements data base entirely managed by ProR. Requirement database is initialized by import from the subset-026 word document, as in solution 1 (see \ref{sec-5-1}) and by import from OpenETCS API.
+All new OpenETCS requirements are added in this requirement database through ProR tool.
+
+Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
+Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
+
+Most complex commands are detailed in next paragraphs.
 
 \section{Subset-026 import}
 \label{sec-6-1}
@@ -560,11 +566,15 @@ The subset-026 import can be realized by two means:
 
 \section{Creation of additional OpenETCS requirements}
 \label{sec-6-2}
-ReqCycle provides a "local" connector to create new requirements and those requirements can be linked to existing other requirements through different kinds of links (decom
-To complete
+ProR can create new requirements by decomposition or by derivation of existing requirements.
+In case of derivation, engineering level (scope) changes (for instance from System to OBU or to OBU Kernel).
+Regularly, when there have been new requirements created, there must by a copy to the ReqCycle database so that ReqCycle can manage traceability to those requirements.
+
+\textbf{Note}: in the future, we could have a link (reference) between ProR requirement database (ReqIF format) and ReqCycle database, rather than a copy. We could also have traceability created on requirement selected in ProR tool.
 
 \section{Creation of links between SysML model elements and requirements}
 \label{sec-6-3}
+ReqCycle
 ReqCycle provides a view that allows creating a link between two selected objects (traceability Creator).
 ReqCycle provides a view with requirements (Requirement View) from which it is possible to select one source object.
 Papyrus provides a view with model elements (Model explorer) from which it is possible to select a destination object.
@@ -581,6 +591,47 @@ There are two approaches that can be used:
 \end{enumerate} 
 
 Figure to DO.
+
+\section{Aggregation of traceability links and export}
+\label{sec-6-5}
+It is done by ReqCycle that has all information (copy of the requirement database and associated traceability between requirements + all traceability links with models).
+It is exported into EMF format that can be processed by Gendoc to render expected documentation including traceability.
+
+\chapter{Third physical traceability solution: ReqCycle}
+\label{sec-7}
+This third solution consists in using only one centralized Requirement database (as in solution 1) managed by one eclipse-based solution (ReqCycle) also used to support requirement traceability for all models (Papyrus and SCADE).
+
+Third-Solution-ReqCycle.png
+
+
+
+\section{Subset-026 import}
+\label{sec-7-1}
+The subset-026 import can be realized by two means:
+\begin{itemize}
+\item either by direct import from the subset-026 word document (ReqCycle Document import connector)
+\item else by a two steps process with transformation from word document to .ReqIF files (1.B1 path in the figure) and then import of those .ReqIF files into ReqCycle requirement database (1.B2 path).
+	\begin{itemize}
+
+	\item 1.A1 transformation can be realized with same script than the one described in first traceability solution - see \ref{sec-5-1}
+
+	\item 1.A2 transformation (import) can be done by ReqCycle ReqIF import connector.
+	\end{itemize}
+\end{itemize}
+
+\section{Creation of additional OpenETCS requirements}
+\label{sec-7-2}
+ReqCycle provides a "local" connector to create new requirements and those requirements can be linked to existing other requirements through different kinds of links (derivation, refinement, decomposition). Those link types have to be defined first in ReqCycle configuration.
+
+To complete
+
+\section{Creation of links between SysML model elements and requirements}
+\label{sec-7-3}
+Same solution than in second solution. see \ref{sec-6-3}
+
+\section{Creation of links between SCADE model and requirements}
+\label{sec-6-4}
+Same solution than in second solution. see \ref{sec-6-4}
 
 \section{Aggregation of traceability links and export}
 \label{sec-6-5}
