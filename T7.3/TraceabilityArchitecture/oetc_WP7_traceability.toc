@@ -30,7 +30,7 @@
 \contentsline {section}{\numberline {6.1}Subset-026 import}{19}{section.6.1}
 \contentsline {section}{\numberline {6.2}Creation of additional OpenETCS requirements}{19}{section.6.2}
 \contentsline {section}{\numberline {6.3}Creation of links between SysML model elements and requirements}{19}{section.6.3}
-\contentsline {section}{\numberline {6.4}Creation of links between SCADE model and requirements}{19}{section.6.4}
+\contentsline {section}{\numberline {6.4}Creation of links between SCADE model and requirements}{20}{section.6.4}
 \contentsline {section}{\numberline {6.5}Aggregation of traceability links and export}{20}{section.6.5}
 \contentsline {chapter}{\numberline {7}Third physical traceability solution: ReqCycle}{21}{chapter.7}
 \contentsline {section}{\numberline {7.1}Subset-026 import}{21}{section.7.1}
