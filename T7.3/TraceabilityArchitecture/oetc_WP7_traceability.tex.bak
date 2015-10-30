@@ -220,9 +220,10 @@ shows a possible classification of models aligned on the standard requirement en
 Figure \ref{fig:openETCSRequirementsAndModels} illustrates the different models produced in the openETCS project and positionned on standard engineering levels:
 \begin{itemize}
 \item User stories model that refines user stories 
-\item OpenETCS EVC model, that describes system breakdown structure with system elements (including ETCS OnBoard Unit) and their interfaces
+\item OpenETCS EVC model, also called "System model" or "System architecture model", that describes system breakdown structure with system elements (including ETCS OnBoard Unit) and their interfaces, and a set of OBU function definitions (interfaces only). OBU function realization is not part of this model. 
+This model is defined with SysML language.
 \item Data dictionary model, that stores all messages, data and functions used in architecture interface definitions
-\item OpenETCS Onboard Unit functions model, a formal executable model that focuses on ETCS Kernel functions addressed in Subset026 SRS
+\item OpenETCS Onboard Unit function models, a set of formal executable models that realize ETCS Kernel functions defined in openETCS EVC model.
 \end{itemize}
 
  
@@ -599,7 +600,7 @@ When both source and destination objects are selected, ReqCycle provides a comma
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\linewidth]{images/second_trace_solution_TraceabilityCreator.png}
+\includegraphics[width=1.0\linewidth]{images/second_trace_solution_TraceabilityCreator.png}
 \caption{\label{fig:trace_second-TraceabilityCreator}ReqCycle - traceability creator}
 \end{figure}
 
@@ -607,20 +608,25 @@ When both source and destination objects are selected, ReqCycle provides a comma
 \label{sec-6-4}
 There are two approaches that can be used: 
 \begin{enumerate}
-\item use same approach than for creation of trace links between SysML model elements and OpenETCS requirements (see \ref{sec-6-3}) but there is some development to propagate selection of a SCADE model element in ReqCycle traceability creator view (source or destination area).
+\item use same approach than for creation of trace links between SysML model elements and OpenETCS requirements (see \ref{sec-6-3}).
+
+\textbf{Note}: there is some investigation to check that it is (easily) feasible to propagate selection of a SCADE model element in ReqCycle traceability creator view (source or destination area).
 
 \item use SCADE comment area available for any model element, fill it with traceability link data and let ReqCycle capture those traceability links by analysing SCADE model file (dedicated SCADE traceability analysis engine to implement). 
 
-In order to avoid mistakes on link string when filling comment area in SCADE, idea is to generate requirement traceability link annotation from ReqCycle command ("prepare requirement link") and copy it into the clipboard. Then, in SCADE, system designer has just to "paste" string in the concerned model element comment area and let ReqCycle analyse traceability: ReqCycle will parse SCADE model file, will capture all comments with associated model elements and will build the traceability links from requirement ID, trace link type and SCADE model element.
+In order to avoid mistakes on editing link annotation in comment area in SCADE, idea is to generate requirement traceability link annotation from ReqCycle command ("Generate requirement traceability annotation for external element") and copy it into the clipboard. 
 
-Figure illustrates such command.
+Then, in SCADE, system designer has just to "paste" string (from clipboard) in the concerned model element comment area and let ReqCycle analyse traceability: ReqCycle will parse SCADE model file, will capture all comments with associated model elements and will build the traceability links from requirement ID, trace link type and SCADE model element.
+
+
+Figure \ref{fig:ReqCycle_PrepareTraceLinkAnnotation} illustrates such command.
 
 \end{enumerate} 
 
 \begin{figure}[tbp]
 \centering
-\includegraphics[width=1.0\linewidth]{images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png}
-\caption{\label{fig:trace_second-interactions}second solution - interactions between tool chain components}
+\includegraphics[width=0.9\linewidth]{images/ReqCycle_PrepareTraceLinkAnnotationForExternalElement.png}
+\caption{\label{fig:ReqCycle_PrepareTraceLinkAnnotation}ReqCycle - generate traceability annotation for external model element (SCADE for instance)}
 \end{figure}
 
 
