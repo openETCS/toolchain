@@ -92,7 +92,7 @@
 
 \begin{abstract}
 %define an abstract here
-This document presents a propostion to the tool chain traceability
+This document presents a proposition to the tool chain traceability
 architecture.
 \end{abstract}
 
@@ -164,83 +164,157 @@ Version &  Date & Author(s) & Justification  \\
 %==========================================
 \mainmatter
 %----------------------
+\chapter{Introduction}
+\section{Document purpose}
+This document presents a proposition concerning support of openETCS project traceability activity by openETCS tool chain. This proposition is a consensus between traceability needs, project policy (open source solutions), time and efforts (focus on existing tools and features) and risks about tool maturity.
+
+\section{Document scope}
+This proposition is based on the needs and priorities about traceability, captured from different work packages (mainly WP3 and WP4) during October 2015, either from interviews or from reading of available project documents, especially:
+\begin{itemize} 
+\item Project Quality Assurance Plan - D1.3 - \cite{qa-plan}.
+\item Definition of OpenETCS Development Process - D2.3a v02 - \cite{D2.3a}
+\item OpenETCS Architecture and Design Specification - D3.5.0 - \cite{D3.5.0}  and D3.5.1 - \cite{D3.5.3}
+\item Safety plan - D4.2.3 - \cite{D4.2.3}
+\end{itemize}
+
+The proposition done in this document is based on existing tools and existing tool capabilities with verified maturity. Document will explain limits of current proposition and will suggest axes to investigate in the future of project (roadmap).
+But detailed evaluations of tools and features based on those investigations is not part of this document.
+
+\section{Document organization}
+Chapter 2 recalls openETCS project scope, development process, different needs and requirements to address, architecture and design specification.
+
+Chapter 3 highlights main priorities concerning traceability and detailed expectations about traceability activities to support (including design, code, verification and validation).
+
+Chapter 4 defines tool chain requirements concerning traceability.
+
+Chapter 5 presents current main realistic traceability architecture to support tool chain requirements with existing mature tools.
+
+Chapter 6 summarizes limits of the proposition and suggests axes to investigate in order to improve traceability support by the OpenETCS tool chain.
+
 \chapter{OpenETCS traceability scope}
 
-Requirements traceability concerns relations between requirements existing at different engineering levels and relations between requirements and other engineering artefacts (models, documents, test cases, code...). All those requirement traceability links can have different semantics including derivation, refinement,  satisfaction, implementation and verification. 
+Requirement traceability concerns relations between requirements existing at different engineering levels and relations between requirements and other engineering artefacts (models, documents, test cases, code...). All those requirement traceability links can have different semantics including derivation, refinement, satisfaction, implementation and verification. 
 
-Before defining traceability process and the different link types, it is important to clearly define the scope of the requirements and of the models that we want to trace in openETCS project.
-Next paragraphs recall the different engineering levels defined by ISO 15288:2015 (standard concerning systems life cycle) and position OpenETCS requirements, models and documents with regards to those engineering levels.
+Before defining traceability process and the different link types, it is important to clearly define the scope of openETCS activity and the requirements that we want to trace. Next paragraphs recall OpenETCS vision, design process and VV process.
 
-\section{OpenETCS requirements with regards to standard engineering levels}
-\label{sec-1}
-ISO 15288:2015 defines 3 main generic levels: 
-\begin{itemize}
-\item problem definition,
-\item system/Sub system definition (recursive decomposition) 
-\item physical building blocks of software, hardware (mechanical, electrical, electronics, plastic...) or procedures that can be realized independently and integrated to provide whole system
-\end{itemize}
+\section{Recall of OpenETCS target vision and development process}
+\label{OpenETCS scope}
+\cite{D2.3a} mentions that openETCS activity pursues the vision of a full CENELEC compliant development of open-source software for the \emph{European Vital   Computer} (EVC). It is intended to produce a software kernel which can be used in commercial EVCs.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=.9\linewidth]{./images/standardRequirementEngineering.png}
-\caption{\label{fig:standardReqEngineering}IS0 15288:2015 standard Systems Engineering requirement levels}
-\end{figure}
-
-Concerning OpenETCS project, there are 5 main sources for requirements:
-\begin{itemize}
-\item User stories, concerning problem definition
-\item CENELEC regulation requirements that are part of stakeholder requirements
-\item SRS Subset 026 that can be considered as system level requirements
-\item openETCS new requirements created during system definition by decomposition or derivation of SRS Subset 026 requirements
-\item openETCS API, that provides software requirements to integrate a vendor specific platform
-\end{itemize}
+CENELEC 50128:2011 is the relevant engineering standard for software development of safety-critical rail systems. It is completed with CENELEC 50126-1:1999 to address system and subsystem engineering activities required to prepare software development with system requirements. 
 
 
-\begin{figure} [htb]
+\cite{D4.2.3} recalls that one of the main products of the openETCS ITEA project will the openETCS specification model used to generate the openETCS on-board software. 
+
+OpenETCS software development process reflects this model-based approach while remaining compliant with CENELEC engineering standards. 
+
+\begin{figure} [htbp]
 \centering
 \includegraphics[width=.9\linewidth]
-{./images/OpenETCSRequirementsWrtStandard.png}
-\caption{\label{fig:OpenETCSRequirementsWrtStandard}OpenETCS requirements with regards to standard engineering levels}
+{./images/OpenETCSDevelopmentProcess.png}
+\caption{\label{fig:OpenETCSDevelopmentProcess}OpenETCS software development process}
+\end{figure} 
+
+\section{OpenETCS project context-of-interest}
+\label{OpenETCS_ITEAProjectScope}
+\cite{D3.5.3} recalls last refinement of project scope concerning functional coverage: "OpenETCS project has decided not to consider all ETCS subsystems and to tailor scope to cover the functionality required for the openETCS demonstration as an objective of the ITEA2 project. The goal is to develop a formal model and to demonstrate the functionality during a proof of concept on the ETCS Level 2 Utrecht Amsterdam track with real scenarios".
+
+Figure \ref{fig:openETCSSystemOfInterest} details ETCS system scope to consider in order to cover expected demonstration of EVC software for ITEA project. Scope is highlighted in ERA TSI chapter 2 and provides basis for System detailed analysis and functional breakdown.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./images/ArchitectureSRS.PNG}
+\caption{\label{fig:openETCSSystemOfInterest}OpenETCS system of interest (dotted black line) to cover demonstration objective of ITEA2 project and according to ERA TSI Chapter 2}
+\end{figure}
+
+\section{OpenETCS design process (WP3) and design artefacts}
+\label{InterestOfReferenceEngineeringArtefacts}
+After recalling the development process and precising openETCS project scope we must now look at the design process to see which artefacts are produced to meet openETCS requirements. This process is under WP3 responsibility.
+
+\label{DesignProcessStrategy}
+
+At system level (ETCS), we have to produce two main specifications: Elaborated System Requirements Specification and System Architecture Design Specification.
+
+First idea would be to formalize SRS subset 026 on the scope defined previously and then continue system decomposition from this formalization but from experience of openETCS partners, this approach \textit{is not sufficient in order to fully understand the main issues that stem from the approach by which the SRS was conceived}.
+
+So, instead of building yet another copy-paste direct formalisation of the ETCS SRS, WP3 suggested another approach using a SRS functional analysis centred on Onboard unit (instead of EVC) and focused on the reference track (ETCS L2 Utrecht- Amsterdam).
+
+This approach leads to the following architecture and design artefacts described in \cite{ArchitectureDesignSpecification} :
+\begin{itemize} 
+\item User story models that refine textual user stories about use of OBU in operational context: done with SysML language and Papyrus tool. It provides another entry for project stakeholder requirements and prepares validation.
+\item System Architecture model, defined with SysML language and Scade system Designer tool, with currently two decomposition levels: 
+		\begin{itemize} \item System breakdown structure, centred on ETCS OBU and defining required interactions to other ETCS subsystems (external interfaces)
+		\item Functional breakdown from OBU, centred on ETCS Kernel and defining functional interactions between those internal functions (internal interfaces)
+		\end{itemize} 
+
+\item OpenETCS application software executable model, a model defined with SCADE tool by integration of several functional block models that realize functional block interfaces identified and characterized in Architecture model
+\item Environment model, designed with SCADE tool and SCADE display for simulation HMI, that supports validation of OpenETCS application software executable model
+\item OBU SW Architecture and Design Document (ADD) providing a functional description of software architecture and design
+\item A RFC (Request For Comment) process that provides a cross-reference to the SRS, listing
+all requirements and design conflicts that have been identified during work. 
+
+\end{itemize}
+
+Figure \ref{fig:OpenETCSArchitectureAndDesignModel} illustrates the architecture breakdown performed in openETCS architecture model starting from ETCS system down to ETCS kernel software component.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]
+{./images/OpenETCSArchitectureAndDesignModel.png}
+\caption{\label{fig:OpenETCSArchitectureAndDesignModel}OpenETCS architecture with SysML: from system to software components}
+\end{figure}
+
+Figure \ref{fig:WP3DesignProcess} summarises design process defined by WP3 and shows relations between different design documents and with reference input artefacts: SRS subset26, Utrech-Amsterdam reference track scenarios and openETCS API for platform interoperability. Black arrows mean "input for" while red arrows are traceability relations to reference artefacts.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\linewidth]
+{./images/WP3DesignProcess.png}
+\caption{\label{fig:WP3DesignProcess}Relations between main WP3 Design Documents and reference input artefacts (SRS, Utrecht-Amsterdam reference track and OpenETCS API)}
+\end{figure}
+
+\section{OpenETCS Verification and Validation processes (WP4)}
+
+
+\cite{D4.2.3} presents the 5 phases of the openETCS software development process and  in table \ref{tab:DevelopmentPhases} and how they are supported by tools. 
+
+\begin{table}[h]
+  \centering 
+  \caption{Phases openETCS software development process}
+\begin{tabular}{|p{1cm}|p{2.5cm}|p{8.5cm}|p{2cm}|}
+\hline \textbf{Phase} & \textbf{Name} & \textbf{Description} & \textbf{Main Tool component} \\ 
+\hline P1 & Software Requirement Phase & Requirement input documents converted to a ReqIF format and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detail and atomic abstraction level usable for moralization. To support thus the requirements are categorized and grouped. & ProR \\ 
+\hline P2 & Software Architecture Modeling Phase & Building a SysML based on the informal analysis using the categorization of requirements. The architecture model focuses on functional blocks and data flows. & SysML Papyrus \\ 
+\hline P3 & Software Behavior Modeling and Integration Phase & Building the SCADE model for the separated basic functional blocks. The SCADE model describes the detailed behavior for the function using the data flows. & SCADE Suite \\ 
+\hline P4 & Code Generation Phase & Based on the SCADE Behavior Model C code will be automatically generated. This C code is then compiled to executable code which runs on the EVC. & SCADE Suite + C Code compiler\\
+\hline P5 & Formal Validation Phase & Using test models and model checking techniques, to validate the correct model behavior.  & Various tools \\ 
+\hline 
+\end{tabular} 
+\label{tab:DevelopmentPhases}
+\end{table}
+
+The phase P1 - Software Requirement Phase - covers the development activities required by the EN~50128 during its lifecycle phase (see Software Requirements Phase - 7.2). The SUBSET 26 and further System Specifications are the Input of this work. The resulting ReqIF Requirement files shall represents the Software Requirement Specification. Software Overall Test Specification will be derived with respect to these requirements, but a method is not defined at this point.
+
+\label{StakeholderRequirementsBaseline}
+Figure \ref{fig:ReferenceStakeholderRequirements} shows the different stakeholder requirements that make the 2015 OpenETCS baseline and that define the starting point for requirement analysis, decomposition and derivation.
+Those requirements become the reference inputs to trace from openETCS system definition and are flowed down to software requirements specification.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\linewidth]
+{./images/ReferenceStakeholderRequirements.png}
+\caption{\label{fig:ReferenceStakeholderRequirements}Reference (baseline) stakeholder requirements to trace}
 \end{figure} 
 
 
-\section{OpenETCS models with regards to requirement engineering levels}
-\label{sec-2}
 
-Models can be used for different purposes including illustration of concepts, operational scenarios, formalization of requirements, product breakdown structure... and can have different scopes. Figure \ref{fig:requirementEngineeringWithModels}
-shows a possible classification of models aligned on the standard requirement engineering levels introduced in previous paragraph.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=.9\linewidth]
-{./images/requirementEngineeringWithModels.png}
-\caption{\label{fig:requirementEngineeringWithModels}Possible classification of models with respect to standard requirement engineering levels}
-\end{figure}
+\chapter{OpenETCS traceability priorities and detailed expectations}
 
-Figure \ref{fig:openETCSRequirementsAndModels} illustrates the different models produced in the openETCS project and positionned on standard engineering levels:
-\begin{itemize}
-\item User stories model that refines user stories 
-\item OpenETCS EVC model, also called "System model" or "System architecture model", that describes system breakdown structure with system elements (including ETCS OnBoard Unit) and their interfaces, and a set of OBU function definitions (interfaces only). OBU function realization is not part of this model. 
-This model is defined with SysML language.
-\item Data dictionary model, that stores all messages, data and functions used in architecture interface definitions
-\item OpenETCS Onboard Unit function models, a set of formal executable models that realize ETCS Kernel functions defined in openETCS EVC model.
-\end{itemize}
-
- 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=.9\linewidth]
-{./images/openETCSRequirementsAndModels.png}
-\caption{\label{fig:openETCSRequirementsAndModels}OpenETCS requirements and models with respect to standard requirement engineering levels}
-\end{figure}
-
-\chapter{OpenETCS traceability priorities and expectations}
-\section{Traceability priorities}
-\label{sec-3-1} 
-Most important traceability chain concerns links between ETCS OBU functions model and Subset026 SRS requirements and all other requirements created during system analysis, either by decomposition, refinement or derivation. 
-ETCS OBU functional model is detailed down to software level, and as it is a formal model, it becomes possible to generate code from that model. So, if it is possible to demonstrate that this model satisfies some Subset026 SRS requirements, then it will be possible to establish that software code generated from that model also satisfies those requirements.
-
-Other "nice to have" traceability chains concern system model and data dictionary model. Those models need to be traced to Subset026 SRS requirements in order to ensure that they are representative of OpenETCS system and are complete (all requirements are covered, no missing requirement). 
+\section{Traceability expectations from WP3}
+From WP3 point of view, most important traceability chain concerns links between ETCS OBU formal model and Subset026 SRS requirements and all other requirements created during system analysis, either by decomposition, refinement or derivation. 
+ETCS OBU model is detailed down to software detailed design level, and as it is a formal model, it becomes possible to generate code from that model. So, if it is possible to demonstrate that this model satisfies some Subset026 SRS requirements, then it will be possible to establish that software code generated from that model also satisfies those requirements.
 
 Figure \ref{fig:openETCSTraceabilityMainPriority} highlights traceability chains with highest priority (arrows with largest size).
 
@@ -251,25 +325,22 @@ Figure \ref{fig:openETCSTraceabilityMainPriority} highlights traceability chains
 \caption{\label{fig:openETCSTraceabilityMainPriority}OpenETCS traceability chains with highest priority}
 \end{figure}
 
-\section{Traceability expectations}
+However, as openETCS project is developed in the context of a safety critical software of a rail system, requirements have to be engineered through several engineering levels following recommendations of CENELEC CENELEC 50126-1 and 50128 standards (see figure \ref{fig:openETCSDevelopmentLifeCycle}). Concerning traceability, it is recommended to link development artefacts with requirements from project definition and then link "system" level to stakeholder requirements that are part of the baseline (reference stakeholder requirements).
 
-\subsection{Traceability Process}
-\label{sec-2-2-1}
-From the Subset026 SRS specification we want to be able to trace all artifacts
-that implement it.
+Figure \ref{fig:openETCSRequirementLevels} recalls those engineering levels with top level concerning reference stakeholder requirements. 
+
+\textbf{Note}: most requirements of one level can be traced to the upper level because they have been defined from requirements of that upper level by derivation.
+But it can happen that some requirements are introduced at a given level without direct link to upstream level (for instance a design constraint like "reuse" or "flexible design"...) : in that case there must be a justification for introduction of such requirement and deviation in the upstream traceability.
+
 \begin{figure}[htb]
 \centering
-\includegraphics[width=.9\linewidth]{./images/trace_archi.pdf}
-\caption{\label{fig:trace_process}Traceability architecture between artifacts}
+\includegraphics[width=.9\linewidth]
+{./images/openETCSRequirementLevels.png}
+\caption{\label{fig:openETCSRequirementLevels}OpenETCS engineering levels and expected traceability (derivation) between requirements of different levels}
 \end{figure}
 
-Figure  \ref{fig:trace_process} highlights the different artifacts or activities and their
-links. Traceability activities should allow to trace a requirement within all
-the artifacts and/or activities that are using it.
+With traditional textual (document) approach, architecture is defined directly through documents and 
 
-The goal of traceability is that, from any artifacts produced, we are able to
-track which requirement it realizes, implements  or refers to. These links can
-take different form and be done by different tools. 
 
 \subsection{OpenETCS traceability main scenario}
 \label{sec-2-2-2}
@@ -395,7 +466,7 @@ the specification. This is done with Eclipse Papyrus.
 
 \subsection{Modelling tool for OBU functional model}
 The system model defines block and interfaces between those blocks that realize
-the specification. This is done with Eclipse Papyrus. 
+the specification. This is done with Scade Studio (V16.2) 
 
 \subsection{OBU Functional model}
 \label{sec-10}
@@ -697,7 +768,38 @@ Will be done in a separate document.
 
 
 
-% Emacs 24.3.1 (Org mode 8.2.4)
+%% Bibliography
+% \nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{oetc_WP7_Traceability}
+
+
+
+%Examples are below
+
+
+%\lipsum[11]
+
+%\nocite{*}
+
+%\bibliographystyle{unsrt}
+%\bibliography{Lbrr}
+
+
+
+% \begin{thebibliography}{9}
+
+% \bibitem{lamport94}
+%   Leslie Lamport,
+%   \emph{\LaTeX: A Document Preparation System}.
+%   Addison Wesley, Massachusetts,
+%   2nd Edition,
+%   1994.
+
+% \end{thebibliography}
+
+%===================================================
+%Do NOT change anything below this line
 \end{document}
 
 %%  LocalWords:  traceability OpenETCS
