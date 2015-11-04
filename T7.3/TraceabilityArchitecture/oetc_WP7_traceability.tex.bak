@@ -456,16 +456,25 @@ In order to support this activity in openETCS project we need at least the follo
 
 \chapter{Tool chain current physical architecture solution to support traceability}
 \label{sec-5}
-\section{quick presentation of current traceability architecture solution}
+\section{Overview of current traceability architecture solution}
 This current solution consists in handling requirement management and traceability links through different tools and technologies. The strategy of this approach consists in maximizing efficiency of the different concurrent activities through using tooling locally integrated in the different environments used in the project over its development life cycle (the 5 phases).
 
 As a summary view (will be detailed later) we find:
 - P1: ProR to support requirement derivation process with .ReqIf database, assisted of Scade System to support SysML modeling of architecture model from system environment down to software definition and its external interfaces.
-- P2: Scade System again to support SysML modeling of software architecture definition with identification of software components and component interface definitions. ReqIF reference requirements are imported in Scade System with Papyrus addin Additional requirements are created in SysML with Scade System. Traceability links are created in SysML with Scade System after import of requirements from ProR. 
+- P2: Scade System again to support SysML modeling of software architecture definition with identification of software components and component interface definitions. ReqIF reference requirements are imported in Scade System with papyrus  plugin. Additional requirements are created in SysML with Scade System. Traceability links are created in SysML with Scade System and are exported back to ReqIF database through ProR proxy. 
 - P3 and P4: Scade Suite to support formal modeling of Software components and their behavior down to executable level, assisted of SCADE KCG to support generation of C source from SCADE model.
 - P5: toDo
 
-\textbf{Note}: it is possible for requirement management tools to complete imported requirements but they should guarantee the following rules:
+Figure \ref{fig:trace_first} illustrates current traceability architecture with associated set of tools, scripts and procedures.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{images/first_trace_solution.pdf}
+\caption{\label{fig:trace_first}Traceability architecture first solution}
+\end{figure}
+
+\textbf{Note}: when requirement management tools complete imported requirements, they should guarantee the following rules:
 \begin{enumerate}
 \item The requirement's structure (hierarchy, scope) is not modified.
 \item No requirement should be deleted.
@@ -474,24 +483,8 @@ As a summary view (will be detailed later) we find:
 \item Identifiers should remain unique.
 \end{enumerate}
 
-Figure {trace_first}illustrates current traceability architecture with associated set of tools.
 
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=.9\linewidth]{images/first_trace_solution.pdf}
-\caption{\label{fig:trace_first}Traceability architecture first solution}
-\end{figure}
-
- modeling activity. Resulting additional requirements and traceability links are aggregated in a shared global requirement database that acts as reference requirements database.
-
-
-
-
-Figure \ref{fig:trace_first} illustrates this solution with associated tools/technologies.
-
-
-\section{P1: ProR and Scade System}
+\section{P1 phase: ProR and Scade System}
 
 Reference requirement input documents are converted to a set of ReqIF format files and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detailed and atomic abstraction level matching the different requirement engineering levels required by Cenelec standards. 
 
@@ -574,29 +567,7 @@ This will result in the following requirement ID: \quad \verb+3.5.3.7.a[2].[*][2
 
 
 
-
-
-
-Table \ref{tab:DevelopmentPhases} presents the way the 5 phases of the openETCS software development process are supported by tools in the current tool chain.
-
-\begin{table}[h]
-  \centering 
-  \caption{Phases openETCS software development process}
-\begin{tabular}{|p{1cm}|p{2.5cm}|p{8.5cm}|p{2cm}|}
-\hline \textbf{Phase} & \textbf{Name} & \textbf{Description} & \textbf{Main Tool component} \\ 
-\hline P1 & Software Requirement Phase & Reference requirement input documents are converted to a set of ReqIF format files and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detailed and atomic abstraction level matching the different requirement engineering levels required by Cenelec standards. So requirements are categorized and grouped according to engineering levels. Requirements and their classification are managed by ProR. & ProR and  \\ 
-\hline P2 & Software Architecture Modeling Phase & Building a SysML based on the informal analysis using the categorization of requirements. The architecture model focuses on functional blocks and data flows. & SysML Papyrus \\ 
-\hline P3 & Software Behavior Modeling and Integration Phase & Building the SCADE model for the separated basic functional blocks. The SCADE model describes the detailed behavior for the function using the data flows. & SCADE Suite \\ 
-\hline P4 & Code Generation Phase & Based on the SCADE Behavior Model C code will be automatically generated. This C code is then compiled to executable code which runs on the EVC. & SCADE Suite + C Code compiler\\
-\hline P5 & Formal Validation Phase & Using test models and model checking techniques, to validate the correct model behavior.  & Various tools \\ 
-\hline 
-\end{tabular} 
-\label{tab:DevelopmentPhases}
-\end{table}
-
-
-
-\section{System Model}
+\subsection{System Model}
 \label{sec-8}
 
 The link with the requirement may be included via requirements diagram with a
@@ -606,7 +577,11 @@ The links may be viewed through Papyrus an ProR and the requirement may be
 directly apply from ProR to a Papyrus elements.
 
 
-\section{Transformation of SysML architecture model to SCADE architecture Model}
+\section{P2 phase: ProR, Scade System and Scade suite}
+
+\textit{To complete}
+
+\subsection{Transformation of SysML architecture model to SCADE architecture Model}
 \label{sec-9}
 
 It should define the interfaces between the architecture artifacts.  It is used and
@@ -615,9 +590,11 @@ comes from the requirements but can also be refined by the modelling team withou
 changing the existing implemented requirements.
 
 
+\section{P3 and P4 phases: ProR, Scade suite and Scade KCG}
+ToDo
 
-\section{{\bfseries\sffamily TODO} Verification and Validation}
-\label{sec-11}
+\section{P5 phase: XXX}
+ToDo
 
 \chapter{Limits of current traceability architecture and axes of investigation for improvement}
 \label{sec-6}
