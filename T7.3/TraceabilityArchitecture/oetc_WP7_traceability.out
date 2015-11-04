@@ -18,33 +18,19 @@
 \BOOKMARK [0][-]{chapter.4}{OpenETCS tool chain requirements about traceability}{}% 18
 \BOOKMARK [1][-]{section.4.1}{Tool chain capabilities to support requirement management}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.2}{Tool chain capabilities to support requirement traceability}{chapter.4}% 20
-\BOOKMARK [0][-]{chapter.5}{Tool chain logical architecture and current solution to support traceability}{}% 21
-\BOOKMARK [1][-]{section.5.1}{Components and their interactions}{chapter.5}% 22
-\BOOKMARK [1][-]{section.5.2}{Component design: existing technologies/tooling}{chapter.5}% 23
-\BOOKMARK [2][-]{subsection.5.2.1}{Requirement management and traceability}{section.5.2}% 24
-\BOOKMARK [2][-]{subsection.5.2.2}{Modelling tool for system model}{section.5.2}% 25
-\BOOKMARK [2][-]{subsection.5.2.3}{Modelling tool for OBU functional model}{section.5.2}% 26
-\BOOKMARK [2][-]{subsection.5.2.4}{OBU Functional model}{section.5.2}% 27
-\BOOKMARK [0][-]{chapter.6}{First physical traceability solution: ProR-RMGateway}{}% 28
-\BOOKMARK [1][-]{section.6.1}{Subset-026 import}{chapter.6}% 29
-\BOOKMARK [2][-]{subsection.6.1.1}{Script description}{section.6.1}% 30
-\BOOKMARK [2][-]{subsection.6.1.2}{Unique ID definition}{section.6.1}% 31
-\BOOKMARK [1][-]{section.6.2}{System Model}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.3}{Interface Definition}{chapter.6}% 33
-\BOOKMARK [1][-]{section.6.4}{TODO Verification and Validation}{chapter.6}% 34
-\BOOKMARK [0][-]{chapter.7}{Second physical traceability solution: ProR-ReqCycle}{}% 35
-\BOOKMARK [1][-]{section.7.1}{Subset-026 import}{chapter.7}% 36
-\BOOKMARK [1][-]{section.7.2}{Creation of additional OpenETCS requirements}{chapter.7}% 37
-\BOOKMARK [1][-]{section.7.3}{Creation of links between SysML model elements and requirements}{chapter.7}% 38
-\BOOKMARK [1][-]{section.7.4}{Creation of links between SCADE model and requirements}{chapter.7}% 39
-\BOOKMARK [1][-]{section.7.5}{Aggregation of traceability links and export}{chapter.7}% 40
-\BOOKMARK [0][-]{chapter.8}{Third physical traceability solution: ReqCycle}{}% 41
-\BOOKMARK [1][-]{section.8.1}{Subset-026 import}{chapter.8}% 42
-\BOOKMARK [1][-]{section.8.2}{Creation of additional OpenETCS requirements}{chapter.8}% 43
-\BOOKMARK [1][-]{section.8.3}{Creation of links between SysML model elements and requirements}{chapter.8}% 44
-\BOOKMARK [1][-]{section.8.4}{Creation of links between SCADE model and requirements}{chapter.8}% 45
-\BOOKMARK [1][-]{section.8.5}{Aggregation of traceability links and export}{chapter.8}% 46
-\BOOKMARK [0][-]{chapter.9}{Tool evaluations}{}% 47
-\BOOKMARK [1][-]{subsection.9.0.1}{TODO ReqCycle Evaluation}{chapter.9}% 48
-\BOOKMARK [2][-]{subsection.9.0.2}{TODO Reqtify Evaluation}{subsection.9.0.1}% 49
-\BOOKMARK [0][-]{chapter*.22}{References}{}% 50
+\BOOKMARK [0][-]{chapter.5}{Tool chain current physical architecture solution to support traceability}{}% 21
+\BOOKMARK [1][-]{section.5.1}{Overview of current traceability architecture solution}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.2}{P1 phase: ProR and Scade System}{chapter.5}% 23
+\BOOKMARK [2][-]{subsection.5.2.1}{Script description}{section.5.2}% 24
+\BOOKMARK [2][-]{subsection.5.2.2}{Unique ID definition}{section.5.2}% 25
+\BOOKMARK [2][-]{subsection.5.2.3}{System Model}{section.5.2}% 26
+\BOOKMARK [1][-]{section.5.3}{P2 phase: ProR, Scade System and Scade suite}{chapter.5}% 27
+\BOOKMARK [2][-]{subsection.5.3.1}{Transformation of SysML architecture model to SCADE architecture Model}{section.5.3}% 28
+\BOOKMARK [1][-]{section.5.4}{P3 and P4 phases: ProR, Scade suite and Scade KCG}{chapter.5}% 29
+\BOOKMARK [1][-]{section.5.5}{P5 phase: XXX}{chapter.5}% 30
+\BOOKMARK [0][-]{chapter.6}{Limits of current traceability architecture and axes of investigation for improvement}{}% 31
+\BOOKMARK [1][-]{section.6.1}{Current identified limits}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.2}{Investigation axes for improvements}{chapter.6}% 33
+\BOOKMARK [2][-]{subsection.6.2.1}{Alternative Requirement management and traceability tools}{section.6.2}% 34
+\BOOKMARK [2][-]{subsection.6.2.2}{Third alternative traceability solution: ReqCycle}{section.6.2}% 35
+\BOOKMARK [0][-]{chapter*.16}{References}{}% 36

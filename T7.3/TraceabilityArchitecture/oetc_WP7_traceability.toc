@@ -1,4 +1,4 @@
-\contentsline {chapter}{Document Information}{v}{Doc-Start}
+\contentsline {chapter}{Document Information}{iv}{Doc-Start}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Document purpose}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Document scope}{1}{section.1.2}
@@ -18,35 +18,21 @@
 \contentsline {chapter}{\numberline {4}OpenETCS tool chain requirements about traceability}{11}{chapter.4}
 \contentsline {section}{\numberline {4.1}Tool chain capabilities to support requirement management}{11}{section.4.1}
 \contentsline {section}{\numberline {4.2}Tool chain capabilities to support requirement traceability}{12}{section.4.2}
-\contentsline {chapter}{\numberline {5}Tool chain logical architecture and current solution to support traceability}{14}{chapter.5}
-\contentsline {section}{\numberline {5.1}Components and their interactions}{14}{section.5.1}
-\contentsline {section}{\numberline {5.2}Component design: existing technologies/tooling}{14}{section.5.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Requirement management and traceability}{14}{subsection.5.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Modelling tool for system model}{17}{subsection.5.2.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}Modelling tool for OBU functional model}{17}{subsection.5.2.3}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.4}OBU Functional model}{17}{subsection.5.2.4}
-\contentsline {chapter}{\numberline {6}First physical traceability solution: ProR-RMGateway}{18}{chapter.6}
-\contentsline {section}{\numberline {6.1}Subset-026 import}{19}{section.6.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.1}Script description}{19}{subsection.6.1.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.2}Unique ID definition}{19}{subsection.6.1.2}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.2.0.1}Guideline}{20}{paragraph.6.1.2.0.1}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.2.0.2}How to}{20}{paragraph.6.1.2.0.2}
-\contentsline {section}{\numberline {6.2}System Model}{20}{section.6.2}
-\contentsline {section}{\numberline {6.3}Interface Definition}{20}{section.6.3}
-\contentsline {section}{\numberline {6.4}{\bfseries \sffamily TODO} Verification and Validation}{21}{section.6.4}
-\contentsline {chapter}{\numberline {7}Second physical traceability solution: ProR-ReqCycle}{22}{chapter.7}
-\contentsline {section}{\numberline {7.1}Subset-026 import}{24}{section.7.1}
-\contentsline {section}{\numberline {7.2}Creation of additional OpenETCS requirements}{24}{section.7.2}
-\contentsline {section}{\numberline {7.3}Creation of links between SysML model elements and requirements}{24}{section.7.3}
-\contentsline {section}{\numberline {7.4}Creation of links between SCADE model and requirements}{25}{section.7.4}
-\contentsline {section}{\numberline {7.5}Aggregation of traceability links and export}{26}{section.7.5}
-\contentsline {chapter}{\numberline {8}Third physical traceability solution: ReqCycle}{27}{chapter.8}
-\contentsline {section}{\numberline {8.1}Subset-026 import}{27}{section.8.1}
-\contentsline {section}{\numberline {8.2}Creation of additional OpenETCS requirements}{28}{section.8.2}
-\contentsline {section}{\numberline {8.3}Creation of links between SysML model elements and requirements}{28}{section.8.3}
-\contentsline {section}{\numberline {8.4}Creation of links between SCADE model and requirements}{28}{section.8.4}
-\contentsline {section}{\numberline {8.5}Aggregation of traceability links and export}{28}{section.8.5}
-\contentsline {chapter}{\numberline {9}Tool evaluations}{29}{chapter.9}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {9.0.1}{\bfseries \sffamily TODO} ReqCycle Evaluation}{29}{subsection.9.0.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {9.0.2}{\bfseries \sffamily TODO} Reqtify Evaluation}{29}{subsection.9.0.2}
-\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{30}{chapter*.22}
+\contentsline {chapter}{\numberline {5}Tool chain current physical architecture solution to support traceability}{14}{chapter.5}
+\contentsline {section}{\numberline {5.1}Overview of current traceability architecture solution}{14}{section.5.1}
+\contentsline {section}{\numberline {5.2}P1 phase: ProR and Scade System}{14}{section.5.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Script description}{16}{subsection.5.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Unique ID definition}{16}{subsection.5.2.2}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.1}Guideline}{16}{paragraph.5.2.2.0.1}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.2}How to}{16}{paragraph.5.2.2.0.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}System Model}{17}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}P2 phase: ProR, Scade System and Scade suite}{17}{section.5.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.1}Transformation of SysML architecture model to SCADE architecture Model}{17}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.4}P3 and P4 phases: ProR, Scade suite and Scade KCG}{17}{section.5.4}
+\contentsline {section}{\numberline {5.5}P5 phase: XXX}{17}{section.5.5}
+\contentsline {chapter}{\numberline {6}Limits of current traceability architecture and axes of investigation for improvement}{18}{chapter.6}
+\contentsline {section}{\numberline {6.1}Current identified limits}{18}{section.6.1}
+\contentsline {section}{\numberline {6.2}Investigation axes for improvements}{18}{section.6.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Alternative Requirement management and traceability tools}{18}{subsection.6.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Third alternative traceability solution: ReqCycle}{19}{subsection.6.2.2}
+\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{21}{chapter*.16}
