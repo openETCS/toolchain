@@ -7,17 +7,19 @@
 \contentsline {section}{\numberline {2.1}Recall of OpenETCS target vision and development process}{2}{section.2.1}
 \contentsline {section}{\numberline {2.2}OpenETCS project context-of-interest}{2}{section.2.2}
 \contentsline {section}{\numberline {2.3}OpenETCS design process (WP3) and design artefacts}{3}{section.2.3}
-\contentsline {section}{\numberline {2.4}OpenETCS Verification and Validation processes (WP4)}{6}{section.2.4}
-\contentsline {chapter}{\numberline {3}OpenETCS traceability priorities and detailed expectations}{8}{chapter.3}
-\contentsline {section}{\numberline {3.1}Traceability expectations from WP3}{8}{section.3.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.1.1}OpenETCS traceability main scenario}{9}{subsection.3.1.1}
-\contentsline {chapter}{\numberline {4}OpenETCS tool chain requirements about traceability}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Tool chain capabilities to support requirement management}{11}{section.4.1}
-\contentsline {section}{\numberline {4.2}Tool chain capabilities to support requirement traceability}{12}{section.4.2}
-\contentsline {chapter}{\numberline {5}Tool chain logical architecture and existing solutions to support traceability}{14}{chapter.5}
-\contentsline {section}{\numberline {5.1}Components and their interactions}{14}{section.5.1}
-\contentsline {section}{\numberline {5.2}Component design: existing technologies/tooling}{16}{section.5.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Requirement management and traceability}{16}{subsection.5.2.1}
+\contentsline {section}{\numberline {2.4}OpenETCS VV and safety process (WP4)}{6}{section.2.4}
+\contentsline {chapter}{\numberline {3}OpenETCS traceability priorities and detailed expectations}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Traceability main priority from WP3}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}OpenETCS traceability main scenarios}{7}{section.3.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.1}P1 Software Phase}{8}{subsection.3.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.2}P2}{9}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}OpenETCS tool chain requirements about traceability}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Tool chain capabilities to support requirement management}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tool chain capabilities to support requirement traceability}{11}{section.4.2}
+\contentsline {chapter}{\numberline {5}Tool chain logical architecture and current solution to support traceability}{13}{chapter.5}
+\contentsline {section}{\numberline {5.1}Components and their interactions}{13}{section.5.1}
+\contentsline {section}{\numberline {5.2}Component design: existing technologies/tooling}{13}{section.5.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Requirement management and traceability}{13}{subsection.5.2.1}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Modelling tool for system model}{16}{subsection.5.2.2}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}Modelling tool for OBU functional model}{16}{subsection.5.2.3}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.4}OBU Functional model}{16}{subsection.5.2.4}

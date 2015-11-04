@@ -204,7 +204,7 @@ Before defining traceability process and the different link types, it is importa
 CENELEC 50128:2011 is the relevant engineering standard for software development of safety-critical rail systems. It is completed with CENELEC 50126-1:1999 to address system and subsystem engineering activities required to prepare software development with system requirements. 
 
 
-\cite{D4.2.3} recalls that one of the main products of the openETCS ITEA project will the openETCS specification model used to generate the openETCS on-board software. 
+\cite{D4.2.3} recalls that \textit{the main products of the openETCS project will be the openETCS specification model used to generate the openETCS on-board software and the openETCS tool chain development, which is used to formalize the ERA Specifications for ETCS, generate the Software Code and perform verification and validation activities} 
 
 OpenETCS software development process reflects this model-based approach while remaining compliant with CENELEC engineering standards. 
 
@@ -274,45 +274,23 @@ Figure \ref{fig:WP3DesignProcess} summarises design process defined by WP3 and s
 \caption{\label{fig:WP3DesignProcess}Relations between main WP3 Design Documents and reference input artefacts (SRS, Utrecht-Amsterdam reference track and OpenETCS API)}
 \end{figure}
 
-\section{OpenETCS Verification and Validation processes (WP4)}
+\section{OpenETCS VV and safety process (WP4)}
 
 
-\cite{D4.2.3} presents the 5 phases of the openETCS software development process and describes in table \ref{tab:DevelopmentPhases} how they are supported by tools. 
-
-\begin{table}[h]
-  \centering 
-  \caption{Phases openETCS software development process}
-\begin{tabular}{|p{1cm}|p{2.5cm}|p{8.5cm}|p{2cm}|}
-\hline \textbf{Phase} & \textbf{Name} & \textbf{Description} & \textbf{Main Tool component} \\ 
-\hline P1 & Software Requirement Phase & Requirement input documents converted to a ReqIF format and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detail and atomic abstraction level usable for moralization. To support thus the requirements are categorized and grouped. & ProR \\ 
-\hline P2 & Software Architecture Modeling Phase & Building a SysML based on the informal analysis using the categorization of requirements. The architecture model focuses on functional blocks and data flows. & SysML Papyrus \\ 
-\hline P3 & Software Behavior Modeling and Integration Phase & Building the SCADE model for the separated basic functional blocks. The SCADE model describes the detailed behavior for the function using the data flows. & SCADE Suite \\ 
-\hline P4 & Code Generation Phase & Based on the SCADE Behavior Model C code will be automatically generated. This C code is then compiled to executable code which runs on the EVC. & SCADE Suite + C Code compiler\\
-\hline P5 & Formal Validation Phase & Using test models and model checking techniques, to validate the correct model behavior.  & Various tools \\ 
-\hline 
-\end{tabular} 
-\label{tab:DevelopmentPhases}
-\end{table}
-
-The phase P1 - Software Requirement Phase - covers the development activities required by the EN~50128 during its lifecycle phase (see Software Requirements Phase - 7.2). The SUBSET 26 and further System Specifications are the Input of this work. The resulting ReqIF Requirement files shall represents the Software Requirement Specification. Software Overall Test Specification will be derived with respect to these requirements, but a method is not defined at this point.
-
-\label{StakeholderRequirementsBaseline}
-Figure \ref{fig:ReferenceStakeholderRequirements} shows the different stakeholder requirements that make the 2015 OpenETCS baseline and that define the starting point for requirement analysis, decomposition and derivation.
-Those requirements become the reference inputs to trace from openETCS system definition and are flowed down to software requirements specification.
+\cite{D4.2.3} recalls that the openETCS software development has to interact with a respective generic safety management process and take the overall safety requirements for a train control system into account. As shown in figure \ref{fig:SafetyProcess} the over all development is determined by a number of interactions between design, verification and validation and the general quality and safety management.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=1.0\linewidth]
-{./images/ReferenceStakeholderRequirements.png}
-\caption{\label{fig:ReferenceStakeholderRequirements}Reference (baseline) stakeholder requirements to trace}
-\end{figure} 
-
+\includegraphics[width=1\linewidth]{./images/openETCS-Software-Safety-Development.png}
+\caption{OpenETCS development relations between design, verification and validation and safety activities}
+\label{fig:SafetyProcess}
+\end{figure}
 
 
 
 \chapter{OpenETCS traceability priorities and detailed expectations}
 
-\section{Traceability expectations from WP3}
+\section{Traceability main priority from WP3}
 From WP3 point of view, most important traceability chain concerns links between ETCS OBU formal model and Subset026 SRS requirements and all other requirements created during system analysis, either by decomposition, refinement or derivation. 
 ETCS OBU model is detailed down to software detailed design level, and as it is a formal model, it becomes possible to generate code from that model. So, if it is possible to demonstrate that this model satisfies some Subset026 SRS requirements, then it will be possible to establish that software code generated from that model also satisfies those requirements.
 
@@ -325,12 +303,14 @@ Figure \ref{fig:openETCSTraceabilityMainPriority} highlights traceability chains
 \caption{\label{fig:openETCSTraceabilityMainPriority}OpenETCS traceability chains with highest priority}
 \end{figure}
 
-However, as openETCS project is developed in the context of a safety critical software of a rail system, requirements have to be engineered through several engineering levels following recommendations of CENELEC CENELEC 50126-1 and 50128 standards (see figure \ref{fig:openETCSDevelopmentLifeCycle}). Concerning traceability, it is recommended to link development artefacts with requirements from project definition and then link "system" level to stakeholder requirements that are part of the baseline (reference stakeholder requirements).
+Next paragraphs explain traceability during the 5 phases of the software development process with specific focus on links between openETCS OBU model and SRS Subset 26.
 
-Figure \ref{fig:openETCSRequirementLevels} recalls those engineering levels with top level concerning reference stakeholder requirements. 
 
-\textbf{Note}: most requirements of one level can be traced to the upper level because they have been defined from requirements of that upper level by derivation.
-But it can happen that some requirements are introduced at a given level without direct link to upstream level (for instance a design constraint like "reuse" or "flexible design"...) : in that case there must be a justification for introduction of such requirement and deviation in the upstream traceability.
+
+\section{OpenETCS traceability main scenarios}
+\subsection{P1 Software Phase}
+
+The phase P1 - Software Requirement Phase - covers the development activities required by the EN~50128 during its lifecycle phase (see Software Requirements Phase - 7.2). The SUBSET 26 and further System Specifications are the Input of this work. The resulting ReqIF Requirement files shall represents the Software Requirement Specification and associated traceability up to the different reference stakeholder requirements that make the 2015 OpenETCS baseline as expressed in figure \ref{fig:openETCSRequirementLevels}. 
 
 \begin{figure}[htb]
 \centering
@@ -339,19 +319,28 @@ But it can happen that some requirements are introduced at a given level without
 \caption{\label{fig:openETCSRequirementLevels}OpenETCS engineering levels and expected traceability (derivation) between requirements of different levels}
 \end{figure}
 
-With traditional textual (document) approach, architecture is defined directly through documents and 
+Software Overall Test Specification will be derived with respect to software requirements, but a method is not defined at this point.
 
+\textbf{Note}: most requirements of one level can be traced to the upper level because they have been defined from requirements of that upper level by derivation.
+But it can happen that some requirements are introduced at a given level without direct link to upstream level (for instance a design constraint like "reuse XXX" ...) : in that case there must be a justification for introduction of such requirement and deviation in the upstream traceability.
 
-\subsection{OpenETCS traceability main scenario}
-\label{sec-2-2-2}
+The main part of input system derivation process from SUBSET 26 to software requirements is done through SysML architecture model as illustrated in figure \ref{fig:P1RequirementDerivation}.
+ 
+We do not detail this part because it is not current priority even if this process is quite important to ensure good relevance of software requirements with regards to SUBSET 26 and other system specifications.
 
-Here is a global scenario that illustrates the way an OpenETCS system designer will manage existing reference requirements and will create new ones by decomposition or derivation to a lower engineering level,how he/she will provide a functional solution (functional model) to satisfy the different OpenETCS requirements and verification means (tests or else) to verify them.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=1.0\linewidth]{./images/ToolChainTraceabilityMainScenario.png}
-\caption{\label{fig:toolChainTraceabilityMainScenario}Main traceability scenario concerning tool chain }
+\includegraphics[width=.9\linewidth]
+{./images/P1RequirementDerivation.png}
+\caption{\label{fig:P1RequirementDerivation}Requirement derivation process through SysML architecture model}
 \end{figure}
 
+
+
+\subsection{P2}
+The phase P2 Software Architecture Modeling Phase and P3 Software Behavior Modeling and Integration Phase cover activities from the EN~50128 development lifecycle Software Arch. \& Design Phase (7.3), Software Component Design Phase (7.4) and Software Component Implementation Phase (7.5). The SysML model represents the Software Architecture Specifications and a first version of Software Interface Specifications. The SysML model output is in the following phase transformed into a SCADE model which will be refined and enhanced to completely represent Design and Interface Specifications as well as all Component Design Specifications. As the overall SCADE model is composed of serveral components described by SCADE models and the defined interfaces, the integration is performed and documented in the SCADE model. Input for all architecture and design tasks are the Software Requirement Specifications based on the SUBSET 26. Source Code in C is generated automatically via the certified SCADE Code Generator and combined with required wrapper software. For these wrapper parts specific development methods have to be defined as these parts are specified.
+
+The phase P5 Formal Validation Phase has to cover activities of the Software Component Testing Phase (7.5), Integration Phase (7.6) and mainly Software Validation Phase (7.7) by using simulation, testing and model checking methods. To do so the SCADE environment as well as additional tools are use depending on the specific model property to be tested or proven. The Inputs for these activities are the SysML and SCADE models and the C Code.
 
 
 
@@ -418,12 +407,30 @@ In order to support this activity in openETCS project we need at least the follo
 
 \end{itemize}
 
-\chapter{Tool chain logical architecture and existing solutions to support traceability}
+\chapter{Tool chain logical architecture and current solution to support traceability}
 \section{Components and their interactions}
 
 \label{sec-4-1} 
 
-Figure \ref{fig:ToolChainLogicalArchitecture} shows a possible tool chain architecture with two components(in red) identified to support respectively requirement management and requirement traceability.
+\cite{qa-plan} presents in table \ref{tab:DevelopmentPhases} a summary of the 5 phases of the openETCS software development process and lists the different tools used to support the 5 phases . 
+
+\begin{table}[h]
+  \centering 
+  \caption{Phases openETCS software development process}
+\begin{tabular}{|p{1cm}|p{2.5cm}|p{8.5cm}|p{2cm}|}
+\hline \textbf{Phase} & \textbf{Name} & \textbf{Description} & \textbf{Main Tool component} \\ 
+\hline P1 & Software Requirement Phase & Requirement input documents converted to a ReqIF format and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detail and atomic abstraction level usable for moralization. To support thus the requirements are categorized and grouped. & ProR \\ 
+\hline P2 & Software Architecture Modeling Phase & Building a SysML based on the informal analysis using the categorization of requirements. The architecture model focuses on functional blocks and data flows. & SysML Papyrus \\ 
+\hline P3 & Software Behavior Modeling and Integration Phase & Building the SCADE model for the separated basic functional blocks. The SCADE model describes the detailed behavior for the function using the data flows. & SCADE Suite \\ 
+\hline P4 & Code Generation Phase & Based on the SCADE Behavior Model C code will be automatically generated. This C code is then compiled to executable code which runs on the EVC. & SCADE Suite + C Code compiler\\
+\hline P5 & Formal Validation Phase & Using test models and model checking techniques, to validate the correct model behavior.  & Various tools \\ 
+\hline 
+\end{tabular} 
+\label{tab:DevelopmentPhases}
+\end{table}
+
+
+Figure \ref{fig:ToolChainLogicalArchitecture} shows current tool chain architecture with two components(in red) identified to support respectively requirement management and requirement traceability.
 
 \begin{figure}[htb]
 \centering
