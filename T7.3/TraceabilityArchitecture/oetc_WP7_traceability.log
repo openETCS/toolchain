@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  6 NOV 2015 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  6 NOV 2015 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1744,11 +1744,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6 <./images/openETCS-Software-Safety-Development.png>]
 Chapter 3.
-
-LaTeX Warning: Reference `idealRequirementOrganization' on page 7 undefined on 
-input line 314.
-
-<./images/idealRequirementOrganization.png, id=304, 711.6186pt x 543.9522pt>
+<./images/idealRequirementOrganization.png, id=305, 711.6186pt x 543.9522pt>
 File: ./images/idealRequirementOrganization.png Graphic file (type png)
 
 <use ./images/idealRequirementOrganization.png>
@@ -1756,12 +1752,7 @@ Package pdftex.def Info: ./images/idealRequirementOrganization.png used on inpu
 t line 318.
 (pdftex.def)             Requested size: 416.83289pt x 318.6299pt.
 
-
-LaTeX Warning: Reference `CurrentRequirementOrganization' on page 7 undefined o
-n input line 325.
-
-
-<./images/CurrentRequirementOrganization.png, id=305, 718.8456pt x 502.9992pt>
+<./images/CurrentRequirementOrganization.png, id=307, 718.8456pt x 502.9992pt>
 File: ./images/CurrentRequirementOrganization.png Graphic file (type png)
 
 <use ./images/CurrentRequirementOrganization.png>
@@ -1769,7 +1760,7 @@ Package pdftex.def Info: ./images/CurrentRequirementOrganization.png used on in
 put line 329.
 (pdftex.def)             Requested size: 416.83289pt x 291.67065pt.
 
-<./images/openETCSTraceabilityMainPriority.png, id=307, 591.1686pt x 421.575pt>
+<./images/openETCSTraceabilityMainPriority.png, id=309, 591.1686pt x 421.575pt>
 File: ./images/openETCSTraceabilityMainPriority.png Graphic file (type png)
 <use ./images/openETCSTraceabilityMainPriority.png>
 Package pdftex.def Info: ./images/openETCSTraceabilityMainPriority.png used on 
@@ -1796,16 +1787,8 @@ nization.png>]
 File: ./images/OpenETCSDevelopmentProcess.png Graphic file (type png)
  <use ./images/OpenETCSDevelopmentProcess.png>
 Package pdftex.def Info: ./images/OpenETCSDevelopmentProcess.png used on input 
-line 356.
+line 358.
 (pdftex.def)             Requested size: 375.14705pt x 204.24266pt.
-
-<./images/P1RequirementDerivation.png, id=323, 714.0276pt x 547.8066pt>
-File: ./images/P1RequirementDerivation.png Graphic file (type png)
-
-<use ./images/P1RequirementDerivation.png>
-Package pdftex.def Info: ./images/P1RequirementDerivation.png used on input lin
-e 369.
-(pdftex.def)             Requested size: 375.14705pt x 287.8201pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1814,23 +1797,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./images/openETCSTraceabilityMainPriority.png>]
-<./images/P1RequirementDerivationWithSysMLModel.png, id=332, 607.068pt x 488.54
-52pt>
+<./images/P1RequirementDerivationWithSysMLModel.png, id=333, 537.6888pt x 381.5
+856pt>
 File: ./images/P1RequirementDerivationWithSysMLModel.png Graphic file (type png
 )
  <use ./images/P1RequirementDerivationWithSysMLModel.png>
 Package pdftex.def Info: ./images/P1RequirementDerivationWithSysMLModel.png use
-d on input line 382.
-(pdftex.def)             Requested size: 375.14705pt x 301.90343pt.
+d on input line 376.
+(pdftex.def)             Requested size: 416.83289pt x 295.83058pt.
 
-<./images/P2SoftwareArchitectureWithSysMLModel.png, id=334, 676.4472pt x 454.33
-74pt>
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10 <./images/P1RequirementDerivationWithSysMLModel.png>]
+<./images/P2SoftwareArchitectureWithSysMLModel.png, id=342, 676.4472pt x 479.87
+28pt>
 File: ./images/P2SoftwareArchitectureWithSysMLModel.png Graphic file (type png)
 
  <use ./images/P2SoftwareArchitectureWithSysMLModel.png>
 Package pdftex.def Info: ./images/P2SoftwareArchitectureWithSysMLModel.png used
- on input line 397.
-(pdftex.def)             Requested size: 375.14705pt x 251.96613pt.
+ on input line 412.
+(pdftex.def)             Requested size: 375.14705pt x 266.12753pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1838,16 +1828,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10 <./images/P1RequirementDerivation.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11 <./images/P1RequirementDerivationWithSysMLModel.png> <./images/P2SoftwareAr
-chitectureWithSysMLModel.png>]
-(/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-32.def
+[11] (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
 
@@ -1856,51 +1837,51 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
+[12 <./images/P2SoftwareArchitectureWithSysMLModel.png>]
 Chapter 4.
 
-Underfull \hbox (badness 10000) detected at line 432
+Underfull \hbox (badness 10000) detected at line 447
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 433
+Underfull \hbox (badness 10000) detected at line 448
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 434
+Underfull \hbox (badness 10000) detected at line 449
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 435
+Underfull \hbox (badness 10000) detected at line 450
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 437
+Underfull \hbox (badness 10000) detected at line 452
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 438
+Underfull \hbox (badness 10000) detected at line 453
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Overfull \hbox (8.95702pt too wide) in paragraph at lines 438--439
+Overfull \hbox (8.95702pt too wide) in paragraph at lines 453--454
 []\T1/txr/m/n/10.95 (-20) R-WP2/D2.6-02-079.06 the doc-u-men-ta-tion/requiremen
 ts and the safety prop-er-ties/requirements, 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 439
+Underfull \hbox (badness 10000) detected at line 454
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 440
+Underfull \hbox (badness 10000) detected at line 455
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -1910,7 +1891,7 @@ pt>
 File: ./images/TypologyOfSystemsEngineeringModels.png Graphic file (type png)
  <use ./images/TypologyOfSystemsEngineeringModels.png>
 Package pdftex.def Info: ./images/TypologyOfSystemsEngineeringModels.png used o
-n input line 451.
+n input line 466.
 (pdftex.def)             Requested size: 375.14705pt x 187.33018pt.
 
 
@@ -1922,62 +1903,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [13
 
 ]
-Underfull \hbox (badness 10000) detected at line 470
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 471
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 472
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 474
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 475
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 475
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14 <./images/TypologyOfSystemsEngineeringModels.png>]
-Underfull \hbox (badness 10000) detected at line 478
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 479
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 482
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 483
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
 Underfull \hbox (badness 10000) detected at line 485
 []\TS1/txr/m/n/10.95 ˆ[]
  []
@@ -1988,32 +1913,38 @@ Underfull \hbox (badness 10000) detected at line 486
  []
 
 
-Underfull \hbox (badness 10000) detected at line 488
-[]\TS1/txr/m/n/10.95 ˆ[]
+Underfull \hbox (badness 10000) detected at line 487
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 489
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 491
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 492
+Underfull \hbox (badness 10000) detected at line 490
 []\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 490
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./images/TypologyOfSystemsEngineeringModels.png>]
+Underfull \hbox (badness 10000) detected at line 493
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 494
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 495
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -2023,7 +1954,57 @@ Underfull \hbox (badness 10000) detected at line 497
  []
 
 
-Underfull \hbox (badness 10000) detected at line 497
+Underfull \hbox (badness 10000) detected at line 498
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 500
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 501
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 503
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 504
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 506
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 507
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 509
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 510
+[]\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 512
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 512
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -2034,47 +2015,47 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15]
-Underfull \hbox (badness 10000) detected at line 511
+Underfull \hbox (badness 10000) detected at line 526
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 512
+Underfull \hbox (badness 10000) detected at line 527
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 514
+Underfull \hbox (badness 10000) detected at line 529
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 515
+Underfull \hbox (badness 10000) detected at line 530
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 516
+Underfull \hbox (badness 10000) detected at line 531
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 518
+Underfull \hbox (badness 10000) detected at line 533
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 519
+Underfull \hbox (badness 10000) detected at line 534
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 521
+Underfull \hbox (badness 10000) detected at line 536
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 522
+Underfull \hbox (badness 10000) detected at line 537
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -2090,31 +2071,31 @@ Chapter 5.
 File: images/first_trace_solution.pdf Graphic file (type pdf)
 
 <use images/first_trace_solution.pdf>
-Package pdftex.def Info: images/first_trace_solution.pdf used on input line 542
+Package pdftex.def Info: images/first_trace_solution.pdf used on input line 557
 .
 (pdftex.def)             Requested size: 375.14705pt x 371.46791pt.
 
-Underfull \hbox (badness 10000) detected at line 548
+Underfull \hbox (badness 10000) detected at line 563
 []\T1/txr/m/n/10.95 1.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 549
+Underfull \hbox (badness 10000) detected at line 564
 []\T1/txr/m/n/10.95 2.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 550
+Underfull \hbox (badness 10000) detected at line 565
 []\T1/txr/m/n/10.95 3.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 551
+Underfull \hbox (badness 10000) detected at line 566
 []\T1/txr/m/n/10.95 4.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 552
+Underfull \hbox (badness 10000) detected at line 567
 []\T1/txr/m/n/10.95 5.[]
  []
 
@@ -2134,29 +2115,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18 <./images/first_trace_solution.pdf>]
-Underfull \hbox (badness 10000) detected at line 564
+Underfull \hbox (badness 10000) detected at line 579
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 565
+Underfull \hbox (badness 10000) detected at line 580
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 566
+Underfull \hbox (badness 10000) detected at line 581
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 579.
+ine 594.
 <images/tracestring-ex.png, id=469, 497.9403pt x 191.5155pt>
 File: images/tracestring-ex.png Graphic file (type png)
 
 <use images/tracestring-ex.png>
-Package pdftex.def Info: images/tracestring-ex.png used on input line 589.
+Package pdftex.def Info: images/tracestring-ex.png used on input line 604.
 (pdftex.def)             Requested size: 375.14705pt x 144.285pt.
-LaTeX Font Info:    Try loading font information for TS1+txtt on input line 606
+LaTeX Font Info:    Try loading font information for TS1+txtt on input line 621
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/txfonts/ts1txtt.fd
@@ -2167,7 +2148,7 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) detected at line 608
+Underfull \hbox (badness 10000) detected at line 623
 []\T1/txr/m/n/10.95 1.[]
  []
 
@@ -2178,32 +2159,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19 <./images/tracestring-ex.png>]
-Underfull \hbox (badness 10000) detected at line 609
+Underfull \hbox (badness 10000) detected at line 624
 []\T1/txr/m/n/10.95 2.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 612
+Underfull \hbox (badness 10000) detected at line 627
 []\T1/txr/m/n/10.95 3.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 621
+Underfull \hbox (badness 10000) detected at line 636
 []\T1/txr/m/n/10.95 4.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 630
+Underfull \hbox (badness 10000) detected at line 645
 []\T1/txr/m/n/10.95 5.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 631
+Underfull \hbox (badness 10000) detected at line 646
 []\T1/txr/m/n/10.95 6.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 632
+Underfull \hbox (badness 10000) detected at line 647
 []\T1/txr/m/n/10.95 7.[]
  []
 
@@ -2216,12 +2197,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 Chapter 6.
 
-Underfull \hbox (badness 10000) detected at line 679
+Underfull \hbox (badness 10000) detected at line 694
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 687
+Underfull \hbox (badness 10000) detected at line 702
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -2231,11 +2212,11 @@ t>
 File: images/second_trace_solution-ProR-ReqCycle.png Graphic file (type png)
  <use images/second_trace_solution-ProR-ReqCycle.png>
 Package pdftex.def Info: images/second_trace_solution-ProR-ReqCycle.png used on
- input line 697.
+ input line 712.
 (pdftex.def)             Requested size: 375.14705pt x 244.75414pt.
 
 
-LaTeX Warning: Reference `sec-5-1' on page 21 undefined on input line 701.
+LaTeX Warning: Reference `sec-5-1' on page 21 undefined on input line 716.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2248,14 +2229,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 
 LaTeX Warning: Reference `fig:trace_second-interactions' on page 22 undefined o
-n input line 707.
+n input line 722.
 
 <images/Third-Solution-ReqCycle.png, id=500, 629.2308pt x 414.348pt>
 File: images/Third-Solution-ReqCycle.png Graphic file (type png)
 
 <use images/Third-Solution-ReqCycle.png>
 Package pdftex.def Info: images/Third-Solution-ReqCycle.png used on input line 
-717.
+732.
 (pdftex.def)             Requested size: 375.14705pt x 247.03642pt.
  (./oetc_WP7_traceability.bbl
 
@@ -2296,13 +2277,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 762.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 762.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 777.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 777.
  (./oetc_WP7_traceability.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 762.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 762.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 777.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 777.
 Package rerunfilecheck Info: File `oetc_WP7_traceability.out' has not changed.
-(rerunfilecheck)             Checksum: EDB95D3AFF89CAE02C5065A969F22A00;3384.
+(rerunfilecheck)             Checksum: D4C3A45ADF2E5487BEF60F54651048DA;3384.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2317,13 +2298,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 762.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 777.
  ) 
 Here is how much of TeX's memory you used:
- 24314 strings out of 493089
- 427768 string characters out of 6134841
- 512556 words of memory out of 5000000
- 26789 multiletter control sequences out of 15000+600000
+ 24305 strings out of 493089
+ 427470 string characters out of 6134841
+ 512444 words of memory out of 5000000
+ 26782 multiletter control sequences out of 15000+600000
  137225 words of font info for 438 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,79p,773b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2343,10 +2324,10 @@ r/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local
 015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on oetc_WP7_traceability.pdf (30 pages, 4341938 bytes).
+Output written on oetc_WP7_traceability.pdf (30 pages, 4007122 bytes).
 PDF statistics:
  603 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 105 named destinations out of 1000 (max. 500000)
- 91044 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 495 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 91039 words of extra memory for PDF output out of 106986 (max. 10000000)
 

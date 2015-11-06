@@ -12,8 +12,8 @@
 \contentsline {section}{\numberline {3.1}Main design priorities and current requirement organization}{7}{section.3.1}
 \contentsline {section}{\numberline {3.2}OpenETCS traceability main scenarios}{9}{section.3.2}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.1}P1 Software specification Phase}{9}{subsection.3.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.2}P2 - Software Architecture Modeling Phase}{10}{subsection.3.2.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.3}P3 - Software Behavior Modeling and Integration Phase}{10}{subsection.3.2.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.2}P2 - Software Architecture Modeling Phase}{11}{subsection.3.2.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.3}P3 - Software Behavior Modeling and Integration Phase}{11}{subsection.3.2.3}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.4}P5 - Formal Validation Phase}{12}{subsection.3.2.4}
 \contentsline {chapter}{\numberline {4}OpenETCS tool chain requirements about traceability}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}OpenETCS high level requirements about traceability support by tool chain}{13}{section.4.1}
@@ -38,4 +38,4 @@
 \contentsline {section}{\numberline {6.2}Investigation axes for improvements}{21}{section.6.2}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Alternative Requirement management and traceability tools}{21}{subsection.6.2.1}
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Third alternative traceability solution: ReqCycle}{22}{subsection.6.2.2}
-\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{24}{chapter*.19}
+\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{24}{chapter*.18}
