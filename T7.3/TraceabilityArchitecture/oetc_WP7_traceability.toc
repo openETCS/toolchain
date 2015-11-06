@@ -8,34 +8,34 @@
 \contentsline {section}{\numberline {2.2}OpenETCS project context-of-interest}{2}{section.2.2}
 \contentsline {section}{\numberline {2.3}OpenETCS design process (WP3) and design artifacts}{3}{section.2.3}
 \contentsline {section}{\numberline {2.4}OpenETCS VV and safety process (WP4)}{6}{section.2.4}
-\contentsline {chapter}{\numberline {3}Short term development priorities and associated practical scenarios concerning traceability}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Main design priorities and current requirement organization}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}OpenETCS traceability main scenarios}{9}{section.3.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.1}P1 Software specification Phase}{9}{subsection.3.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.2}P2 - Software Architecture Modeling Phase}{11}{subsection.3.2.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.3}P3 - Software Behavior Modeling and Integration Phase}{11}{subsection.3.2.3}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.2.4}P5 - Formal Validation Phase}{12}{subsection.3.2.4}
-\contentsline {chapter}{\numberline {4}OpenETCS tool chain requirements about traceability}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}OpenETCS high level requirements about traceability support by tool chain}{13}{section.4.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.1.1}Which model?}{13}{subsection.4.1.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.1.2}What does "tracing model" mean?}{14}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Tool chain capabilities to support requirement management}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}Tool chain capabilities to support requirement traceability}{16}{section.4.3}
-\contentsline {chapter}{\numberline {5}Tool chain current physical architecture solution to support traceability}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}Overview of current traceability architecture solution}{17}{section.5.1}
-\contentsline {section}{\numberline {5.2}P1 phase: ProR and Scade System}{17}{section.5.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Script description}{19}{subsection.5.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Unique ID definition}{19}{subsection.5.2.2}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.1}Guideline}{19}{paragraph.5.2.2.0.1}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.2}How to}{19}{paragraph.5.2.2.0.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}System Model}{20}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}P2 phase: ProR, Scade System and Scade suite}{20}{section.5.3}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.1}Transformation of SysML architecture model to SCADE architecture Model}{20}{subsection.5.3.1}
-\contentsline {section}{\numberline {5.4}P3 and P4 phases: ProR, Scade suite and Scade KCG}{20}{section.5.4}
-\contentsline {section}{\numberline {5.5}P5 phase: XXX}{20}{section.5.5}
-\contentsline {chapter}{\numberline {6}Limits of current traceability architecture and axes of investigation for improvement}{21}{chapter.6}
-\contentsline {section}{\numberline {6.1}Current identified limits}{21}{section.6.1}
-\contentsline {section}{\numberline {6.2}Investigation axes for improvements}{21}{section.6.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Alternative Requirement management and traceability tools}{21}{subsection.6.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Third alternative traceability solution: ReqCycle}{22}{subsection.6.2.2}
-\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{24}{chapter*.18}
+\contentsline {chapter}{\numberline {3}OpenETCS tool chain general requirements about traceability}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}OpenETCS high level requirements about traceability support by tool chain}{7}{section.3.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.1.1}Which model?}{7}{subsection.3.1.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {3.1.2}What does "tracing model" mean?}{8}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Tool chain capabilities to support requirement management}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Tool chain capabilities to support requirement traceability}{10}{section.3.3}
+\contentsline {chapter}{\numberline {4}Short term development priorities and associated practical scenarios concerning traceability}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Main design priorities and current requirement organization}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}OpenETCS traceability main scenarios}{13}{section.4.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.2.1}P1 Software specification Phase}{13}{subsection.4.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.2.2}P2 - Software Architecture Modeling Phase}{15}{subsection.4.2.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.2.3}P3 - Software Behavior Modeling and Integration Phase}{15}{subsection.4.2.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.2.4}P5 - Formal Validation Phase}{17}{subsection.4.2.4}
+\contentsline {chapter}{\numberline {5}Tool chain current physical architecture solution to support traceability}{18}{chapter.5}
+\contentsline {section}{\numberline {5.1}Overview of current traceability architecture solution}{18}{section.5.1}
+\contentsline {section}{\numberline {5.2}P1 phase: ProR and Scade System}{18}{section.5.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Script description}{20}{subsection.5.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Unique ID definition}{20}{subsection.5.2.2}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.1}Guideline}{20}{paragraph.5.2.2.0.1}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.2}How to}{20}{paragraph.5.2.2.0.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}System Model}{21}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}P2 phase: ProR, Scade System and Scade suite}{21}{section.5.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.1}Transformation of SysML architecture model to SCADE architecture Model}{21}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.4}P3 and P4 phases: ProR, Scade suite and Scade KCG}{21}{section.5.4}
+\contentsline {section}{\numberline {5.5}P5 phase: XXX}{21}{section.5.5}
+\contentsline {chapter}{\numberline {6}Limits of current traceability architecture and axes of investigation for improvement}{22}{chapter.6}
+\contentsline {section}{\numberline {6.1}Current identified limits}{22}{section.6.1}
+\contentsline {section}{\numberline {6.2}Investigation axes for improvements}{22}{section.6.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Alternative Requirement management and traceability tools}{22}{subsection.6.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Third alternative traceability solution: ReqCycle}{23}{subsection.6.2.2}
+\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{25}{chapter*.19}

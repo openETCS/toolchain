@@ -185,19 +185,19 @@ But detailed evaluations of tools and features based on those investigations is 
 \section{Document organization}
 Chapter 2 recalls openETCS project scope, development process, design, VV and Safety processes.
 
-Chapter 3 highlights main priorities concerning traceability and detailed expectations about traceability activities to support (including design, code, verification and validation).
+Chapter 3 defines tool chain general requirements concerning traceability driven from \cite{D2.6.9} and from systems engineering experience.
 
-Chapter 4 defines tool chain requirements concerning traceability.
+Chapter 4 refines short term development design process and main priorities to deliver demonstrators for ITEA2 project. It provides detailed practical scenarios and expected support on verification and especially traceability during the different phases of development process.
 
-Chapter 5 presents current traceability architecture defined to support tool chain requirements identified in chapter 4. This architecture is based on use of existing mature tools.
+Chapter 5 presents current traceability architecture defined to support practical scenarios identified in chapter 4 for short term development target. This architecture is based on use of existing tools/features.
 
 Chapter 6 summarizes limits of the current traceability architecture and suggests axes to investigate in order to improve traceability support by the OpenETCS tool chain.
 
 \chapter{OpenETCS traceability context}
 
-Requirement traceability concerns relations between requirements existing at different engineering levels and relations between requirements and other engineering artifacts (models, documents, test cases, code...). All those requirement traceability links can have different semantics including derivation, refinement, satisfaction, implementation and verification. 
+Requirement traceability concerns relations between requirements existing at different engineering levels and relations between requirements and design or verification engineering artifacts that can exist through different formats (models, documents, code...).  
 
-Before defining traceability process and the different link types, it is important to clearly define the scope of openETCS activity and the requirements that we want to trace. Next paragraphs recall OpenETCS vision, design process and VV process.
+Before describing the way openETCS tool chain supports creation and maintenace of traceability links, it is important to clearly define the scope of openETCS activity and the artifacts that we want to trace over project life cycle. Next paragraphs recall OpenETCS vision,  development process and current scope of development.
 
 \section{Recall of OpenETCS target vision and development process}
 \label{OpenETCS scope}
@@ -239,17 +239,17 @@ At system level (ETCS), we have to produce two main specifications: Elaborated S
 
 First idea would be to formalize SRS subset 026 on the scope defined previously and then continue system decomposition from this formalization but from experience of openETCS partners, this approach \textit{is not sufficient in order to fully understand the main issues that stem from the approach by which the SRS was conceived}.
 
-So, instead of building yet another copy-paste direct formalisation of the ETCS SRS, WP3 suggested another approach using a SRS functional analysis centred on Onboard unit (instead of EVC) and focused on the reference track (ETCS L2 Utrecht- Amsterdam).
+So, instead of building yet another copy-paste direct formalisation of the ETCS SRS, WP3 suggested another approach using a SRS functional analysis centred on Onboard unit and focused on the reference track (ETCS L2 Utrecht- Amsterdam).
 
-This approach leads to the following architecture and design artifacts described in \cite{ArchitectureDesignSpecification} :
+This approach leads to the following architecture and design artifacts described in \cite{D3.5.0} :
 \begin{itemize} 
 \item User story models that refine textual user stories about use of OBU in operational context: done with SysML language and Papyrus tool. It provides another entry for project stakeholder requirements and prepares validation.
 \item System Architecture model, defined with SysML language and Scade system Designer tool, with currently two decomposition levels: 
 		\begin{itemize} \item System breakdown structure, centred on ETCS OBU and defining required interactions to other ETCS subsystems (external interfaces)
-		\item Functional breakdown from OBU, centred on ETCS Kernel and defining functional interactions between those internal functions (internal interfaces)
+		\item Functional breakdown from OBU, centred on ETCS Kernel and defining functional interactions between those internal functions (internal interfaces, mainly data flow)
 		\end{itemize} 
 
-\item OpenETCS application software executable model, a model defined with SCADE tool by integration of several functional block models that realize functional block interfaces identified and characterized in Architecture model
+\item OpenETCS application software executable model, a model defined with SCADE tool. This model integrates several behavioral SCADE models that realize functional block interfaces identified in SysML Architecture model
 \item Environment model, designed with SCADE tool and SCADE display for simulation HMI, that supports validation of OpenETCS application software executable model
 \item OBU SW Architecture and Design Document (ADD) providing a functional description of software architecture and design
 \item A RFC (Request For Comment) process that provides a cross-reference to the SRS, listing
@@ -291,6 +291,16 @@ EN 50128 and EN 50129.
 
 Figure \ref{fig:SafetyProcess} shows the interactions between design, verification and validation and the general quality and safety management.
 
+\label{safetyProcessApplication} 
+Concerning application of safety process in the scope of openETCS ITEA project, it is not possible to apply it on full scope of the project with all requirements expressed in CENELEC engineering standards .
+So a proof of concept has been defined in order to apply it with a model based approach. PoC is based on Management of Radio Communication (MoRC).
+Results are available here: https://github.com/openETCS/validation/tree/master/VnVUserStories/VnVUserStoryAll4Tec-AEbt but safety requirements have not been integrated into the project requirements database (.ReqIF files).
+
+But this PoC has demonstrated feasibility and usefulness but has not been extended to the full scope of project. 
+
+
+
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1\linewidth]{./images/openETCS-Software-Safety-Development.png}
@@ -298,144 +308,12 @@ Figure \ref{fig:SafetyProcess} shows the interactions between design, verificati
 \label{fig:SafetyProcess}
 \end{figure}
 
+\chapter{OpenETCS tool chain general requirements about traceability}
+\label{sec-2} 
 
+This chapter starts by recalling openETCS tool chain high level requirements concerning traceability. They have high priority as reference inputs for the project.
 
-
-\chapter{Short term development priorities and associated practical scenarios concerning traceability}
-
-OpenETCS activity targets long term objectives (recalled in introduction) but has also to fulfill short term target with demonstrators for ITEA2 project within limited remaining efforts and time. 
-This chapter explains the priorities put on development (design and verification activities) to reach this short term target and provides practical scenarios with focus on traceability.
-
-\section{Main design priorities and current requirement organization}
-From WP3 point of view, most important development chain concerns ETCS OBU formal model and its links to the Subset026 SRS requirements and all other requirements created during system analysis, either by decomposition, refinement or derivation. 
-ETCS OBU model is detailed down to software detailed design level, and as it is a formal model, it becomes possible to generate code from that model. So, if it is possible to demonstrate that this model satisfies some SRS Subset 26 requirements, then it will be possible to establish that software code generated from that model also satisfies those requirements.
-
-Full process recommended by CENLEC engineering standards implies deriving all stakeholder reference requirements (including SRS subset 26 , openETCS API and user stories) into OpenETCS requirements layered in system, subsystem and software levels.
-See figure \ref{fig:idealRequirementOrganization} for ideal requirement management organization.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=1\linewidth]{./images/idealRequirementOrganization.png}
-\caption{OpenETCS ideal requirement management organization}
-\label{fig:idealRequirementOrganization}
-\end{figure}
-
-But most openETCS requirements starting from ETCS system down to software level are already present in SRS subset 26 through the different chapters. So requirement analysis and derivation process mainly leads to propagating existing requirements from SRS subset 26 document to OpenETCS requirements and the value of such transformations is low compared to the efforts for propagation and allocation to levels. So idea is to use SRS subset 26 as openETCS requirements and use the chapters structure to differentiate between levels. They are translated into .reqIF format so that requirements can be managed by requirement management tools. Other reference requirements are imported in the openETCS reference configuration (baseline) as documents.
-
-Figure \ref{fig:CurrentRequirementOrganization} illustrates current organization for requirement management.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=1\linewidth]{./images/CurrentRequirementOrganization.png}
-\caption{OpenETCS current requirement management organization}
-\label{fig:CurrentRequirementOrganization}
-\end{figure}
-
-SysML model, used to capture and describe architecture from System level down to software internals, is considered as an intermediate means in the sense that it helps producing the OBU scade formal model but might be not maintained once OBU model is finalized and can be traced directly to the SRS Subset 26. 
-
-But currently, SysML model plays a role in this definition and so we need to create traceability links with it so that we can verify that architecture conforms to the SRS subset 26.
-
-Figure \ref{fig:openETCSTraceabilityMainPriority} illustrates all required traceability links needed to achieve current design verification and highlights those conisdered with highest priority (arrows with largest size) for short term.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.9\linewidth]
-{./images/openETCSTraceabilityMainPriority.png}
-\caption{\label{fig:openETCSTraceabilityMainPriority}OpenETCS traceability chains for current design with highlight on main priorities}
-\end{figure}
-
-Next paragraphs explain traceability during the 5 phases of the software development process with specific focus on links between openETCS OBU model and SRS Subset 26.
-
-
-\section{OpenETCS traceability main scenarios}
-Traceability main scenarios are grouped by phase according to the openETCS software development process introduced in previous chapter. 
-
-We recall it below to ease reading of next paragraphs.
-
-\begin{figure} [htbp]
-\centering
-\includegraphics[width=.9\linewidth]
-{./images/OpenETCSDevelopmentProcess.png}
-\caption{\label{fig:OpenETCSDevelopmentProcess}OpenETCS software development process}
-\end{figure} 
-
-\subsection{P1 Software specification Phase}
-
-\cite{D4.2.3} recalls P1 scope and current support for verification.
-\textit{The phase P1 Software Requirement Phase covers the development activities required by the EN 50128 during its lifecycle phase Software Requirements Phase (7.2). The SUBSET 26 and further System Specifications are the Input of this work. The resulting ReqIF Requirement files shall represent the Software Requirement Specification. Software Overall Test Specification will be derived with respect to these requirements, but a method is not defined at this point.}
-
-\textbf{Currently .ReqIF Requirement files are translated from SUBSET 26 and there is no derivation or special tag to identify SW requirements. So software overall test specification shall first include this derivation of software requirements in order to conduct test overall SW test specification.}
-
-Note: SysML architecture model provides a good input for such derivation to SW requirements by identifying system, subsystem and SW engineering levels through SysML Block Definition Diagrams and Internal Blocks Diagrams. But currently this model does not lead to the creation of software requirements in the database. 
-
-Figure \ref{fig:P1RequirementDerivationWithSysMLModel} illustrates what could be done.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=1.0\linewidth]
-{./images/P1RequirementDerivationWithSysMLModel.png}
-\caption{\label{fig:P1RequirementDerivationWithSysMLModel}Requirement derivation process through SysML architecture model}
-\end{figure}
-
-We do not detail this activity and associated traceability because it is not current priority (current priority concerns software verification). However, this derivation process remain important in order to ensure good relevance of software requirements with regards to SUBSET 26 and other system specifications.
-
-Once SW requirements are clearly identified (either created by derivation or tagged in .reqIF files or in other existing documents), it becomes possible to define associated verification means, among test specification, inspection, analysis or certification and associate verification specifications. Those verification specifications shall mention the openETCS concerned SW requirements so that we can check relevance and accuracy. 
-
-In terms of traceability it means that we shall be able to show bi directional traceability between openETCS SW requirements and associated verification specifications. Usual way is to deliver a matrix for that.
-Then, reviews can be done with matrix as input to ensure that verification specifications really verify mentioned requirements and that requirements are fully verified by associated verification specifications.
- 
-
-\subsection{P2 - Software Architecture Modeling Phase}
-The phase P2 covers activities from the EN~50128 development life cycle Software Arch. \& Design Phase (7.3).
-
-It shall take software requirements as inputs.
-
-\textbf{Note: as mentioned in P1, currently .ReqIF Requirement files are translated from SUBSET 26 and there is no derivation or special tag to identify SW requirements. So there is no clear SW requirements reference against which we can rely to design and verify architecture}.
-
-SysML architecture model initiated in P1 is completed to represent Software Architecture Specification down to SW componenents and their interfaces. It does not take software requirements as input but takes upper level architecture: that approach at least ensures consistency between engineering levels.
-Then this sysML model is reflected (translated) into a SCADE integration model that will be completed and refined during P3 phase. 
-
-Concerning architecture verification, nominal method would be to verify SysML architecture model against SW requirements but they cannot be clearly identified so currently verification is performed directly against SUBSET 26.
-
-
-Concerning results of architecture, SysML architecture model provides a good input for creation of first SW component and SW component interface requirements through SysML Block Definition Diagrams and Internal Blocks Diagrams. But currently this model does not lead to the creation of requirements in the reference requirements database. 
-
-Figure \ref{fig:P2SoftwareArchitectureWithSysMLModel} illustrates what could be done.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.9\linewidth]
-{./images/P2SoftwareArchitectureWithSysMLModel.png}
-\caption{\label{fig:P2SoftwareArchitectureWithSysMLModel}Software architecture definition through SysML model}
-\end{figure}
-
-
-
-\subsection{P3 - Software Behavior Modeling and Integration Phase}
-
-The phase P3 \textit{Software Behavior Modeling and Integration Phase} cover activities from the EN~50128 development life cycle Software Arch. \& Design Phase (7.3), Software Component Design Phase (7.4) and Software Component Implementation Phase (7.5). 
-The overall SCADE model initiated during P2 is refined and enhanced to completely represent Design and Interface Specifications as well as all Component Design Specifications. Source Code in C is generated automatically via the certified SCADE Code Generator and combined with required wrapper software. For these wrapper parts specific development methods have to be defined as these parts are specified.
-
-As this overall SCADE model is composed of several components described by lower level SCADE models and their interfaces, it specifies integration to be performed it can be used as input for SW integration (see P5). This is a "meet in the middle" approach taking as inputs SysML architecture model (top down approach) and functional SW component detailed models (bottom up approach).
-
-\textbf{Note}: \textbf{this Scade overall SW integration model does not appear on current Software development process figure \ref{fig:OpenETCSDevelopmentProcess} in Architecture an Design box and should be present there because it is an important artifact used both as integration of behavioral models (rising part of V cycle applied on models) and as input to prepare integration of software}. Said it differently, there is a small "V" starting with P2 in Architecture and design, descending with P3 in Component Design and rising again in Architecture and Design with P3, still in the descending part of the global V life cycle.
-
-
-
-\subsection{P5 - Formal Validation Phase}
-
-The phase P5 has to cover activities of the Software Component Testing Phase (7.5), Integration Phase (7.6) and mainly Software Validation Phase (7.7) by using simulation, testing and model checking methods. To do so the SCADE environment as well as additional tools are use depending on the specific model property to be tested or proven. 
-
-The Inputs for these activities are the SysML and SCADE models and the C Code.
-
-\textbf{To complete}
-
-\chapter{OpenETCS tool chain requirements about traceability}
-\label{sec-4} 
-
-Next paragraph recalls openETCS tool chain  high level requirements concerning traceability. They have high priority as reference inputs for the project.
-
-But we will see that those requirements are hard to apply "as-is" because they address generic artifacts with undefined scope and poorly defined semantics. So we complete and precise them with more practical tool chain capabilities derived from OpenETCS expectations about traceability identified in previous chapters. 
+But we will see that those requirements are hard to apply "as-is" because they address generic artifacts with undefined scope and poorly defined semantics. So we discuss them and then complete them with more practical tool chain capabilities derived from systems engineering experience about traceability and first expectations already captured from introduction. 
 
 
 \section{OpenETCS high level requirements about traceability support by tool chain}
@@ -473,9 +351,11 @@ As creation (and maintenance over time) of traceability links is time and effort
 With that precision, requirement D2.6-02-079.01 would then become: "the tool chain shall allow traceability between documentation/requirements and the models that are or contain configuration items"
 
 \subsection{What does "tracing model" mean?}
-To complete.
+Tracing a model is generally not at the right scope. More precisely we want to trace artifacts contained in a model (like block properties, state transitions, data flow...). So we need to be able to identify those artifacts in the model and to name them unambiguously, with clear context (position/hierarchy in the model) and unique name.
+
 
 \section{Tool chain capabilities to support requirement management}
+\label{ReqMgtCapabilities} 
 Requirement traceability cannot be fully supported by tool chain if there is no ability to manage requirements (create, edit, visualize, classify...) as expressed in previous chapters through main scenarios.
 
 Requirement management is an activity that consists in supporting different tasks concerning requirements during the project, whatever the engineering level. In OpenETCS project we need at least the following commands available in the tool chain (and potentially restricted according to access rights if defined):
@@ -515,7 +395,7 @@ Requirement management is an activity that consists in supporting different task
 In addition, requirement management tooling shall enable share and access of requirements within a team, through a shared repository (shared directory on a network drive or CVS repository like SVN, Git, ClearCase or any other one): either directly (all team members access same shared repository) or with local work and synchronizations between team members through a shared repository.
 
 \section{Tool chain capabilities to support requirement traceability}
-\label{sec-3-2}  
+\label{TraceabilityCapabilities} 
 Requirement traceability activity consists in ensuring that all product engineering artifacts (including verification means) can be traced to an originating stakeholder requirement either directly (direct link) or through other requirements derived from stakeholder requirements. It means creating links but also manage their status (created, confirmed...) and potentially their deletion.
 
 In order to support this activity in openETCS project we need at least the following commands available in the tool chain:
@@ -536,6 +416,166 @@ In order to support this activity in openETCS project we need at least the follo
 \begin{itemize} \item \textbf{OpenETCS example}: after progress meeting, export current requirement traceability to .csv file so that it can be analyzed by project manager and/or quality team\end{itemize}
 
 \end{itemize}
+
+
+\chapter{Short term development priorities and associated practical scenarios concerning traceability}
+
+OpenETCS activity targets long term objectives (recalled in introduction) but has also to fulfill short term target with demonstrators for ITEA2 project within limited remaining efforts and time. 
+This chapter explains the priorities put on development (design and verification activities) to reach this short term target and provides practical scenarios with focus on traceability.
+
+\section{Main design priorities and current requirement organization}
+From WP3 point of view, most important development chain concerns ETCS OBU formal model and its links to the Subset026 SRS requirements and all other requirements created during system analysis, either by decomposition, refinement or derivation. 
+ETCS OBU model is detailed down to software detailed design level, and as it is a formal model, it becomes possible to generate code from that model. So, if it is possible to demonstrate that this model satisfies some SRS Subset 26 requirements, then it will be possible to establish that software code generated from that model also satisfies those requirements.
+
+Full process recommended by CENLEC engineering standards implies deriving all stakeholder reference requirements (including SRS subset 26 , openETCS API and user stories) into OpenETCS requirements layered in system, subsystem and software levels.
+See figure \ref{fig:idealRequirementOrganization} for ideal requirement management organization.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\linewidth]{./images/idealRequirementOrganization.png}
+\caption{OpenETCS ideal requirement management organization}
+\label{fig:idealRequirementOrganization}
+\end{figure}
+
+But most openETCS requirements starting from ETCS system down to software level are already present in SRS subset 26 through the different chapters. So requirement analysis and derivation process mainly leads to propagating existing requirements from SRS subset 26 document to OpenETCS requirements and the value of such transformations is low compared to the efforts for propagation and allocation to levels. So idea is to use SRS subset 26 as openETCS requirements and use the chapters structure to differentiate between levels. They are translated into .reqIF format so that requirements can be managed by requirement management tools. Other reference requirements are imported in the openETCS reference configuration (baseline) as documents.
+
+Figure \ref{fig:CurrentRequirementOrganization} illustrates current organization for requirement management.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\linewidth]{./images/CurrentRequirementOrganization.png}
+\caption{OpenETCS current requirement management organization}
+\label{fig:CurrentRequirementOrganization}
+\end{figure}
+
+
+SysML model, used to capture and describe architecture from System level down to software internals, is considered as an intermediate means in the sense that it helps producing the OBU scade formal model but might be not maintained once OBU model is finalized and can be traced directly to the SRS Subset 26. 
+
+But currently, SysML model plays a role in this definition and so we need to create traceability links with it so that we can verify that architecture conforms to the SRS subset 26.
+
+Figure \ref{fig:openETCSTraceabilityMainPriority} illustrates all required traceability links needed to achieve current design verification and highlights those conisdered with highest priority (arrows with largest size) for short term.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]
+{./images/openETCSTraceabilityMainPriority.png}
+\caption{\label{fig:openETCSTraceabilityMainPriority}OpenETCS traceability chains for current design with highlight on main priorities}
+\end{figure}
+
+Next paragraphs explain traceability during the 5 phases of the software development process with specific focus on links between openETCS OBU model and SRS Subset 26.
+
+
+\section{OpenETCS traceability main scenarios}
+Traceability main scenarios are grouped by phase according to the openETCS software development process introduced in previous chapter. 
+
+We recall illustration of software development process below to ease reading of next paragraphs.
+
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=.9\linewidth]
+{./images/OpenETCSDevelopmentProcess.png}
+\caption{\label{fig:OpenETCSDevelopmentProcess}OpenETCS software development process}
+\end{figure} 
+
+\subsection{P1 Software specification Phase}
+
+\cite{D4.2.3} recalls P1 scope and current support for verification.
+\textit{The phase P1 Software Requirement Phase covers the development activities required by the EN 50128 during its lifecycle phase Software Requirements Phase (7.2). The SUBSET 26 and further System Specifications are the Input of this work. The resulting ReqIF Requirement files shall represent the Software Requirement Specification. Software Overall Test Specification will be derived with respect to these requirements, but a method is not defined at this point.}
+
+\textbf{Currently .ReqIF Requirement files are translated from SUBSET 26 and there is no derivation or special tag to identify SW requirements. So software overall test specification shall first include this derivation of software requirements in order to conduct test overall SW test specification.}
+
+
+Note: SysML architecture model provides a good input for such derivation to SW requirements by identifying system, subsystem and SW engineering levels through SysML Block Definition Diagrams and Internal Blocks Diagrams. But currently this model does not lead to the creation of software requirements in the database. 
+
+Figure \ref{fig:P1RequirementDerivationWithSysMLModel} illustrates what could be done.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\linewidth]
+{./images/P1RequirementDerivationWithSysMLModel.png}
+\caption{\label{fig:P1RequirementDerivationWithSysMLModel}Requirement derivation process through SysML architecture model}
+\end{figure}
+
+We do not detail this activity and associated traceability because it is not current priority (current priority concerns software verification). However, this derivation process remain important in order to ensure good relevance of software requirements with regards to SUBSET 26 and other system specifications.
+
+Note: concerning Hazard and Risks analysis activity, it has been performed only on a subset of project scope and through a Proof of concept (see \ref{safetyProcessApplication}) that has demonstrated principles and practical feasibility with methods and tools. But this PoC has not yet been extended to the whole scope of project. For short term development, systematic identification of safety requirements and derivation into software requirements are not the main priority now that principles have been demonstrated with success.
+
+Once SW requirements are clearly identified (either created by derivation or tagged in .reqIF files or in other existing documents), it becomes possible to define associated verification means, among test specification, inspection, analysis or certification and associate verification specifications. Those verification specifications shall mention the openETCS concerned SW requirements so that we can check relevance and accuracy. 
+
+In terms of traceability it means that we shall be able to show bi directional traceability between openETCS SW requirements and associated verification specifications. Usual way is to deliver a matrix for that.
+Then, reviews can be done with matrix as input to ensure that verification specifications really verify mentioned requirements and that requirements are fully verified by associated verification specifications.
+ 
+
+\subsection{P2 - Software Architecture Modeling Phase}
+The phase P2 covers activities from the EN~50128 development life cycle Software Arch. \& Design Phase (7.3).
+
+It shall take software requirements as inputs.
+
+\textbf{Note: as mentioned in P1, currently .ReqIF Requirement files are translated from SUBSET 26 and there is no derivation or special tag to identify SW requirements. So there is no clear SW requirements reference against which we can rely to design and verify architecture}.
+
+SysML architecture model initiated in P1 is completed to represent Software Architecture Specification down to SW componenents and their interfaces. It does not take software requirements as input but takes upper level architecture: that approach at least ensures consistency between engineering levels.
+Then this sysML model is reflected (translated) into a SCADE integration model that will be completed and refined during P3 phase. 
+
+Concerning architecture verification, nominal method would be to verify SysML architecture model against SW requirements but they cannot be clearly identified so currently verification is performed directly against SUBSET 26.
+
+
+Concerning results of architecture, SysML architecture model provides a good input for creation of first SW component and SW component interface requirements through SysML Block Definition Diagrams and Internal Blocks Diagrams. But currently this model does not lead to the creation of requirements in the reference requirements database. 
+
+Figure \ref{fig:P2RequirementDerivationWithSysMLModel} illustrates what could be done.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]
+{./images/P2RequirementDerivationWithSysMLModel.png}
+\caption{\label{fig:P2RequirementDerivationWithSysMLModel}Software requirements initial definition from SysML model}
+\end{figure}
+
+
+
+\subsection{P3 - Software Behavior Modeling and Integration Phase}
+
+The phase P3 \textit{Software Behavior Modeling and Integration Phase} cover activities from the EN~50128 development life cycle Software Arch. \& Design Phase (7.3), Software Component Design Phase (7.4) and Software Component Implementation Phase (7.5). 
+The overall SCADE model initiated during P2 is refined and enhanced to completely represent Design and Interface Specifications as well as all Component Design Specifications. Source Code in C is generated automatically via the certified SCADE Code Generator and combined with required wrapper software. For these wrapper parts specific development methods have to be defined as these parts are specified.
+
+As this overall SCADE model is composed of several components described by lower level SCADE models and their interfaces, it specifies integration to be performed it can be used as input for SW integration (see P5). This is a "meet in the middle" approach taking as inputs SysML architecture model (top down approach) and functional SW component detailed models (bottom up approach).
+
+\textbf{Note}: \textbf{this Scade overall SW integration model does not appear on current Software development process figure \ref{fig:OpenETCSDevelopmentProcess} in Architecture an Design box and should be present there because it is an important artifact used both as integration of behavioral models (rising part of V cycle applied on models) and as input to prepare integration of software}. Said it differently, there is a small "V" starting with P2 in Architecture and design, descending with P3 in Component Design and rising again in Architecture and Design with P3, still in the descending part of the global V life cycle.
+
+SCADE integration model describes structural but also dynamic integration of component models. It includes at least following elements to consider: 
+\begin{itemize}
+\item conditions of activation and deactivation of functions (described by component models) through use of modes,
+\item Scenarios of functions with control flow including sequencing, branching, merge, fork and synchronization,
+\item Arrangement of time events (scheduling), management of asynchronous events
+\item Error/exception management to ensure reliability
+\item Technical conversion functions to manage exchange of data available in different types/formats
+\item Conformance with SysML architecture model?
+\end{itemize}
+
+All those SCADE models (low level behavioral models and integration models) provide good input for creation of additional SW component and SW component interface requirements from SCADE operators, blocks, automatons and data types.
+
+The software architecture and design document produced from those SCADE models is also another good input for creation of requirements.
+
+\textbf{But currently neither SCADE models nor Architecture and Design document lead to the creation of requirements in the reference requirements database.} 
+
+Figure \ref{fig:P3RequirementDerivationWithSCADEModels} illustrates what could be done in the future to get a clear SW definition.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]
+{./images/P3RequirementDerivationWithSCADEModels.png}
+\caption{\label{fig:P3RequirementDerivationWithSCADEModels}Software requirements identification from SCADE models and from Software Architecture and design document}
+\end{figure}
+
+\subsection{P5 - Formal Validation Phase}
+
+The phase P5 has to cover activities of the Software Component Testing Phase (7.5), Integration Phase (7.6) and mainly Software Validation Phase (7.7) by using simulation, testing and model checking methods. To do so the SCADE environment as well as additional tools are use depending on the specific model property to be tested or proven. 
+
+The Inputs for these activities are the SysML and SCADE models and the C Code.
+
+Currently there is no precise list of traceability links to define and maintain in the frame of this phase.
+
+
+
 
 \chapter{Tool chain current physical architecture solution to support traceability}
 \label{sec-5}

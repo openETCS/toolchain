@@ -3,10 +3,9 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oetc_WP7_traceability.aux
 The style file: unsrt.bst
 Database file #1: oetc_WP7_Traceability.bib
-Warning--I didn't find a database entry for "ArchitectureDesignSpecification"
 You've used 6 entries,
             1791 wiz_defined-function locations,
-            479 strings with 4718 characters,
+            477 strings with 4656 characters,
 and the built_in function-call counts, 642 in all, are:
 = -- 62
 > -- 9
@@ -45,4 +44,3 @@ warning$ -- 0
 while$ -- 1
 width$ -- 7
 write$ -- 63
-(There was 1 warning)
