@@ -3,34 +3,37 @@
 \BOOKMARK [1][-]{section.1.1}{Document purpose}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.2}{Document scope}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.3}{Document organization}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{OpenETCS traceability scope}{}% 6
+\BOOKMARK [0][-]{chapter.2}{OpenETCS traceability context}{}% 6
 \BOOKMARK [1][-]{section.2.1}{Recall of OpenETCS target vision and development process}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{OpenETCS project context-of-interest}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.3}{OpenETCS design process \(WP3\) and design artifacts}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.4}{OpenETCS VV and safety process \(WP4\)}{chapter.2}% 10
-\BOOKMARK [0][-]{chapter.3}{OpenETCS traceability priorities and detailed expectations}{}% 11
-\BOOKMARK [1][-]{section.3.1}{Traceability main priority from WP3}{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.3}{Short term development priorities and associated practical scenarios concerning traceability}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Main design priorities and current requirement organization}{chapter.3}% 12
 \BOOKMARK [1][-]{section.3.2}{OpenETCS traceability main scenarios}{chapter.3}% 13
 \BOOKMARK [2][-]{subsection.3.2.1}{P1 Software specification Phase}{section.3.2}% 14
 \BOOKMARK [2][-]{subsection.3.2.2}{P2 - Software Architecture Modeling Phase}{section.3.2}% 15
 \BOOKMARK [2][-]{subsection.3.2.3}{P3 - Software Behavior Modeling and Integration Phase}{section.3.2}% 16
 \BOOKMARK [2][-]{subsection.3.2.4}{P5 - Formal Validation Phase}{section.3.2}% 17
 \BOOKMARK [0][-]{chapter.4}{OpenETCS tool chain requirements about traceability}{}% 18
-\BOOKMARK [1][-]{section.4.1}{Tool chain capabilities to support requirement management}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.2}{Tool chain capabilities to support requirement traceability}{chapter.4}% 20
-\BOOKMARK [0][-]{chapter.5}{Tool chain current physical architecture solution to support traceability}{}% 21
-\BOOKMARK [1][-]{section.5.1}{Overview of current traceability architecture solution}{chapter.5}% 22
-\BOOKMARK [1][-]{section.5.2}{P1 phase: ProR and Scade System}{chapter.5}% 23
-\BOOKMARK [2][-]{subsection.5.2.1}{Script description}{section.5.2}% 24
-\BOOKMARK [2][-]{subsection.5.2.2}{Unique ID definition}{section.5.2}% 25
-\BOOKMARK [2][-]{subsection.5.2.3}{System Model}{section.5.2}% 26
-\BOOKMARK [1][-]{section.5.3}{P2 phase: ProR, Scade System and Scade suite}{chapter.5}% 27
-\BOOKMARK [2][-]{subsection.5.3.1}{Transformation of SysML architecture model to SCADE architecture Model}{section.5.3}% 28
-\BOOKMARK [1][-]{section.5.4}{P3 and P4 phases: ProR, Scade suite and Scade KCG}{chapter.5}% 29
-\BOOKMARK [1][-]{section.5.5}{P5 phase: XXX}{chapter.5}% 30
-\BOOKMARK [0][-]{chapter.6}{Limits of current traceability architecture and axes of investigation for improvement}{}% 31
-\BOOKMARK [1][-]{section.6.1}{Current identified limits}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.2}{Investigation axes for improvements}{chapter.6}% 33
-\BOOKMARK [2][-]{subsection.6.2.1}{Alternative Requirement management and traceability tools}{section.6.2}% 34
-\BOOKMARK [2][-]{subsection.6.2.2}{Third alternative traceability solution: ReqCycle}{section.6.2}% 35
-\BOOKMARK [0][-]{chapter*.16}{References}{}% 36
+\BOOKMARK [1][-]{section.4.1}{OpenETCS high level requirements about traceability support by tool chain}{chapter.4}% 19
+\BOOKMARK [2][-]{subsection.4.1.1}{Which model?}{section.4.1}% 20
+\BOOKMARK [2][-]{subsection.4.1.2}{What does "tracing model" mean?}{section.4.1}% 21
+\BOOKMARK [1][-]{section.4.2}{Tool chain capabilities to support requirement management}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.3}{Tool chain capabilities to support requirement traceability}{chapter.4}% 23
+\BOOKMARK [0][-]{chapter.5}{Tool chain current physical architecture solution to support traceability}{}% 24
+\BOOKMARK [1][-]{section.5.1}{Overview of current traceability architecture solution}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{P1 phase: ProR and Scade System}{chapter.5}% 26
+\BOOKMARK [2][-]{subsection.5.2.1}{Script description}{section.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.2.2}{Unique ID definition}{section.5.2}% 28
+\BOOKMARK [2][-]{subsection.5.2.3}{System Model}{section.5.2}% 29
+\BOOKMARK [1][-]{section.5.3}{P2 phase: ProR, Scade System and Scade suite}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.3.1}{Transformation of SysML architecture model to SCADE architecture Model}{section.5.3}% 31
+\BOOKMARK [1][-]{section.5.4}{P3 and P4 phases: ProR, Scade suite and Scade KCG}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.5}{P5 phase: XXX}{chapter.5}% 33
+\BOOKMARK [0][-]{chapter.6}{Limits of current traceability architecture and axes of investigation for improvement}{}% 34
+\BOOKMARK [1][-]{section.6.1}{Current identified limits}{chapter.6}% 35
+\BOOKMARK [1][-]{section.6.2}{Investigation axes for improvements}{chapter.6}% 36
+\BOOKMARK [2][-]{subsection.6.2.1}{Alternative Requirement management and traceability tools}{section.6.2}% 37
+\BOOKMARK [2][-]{subsection.6.2.2}{Third alternative traceability solution: ReqCycle}{section.6.2}% 38
+\BOOKMARK [0][-]{chapter*.19}{References}{}% 39
