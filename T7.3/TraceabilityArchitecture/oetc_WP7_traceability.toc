@@ -1,4 +1,4 @@
-\contentsline {chapter}{Document Information}{iv}{Doc-Start}
+\contentsline {chapter}{Document Information}{v}{Doc-Start}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Document purpose}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Document scope}{1}{section.1.2}
@@ -23,19 +23,31 @@
 \contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {4.2.4}P5 - Formal Validation Phase}{17}{subsection.4.2.4}
 \contentsline {chapter}{\numberline {5}Tool chain current physical architecture solution to support traceability}{18}{chapter.5}
 \contentsline {section}{\numberline {5.1}Overview of current traceability architecture solution}{18}{section.5.1}
-\contentsline {section}{\numberline {5.2}P1 phase: ProR and Scade System}{18}{section.5.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Script description}{20}{subsection.5.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Unique ID definition}{20}{subsection.5.2.2}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.1}Guideline}{20}{paragraph.5.2.2.0.1}
-\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2.0.2}How to}{20}{paragraph.5.2.2.0.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}System Model}{21}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}P2 phase: ProR, Scade System and Scade suite}{21}{section.5.3}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.1}Transformation of SysML architecture model to SCADE architecture Model}{21}{subsection.5.3.1}
-\contentsline {section}{\numberline {5.4}P3 and P4 phases: ProR, Scade suite and Scade KCG}{21}{section.5.4}
-\contentsline {section}{\numberline {5.5}P5 phase: XXX}{21}{section.5.5}
-\contentsline {chapter}{\numberline {6}Limits of current traceability architecture and axes of investigation for improvement}{22}{chapter.6}
-\contentsline {section}{\numberline {6.1}Current identified limits}{22}{section.6.1}
-\contentsline {section}{\numberline {6.2}Investigation axes for improvements}{22}{section.6.2}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Alternative Requirement management and traceability tools}{22}{subsection.6.2.1}
-\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Third alternative traceability solution: ReqCycle}{23}{subsection.6.2.2}
-\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{25}{chapter*.19}
+\contentsline {section}{\numberline {5.2}P1 phase: ProR, Scade System, Papyrus and ReqCycle}{19}{section.5.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.1}Import of reference requirements through a Script}{19}{subsection.5.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.2}Classification of reference requirements through ProR}{19}{subsection.5.2.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.3}Creation of additional requirements through ProR}{19}{subsection.5.2.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.4}Link requirements and overall test specification with ReqCycle}{20}{subsection.5.2.4}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.5}Update of SRS subset26}{20}{subsection.5.2.5}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.6}technical challenges}{21}{subsection.5.2.6}
+\contentsline {subsubsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.6.1}Script description}{21}{subsubsection.5.2.6.1}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.6.1.1}Guideline}{21}{paragraph.5.2.6.1.1}
+\contentsline {paragraph}{\itshape \fontsize {9}{12}\selectfont \numberline {5.2.6.1.2}How to}{22}{paragraph.5.2.6.1.2}
+\contentsline {section}{\numberline {5.3}P2 phase: ProR, Scade System, Papyrus and ReqCycle}{22}{section.5.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.1}verification of SW architecture through ReqCycle}{22}{subsection.5.3.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {5.3.2}Creation of traceability links between a requirement and a Papyrus SysML with ReqCycle}{23}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}P3 phase: ProR, Scade suite and ???}{23}{section.5.4}
+\contentsline {section}{\numberline {5.5}P4 phase: SCADE suite and Scade KCG}{25}{section.5.5}
+\contentsline {section}{\numberline {5.6}P5 phase: Verification and validation of SW product}{25}{section.5.6}
+\contentsline {chapter}{\numberline {6}Limits of current traceability architecture and axes of investigation for improvement}{26}{chapter.6}
+\contentsline {section}{\numberline {6.1}Current identified limits}{26}{section.6.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.1}Limits concerning the baseline of requirements used as input for traceability}{26}{subsection.6.1.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.2}Limits concerning additional requirements}{26}{subsection.6.1.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.3}Limits concerning traceability with SysML elements}{26}{subsection.6.1.3}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.4}Limits concerning traceability with SCADE elements}{27}{subsection.6.1.4}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.1.5}Limits concerning management of all traceability links}{27}{subsection.6.1.5}
+\contentsline {section}{\numberline {6.2}Investigation axes for improvements}{27}{section.6.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.1}Ability to export Scade model as Eclipse EMF model}{27}{subsection.6.2.1}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.2}Combined solution for requirement management and traceability tools}{27}{subsection.6.2.2}
+\contentsline {subsection}{\itshape \fontsize {9}{12}\selectfont \numberline {6.2.3}ReqCycle used as centralized solution and ProR for requirement edition}{28}{subsection.6.2.3}
+\contentsline {chapter}{References\markboth {\MakeUppercase {References}}{\MakeUppercase {References}}}{30}{chapter*.19}

@@ -513,7 +513,7 @@ It shall take software requirements as inputs.
 
 \textbf{Note: as mentioned in P1, currently .ReqIF Requirement files are translated from SUBSET 26 and there is no derivation or special tag to identify SW requirements. So there is no clear SW requirements reference against which we can rely to design and verify architecture}.
 
-SysML architecture model initiated in P1 is completed to represent Software Architecture Specification down to SW componenents and their interfaces. It does not take software requirements as input but takes upper level architecture: that approach at least ensures consistency between engineering levels.
+SysML architecture model initiated in P1 is completed to represent Software Architecture Specification down to SW components and their interfaces. It does not take software requirements as input but takes upper level architecture: that approach at least ensures consistency between engineering levels.
 Then this sysML model is reflected (translated) into a SCADE integration model that will be completed and refined during P3 phase. 
 
 Concerning architecture verification, nominal method would be to verify SysML architecture model against SW requirements but they cannot be clearly identified so currently verification is performed directly against SUBSET 26.
@@ -583,18 +583,19 @@ Currently there is no precise list of traceability links to define and maintain 
 This current solution consists in handling requirement management and traceability links through different tools and technologies. The strategy of this approach consists in maximizing efficiency of the different concurrent activities through using tooling locally integrated in the different environments used in the project over its development life cycle (the 5 phases).
 
 As a summary view (will be detailed later) we find:
-- P1: ProR to support requirement derivation process with .ReqIf database, assisted of Scade System to support SysML modeling of architecture model from system environment down to software definition and its external interfaces.
-- P2: Scade System again to support SysML modeling of software architecture definition with identification of software components and component interface definitions. ReqIF reference requirements are imported in Scade System with papyrus  plugin. Additional requirements are created in SysML with Scade System. Traceability links are created in SysML with Scade System and are exported back to ReqIF database through ProR proxy. 
-- P3 and P4: Scade Suite to support formal modeling of Software components and their behavior down to executable level, assisted of SCADE KCG to support generation of C source from SCADE model.
-- P5: toDo
+- P1: ProR is used to support requirement management around a .ReqIf files database
+- P2: Scade System is used to edit SysML architecture model from system environment down to software definition and its external interfaces. This model can be displayed in Papayrus SysML and then used by PolarSys ReqCycle tool to create links with .reqIF requirements.
+- P3: . ReqIF reference requirements are imported in SCADE and can be traced through the ANSYS RM Gateway based on Reqtify solution. 
+- P4: SCADE KCG is used to support generation of C source from SCADE models.
+- P5: other tools (to be completed)
 
-Figure \ref{fig:trace_first} illustrates current traceability architecture with associated set of tools, scripts and procedures.
+Figure \ref{fig:CurrentArchitectureTraceSolution} illustrates current traceability architecture with associated set of tools, scripts and procedures.
 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{images/first_trace_solution.pdf}
-\caption{\label{fig:trace_first}Traceability architecture first solution}
+\includegraphics[width=.9\linewidth]{images/CurrentArchitectureTraceSolution.png}
+\caption{\label{fig:CurrentArchitectureTraceSolution}Traceability architecture first solution}
 \end{figure}
 
 \textbf{Note}: when requirement management tools complete imported requirements, they should guarantee the following rules:
@@ -607,36 +608,87 @@ Figure \ref{fig:trace_first} illustrates current traceability architecture with 
 \end{enumerate}
 
 
-\section{P1 phase: ProR and Scade System}
+\section{P1 phase: ProR, Scade System, Papyrus and ReqCycle}
+\subsection{Import of reference requirements through a Script}
 
-Reference requirement input documents are converted to a set of ReqIF format files and informally analyses. The analysis specifies relationships between requirements and revises parts of the requirements to obtain a detailed and atomic abstraction level matching the different requirement engineering levels required by Cenelec standards. 
+Reference Subset 26 input document is converted to a set of ReqIF format files and informally analyses. The analysis specifies relationships between requirements and revised parts of the requirements to obtain a detailed and atomic abstraction level matching the different requirement engineering levels required by Cenelec standards. 
 
-A script is in charge of converting input reference documents to initial set of stakeholder requirements in .ReqIF format files. See \label{importScript} for detailed description of this script, challenges to solve and solutions.
+A script is in charge of converting input SRS subset 26 document to requirements in .ReqIF format files. Each requirement has an unique identifier. These identifiers are fixed and cannot be modified by any other
+tools.
+See \label{importScript} for detailed description of this script, challenges to solve and solutions.
 
-ProR is the tool in charge of supporting the requirement classification and derivation activities from this initial set of requirements and down to software requirements ReqIF files. 
+\subsection{Classification of reference requirements through ProR}
+
+ProR is the tool in charge of supporting the requirement classification from this initial set of SUBSET 26 requirements:
 \begin{itemize} 
-\item It supports requirements classification into different engineering levels: stakeholder, system and software.
-\item It supports creation of additional requirements coming from hazard and risks analysis (safety requirements) or coming for decomposition (improvement of requirement quality)
-\item It supports creation of requirements derivation links between engineering levels.
+\item filter of requirements to take into account for openETCS project baseline (not all SUBSET 26 requirements are part of openETCS baseline)
+\item tag requirements that are considered as software requirements (normally there should be a derivation process that would create SW requirements but it is not the case currently and SW design takes as inputs SUBSET 26 requirements)
 \end{itemize}
 
+Currently there is no classification of reference requirements and .reqIf files are an exact translation of the document.
 
-With that approach, there is one master reference requirements data base. This data
-base is itself directly imported from the subset-026 word document. The data
-base provides the list of requirements as well as an unique identifiers for each
-requirement. These identifiers are fixed and cannot be modified by any other
-tools. 
+\subsection{Creation of additional requirements through ProR}
+ProR is also in charge of supporting creation of additional requirements coming from:
+\begin{itemize} 
+\item hazard and risks analysis (safety requirements) but we saw that the safety process has been validated through a proof of concept but not yet deployed for the whole project.
+\item decomposition (improvement of requirement quality) but this is not done directly in .reqIF files. There is a process called RFC (Request For Comment) in charge of collecting deviations to the SRS subset 26 detected during design. 
+\end{itemize}
+
+So finally  .reqIF files only contain SRS subset 26 requirements and no additional requirements are created for now.
+
+\subsection{Link requirements and overall test specification with ReqCycle}
+As mentioned in previous chapter, overall test specification is not yet defined but should be linked to the SW requirements and each SW requirement shall precise its verification means (including test specification) and be linked to verification specification (test specification if it is the prefered verification means).
+
+It first means that all requirements shall have an attribute "verificationMeans" taking as possible values "test", "inspection", "analysis" and "demonstration" according to verification plan. We suggest using ProR tool to add this attribute.
+
+It also means that each ReqIF requirement shall have links with at least one of the planned verification means. Tool chain shall support creation of those links and export as a traceability matrix. There are mainly two options with open source solutions:
+\begin{itemize} 
+\item either use ProR to manage the links with verification specification (mainly test specification) and export associated traceability matrix.
+\item else use PolarSys ReqCycle tool to manage those links and export traceability matrix.
+\end{itemize}
+
+\label{ReqCycle} 
+\textbf{A few words about PolarSys ReqCycle:} this tool was not mature at the beginning of the openETCS projet and was not really available as official open source component from Eclipse. Now this is an official solution from PolarSys industrial Working group from Eclipse foundation and it has followed official Eclipse development and release processes that ensure minimum of quality and transparency in addition to IP analysis. Official description is available here: https://www.polarsys.org/projects/polarsys.reqcycle
+
+In addition, 0.8.0 release has been largely tested and is considered as stable. 
+There is Wiki documentation (with development process, user and some tool requirements, installation and tutorial) available here: https://polarsys.org/wiki/ReqCycle
+
+ReqCycle can export traceability links to .csv file and to EMF format model, that can then be used as input by Eclipse gendoc tool to produce an industrial quality level documentation.
 
 
-\subsection{Script description}
+\label{toolChoiceForRequirementVerificationLinks}
+\textbf{Prefered solution} 
+ProR is the simplest approach to get .ReqIF requirements and it can create links, but this approach requires some additional plugin to analyse test definitions from verification specification document.
+
+ReqCycle has to import .ReqIF requirements first before creating traceability links but it is not an issue because there is a ReqIF import connector. Concerning tests, it has a generic document connector able to analyse and extract test definitions if they can be identified through regular expressions, document styles or combine both technics. This connector can also use OCL language and associated queries to identify tests from spreadsheets.
+
+Finally we suggest using PolarSys ReqCycle to support management of links between requirement and test specification because it has all native features/capabilities to import requirements, import test definitions,  create links and export them in a .csv matrix.
+
+
+\subsection{Update of SRS subset26}
+P1 is also concerned by potential changes in reference requirements coming from a new version of SRS subset 26. Any new version should be analyzed for potential impacts on OBU Software. So the tool chain shall be ready to support such update.
+
+Practically it means that it should be possible to compare two versions of .reqIF files created by same import script applied on two different SUBSET 26 versions. That comparison shall lead to a list of deleted requirements, modified requirements (changed text) and new requirements.
+
+From this analysis, the tool chain shall help providing the list of all OBU SW requirements concerned by deleted or updated requirements in order to check associated design and verification specifications (including tests). It means reviewing all traceability links associated to modified .reqIF requirements.
+
+ProR can compare two .reqIF files and then identify changed and deleted requirements. But in order to analyse impact on design and overall test specification, ProR shall access to all those traceability links associated to reference requirements, what is not the case currently.
+
+Can ReqCycle help for that? 
+ReqCycle can manage updates of its different requirement sources and list impacts on traceability links. So it might work but under the condition that all tracebility links are captured (created or analysed) by ReqCycle. That is not the case currently.
+
+\textbf{So this point remains open.}
+ 
+
+\subsection{technical challenges}
+
+\subsubsection{Script description}
 \label{importScript}
-The script \todo{The script needs a name} generates a hierarchical tree of all traceworthy
-artifacts in each chapter of subset-026. Each artifact shall be uniquely
-addressable via a tracestring.
+The \textit{Subset26Import} script generates a hierarchical tree of all traceworthy
+artifacts in each chapter of subset-026. Each artifact shall be uniquely addressable via a tracestring.
 
 
-\subsection{Unique ID definition}
-\label{sec-5-1-2}
+\label{unique ID definition}
 Take the following example:
 \begin{figure}[htb]
 \centering
@@ -690,65 +742,121 @@ This will result in the following requirement ID: \quad \verb+3.5.3.7.a[2].[*][2
 
 
 
-\subsection{System Model}
-\label{sec-8}
+\section{P2 phase: ProR, Scade System, Papyrus and ReqCycle}
 
-The link with the requirement may be included via requirements diagram with a
-direct link of requirement in ProR
-The explanation to performs the link may be found here \href{https://github.com/openETCS/toolchain/wiki/User-Documentation#tracing-requirements-and-sysml-models}{ProR-Papyrus proxy}.
-The links may be viewed through Papyrus an ProR and the requirement may be
-directly apply from ProR to a Papyrus elements.
+Concerning P2, main traceability links concern verification of SW architecture. 
+
+\subsection{verification of SW architecture through ReqCycle}
+
+Architecture model is defined with a subset of SysML language (blocks definition and internals) through Scade System tool.
+We want to trace this architecture to the reference requirements that are imported (translated) subset 26 requirements.
+
+3 options could be considered to support creation of this traceability:
+\begin{enumerate} 
+\item \textbf{traceability in Scade System environment through the Ansys RM Gateway based on Dassault Systems Reqtify product}: .ReqIF requirements are imported in the RM Gateway (through Reqtify configuration) and Scade System provides a way to reference those requirements from blocks or connectors that define architecture. The RM Gateway creates the links and exports a traceability matrix.
+\item \textbf{traceability in ProR through dedicated ProR-Papyrus proxy module}: SysML model created with Scade System can be displayed with Papyrus open source tool. ProR is used to create traceability links to model elements from Papyrus thanks to a special configuration and a proxy module (see https://github.com/openETCS/toolchain/wiki/User-Documentation) .
+\item \textbf{traceability through PolarSys (Eclipse-based) ReqCycle tool}: we use same previous approach to see SysML model initiated by Scade System in Papyrus tool. Then .ReqIF files are imported through a ReqCycle import connector and made available as ReqCycle requirements (in pivotal eclipse modeling format). Traceability links are created by traceability creator or Drag and drop features available in ReqCycle to link reqCycle requirements and any EMF model including Papyrus SysML. Requirements and traceability progress can be visualized in ReqCycle and traceability data can be exported to .csv file.
+\end{enumerate}
+
+Option 1 relies on closed source technology (RM Gateway) and there are licensing issues.
+Option 2 relies on specific proxy ProR module developed during the project: require adapters from both ProR and Papyrus and maintenance is not guaranteed over time (not core part of both roadmaps).
+Option 3 relies on native features from ReqCycle tool:  a ReqIF connector to import .ReqIF requirements and native commands like traceabilityCreator view to trace requirements with EMF models including Papyrus (see \ref{ReqCycle traceability}) 
+
+Option 3 is considered today as best option to support traceability concerning SW architecture verification.
 
 
-\section{P2 phase: ProR, Scade System and Scade suite}
+Architecture is initialized by SysML model and then reflected and completed in SCADE model. So question becomes: what is input for traceability with requirements? SysML model or SCADE model?
 
-\textit{To complete}
-
-\subsection{Transformation of SysML architecture model to SCADE architecture Model}
-\label{sec-9}
-
-It should define the interfaces between the architecture artifacts.  It is used and
-set up to facilitate team working together on a big architecture. Its definition
-comes from the requirements but can also be refined by the modelling team without
-changing the existing implemented requirements.
+ So we suggest creating links from SysML architecture model. With that approach we can use ReqCycle (tool has been briefly presented previously - see  \ref{ReqCycle}).
 
 
-\section{P3 and P4 phases: ProR, Scade suite and Scade KCG}
-ToDo
+\subsection{Creation of traceability links between a requirement and a Papyrus SysML with ReqCycle}
+\label{ReqCycle traceability}
 
-\section{P5 phase: XXX}
-ToDo
+Figure \ref{fig:ReqCycleTraceabilityCreator} illustrates a simple way to create a link between a reference requirement and a model element through ReqCycle traceability creator view.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{images/ReqCycleTraceabilityCreator.png}
+\caption{\label{fig:ReqCycleTraceabilityCreator}Creation of links with Reqcycle between requirements and Papyrus}
+\end{figure}
+
+
+\section{P3 phase: ProR, Scade suite and ???}
+SysML brings top level decomposition architecture staring from openETCS system while SCADE model brings bottom up SW architecture coming from integration of behavioral SCADE models.
+So when we look at SW detailed architecture and at behavioral models, the reference is SCADE, not SysML. So we need to be able to trace all detailed design elements from SCADE behavioral models and all other design elements associated to their integration at upper level. All those elements have to be traced to the reference requirements. 
+
+From SCADE the only serious option today is to use the proprietary ANSYS RM Gateway but there is licensing issue for some partners. So currently this is not ideal solution and there is no real support of traceability for SCADE model elements today.
+
+One option exists but it has not been investigated seriously for now: using SCADE Eclipse API to export SCADE models to Eclipse EMF Format and then use ReqCycle to perform traceability as ReqCycle has native commands to create links between any requirement and EMF model elements. We do not consider this option in this document and rather select it as an improvement axis.
+
+\section{P4 phase: SCADE suite and Scade KCG}
+Traceability between SCADE model and C source code is ensured by SCADE KCG.
+
+\section{P5 phase: Verification and validation of SW product}
+Currently no traceability relations have been clearly defined.
 
 \chapter{Limits of current traceability architecture and axes of investigation for improvement}
 \label{sec-6}
 
 \section{Current identified limits}
-ToDo
+Before looking at possible alternative software solutions to support traceability in the different phases, let us come back to the choices in terms of artifacts to trace.
+\subsection{Limits concerning the baseline of requirements used as input for traceability}
+
+Currently only SRS subset requirements are considered in the creation of traceability links. But there are also other sources of requirements including openETCS API, CENELEC standards and user stories. How to ensure traceability to those artifacts if they are not integrated into the reference requirements database?
+
+Secondly, with \textit{traditional} SRS requirements derivation down to SW requirements, the method consists in decomposing functional requirements and then allocating them to lower level design elements and so on down to Software level. 
+At Software level, then we trace software architecture elements to software requirements through a "satisfy" semantics trace.
+Finally we have different steps in the creation of  traceability links and all created links have "simple" semantics ("satisfy" or "allocation") that can be validated quite easily.
+
+in P1, we trace directly architecture elements (SysML model) to SUBSET 26 requirements instead of tracing them to openETCS SW requirements derived from System requirements also derived from SUBSET 26 requirements. The consequence is that the trace links are harder to validate because they sometimes connect elements of very different engineering levels.
+
+Finally we strongly recommend three things:
+- think about other scripts or solutions to import other reference stakeholder requirements including at least openETCS API and user stories (CENELEC standards can be traced manually) to improve traceability to its reference sources.
+- add a tag to all reference requirements with identification of a level to clearly identify SW requirements and those that are from a higher level.
+- provide a rationale to the trace link, at least concerning all requirements that are not clearly identified as software requirements, to give understanding elements to the future reviewers (next review or perhaps in several months when Subset 26 version will change).
+
+\subsection{Limits concerning additional requirements}
+We already mentioned the SRS requirements derivation process not done but there are also other requirements that should be created during SRS analysis: safety requirements, as a result from risk and hazard analysis.
+
+When considering that openETCS are only requirements coming as inputs, we can take the assumption that we never change them and consider all requirements as "read only" requirements. We do not look into the issues of managing (import, export, synchronization...) additional requirements potentially created by other tools like EventB or another tool.
+
+\subsection{Limits concerning traceability with SysML elements}
+For verification of SW architecture we have considered that SysML model was representative and that we could then create traceability links with sysML model elements. What happens if overall SCADE model is not aligned with SysML model concerning architecture? then traceability links with SysML model will be false and review cannot see that.
+
+So, in order to continue trusting links done with SysML model we must ensure that architecture designed with SysML is reflected in overall SCADE Model and that any modification on architecture done at SCADE side is reflected back to the SysML model. Said it differently there must be architecture synchronization between both models. If there is no way to check that synchronization, some links done to verify architecture might be wrong without ability to notice that.
+
+
+\subsection{Limits concerning traceability with SCADE elements}
+Currently there is no satisfying solution to trace SCADE model elements to reference .ReqIF elements. Some use the RM gateway but others do not for licensing reason and finally it puts some risk on the project not to be able to verify software detailed design.
+
+
+\subsection{Limits concerning management of all traceability links}
+We saw in previous chapter that in case of update of SRS Subset 26 ProR will be able to provide a diff between requirements but will probably not be able to list all associated traceability links that have to be checked and handled (removed or confirmed or completed).
+That is another issue to investigate.
 
 \section{Investigation axes for improvements}
+We suggest different investigation axes to manage main limits identified previously. 
+Those investigations will be detailed and will lead to results reported into an other document.
 
-\subsection{Alternative Requirement management and traceability tools}
-Concerning requirement management and traceability there exist a lot of solutions. If we focus on open source solutions and especially those able to integrate into Eclipse platform, we find:
-\begin{itemize}
-\item Eclipse Requirement Modeling Framework (RMF). As mentioned on Eclipse web site, RMF is a framework to manage textual requirements through ReqIF standard requirement exchange format. There is a powerful GUI called "ProR" to configure, visualize and edit ReqIF requirements in RMF.
-RMF/ProR is the natural choice for OpenETCS to support requirement management.
+\subsection{Ability to export Scade model as Eclipse EMF model}
+Esterel Technologies explains in their SCADE documentation that it is possible to export SCADE into Eclipse Modeling Framework format through their Eclipse API: see http://www.esterel-technologies.com/products/scade-suite/software-prototyping-desgin/scade-suite-advanced-modeler/
 
-Alternatively to deal with the closed source path the requirement management may
-be done by Reqtify Gateway of SCADE (also called "RM Gateway"). 
+With that approach it would become possible to see SCADE exported models in the Eclipse environment and create links through ReqCycle traceability engine (ReqCycle can trace requirements to EMF models without needing a new adapter).
 
-ProR can also be used to support traceability between requirements (native functionality) and between requirements and Papyrus models through a "proxy" connector.
+This is the most urgent investigation axis to look at. If it provides good results, then ReqCycle can be used to manage most important links in openETCS project and can be considered as reference tooling for traceability with ability to aggregate all links. It simplifies architecture and answers to the last two limits identified previously.
+ 
+\subsection{Combined solution for requirement management and traceability tools}
+Concerning requirement management and traceability there exist mainly two open source Eclipse based solutions: ProR and ReqCycle. 
+RMF/ProR is the natural choice for OpenETCS to support requirement management while ReqCycle is a good choice to support management of traceability links (creation, capture, visualization and export).
 
-\item PolarSys ReqCycle. It is a solution that focuses on requirement traceability. It can allow managing requirements (creation, edition, queries) with classification (scopes) and custom requirement data models but with very limited requirement editor. Strength is its ability to capture and aggregate traceability links coming from different sources (EMF models, C code, Java code, SysML models...) and to define own traceability links based on custom link types with potential attributes.
+It would be interesting to investigate on a second architecture solution combining ProR and ReqCycle as reference tooling to manage both requirements and traceability links in an integrated way. 
 
-\end{itemize}
-
-If we extend search to proprietary solutions, we find IBM DOORS and IBM DOORS Next requirement management products and Dassault Systems ReqTify product as leading solutions to support respectively requirement management and requirement traceability.
-
-This second solution consists in using only one centralized Requirement database (as in solution 1) managed by one eclipse-based requirement management solution (ProR) and only one eclipse-based technology to support requirement traceability for all models (Papyrus and SCADE): PolarSys ReqCycle.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=.9\linewidth]{images/second_trace_solution-ProR-ReqCycle.png}
+\includegraphics[width=.9\linewidth]{images/second_trace_solution.png}
 \caption{\label{fig:trace_second}Traceability architecture second solution}
 \end{figure}
 
@@ -758,13 +866,9 @@ All new OpenETCS requirements are added in this requirement database through Pro
 Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
 Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
 
-Interactions through the tool chain are detailed in figure \ref{fig:trace_second-interactions} below with focus put on traceability between requirements and functional model (traceability with SysML model, creation of tests and export of traceability are not shown here). 
 
-
-
-\subsection{Third alternative traceability solution: ReqCycle}
-
-This third solution consists in using only one centralized Requirement database (as in previous solutions) managed by one eclipse-based solution (ReqCycle) also used to support requirement traceability for all models (Papyrus and SCADE).
+\subsection{ReqCycle used as centralized solution and ProR for requirement edition}
+This third solution consists in using only one centralized Requirement database (as in previous solutions) managed by one eclipse-based solution (ReqCycle) also used to support requirement traceability for all models (Papyrus and SCADE). ProR is used to classify and edit requirements instead of ReqCycle basic requirement editor.
 
 \begin{figure}[htb]
 \centering
@@ -773,10 +877,9 @@ This third solution consists in using only one centralized Requirement database 
 \end{figure}
 
 With that approach, there is still one master reference requirements data base entirely managed by ReqCycle. Requirement database is initialized by import from the subset-026 word document through two possible means (see next section) and by import from OpenETCS API.
-All new OpenETCS requirements are added in this requirement database through ReqCycle tool.
+All new OpenETCS requirements are added in this requirement database through ReqCycle tool that delegates requirement edition to ProR.
 
-Traceability is managed by ReqCycle tool. In order to ease visual selection of requirements in ReqCycle, there is a copy (could be a link) of reference requirements hierarchy into a ReqCycle database. Then ReqCycle manages links with Papyrus and links with SCADE. 
-Finally, traceability can be exported by ReqCycle and processed by Gendoc tool to deliver documentation.
+
 
 
 
