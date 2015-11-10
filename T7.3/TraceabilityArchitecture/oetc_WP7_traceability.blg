@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: oetc_WP7_traceability.aux
+The style file: unsrt.bst
+Database file #1: oetc_WP7_Traceability.bib
+You've used 6 entries,
+            1791 wiz_defined-function locations,
+            477 strings with 4656 characters,
+and the built_in function-call counts, 642 in all, are:
+= -- 62
+> -- 9
+< -- 0
++ -- 7
+- -- 1
+* -- 24
+:= -- 95
+add.period$ -- 18
+call.type$ -- 6
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 37
+empty$ -- 81
+format.name$ -- 1
+if$ -- 150
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 0
+newline$ -- 33
+num.names$ -- 1
+pop$ -- 12
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 0
+swap$ -- 7
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 1
+width$ -- 7
+write$ -- 63
