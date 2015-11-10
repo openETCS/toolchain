@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="95">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="98">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
@@ -44,15 +44,15 @@
 <repository location="http://download.eclipse.org/sphinx/releases/0.9.x"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rmf.reqif10.feature.feature.group" version="0.14.0.201510271524"/>
-<unit id="com.formalmind.rmf.reqif10.studio.editor" version="1.0.0.201510271554"/>
-<unit id="com.formalmind.pror.essentials.registration" version="1.0.0.201510271554"/>
-<unit id="com.formalmind.rmf.reqif10.pror.compare.feature.feature.group" version="1.0.0.201510271554"/>
-<unit id="com.formalmind.rmf.pror.transfer.feature.feature.group" version="1.0.0.201510271554"/>
-<unit id="org.eclipse.rmf.reqif10.pror.feature.feature.group" version="0.14.0.201510271524"/>
-<unit id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature.feature.group" version="1.0.0.201510271554"/>
-<unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201510271554"/>
-<unit id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature.feature.group" version="1.0.0.201510271554"/>
+<unit id="com.formalmind.rmf.reqif10.studio.editor" version="1.0.0.201511061305"/>
+<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.14.0.201511101045"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature.feature.group" version="1.0.0.201511061305"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature.feature.group" version="1.0.0.201511061305"/>
+<unit id="com.formalmind.rmf.reqif10.pror.compare.feature.feature.group" version="1.0.0.201511061305"/>
+<unit id="com.formalmind.pror.essentials.registration" version="1.0.0.201511061305"/>
+<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.14.0.201511101045"/>
+<unit id="com.formalmind.rmf.pror.transfer.feature.feature.group" version="1.0.0.201511061305"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201511061305"/>
 <repository location="http://update.formalmind.com/essentials"/>
 </location>
 </locations>
