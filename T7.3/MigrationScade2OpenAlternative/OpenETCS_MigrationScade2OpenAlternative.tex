@@ -56,6 +56,19 @@
   F-31004 Toulouse, France\\
   eMail: dalzilio@laas.fr \\
   WebSite: www.laas.fr}
+
+\author{Marc Behrens}
+\affiliation{DLR}
+
+\author{Raphaël Faudou}
+\affiliation{SAMARES Engineering}
+
+\author{David Mentré}
+\affiliation{MERCE}
+
+\author{Xavier Zeitoun}
+\affiliation{CEA}
+
   
 %add yourself as author, if you contributed to the document
 
@@ -95,8 +108,10 @@ Work Package &  WP7  \\
 Deliverable ID & \\
 \hline
 Document title & openETCS Migration from Scade to an Open Alternative \\
-Document version & 01 \\
-Document authors (org.)  & \\
+Document version & 1.1 \\
+Document authors (org.)  & 
+
+{Silvano Dal Zilio} (LAAS-CNRS)\\
 \hline
 \end{tabular}
 
@@ -106,7 +121,9 @@ Document authors (org.)  & \\
 \hline
 Last version reviewed & 01 \\
 \hline
-Main reviewers (org.) &  \\
+Main reviewers (org.) &  {Marc Behrens} (DLR); Raphaël Faudou
+                           (SAMARES); David Mentré (MERCE); Xavier
+                           Zeitoun (CEA) \\
 \hline
 \end{tabular}
 
@@ -128,7 +145,9 @@ Approved by & -- & -- & \\
 \hline
 Version &  Date & Author(s) & Justification  \\
 \hline
-00.0 &  &  & creation \\
+01.0 &  October 2015 & S. Dal Zilio  & creation \\
+\hline  
+01.1 &  November 2015 & S. Dal Zilio  & added comments from reviewers \\
 \hline  
  & &  &   \\
 \hline  
@@ -146,16 +165,16 @@ Version &  Date & Author(s) & Justification  \\
 \label{cha:introduction}
 
 One of the main purpose of the openETCS project is to develop a model
-of the ETCS using ``Open Standards'' at every stages. This includes
-generating open hardware and software specifications, writing
-interface definition using open languages, and developing open source
-design tools for supporting this effort. One of the most important
-output of the project is a formal specification of the ETCS on-board
-unit (OBU) that follows the specification defined by the European
+of the ETCS on-board unit (OBU) using ``Open Standards'' at every
+stages. This includes generating open hardware and software
+specifications, writing interface definition using open languages, and
+developing open source design tools for supporting this effort. One of
+the most important output of the project is a formal specification of
+the ETCS that follows the specification defined by the European
 Railway Agency (ERA) in its Subset-026
 document~\cite{subset-026}. Nonetheless, for reasons that we will
 briefly recall in this chapter, the proprietary language Scade---that
-is a ``close-source'' solution---was chosen to develop the functional
+is a ``closed-source'' solution---was chosen to develop the functional
 model of the OBU.
 
 Scade is a formal modeling language and tool suite targeting
@@ -165,12 +184,14 @@ Technologies, now a company of the ANSYS group
 years to develop a broad range of control applications in the
 avionics, rail, and automotive domains. The current Scade model for
 the OBU is a major output of the project. The architectural model
-(written in SysML using the Scade system tool) and the functional
-model (written in Scade using the Scade suite tool) have been
+(modeled in SysML using the Scade system tool) and the functional
+model (modeled in Scade using the Scade suite tool) have been
 developed from scratch---without the use of prior components---and
-cover all the aspects defined in chapters 7 and 8 of the ETCS
-specification. The models are made available on the GitHub of the
-openETCS project
+cover all the aspects defined in chapters 3, 4,5, 7 and 8 of the
+\emph{ETCS specification}\footnote{In the remainder of theis text we
+  will sometimes use ``ETCS specification'' instead of the longer form
+  ``SRS subset 26 specification''.}. The models are made available on
+the GitHub of the openETCS project
 (\url{https://github.com/openETCS/modeling/tree/master/model}) and a
 complete description is given in deliverable D3.5.3~\cite{d353}.
 
@@ -237,14 +258,14 @@ Lustre~\cite{al91,halbwachs05}, a declarative, synchronous dataflow
 programming language for reactive systems defined in the early 1980s
 at the Verimag laboratory in Grenoble.
 
-Another nice property of Scade is that it is an executable language
-with a deterministic semantics, meaning that no randomness is involved
-in the ``execution'' of a Scade model; A model will thus always
-produce the same outputs from a given set of inputs.  All these
-characteristics of Scade (formal, executable and deterministic) made
-it possible to develop the first certified code generators to C and
-ADA according to the DO-178B and the EN50128. This is a benefit of
-using Scade with respect to competing frameworks.
+Another property of Scade is that it is an executable language with a
+deterministic semantics, meaning that no randomness is involved in the
+``execution'' of a Scade model; A model will thus always produce the
+same outputs from a given set of inputs.  All these characteristics of
+Scade (formal, executable and deterministic) made it possible to
+develop the first certified code generators to C and ADA according to
+the DO-178B and the EN50128. This is a benefit of using Scade with
+respect to competing frameworks.
 
 % We would like to find the same characteristics in the target language
 % of our transformation.
@@ -255,23 +276,36 @@ The Scade language is supported by a toolbox, the \emph{Scade suite},
 that provides an integrated design and development environment. Scade
 suite offers several services: simulation and debugging at the model
 level; test case execution; model test coverage measurement; code
-verification on models; ... An extension of the tool, called
-\emph{Scade system}, provides additional functionalities that are of
-interest in the context of the openETCS project. Basically, Scade
-System provides systems modeling and model generation based on the
-SysML standard and the Eclipse Papyrus editor. In particular, Scade
-system offers ``partial'' gateway from and to SysML and integration
-with Eclipse through the use of the Eclipse Modeling Framework
-(EMF). This is relevant for the openETCS project since Eclipse was
-selected as the de facto open source platform for integrating the
-tools developed in the project, while SysML was selected for modeling
-the architecture of the system. Unfortunately, the SysML
-(architectural) model obtained from a Scade specification does not
-preserve all the information. It only keeps states machines and some
-information at the level of the interfaces; the detailed code related
-to the functions and the state transitions is left over. Therefore we
-cannot simply use the output of the Scade system tool for our
-migration.
+verification on models; \dots 
+
+An extension of the tool, called \emph{Scade system}, provides
+additional functionalities that are of interest in the context of the
+openETCS project. Basically, Scade System provides systems modeling
+and model generation based on the SysML standard and the Eclipse
+Papyrus editor. In particular, Scade system offers ``partial'' gateway
+from and to SysML and integration with Eclipse through the use of the
+Eclipse Modeling Framework (EMF). This is relevant for the openETCS
+project since Eclipse was selected as the de facto open source
+platform for integrating the tools developed in the project, while
+SysML was selected for modeling the architecture of the
+system. 
+
+Unfortunately, the SysML (architectural) model obtained from a Scade
+specification does not preserve all the information. It only contains
+information on the states machines and some information at the level
+of the interfaces; the detailed code related to the functions and the
+state transitions is left over. Therefore we cannot simply use the
+output of the Scade system tool for our migration. Also, at the
+moment, there is no proper way to import a ``Scade system'' model from
+a ``Scade Suite'' model, even though such a gateway was requested by
+the openETCS project more than a year ago. What is available at the
+moment is a synchronization between models on ``shared'' blocks and
+their inputs and outputs. It means that if you start using Scade
+System to define the different software blocks, then you can refine
+those blocks with Scade suite, evolve both models concurrently and
+ensure synchronization of blocks with their data interfaces. There is
+no support for models that have been only edited using the Scade
+suite.
 
 Scade has been used in production on several big projects that covers
 many application domains: avionics, rail, automotive, \dots It allows
@@ -326,7 +360,12 @@ solution:
 \item perennity of the models: there is a (albeit small) risk that the
   current Scade toolchain will be discontinued in the future,
   especially when we take into account the very long service life of
-  railway equipments.
+  railway equipments. We should also mention the problem of
+  \emph{perennity of the model editor}. Indeed, we need to be able to
+  continue editing models even when the tooling is discontinued.  This
+  is a known limitation of closed-source solutions with respect to
+  ``long term support'', since it is not possible to subcontract on
+  the continuation of a tool when sources are not available.
 
 \item difficulty to have special needs taken into account by the
   software editor, or services added to the baseline tools.
@@ -340,7 +379,7 @@ The models are made available on the GitHub of the openETCS project
 and a complete description is given in deliverable D3.5.3~\cite{d353}.
 The specification of the OBU functions
 (\url{https://github.com/openETCS/modeling/tree/master/model/Scade/System/ObuFunctions})
-is a non-trivial example of system modeled with Scade; it has six main
+is a non-trivial example of system modeled with Scade; it has 13 main
 sub-components each containing more than a dozen Scade diagrams. All
 the facets of the Scade language are used but some characteristics of
 the OBU models are worth mentioning:
@@ -350,8 +389,8 @@ the OBU models are worth mentioning:
   corresponds to the large number of variables and values defined in
   the ETCS specification. For instance there is a large number of
   ``datagrams'' defined in the sections related to the radio
-  communication. Therefore we need to target a language with a rich
-  type system.
+  communication. Therefore we need to target a language with custom
+  data type definition.
 
 \item There is a heavy use of state machines in the specification, see
   for example the diagrams in the {\verb+ManageLevelsAndModes+}
@@ -382,6 +421,11 @@ the criteria that can be used to evaluate our migration scenarios.
 
 %%
 \begin{description}
+
+\item[Open-Source Solution] we want to target an open-source solution,
+  or at least a solution that fits in an open-source ecosystem of
+  tools and languages. This is the core of the problems raised in this
+  deliverable.
 
 \item[Semantic Preservation] we want to loose as few information as
   possible during the migration (in the best case we aim at a
@@ -417,8 +461,10 @@ the criteria that can be used to evaluate our migration scenarios.
 \item[Traceability] we need to preserve traceability information. At
   the moment, most of the traceability information contained in the
   Scade models are annotations in the comments that refer to relevant
-  sections in the Subset-026 specification.
-
+  sections in the Subset-026 specification. In some parts of the model
+  (e.g. \verb+Manage_TracksideInformation_Integration+ and
+  \verb+calculateTrainPosition+), traceability is also supported using
+  the SCADE requirements gateway.
 \end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -454,15 +500,16 @@ of this format)\footnote{unfortunately the Scade manuals are not
   freely distributable.}.
 
 Since the last version of Scade suite, it is possible to view a
-.xscade diagram without buying a license (a software token). Diagrams
-can also be viewed from the Scade System tool, which means that there
-should be an EMF description (an \verb+ecore+ file) for the Xscade
-format. It is not possible to predict whether ANSYS will be willing to
-freely distribute a separate Eclipse plugin for viewing Scade diagrams
-or a separate Java model API for manipulating the associated EMF
-models. Nonetheless Scade System provides capabilities to develop
-specific export functions using OCL, the TCL scripting language and a
-specific Java model API.
+.xscade diagram without buying a license (a software token). Some
+partial information on the diagrams can also be viewed from the Scade
+System tool, which means that there should be an EMF description (an
+\verb+ecore+ file) for at least a subpart of the Xscade format (namely
+the part dealing with state machines). It is not possible to predict
+whether ANSYS will be willing to freely distribute a separate Eclipse
+plugin for viewing Scade diagrams or a separate Java model API for
+manipulating the associated EMF models. Nonetheless Scade System
+provides capabilities to develop specific export functions using OCL,
+the TCL scripting language and a specific Java model API.
 
 There exist a few open source tools able to import Xscade
 files. Nonetheless all these solutions are based on ``retro-engineered
@@ -470,7 +517,7 @@ parsers'', therefore it is not clear if all aspects of the language
 are supported and if these tools can withstand future evolutions of
 Scade Suite. For example, we can find an Xscade importer on: (1) the
 OSATE plugin, an Eclipse plugin for the AADL language; (2) the S3 tool
-by Systerel.  
+by Systerel\footnote{The S3 tool is not open source.}.
 
 OSATE 2, see \url{http://www.aadl.info/}, is an Eclipse plugin that
 provides an importer from XSCADE to AADL. Each component in a diagram
@@ -478,6 +525,14 @@ is mapped into an AADL system component; Scade component connections
 are mapped using AADL event data port and state machines are
 translated into AADL behavior state machine. We give some information
 on S3 in the next chapter.
+
+Solutions based on retro-engineered parsers are clearly subject to
+risks if we want to use it concurrently with Scade modeling. This
+approach is best suited to ``one shot'' scenarios in which Scade tools
+are not used anymore once the models are exported. If not, we face the
+risk of needing to maintain those parsers when the Scade tools
+evolve.
+
 
 \begin{center}
   \setlength{\fboxsep}{10pt}\fbox{\begin{minipage}{0.9\textwidth}
@@ -487,7 +542,8 @@ on S3 in the next chapter.
       
       \item[Disadvantage:] the format is complex and not very
         well-documented (the related XML Schema or ecore descriptions
-        are not provided).
+        are not provided); no guarantee that retro-engineered parsers
+        can be used on future versions of Scade.
     \end{description}
     \end{minipage}}
 \end{center}
@@ -573,9 +629,9 @@ description---that is the precise behavioral description of each
 block---can then be designed using SCADE Suite or in the form of
 manually developed source code. Therefore it is possible to obtain an
 architectural description of the OBU models in SysML, but the
-resulting diagrams only contains information the functions and their
-interfaces; the detailed code related to the functions and the state
-transitions are missing and should be added separately.
+resulting diagrams only contains information on the functions and
+their interfaces; the detailed code related to the functions and the
+state transitions are missing and should be added separately.
 
 A possible solution to remedy this shortcoming could be to include the
 ``missing'' behavioral description inside SysML blocks, either as kcg
@@ -638,9 +694,9 @@ ONERA. Prelude is a high-level language built upon Synchronous
 Languages (such as Lustre) and inherits their formal properties. The
 language extends the syntax of Lustre and provides more high-level
 constructs, in particular when defining multi-clocks systems. The
-preludec compiler generates synchronized multi-task C code,
-independent of the target OS, that can execute on either mono-core or
-multi-core architectures.
+prelude compiler, called preludec, generates synchronized multi-task C
+code, independent of the target OS, that can execute on either
+mono-core or multi-core architectures.
 
 As mentioned in Sect.~\ref{sec:textual-scade-format}, the main problem
 with this approach is the maintainability of the models since the
@@ -663,9 +719,11 @@ the academic Lustre syntax.
 
   \hline
 
-  Maintainability & BAD & we can mitigate the problems with identifier
+  Maintainability & BAD & we can mitigate the problems with identifiers
                           by adapting the data dictionary but the absence of
-                          of notation for state machines in Lustre is a big drawback \\
+                          notation for state machines in Lustre is a
+                          big drawback; we loose the graphical
+                          representation\\
 
   \hline
 
@@ -701,20 +759,27 @@ model that corresponds to the related Scade function.
 
 There are several possible choice for the ``content'' of these blocks
 (the language used for the behavioral specification): Lustre code; C
-code obtained from code generation; HLL code.  
+code obtained from code generation; fUML; HLL code; \dots
 
-The last solution, HLL, relies on the intermediate format used in the
-S3 tool developed by Systerel~\cite{S3}. S3 is a formal verification
-tool that provides a gateway from the Xscade format. The language is
-typed and provides higher-order construction such as a notation for
-state machines. Nonetheless some work would be needed in order to
-better take into account (nested) state machines and to adapt the
-language for its embedding inside a SysML block. The advantage of this
-solution is that we could benefit from the expertise of Systerel, that
-is a partner in the project, and that HLL has already been used
+An obvious choice for adding behavioral block description to SysML
+would be to rely on the ``Executable UML foundation'', fUML, that is
+an OMG standard. fUML is an executable subset of UML that can be used
+to define, in an operational style, the structural and behavioral
+semantics of systems.
+
+A more concrete choice is provided by HLL, the intermediate format
+used in the S3 tool developed by
+Systerel~\cite{S3,DBLP:conf/fmics/Petit-DocheBCFG15}. S3 is a formal
+verification tool that provides a gateway from the Xscade format. The
+language is typed and provides higher-order construction such as a
+notation for state machines. Nonetheless some work would be needed in
+order to better take into account (nested) state machines and to adapt
+the language for its embedding inside a SysML block. The advantage of
+this solution is that we could benefit from the expertise of Systerel,
+that is a partner in the project, and that HLL has already been used
 successfully on the openETCS Scade model, see for example the Systerel
 VnV user story at
-\url{https://github.com/openETCS/validation/tree/master/VnVUserStories/VnVUserStorySysterel/05-Work}
+\url{https://github.com/openETCS/validation/blob/master/VnVUserStories/VnVUserStorySysterel/04-Results/e-Scade_S3/Scade_S3_VnV.pdf}
 
 
 \begin{tabular}[c]{|p{3.5cm}|p{1.2cm}|p{8.8cm}|}
@@ -788,7 +853,31 @@ In this report, we propose two plausible scenarios for migrating away
 from Scade and give some references on projects that already provide
 import methods from Scade. Unfortunately none of these projects
 provide a solution that could be used directly and some software
-development would be needed.
+development is therefore needed.
+
+Another possible scenario---that is not reported in this deliverable
+but that was temporarily evaluated---is to consider a migration to a
+hybrid modeling language, such as Simulink. Actually, considering our
+goals, a more appropriate target would be Scicos/Xcos
+(\url{http://www.scicos.org/}), that provides an open-source
+alternative. Simulink is a de facto standard when working on
+heterogeneous models, especially from the point of view of the control
+and command engineers. There are some reasons against a shift to a
+Simulink-like formalism. For instance, Simulink or Scicos are mainly
+used to model and simulate systems, but rarely used to implement
+critical software\footnote{In the domain of high-integrity software,
+  even if initial models of the system with its plant are often
+  described with Simulink in the initial phases, software is more
+  often reimplemented in Scade or imperative code.}. This is mainly
+related to the fact that it is very difficult to ensure the
+consistency of the models with respect to the run-time behavior of the
+generated executable code.  These problems could be mitigated by
+restricting to a formally defined subset of Scicos. Nonetheless, this
+solution was ultimately put aside since there are no tools available
+for exporting to Simulink or its open-source. Also, and more
+importantly, this migration scenario was the one with the more risks
+associated to it and the one that required the most implementation
+efforts.
 
 
 % it is also necessary to acknowledge the fact that, exactly like
