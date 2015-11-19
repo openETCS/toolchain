@@ -1,0 +1,390 @@
+ \documentclass{template/openetcs_report}
+% Use the option "nocc" if the document is not licensed under Creative Commons
+%\documentclass[nocc]{template/openetcs_article}
+\usepackage{todonotes}
+\usepackage{appendix}
+\usepackage{lipsum,url}
+\usepackage{pdfpages}
+%\usepackage{bibtopic} % Multibib
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\usepackage[section,                 % add the glossary to the table of content 
+            description,             % acronyms have a user-supplied description,
+            style=superheaderborder, % table style
+            nonumberlist             % no page number
+]{glossaries}
+\hypersetup{
+linkbordercolor 	={1 1 1}}
+
+%===========================
+% Graphicpath
+%===========================
+\graphicspath{{./template/}{.}{./images/}}
+
+%===========================
+% Abbreviation file
+%===========================
+% \renewcommand*{\glossaryname}{List of Terms}
+% \makeglossaries
+% \loadglsentries{wp7_glossary} 
+%===========================
+%===========================
+% Todo note margin
+%===========================
+\setlength{\marginparwidth}{7em}
+%===========================
+
+\begin{document}
+\frontmatter
+\project{openETCS}
+
+%Please do not change anything above this line
+%============================
+% The document metadata is defined below
+
+%assign a report number here
+\reportnum{OETCS/WP7/D7.5}
+
+%define your workpackage here
+\wp{Work-Package 7: ``Tool chain''}
+
+%set a title here
+\title{openETCS:\\ Ecoystem Artifacts}
+
+%set a subtitle here
+\subtitle{Release 1.0}
+
+%set the date of the report here
+\date{December 2015}
+
+%define a list of authors and their affiliation here
+
+\creatorname{Michael Jastram}
+
+\creatoraffil{Formal Mind GmbH}
+
+\techassessorname{TBD-Assessor1}
+\techassessoraffil{TBD-Assessor1-Afiliation}
+
+\qualityassessorname{TBD-Assessor2}
+\qualityassessoraffil{TBD-Assessor2-Afiliation}
+
+\approvalname{Klaus-R\"udiger Hase}
+\approvalaffil{DB Netz}
+
+\author{Michael Jastram}
+\affiliation{Formal Mind GmbH}
+% define the coverart
+\coverart[width=350pt]{openETCS_EUPL}
+
+%define the type of report
+\reporttype{Ecosystem Artefacts}
+
+
+\begin{abstract}
+%define an abstract here
+This document describes the openETCS artefacts of the ecosystem.
+\end{abstract}
+
+%=============================
+%Do not change the next three lines
+\maketitle
+\tableofcontents
+%\listoffiguresandtables
+
+\newpage
+%=============================
+
+% The actual document starts below this line
+%=============================
+%Start here
+%=============================
+% Document Managment
+%=============================
+\chapter{Document Information}
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Document information} \\
+\hline
+Work Package &  WP7  \\
+Deliverable ID or doc. ref. & D7.4\\
+\hline
+Document title & Ecosystem Artefacts \\
+Document version & 01.00 \\
+Document authors (org.)  & Michael Jastram (Formal Mind GmbH)  \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{4.4cm}|p{8.7cm}|}
+\hline
+\multicolumn{2}{|c|}{Review information} \\
+\hline
+Last version reviewed & 01.00 \\
+\hline
+Main reviewers & TBD \\
+& TBD \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{4cm}|p{4cm}|p{2cm}|}
+\hline
+\multicolumn{4}{|c|}{Approbation} \\
+\hline
+  &  Name & Role & Date   \\
+\hline  
+Written by    &  TBD & WP7-T7.4 Sub-Task  & TBD \\
+&  & Leaders&\\
+\hline
+Approved by & WP7 participants &   & TBD \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{3cm}|p{5cm}|}
+\hline
+\multicolumn{4}{|c|}{Document evolution} \\
+\hline
+Version &  Date & Author(s) & Justification  \\
+\hline  
+00.00 & 10.10.2013 & M. Jastram  &  Document creation  \\
+
+
+\hline  
+\end{tabular}
+\newpage
+%==========================================
+
+
+%------ List of terms and definition ----------------
+%\printglossary
+%==========================================
+\mainmatter
+%----------------------
+\chapter{Overview}
+%----------------------
+
+This document references the core ecosystem artefacts of the openETCS project.
+
+\section{What is openETCS?}
+
+The openETCS tool chain provides the tool support and the development process to achieve a (semi-)formalized
+specification of ETCS EVC down to and an executable code of the
+OBU. The tool chain implements the development lifecycle defined in \cite{D2.3}.
+
+%----------------------
+\section{Inspiration from Open Source}
+%----------------------
+
+From the onset it was decided to model the development on the approach taken by the
+Eclipse Foundation. In particular, the project took the mentality of open projects into account, which are strongly based on meritocracy.  This has been stated concisely in the opening page of the Governance repository \footnote{\url{https://github.com/openETCS/governance/wiki}}:
+
+\begin{quote}
+The openETCS@ITEA2 project like most open source R\&D projects do not have a traditional organization with a (more or less) clear top/down structure and traditional ``managers'' and ``directors'' on the top and ``workers'' --- more on the down side --- who get ``managed'' or ``directed''. OSS projects are usually in a context, which is more like a network of individuals and peer groups with their own and mostly diverse managerial structure with different management and working cultures. Working groups in such projects mostly consist of people coming from different organizations, in the best case volunteering to work in such projects. Traditional management need tree-like structures (``top/down) to work well. It does not function too well in networks. Also such networked groups need “Leadership”, which helps to structures activities, helps to solve conflicts, get decisions made, however without the power of directing people what to do, when and in what way. (...) But even self-managed groups need some ``guidance'' and ``rules'' and that is where the ``Governance'' comes into play.
+\end{quote}
+
+As stated in the last sentence above, guidance and rules are necessary.  The ecosystem artefacts described in this deliverable represent this.
+
+Consistent with the agile nature of this project, the artefacts evolved over the lifetime of the project. The infrastructure of this project reflects this.
+
+%----------------------
+\section{gitHub}
+%----------------------
+
+Within weeks after project launch, the team decided to use gitHub\footnote{\url{https://github.com/openETCS/}} as the infrastructure provider for the development.  This decision proved of value and stood the test of time: Not only did the platform provide all essential features required for a distributed development, like issue tracking, collaborative documentation (via Wiki), access control and much more; due to the strong features with respect to version management it enabled the controlled evolution of the openETCS ecosystem.  In fact, each element that is managed in openETCS has a history that can be inspected, including the openETCS website\footnote{http://openetcs.org}.
+
+The ecosystem artefacts are stored in their own repository\footnote{https://github.com/openETCS/ecosystem/wiki}.
+
+%----------------------
+\chapter{Evolution of the Ecosystem}
+%----------------------
+
+During the early stages of the project, the team was primarily concerned with organizing tasks and producing documents. 
+
+\section{Managing Tasks}
+
+The gitHub issue tracker proved itself as an effective tool for assigning and discussing tasks.
+
+\section{Access Control}
+
+Most repositories were open, allowing everyone (even interested parties outside the project) read-access to the project's artefacts. A few repositories were kept private, which was the exception.
+
+In order to gain write access to a repository, a person (not organization) had to become a committer.  The process is described in Section~\ref{sec:committer-agreements}.
+
+But even non-committers could provide changes to a repository by creating pull requests for their proposed changes.  Pull requests had to be approved by an existing committer.
+
+\section{Right management}
+
+By submitting the committer agreement, contributors had to agree to release their work under a public license, usually the EUPL, as described in Section~\ref{sec:terms-of-use}. As the contributions may contain additional intellectual property, this had to be regulated separately in the IP policy, see Section~\ref{sec:ip-policy}.
+
+\section{Version Control}
+
+All artefacts stored in gitHub use the git version control system, which support cloning and branching, merging of conflicts, and of course provides a full history of every file in the system.
+
+\section{Collaboratively producing documents}
+
+In the beginning, a lot of collaborative work on documents was necessary. This was done using the \LaTeX{} word processor.  As it uses plain text using a special markup language, collaborative work was very easy, and merge conflicts could be resolved without any loss of information.
+
+\section{Development}
+
+As the project started to produce code and models, more processes had to be established, see Sections~\ref{dev-process-description} and \ref{dev-process-guide}.
+
+As recommended for any kind of developement, a continuous integration system was added to the ecosystem to build both the toolchain, its documentation and the model. For this purpose, ClouldBees\footnote{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/} was integrated into the ecosystem, which uses the Jenkins build system.
+
+\section{Scrum of Scrums}
+
+The ecosystem described so far served the the project well until the end of 2014. At that point it was clear that better coordination between the work packages was necessary. This was done by means of an online tool called Waffle\footnote{http://waffle.io/}, which provides a card-based view on the issues of any gitHub repository. During weekly scrum-of-scrum grooming sessions, this tool was used to effectively manage the project as a whole.
+
+%----------------------
+\chapter{Ecosystem Artefacts}
+%----------------------
+
+
+\section{Terms of use}
+\label{sec:terms-of-use}
+
+The terms of use are primarily determined by the license used.  For openETCS, the first choice are the openETCS Open Licens Terms (oOLT), which can be found in Appendix~\ref{sec:oOLT}. This is a dual-licens, consisting of the European Public License (EUPL) and Creative Commons Attribution-ShareAlike.
+
+It is also acceptable to just use EUPL or the Eclipse Public License (EPL).
+
+\section{Committer Agreements}
+\label{sec:committer-agreements}
+
+The committer agreement was one of the first artefacts produced for the project, as it serves as the foundation for individuals to make contributions to the project.  Consequently, we do not have a complete version history of this template.  The current version is stored in the repository as a read-only PDF version, dated August 1st, 2013, see Section~\ref{app:committer-agreement}
+
+\section{IP Policy}
+\label{sec:ip-policy}
+
+The IP policy was created and maintained as a Wiki page in the ecosystem repository, see Appendix~\ref{sec:ip-policy}.  It underwent six revisions between July 27th, 2012 and April 3rd, 2013.
+
+\section{Development Process Description}
+\label{sec:dev-process-description}
+
+The development process was created and maintained as a Wiki page in the ecosystem repository, see Appendix~\ref{sec:dev-process}.  It underwent 33 revisions between July 11th, 2012 and November 14th, 2012.
+
+\section{Development Process Guidelines}
+\label{dev-process-guide}
+
+Due to the agile nature of the project, there is no single development process guideline.  Rather, relevant support documentation is included in various places, to facilitate the work of the developers.  Also, the extensive process description (Section~\ref{sec:dev-process-description}) already contains some content that guides the developer.
+
+Specifically, the following non-exhaustive list of resources allows the developers to find guidance:
+
+\begin{itemize}
+\item The ecosystem repository contains the article ``How to get started: Agile Development and Scrum in openETCS''\footnote{\url{https://github.com/openETCS/ecosystem/wiki/How-to-get-started:-Agile-Development--and-Scrum-in-openETCS}}
+\item The toolchain repository provides a number of pointer on its entry page\footnote{https://github.com/openETCS/toolchain/wiki}
+\item The openETCS documentation contains a chapter ``Developer Documentation''\footnote{\url{https://github.com/openETCS/toolchain/wiki/Developer-Documentation}}.  This information is not just available on the wiki, but is also included in the application, where it becomes part of the built-in help system (Eclipse Help).
+\end{itemize}
+
+\section{Infrastructure Documentation}
+
+Similar to the Development Process Guidelines, there is just an entry point for the infrastructure documentation, see Appendix~\ref{app:infrastructure}.  All further infrastructure information is distributed throughout the respositories, primarily in the form of Readme-files that are processed automatically by gitHub.
+
+\section{Other Artefacts}
+
+Ultimately, the openETCS itself is the main artefact, consisting of a large number of ecosystem artefacts, including, but not limited to, the ones described here.
+
+The gitHub statistics indicate that to date (November 2015):
+
+\begin{itemize}
+\item 172 people contributed to openETCS
+\item 19 teams have formed
+\item roughly 10,000 commits were placed in the various repositories
+\item over 1500 issues were created
+\end{itemize}
+
+\appendix
+
+\chapter{openETCS Open License Terms}
+\label{sec:oOLT}
+
+The following is the text of the oOLT:
+
+\begin{quote}
+Disclaimer: This work is licensed under the "openETCS Open License Terms" (oOLT) dual Licensing: European Union Public
+
+Licence (EUPL v.1.1+) AND Creative Commons Attribution-ShareAlike 3.0 – (cc by-sa 3.0)
+THE WORK IS PROVIDED UNDER openETCS OPEN LICENSE TERMS (oOLT) WHICH IS A DUAL LICENSE AGREEMENT INCLUDING THE TERMS OF THE EUROPEAN UNION PUBLIC LICENSE (VERSION 1.1 OR ANY LATER VERSION) AND THE
+TERMS OF THE CREATIVE COMMONS PUBLIC LICENSE ("CCPL"). THE WORK IS PROTECTED BY COPYRIGHT AND/OR
+OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS OLT LICENSE OR COPYRIGHT LAW IS PROHIBITED.
+
+BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS
+OF THIS LICENSE. TO THE EXTENT THIS LICENSE MAY BE CONSIDERED TO BE A CONTRACT, THE LICENSOR GRANTS
+YOU THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH TERMS AND CONDITIONS.
+
+\url{http://creativecommons.org/licenses/by-sa/3.0/}
+
+\url{http://joinup.ec.europa.eu/software/page/eupl/licence-eupl}
+
+\end{quote}
+
+\chapter{openETCS IP Policy}
+\label{sec:ip-policy}
+
+The following is the text of the IP Policy, which can also be found at:
+
+\url{https://github.com/openETCS/ecosystem/wiki/IP-Policy}:
+
+\begin{quote}
+Updated April 4th, 2013, Version 0.1
+
+openETCS is defined as an Open Source Project. To apply Open Source Licenses on any contributions to the project is a basic requirement for both, the funding and the grant of the ITEA2 label by the ITEA2 committee. Thus it is not mandatory but rather compulsory that all contributions to the project (software, proofs, tools, documents et cetera) are licensed under Open Source and/or Open Content Licenses. The details of the openETCS license strategy will be thoroughly examined by a specialized lawyer and a corresponding contractual agreement between the project partners will be concluded within the first working package of the project (during 2012). Unless such examination comes to different recommendations, the following licenses will be applied for all openETCS contributions:
+
+For software contributions: The European Public License (EUPL), Vers. 1.1 (see the license text at: http://joinup.ec.europa.eu/software/page/eupl/licence-eupl). This license was already named in the full project proposal (FPP). For other content (esp. documents): A dual licensing approach applying the European Public License (EUPL), Vers. 1.1 and the Creative-Commons-Attribution-ShareAlike 3.0 Unported (cc-by-sa) License (see license text at: http://creativecommons.org/licenses/by-sa/3.0/).
+
+All contributors agree hereby that their contributions will be licensed under these licenses and they declare that they are unrestrictedly entitled to apply the respective license(s) to their contributions. The final decision about the definite licenses to be used for the openETCS contributions will be taken, after consultation of all project partners, by the openETCS Project Coordination Committee (PCC). The PCC will take the recommendations of the license strategy examination into consideration. The final decision about the license scheme will be made subject of the Project Cooperation Agreement (PCA).
+
+\end{quote}
+
+\chapter{openETCS Development Process}
+\label{sec:dev-process}
+
+The following is the text of the development process, which can also be found at:
+
+\url{https://github.com/openETCS/ecosystem/wiki/openETCS-Development-Process}
+
+\input{dev-process}
+
+\chapter{openETCS Committer Agreement Template}
+\label{app:committer-agreement}
+
+\input{committer-agreement}
+
+
+\chapter{Infrastructure}
+\label{app:infrastructure}
+
+The following is the text of the infrastructure page, which can also be found at:
+
+\url{https://github.com/openETCS/ecosystem/wiki/Infrastructure}
+
+\section{Infrastructure}
+
+\subsection{Mailinglist}
+
+The project lead can apply for the creation of a new mailing list to the ecosystem project. The ecosystem project will create the new mailing list as an owner. The project lead is responsible of the day-to-day management. All posts to this mailing list are visible to everyone and everybody can join the list. If spam becomes an issue, the mailing list can be turned into a moderated list. However, all non-spam posts must be accepted. The mailing list is a Google group list. For joining and posting to the list, no Google account is needed. Names of the mailing lists follow the following scheme: projectname@openetcs.org, e.g. ecosystem@openetcs.org. To subscribe to a Google group without a Google account, please send a mail to groupname+subscribe@openects.org. To unsubscribe from a mailing list please send a mail to groupname+unsubscribe@openects.org.
+
+\subsection{Git Repository}
+
+All artefacts of the project are under version control via git, and hosted on gitHub. The top level project at gitHub is https://github.com/openETCS
+
+\subsection{Further Information}
+
+Each workpackage is responsible for its own infrastructure. The first point of information is the repository's top level wiki page. Further, repositories should make extensive use of README.md files, which are automatically picked up by gitHub and displayed below the repository browser.
+
+
+
+
+\renewcommand{\section}[2]{}
+  \bibliographystyle{plain}
+  \bibliography{wp7_bibliography}
+
+%\begingroup
+%\renewcommand{\section}[2]{}%
+%\renewcommand{\chapter}[2]{}% for other classes
+%  \bibliographystyle{plain}
+%  \bibliography{wp7_bibliography}
+%\endgroup
+
+%===================================================
+%Do NOT change anything below this line
+
+\end{document}
