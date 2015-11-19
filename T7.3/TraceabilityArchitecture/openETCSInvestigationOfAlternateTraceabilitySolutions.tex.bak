@@ -186,8 +186,6 @@ Chapter 5 presents current traceability architecture defined to support tool cha
 Chapter 6 summarizes limits of the current traceability architecture and suggests axes to investigate in order to improve traceability support by the OpenETCS tool chain.
 
 
-
-
 \section{Investigation axes for improvements}
 \subsectionAlternative{Requirement management and traceability tools}
 Concerning requirement management and traceability there exist a lot of solutions. If we focus on open source solutions and especially those able to integrate into Eclipse platform, we find:
