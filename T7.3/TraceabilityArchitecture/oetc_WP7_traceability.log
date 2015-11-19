@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  8 NOV 2015 23:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.24)  19 NOV 2015 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1667,13 +1667,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3 <./images/ArchitectureSRS.PNG>]
+Underfull \hbox (badness 10000) detected at line 245
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 246
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 247
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
@@ -1682,8 +1687,8 @@ Underfull \hbox (badness 10000) detected at line 248
  []
 
 
-Underfull \hbox (badness 10000) detected at line 249
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 251
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
@@ -1702,24 +1707,19 @@ Underfull \hbox (badness 10000) detected at line 254
  []
 
 
-Underfull \hbox (badness 10000) detected at line 255
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-<./images/OpenETCSArchitectureAndDesignModel.png, id=345, 718.8456pt x 542.025p
+<./images/OpenETCSArchitectureAndDesignModel.png, id=346, 718.8456pt x 542.025p
 t>
 File: ./images/OpenETCSArchitectureAndDesignModel.png Graphic file (type png)
  <use ./images/OpenETCSArchitectureAndDesignModel.png>
 Package pdftex.def Info: ./images/OpenETCSArchitectureAndDesignModel.png used o
-n input line 266.
+n input line 265.
 (pdftex.def)             Requested size: 375.14705pt x 282.86363pt.
 
-<./images/WP3DesignProcess.png, id=347, 692.8284pt x 536.2434pt>
+<./images/WP3DesignProcess.png, id=348, 692.8284pt x 536.2434pt>
 File: ./images/WP3DesignProcess.png Graphic file (type png)
 
 <use ./images/WP3DesignProcess.png>
-Package pdftex.def Info: ./images/WP3DesignProcess.png used on input line 275.
+Package pdftex.def Info: ./images/WP3DesignProcess.png used on input line 274.
 (pdftex.def)             Requested size: 416.83289pt x 322.62402pt.
 
 
@@ -1737,7 +1737,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5 <./images/OpenETCSArchitectureAndDesignModel.png> <./images/WP3DesignProcess
 .png>]
-Overfull \hbox (8.986pt too wide) in paragraph at lines 295--298
+Overfull \hbox (8.986pt too wide) in paragraph at lines 294--297
 \T1/txr/m/n/10.95 (-20) https://github.com/openETCS/validation/tree/master/VnVU
 serStories/VnVUserStoryAll4Tec-AEbt
  []
@@ -1749,7 +1749,7 @@ File: ./images/openETCS-Software-Safety-Development.png Graphic file (type png)
 
  <use ./images/openETCS-Software-Safety-Development.png>
 Package pdftex.def Info: ./images/openETCS-Software-Safety-Development.png used
- on input line 306.
+ on input line 305.
 (pdftex.def)             Requested size: 416.83289pt x 227.17432pt.
 
 
@@ -1760,6 +1760,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6 <./images/openETCS-Software-Safety-Development.png>]
 Chapter 3.
+
+Underfull \hbox (badness 10000) detected at line 323
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
 
 Underfull \hbox (badness 10000) detected at line 324
 []\TS1/txr/m/n/10.95 ˆ[]
@@ -1776,7 +1781,7 @@ Underfull \hbox (badness 10000) detected at line 326
  []
 
 
-Underfull \hbox (badness 10000) detected at line 327
+Underfull \hbox (badness 10000) detected at line 328
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -1786,23 +1791,18 @@ Underfull \hbox (badness 10000) detected at line 329
  []
 
 
-Underfull \hbox (badness 10000) detected at line 330
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Overfull \hbox (8.95702pt too wide) in paragraph at lines 330--331
+Overfull \hbox (8.95702pt too wide) in paragraph at lines 329--330
 []\T1/txr/m/n/10.95 (-20) R-WP2/D2.6-02-079.06 the doc-u-men-ta-tion/requiremen
 ts and the safety prop-er-ties/requirements, 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 331
+Underfull \hbox (badness 10000) detected at line 330
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 332
+Underfull \hbox (badness 10000) detected at line 331
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -1812,7 +1812,7 @@ pt>
 File: ./images/TypologyOfSystemsEngineeringModels.png Graphic file (type png)
  <use ./images/TypologyOfSystemsEngineeringModels.png>
 Package pdftex.def Info: ./images/TypologyOfSystemsEngineeringModels.png used o
-n input line 343.
+n input line 342.
 (pdftex.def)             Requested size: 375.14705pt x 187.33018pt.
 
 
@@ -1824,8 +1824,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [7
 
 ]
-Underfull \hbox (badness 10000) detected at line 364
+Underfull \hbox (badness 10000) detected at line 363
 []\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 364
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
@@ -1834,17 +1839,12 @@ Underfull \hbox (badness 10000) detected at line 365
  []
 
 
-Underfull \hbox (badness 10000) detected at line 366
-[]\T1/txr/bx/n/10.95 ^^U[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 368
+Underfull \hbox (badness 10000) detected at line 367
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 369
+Underfull \hbox (badness 10000) detected at line 368
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -1855,77 +1855,77 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./images/TypologyOfSystemsEngineeringModels.png>]
-Underfull \hbox (badness 10000) detected at line 369
+Underfull \hbox (badness 10000) detected at line 368
 []\T1/txr/bx/n/10.95 ^^U[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 371
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 372
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 373
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 375
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 376
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 377
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 378
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 379
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 380
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 381
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 382
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 383
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 384
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 385
-[]\TS1/txr/m/n/10.95 ˆ[]
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 386
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 387
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 388
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 389
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 391
+Underfull \hbox (badness 10000) detected at line 390
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 391
+Underfull \hbox (badness 10000) detected at line 390
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -1936,18 +1936,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Underfull \hbox (badness 10000) detected at line 405
+Underfull \hbox (badness 10000) detected at line 404
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 406
+Underfull \hbox (badness 10000) detected at line 405
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 408
+Underfull \hbox (badness 10000) detected at line 407
 []\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 408
+[]\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
@@ -1956,27 +1961,22 @@ Underfull \hbox (badness 10000) detected at line 409
  []
 
 
-Underfull \hbox (badness 10000) detected at line 410
-[]\T1/txr/bx/n/10.95 ^^U[]
+Underfull \hbox (badness 10000) detected at line 411
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 412
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 413
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 415
+Underfull \hbox (badness 10000) detected at line 414
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 416
+Underfull \hbox (badness 10000) detected at line 415
 []\T1/txr/bx/n/10.95 ^^U[]
  []
 
@@ -1993,7 +1993,7 @@ File: ./images/idealRequirementOrganization.png Graphic file (type png)
 
 <use ./images/idealRequirementOrganization.png>
 Package pdftex.def Info: ./images/idealRequirementOrganization.png used on inpu
-t line 435.
+t line 434.
 (pdftex.def)             Requested size: 416.83289pt x 318.6299pt.
 
 <./images/CurrentRequirementOrganization.png, id=395, 718.8456pt x 502.9992pt>
@@ -2001,14 +2001,14 @@ File: ./images/CurrentRequirementOrganization.png Graphic file (type png)
 
 <use ./images/CurrentRequirementOrganization.png>
 Package pdftex.def Info: ./images/CurrentRequirementOrganization.png used on in
-put line 446.
+put line 445.
 (pdftex.def)             Requested size: 416.83289pt x 291.67065pt.
 
 <./images/openETCSTraceabilityMainPriority.png, id=397, 591.1686pt x 421.575pt>
 File: ./images/openETCSTraceabilityMainPriority.png Graphic file (type png)
 <use ./images/openETCSTraceabilityMainPriority.png>
 Package pdftex.def Info: ./images/openETCSTraceabilityMainPriority.png used on 
-input line 461.
+input line 460.
 (pdftex.def)             Requested size: 375.14705pt x 267.52989pt.
 
 
@@ -2031,7 +2031,7 @@ anization.png>]
 File: ./images/OpenETCSDevelopmentProcess.png Graphic file (type png)
  <use ./images/OpenETCSDevelopmentProcess.png>
 Package pdftex.def Info: ./images/OpenETCSDevelopmentProcess.png used on input 
-line 476.
+line 475.
 (pdftex.def)             Requested size: 375.14705pt x 204.24266pt.
 
 
@@ -2047,7 +2047,7 @@ File: ./images/P1RequirementDerivationWithSysMLModel.png Graphic file (type png
 )
  <use ./images/P1RequirementDerivationWithSysMLModel.png>
 Package pdftex.def Info: ./images/P1RequirementDerivationWithSysMLModel.png use
-d on input line 495.
+d on input line 494.
 (pdftex.def)             Requested size: 416.83289pt x 295.83058pt.
 
 
@@ -2063,7 +2063,7 @@ File: ./images/P2RequirementDerivationWithSysMLModel.png Graphic file (type png
 )
  <use ./images/P2RequirementDerivationWithSysMLModel.png>
 Package pdftex.def Info: ./images/P2RequirementDerivationWithSysMLModel.png use
-d on input line 529.
+d on input line 528.
 (pdftex.def)             Requested size: 375.14705pt x 266.12753pt.
 
 
@@ -2073,6 +2073,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15]
+Underfull \hbox (badness 10000) detected at line 545
+[]\TS1/txr/m/n/10.95 ˆ[]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 546
 []\TS1/txr/m/n/10.95 ˆ[]
  []
@@ -2093,12 +2098,7 @@ Underfull \hbox (badness 10000) detected at line 549
  []
 
 
-Underfull \hbox (badness 10000) detected at line 550
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Overfull \hbox (0.4813pt too wide) in paragraph at lines 550--551
+Overfull \hbox (0.4813pt too wide) in paragraph at lines 549--550
 []\T1/txr/m/n/10.95 (-20) Technical con-ver-sion func-tions to man-age ex-chang
 e of data avail-able in dif-fer-ent types/formats 
  []
@@ -2110,7 +2110,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16 <./images/P2RequirementDerivationWithSysMLModel.png>]
-Underfull \hbox (badness 10000) detected at line 551
+Underfull \hbox (badness 10000) detected at line 550
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -2121,7 +2121,7 @@ File: ./images/P3RequirementDerivationWithSCADEModels.png Graphic file (type pn
 g)
  <use ./images/P3RequirementDerivationWithSCADEModels.png>
 Package pdftex.def Info: ./images/P3RequirementDerivationWithSCADEModels.png us
-ed on input line 565.
+ed on input line 564.
 (pdftex.def)             Requested size: 375.14705pt x 284.81392pt.
 
 
@@ -2138,15 +2138,15 @@ File: images/CurrentArchitectureTraceSolution.png Graphic file (type png)
 
 <use images/CurrentArchitectureTraceSolution.png>
 Package pdftex.def Info: images/CurrentArchitectureTraceSolution.png used on in
-put line 597.
+put line 596.
 (pdftex.def)             Requested size: 375.14705pt x 241.61497pt.
 
-Underfull \hbox (badness 10000) detected at line 603
+Underfull \hbox (badness 10000) detected at line 602
 []\T1/txr/m/n/10.95 1.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 604
+Underfull \hbox (badness 10000) detected at line 603
 []\T1/txr/m/n/10.95 2.[]
  []
 
@@ -2159,18 +2159,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [18
 
  <./images/CurrentArchitectureTraceSolution.png>]
-Underfull \hbox (badness 10000) detected at line 605
+Underfull \hbox (badness 10000) detected at line 604
 []\T1/txr/m/n/10.95 3.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 606
+Underfull \hbox (badness 10000) detected at line 605
 []\T1/txr/m/n/10.95 4.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 607
+Underfull \hbox (badness 10000) detected at line 606
 []\T1/txr/m/n/10.95 5.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 623
+[]\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
@@ -2179,17 +2184,12 @@ Underfull \hbox (badness 10000) detected at line 624
  []
 
 
-Underfull \hbox (badness 10000) detected at line 625
+Underfull \hbox (badness 10000) detected at line 632
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
 Underfull \hbox (badness 10000) detected at line 633
-[]\TS1/txr/m/n/10.95 ˆ[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 634
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -2200,12 +2200,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-Underfull \hbox (badness 10000) detected at line 646
+Underfull \hbox (badness 10000) detected at line 645
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 647
+Underfull \hbox (badness 10000) detected at line 646
 []\TS1/txr/m/n/10.95 ˆ[]
  []
 
@@ -2219,7 +2219,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: images/tracestring-ex.png Graphic file (type png)
 
 <use images/tracestring-ex.png>
-Package pdftex.def Info: images/tracestring-ex.png used on input line 695.
+Package pdftex.def Info: images/tracestring-ex.png used on input line 694.
 (pdftex.def)             Requested size: 375.14705pt x 144.285pt.
 
 
@@ -2232,7 +2232,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-LaTeX Font Info:    Try loading font information for TS1+txtt on input line 712
+LaTeX Font Info:    Try loading font information for TS1+txtt on input line 711
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/txfonts/ts1txtt.fd
@@ -2243,47 +2243,47 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) detected at line 714
+Underfull \hbox (badness 10000) detected at line 713
 []\T1/txr/m/n/10.95 1.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 715
+Underfull \hbox (badness 10000) detected at line 714
 []\T1/txr/m/n/10.95 2.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 718
+Underfull \hbox (badness 10000) detected at line 717
 []\T1/txr/m/n/10.95 3.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 727
+Underfull \hbox (badness 10000) detected at line 726
 []\T1/txr/m/n/10.95 4.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 736
+Underfull \hbox (badness 10000) detected at line 735
 []\T1/txr/m/n/10.95 5.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 737
+Underfull \hbox (badness 10000) detected at line 736
 []\T1/txr/m/n/10.95 6.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 738
+Underfull \hbox (badness 10000) detected at line 737
 []\T1/txr/m/n/10.95 7.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 756
+Underfull \hbox (badness 10000) detected at line 755
 []\T1/txr/m/n/10.95 1.[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 757
+Underfull \hbox (badness 10000) detected at line 756
 []\T1/txr/m/n/10.95 2.[]
  []
 
@@ -2294,7 +2294,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-Underfull \hbox (badness 10000) detected at line 758
+Underfull \hbox (badness 10000) detected at line 757
 []\T1/txr/m/n/10.95 3.[]
  []
 
@@ -2303,7 +2303,7 @@ File: images/ReqCycleTraceabilityCreator.png Graphic file (type png)
 
 <use images/ReqCycleTraceabilityCreator.png>
 Package pdftex.def Info: images/ReqCycleTraceabilityCreator.png used on input l
-ine 781.
+ine 780.
 (pdftex.def)             Requested size: 375.14705pt x 431.99954pt.
 
 
@@ -2337,7 +2337,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [26
 
 ]
-Overfull \hbox (9.57544pt too wide) in paragraph at lines 844--845
+Overfull \hbox (9.57544pt too wide) in paragraph at lines 843--844
 \T1/txr/m/n/10.95 (-20) technologies.com/products/scade-suite/software-prototyp
 ing-desgin/scade-suite-advanced-modeler/ 
  []
@@ -2353,18 +2353,18 @@ File: images/second_trace_solution.png Graphic file (type png)
 
 <use images/second_trace_solution.png>
 Package pdftex.def Info: images/second_trace_solution.png used on input line 85
-9.
+8.
 (pdftex.def)             Requested size: 375.14705pt x 253.49579pt.
 
 
-LaTeX Warning: Reference `sec-5-1' on page 28 undefined on input line 863.
+LaTeX Warning: Reference `sec-5-1' on page 28 undefined on input line 862.
 
 <images/Third-Solution-ReqCycle.png, id=526, 629.2308pt x 414.348pt>
 File: images/Third-Solution-ReqCycle.png Graphic file (type png)
 
 <use images/Third-Solution-ReqCycle.png>
 Package pdftex.def Info: images/Third-Solution-ReqCycle.png used on input line 
-875.
+874.
 (pdftex.def)             Requested size: 375.14705pt x 247.03642pt.
  (./oetc_WP7_traceability.bbl
 
@@ -2402,11 +2402,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [30
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 919.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 919.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 918.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 918.
  (./oetc_WP7_traceability.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 919.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 919.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 918.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 918.
 Package rerunfilecheck Info: File `oetc_WP7_traceability.out' has not changed.
 (rerunfilecheck)             Checksum: BF36C7641DD7987D2314D4A1A2C8F1D9;4684.
 
@@ -2423,7 +2423,7 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 919.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 918.
  ) 
 Here is how much of TeX's memory you used:
  24283 strings out of 493089
@@ -2436,20 +2436,19 @@ Here is how much of TeX's memory you used:
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/txfonts/tcxtt.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
+exmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/txfonts/tcxtt.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
 helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helveti
-c/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8
-a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on oetc_WP7_traceability.pdf (38 pages, 4945889 bytes).
+c/uhvr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on oetc_WP7_traceability.pdf (38 pages, 4944072 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
+ 630 PDF objects out of 1000 (max. 8388607)
+ 533 compressed objects within 6 object streams
  128 named destinations out of 1000 (max. 500000)
  90113 words of extra memory for PDF output out of 106986 (max. 10000000)
 
