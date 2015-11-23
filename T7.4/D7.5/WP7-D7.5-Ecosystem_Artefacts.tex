@@ -64,11 +64,11 @@ linkbordercolor 	={1 1 1}}
 
 \creatoraffil{Formal Mind GmbH}
 
-\techassessorname{TBD-Assessor1}
-\techassessoraffil{TBD-Assessor1-Afiliation}
+\techassessorname{Marielle Petit-Doche}
+\techassessoraffil{Systerel}
 
-\qualityassessorname{TBD-Assessor2}
-\qualityassessoraffil{TBD-Assessor2-Afiliation}
+\qualityassessorname{Marielle Petit-Doche}
+\qualityassessoraffil{Systerel}
 
 \approvalname{Klaus-R\"udiger Hase}
 \approvalaffil{DB Netz}
@@ -122,8 +122,8 @@ Document authors (org.)  & Michael Jastram (Formal Mind GmbH)  \\
 \hline
 Last version reviewed & 01.00 \\
 \hline
-Main reviewers & TBD \\
-& TBD \\
+Main reviewers & Raphaël Faudou \\
+& Marielle Petit-Doche \\
 \hline
 \end{tabular}
 
@@ -133,10 +133,10 @@ Main reviewers & TBD \\
 \hline
   &  Name & Role & Date   \\
 \hline  
-Written by    &  TBD & WP7-T7.4 Sub-Task  & TBD \\
+Written by    &  Michael Jastram & WP7-T7.4 Sub-Task  & 27.11.2015 \\
 &  & Leaders&\\
 \hline
-Approved by & WP7 participants &   & TBD \\
+Approved by & WP7 participants &   & 27.11.2015 \\
 \hline
 \end{tabular}
 
@@ -146,7 +146,8 @@ Approved by & WP7 participants &   & TBD \\
 \hline
 Version &  Date & Author(s) & Justification  \\
 \hline  
-00.00 & 10.10.2013 & M. Jastram  &  Document creation  \\
+00.00 & 19.11.2015 & M. Jastram  &  Document creation  \\
+00.01 & 23.11.2015 & M. Jastram  &  Incorporated Review from Raphael Faudou  \\
 
 
 \hline  
@@ -169,7 +170,7 @@ This document references the core ecosystem artefacts of the openETCS project.
 
 The openETCS tool chain provides the tool support and the development process to achieve a (semi-)formalized
 specification of ETCS EVC down to and an executable code of the
-OBU. The tool chain implements the development lifecycle defined in \cite{D2.3}.
+OBU.
 
 %----------------------
 \section{Inspiration from Open Source}
@@ -226,13 +227,13 @@ In the beginning, a lot of collaborative work on documents was necessary. This w
 
 \section{Development}
 
-As the project started to produce code and models, more processes had to be established, see Sections~\ref{dev-process-description} and \ref{dev-process-guide}.
+As the project started to produce code and models, more processes had to be established, see Sections~\ref{sec:dev-process-description} and \ref{dev-process-guide}.
 
 As recommended for any kind of developement, a continuous integration system was added to the ecosystem to build both the toolchain, its documentation and the model. For this purpose, ClouldBees\footnote{https://openetcs.ci.cloudbees.com/job/openETCS-tycho/} was integrated into the ecosystem, which uses the Jenkins build system.
 
 \section{Scrum of Scrums}
 
-The ecosystem described so far served the the project well until the end of 2014. At that point it was clear that better coordination between the work packages was necessary. This was done by means of an online tool called Waffle\footnote{http://waffle.io/}, which provides a card-based view on the issues of any gitHub repository. During weekly scrum-of-scrum grooming sessions, this tool was used to effectively manage the project as a whole.
+The ecosystem described so far served the project well until the end of 2014. At that point it was clear that better coordination between the work packages was necessary. This was done by means of an online tool called Waffle\footnote{http://waffle.io/}, which provides a card-based view on the issues of any gitHub repository. During weekly scrum-of-scrum grooming sessions, this tool was used to effectively manage the project as a whole.
 
 %----------------------
 \chapter{Ecosystem Artefacts}
@@ -244,7 +245,7 @@ The ecosystem described so far served the the project well until the end of 2014
 
 The terms of use are primarily determined by the license used.  For openETCS, the first choice are the openETCS Open Licens Terms (oOLT), which can be found in Appendix~\ref{sec:oOLT}. This is a dual-licens, consisting of the European Public License (EUPL) and Creative Commons Attribution-ShareAlike.
 
-It is also acceptable to just use EUPL or the Eclipse Public License (EPL).
+It is also acceptable to just use EUPL or the Eclipse Public License (EPL), as these are compatible. For new content that is created within the project, oOLT is the preferred license.
 
 \section{Committer Agreements}
 \label{sec:committer-agreements}
@@ -373,9 +374,9 @@ Each workpackage is responsible for its own infrastructure. The first point of i
 
 
 
-\renewcommand{\section}[2]{}
-  \bibliographystyle{plain}
-  \bibliography{wp7_bibliography}
+%\renewcommand{\section}[2]{}
+%  \bibliographystyle{plain}
+%  \bibliography{wp7_bibliography}
 
 %\begingroup
 %\renewcommand{\section}[2]{}%
