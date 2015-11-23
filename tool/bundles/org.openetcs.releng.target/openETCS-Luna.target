@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="98">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="99">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
@@ -54,6 +54,19 @@
 <unit id="com.formalmind.rmf.pror.transfer.feature.feature.group" version="1.0.0.201511061305"/>
 <unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201511061305"/>
 <repository location="http://update.formalmind.com/essentials"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.polarsys.reqcycle.rmf.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.document.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.core.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.sirius.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.papyrus.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.jdt.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.xcos.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.ocl.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.traceability.feature.feature.group" version="0.8.0.201511210025"/>
+<unit id="org.polarsys.reqcycle.requirement.feature.feature.group" version="0.8.0.201511210025"/>
+<repository location="https://github.com/openETCS/toolchain/raw/master/tool/reqcycle-update-site-0.8.0"/>
 </location>
 </locations>
 </target>
