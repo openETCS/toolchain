@@ -73,6 +73,16 @@ or has expressed by any other mean his willingness to license under the EUPL.
       <feature id="org.openetcs.datadictionary.feature"/>
       <feature id="org.openetcs.core.feature"/>
       <feature id="org.openetcs.target.feature"/>
+      <feature id="org.polarsys.reqcycle.core.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.document.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.jdt.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.ocl.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.papyrus.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.requirement.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.rmf.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.sirius.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.traceability.feature" version="0.8.0.201511210025"/>
+      <feature id="org.polarsys.reqcycle.xcos.feature" version="0.8.0.201511210025"/>
    </features>
 
    <configurations>
