@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="99">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="101">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
@@ -66,7 +66,11 @@
 <unit id="org.polarsys.reqcycle.ocl.feature.feature.group" version="0.8.0.201511210025"/>
 <unit id="org.polarsys.reqcycle.traceability.feature.feature.group" version="0.8.0.201511210025"/>
 <unit id="org.polarsys.reqcycle.requirement.feature.feature.group" version="0.8.0.201511210025"/>
-<repository location="https://github.com/openETCS/toolchain/raw/master/tool/reqcycle-update-site-0.8.0"/>
+<repository location="http://download.polarsys.org/reqcycle/core/updates/releases/0.8.0/Luna/reqcycle-updatesite-0.8.1"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="eu.compassresearch.rttmbt.feature.feature.group" version="0.4.1.1738-1"/>
+<repository location="http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/"/>
 </location>
 </locations>
 </target>

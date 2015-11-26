@@ -83,6 +83,7 @@ or has expressed by any other mean his willingness to license under the EUPL.
       <feature id="org.polarsys.reqcycle.sirius.feature" version="0.8.0.201511210025"/>
       <feature id="org.polarsys.reqcycle.traceability.feature" version="0.8.0.201511210025"/>
       <feature id="org.polarsys.reqcycle.xcos.feature" version="0.8.0.201511210025"/>
+      <feature id="eu.compassresearch.rttmbt.feature" version="0.4.1.1738-1"/>
    </features>
 
    <configurations>
