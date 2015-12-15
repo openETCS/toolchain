@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="102">
+<?pde version="3.8"?><target name="openETCS-Luna" sequenceNumber="107">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
-<repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.uml2.sdk.feature.group" version="5.0.2.v20150202-0947"/>
 <unit id="org.eclipse.xsd.sdk.feature.group" version="2.10.0.v20150123-0452"/>
@@ -36,12 +32,12 @@
 <repository location="http://download.eclipse.org/releases/luna"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.fx.target.rcp.feature.feature.group" version="1.2.0.201501301037"/>
-<repository location="http://download.eclipse.org/efxclipse/runtime-released/1.2.0/site"/>
+<unit id="eu.compassresearch.rttmbt.feature.feature.group" version="0.4.1.1738-1"/>
+<repository location="http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.9.1.201509170812"/>
-<repository location="http://download.eclipse.org/sphinx/releases/0.9.x"/>
+<unit id="org.eclipse.fx.target.rcp.feature.feature.group" version="1.2.0.201501301037"/>
+<repository location="http://download.eclipse.org/efxclipse/runtime-released/1.2.0/site"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.polarsys.reqcycle.rmf.feature.feature.group" version="0.8.0.201511210025"/>
@@ -57,19 +53,20 @@
 <repository location="http://download.polarsys.org/reqcycle/core/updates/releases/0.8.0/Luna/reqcycle-updatesite-0.8.1"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.compassresearch.rttmbt.feature.feature.group" version="0.4.1.1738-1"/>
-<repository location="http://urmel.informatik.uni-bremen.de/rtt-plugin-update-site/"/>
+<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.9.1.201509170812"/>
+<repository location="http://download.eclipse.org/sphinx/releases/0.9.x"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.formalmind.rmf.reqif10.studio.editor" version="1.0.0.201512091947"/>
-<unit id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature.feature.group" version="1.0.0.201512091947"/>
-<unit id="org.eclipse.rmf.reqif10.sdk.feature.feature.group" version="0.14.0.201511101045"/>
-<unit id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature.feature.group" version="1.0.0.201512091947"/>
+<unit id="org.eclipse.papyrus.sdk.sources.feature.feature.group" version="1.0.2.v201502181349"/>
+<repository location="http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.formalmind.pror.essentials.registration" version="1.0.0.201512091947"/>
+<unit id="com.formalmind.rmf.reqif10.studio.editor" version="1.0.0.201512091947"/>
 <unit id="com.formalmind.rmf.pror.transfer.feature.feature.group" version="1.0.0.201512091947"/>
-<unit id="org.eclipse.rmf.reqif10.pror.sdk.feature.feature.group" version="0.14.0.201511101045"/>
 <unit id="com.formalmind.rmf.reqif10.pror.presentation.linkmanagement.feature.feature.group" version="1.0.0.201512091947"/>
-<unit id="com.formalmind.rmf.reqif10.pror.compare.feature.feature.group" version="1.0.0.201512091947"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.rtf.feature.feature.group" version="1.0.0.201512091947"/>
+<unit id="com.formalmind.rmf.reqif10.pror.presentation.highlight.feature.feature.group" version="1.0.0.201512091947"/>
 <repository location="http://update.formalmind.com/essentials"/>
 </location>
 </locations>
